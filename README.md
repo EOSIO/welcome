@@ -41,7 +41,7 @@ Any directory with a `.skip` file is not being managed in this repository. It si
 
 # Content Architecture
 
-Over the last few months we collaborated on a content architecture. Please review this architecture for a better understanding of what we're trying to achieve. See the `_workflow` directory for content architecture assets. 
+Over the last few months we collaborated on a content architecture. Please review this architecture for a better understanding of what we're trying to achieve. See the `_workflow` directory for content architecture assets.
 
 # Issues
 
@@ -58,4 +58,4 @@ Place `[asset]` at the beginning of the title of the issue.
 
 ## Content Architecture Changes/Additions
 
-If you believe a change needs to be made to architecture.
+If you believe a change needs to be made to architecture, describe the changes, and place `[architecture]` at the beginning of the title of the issue.
