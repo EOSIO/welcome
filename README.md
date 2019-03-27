@@ -50,6 +50,17 @@ WIP
 ## Phase 3: Fill Gaps
 WIP
 
+## Phase 3: Final Migration, Dissolve Repo
+WIP
+
+## Migrating Images
+- Download the image.
+- Place the image into the `/images` directory.
+- Name the image after its associated article.
+- Add the image to the corresponding markdown file to replace it's readme.io image markup counter-part.
+- For path, use a root path "/this-is-my-image.png"
+- For now, all images will exist in the root directory, this path will be readjusted at a later time, after all content architecture changes have been finalized.
+
 ## Glossary
 Glossary terms are added to the `glossary.yaml`
 
