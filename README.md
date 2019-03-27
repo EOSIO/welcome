@@ -13,22 +13,42 @@ Phase 2:
 - [] Reevaluate documentation for articles that have been reorganized, and make necessary changes.
 - [] Project manuals have been merged into their respective repositories.
 
-## Workflow (Phase 1)
+## Phase 1: Sanitization/Review
+
+The documents exported from readme.io have been more or less adjusted to the new content architecture, albeit it not perfectly. We'll address remaining discrepancies in the next phase.
+
+### Preparation
 - Pull the most recent version of the `develop` branch.
-- Pick a document to work on.
-- Assign yourself to the document, if it does not exist on the board, create it and self-assign.
+- Pick a populated document to work on.
+- Assign yourself to the document in Notion, if it does not exist on the board, create it and self-assign.
 - Create a new branch from `develop`
-- Sanitize it.
-- Review it throughly.
-- Make any necessary changes.
+
+### Sanitization
+- Run `sanitize.py`
+  - Usage: `python sanitize.py ORIGINALFILE.md ORIGINALFILE.sanitized.md`
+  - Note: The script creates a new file, for good practice, add `.sanitized` before the `.md` extension
+- Review it throughly. The script does not fix everything. For example, image blocks will require an additional step, see "Migrating Images from Readme"
+- Move the item in Notion to "sanitized"
+- Delete the old file, rename the new file.
 - Commit your changes.
 - Push your branch.
 - Submit pull request.
+- Start on a new document.
 
-## Notes:
+#### Next steps...
+- A reviewer will check the PR, and move it to reviewed.
+- Sean will merge the PR and move it to Merged.
+
+### Notes:
 - Do not make any changes to architecture during phase 1, this could create some complex merge conflicts.
 - Do not work on another person's document.
 - Pull requests will be reviewed and merged daily.
+
+## Phase 2: Content Architecture
+WIP
+
+## Phase 3: Fill Gaps
+WIP
 
 ## Glossary
 Glossary terms are added to the `glossary.yaml`
@@ -59,3 +79,7 @@ Place `[asset]` at the beginning of the title of the issue.
 ## Content Architecture Changes/Additions
 
 If you believe a change needs to be made to architecture, describe the changes, and place `[architecture]` at the beginning of the title of the issue.
+
+## Technical Issues.
+
+If you find a bug in the `sanitize.py` script, please open an issue, prepend with `[bug]`
