@@ -12,10 +12,16 @@ items:
     definition: A confirmable unit of a blockchain. Each block contains zero or more transactions, as well as a cryptographic connection to all prior blocks. When a block becomes "irreversibly confirmed" it's because a supermajority of block producers have agreed that the given block contains the correct transactions. Once a block is irreversibly confirmed, it becomes a permanent part of the immutable blockchain.
   - name: DAC
     definition: A DAC is an entity that utilizes a combination of automation and input from stakeholders, normally in the form of votes. They are often governed by code which describes the purpose of the organisation.
+    synonyms:
+      - Decentralized Autonomous Company
   - name: DLT
     definition: Distributed Ledger Technologies. A distributed ledger (also called a shared ledger, or referred to as distributed ledger technology) is a consensus of replicated, shared, and synchronized digital data geographically spread across multiple sites, countries, or institutions.
+    synonyms:
+      - Distributed Ledger Technology
   - name: DPoS
     definition: DPoS stands for "Delegated Proof of Stake" and is a consensus algorithm initially developed by Daniel Larimer in 2013 for Bitshares. It's sometimes referred to as "Democracy as Proof of Stake"
+    synonyms:
+      - Delegated Proof-of-Stake
   - name: Staking
     definition: Staking is the act of locking tokens for resources on an EOSIO network. This includes but is not limited to, CPU time, RAM, and on-chain governance.
   - name: Public Key
@@ -142,6 +148,7 @@ items:
     definition: A transaction is considered unconfirmed as long as no nodeos instance has received, processed, and written it to a block on the blockchain, i.e. it is not in the head block or a block earlier than the head block.
   - name: WASM
     definition: WASM stands for WebAssembly. The EOSIO based blockchains execute user-generated applications and code using WebAssembly. WASM is an emerging web standard with widespread support of Google, Microsoft, Apple, and others. At the moment the most mature toolchain for building applications that compile to WASM is clang/llvm with their C/C++ compiler. For best compatibility, it is recommended that you use the EOSIO toolchain to generate WASM.
+    synonyms: Web-Assembly Machine
   - name: Read Mode
     definition: An EOSIO based blockchain allows contract developers to persist state across actions, and consequently transaction, boundaries. For example the sample eosio.token contract keeps balances for all users in the database. Each instance of nodeos keeps the database in memory, so contracts can read and write data quickly. However, at any given time there can be multiple correct ways, called modes, to query that data: speculative (this includes the side effects of confirmed and unconfirmed transactions), head (this only includes the side effects of confirmed transactions, this mode processes unconfirmed transactions but does not include them) and read-only (this only includes the side effects of confirmed transactions). The mode is specified using the --read-mode argument for the eosio::chain_plugin.
   - name: Permission level
