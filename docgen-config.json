@@ -5,19 +5,19 @@
     { "repo": "eosio.cdt", "path": "manuals/eosio.cdt" },
     { "repo": "eosio.contracts", "path": "manuals/eosio.contracts" },
     { "repo": "eosjs", "path": "manuals/eosjs" },
-    { "repo": "eosio-swift", "path": "manuals/eosjs" },
-    { "repo": "eosio-java", "path": "manuals/eosjs" },
+    { "repo": "eosio.swift", "path": "manuals/eosio.swift" },
+    { "repo": "eosio.java", "path": "manuals/eosio.java" },
     { "repo": "demux-js", "path": "manuals/demux" },
     { "repo": "docs-nodeos", "path": "manuals/nodeos" },
     { "repo": "docs-cleos", "path": "manuals/cleos" },
     { "repo": "docs-keosd", "path": "manuals/keosd" },
-    { "repo": "schemata", "path": "manuals/keosd" },
-    { "repo": "swagger", "path": "manuals/keosd" },
+    { "repo": "schemata", "path": "manuals/schemata" },
+    { "repo": "swagger", "path": "manuals/swagger" },
     { "repo": "docs-protocol", "path": "protocol" }
   ],
   "md": {
     "skip_MD_generation_repo": true,
-    "handwritten_MD_dir": "./",
+    "handwritten_MD_dir": "docs",
   },
   "site": {
     "homepage": true
