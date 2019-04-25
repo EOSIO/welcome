@@ -1,0 +1,21 @@
+{
+  "repository_name" : "documentation-migration",
+  "collection": [
+    { "repo": "eosio.cdt", "path": "manuals/eosio.cdt" },
+    { "repo": "eosio.contracts", "path": "manuals/eosio.contracts" },
+    { "repo": "eosjs", "path": "manuals/eosjs" },
+    { "repo": "demux-js", "path": "manuals/demux" },
+    { "repo": "docs-nodeos", "path": "manuals/nodeos" },
+    { "repo": "docs-cleos", "path": "manuals/cleos" },
+    { "repo": "docs-keosd", "path": "manuals/keosd" },
+    { "repo": "schemata", "path": "manuals/keosd" },
+    { "repo": "swagger", "path": "manuals/keosd" }
+  ],
+  "md": {
+    "skip_MD_generation_repo": true,
+    "handwritten_MD_dir": "./",
+  },
+  "site": {
+    "homepage": true
+  }
+}
