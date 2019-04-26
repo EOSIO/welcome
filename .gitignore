@@ -1,1 +1,4 @@
 .DS_Store
+docgen_output
+node_modules
+tmp
