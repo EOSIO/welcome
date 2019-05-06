@@ -1,7 +1,7 @@
 {
   "org": "EOSIO",
   "repository_name" : "documentation-migration",
-  "versioned": false,
+  "tagged": false,
   "collection": [
     { "repo": "eosio.cdt", "path": "manuals/eosio.cdt" },
     { "repo": "eosjs", "path": "manuals/eosjs" }
