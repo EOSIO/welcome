@@ -43,12 +43,26 @@ cd mongo-cxx-driver/build
 cmake -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..
 sudo make -j$( nproc )
 ```
-[block:callout]
-{
-  "type": "info",
-  "body": "Building mongo-cxx-driver fails on vanilla Debain-based distros with the following error:\n\n```\n-- Auto-configuring bsoncxx to use MNMLSTC for polyfills since C++17 is inactive\nCMake Error at src/bsoncxx/CMakeLists.txt:86 (find_package):\n  Could not find a configuration file for package \"libbson-static-1.0\" that\n  is compatible with requested version \"1.10.0\".\n\n  The following configuration files were considered but not accepted:\n\n    /usr/local/lib/cmake/libbson-static-1.0/libbson-static-1.0-config.cmake, version: 1.9.3\n\n\n\n-- Configuring incomplete, errors occurred!\n```\n\nMy suspicion is that if mongo-c-driver 1.10.0 is installed instead of 1.9.3 that it will resolve this error.  I believe this is the result of mongo-cxx-driver not being version locked (using \"release/stable\") but mongo-c-driver is."
-}
-[/block]
+[[info]]
+|
+Building mongo-cxx-driver fails on vanilla Debain-based distros with the following error:
+
+```
+-- Auto-configuring bsoncxx to use MNMLSTC for polyfills since C++17 is inactive
+CMake Error at src/bsoncxx/CMakeLists.txt:86 (find_package):
+  Could not find a configuration file for package "libbson-static-1.0" that
+  is compatible with requested version "1.10.0".
+
+  The following configuration files were considered but not accepted:
+
+    /usr/local/lib/cmake/libbson-static-1.0/libbson-static-1.0-config.cmake, version: 1.9.3
+
+
+
+-- Configuring incomplete, errors occurred!
+```
+
+My suspicion is that if mongo-c-driver 1.10.0 is installed instead of 1.9.3 that it will resolve this error.  I believe this is the result of mongo-cxx-driver not being version locked (using "release/stable") but mongo-c-driver is.
 Install [secp256k1-zkp (Cryptonomex branch)](https://github.com/cryptonomex/secp256k1-zkp.git):
 
 ```bash

@@ -1,26 +1,4 @@
----
-title: "Docker Quickstart"
-excerpt: ""
----
-[block:callout]
-{
-  "type": "info",
-  "body": "This guide is best for most people, but advanced developers may prefer to [build from source](doc:install-nodeos)"
-}
-[/block]
-
-[block:callout]
-{
-  "type": "warning",
-  "body": "This guide is intended for development environments, if you intend to run EOSIO in a production environment, consider [building EOSIO](doc:autobuild-script)"
-}
-[/block]
-
-[block:api-header]
-{
-  "title": "Prerequisites"
-}
-[/block]
+## Prerequisites
 
 If you don't already have docker installed, you can download it here: https://www.docker.com/community-edition
 

@@ -2,24 +2,10 @@
 title: "template_plugin"
 excerpt: ""
 ---
-[block:api-header]
-{
-  "title": "Description"
-}
-[/block]
+## Description
 
-[block:api-header]
-{
-  "title": "Usage"
-}
-[/block]
+## Usage
 
-[block:api-header]
-{
-  "title": "Dependencies"
-}
-[/block]
+## Dependencies
 None
-[block:api-header]
-{}
-[/block]
+## 

@@ -1,8 +1,15 @@
 import sys
 import json
+import argparse
 
-source = 'readmeiosample_in.txt'
-target = 'markdown_out.txt'
+parser = argparse.ArgumentParser(description='Sanitize migrated files')
+parser.add_argument('infile', type=str, help='file to sanitize')
+# parser.add_argument('outfile', type=str, help='output file')
+
+args = parser.parse_args()
+
+source = args.infile
+target = args.infile
 
 block_header = '[block:api-header]'
 block_code = '[block:code]'
@@ -119,7 +126,7 @@ with open(source) as fp:
             for col_idx in range(cols_count):
                 markdown_content = markdown_content + columns[col_idx] + '|'
             markdown_content = markdown_content + '\n'
-            
+
             # write the underlying column names
             markdown_content = markdown_content + '|'
             for col_idx in range(cols_count):
@@ -147,7 +154,6 @@ with open(source) as fp:
 
 print('parse completed, write to [' + target + '] file.')
 
-file = open(target, 'w') 
-file.write(markdown_content)  
-file.close() 
-
+file = open(target, 'w')
+file.write(markdown_content)
+file.close()

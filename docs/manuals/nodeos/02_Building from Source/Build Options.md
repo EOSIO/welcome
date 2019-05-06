@@ -2,13 +2,9 @@
 title: "Build Options"
 excerpt: ""
 ---
-[block:callout]
-{
-  "type": "info",
-  "body": "If you are new to EOSIO it's suggested you use the [Getting Started Guide](doc:docker-quickstart)",
-  "title": "Building EOSIO is Recommended for Advanced Developers"
-}
-[/block]
+[[info]]
+|Building EOSIO is Recommended for Advanced Developers
+If you are new to EOSIO it's suggested you use the [Getting Started Guide](doc:docker-quickstart)
 EOSIO can be built on several platforms with various paths to building. The majority of users will prefer to use the autobuild script or docker, while more advanced users, or users wishing to deploy a public node may desire manual methods. The build places content in the `eos/build` folder. The executables can be found in subfolders within the `eos/build/programs` folder.
 
 - [Autobuild Script](doc:autobuild-script)  - Suitable for the majority of developers, this script builds on Mac OS and many flavors of Linux.
@@ -18,10 +14,6 @@ EOSIO can be built on several platforms with various paths to building. The majo
 - [Manual Build](doc:manually-build)  - Suitable for those who have environments that may be hostile to the autobuild script or for operators who wish to exercise more control over their build.
 
 - [Install Executables](doc:install-executables)  - An optional `make install` step that makes local development a bit more developer friendly.
-[block:api-header]
-{
-  "title": "System Requirements (all platforms)"
-}
-[/block]
+## System Requirements (all platforms)
 - 7GB RAM free required
 - 20GB Disk free required

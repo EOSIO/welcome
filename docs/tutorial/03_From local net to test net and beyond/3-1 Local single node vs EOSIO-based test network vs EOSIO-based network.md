@@ -3,21 +3,13 @@ title: "3.1 Local single node vs EOSIO-based test network vs EOSIO-based network
 excerpt: ""
 ---
 ***In this tutorial you will make the transition from the local single node to a test network that is bound to a system contract, at the end of this tutorial you will know what are the differences between these two scenarios with respect to developing a smart contract, deploy it and test it, thus getting very close to learning how to write, deploy and test on public EOS network as well as any EOSIO-based networks (either public, private, or test). Also you will learn about the resources a developer has to know about while developing a smart contract.***
-[block:api-header]
-{
-  "title": "3.1.1 Local single node vs EOSIO-based network"
-}
-[/block]
+## 3.1.1 Local single node vs EOSIO-based network
 A local single node is when you launch one nodeos instance and it is the only node that is producing blocks and the only node you interact with. It is the same environment which this journey helped you set up so far, starting with the [Introductory journey](https://developers.eos.io/eosio-home/docs/introduction), continuing with [Hello world contract](https://developers.eos.io/eosio-home/docs/your-first-contract), with [Data persistence in a smart contract](https://developers.eos.io/eosio-home/docs/data-persistence) and finishing with [Contract actions dispatcher](https://developers.eos.io/eosio-home/docs/writing-a-custom-dispatcher), that is, you had only one node running and interacting with.
 
 A EOSIO-based network is any network that is using the EOSIO platform or a fork of EOSIO platform code to launch and run a blockchain. The network, thus the blockchain produced, can be public or can be private as well. Also a network, thus the blockchain produced, can be as well a test network. A test network is exactly that, a EOSIO-based network that is used as a testing environment, its purpose serves for testing the alpha and beta version of new releases of the EOSIO code, or forks of the EOSIO code, and/or smart contracts serving blockchain applications. There can be multiple test networks for the same EOSIO-based network. For example at the time of writing this tutorial, approximately Feb 2019, there are two test networks for the public EOS network (which is e EOSIO-based network), and they are the [Jungle TestNet](https://jungletestnet.io/) and [CryptoKylin TestNet](https://www.cryptokylin.io/).
 
 Throughout this tutorial we will be referencing both mentioned test networks and you will have the option to use any of the two.
-[block:api-header]
-{
-  "title": "3.1.2 Principles governing a EOSIO-based network"
-}
-[/block]
+## 3.1.2 Principles governing a EOSIO-based network
 The next step is to understand a few principles that govern a EOSIO-based network, (either test network, or public or private network).
 
 In a EOSIO-based network the blockchain is kept alive by nodes which are interconnected into a mesh, communicating with each other via peer to peer protocols. Some of these blocks are elected by the token holders to be producer nodes. They produce blocks, validate them and reach consensus on what transactions are allowed in each block, their order, and what blocks are finalized and stored forever in the blockchain memory.

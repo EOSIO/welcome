@@ -1,7 +1,3 @@
----
-title: "Nodeos Modes"
-excerpt: ""
----
 `Nodeos` generally runs in two modes:
  - [Producing Node](doc:environment-producing-node)
  - [Non-Producing Node](doc:environment-non-producing-node)

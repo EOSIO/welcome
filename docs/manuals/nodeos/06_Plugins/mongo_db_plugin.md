@@ -2,11 +2,7 @@
 title: "mongo_db_plugin"
 excerpt: ""
 ---
-[block:api-header]
-{
-  "title": "Description"
-}
-[/block]
+## Description
 The optional `eosio::mongo_db_plugin` provides archiving of blockchain data into a MongoDB. It is recommended that the plugin be added to a non-producing node as it is designed to shut down on any failed insert into the MongoDB and is resource intensive. For best results dedicate a nodeos instance to running this one plugin. The rationale behind this shutdown on error is so that any issues with the mongo database or connectivity can be fixed and the nodeos can be restarted without having to resync or replay.
 
 ## Important Notes
@@ -18,53 +14,75 @@ The optional `eosio::mongo_db_plugin` provides archiving of blockchain data into
 - It is recommended that a large `--abi-serializer-max-time-ms` value be passed into the nodeos running the `mongo_db_plugin` as the default abi serializer time limit is not large enough to serialize large blocks.
 - Read-only mode should be used to avoid speculative execution. See `read-only` db mode documentation. Forked data is still recorded (data that never becomes irreversible) but speculative transaction processing and signaling is avoided minimizing the transaction_traces/action_traces stored.
 
-[block:api-header]
-{
-  "title": "Options"
-}
-[/block]
+## Options
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "  -q [ --mongodb-queue-size ] arg (=256)\n                                        The target queue size between nodeos\n                                        and MongoDB plugin thread.\n  --mongodb-abi-cache-size              The maximum size of the abi cache for\n                                        serializing data.\n  --mongodb-wipe                        Required with --replay-blockchain,\n                                        --hard-replay-blockchain, or\n                                        --delete-all-blocks to wipe mongo\n                                        db.This option required to prevent\n                                        accidental wipe of mongo db. \n                                        Defaults to false.\n  --mongodb-block-start arg (=0)        If specified then only abi data pushed\n                                        to mongodb until specified block is\n                                        reached.\n  -m [ --mongodb-uri ] arg              MongoDB URI connection string, see:\n                                        https://docs.mongodb.com/master/referen\n                                        ce/connection-string/. If not specified\n                                        then plugin is disabled. Default\n                                        database 'EOS' is used if not specified\n                                        in URI. Example: mongodb://127.0.0.1:27\n                                        017/EOS\n  --mongodb-update-via-block-num arg (=0)\n                                        Update blocks/block_state with latest\n                                        via block number so that duplicates are\n                                        overwritten.                         \n  --mongodb-store-blocks                Enables storing blocks in mongodb.\n                                        Defaults to true.\n  --mongodb-store-block-states          Enables storing block state in mongodb.\n                                        Defaults to true.\n  --mongodb-store-transactions          Enables storing transactions in mongodb.\n                                        Defaults to true.\n  --mongodb-store-transaction-traces    Enables storing transaction traces in                                             mongodb.\n                                        Defaults to true.\n  --mongodb-store-action-traces         Enables storing action traces in mongodb.\n                                        Defaults to true.\n  --mongodb-filter-on                   Mongodb: Track actions which match\n                                        receiver:action:actor. Actor may be blank\n                                        to include all. Receiver and Action may\n                                        not be blank. Default is * include\n                                        everything.\n  --mongodb-filter-out                  Mongodb: Do not track actions which match\n                                        receiver:action:actor. Action and Actor\n                                        both blank excludes all from reciever.                                           Actor blank excludes all from\n                                        reciever:action. Receiver may not be\n                                        blank.\n  \n",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
 
-[block:api-header]
-{
-  "title": "Notes"
-}
-[/block]
+```shell
+  -q [ --mongodb-queue-size ] arg (=256)
+                                        The target queue size between nodeos
+                                        and MongoDB plugin thread.
+  --mongodb-abi-cache-size              The maximum size of the abi cache for
+                                        serializing data.
+  --mongodb-wipe                        Required with --replay-blockchain,
+                                        --hard-replay-blockchain, or
+                                        --delete-all-blocks to wipe mongo
+                                        db.This option required to prevent
+                                        accidental wipe of mongo db. 
+                                        Defaults to false.
+  --mongodb-block-start arg (=0)        If specified then only abi data pushed
+                                        to mongodb until specified block is
+                                        reached.
+  -m [ --mongodb-uri ] arg              MongoDB URI connection string, see:
+                                        https://docs.mongodb.com/master/referen
+                                        ce/connection-string/. If not specified
+                                        then plugin is disabled. Default
+                                        database 'EOS' is used if not specified
+                                        in URI. Example: mongodb://127.0.0.1:27
+                                        017/EOS
+  --mongodb-update-via-block-num arg (=0)
+                                        Update blocks/block_state with latest
+                                        via block number so that duplicates are
+                                        overwritten.                         
+  --mongodb-store-blocks                Enables storing blocks in mongodb.
+                                        Defaults to true.
+  --mongodb-store-block-states          Enables storing block state in mongodb.
+                                        Defaults to true.
+  --mongodb-store-transactions          Enables storing transactions in mongodb.
+                                        Defaults to true.
+  --mongodb-store-transaction-traces    Enables storing transaction traces in                                             mongodb.
+                                        Defaults to true.
+  --mongodb-store-action-traces         Enables storing action traces in mongodb.
+                                        Defaults to true.
+  --mongodb-filter-on                   Mongodb: Track actions which match
+                                        receiver:action:actor. Actor may be blank
+                                        to include all. Receiver and Action may
+                                        not be blank. Default is * include
+                                        everything.
+  --mongodb-filter-out                  Mongodb: Do not track actions which match
+                                        receiver:action:actor. Action and Actor
+                                        both blank excludes all from reciever.                                           Actor blank excludes all from
+                                        reciever:action. Receiver may not be
+                                        blank.
+  
+
+```
+
+## Notes
 `--mongodb-store-*` options all default to true.
 `--mongodb-filter-*` options currently only applies to the action_traces collection.
-[block:api-header]
-{
-  "title": "Example Filters"
-}
-[/block]
+## Example Filters
 ```
 mongodb-filter-out = eosio:onblock:
 mongodb-filter-out = gu2tembqgage::
 mongodb-filter-out = blocktwitter:: 
 ```
-[block:callout]
-{
-  "type": "warning",
-  "title": "Warning",
-  "body": "When the mongo-db-plugin is turned on, the target mongodb instance may take a lot of storage space. With all collections enabled and no filters applied, the mongodb data folder can easily occupy hundreds of GBs of data.\n\nIt is recommended that you tailor the options and utilize the filters as you need in order to maximize storage efficiency."
-}
-[/block]
+[[warning]]
+|Warning
+When the mongo-db-plugin is turned on, the target mongodb instance may take a lot of storage space. With all collections enabled and no filters applied, the mongodb data folder can easily occupy hundreds of GBs of data.
 
-[block:api-header]
-{
-  "title": "Collections"
-}
-[/block]
+It is recommended that you tailor the options and utilize the filters as you need in order to maximize storage efficiency.
+
+## Collections
 * accounts - created on applied transaction. Always updated even if `mongodb-store-action-traces=false`.
   * Currently limited to just name and ABI if contract abi on account
   * Mostly for internal use as the stored ABI is used to convert action data into JSON for storage as associated actions on contract are processed.
@@ -119,20 +137,10 @@ The equivalent of /v1/history/get_controlled_acounts with mongo: `db.account_con
   * public_key
 
 
-[block:api-header]
-{
-  "title": "Examples"
-}
-[/block]
+## Examples
 The mongodb equivalent of `/v1/history/get_key_accounts` RPC API endpoint:
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "db.pub_keys.find({\"public_key\":\"EOS7EarnUhcyYqmdnPon8rm7mBCTnBoot6o7fE2WzjvEX2TdggbL3\"}).pretty()",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+
+```javascript
+db.pub_keys.find({"public_key":"EOS7EarnUhcyYqmdnPon8rm7mBCTnBoot6o7fE2WzjvEX2TdggbL3"}).pretty()
+```

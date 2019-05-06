@@ -1,7 +1,3 @@
----
-title: "Local Single-node Testnet"
-excerpt: ""
----
 After successfully building the project, the `nodeos` binary should be present in the `build/programs/nodeos` folder.  `nodeos` can be run directly from the `build` folder using `programs/nodeos/nodeos`, or you can `cd programs/nodeos` to change into the folder and run the `nodeos` command from there.  Here, we run the command within the `programs/nodeos` folder.
 
 You can start your own single-node blockchain with this single command:
@@ -48,19 +44,23 @@ The more advanced user will likely have need to modify the configuration.  `node
 - Linux: `~/.local/share/eosio/nodeos/config`
 
 The build seeds this folder with a default `genesis.json` file.  A configuration folder can be specified using the `--config-dir` command line argument to `nodeos`.  If you use this option, you will need to manually copy a `genesis.json` file to your config folder.
- 
+
 `nodeos` will need a properly configured `config.ini` file in order to do meaningful work.  On startup, `nodeos` looks in the config folder for `config.ini`.  If one is not found, a default `config.ini` file is created.  If you do not already have a `config.ini` file ready to use, run `nodeos` and then close it immediately with <kbd>Ctrl-C</kbd>.  A default configuration (`config.ini`) will have been created in the config folder.  Edit the `config.ini` file, adding/updating the following settings to the defaults already in place:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "    # Enable production on a stale chain, since a single-node test chain is pretty much always stale\n    enable-stale-production = true\n    # Enable block production with the testnet producers\n    producer-name = eosio\n    # Load the block producer plugin, so you can produce blocks\n    plugin = eosio::producer_plugin\n    # As well as API and HTTP plugins\n    plugin = eosio::chain_api_plugin\n    plugin = eosio::http_plugin\n   # This will be used by the validation step below, to view history\n    plugin = eosio::history_api_plugin",
-      "language": "cplusplus"
-    }
-  ]
-}
-[/block]
- 
+
+```cpp
+    # Enable production on a stale chain, since a single-node test chain is pretty much always stale
+    enable-stale-production = true
+    # Enable block production with the testnet producers
+    producer-name = eosio
+    # Load the block producer plugin, so you can produce blocks
+    plugin = eosio::producer_plugin
+    # As well as API and HTTP plugins
+    plugin = eosio::chain_api_plugin
+    plugin = eosio::http_plugin
+   # This will be used by the validation step below, to view history
+    plugin = eosio::history_api_plugin
+```
+
  Now it should be possible to run `nodeos` and see it begin producing blocks.
  ```bash
  ./programs/nodeos/nodeos
@@ -70,5 +70,5 @@ The build seeds this folder with a default `genesis.json` file.  A configuration
 
 - Mac OS: `~/Library/Application\ Support/eosio/nodeos/data`
 - Linux: `~/.local/share/eosio/nodeos/data`
- 
+
 A data folder can be specified using the `--data-dir` command line argument to `nodeos`.

@@ -2,107 +2,59 @@
 title: "1.2 Before You Begin"
 excerpt: ""
 ---
-[block:callout]
-{
-  "type": "info",
-  "body": "Looking for the version of this series that uses [Docker](https://developers.eos.io/eosio-home/v1.7.0/docs/introduction)?"
-}
-[/block]
+[[info]]
+|
+Looking for the version of this series that uses [Docker](https://developers.eos.io/eosio-home/v1.7.0/docs/introduction)?
 
-[block:api-header]
-{
-  "title": "Step 1: Install binaries"
-}
-[/block]
+## Step 1: Install binaries
 This tutorial is going to use pre-built binaries. For you to get started as quickly as possible this is the best option. Building from source is an option, but will set you back an hour or more and you may encounter build errors.
 
 The below commands will download binaries for respective operating systems.
 
 ## Mac OS X Brew Install:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "brew tap eosio/eosio\nbrew install eosio",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+brew tap eosio/eosio
+brew install eosio
+```
 ## Ubuntu 18.04 Debian Package Install:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "wget https://github.com/EOSIO/eos/releases/download/v1.7.0/eosio_1.7.0-1-ubuntu-18.04_amd64.deb\nsudo apt install ./eosio_1.7.0-1-ubuntu-18.04_amd64.deb",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+wget https://github.com/EOSIO/eos/releases/download/v1.7.0/eosio_1.7.0-1-ubuntu-18.04_amd64.deb
+sudo apt install ./eosio_1.7.0-1-ubuntu-18.04_amd64.deb
+```
 ## Ubuntu 16.04 Debian Package Install:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "wget https://github.com/EOSIO/eos/releases/download/v1.7.0/eosio_1.7.0-1-ubuntu-16.04_amd64.deb\nsudo apt install ./eosio_1.7.0-1-ubuntu-16.04_amd64.deb",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+wget https://github.com/EOSIO/eos/releases/download/v1.7.0/eosio_1.7.0-1-ubuntu-16.04_amd64.deb
+sudo apt install ./eosio_1.7.0-1-ubuntu-16.04_amd64.deb
+```
 ## CentOS RPM Package Install:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "wget https://github.com/EOSIO/eos/releases/download/v1.7.0/eosio-1.7.0-1.el7.x86_64.rpm\nsudo yum install ./eosio-1.7.0-1.el7.x86_64.rpm",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+wget https://github.com/EOSIO/eos/releases/download/v1.7.0/eosio-1.7.0-1.el7.x86_64.rpm
+sudo yum install ./eosio-1.7.0-1.el7.x86_64.rpm
+```
 ## Fedora RPM Package Install
-[block:code]
-{
-  "codes": [
-    {
-      "code": "wget https://github.com/EOSIO/eos/releases/download/v1.7.0/eosio-1.7.0-1.fc27.x86_64.rpm\nsudo yum install ./eosio-1.7.0-1.fc27.x86_64.rpm",
-      "language": "text"
-    }
-  ]
-}
-[/block]
 
-[block:callout]
-{
-  "type": "warning",
-  "body": "If you have previous versions of eosio installed on your system, please uninstall before proceeding. Detail instruction see [here](https://github.com/EOSIO/eos/blob/master/README.md)"
-}
-[/block]
+```text
+wget https://github.com/EOSIO/eos/releases/download/v1.7.0/eosio-1.7.0-1.fc27.x86_64.rpm
+sudo yum install ./eosio-1.7.0-1.fc27.x86_64.rpm
+```
 
-[block:api-header]
-{
-  "title": "Step 2: Setup a development directory, stick to it."
-}
-[/block]
+[[warning]]
+|
+If you have previous versions of eosio installed on your system, please uninstall before proceeding. Detail instruction see [here](https://github.com/EOSIO/eos/blob/master/README.md)
+
+## Step 2: Setup a development directory, stick to it.
 You're going to need to pick a directory to work from, it's suggested to create a `contracts` directory somewhere on your local drive. 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "mkdir contracts\ncd contracts",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
 
-[block:api-header]
-{
-  "title": "Step 3: Enter your local directory below."
-}
-[/block]
+```shell
+mkdir contracts
+cd contracts
+```
+
+## Step 3: Enter your local directory below.
 Get the path of that directory and save it for later, as you're going to need it, you can use the following command to get your absolute path.
 ```
 pwd

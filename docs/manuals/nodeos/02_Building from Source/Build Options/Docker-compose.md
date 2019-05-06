@@ -2,20 +2,13 @@
 title: "Docker-compose"
 excerpt: ""
 ---
-[block:callout]
-{
-  "type": "info",
-  "body": "If you're just trying to get up and running, you may find the [Docker Quickstart Guide](doc:docker-quickstart) to be more suitable.",
-  "title": ""
-}
-[/block]
+[[info]]
+|
+If you're just trying to get up and running, you may find the [Docker Quickstart Guide](doc:docker-quickstart) to be more suitable.
 
-[block:callout]
-{
-  "type": "info",
-  "body": "This guide is intended for development environments, if you intend to run EOSIO in a production environment, consider [building EOSIO](doc:autobuild-script)"
-}
-[/block]
+[[info]]
+|
+This guide is intended for development environments, if you intend to run EOSIO in a production environment, consider [building EOSIO](doc:autobuild-script)
 ## Install Dependencies
 
 - [Docker](https://docs.docker.com) Docker 17.05 or higher is required
