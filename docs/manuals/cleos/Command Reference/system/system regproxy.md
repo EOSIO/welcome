@@ -2,17 +2,9 @@
 title: "system regproxy"
 excerpt: "Register an account as a proxy (for voting)"
 ---
-[block:api-header]
-{
-  "title": "Positional Arguments"
-}
-[/block]
+## Positional Arguments
 `proxy` _TEXT_ - The proxy account to register
-[block:api-header]
-{
-  "title": "Options"
-}
-[/block]
+## Options
 - `-h,--help` Print this help message and exit
 - `-x,--expiration` _TEXT_ - set the time in seconds before a transaction expires, defaults to 30s
 - `-f,--force-unique` - force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
@@ -22,8 +14,4 @@ excerpt: "Register an account as a proxy (for voting)"
 - `-p,--permission`  _TEXT_ - An account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
 - `--max-cpu-usage-ms` _UINT_ - set an upper limit on the milliseconds of cpu usage budget, for the execution of the transaction (defaults to 0 which means no limit)
 - `--max-net-usage` _UINT_ - set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
-[block:api-header]
-{
-  "title": "Examples"
-}
-[/block]
+## Examples

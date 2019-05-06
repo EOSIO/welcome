@@ -2,20 +2,8 @@
 title: "system listbw"
 excerpt: "List delegated bandwidth"
 ---
-[block:api-header]
-{
-  "title": "Positional Arguments"
-}
-[/block]
+## Positional Arguments
 - `account` _TEXT_ - The account delegated bandwidth
-[block:api-header]
-{
-  "title": "Options"
-}
-[/block]
+## Options
 `-j,--json` - Output in JSON format
-[block:api-header]
-{
-  "title": "Examples"
-}
-[/block]
+## Examples

@@ -2,20 +2,8 @@
 title: "system listproducers"
 excerpt: "List producers"
 ---
-[block:api-header]
-{
-  "title": "Positional Arguments"
-}
-[/block]
+## Positional Arguments
 
-[block:api-header]
-{
-  "title": "Options"
-}
-[/block]
+## Options
 
-[block:api-header]
-{
-  "title": "Examples"
-}
-[/block]
+## Examples

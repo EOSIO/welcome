@@ -2,25 +2,11 @@
 title: "lock_all"
 excerpt: ""
 ---
-[block:api-header]
-{
-  "title": "Description"
-}
-[/block]
+## Description
 Locks all unlocked wallets.
-[block:api-header]
-{
-  "title": "Command"
-}
-[/block]
+## Command
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "$ ./cleos wallet lock_all",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+$ ./cleos wallet lock_all
+```

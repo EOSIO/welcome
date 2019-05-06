@@ -2,42 +2,22 @@
 title: "lock"
 excerpt: ""
 ---
-[block:api-header]
-{
-  "title": "Description"
-}
-[/block]
+## Description
 Locks a wallet.
-[block:api-header]
-{
-  "title": "Commands"
-}
-[/block]
+## Commands
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "$ cleos wallet lock\nor\n$ ./cleos wallet lock -n second-wallet",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
 
-[block:api-header]
-{
-  "title": "Outputs"
-}
-[/block]
+```shell
+$ cleos wallet lock
+or
+$ ./cleos wallet lock -n second-wallet
+```
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "Locked: 'default'\nor\nLocked: 'second-wallet'",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+## Outputs
+
+
+```shell
+Locked: 'default'
+or
+Locked: 'second-wallet'
+```

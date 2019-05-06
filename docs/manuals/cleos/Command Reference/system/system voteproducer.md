@@ -2,11 +2,7 @@
 title: "system voteproducer"
 excerpt: "Vote for a producer"
 ---
-[block:api-header]
-{
-  "title": "Subcommands"
-}
-[/block]
+## Subcommands
 [voteproducer proxy](ref:cleos-voteproducer-proxy) - Vote your stake through a proxy
 [voteproducer prods](ref:cleos-voteproducer-prods) - Vote for one or more producers
 [voteproducer approve](ref:cleos-voteproducer-approve) -Add one producer to list of voted producers

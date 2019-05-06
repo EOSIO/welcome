@@ -2,42 +2,27 @@
 title: "open"
 excerpt: ""
 ---
-[block:api-header]
-{
-  "title": "Description"
-}
-[/block]
+## Description
 Opens an existing wallet.
-[block:api-header]
-{
-  "title": "Commands"
-}
-[/block]
+## Commands
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "$ ./cleos wallet open\nor\n$ ./cleos wallet open -n second-wallet",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
 
-[block:api-header]
-{
-  "title": "Outputs"
-}
-[/block]
+```shell
+$ ./cleos wallet open
+or
+$ ./cleos wallet open -n second-wallet
+```
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "Wallets: [\n  \"default\"\n]\nor\nWallets: [\n  \"default\",\n  \"second-wallet\"\n]",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+## Outputs
+
+
+```shell
+Wallets: [
+  "default"
+]
+or
+Wallets: [
+  "default",
+  "second-wallet"
+]
+```

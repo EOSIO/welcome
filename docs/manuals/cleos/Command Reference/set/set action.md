@@ -2,64 +2,38 @@
 title: "set action"
 excerpt: "`./cleos set action`"
 ---
-[block:api-header]
-{
-  "title": "Description"
-}
-[/block]
+## Description
 Sets or updates an action's state on the blockchain.
-[block:api-header]
-{
-  "title": "Info"
-}
-[/block]
+## Info
 **Command**
-[block:code]
-{
-  "codes": [
-    {
-      "code": "$ ./cleos set action",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+$ ./cleos set action
+```
 **Output**
-[block:code]
-{
-  "codes": [
-    {
-      "code": "ERROR: RequiredError: Subcommand required\nset or update blockchain action state\nUsage: ./cleos set action [OPTIONS] SUBCOMMAND\n\nOptions:\n  -h,--help                   Print this help message and exit\n\nSubcommands:\n  permission                  set parmaters dealing with account permissions",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+ERROR: RequiredError: Subcommand required
+set or update blockchain action state
+Usage: ./cleos set action [OPTIONS] SUBCOMMAND
+
+Options:
+  -h,--help                   Print this help message and exit
+
+Subcommands:
+  permission                  set parmaters dealing with account permissions
+```
 **Command**
-[block:code]
-{
-  "codes": [
-    {
-      "code": "$ ./cleos set action permission",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+$ ./cleos set action permission
+```
 **Output**
-[block:api-header]
-{
-  "title": "Positionals"
-}
-[/block]
+## Positionals
 `code` _Type: Text_ - The account that owns the code for the action
 `type` _Type: Text_ the type of the action
 `requirement` _Type: Text, Default: Null_ - The permission name require for executing the given action
-[block:api-header]
-{
-  "title": "Options"
-}
-[/block]
+## Options
 `-h,--help` Print this help message and exit
 `-a,--abi' _Type:Text_ - The ABI for the contract
 `-x,--expiration _Type:Text_ - set the time in seconds before a transaction expires, defaults to 30s
@@ -67,13 +41,23 @@ Sets or updates an action's state on the blockchain.
 `-s,--skip-sign` Specify if unlocked wallet keys should be used to sign transaction
 `-d,--dont-broadcast` - Don't broadcast transaction to the network (just print to stdout)
 `-p,--permission`  _Type:Text_ - An account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
-[block:code]
-{
-  "codes": [
-    {
-      "code": "ERROR: RequiredError: account\nset parmaters dealing with account permissions\nUsage: ./cleos set action permission [OPTIONS] account code type requirement\n\nPositionals:\n  account TEXT                The account to set/delete a permission authority for\n  code TEXT                   The account that owns the code for the action\n  type TEXT                   the type of the action\n  requirement TEXT            [delete] NULL, [set/update] The permission name require for executing the given action\n\nOptions:\n  -h,--help                   Print this help message and exit\n  -x,--expiration             set the time in seconds before a transaction expires, defaults to 30s\n  -f,--force-unique           force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times\n  -s,--skip-sign              Specify if unlocked wallet keys should be used to sign transaction\n  -d,--dont-broadcast         don't broadcast transaction to the network (just print to stdout)\n  -p,--permission TEXT ...    An account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+ERROR: RequiredError: account
+set parmaters dealing with account permissions
+Usage: ./cleos set action permission [OPTIONS] account code type requirement
+
+Positionals:
+  account TEXT                The account to set/delete a permission authority for
+  code TEXT                   The account that owns the code for the action
+  type TEXT                   the type of the action
+  requirement TEXT            [delete] NULL, [set/update] The permission name require for executing the given action
+
+Options:
+  -h,--help                   Print this help message and exit
+  -x,--expiration             set the time in seconds before a transaction expires, defaults to 30s
+  -f,--force-unique           force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
+  -s,--skip-sign              Specify if unlocked wallet keys should be used to sign transaction
+  -d,--dont-broadcast         don't broadcast transaction to the network (just print to stdout)
+  -p,--permission TEXT ...    An account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
+```
