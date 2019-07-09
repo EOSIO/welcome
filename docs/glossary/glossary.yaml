@@ -1,5 +1,4 @@
-type: array
-items:
+terms:
   - name: Account
     definition: An account is a unique identifier and a requirement to interact with an EOSIO blockchain. Unlike most other cryptocurrencies, transfers are sent to a human readable account name instead of a public key, while keys attributed to the account are used to sign transactions.
   - name: ABI
