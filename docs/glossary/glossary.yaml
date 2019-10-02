@@ -1,25 +1,29 @@
-terms: 
+terms:
   - definition: "An account is a unique identifier and a requirement to interact with an EOSIO blockchain. Unlike most other cryptocurrencies, transfers are sent to a human readable account name instead of a public key, while keys attributed to the account are used to sign transactions."
     name: Account
   - definition: "The Application Binary Interface (ABI) is a JSON-based description on how to convert user actions between their JSON and binary representations. The ABI may also describe how to convert the database state to/from JSON. Once you have described your contract via an ABI this allows developers and users to interact with your contract seamlessly via JSON."
     name: ABI
-    synonyms: 
+    synonyms:
       - "Application Binary Interface"
   - definition: "Functionality exposed by a smart contract that is exercised by passing the correct parameters via an approved transaction to an EOSIO network."
     name: Action
+    related:
+      - name: Block
   - definition: "A confirmable unit of a blockchain. Each block contains zero or more transactions, as well as a cryptographic connection to all prior blocks. When a block becomes \"irreversibly confirmed\" it's because a supermajority of block producers have agreed that the given block contains the correct transactions. Once a block is irreversibly confirmed, it becomes a permanent part of the immutable blockchain."
     name: Block
+    related:
+      - name: Action
   - definition: "A DAC is an entity that utilizes a combination of automation and input from stakeholders, normally in the form of votes. They are often governed by code which describes the purpose of the organisation."
     name: DAC
-    synonyms: 
+    synonyms:
       - "Decentralized Autonomous Company"
   - definition: "Distributed Ledger Technologies. A distributed ledger (also called a shared ledger, or referred to as distributed ledger technology) is a consensus of replicated, shared, and synchronized digital data geographically spread across multiple sites, countries, or institutions."
     name: DLT
-    synonyms: 
+    synonyms:
       - "Distributed Ledger Technology"
   - definition: "DPoS stands for \"Delegated Proof of Stake\" and is a consensus algorithm initially developed by Daniel Larimer in 2013 for Bitshares. It's sometimes referred to as \"Democracy as Proof of Stake\""
     name: DPoS
-    synonyms: 
+    synonyms:
       - "Delegated Proof-of-Stake"
   - definition: "Staking is the act of locking tokens for resources on an EOSIO network. This includes but is not limited to, CPU time, RAM, and on-chain governance."
     name: Staking
@@ -147,15 +151,14 @@ terms:
     name: "Unconfirmed Transaction"
   - definition: "WASM stands for WebAssembly. The EOSIO based blockchains execute user-generated applications and code using WebAssembly. WASM is an emerging web standard with widespread support of Google, Microsoft, Apple, and others. At the moment the most mature toolchain for building applications that compile to WASM is clang/llvm with their C/C++ compiler. For best compatibility, it is recommended that you use the EOSIO toolchain to generate WASM."
     name: WASM
-    synonyms: "Web-Assembly Machine"
+    synonyms:
+      - "Web-Assembly Machine"
   - definition: "An EOSIO based blockchain allows contract developers to persist state across actions, and consequently transaction, boundaries. For example the sample eosio.token contract keeps balances for all users in the database. Each instance of nodeos keeps the database in memory, so contracts can read and write data quickly. However, at any given time there can be multiple correct ways, called modes, to query that data."
     name: "Read Mode"
   - definition: "Permissions are arbitrary names used to define the requirements for a transaction sent on behalf of that permission. Permissions can be assigned for authority over specific contract actions by \"linking authorization\" or linkauth. Every account has two native named permissions, `owner` and `active`. Every permission name has a \"parent.\" Parents possess the authority to change any of the permission settings for any and all of their children. In addition to the native permissions, an account can possess custom named permissions that are available to further extend account management. Custom permissions are incredibly flexible and address numerous possible use cases when implemented correctly. Given this context permission level is used to identify a specific permission, either active, or owner, or a custom one."
     name: "Permission level"
   - definition: "The block log is an append only log of blocks written to disk and contains all the irreversible blocks."
     name: "Block Log"
-  - definition: "Reversible_blocks is a memory mapped file and contains blocks that have been written to the blockchain but have not yet become irreversible."
-    name: "Reversible Blocks"
   - definition: "The pending block is an in memory block containing transactions as they are processed into a block, this will/may eventually become the head block. If this instance of nodeos is the producing node then the pending block will eventually be distributed to other nodeos instances."
     name: "Pending Blocks"
   - definition: "The head block is the last block written to the blockchain, stored in reversible_blocks."
