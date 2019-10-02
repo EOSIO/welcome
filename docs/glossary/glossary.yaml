@@ -67,6 +67,8 @@ terms:
     name: RAM
   - definition: "EOSIO adopts a free-market approach to allocating scarce resources. To facilitate this market, the eosio system contract allows users to buy RAM from the system and sell RAM back to the system in exchange for the blockchain's native tokens. This provides liquidity in the RAM market while facilitating price discovery. The less unallocated RAM available to the market maker the higher the market maker prices the remaining RAM. The algorithm used for this market maker is known as a Bancor Relay. A Bancor Relay does not set the price of RAM. It only offers to buy and sell at previously established market rates. Anytime the current market rate is different than the current price offered by the Bancor Relay, traders will buy or sell RAM pushing to closer to the market determined price."
     name: "Bancor Relay"
+    synonyms: 
+     - Bancor Algorithm
   - definition: "In order to persist data on an EOSIO based blockchain, a user must first purchase RAM. The EOSIO RAM market uses the Bancor Relay algorithm in a system smart contract to offer to buy and sell RAM from users at previously established market rates."
     name: "RAM Market"
   - definition: "CPU is processing power granted to an account by an EOSIO based blockchain. The amount of CPU an account has is measured in microseconds, and represents the amount of processing time an account has at its disposal when executing its actions. CPU is recalculated after each block is produced, based on the amount of system tokens the account staked for CPU bandwidth in proportion to the amount of total system tokens staked for CPU bandwidth at that time."
@@ -79,8 +81,6 @@ terms:
     name: "Deferred Action"
   - definition: "The chain state or database is a memory mapped file, storing the blockchain state of each block (account details, deferred transactions, transactions, data stored using multi index tables in smart contracts, etc.). Once a block becomes irreversible the chain state is not cached anymore."
     name: "Chain State"
-  - definition: "See Bancor Relay"
-    name: "Bancor Algorithm"
   - definition: "A private network is a production network, or a test network, to which access is private, that is, the API endpoints, and block producers connectivity URLs and IPs are private. Access to a private network is done via invitation, or, upon request to join, is granted by the owners of the private network."
     name: "Private Network"
   - definition: "A blockchain application is a software application that has integrated a blockchain in its architecture as the storage layer for part of, or, all of its data. This includes software applications that do not own their own contract on the blockchain and instead only interact with the system contracts of the blockchain."
