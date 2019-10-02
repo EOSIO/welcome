@@ -183,8 +183,6 @@ terms:
     name: Indices
   - definition: "Wait is measured in seconds and it is the time to wait until a delayed transaction is executed. Its value can not be higher than the max_transaction_delay which is set in the global configuration file."
     name: Wait
-  - definition: "JSON Schemas in the EOSIO context is the json shema which defines the structure for a json object. It can be used to validate various objects that EOSIO components consume and provide."
-    name: "JSON Schema"
   - definition: "The core is used to refer to the EOSIO blockchain native components, e.g. native actions, chain libraries, nodeos daemon, etc. The core is the EOSIO platform on which EOSIO based blockchains can be instantiated and tailored by means of deploying smart contracts (including the system smart contracts). Therefore, the system smart contracts are not considered part of the core or native blockchain implementation."
     name: Core
   - definition: "Everything that is part of EOSIO which is not part of core, is referred to as system, e.g. system accounts, privileged accounts, system contracts. From an architectural point of view system components sit on top of the core/native components."
