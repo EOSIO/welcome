@@ -6,8 +6,7 @@ This repository is a temporary and private repository for migrating documentatio
 Phase 1:
 - [x] Migrate Documents from Readme.io (only current version!) into this repository.
 - [x] Migrate glossary from Readme.io (only current version!) into this repository.
-- [ ] Sanitize Readme.io documents to be pure markdown using Ovi's python script.
-- [ ] Evaluate required graphical assets for any documentation, if any: See asset request process.
+- [x] Sanitize Readme.io documents to be pure markdown using Ovi's python script.
 
 Phase 2:
 - [ ] Reevaluate documentation for articles that have been reorganized, and make necessary changes.
