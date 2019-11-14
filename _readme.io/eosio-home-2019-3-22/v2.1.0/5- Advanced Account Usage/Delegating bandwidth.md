@@ -1,4 +1,0 @@
----
-title: "Delegating bandwidth"
-excerpt: ""
----

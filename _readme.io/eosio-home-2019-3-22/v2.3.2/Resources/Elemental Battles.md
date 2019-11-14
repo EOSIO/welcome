@@ -1,4 +1,0 @@
----
-title: "Elemental Battles"
-excerpt: ""
----

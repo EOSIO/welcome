@@ -1,4 +1,0 @@
----
-title: "Randomization"
-excerpt: ""
----
