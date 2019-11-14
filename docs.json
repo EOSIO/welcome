@@ -1,0 +1,29 @@
+{
+  "name": "developers.eos.io",
+  "generators": [
+    {
+      "name": "collate_markdown",
+      "options": {
+        "docs_dir": "docs"
+      }
+    },
+    {
+      "name": "glossary",
+      "options": {
+        "glossary_markdown_output": "glossary",
+        "glossary_source": "docs/glossary.yaml"
+      }
+    }
+  ],
+  "children": [
+    { "repo": "eosio.cdt", "path": "manuals/eosio.cdt" },
+    { "repo": "eosio.contracts", "path": "manuals/eosio.contracts" },
+    { "repo": "eosjs", "path": "manuals/eosjs" },
+    { "repo": "eosio.swift", "path": "manuals/eosio.swift" },
+    { "repo": "eosio.java", "path": "manuals/eosio.java" },
+    { "repo": "demux-js", "path": "manuals/demux" },
+    { "repo": "eos", "path": "manuals/eosio" },
+    { "repo": "schemata", "path": "manuals/schemata" },
+    { "repo": "swagger", "path": "manuals/swagger" }
+  ]
+}

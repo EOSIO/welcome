@@ -1,4 +1,0 @@
----
-title: "Purchasing RAM"
-excerpt: ""
----
