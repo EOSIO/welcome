@@ -1,0 +1,174 @@
+---
+title: "Introduction to the EOSIO Token Contract"
+excerpt: ""
+---
+## Eosio.token, Exchange, and Eosio.msig Contracts
+**This tutorial assumes that you have completed the tutorial [Getting Started With Contracts](introduction-to-smart-contracts).**
+
+At this stage the blockchain doesn't do much, so let's deploy the `eosio.token` contract.  This contract enables the creation of many different tokens all running on the same contract but potentially managed by different users. 
+
+Before we can deploy the token contract we must create an account to deploy it to.
+
+```
+$ cleos create account eosio eosio.token \
+        EOS7ijWCBmoXBi3CgtK7DJxentZZeTkeUnaSDvyro9dq7Sd1C3dC4 \
+...
+```
+
+Then we can deploy the contract which can be found in `${EOSIO_SOURCE}/build/contracts/eosio.token`
+
+```
+$ cleos set contract eosio.token build/contracts/eosio.token -p eosio.token@active
+Reading WAST...
+Assembling WASM...
+Publishing contract...
+executed transaction: 528bdbce1181dc5fd72a24e4181e6587dace8ab43b2d7ac9b22b2017992a07ad  8708 bytes  10000 cycles
+#         eosio <= eosio::setcode               {"account":"eosio.token","vmtype":0,"vmversion":0,"code":"0061736d0100000001ce011d60067f7e7f7f7f7f00...
+#         eosio <= eosio::setabi                {"account":"eosio.token","abi":{"types":[],"structs":[{"name":"transfer","base":"","fields":[{"name"...
+```
+
+### Create the Currency Token
+
+You can view the interface to `eosio.token` as defined by `contracts/eosio.token/eosio.token.hpp`:
+```
+   void create( account_name issuer,
+                asset        maximum_supply );
+
+
+   void issue( account_name to, asset quantity, string memo );
+
+   void transfer( account_name from,
+                  account_name to,
+                  asset        quantity,
+                  string       memo );
+```
+
+To create a new token we must call the `create(...)` action with the proper arguments. This command will use the symbol of the maximum supply to uniquely identify this token from other tokens. The issuer will be the one with authority to call issue and or perform other actions such as freezing, recalling, and whitelisting of owners.
+
+The concise way to call this method, using positional arguments:
+```
+$ cleos push action eosio.token create '[ "eosio", "1000000000.0000 SYS"]' \
+         -p eosio.token@active
+executed transaction: 0e49a421f6e75f4c5e09dd738a02d3f51bd18a0cf31894f68d335cd70d9c0e12  120 bytes  1000 cycles
+#   eosio.token <= eosio.token::create          {"issuer":"eosio","maximum_supply":"1000000000.0000 SYS"}
+```
+
+Alternatively, a more verbose way to call this method, using named arguments:
+
+```
+$ cleos push action eosio.token create \
+        '{"issuer":"eosio", "maximum_supply":"1000000000.0000 SYS"}' \
+        -p eosio.token@active
+executed transaction: 0e49a421f6e75f4c5e09dd738a02d3f51bd18a0cf31894f68d335cd70d9c0e12  120 bytes  1000 cycles
+#   eosio.token <= eosio.token::create          {"issuer":"eosio","maximum_supply":"1000000000.0000 SYS"}
+```
+
+
+This command created a new token `SYS` with a precision of 4 decimals and a maximum supply of 1000000000.0000 SYS. 
+
+In order to create this token we required the permission of the `eosio.token` contract because it "owns" the symbol namespace (e.g. "SYS"). Future versions of this contract may allow other parties to buy symbol names automatically.  For this reason we must pass `-p eosio.token@active` to authorize this call.
+
+### Issue Tokens to Account "User"
+
+Now that we have created the token, the issuer can issue new tokens to the account `user` we created earlier. If you have not created an account named 'user', see the instructions [here](https://developers.eos.io/eosio-cpp/docs/introduction-to-smart-contracts#section-create-two-user-accounts).
+
+We will use the positional calling convention (vs named args).
+
+```
+$ cleos push action eosio.token issue '[ "user", "100.0000 SYS", "memo" ]' \
+        -p eosio@active
+executed transaction: 822a607a9196112831ecc2dc14ffb1722634f1749f3ac18b73ffacd41160b019  268 bytes  1000 cycles
+#   eosio.token <= eosio.token::issue           {"to":"user","quantity":"100.0000 SYS","memo":"memo"}
+>> issue
+#   eosio.token <= eosio.token::transfer        {"from":"eosio","to":"user","quantity":"100.0000 SYS","memo":"memo"}
+>> transfer
+#         eosio <= eosio.token::transfer        {"from":"eosio","to":"user","quantity":"100.0000 SYS","memo":"memo"}
+#          user <= eosio.token::transfer        {"from":"eosio","to":"user","quantity":"100.0000 SYS","memo":"memo"}
+```
+
+This time the output contains several different actions:  one issue and three transfers.  While the only action we signed was `issue`, the `issue` action performed an "inline transfer" and the "inline transfer" notified the sender and receiver accounts.  The output indicates all of the action handlers that were called, the order they were called in, and whether or not any output was generated by the action.
+
+Technically, the `eosio.token` contract could have skipped the `inline transfer` and opted to just modify the balances directly.  However, in this case, the `eosio.token` contract is following our token convention that requires that all account balances be derivable by the sum of the transfer actions that reference them.  It also requires that the sender and receiver of funds be notified so they can automate handling deposits and withdrawals. 
+
+If you want to see the actual transaction that was broadcast, you can use the `-d -j` options to indicate "don't broadcast" and "return transaction as json".
+
+```
+$ cleos push action eosio.token issue '["user", "100.0000 SYS", "memo"]' -p eosio@active -d -j
+{
+  "expiration": "2018-05-25T19:02:58",
+  "ref_block_num": 18200,
+  "ref_block_prefix": 614206268,
+  "max_net_usage_words": 0,
+  "max_cpu_usage_ms": 0,
+  "delay_sec": 0,
+  "context_free_actions": [],
+  "actions": [{
+      "account": "eosio.token",
+      "name": "issue",
+      "authorization": [{
+          "actor": "eosio",
+          "permission": "active"
+        }
+      ],
+      "data": "00000000007015d640420f00000000000453595300000000046d656d6f"
+    }
+  ],
+  "transaction_extensions": [],
+  "signatures": [
+    "SIG_K1_Khyk1GsxWCx4axqYMF2AREDvaZtZdFaQifNPkR9DomR7toJ4sGua7pMBNq2osV5TY8rcGNcgNwn1eFe3noAXsoUA26HNDJ"
+  ],
+  "context_free_data": []
+}
+```
+
+### Transfer Tokens to Account "Tester"
+
+Now that account `user` has tokens, we will transfer some to account `tester`.  We indicate that `user` authorized this action using the permission argument `-p user@active`.
+
+```
+$ cleos push action eosio.token transfer \
+        '[ "user", "tester", "25.0000 SYS", "m" ]' -p user@active
+executed transaction: 06d0a99652c11637230d08a207520bf38066b8817ef7cafaab2f0344aafd7018  268 bytes  1000 cycles
+#   eosio.token <= eosio.token::transfer        {"from":"user","to":"tester","quantity":"25.0000 SYS","memo":"m"}
+>> transfer
+#          user <= eosio.token::transfer        {"from":"user","to":"tester","quantity":"25.0000 SYS","memo":"m"}
+#        tester <= eosio.token::transfer        {"from":"user","to":"tester","quantity":"25.0000 SYS","memo":"m"}
+```
+
+## Deploy Exchange Contract
+Similar to the examples shown above, we can deploy the `exchange` contract.  The `exchange` contract provides capabilities to create and trade currency.  It is assumed this is being run from the root of the EOSIO source.
+
+```
+$ cleos create account eosio exchange  \
+        EOS7ijWCBmoXBi3CgtK7DJxentZZeTkeUnaSDvyro9dq7Sd1C3dC4 \
+        EOS7ijWCBmoXBi3CgtK7DJxentZZeTkeUnaSDvyro9dq7Sd1C3dC4
+executed transaction: 4d38de16631a2dc698f1d433f7eb30982d855219e7c7314a888efbbba04e571c  364 bytes  1000 cycles
+#         eosio <= eosio::newaccount            {"creator":"eosio","name":"exchange","owner":{"threshold":1,"keys":[{"key":"EOS7ijWCBmoXBi3CgtK7DJxe...
+
+$ cleos set contract exchange build/contracts/exchange -p exchange@active
+Reading WAST/WASM from build/contracts/exchange/exchange.wasm...
+Using already assembled WASM...
+Publishing contract...
+executed transaction: 503dddec456ae301ef467c6a05bc6bf61e1ea21ab911ef6cc6e0750001b675c8  33888 bytes  5841 us
+#         eosio <= eosio::setcode               {"account":"exchange","vmtype":0,"vmversion":0,"code":"0061736d0100000001bb022f60067f7e7f7f7f7f00600...
+#         eosio <= eosio::setabi                {"account":"exchange","abi":"0e656f73696f3a3a6162692f312e30010c6163636f756e745f6e616d65046e616d650e0...
+```
+
+## Deploy Eosio.msig Contract
+The `eosio.msig` contract allows multiple parties to sign a single transaction asynchronously.  EOSIO has multi-signature (multisig) support at a base level, but it requires a synchronous side channel where data is ferried around and signed.  `Eosio.msig` is a more user friendly way of asynchronously proposing, approving and eventually publishing a transaction with multiple parties' consent.
+
+The following steps can be used to deploy the `eosio.msig` contract. 
+```
+$ cleos create account eosio eosio.msig  \
+        EOS7ijWCBmoXBi3CgtK7DJxentZZeTkeUnaSDvyro9dq7Sd1C3dC4 \
+        EOS7ijWCBmoXBi3CgtK7DJxentZZeTkeUnaSDvyro9dq7Sd1C3dC4
+#         eosio <= eosio::newaccount            {"creator":"eosio","name":"eosio.msig","owner":{"threshold":1,"keys":[{"key":"EOS7ijWCBmoXBi3CgtK7DJ...
+  
+$ cleos set contract eosio.msig build/contracts/eosio.msig -p eosio.msig@active
+Reading WAST/WASM from build/contracts/eosio.msig/eosio.msig.wasm...
+Using already assembled WASM...
+Publishing contract...
+executed transaction: 3433c434bdef42ba2150d5df46c17e0258f20b7836a057911faa2daa66262338  8864 bytes  1319 us
+#         eosio <= eosio::setcode               {"account":"eosio.msig","vmtype":0,"vmversion":0,"code":"0061736d010000000198011760017f0060047f7e7e7...
+#         eosio <= eosio::setabi                {"account":"eosio.msig","abi":"0e656f73696f3a3a6162692f312e30030c6163636f756e745f6e616d65046e616d650...
+```
