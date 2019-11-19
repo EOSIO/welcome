@@ -6,11 +6,11 @@ The EOSIO blockchain platform is unique in that the features and characteristics
 
 Block.one implements and maintains these `system contracts`, as samples only, encapsulating the base functionality for an EOSIO based blockchain and they are listed below:
 
-1. [eosio.bios](https://github.com/EOSIO/eosio.contracts/tree/master/docs/02_system_contracts/01_eosio_bios.md)
-2. [eosio.system](https://github.com/EOSIO/eosio.contracts/tree/master/docs/02_system_contracts/02_eosio_system.md)
-3. [eosio.msig](https://github.com/EOSIO/eosio.contracts/tree/master/docs/02_system_contracts/03_eosio_msig.md)
-4. [eosio.token](https://github.com/EOSIO/eosio.contracts/tree/master/docs/02_system_contracts/04_eosio_token.md)
-5. [eosio.wrap](https://github.com/EOSIO/eosio.contracts/tree/master/docs/02_system_contracts/05_eosio_wrap.md)
+1. [eosio.bios](https://eosio.github.io/eosio.contracts/latest/action-reference/eosio.bios)
+2. [eosio.system](https://eosio.github.io/eosio.contracts/latest/action-reference/eosio.system)
+3. [eosio.msig](https://eosio.github.io/eosio.contracts/latest/action-reference/eosio.msig)
+4. [eosio.token](https://eosio.github.io/eosio.contracts/latest/action-reference/eosio.token)
+5. [eosio.wrap](https://eosio.github.io/eosio.contracts/latest/action-reference/eosio.wrap)
 
 Also part of the `system` layer are the following concepts:
 
