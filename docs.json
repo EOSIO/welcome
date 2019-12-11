@@ -18,6 +18,7 @@
   "children": [
     { "repo": "eosio.cdt", "path": "manuals/eosio.cdt", "tagged": "true" },
     { "repo": "eosio.contracts", "path": "manuals/eosio.contracts", "tagged": "true" },
-    { "repo": "eosjs", "path": "manuals/eosjs", "tagged": "true" }
+    { "repo": "eosjs", "path": "manuals/eosjs", "tagged": "true" },
+    { "repo": "eos", "path": "manuals/eosio", "tagged": "true" }
   ]
 }
