@@ -43,7 +43,7 @@ You can read detailed documentation about `keosd` [here](example.io/manuals/eosi
 <!-- The link will be updated once the initial site is live -->
 
 ## EOSIO.CDT
-EOSIO.CDT is a toolchain for WebAssembly (Wasm) and a set of tools to facilitate contract writing for the EOSIO platform. In addition to being a general-purpose Web0Assembly toolchain, EOSIO-specific optimizations are available to support building EOSIO smart contracts. This new toolchain is built around Clang 7, which means that EOSIO.CDT has most of the current optimizations and analyses from LLVM. 
+EOSIO.CDT is a toolchain for WebAssembly (Wasm) and a set of tools to facilitate contract writing for the EOSIO platform. In addition to being a general-purpose WebAssembly toolchain, EOSIO-specific optimizations are available to support building EOSIO smart contracts. This new toolchain is built around Clang 7, which means that EOSIO.CDT has most of the current optimizations and analyses from LLVM. 
 
 ## EOSJS
 A Javascript API SDK for integration with EOSIO-based blockchains using the EOSIO RPC API.
