@@ -13,20 +13,23 @@ Wallets are clients that store keys that may or may not be associated with the p
 
 Permissions are arbitrary names used to define the requirements for a transaction sent on behalf of that permission. Permissions can be assigned for authority over specific contract actions by *linking authorization* or linkauth.
 
-For more information on these concepts, see the _Accounts and Permissions_ documentation.
-[To Do: Add link to Accounts and Permissions page]
+For more information about these concepts, see the _Accounts and Permissions_ documentation.
+<!-- The link will be updated once the initial site is live -->
 
 ### Smart Contracts
 A smart contract is a piece of code that can execute on a blockchain and keep the state of contract execution as a part of the immutable history of that blockchain instance. Therefore, developers can rely on that blockchain as a trusted computation environment in which inputs, execution, and the results of a smart contract are independent and free of external influence.
 
-[What is a smart contract?](https://youtu.be/_I0dUL4kpTg)
+`youtube: https://www.youtube.com/watch?v=_I0dUL4kpTg`
+
 
 
 ### Delegated Proof of Stake (DPOS)
 
 The EOSIO platform implements a proven decentralized consensus algorithm capable of meeting the performance requirements of applications on the blockchain called the _Delegated Proof of Stake_ (DPOS). Under this algorithm, if you hold tokens on a EOSIO-based blockchain, you can select block producers through a continuous approval voting system. Anyone can choose to participate in the block production and will be given an opportunity to produce blocks, provided they can persuade token holders to vote for them.
 
-More details about DPOS BFT can be found [here](https://github.com/EOSIO/documentation-root/blob/master/docs/04_protocol/01_core/01_consensus_protocol.md#3-eosio-consensus-dpos--abft).
+For more information about DPOS BFT, see [EOSIO Consensus](https://github.com/EOSIO/documentation-root/blob/master/docs/04_protocol/01_core/01_consensus_protocol.md#3-eosio-consensus-dpos--abft).
+
+<!-- The link will be updated once the initial site is live -->
 
 ## System Resources
 
@@ -48,3 +51,4 @@ More details about CPU as a system resource can be found [here](https://github.c
 Besides CPU and RAM, NET is also a very important resource in EOSIO-based blockchains. NET is the network bandwidth, measured in bytes, of transactions and is referred to as `net bandwidth` on the cleos `get account` command. NET is a also a transient system resource and falls under the staking mechanism of EOSIO.
 
 More details about NET as a system resource can be found [here](https://github.com/EOSIO/eosio.contracts/blob/docs/split_index_md/docs/01_core_concepts/04_net.md).
+
