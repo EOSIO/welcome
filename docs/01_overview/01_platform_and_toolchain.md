@@ -13,6 +13,10 @@ The basic relationship between these components is illustrated in the following 
 
 ![EOSIO Development Lifecycle](../images/EOSIO-Overview-dev.svg)
 
+
+>[[ info | Note ]]
+| EOSIO also provides a frontend library for javascript development called EOSJS along with Swift and Java SDKs for native mobile applications development.
+
 ## Nodeos
 
 Nodeos is the core EOSIO node daemon. Nodeos handles the blockchain data persistence layer, peer-to-peer networking, and contract code scheduling. For development environments, nodeos enables you to set up a single node blockchain network. Nodeos offers a wide range of features through plugins which can be enabled or disabled at start time via the command line parameters or configuration files. 
