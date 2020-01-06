@@ -1,4 +1,6 @@
-# Consensus Protocol
+---
+content_title: Consensus Protocol
+---
 
 
 # 1. Overview

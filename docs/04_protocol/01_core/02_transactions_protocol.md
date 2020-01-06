@@ -1,4 +1,6 @@
-# Transactions Protocol
+---
+content_title: Transactions Protocol
+---
 
 
 # 1. Overview

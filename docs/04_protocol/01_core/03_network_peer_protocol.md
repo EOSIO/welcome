@@ -1,4 +1,6 @@
-# Peer to Peer Protocol
+---
+content_title: Network Peer Protocol
+---
 
 
 # 1. Overview
