@@ -27,6 +27,7 @@ Also part of the `system` layer are the following concepts:
 
 The core protocols are:
 
-1. [Consensus Protocol](04_protocol/01_consensus_protocol.md)
-2. [Transactions Protocol](04_protocol/02_transactions_protocol.md)
-3. [Network or Peer to Peer Protocol](04_protocol/03_network_peer_protocol.md)
+1. [Consensus Protocol](01_core/01_consensus_protocol.md)
+2. [Transactions Protocol](01_core/02_transactions_protocol.md)
+3. [Network or Peer to Peer Protocol](01_core/03_network_peer_protocol.md)
+4. [Accounts and Permissions](01_core/04_accounts_and_permissions.md)
