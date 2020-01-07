@@ -127,7 +127,7 @@ The owner permission sits at the root of the permission hierarchy for every acco
 In the current EOSIO implementation, the implicit default permission linked to all actions is `active`, which sits one level below the `owner` permission within the hierarchy structure. As a result, the `active` permission can do anything the `owner` permission can, except changing the keys associated with the owner. The `active` permission is typically used for voting, transferring funds, and other account operations. For more specific actions, custom permissions are typically created below the `active` permission and mapped to specific contracts or actions. Refer to the [single/multi user permission example](https://developers.eos.io/eosio-nodeos/docs/accounts-and-permissions#section-putting-it-all-together) for more details.
 
 [[info | Custom Permissions]]
-| EOSIO allows to create custom permissions and hierarchies in parallel branches that stem from the owner permission. This allows finer control over action authorizations. It also strengthens security in case the `active` permission gets compromised. For such an alternate permission structure, visit: [https://medium.com/eos-new-york/86ad99fd8c40](https://medium.com/eos-new-york/86ad99fd8c40). 
+| EOSIO allows to create custom hierarchical permissions that stem from the owner permission. This allows finer control over action authorizations. It also strengthens security in case the `active` permission gets compromised. For such an alternate permission structure, check [Safe Mode Permissions](https://medium.com/eos-new-york/86ad99fd8c40). 
 
 
 ## 3.2. Authority Table
@@ -213,18 +213,14 @@ When determining whether an action is authorized to be executed, the EOSIO softw
 
 ### 3.4.1. Custom Permissions
 
-By default every account on the EOSIO blockchain is linked to the `active` permission. Again, this can be customized by creating children permissions under `active` or creating alternate permissions under `owner` - see [3.1. Permission Levels](#31-permission-levels).
+By default every account on the EOSIO blockchain is linked to the `active` permission. Again, this can be customized by creating children permissions under `active` or by creating alternate permissions under `owner` - see [3.1. Permission Levels](#31-permission-levels). Creating custom permissions under `owner` (separate from `active`) is recommended. This is because if the keys associated with the `active` permission are compromised, the security of the account will not be compromised.
 
-[info callout] Creating custom permissions is recommended for custom actions. The security of the account is not compromised if the keys associated with the `active` permission are compromised.
-
-
-#### Use Case: Social Media
-
-Say we have a `publish` permission intended to control the posting of messages on a social media application. However, we do not want to associate that permission with sensitive actions, such as transferring or withdrawing funds. In this scenario, it makes sense to link the `social::post` action to the `publish` permission. This allows to define an authority structure which can authorize `post`, but cannot satisfy the default `active` permission for all other actions. That authority structure could delegate itself to a different account at any named permission level. If it did so to say a `publish` permission on another account, that would be purely coincidental.
+[[info | Use Case: Social Media]]
+| Say we have a `publish` permission created for message posting on a social media application. However, we do not want to associate that permission with sensitive actions, such as transferring or withdrawing funds. Under this scenario, it makes sense to link the `social::post` action to the `publish` permission. This allows to define an authority structure which can authorize `post`, but cannot satisfy the default `active` permission for all other actions. That authority structure could delegate itself to a different account at any named permission level. If it did so to another `publish` permission on another account, that would be purely coincidental.
 
 
 ### 3.4.2. Signature Validation
 
-Validation/recovery of the public keys that signed a transaction is part of satisfying authorities linked to permissions. After a signed transaction is received by a node, the set of signatures is extracted from the transaction instance. The set of public keys are then recovered from the signatures. Then for all actions that make up the transaction, the software checks that each `actor:permission` meets or exceeds the minimum permission as defined by the per-account permission links.
+Satisfying authorities linked to permissions involves first and foremost the validation/recovery of the public keys that signed the transaction. After a signed transaction is received by a node, the set of signatures is extracted from the transaction instance. The set of public keys are then recovered from the signatures. Then for all actions included in the transaction, the node checks that each `actor:permission` meets or exceeds the minimum permission as defined by the per-account permission links.
 
-Once validated, the set of recovered keys are provided to the authorization manager instance along with the amount of time "waited". The authorization manager then proceeds to check whether the provided "factors" satisfy the authorities, potentially recursing into linked permission levels/authorities - see [3.2. Authority Table](#32-authority-table) and [3.4. Verify Transaction](02_transactions_protocol.md#34-verify-transaction) for more information.
+Once validated, the set of recovered keys are provided to the authorization manager instance along with the amount of time "waited". The authorization manager then proceeds to check whether the provided "factors" satisfy the authorities, potentially recursing into other linked permission levels/authorities - see [3.2. Authority Table](#32-authority-table) and [3.4. Verify Transaction](02_transactions_protocol.md#34-verify-transaction) for more information.
