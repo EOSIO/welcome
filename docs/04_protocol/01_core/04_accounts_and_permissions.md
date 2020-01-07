@@ -7,7 +7,7 @@ content_title: Accounts and Permissions
 
 An account identifies a participant in an EOSIO blockchain. A participant can be an individual or a group depending on the assigned permissions within the account. Accounts also represent the smart contract actors that push and receive actions to and from other accounts in the blockchain. Actions are always contained within transactions. A transaction can be one or more atomic actions.
 
-Permissions associated with an account are used to authorize actions and transactions to other accounts. Each permission is linked to an authority table which contains a threshold that must be reached in order to allow one or more actors to perform the action associated with the given permission. The following diagram illustrates the relationship between accounts, permissions, and authorities. 
+Permissions associated with an account are used to authorize actions and transactions to other accounts. Each permission is linked to an authority table which contains a threshold that must be reached in order to allow the action associated with the given permission to be authorized for execution. The following diagram illustrates the relationship between accounts, permissions, and authorities. 
 
 ```dot-svg
 
@@ -74,7 +74,7 @@ digraph {
 
 ```
 
-The example above depicts _alice_'s account, her named permissions along with their hierarchical dependencies, and her linked _active_ authority table. It also shows that a weight threshold of two must be reached in _alice_'s _active_ authority in order to allow an action associated with the active permission to be executed by or on behalf of _alice_.
+The example above depicts `alice`'s account, her named permissions along with their hierarchical dependencies, and her linked `active` authority table. It also shows that a weight threshold of two must be reached in `alice`'s `active` authority in order to allow an action associated with the active permission to be executed by or on behalf of `alice`.
 
 
 # 2. Accounts
@@ -109,10 +109,10 @@ Permissions control what EOSIO accounts can do and how actions are authorized. T
 
 ## 3.1. Permission Levels
 
-A named permission may be created under another permission, thereby allowing a hierarchical parent-children permission structure. This makes implicit action authorizations possible by allowing a given _actor:child-permission_ authorization within an action to be implicitly satisfied if the _actor:parent-permission_ is also satisfied. An authorization quorum or "threshold" must still be met for the action to be authorized for execution - see [3.2.2. Authority Threshold](#322-authority-threshold).
+A named permission may be created under another permission, thereby allowing a hierarchical parent-children permission structure. This makes implicit action authorizations possible by allowing a given `actor:child-permission` authorization within an action to be implicitly satisfied if the `actor:parent-permission` is also satisfied. An authorization quorum or "threshold" must still be met for the action to be authorized for execution - see [3.2.2. Authority Threshold](#322-authority-threshold).
 
 [[info | Contract-level Permissions]]
-| It is also possible to create an implicit link between two accounts with the same named permission (for authorization satisfaction purposes). This can be achieved by associating an explicit named permission to the smart contract (different from the "minimum permission" for that _contract[::action]_). However, defining explicit _actor:permission_ authorizations within actions is preferred versus associating permissions to the whole contract.
+| It is also possible to create an implicit link between two accounts with the same named permission (for authorization satisfaction purposes). This can be achieved by associating an explicit named permission to the smart contract (different from the "minimum permission" for that `contract[::action]`). However, defining explicit `actor:permission` authorizations within actions is preferred versus associating permissions to the whole contract.
 
 Every account has two default named permissions when created, owner and active. They have a parent-child relationship by default, although this can be customized by adding other permission levels and hierarchies.
 
@@ -124,10 +124,10 @@ The owner permission sits at the root of the permission hierarchy for every acco
 
 ### 3.1.2. Active permission
 
-In the current EOSIO implementation, the implicit default permission linked to all actions is _active_, which sits one level below the _owner_ permission within the hierarchy structure. As a result, the _active_ permission can do anything the _owner_ permission can, except changing the keys associated with the owner. The _active_ permission is typically used for voting, transferring funds, and other account operations. For more specific actions, custom permissions are typically created below the _active_ permission and mapped to specific contracts or actions. Refer to the [single/multi user permission example](https://developers.eos.io/eosio-nodeos/docs/accounts-and-permissions#section-putting-it-all-together) for more details.
+In the current EOSIO implementation, the implicit default permission linked to all actions is `active`, which sits one level below the `owner` permission within the hierarchy structure. As a result, the `active` permission can do anything the `owner` permission can, except changing the keys associated with the owner. The `active` permission is typically used for voting, transferring funds, and other account operations. For more specific actions, custom permissions are typically created below the `active` permission and mapped to specific contracts or actions. Refer to the [single/multi user permission example](https://developers.eos.io/eosio-nodeos/docs/accounts-and-permissions#section-putting-it-all-together) for more details.
 
 [[info | Custom Permissions]]
-| EOSIO allows to create custom permissions and hierarchies in parallel branches that stem from the owner permission. This allows finer control over action authorizations. It also strengthens security in case the _active_ permission gets compromised. For such an alternate permission structure, visit: [https://medium.com/eos-new-york/86ad99fd8c40](https://medium.com/eos-new-york/86ad99fd8c40). 
+| EOSIO allows to create custom permissions and hierarchies in parallel branches that stem from the owner permission. This allows finer control over action authorizations. It also strengthens security in case the `active` permission gets compromised. For such an alternate permission structure, visit: [https://medium.com/eos-new-york/86ad99fd8c40](https://medium.com/eos-new-york/86ad99fd8c40). 
 
 
 ## 3.2. Authority Table
@@ -153,7 +153,7 @@ Authorization over a given action is determined by satisfying all explicit autho
 
 ### 3.2.3. Authority Example
 
-The authority table for _alice_'s _publish_ named permission is shown below. According to its contents, in order to authorize an action under that permission, a threshold of two must be reached. Since both _bob@active_ and _stacy@active_ factors have a weight of two, either one can satisfy the action authorization. This means that either _bob_ or _stacy_ with a permission level of _active_ or higher can independently execute any action under _alice_'s _publish_ permission.
+The authority table for `alice`'s `publish` named permission is shown below. According to its contents, in order to authorize an action under that permission, a threshold of two must be reached. Since both `bob@active` and `stacy@active` factors have a weight of two, either one can satisfy the action authorization. This means that either `bob` or `stacy` with a permission level of `active` or higher can independently execute any action under `alice`'s `publish` permission.
 
 
 <table>
@@ -198,12 +198,12 @@ The authority table for _alice_'s _publish_ named permission is shown below. Acc
 </table>
 
 
-Alternatively, it would require two acounts with public keys _EOS7Hnv4iBfcw2..._ and _EOS3Wo1p9er7fh..._ to satisfy the action authorization. This is because each public key has a weight of 1 in the authority table.
+Alternatively, it would require two acounts with public keys `EOS7Hnv4iBfcw2...` and `EOS3Wo1p9er7fh...` to satisfy the action authorization. This is because each public key has a weight of 1 in the authority table.
 
 
 ## 3.3. Permission Mapping
 
-Any given account can define a mapping between any of its named permissions and a smart contract or action within that contract. This sets the "minimum permission" required for that _contract[::action]_. It does not afford, however, any other account any access or authority to execute that _contract[::action]_. This is by design and the process is controlled by a permission evaluation mechanism, described next.
+Any given account can define a mapping between any of its named permissions and a smart contract or action within that contract. This sets the "minimum permission" required for that `contract[::action]`. It does not afford, however, any other account any access or authority to execute that `contract[::action]`. This is by design and the process is controlled by a permission evaluation mechanism, described next.
 
 
 ## 3.4. Permission Evaluation
@@ -213,18 +213,18 @@ When determining whether an action is authorized to be executed, the EOSIO softw
 
 ### 3.4.1. Custom Permissions
 
-By default every account on the EOSIO blockchain is linked to the _active_ permission. Again, this can be customized by creating children permissions under _active_ or creating alternate permissions under _owner_ - see [3.1. Permission Levels](#31-permission-levels).
+By default every account on the EOSIO blockchain is linked to the `active` permission. Again, this can be customized by creating children permissions under `active` or creating alternate permissions under `owner` - see [3.1. Permission Levels](#31-permission-levels).
 
-[info callout] Creating custom permissions is recommended for custom actions. The security of the account is not compromised if the keys associated with the _active_ permission are compromised.
+[info callout] Creating custom permissions is recommended for custom actions. The security of the account is not compromised if the keys associated with the `active` permission are compromised.
 
 
 #### Use Case: Social Media
 
-Say we have a _publish_ permission intended to control the posting of messages on a social media application. However, we do not want to associate that permission with sensitive actions, such as transferring or withdrawing funds. In this scenario, it makes sense to link the _social::post_ action to the _publish_ permission. This allows to define an authority structure which can authorize _post_, but cannot satisfy the default _active_ permission for all other actions. That authority structure could delegate itself to a different account at any named permission level. If it did so to say a _publish_ permission on another account, that would be purely coincidental.
+Say we have a `publish` permission intended to control the posting of messages on a social media application. However, we do not want to associate that permission with sensitive actions, such as transferring or withdrawing funds. In this scenario, it makes sense to link the `social::post` action to the `publish` permission. This allows to define an authority structure which can authorize `post`, but cannot satisfy the default `active` permission for all other actions. That authority structure could delegate itself to a different account at any named permission level. If it did so to say a `publish` permission on another account, that would be purely coincidental.
 
 
 ### 3.4.2. Signature Validation
 
-Validation/recovery of the public keys that signed a transaction is part of satisfying authorities linked to permissions. After a signed transaction is received by a node, the set of signatures is extracted from the transaction instance. The set of public keys are then recovered from the signatures. Then for all actions that make up the transaction, the software checks that each actor:permission meets or exceeds the minimum permission as defined by the per-account permission links.
+Validation/recovery of the public keys that signed a transaction is part of satisfying authorities linked to permissions. After a signed transaction is received by a node, the set of signatures is extracted from the transaction instance. The set of public keys are then recovered from the signatures. Then for all actions that make up the transaction, the software checks that each `actor:permission` meets or exceeds the minimum permission as defined by the per-account permission links.
 
 Once validated, the set of recovered keys are provided to the authorization manager instance along with the amount of time "waited". The authorization manager then proceeds to check whether the provided "factors" satisfy the authorities, potentially recursing into linked permission levels/authorities - see [3.2. Authority Table](#32-authority-table) and [3.4. Verify Transaction](02_transactions_protocol.md#34-verify-transaction) for more information.
