@@ -3,39 +3,6 @@ content_title: BIOS Boot Sequence
 link_text: BIOS Boot Sequence
 ---
 
-The `bios-boot-tutorial.py` script simulates the EOSIO bios boot sequence.
-
-## Prerequisites
-
-1. Python 3.x
-2. CMake
-3. git
-
-## Steps
-
-1. Install eosio binaries by following the steps outlined in below tutorial
-[Install eosio binaries](https://github.com/EOSIO/eos#mac-os-x-brew-install)
-
-2. Install eosio.cdt binaries by following the steps outlined in below tutorial
-[Install eosio.cdt binaries](https://github.com/EOSIO/eosio.cdt#binary-releases)
-
-3. Compile eosio.contracts sources repository by following the [compile eosio.contracts guidelines](https://github.com/EOSIO/eosio.contracts/blob/master/docs/02_compile-and-deploy.md) first part, the deploying steps from those guidelines should not be executed.
-
-4. Make note of the full path of the directory where the contracts were compiled, if you followed the [compile eosio.contracts guidelines](https://github.com/EOSIO/eosio.contracts/blob/master/docs/02_compile-and-deploy.md) it should be under the `build` folder, in `build/contracts/`, we'll reference it from now on as `EOSIO_CONTRACTS_DIRECTORY`
-
-5. Launch the `bios-boot-tutorial.py` script
-Minimal command line to launch the script below, make sure you replace `EOSIO_CONTRACTS_DIRECTORY` with actual directory
-
-```bash
-cd ~
-git clone https://github.com/EOSIO/eos.git
-cd ./eos/tutorials/bios-boot-tutorial/
-python3 bios-boot-tutorial.py --cleos="cleos" --nodeos=nodeos --keosd=keosd --contracts-dir="/EOSIO_CONTRACTS_DIRECTORY/" -a
-```
-
-See [Tutorial - BIOS Boot Sequence](bios-boot-sequence) for detail steps.
-
-
 > _The steps here can be readily expanded for the networked case. Some assumptions are made here regarding how the parties involved will coordinate with each other. However, there are many ways that the community can choose to coordinate. The technical aspects of the process are objective; assumptions of how the coordination might occur are speculative. Several approaches have already been suggested by the community. You are encouraged to review the various approaches and get involved in the discussions as appropriate._
 
 ## 1. Create, configure and start the genesis node
@@ -49,7 +16,7 @@ If your goal is to go beyond and understand what the script is doing, you can fo
 
 ### **1.1. Install pre-compiled eosio and eosio.cdt binaries**
 
-Go to [Install EOSIO pre-compiled binaries](https://developers.eos.io/eosio-home/docs/setting-up-your-environment) tutorial and install the `nodeos` binaries but do not start the `nodeos` yet .
+Go to [Install EOSIO pre-compiled binaries](https://developers.eos.io/eosio-home/docs/setting-up-your-environment) tutorial and install the `nodeos` binaries but do not start the `nodeos` yet.
 
 Go to [Install EOSIO.CDT binaries](https://github.com/EOSIO/eosio.cdt#binary-releases) tutorial and install the `EOSIO.CDT` binaries; you can stop following that tutorial at the step "Building your first smart contract".
 
@@ -136,6 +103,8 @@ nodeos \
 --genesis-json $DATADIR"/../../genesis.json" \
 --signature-provider EOS_PUB_DEV_KEY=KEY:EOS_PRIV_DEV_KEY \
 --plugin eosio::producer_plugin \
+--plugin eosio::producer_api_plugin \
+--plugin eosio::chain_plugin \
 --plugin eosio::chain_api_plugin \
 --plugin eosio::http_plugin \
 --plugin eosio::history_api_plugin \
@@ -158,7 +127,7 @@ nodeos \
 echo $! > $DATADIR"/eosd.pid"
 
 ```
-Paste the content of your clipboard in the nano text editor.
+Paste the content of your clipboard in the editor of your choice.
 Make sure you replace the `EOS_PUB_DEV_KEY` and `EOS_PRIV_DEV_KEY` with the keys you generated in step 1.2 previously.
 Save and exit (using same keystroke as previous step: `CTRL+X, y, ENTER`).
 
@@ -208,6 +177,8 @@ fi
 nodeos \
 --signature-provider EOS_PUB_DEV_KEY=KEY:EOS_PRIV_DEV_KEY \
 --plugin eosio::producer_plugin \
+--plugin eosio::producer_api_plugin \
+--plugin eosio::chain_plugin \
 --plugin eosio::chain_api_plugin \
 --plugin eosio::http_plugin \
 --plugin eosio::history_api_plugin \
@@ -244,6 +215,8 @@ fi
 nodeos \
 --signature-provider EOS_PUB_DEV_KEY=KEY:EOS_PRIV_DEV_KEY \
 --plugin eosio::producer_plugin \
+--plugin eosio::producer_api_plugin \
+--plugin eosio::chain_plugin \
 --plugin eosio::chain_api_plugin \
 --plugin eosio::http_plugin \
 --plugin eosio::history_api_plugin \
@@ -336,19 +309,40 @@ cd ~
 git clone https://github.com/EOSIO/eosio.contracts.git
 cd ./eosio.contracts/
 ./build.sh
+cd ./build/contracts/
 pwd
-
 ```
+
+You will also need an older version of `eosio.contracts` specifically v1.8.0, so follow the instructions below to build it and remember the path where they are built:
+
+1. Install eosio.cdt version 1.6.3 binaries by following the steps outlined in below tutorial
+[Install eosio.cdt binaries](https://github.com/EOSIO/eosio.cdt/tree/release/1.6.x#binary-releases)
+
+2. After the eosio.cdt 1.6.3 version is installed you can compile the older version of eosio.contracts:
+
+```shell
+cd ~
+git clone https://github.com/EOSIO/eosio.contracts.git eosio.contracts-1.8.x
+cd ./eosio.contracts-1.8.x/
+git checkout release/1.8.x
+./build.sh
+cd ./build/contracts/
+pwd
+```
+
+Make note of the printed local path, we will reference to this directory as `EOSIO_OLD_CONTRACTS_DIRECTORY` from here onward when needed.
 
 ### **1.9. Install the `eosio.token` contract**
 
 Now we have to set the `eosio.token` contract. This contract enables you to create, issue, transfer, and get information about tokens.
-```shell
-cleos set contract eosio.token EOSIO_CONTRACTS_DIRECTORY/build/eosio.token/
 
+```shell
+cleos set contract eosio.token EOSIO_CONTRACTS_DIRECTORY/eosio.token/
 ```
+
+You should see something like this on the command line after the above command is executed:
 ```
-Reading WAST/WASM from /Users/tutorial/Documents/eos/build/contracts/eosio.token/eosio.token.wasm...
+Reading WAST/WASM from /Users/tutorial/Documents/eos/contracts/eosio.token/eosio.token.wasm...
 Using already assembled WASM...
 Publishing contract...
 executed transaction: 17fa4e06ed0b2f52cadae2cd61dee8fb3d89d3e46d5b133333816a04d23ba991  8024 bytes  974 us
@@ -360,8 +354,9 @@ executed transaction: 17fa4e06ed0b2f52cadae2cd61dee8fb3d89d3e46d5b133333816a04d2
 
 Set the `eosio.msig` contract. The msig contract enables and simplifies defining and managing permission levels and performing multi-signature actions.
 ```shell
-cleos set contract eosio.msig EOSIO_CONTRACTS_DIRECTORY/build/eosio.msig/
+cleos set contract eosio.msig EOSIO_CONTRACTS_DIRECTORY/eosio.msig/
 ```
+
 ```
 Reading WAST/WASM from /Users/tutorial/Documents/eos/build/contracts/eosio.msig/eosio.msig.wasm...
 Using already assembled WASM...
@@ -398,11 +393,21 @@ _As a point of interest, from an economic point of view, moving token from reser
 
 ### **1.12. Set the `eosio.system` contract**
 
-Set the `eosio.system` contract. This contract provides the actions for pretty much all token-based operational behavior. Prior to installing the system contract, actions are done independent of accounting. Once the system contract is enabled, actions now have an economic element to them. Resources (cpu, network, memory) must be paid for. Likewise, new accounts must be paid for. The system contract enables tokens to be staked and unstaked, resources to be purchased, potential producers to be registered and subsequently voted on, producer rewards to be claimed, privileges and limits to be set, and more.
-```text
-cleos set contract eosio EOSIO_CONTRACTS_DIRECTORY/build/eosio.system/
+All of the protocol upgrade features introduced in v1.8 and v2.0 first require a special protocol feature (codename `PREACTIVATE_FEATURE`) to be activated and for an updated version of the system contract that makes use of the functionality introduced by that feature to be deployed. 
+So first activate the the special protocol feature `PREACTIVATE_FEATURE` by running the command below:
 
+```shell
+curl --request POST \
+    --url http://127.0.0.1:8888/v1/producer/schedule_protocol_feature_activations \
+    -d '{"protocol_features_to_activate": ["0ec7e080177b2c02b278d5088611686b49d739925a92d9bfcacd7fc6b74053bd"]}'
 ```
+
+Set the `eosio.system` contract. This contract provides the actions for pretty much all token-based operational behavior. Prior to installing the system contract, actions are done independent of accounting. Once the system contract is enabled, actions now have an economic element to them. Resources (cpu, network, memory) must be paid for. Likewise, new accounts must be paid for. The system contract enables tokens to be staked and unstaked, resources to be purchased, potential producers to be registered and subsequently voted on, producer rewards to be claimed, privileges and limits to be set, and more. In the first phase we will install the older version of the `eosio.system` contract.
+
+```shell
+cleos set contract eosio EOSIO_OLD_CONTRACTS_DIRECTORY/eosio.system/
+```
+
 ```
 Reading WAST/WASM from /Users/tutorial/Documents/eos/build/contracts/eosio.system/eosio.system.wasm...
 Using already assembled WASM...
@@ -411,6 +416,53 @@ executed transaction: 2150ed87e4564cd3fe98ccdea841dc9ff67351f9315b6384084e8572a3
 #         eosio <= eosio::setcode               {"account":"eosio","vmtype":0,"vmversion":0,"code":"0061736d0100000001be023060027f7e0060067f7e7e7f7f...
 #         eosio <= eosio::setabi                {"account":"eosio","abi":{"types":[],"structs":[{"name":"buyrambytes","base":"","fields":[{"name":"p...
 ```
+
+After you set the `eosio.system` contract run the below commands to enable the rest of the features which are highly recommended to be enabled for an EOSIO based blockchain; of course you can chose not to have them enabled if you really want to do it this way.
+
+```shell
+# GET_SENDER
+cleos push action eosio activate '["f0af56d2c5a48d60a4a5b5c903edfb7db3a736a94ed589d0b797df33ff9d3e1d"]' -p eosio
+
+# FORWARD_SETCODE
+cleos push action eosio activate '["2652f5f96006294109b3dd0bbde63693f55324af452b799ee137a81a905eed25"]' -p eosio
+
+# ONLY_BILL_FIRST_AUTHORIZER
+cleos push action eosio activate '["8ba52fe7a3956c5cd3a656a3174b931d3bb2abb45578befc59f283ecd816a405"]' -p eosio
+
+# RESTRICT_ACTION_TO_SELF
+cleos push action eosio activate '["ad9e3d8f650687709fd68f4b90b41f7d825a365b02c23a636cef88ac2ac00c43"]' -p eosio
+
+# DISALLOW_EMPTY_PRODUCER_SCHEDULE
+cleos push action eosio activate '["68dcaa34c0517d19666e6b33add67351d8c5f69e999ca1e37931bc410a297428"]' -p eosio
+
+ # FIX_LINKAUTH_RESTRICTION
+cleos push action eosio activate '["e0fb64b1085cc5538970158d05a009c24e276fb94e1a0bf6a528b48fbc4ff526"]' -p eosio
+
+ # REPLACE_DEFERRED
+cleos push action eosio activate '["ef43112c6543b88db2283a2e077278c315ae2c84719a8b25f25cc88565fbea99"]' -p eosio
+
+# NO_DUPLICATE_DEFERRED_ID
+cleos push action eosio activate '["4a90c00d55454dc5b059055ca213579c6ea856967712a56017487886a4d4cc0f"]' -p eosio
+
+# ONLY_LINK_TO_EXISTING_PERMISSION
+cleos push action eosio activate '["1a99a59d87e06e09ec5b028a9cbb7749b4a5ad8819004365d02dc4379a8b7241"]' -p eosio
+
+# RAM_RESTRICTIONS
+cleos push action eosio activate '["4e7bf348da00a945489b2a681749eb56f5de00b900014e137ddae39f48f69d67"]' -p eosio
+
+# WEBAUTHN_KEY
+cleos push action eosio activate '["4fca8bd82bbd181e714e283f83e1b45d95ca5af40fb89ad3977b653c448f78c2"]' -p eosio
+
+# WTMSIG_BLOCK_SIGNATURES
+cleos push action eosio activate '["299dcb6af692324b899b39f16d5a530a33062804e41f09dc97e9f156b4476707"]' -p eosio
+```
+
+Now deploy the latest version of the `eosio.system` contract:
+
+```shell
+cleos set contract eosio EOSIO_CONTRACTS_DIRECTORY/eosio.system/
+```
+
 ## 2. Transition from single genesis producer to multiple producers
 In the next set of steps, we will transition from a single block producer (the genesis node) to multiple producers. Up to this point, only the built-in `eosio` account has been privileged and can sign blocks. The target is to manage the blockchain by a collection of elected producers operating under a rule of 2/3 + 1 producers agreeing before a block is final
 
@@ -541,6 +593,8 @@ nodeos \
 --genesis-json $DATADIR"/../../genesis.json" \
 --signature-provider EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt=KEY:5K7EYY3j1YY14TSFVfqgtbWbrw3FA8BUUnSyFGgwHi8Uy61wU1o \
 --plugin eosio::producer_plugin \
+--plugin eosio::producer_api_plugin \
+--plugin eosio::chain_plugin \
 --plugin eosio::chain_api_plugin \
 --plugin eosio::http_plugin \
 --plugin eosio::history_api_plugin \
@@ -575,6 +629,8 @@ fi
 nodeos \
 --signature-provider EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt=KEY:5K7EYY3j1YY14TSFVfqgtbWbrw3FA8BUUnSyFGgwHi8Uy61wU1o \
 --plugin eosio::producer_plugin \
+--plugin eosio::producer_api_plugin \
+--plugin eosio::chain_plugin \
 --plugin eosio::chain_api_plugin \
 --plugin eosio::http_plugin \
 --plugin eosio::history_api_plugin \
@@ -598,7 +654,7 @@ echo $! > $DATADIR"/eosd.pid"
 
 ```
 
-```text
+```shell
 #!/bin/bash
 DATADIR="./blockchain"
 CURDIRNAME=${PWD##*/}
@@ -610,6 +666,8 @@ fi
 nodeos \
 --signature-provider EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt=KEY:5K7EYY3j1YY14TSFVfqgtbWbrw3FA8BUUnSyFGgwHi8Uy61wU1o \
 --plugin eosio::producer_plugin \
+--plugin eosio::producer_api_plugin \
+--plugin eosio::chain_plugin \
 --plugin eosio::chain_api_plugin \
 --plugin eosio::http_plugin \
 --plugin eosio::history_api_plugin \
