@@ -1,4 +1,8 @@
-To learn about data persistence, write a simple smart contract that functions as an address book. While this use case isn't very practical as a production smart contract for various reasons, it's a good contract to start with to learn how data persistence works on EOSIO without being distracted by business logic that does not pertain to eosio's `multi_index` functionality. 
+---
+content_title: "2.4: Data Persistence"
+link_text: "2.4: Data Persistence"
+---
+To learn about data persistence, write a simple smart contract that functions as an address book. While this use case isn't very practical as a production smart contract for various reasons, it's a good contract to start with to learn how data persistence works on EOSIO without being distracted by business logic that does not pertain to eosio's `multi_index` functionality.
 ## Step 1: Create a new directory
 Earlier, you created a contract directory, navigate there now.
 
@@ -29,9 +33,9 @@ using namespace eosio;
 
 class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
   public:
-       
-  private: 
-  
+
+  private:
+
 };
 ```
 
@@ -41,16 +45,16 @@ Before a table can be configured and instantiated, a struct that represents the 
 ```cpp
 struct person {};
 ```
-When defining the structure of a multi_index table, you will require a unique value to use as the primary key. 
+When defining the structure of a multi_index table, you will require a unique value to use as the primary key.
 
-For this contract, use a field called "key" with type `name`. This contract will have one unique entry per user, so this key will be a consistent and guaranteed unique value based on the user's `name` 
+For this contract, use a field called "key" with type `name`. This contract will have one unique entry per user, so this key will be a consistent and guaranteed unique value based on the user's `name`
 
 ```cpp
 struct person {
- name key; 
+ name key;
 };
 ```
-Since this contract is an address book it probably should store some relevant details for each entry or *person* 
+Since this contract is an address book it probably should store some relevant details for each entry or *person*
 
 ```cpp
 struct person {
@@ -66,7 +70,7 @@ Great. The basic data structure is now complete.
 
 Next, define a `primary_key` method. Every multi_index struct requires a *primary key* to be set. Behind the scenes, this method is used according to the index specification of your multi_index instantiation. EOSIO wraps [boost::multi_index](https://www.boost.org/doc/libs/1_59_0/libs/multi_index/doc/index.html)
 
-Create an method `primary_key()` and return a struct member, in this case, the `key` member as previously discussed. 
+Create an method `primary_key()` and return a struct member, in this case, the `key` member as previously discussed.
 
 ```cpp
 struct person {
@@ -76,7 +80,7 @@ struct person {
  std::string street;
  std::string city;
  std::string state;
- 
+
  uint64_t primary_key() const { return key.value;}
 };
 ```
@@ -90,14 +94,14 @@ Now that the data structure of the table has been defined with a `struct` we nee
 ```cpp
 typedef eosio::multi_index<"people"_n, person> address_index;
 ```
-With the above `multi_index` configuration there is a table named **people**, that 
+With the above `multi_index` configuration there is a table named **people**, that
 
 1. Uses the _n operator to define an eosio::name type and uses that to name the table. This table contains a number of different singular "persons", so name the table "people".
 2. Pass in the singular `person` struct defined in the previous step.
-3. Declare this table's type. This type will be used to instantiate this table later. 
+3. Declare this table's type. This type will be used to instantiate this table later.
 4. There are some additional configurations, such as configuring indices, that will be covered further on.
 
-So far, our file should look like this. 
+So far, our file should look like this.
 
 ```cpp
 #include <eosio/eosio.hpp>
@@ -119,48 +123,48 @@ class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 
       uint64_t primary_key() const { return key.value;}
     };
-  
+
     typedef eosio::multi_index<"people"_n, person> address_index;
 };
 
 ```
 
 ## Step 6: The Constructor
-When working with C++ classes, the first public method you should create is a constructor. 
+When working with C++ classes, the first public method you should create is a constructor.
 
-Our constructor will be responsible for initially setting up the contract. 
+Our constructor will be responsible for initially setting up the contract.
 
-EOSIO contracts extend the *contract* class. Initialize our parent *contract* class with the code name of the contract and the receiver. The important parameter here is the `code` parameter which is the account on the blockchain that the contract is being deployed to. 
+EOSIO contracts extend the *contract* class. Initialize our parent *contract* class with the code name of the contract and the receiver. The important parameter here is the `code` parameter which is the account on the blockchain that the contract is being deployed to.
 
 ```cpp
 addressbook(name receiver, name code, datastream<const char*> ds):contract(receiver, code, ds) {}
 ```
 
 ## Step 7: Adding a record to the table
-Previously, the primary key of the multi-index table was defined to enforce that this contract will only store one record per user. To make it all work, some assumptions about the design need to be established. 
+Previously, the primary key of the multi-index table was defined to enforce that this contract will only store one record per user. To make it all work, some assumptions about the design need to be established.
 
-1. The only account authorized to modify the address book is the user. 
+1. The only account authorized to modify the address book is the user.
 2. the **primary_key** of our table is unique, based on username
 3. For usability, the contract should have the ability to both create and modify a table row with a single action.
 
-In eosio a chain has unique accounts, so `name` is an ideal candidate as a **primary_key** in this specific use case. The [name](https://eosio.github.io/eosio.cdt/1.6.0/group__name.html) type is a `uint64_t`. 
+In eosio a chain has unique accounts, so `name` is an ideal candidate as a **primary_key** in this specific use case. The [name](https://eosio.github.io/eosio.cdt/1.6.0/group__name.html) type is a `uint64_t`.
 
-Next, define an action for the user to add or update a record. This action will need to accept any values that this action needs to be able to emplace (create) or modify. 
+Next, define an action for the user to add or update a record. This action will need to accept any values that this action needs to be able to emplace (create) or modify.
 
-For user-experience and interface simplicity, have a single method be responsible for both creation and modification of rows. Because of this behavior, name it "upsert," a combination of "update" and "insert." 
+For user-experience and interface simplicity, have a single method be responsible for both creation and modification of rows. Because of this behavior, name it "upsert," a combination of "update" and "insert."
 
 ```cpp
 void upsert(
-  name user, 
-  std::string first_name, 
-  std::string last_name, 
-  std::string street, 
-  std::string city, 
+  name user,
+  std::string first_name,
+  std::string last_name,
+  std::string street,
+  std::string city,
   std::string state
 ) {}
 ```
 
-Earlier, it was mentioned that only the user has control over their own record, as this contract is opt-in. To do this, utilize the [require_auth](https://eosio.github.io/eosio.cdt/1.6.0/group__action.html#function-requireauth) method provided by the `eosio.cdt`. This method accepts an `name` type argument and asserts that the account executing the transaction equals the provided value and has the proper permissions to do so. 
+Earlier, it was mentioned that only the user has control over their own record, as this contract is opt-in. To do this, utilize the [require_auth](https://eosio.github.io/eosio.cdt/1.6.0/group__action.html#function-requireauth) method provided by the `eosio.cdt`. This method accepts an `name` type argument and asserts that the account executing the transaction equals the provided value and has the proper permissions to do so.
 
 ```cpp
 void upsert(name user, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
@@ -168,11 +172,11 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
 }
 ```
 
-Previously, a multi_index table was configured, and declared as `address_index`. To instantiate a table, two parameters are required: 
+Previously, a multi_index table was configured, and declared as `address_index`. To instantiate a table, two parameters are required:
 
 1. The first parameter "code", which specifies the owner of this table. As the owner, the account will be charged for storage costs.  Also, only that account can modify or delete the data in this table unless another payer is specified. Here we use the `get_self()` function which will pass the name of this contract.
 
-2. The second parameter "scope" which ensures the uniqueness of the table within this contract. In this case, since we only have one table we can use the value from `get_first_receiver()`. *`get_first_receiver` is the account name this contract is deployed to.* 
+2. The second parameter "scope" which ensures the uniqueness of the table within this contract. In this case, since we only have one table we can use the value from `get_first_receiver()`. *`get_first_receiver` is the account name this contract is deployed to.*
 
 Note that scopes are used to logically separate tables within a multi-index (see the eosio.token contract multi-index for an example, which scopes the table on the token owner).  Scopes were originally intended to separate table state in order to allow for parallel computation on the individual sub-tables.  However, currently inter-blockchain communication has been prioritized over parallelism.  Because of this, scopes are currently only used to logically separate the tables as in the case of eosio.token.
 
@@ -194,7 +198,7 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
 ```
 Security has been established and the table instantiated, great!  Next up, write the code for creating or modifying the table.  
 
-First, detect whether a particular user already exists in the table. To do this, use table's [find](https://eosio.github.io/eosio.cdt/1.6.0/classeosio_1_1multi__index.html#function-find) method by passing the `user` parameter. The find method will return an iterator. Use that iterator to test it against the [end](https://eosio.github.io/eosio.cdt/1.6.0/classeosio_1_1multi__index.html#function-end) method. The "end" method is an alias for "null". 
+First, detect whether a particular user already exists in the table. To do this, use table's [find](https://eosio.github.io/eosio.cdt/1.6.0/classeosio_1_1multi__index.html#function-find) method by passing the `user` parameter. The find method will return an iterator. Use that iterator to test it against the [end](https://eosio.github.io/eosio.cdt/1.6.0/classeosio_1_1multi__index.html#function-end) method. The "end" method is an alias for "null".
 
 ```cpp
 void upsert(name user, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
@@ -210,7 +214,7 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
   }
 }
 ```
-Create a record in the table using the multi_index method [emplace](https://eosio.github.io/eosio.cdt/1.6.0/classeosio_1_1multi__index.html#function-emplace). This method accepts two arguments, the "payer" of this record who pays the storage usage and a callback function. 
+Create a record in the table using the multi_index method [emplace](https://eosio.github.io/eosio.cdt/1.6.0/classeosio_1_1multi__index.html#function-emplace). This method accepts two arguments, the "payer" of this record who pays the storage usage and a callback function.
 
 The callback function for the emplace method must use a lamba function to create a reference. Inside the body assign the row's values with the ones provided to `upsert`.
 
@@ -236,9 +240,9 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
 }
 ```
 Next, handle the modification, or update, case of the "upsert" function. Use the [modify](https://eosio.github.io/eosio.cdt/1.6.0/classeosio_1_1multi__index.html#function-modify-12) method, passing a few arguments:
-- The iterator defined earlier, presently set to the user as declared when calling this action. 
+- The iterator defined earlier, presently set to the user as declared when calling this action.
 - The "payer", who will pay for the storage cost of this row, in this case, the user.
-- The callback function that actually modifies the row. 
+- The callback function that actually modifies the row.
 
 ```cpp
 void upsert(name user, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
@@ -270,9 +274,9 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
 ```
 The `addressbook` contract now has a functional action that will enable a user to create a row in the table if that record does not yet exist, and modify it if it already exists.
 
-But what if the user wants to remove the record entirely? 
+But what if the user wants to remove the record entirely?
 ## Step 8: Remove record from the table
-Similar to the previous steps, create a public method in the `addressbook`, making sure to include the ABI declarations and a [require_auth](https://eosio.github.io/eosio.cdt/1.6.0/group__action.html#function-requireauth) that tests against the action's argument `user` to verify only the owner of a record can modify their account. 
+Similar to the previous steps, create a public method in the `addressbook`, making sure to include the ABI declarations and a [require_auth](https://eosio.github.io/eosio.cdt/1.6.0/group__action.html#function-requireauth) that tests against the action's argument `user` to verify only the owner of a record can modify their account.
 
 ```cpp
     void erase(name user){
@@ -280,7 +284,7 @@ Similar to the previous steps, create a public method in the `addressbook`, maki
     }
 
 ```
-Instantiate the table. In `addressbook` each account has only one record. Set `iterator` with [find](https://eosio.github.io/eosio.cdt/1.6.0/classeosio_1_1multi__index.html#function-find) 
+Instantiate the table. In `addressbook` each account has only one record. Set `iterator` with [find](https://eosio.github.io/eosio.cdt/1.6.0/classeosio_1_1multi__index.html#function-find)
 
 ```cpp
 ...
@@ -326,7 +330,7 @@ Above both the `upsert` and `erase` functions add the following C++11 declaratio
 ```cpp
 [[eosio::action]]
 ```
-The above declaration will extract the arguments of the action and create necessary ABI *struct* descriptions in the generated ABI file. 
+The above declaration will extract the arguments of the action and create necessary ABI *struct* descriptions in the generated ABI file.
 
 ## 9.2 ABI Table Declarations
 Add an ABI declaration to the table. Modify the following line defined in the private region of your contract:
@@ -339,7 +343,7 @@ To this:
 ```cpp
 struct [[eosio::table]] person {
 ```
-The `[[eosio.table]]` declaration will add the necessary descriptions to the ABI file. 
+The `[[eosio.table]]` declaration will add the necessary descriptions to the ABI file.
 
 Now our contract is ready to be compiled.
 
@@ -353,7 +357,7 @@ using namespace eosio;
 class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 
 public:
-  
+
   addressbook(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}
 
   [[eosio::action]]
@@ -433,13 +437,13 @@ Add Ricardian Contract definitions to this file:
 spec-version: 0.0.2
 title: Upsert
 summary: This action will either insert or update an entry in the address book. If an entry exists with the same name as the specified user parameter, the record is updated with the first_name, last_name, street, city, and state parameters. If a record does not exist, a new record is created. The data is stored in the multi index table. The ram costs are paid by the smart contract.
-icon: 
+icon:
 
 <h1 class="contract">erase</h1>
 ---
 spec-version: 0.0.2
 title: Erase
-summary: This action will remove an entry from the address book if an entry in the multi index table exists with the specified name. 
+summary: This action will remove an entry from the address book if an entry in the multi index table exists with the specified name.
 icon:
 ```
 
@@ -457,7 +461,7 @@ Add Ricardian clause definitions to this file:
 spec-version: 0.0.1
 title: General Data Storage
 summary: This smart contract will store data added by the user. The user consents to the storage of this data by signing the transaction.
-icon: 
+icon:
 
 
 <h1 class="clause">Data Usage</h1>
@@ -465,29 +469,29 @@ icon:
 spec-version: 0.0.1
 title: General Data Use
 summary: This smart contract will store user data. The smart contract will not use the stored data for any purpose outside store and delete.
-icon: 
+icon:
 
 <h1 class="clause">Data Ownership</h1>
 ---
 spec-version: 0.0.1
 title: Data Ownership
 summary: The user of this smart contract verifies that the data is owned by the smart contract, and that the smart contract can use the data in accordance to the terms defined in the Ricardian Contract.
-icon: 
+icon:
 
 <h1 class="clause">Data Distirbution</h1>
 ---
 spec-version: 0.0.1
 title: Data Distirbution
 summary: The smart contract promises to not actively share or distribute the address data. The user of the smart contract understands that data stored in a multi index table is not private data and can be accessed by any user of the blockchain.  
-icon: 
+icon:
 
 
 <h1 class="clause">Data Future</h1>
 ---
 spec-version: 0.0.1
 title: Data Future
-summary: The smart contract promises to only use the data in accordance of the terms defined in the Ricardian Contract, now and at all future dates. 
-icon: 
+summary: The smart contract promises to only use the data in accordance of the terms defined in the Ricardian Contract, now and at all future dates.
+icon:
 
 ```
 
@@ -495,7 +499,7 @@ icon:
 Execute the following command from your terminal.
 
 ```shell
-eosio-cpp addressbook.cpp -o addressbook.wasm 
+eosio-cpp addressbook.cpp -o addressbook.wasm
 ```
 
 If you created a Ricardian contract and Ricardian clauses, the definitions will appear in the .abi file. An example for the addressbook.cpp, built including the contract and clause definitions described above is shown below.
@@ -655,7 +659,7 @@ executed transaction: 003f787824c7823b2cc8210f34daed592c2cfa66cbbfd4b904308b0dfe
 #   addressbook <= addressbook::upsert          {"user":"alice","first_name":"alice","last_name":"liddell","street":"123 drink me way","city":"wonde...
 ```
 
-Check that **alice** cannot add records for another user. 
+Check that **alice** cannot add records for another user.
 
 ```text
 cleos push action addressbook upsert '["bob", "bob", "is a loser", "doesnt exist", "somewhere", "someplace"]' -p alice@active

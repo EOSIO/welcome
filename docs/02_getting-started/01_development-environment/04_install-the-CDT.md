@@ -1,3 +1,8 @@
+---
+content_title: "1.3: Install the Contract Dev. Toolkit"
+link_text: "1.3: Install the CDT"
+---
+
 The EOSIO Contract Development Toolkit, CDT for short, is a collection of tools related to contract compilation. Subsequent tutorials use the CDT primarily for compiling contracts and generating ABIs.
 
 Starting from 1.3.x, CDT supports Mac OS X brew, Linux Debian and RPM packages. The easiest option to install would be using one of these package systems. Pick one installation method only.
@@ -14,7 +19,7 @@ brew install eosio.cdt
 ```shell
 brew remove eosio.cdt
 ```
-# Ubuntu (Debian) 
+# Ubuntu (Debian)
 
 ## Install
 ```shell
@@ -26,7 +31,7 @@ sudo apt install ./eosio.cdt_1.6.3-1_amd64.deb
 ```shell
 sudo apt remove eosio.cdt
 ```
-# CentOS/Redhat (RPM) 
+# CentOS/Redhat (RPM)
 ## Install
 ```shell
 wget https://github.com/EOSIO/eosio.cdt/releases/download/v1.6.3/eosio.cdt-1.6.3-1.el7.x86_64.rpm
@@ -39,12 +44,12 @@ $ sudo yum remove eosio.cdt
 ```
 # Install from Source
 
-The location where `eosio.cdt` is cloned is not that important because you will be installing `eosio.cdt` as a local binary in later steps. For now, you can clone `eosio.cdt` to your "contracts" directory previously created, or really anywhere else on your local system you see fit. 
+The location where `eosio.cdt` is cloned is not that important because you will be installing `eosio.cdt` as a local binary in later steps. For now, you can clone `eosio.cdt` to your "contracts" directory previously created, or really anywhere else on your local system you see fit.
 ```text
 cd CONTRACTS_DIR
 ```
 ## Download
-Clone version 1.6.1 of the `eosio.cdt` repository. 
+Clone version 1.6.1 of the `eosio.cdt` repository.
 ```text
 git clone --recursive https://github.com/eosio/eosio.cdt --branch v1.6.3 --single-branch
 cd eosio.cdt
@@ -61,7 +66,7 @@ In case you are using a virtual machine. It should be configured with at least 2
 ```shell
 sudo ./install.sh
 ```
-The above command needs to be ran with `sudo` because `eosio.cdt`'s various binaries will be installed locally. You will be asked for your computer's account password. 
+The above command needs to be ran with `sudo` because `eosio.cdt`'s various binaries will be installed locally. You will be asked for your computer's account password.
 
 Installing `eosio.cdt` will make the compiled binary global so it can be accessable anywhere. For this tutorial, **it is strongly suggested that you do not skip the install step for eosio.cdt**, failing to install will make it more difficult to follow this and other tutorials, and make usage in general more difficult.
 ## Troubleshooting

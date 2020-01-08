@@ -1,3 +1,7 @@
+---
+content_title: "2.7: Inline Actions to External Contracts"
+link_text: "2.7: Inline Actions to External Contracts"
+---
 Previously, we sent an inline action to an action that was defined in the contract. In this part of the tutorial, we'll explore sending actions to an external contract. Since we've already gone over quite a bit of contract authoring, we'll keep this contract extremely simple. We'll author a contract that counts actions written by the contract. This contract has very little real-world use, but will demonstrate inline action calls to an external contract
 
 ## Step 1: The Addressbook Counter Contract
@@ -9,7 +13,7 @@ cd CONTRACTS_DIR
 mkdir abcounter
 touch abcounter.cpp
 ```
-Open the `abcounter.cpp` file in your favorite editor and paste the following code into the file. This contract is very basic, and for the most part does not cover much that we haven't already covered up until this point. There are a few exceptions though, and they are covered in full below. 
+Open the `abcounter.cpp` file in your favorite editor and paste the following code into the file. This contract is very basic, and for the most part does not cover much that we haven't already covered up until this point. There are a few exceptions though, and they are covered in full below.
 
 ```cpp
 #include <eosio/eosio.hpp>
@@ -26,7 +30,7 @@ class [[eosio::contract("abcounter")]] abcounter : public eosio::contract {
       require_auth( name("addressbook"));
       count_index counts(get_first_receiver(), get_first_receiver().value);
       auto iterator = counts.find(user.value);
-      
+
       if (iterator == counts.end()) {
         counts.emplace("addressbook"_n, [&]( auto& row ) {
           row.key = user;
@@ -60,7 +64,7 @@ class [[eosio::contract("abcounter")]] abcounter : public eosio::contract {
 ```
 The first new concept in the code above is that we are explicitly restricting calls to the one action to a **specific account** in this contract using [require_auth](https://eosio.github.io/eosio.cdt/group__action.html#function-requireauth) to the `addressbook` contract, as seen below.
 ```cpp
-//Only the addressbook account/contract can authorize this command. 
+//Only the addressbook account/contract can authorize this command.
 require_auth( name("addressbook"));
 ```
 Previously, a dynamic value was used with `require_auth`.
@@ -95,9 +99,9 @@ Navigate to your addressbook directory now.
 cd CONTRACTS_DIR/addressbook
 ```
 
-Open the `addressbook.cpp` file in your favorite editor if not already open. 
+Open the `addressbook.cpp` file in your favorite editor if not already open.
 
-In the last part of this series, we went over inline actions to our own contract. This time, we are going to send an inline action to another contract, our new `abcounter` contract. 
+In the last part of this series, we went over inline actions to our own contract. This time, we are going to send an inline action to another contract, our new `abcounter` contract.
 
 Create another helper called `increment_counter` under the `private` declaration of the contract as below:
 ```cpp
@@ -116,7 +120,7 @@ Unlike the `Adding Inline Actions` tutorial, we won't need to specify the action
 
 In line 3 we call the action with the data, namely `user` and `type` which are required by the `abcounter` contract.
 
-Now, add the following calls to the helpers in their respective action scopes. 
+Now, add the following calls to the helpers in their respective action scopes.
 
 ```text
 //Emplace
@@ -136,11 +140,11 @@ using namespace eosio;
 class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 
 public:
-  
+
   addressbook(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}
 
   [[eosio::action]]
-  void upsert(name user, std::string first_name, std::string last_name, 
+  void upsert(name user, std::string first_name, std::string last_name,
       uint64_t age, std::string street, std::string city, std::string state) {
     require_auth(user);
     address_index addresses(get_first_receiver(), get_first_receiver().value);
@@ -203,7 +207,7 @@ private:
     std::string street;
     std::string city;
     std::string state;
-  
+
     uint64_t primary_key() const { return key.value; }
     uint64_t get_secondary_1() const { return age;}
   };
@@ -222,7 +226,7 @@ private:
     count.send(user, type);
   }
 
-  typedef eosio::multi_index<"people"_n, person, 
+  typedef eosio::multi_index<"people"_n, person,
     indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>
   > address_index;
 };
@@ -304,7 +308,7 @@ cleos push action abcounter count '["alice", "erase"]' -p alice@active
 ```
 Checking the table in `abcounter` we'll see the following:
 ```shell
-cleos get table abcounter abcounter counts --lower alice 
+cleos get table abcounter abcounter counts --lower alice
 ```
 
 ```shell
@@ -331,7 +335,7 @@ using namespace eosio;
 class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 
 public:
-  
+
   addressbook(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}
 
   [[eosio::action]]
@@ -358,12 +362,12 @@ public:
     else {
       std::string changes;
       addresses.modify(iterator, user, [&]( auto& row ) {
-        
+
         if(row.first_name != first_name) {
           row.first_name = first_name;
           changes += "first name ";
         }
-        
+
         if(row.last_name != last_name) {
           row.last_name = last_name;
           changes += "last name ";
@@ -378,12 +382,12 @@ public:
           row.street = street;
           changes += "street ";
         }
-        
+
         if(row.city != city) {
           row.city = city;
           changes += "city ";
         }
-        
+
         if(row.state != state) {
           row.state = state;
           changes += "state ";
@@ -417,7 +421,7 @@ public:
   }
 
 private:
-  
+
   struct [[eosio::table]] person {
     name key;
     std::string first_name;
@@ -440,7 +444,7 @@ private:
   };
 
   void increment_counter(name user, std::string type) {
-    
+
     action counter = action(
       permission_level{get_self(),"active"_n},
       "abcounter"_n,

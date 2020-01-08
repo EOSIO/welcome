@@ -1,3 +1,7 @@
+---
+content_title: "2.1: Hello World Contract"
+link_text: "2.1: Hello World Contract"
+---
 Create a new directory called "hello" in the contracts directory you previously created, or through your system GUI or with cli and enter the directory.
 
 ```shell
@@ -10,7 +14,7 @@ Create a new file, "hello.cpp" and open it in your favourite editor.
 ```shell
 touch hello.cpp
 ```
-Below the `eosio.hpp` header file is included. The `eosio.hpp` file includes a few classes required to write a smart contract. 
+Below the `eosio.hpp` header file is included. The `eosio.hpp` file includes a few classes required to write a smart contract.
 
 ```cpp
 #include <eosio/eosio.hpp>
@@ -29,7 +33,7 @@ using namespace eosio;
 
 class [[eosio::contract]] hello : public contract {};
 ```
-An empty contract doesn't do much good. Add a public access specifier and a using-declaration. The `using` declaration will allow us to write more concise code. 
+An empty contract doesn't do much good. Add a public access specifier and a using-declaration. The `using` declaration will allow us to write more concise code.
 
 ```cpp
 #include <eosio/eosio.hpp>
@@ -41,7 +45,7 @@ class [[eosio::contract]] hello : public contract {
   	 using contract::contract;
 };
 ```
-This contract needs to do something. In the spirit of **hello world** write an action that accepts a "name" parameter, and then prints that parameter out. 
+This contract needs to do something. In the spirit of **hello world** write an action that accepts a "name" parameter, and then prints that parameter out.
 
 [Actions](https://developers.eos.io/eosio-cpp/docs/communication-model) implement the behaviour of a contract
 
@@ -53,7 +57,7 @@ using namespace eosio;
 class [[eosio::contract]] hello : public contract {
   public:
       using contract::contract;
-  
+
       [[eosio::action]]
       void hi( name user ) {
          print( "Hello, ", user);
@@ -62,7 +66,7 @@ class [[eosio::contract]] hello : public contract {
 ```
 The above action accepts a parameter called `user` that's a [`name`](https://eosio.github.io/eosio.cdt/structeosio_1_1name.html) type. EOSIO comes with a number of typedefs, one of the most common typedefs you'll encounter is `name`. Using the `eosio::print` library previously included, concatenate a string and print the `user` parameter. Use the braced initialization of `name{user}` to make the `user` parameter printable.
 
-As is, the ABI <<glossary:ABI>> generator in `eosio.cdt` won't know about the `hi()` action without an attribute. Add a C++11 style attribute above the action, this way the abi generator can produce more reliable output. 
+As is, the ABI <<glossary:ABI>> generator in `eosio.cdt` won't know about the `hi()` action without an attribute. Add a C++11 style attribute above the action, this way the abi generator can produce more reliable output.
 
 ```cpp
 #include <eosio/eosio.hpp>
@@ -105,7 +109,7 @@ You can compile your code to web assembly (.wasm) as follows:
 ```shell
 eosio-cpp hello.cpp -o hello.wasm
 ```
-When a contract is deployed, it is deployed to an account, and the account becomes the interface for the contract. As mentioned earlier these tutorials use the same public key for all of the accounts to keep things simple. 
+When a contract is deployed, it is deployed to an account, and the account becomes the interface for the contract. As mentioned earlier these tutorials use the same public key for all of the accounts to keep things simple.
 
 ```shell
 cleos wallet keys
@@ -115,7 +119,7 @@ Create an account for the contract using [cleos create account](https://develope
 ```shell
 cleos create account eosio hello YOUR_PUBLIC_KEY -p eosio@active
 ```
-Deploy the compiled `wasm` to the blockchain with [cleos set contract](https://developers.eos.io/eosio-cleos/reference#cleos-set-contract). 
+Deploy the compiled `wasm` to the blockchain with [cleos set contract](https://developers.eos.io/eosio-cleos/reference#cleos-set-contract).
 [[info]]
 |Get an error?
 Either your wallet needs to be unlocked, or you did not alias cleos as mentioned in step [1.3](https://developers.eos.io/eosio-home/docs/getting-the-software#section-step-4-aliasing-cleos).
@@ -150,9 +154,9 @@ executed transaction: 28d92256c8ffd8b0255be324e4596b7c745f50f85722d0c4400471bc18
 #    hello.code <= hello.code::hi               {"user":"bob"}
 >> Hello, bob
 ```
-As expected, the console output is "Hello, bob" 
+As expected, the console output is "Hello, bob"
 
-In this case "alice" is the one who authorized it and `user` is just an argument. Modify the contract so that the authorizing user, "alice" in this case, must be the same as the user the contract is responding "hi" to. Use the `require_auth` method. This method takes a `name` as a parameter, and will check if the user executing the action matches the provided parameter. 
+In this case "alice" is the one who authorized it and `user` is just an argument. Modify the contract so that the authorizing user, "alice" in this case, must be the same as the user the contract is responding "hi" to. Use the `require_auth` method. This method takes a `name` as a parameter, and will check if the user executing the action matches the provided parameter.
 
 ```cpp
 void hi( name user ) {
@@ -171,19 +175,19 @@ And then update it
 ```shell
 cleos set contract hello CONTRACTS_DIR/hello -p hello@active
 ```
-Try to execute the action again, but this time with mismatched authorization. 
+Try to execute the action again, but this time with mismatched authorization.
 
 ```shell
 cleos push action hello hi '["bob"]' -p alice@active
 ```
-As expected, `require_auth` halted the transaction and threw an error. 
+As expected, `require_auth` halted the transaction and threw an error.
 
 ```shell
 Error 3090004: Missing required authority
 Ensure that you have the related authority inside your transaction!;
 If you are currently using 'cleos push action' command, try to add the relevant authority using -p option.
 ```
-Now, with our change, the contract verifies the provided `name user` is the same as the authorising user. Try it again, but this time, with the authority of the "alice" account. 
+Now, with our change, the contract verifies the provided `name user` is the same as the authorising user. Try it again, but this time, with the authority of the "alice" account.
 
 ```shell
 cleos push action hello hi '["alice"]' -p alice@active

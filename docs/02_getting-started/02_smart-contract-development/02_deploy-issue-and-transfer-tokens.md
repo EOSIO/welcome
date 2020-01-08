@@ -1,3 +1,7 @@
+---
+content_title: "2.2: Deploy, Issue and Transfer Tokens"
+link_text: "2.2: Deploy, Issue and Transfer Tokens"
+---
 ## Step 1: Obtain Contract Source
 
 Navigate to your contracts directory.
@@ -98,7 +102,7 @@ This time the output contains several actions: one `issue` action and three `tra
 
 Technically, the `eosio.token` contract could have skipped the `inline transfer` and opted to just modify the balances directly.  However, in this case the `eosio.token` contract is following a token convention that requires that all account balances be derivable by the sum of the transfer actions that reference them.  It also requires that the sender and receiver of funds be notified so they can automate handling deposits and withdrawals.
 
-To inspect the transaction, try using the `-d -j` options, which indicate "don't broadcast" and "return the transaction as json", which you may find useful during development. 
+To inspect the transaction, try using the `-d -j` options, which indicate "don't broadcast" and "return the transaction as json", which you may find useful during development.
 
 ```shell
 cleos push action eosio.token issue '["alice", "100.0000 SYS", "memo"]' -p alice@active -d -j

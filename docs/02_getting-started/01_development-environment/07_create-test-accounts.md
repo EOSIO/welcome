@@ -1,3 +1,7 @@
+---
+content_title: "1.6: Create Test Accounts"
+link_text: "1.6: Create Test Accounts"
+---
 ## What is an account?
 An account is a collection of authorisations, stored on the blockchain, and used to identify a sender/recipient. It has a flexible authorisation structure that enables it to be owned either by an individual or group of individuals depending on **how** permissions have been configured. An account is required to send or receive a valid transaction to the blockchain
 
@@ -10,7 +14,7 @@ This tutorial series uses two "user" accounts, `bob` and `alice`, as well as the
 Throughout these tutorials the accounts `bob` and `alice` are used. Create two accounts using [cleos create account](https://developers.eos.io/eosio-cleos/reference#cleos-create-account)
 
 ```shell
-cleos create account eosio bob YOUR_PUBLIC_KEY 
+cleos create account eosio bob YOUR_PUBLIC_KEY
 cleos create account eosio alice YOUR_PUBLIC_KEY
 ```
 You should then see a confirmation message similar to the following for each command that confirms that the transaction has been broadcast.
@@ -51,7 +55,7 @@ cpu bandwidth:
      available:          unlimited
      limit:              unlimited
 ```
-Notice that actually `alice` has both `owner` and `active` public keys. EOSIO has a unique authorization structure that has added security for your account. You can minimize the exposure of your account by keeping the owner key cold, while using the key associated with your `active` permission. This way, if your `active` key were ever compromised, you could regain control over your account with your `owner` key. 
+Notice that actually `alice` has both `owner` and `active` public keys. EOSIO has a unique authorization structure that has added security for your account. You can minimize the exposure of your account by keeping the owner key cold, while using the key associated with your `active` permission. This way, if your `active` key were ever compromised, you could regain control over your account with your `owner` key.
 
 In term of authorization, if you have a `owner` permission you can change the private key of `active` permission. But you cannot do so other way around.
 [[info]]

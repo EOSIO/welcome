@@ -1,3 +1,8 @@
+---
+content_title: "1.2: Before You Begin"
+link_text: "1.2: Before You Begin"
+---
+
 [[info]]
 | Looking for the version of this series that uses [Docker](https://developers.eos.io/eosio-home/v1.7.0/docs/introduction)?
 
@@ -38,7 +43,7 @@ sudo yum install ./eosio-1.8.6-1.el7.x86_64.rpm
 | If you have previous versions of eosio installed on your system, please uninstall before proceeding. Detail instruction see [here](https://github.com/EOSIO/eos/blob/master/README.md)
 
 ## Step 2: Setup a development directory, stick to it.
-You're going to need to pick a directory to work from, it's suggested to create a `contracts` directory somewhere on your local drive. 
+You're going to need to pick a directory to work from, it's suggested to create a `contracts` directory somewhere on your local drive.
 ```shell
 mkdir contracts
 cd contracts
