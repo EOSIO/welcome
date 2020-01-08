@@ -1,5 +1,5 @@
 {
-  "name": "Welcome",
+  "name": "documentation-root",
   "generators": [
     {
       "name": "collate_markdown",
@@ -19,7 +19,7 @@
   "children": [
     { "repo": "eosio.cdt", "path": "manuals/eosio.cdt", "tagged": "true" },
     { "repo": "eosio.contracts", "path": "manuals/eosio.contracts", "tagged": "true" },
-    { "repo": "eos", "path": "manuals/eosio", "tagged": "true" },
+    { "repo": "eos", "path": "manuals/eos", "tagged": "true" },
     { "repo": "eosjs", "path": "manuals/eosjs", "tagged": "true" }
   ],
   "site_properties": {
@@ -29,16 +29,20 @@
         "path": "/getting-started"
       },
       {
-        "text": "User Guides",
-        "path": "/user-guides"
+        "text": "Software Manuals",
+        "path": "/software-manuals"
       },
       {
-        "text": "API Reference",
+        "text": "Reference",
         "path": "/reference"
       },
       {
         "text": "Resources",
         "path": "/resources"
+      },
+      {
+        "text": "Glossary",
+        "path": "/glossary"
       }
     ],
     "landing_page": {
@@ -50,7 +54,7 @@
           },
           {
             "text": "User Guides",
-            "link": "/user-guides"
+            "link": "/software-manuals"
           },
           {
             "text": "API Reference",
@@ -98,7 +102,7 @@
           "text": "Learn how to implement the core modules of EOSIO platform in your applications",
           "button": {
             "text": "EXPLORE THE STACK",
-            "link": "/user-guides"
+            "link": "/software-manuals"
           }
         },
         {

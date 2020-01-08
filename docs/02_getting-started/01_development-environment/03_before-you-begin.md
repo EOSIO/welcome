@@ -1,6 +1,6 @@
 ---
-content_title: "1.2: Introduction"
-link_text: "1.2: Introduction"
+content_title: "1.2: Before You Begin"
+link_text: "1.2: Before You Begin"
 ---
 
 [[info]]
