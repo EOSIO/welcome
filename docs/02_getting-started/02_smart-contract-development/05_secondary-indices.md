@@ -1,3 +1,7 @@
+---
+content_title: "2.5: Secondary Indices"
+link_text: "2.5: Secondary Indices"
+---
 EOSIO has the ability to sort tables by up to 16 indices. In the following section, we're going to add another index to the `addressbook` contract, so we can iterate through the records in a different way.
 
 ## Step 1: Remove existing data from table
@@ -16,7 +20,7 @@ cleos push action addressbook erase '["bob"]' -p bob@active
 
 ## Step 2: Add new index member and getter
 
-Add a new member variable and its getter to the `addressbook.cpp` contract. Since the secondary index needs to be numeric field, a `uint64_t` age variable is added. 
+Add a new member variable and its getter to the `addressbook.cpp` contract. Since the secondary index needs to be numeric field, a `uint64_t` age variable is added.
 
 ```cpp
 uint64_t age;
@@ -28,18 +32,18 @@ uint64_t get_secondary_1() const { return age;}
 A field has been defined as the secondary index, next the  `address_index` table needs to be reconfigured.
 
 ```cpp
-typedef eosio::multi_index<"people"_n, person, 
+typedef eosio::multi_index<"people"_n, person,
 indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>
   > address_index;
 ```
 
-In the third parameter, we pass a `index_by` struct which is used to instantiate a index. 
+In the third parameter, we pass a `index_by` struct which is used to instantiate a index.
 
 In that `index_by` struct, we specify the name of index as `"byage"` and the second type parameter as a function call operator which extracts a const value as an index key. In this case, we point it to the getter we created earlier so this multiple index table will index records by the `age` variable.
 
 ```cpp
 indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>
-  
+
 ```
 
 ## Step 4: Modify code
@@ -63,7 +67,7 @@ void upsert(name user, std::string first_name, std::string last_name, uint64_t a
       row.first_name = first_name;
       row.last_name = last_name;
       // -- Add code below --
-      row.age = age; 
+      row.age = age;
       row.street = street;
       row.city = city;
       row.state = state;
@@ -181,7 +185,7 @@ using namespace eosio;
 class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 
 public:
-  
+
   addressbook(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}
 
   [[eosio::action]]
@@ -234,13 +238,13 @@ private:
     std::string street;
     std::string city;
     std::string state;
-  
+
     uint64_t primary_key() const { return key.value; }
     uint64_t get_secondary_1() const { return age; }
-  
+
   };
 
   typedef eosio::multi_index<"people"_n, person, indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>> address_index;
-  
+
 };
 ```

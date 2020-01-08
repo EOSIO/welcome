@@ -1,5 +1,9 @@
+---
+content_title: "2.6: Adding Inline Actions"
+link_text: "2.6 Adding Inline Actions"
+---
 ## Introduction
-It was previously demonstrated by authoring the `addressbook` contract the basics of multi-index tables. In this part of the series you'll learn how to construct actions, and send those actions from within a contract. 
+It was previously demonstrated by authoring the `addressbook` contract the basics of multi-index tables. In this part of the series you'll learn how to construct actions, and send those actions from within a contract.
 ## Step 1: Adding eosio.code to permissions
 In order for the inline actions to be sent from `addressbook`, add the `eosio.code` permission to the contract's account's active permission. Open your terminal and run the following code
 ```shell
@@ -46,7 +50,7 @@ To begin, address the "create record" case. This is the case that fires when a r
 Save this object to an `action` variable called `notification`
 ```cpp
 ...
-  private: 
+  private:
     void send_summary(name user, std::string message){
       action(
         //permission_level,
@@ -68,7 +72,7 @@ The action constructor requires a number of parameters.
 In this contract the permission should be authorized by the `active` authority of the contract using `get_self()`. As a reminder, to use the 'active` authority inline you will need your contract's to give active authority to `eosio.code` pseudo-authority (instructions above)
 ```cpp
 ...
-  private: 
+  private:
     void send_summary(name user, std::string message){
       action(
         permission_level{get_self(),"active"_n},
@@ -79,7 +83,7 @@ In this contract the permission should be authorized by the `active` authority o
 Since the action called is in this contract, use  [get_self](https://eosio.github.io/eosio.cdt/classeosio_1_1contract.html#function-getself). `"addressbook"_n` would also work here, but if this contract were deployed under a different account name, it wouldn't work. Because of this, `get_self()` is the superior option.
 ```cpp
 ...
-  private: 
+  private:
     void send_summary(name user, std::string message){
       action(
         permission_level{get_self(),"active"_n},
@@ -93,7 +97,7 @@ Since the action called is in this contract, use  [get_self](https://eosio.githu
 The `notify` action was previously defined to be called from this inline action. Use the _n operator here.
 ```cpp
 ...
-  private: 
+  private:
     void send_summary(name user, std::string message){
       action(
         permission_level{get_self(),"active"_n},
@@ -104,13 +108,13 @@ The `notify` action was previously defined to be called from this inline action.
     }
 ```
 ## The Data
-Finally, define the data to pass to this action. The notify function accepts two parameters, an `name` and a `string`. The action constructor expects data as type `bytes`, so use `make_tuple`, a function available through `std` C++ library.  Data passed in the tuple is positional, and determined by the order of the parameters accepted by the action that being called. 
+Finally, define the data to pass to this action. The notify function accepts two parameters, an `name` and a `string`. The action constructor expects data as type `bytes`, so use `make_tuple`, a function available through `std` C++ library.  Data passed in the tuple is positional, and determined by the order of the parameters accepted by the action that being called.
 
-- Pass the `user` variable that is provided as a parameter of the `upsert()` action. 
-- Concatenate a string that includes the name of the user, and include the `message` to pass to the `notify` action. 
+- Pass the `user` variable that is provided as a parameter of the `upsert()` action.
+- Concatenate a string that includes the name of the user, and include the `message` to pass to the `notify` action.
 ```cpp
 ...
-  private: 
+  private:
     void send_summary(name user, std::string message){
       action(
         permission_level{get_self(),"active"_n},
@@ -121,10 +125,10 @@ Finally, define the data to pass to this action. The notify function accepts two
     }
 ```
 ## Send the action.
-Finally, send the action using the `send` method of the action struct. 
+Finally, send the action using the `send` method of the action struct.
 ```cpp
 ...
-  private: 
+  private:
     void send_summary(name user, std::string message) {
       action(
         permission_level{get_self(),"active"_n},
@@ -138,7 +142,7 @@ Finally, send the action using the `send` method of the action struct.
 ## Step 6: Call the helper and inject relevant messages.
 Now that the helper is defined, it should probably be called from the relevant locations. There's three specific places for the new `notify` helper to be called from:
 - After the contract `emplaces` a new record: `send_summary(user, "successfully emplaced record to addressbook");`
-- After the contract `modifies` an existing record: `send_summary(user, "successfully modified record in addressbook.");` 
+- After the contract `modifies` an existing record: `send_summary(user, "successfully modified record in addressbook.");`
 - After the contract `erases` an existing record: `send_summary(user, "successfully erased record from addressbook");`
 ## Step 7: Recompile and Regenerate the ABI File
 Now that everything is in place, here's the current state of the `addressbook` contract:
@@ -151,7 +155,7 @@ using namespace eosio;
 class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 
 public:
-  
+
   addressbook(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}
 
   [[eosio::action]]
@@ -212,7 +216,7 @@ private:
     std::string street;
     std::string city;
     std::string state;
-  
+
     uint64_t primary_key() const { return key.value; }
     uint64_t get_secondary_1() const { return age;}
   };
@@ -227,13 +231,13 @@ private:
   };
 
 
-  typedef eosio::multi_index<"people"_n, person, 
+  typedef eosio::multi_index<"people"_n, person,
     indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>
   > address_index;
-  
+
 };
 ```
-Open your terminal, and navigate to `CONTRACTS_DIR/addressbook` 
+Open your terminal, and navigate to `CONTRACTS_DIR/addressbook`
 ```shell
 cd CONTRACTS_DIR/addressbook
 ```

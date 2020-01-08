@@ -1,9 +1,14 @@
+---
+content_title: "1.5: Start your node setup"
+link_text: "1.5: Start your node setup"
+---
+
 [[info]]
 | Looking for the version of this series that uses [Docker](https://developers.eos.io/eosio-home/v1.7.0/docs/introduction)?
 
 ## Step 1: Boot Node and Wallet
 ## Step 1.1: Start keosd
-First let us start keosd: 
+First let us start keosd:
 
 ```shell
 keosd &
@@ -37,9 +42,9 @@ nodeos -e -p eosio \
 ```
 These settings accomplish the following:
 
-1. Run **Nodeos. This** command loads all the basic plugins, set the server address, enable CORS and add some contract debugging and logging. 
+1. Run **Nodeos. This** command loads all the basic plugins, set the server address, enable CORS and add some contract debugging and logging.
 
-2. Enable CORS with no restrictions (*) and development logging 
+2. Enable CORS with no restrictions (*) and development logging
 
 
 [[warning]]
@@ -71,7 +76,7 @@ Press `ctrl + c` to close the log
 
 ## Step 2.2: Check the Wallet
 
-Open the shell and run the cleos command to list available wallets. We will talk more about wallets in the future. For now, we need to validate the installation and see that the command line client 
+Open the shell and run the cleos command to list available wallets. We will talk more about wallets in the future. For now, we need to validate the installation and see that the command line client
 [cleos](https://developers.eos.io/eosio-cleos/docs) is working as intended.
 
 
@@ -85,11 +90,11 @@ Wallets:
 []
 ```
 
-From this point forward, you'll be executing commands from your local system (Linux or Mac) 
+From this point forward, you'll be executing commands from your local system (Linux or Mac)
 
 ## Step 2.3: Check Nodeos endpoints
 
-This will check that the RPC API is working correctly, pick one. 
+This will check that the RPC API is working correctly, pick one.
 
 1. Check the `get_info` endpoint provided by the `chain_api_plugin` in your browser: [http://localhost:8888/v1/chain/get_info](http://localhost:8888/v1/chain/get_info)
 2. Check the same thing, but in the console on your **host machine**

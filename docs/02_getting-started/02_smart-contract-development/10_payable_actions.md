@@ -1,9 +1,9 @@
 ---
-title: "2.9 Payable actions"
-excerpt: ""
+content_title: "2.9: Payable actions"
+link_text: "2.9: Payable actions"
 ---
 ## Goal
-This tutorial illustrates how to write a smart contract that has payable actions. Payable actions are actions that require you to transfer some tokens to actions prior to use other functionality of the smart contract. Also, the EOSIO `asset` type is covered in this tutorial. 
+This tutorial illustrates how to write a smart contract that has payable actions. Payable actions are actions that require you to transfer some tokens to actions prior to use other functionality of the smart contract. Also, the EOSIO `asset` type is covered in this tutorial.
 
 As for the logic of this smart contract, we're going to write a contract that accepts a particular token but will not allow the tokens to be withdrawn for a specific amount of time.
 
@@ -16,7 +16,7 @@ using namespace eosio;
 
 class [[eosio::contract("hodl")]] hodl : public eosio::contract{
   private:
-  public: 
+  public:
 }
 ```
 This contract needs to set up a few constraints:
@@ -38,7 +38,7 @@ class [[eosio::contract("hodl")]] hodl : public eosio::contract {
     static const uint32_t the_party = 1645525342;
     const symbol hodl_symbol;
   public:
-  	
+
 }
 ```
 Next, let's define a table to track the number of tokens the `hodl` contract has received.
@@ -142,7 +142,7 @@ The `on_notify` attribute is one of the EOSIO.CDT [attributes](https://eosio.git
 
 Annotating an action with an [`on_notify`](https://eosio.github.io/eosio.cdt/1.6.0/guides/generator-attributes.html#eosioonnotify) attribute ensures any incoming notification is forwarded to the annotated action if and only if the notification is dispatched from a specified contract and from a specified action.
 
-In this case, the `on_notify` attribute ensures the incoming notification is forward to the deposit action only if the notification comes from the `eosio.token` contract and is from the `eosio.token`'s `transfer` action. 
+In this case, the `on_notify` attribute ensures the incoming notification is forward to the deposit action only if the notification comes from the `eosio.token` contract and is from the `eosio.token`'s `transfer` action.
 
 This is also why we don't need to check if the hodler actually has the appropriate amount of tokens he or she claimed, as the `eosio.token` contract would have done this check prior to the transfer notification reaching the `hodl` `deposit` action.
 ## Party!
@@ -253,7 +253,7 @@ class [[eosio::contract("hodl")]] hodl : public eosio::contract {
         "transfer"_n,
         std::make_tuple(get_self(), hodler, hodl_it->funds, std::string("Party! Your hodl is free."))
       }.send();
-      
+
       balance.erase(hodl_it);
     }
 };

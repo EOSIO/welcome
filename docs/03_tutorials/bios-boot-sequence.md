@@ -1,3 +1,41 @@
+---
+content_title: BIOS Boot Sequence
+link_text: BIOS Boot Sequence
+---
+
+The `bios-boot-tutorial.py` script simulates the EOSIO bios boot sequence.
+
+## Prerequisites
+
+1. Python 3.x
+2. CMake
+3. git
+
+## Steps
+
+1. Install eosio binaries by following the steps outlined in below tutorial
+[Install eosio binaries](https://github.com/EOSIO/eos#mac-os-x-brew-install)
+
+2. Install eosio.cdt binaries by following the steps outlined in below tutorial
+[Install eosio.cdt binaries](https://github.com/EOSIO/eosio.cdt#binary-releases)
+
+3. Compile eosio.contracts sources repository by following the [compile eosio.contracts guidelines](https://github.com/EOSIO/eosio.contracts/blob/master/docs/02_compile-and-deploy.md) first part, the deploying steps from those guidelines should not be executed.
+
+4. Make note of the full path of the directory where the contracts were compiled, if you followed the [compile eosio.contracts guidelines](https://github.com/EOSIO/eosio.contracts/blob/master/docs/02_compile-and-deploy.md) it should be under the `build` folder, in `build/contracts/`, we'll reference it from now on as `EOSIO_CONTRACTS_DIRECTORY`
+
+5. Launch the `bios-boot-tutorial.py` script
+Minimal command line to launch the script below, make sure you replace `EOSIO_CONTRACTS_DIRECTORY` with actual directory
+
+```bash
+cd ~
+git clone https://github.com/EOSIO/eos.git
+cd ./eos/tutorials/bios-boot-tutorial/
+python3 bios-boot-tutorial.py --cleos="cleos" --nodeos=nodeos --keosd=keosd --contracts-dir="/EOSIO_CONTRACTS_DIRECTORY/" -a
+```
+
+See [Tutorial - BIOS Boot Sequence](bios-boot-sequence) for detail steps.
+
+
 > _The steps here can be readily expanded for the networked case. Some assumptions are made here regarding how the parties involved will coordinate with each other. However, there are many ways that the community can choose to coordinate. The technical aspects of the process are objective; assumptions of how the coordination might occur are speculative. Several approaches have already been suggested by the community. You are encouraged to review the various approaches and get involved in the discussions as appropriate._
 
 ## 1. Create, configure and start the genesis node
@@ -382,13 +420,13 @@ As soon as possible after installing the `eosio.system` contract, we want to mak
 
 ### **2.1. Make `eosio.msig` a privileged account**
 
-We make `eosio.msig` privileged using the following. 
+We make `eosio.msig` privileged using the following.
 ```shell
 cleos push action eosio setpriv '["eosio.msig", 1]' -p eosio@active
 ```
 ### **2.2. Initialize system account**
 
-Below command initializes the `system` account with code zero (needed at initialization time)  and `SYS` token with precision 4; precision can range from [0 .. 18].  
+Below command initializes the `system` account with code zero (needed at initialization time) and `SYS` token with precision 4; precision can range from [0 .. 18].  
 ```shell
 cleos push action eosio init '["0", "4,SYS"]' -p eosio@active
 ```
@@ -447,8 +485,8 @@ Create a staked account with initial resources and public key.
 cleos system newaccount eosio --transfer accountnum11 EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt --stake-net "100000000.0000 SYS" --stake-cpu "100000000.0000 SYS" --buy-ram-kbytes 8192
 ```
 ```
-775292ms thread-0   main.cpp:419                  create_action        ] result: {"binargs":"0000000000ea30551082d4334f4d113200200000"} arg: {"code":"eosio","action":"buyrambytes","args":{"payer":"eosio","receiver":"accountnum11","bytes":8192}} 
-775295ms thread-0   main.cpp:419                  create_action        ] result: {"binargs":"0000000000ea30551082d4334f4d113200ca9a3b00000000045359530000000000ca9a3b00000000045359530000000001"} arg: {"code":"eosio","action":"delegatebw","args":{"from":"eosio","receiver":"accountnum11","stake_net_quantity":"100000.0000 SYS","stake_cpu_quantity":"100000.0000 SYS","transfer":true}} 
+775292ms thread-0   main.cpp:419                  create_action        ] result: {"binargs":"0000000000ea30551082d4334f4d113200200000"} arg: {"code":"eosio","action":"buyrambytes","args":{"payer":"eosio","receiver":"accountnum11","bytes":8192}}
+775295ms thread-0   main.cpp:419                  create_action        ] result: {"binargs":"0000000000ea30551082d4334f4d113200ca9a3b00000000045359530000000000ca9a3b00000000045359530000000001"} arg: {"code":"eosio","action":"delegatebw","args":{"from":"eosio","receiver":"accountnum11","stake_net_quantity":"100000.0000 SYS","stake_cpu_quantity":"100000.0000 SYS","transfer":true}}
 executed transaction: fb47254c316e736a26873cce1290cdafff07718f04335ea4faa4cb2e58c9982a  336 bytes  1799 us
 #         eosio <= eosio::newaccount            {"creator":"eosio","name":"accountnum11","owner":{"threshold":1,"keys":[{"key":"EOS8mUftJXepGzdQ2TaC...
 #         eosio <= eosio::buyrambytes           {"payer":"eosio","receiver":"accountnum11","bytes":8192}
@@ -462,7 +500,7 @@ Use the following command to register as a producer. This makes the node a candi
 cleos system regproducer accountnum11 EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt https://accountnum11.com EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt
 ```
 ```
-1487984ms thread-0   main.cpp:419                  create_action        ] result: {"binargs":"1082d4334f4d11320003fedd01e019c7e91cb07c724c614bbf644a36eff83a861b36723f29ec81dc9bdb4e68747470733a2f2f6163636f756e746e756d31312e636f6d2f454f53386d5566744a586570477a64513254614364754e7553504166584a48663232756578347534316162314556763945416857740000"} arg: {"code":"eosio","action":"regproducer","args":{"producer":"accountnum11","producer_key":"EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt","url":"https://accountnum11.com/EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt","location":0}} 
+1487984ms thread-0   main.cpp:419                  create_action        ] result: {"binargs":"1082d4334f4d11320003fedd01e019c7e91cb07c724c614bbf644a36eff83a861b36723f29ec81dc9bdb4e68747470733a2f2f6163636f756e746e756d31312e636f6d2f454f53386d5566744a586570477a64513254614364754e7553504166584a48663232756578347534316162314556763945416857740000"} arg: {"code":"eosio","action":"regproducer","args":{"producer":"accountnum11","producer_key":"EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt","url":"https://accountnum11.com/EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt","location":0}}
 executed transaction: 4ebe9258bdf1d9ac8ad3821f6fcdc730823810a345c18509ac41f7ef9b278e0c  216 bytes  896 us
 #         eosio <= eosio::regproducer           {"producer":"accountnum11","producer_key":"EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt","u...
 ```
@@ -630,7 +668,7 @@ tail -f blockchain/nodeos.log
 ```
 ### **2.8. repeat the process of creating as many producers as you want**
 
-You can now repeat the process (started at point 2.4. till 2.8.) of creating as many producers as you want each with its own staked account, own dedicated directory named accountnumXY (with X and Y int values in interval [1..5]), and their own dedicated script files: `genesis_start.sh, start.sh, stop.sh, clean.sh` located in their corresponding folder. 
+You can now repeat the process (started at point 2.4. till 2.8.) of creating as many producers as you want each with its own staked account, own dedicated directory named accountnumXY (with X and Y int values in interval [1..5]), and their own dedicated script files: `genesis_start.sh, start.sh, stop.sh, clean.sh` located in their corresponding folder.
 
 Also please be aware how you mesh these nodes between each other, so pay particular attention to the following parameters in the genesis_start.sh, start.sh and hard_start.sh scripts:
 
@@ -648,7 +686,7 @@ Also please be aware how you mesh these nodes between each other, so pay particu
 
 ### **2.9. vote for each of the block producers started**
 
-At this point the nodes are started, they are meshed together in a network, and they receive blocks from genesis node but they do not produce. 
+At this point the nodes are started, they are meshed together in a network, and they receive blocks from genesis node but they do not produce.
 
 [[info|15% Requirement]]
 | In order for them to produce blocks, a total of 15% of the token supply must be staked and then voted for all available producers. We gave accountnum11 enough tokens earlier.

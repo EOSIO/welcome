@@ -1,11 +1,16 @@
+---
+content_title: "1.4: Create Development Wallet"
+link_text: "1.4 Create Development Wallet"
+---
+
 Wallets are repositories of public-private key pairs. Private keys are needed to sign operations performed on the blockchain. Wallets are accessed using cleos.
 ## Step 1: Create a Wallet
-The first step is to create a wallet. Use [cleos wallet create]() to create a new "default" wallet using the option `--to-console` for simplicity. If using cleos in production, it's wise to instead use `--to-file` so your wallet password is not in your bash history. For development purposes and because these are **development and not production keys** `--to-console` poses no security threat. 
+The first step is to create a wallet. Use [cleos wallet create]() to create a new "default" wallet using the option `--to-console` for simplicity. If using cleos in production, it's wise to instead use `--to-file` so your wallet password is not in your bash history. For development purposes and because these are **development and not production keys** `--to-console` poses no security threat.
 
 ```shell
 cleos wallet create --to-console
 ```
-`cleos` will return a password, save this password somewhere as you will likely need it later in the tutorial. 
+`cleos` will return a password, save this password somewhere as you will likely need it later in the tutorial.
 
 ```
 Creating wallet: default
@@ -14,7 +19,7 @@ Without password imported keys will not be retrievable.
 "PW5Kewn9L76X8Fpd....................t42S9XCw2"
 ```
 [[info | About Wallets]]
-| A common misconception in cryptocurrency regarding wallets is that they store tokens. A wallet **does not** store tokens. What a wallet does is store private keys in an encrypted file and sign transactions. 
+| A common misconception in cryptocurrency regarding wallets is that they store tokens. A wallet **does not** store tokens. What a wallet does is store private keys in an encrypted file and sign transactions.
 
 A user builds a transaction object, usually through an interface, sends that object to the wallet to be signed, the wallet then returns that transaction object with a signature which is then broadcast to the network. When/if the network confirms that the transaction is valid, it is included into a block on the blockchain.
 
@@ -40,12 +45,12 @@ Wallets:
 ]
 ```
 ## Step 3: Unlock it
-The `keosd` wallet(s) have been opened, but is still locked. Moments ago you were provided a password, you're going to need that now. 
+The `keosd` wallet(s) have been opened, but is still locked. Moments ago you were provided a password, you're going to need that now.
 
 ```text
 cleos wallet unlock
 ```
-You will be prompted for your password, paste it and press enter. 
+You will be prompted for your password, paste it and press enter.
 
 Now run the following command
 

@@ -1,11 +1,16 @@
+---
+content_title: "1.1: Introduction"
+link_text: "1.1: Introduction"
+---
+
 [[info]]
 | Looking for the version of this series that uses [Docker](https://developers.eos.io/eosio-home/v1.7.0/docs/introduction)?
 
 ## EOSIO versions
-The subsequent tutorials are up to date with the following EOSIO components. 
+The subsequent tutorials are up to date with the following EOSIO components.
 
 | Component | Version |
-| ------ | ------ | 
+| ------ | ------ |
 | eosio | 1.8.6 |
 | eosio.cdt | 1.6.3 |
 | eosio.contracts | 1.8.1 |
@@ -18,7 +23,7 @@ _Only a sample of what you'll learn_
 - Compilation and ABI
 - Deploy contracts
 ## C / C++ Experience
-EOSIO based blockchains execute user-generated applications and code using WebAssembly (WASM). WASM is an emerging web standard with widespread support from Google, Microsoft, Apple, and industry leading companies. 
+EOSIO based blockchains execute user-generated applications and code using WebAssembly (WASM). WASM is an emerging web standard with widespread support from Google, Microsoft, Apple, and industry leading companies.
 
 At the moment the most mature toolchain for building applications that compile to WASM is clang/llvm with their C/C++ compiler. For best compatibility, it is recommended that you use the EOSIO C++ toolchain.
 
@@ -38,7 +43,7 @@ The EOSIO software supports the following environments:
 ## Command Line Knowledge
 There are a variety of tools provided along with EOSIO which requires you to have basic command line knowledge in order to interact with.
 ## C++ Environment Setup
-We can use any text editor that, preferably, supports C++ syntax highlighting. Some of the popular editors are Sublime Text and Atom. Another option is an IDE, which provides a more sophisticated code completion and more complete development experience. You are welcome to use the software of your personal preference, but if you're unsure what to use we've provided some options for you to explore. 
+We can use any text editor that, preferably, supports C++ syntax highlighting. Some of the popular editors are Sublime Text and Atom. Another option is an IDE, which provides a more sophisticated code completion and more complete development experience. You are welcome to use the software of your personal preference, but if you're unsure what to use we've provided some options for you to explore.
 ## Potential Editors and IDEs
 
 [[info]]
