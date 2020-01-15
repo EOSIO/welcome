@@ -76,7 +76,7 @@
           },
           {
             "text": "Try EOSIO",
-            "link": "https://gitpod.io/#https://github.com/EOSIO/eosio-web-ide"
+            "link": "/gitpod-eosio"
           }
         ]
       },
