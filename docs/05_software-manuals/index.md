@@ -12,4 +12,4 @@
 - [eosio-java](http://eosio.github.io/eosio-java): A Java SDK for communicating with Nodeos Chain RPC APIs and signing transactions.
 
 # Tools
-- [eosio-web-ide](http://eosio.github.io/eosio-web-ide): A demonstration on how to use Gitpod.io for EOSIO development
+- [eosio-web-ide](/gitpod-eosio/index): A demonstration on how to use Gitpod.io for EOSIO development

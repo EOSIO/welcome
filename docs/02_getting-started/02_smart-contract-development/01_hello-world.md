@@ -64,7 +64,7 @@ class [[eosio::contract]] hello : public contract {
       }
 };
 ```
-The above action accepts a parameter called `user` that's a [`name`](https://eosio.github.io/eosio.cdt/structeosio_1_1name.html) type. EOSIO comes with a number of typedefs, one of the most common typedefs you'll encounter is `name`. Using the `eosio::print` library previously included, concatenate a string and print the `user` parameter. Use the braced initialization of `name{user}` to make the `user` parameter printable.
+The above action accepts a parameter called `user` that's a [`name`](/manuals/eosio.cdt/latest/structeosio_1_1name) type. EOSIO comes with a number of typedefs, one of the most common typedefs you'll encounter is `name`. Using the `eosio::print` library previously included, concatenate a string and print the `user` parameter. Use the braced initialization of `name{user}` to make the `user` parameter printable.
 
 As is, the ABI <<glossary:ABI>> generator in `eosio.cdt` won't know about the `hi()` action without an attribute. Add a C++11 style attribute above the action, this way the abi generator can produce more reliable output.
 
