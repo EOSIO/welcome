@@ -92,7 +92,29 @@ Ownership of each account on an EOSIO blockchain is solely determined by the acc
 
 ## 2.1. Account Schema
 
-Besides the account name, the blockchain associates other fields with each account instance stored in the chain database, such as ram quota/usage, cpu/net limits/weights, voter info, etc. (see **[schema:Account]**). More importantly, each account holds the list of named permissions assigned to it. This allows a flexible permission structure that makes single or multi-user authorizations possible - see [3. Permissions](#3-permissions).
+Besides the account name, the blockchain associates other fields with each account instance stored in the chain database, such as ram quota/usage, cpu/net limits/weights, voter info, etc. - see Account schema below. More importantly, each account holds the list of named permissions assigned to it. This allows a flexible permission structure that makes single or multi-user authorizations possible - see [3. Permissions](#3-permissions).
+
+Name | Type | Mandatory
+-|-|-
+`account_name` | `name` | yes
+`head_block_num` | `uint32_t` | yes
+`head_block_time` | `time_point` | yes
+`privileged` | `bool` | yes
+`last_code_update` | `time_point` | yes
+`created` | `time_point` | yes
+`core_liquid_balance` | `asset` | NO
+`ram_quota` | `int64_t` | yes
+`net_weight` | `int64_t` | yes
+`cpu_weight` | `int64_t` | yes
+`net_limit` | `account_resource_limit` | yes
+`cpu_limit` | `account_resource_limit` | yes
+`ram_usage` | `int64_t` | yes
+`permissions` | array of `permission` | yes
+`total_resources` | variant | yes
+`self_delegated_bandwidth` | variant | yes
+`refund_request` | variant | yes
+`voter_info` | variant | yes
+`rex_info` | variant | yes
 
 
 ## 2.2. Actions and Transactions
