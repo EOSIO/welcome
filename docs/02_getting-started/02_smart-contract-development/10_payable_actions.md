@@ -52,8 +52,9 @@ struct [[eosio::table]] balance
 In this multiple index table declaration, a new type called `asset` is used.  An `asset` is a type designed to represent a digital token asset. See more details in the [asset reference documentation](https://eosio.github.io/eosio.cdt/1.6.0/structeosio_1_1asset.html).
 
 The `symbol` member of an asset instance will be used as the primary key.  By calling the `raw()` function the `symbol` variable will be converted into an unsigned integer so it can be used as a primary key.
+
 ## Constructor
-The constructor initializes the hodl_symbol as “SYS”, which is a token created in the [Deploy, Issue and Transfer Tokens](https://developers.eos.io/eosio-home/docs/token-contract) section.
+The constructor initializes the hodl_symbol as “SYS”, which is a token created in the [Deploy, Issue and Transfer Tokens](/getting-started/smart-contract-development/deploy-issue-and-transfer-tokens/#step-5-create-the-token) section.
 ```cpp
 public:
   using contract::contract;

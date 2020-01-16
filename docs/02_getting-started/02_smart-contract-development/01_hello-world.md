@@ -47,7 +47,7 @@ class [[eosio::contract]] hello : public contract {
 ```
 This contract needs to do something. In the spirit of **hello world** write an action that accepts a "name" parameter, and then prints that parameter out.
 
-[Actions](https://developers.eos.io/eosio-cpp/docs/communication-model) implement the behaviour of a contract
+[Actions](/glossary/index/#action) implement the behaviour of a contract
 
 ```cpp
 #include <eosio/eosio.hpp>
@@ -103,7 +103,7 @@ class [[eosio::contract]] hello : public contract {
 ```
 
 [[info]]
-| The ABI Generator in eosio.cdt supports several different style of attributes, see the ABI usage guide [here](https://developers.eos.io/eosio-home/docs/the-abi)
+| The ABI Generator in eosio.cdt supports several different style of attributes, see the ABI usage guide [here](/getting-started/smart-contract-development/understanding-ABI-files)
 You can compile your code to web assembly (.wasm) as follows:
 
 ```shell
@@ -114,17 +114,16 @@ When a contract is deployed, it is deployed to an account, and the account becom
 ```shell
 cleos wallet keys
 ```
-Create an account for the contract using [cleos create account](https://developers.eos.io/eosio-cleos/reference#cleos-create-account), with the command provided below.
+Create an account for the contract using [cleos create account](/manuals/eos/latest/cleos/command-reference/create/account), with the command provided below.
 
 ```shell
 cleos create account eosio hello YOUR_PUBLIC_KEY -p eosio@active
 ```
-Deploy the compiled `wasm` to the blockchain with [cleos set contract](https://developers.eos.io/eosio-cleos/reference#cleos-set-contract).
-[[info]]
-|Get an error?
-Either your wallet needs to be unlocked, or you did not alias cleos as mentioned in step [1.3](https://developers.eos.io/eosio-home/docs/getting-the-software#section-step-4-aliasing-cleos).
+Deploy the compiled `wasm` to the blockchain with [cleos set contract](/manuals/eos/latest/cleos/command-reference/set/set-contract).
 
-<div class=\"no-contracts-helper\">\n  In previous steps you should have created a `contracts` directory and obtained the absolute path and then saved it into a cookie. Replace \"CONTRACTS_DIR\" in the command below with the absolute path to your `contracts` directory.\n</div>
+[[info | Get an error? Check if your wallet needs to be unlocked.]]
+
+<div class="no-contracts-helper">In previous steps you should have created a `contracts` directory and obtained the absolute path and then saved it into a cookie. Replace \"CONTRACTS_DIR\" in the command below with the absolute path to your `contracts` directory.</div>
 
 
 ```shell

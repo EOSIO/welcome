@@ -25,7 +25,7 @@ This transaction needs to be copied to the user so it can be considered as a rec
    require_recipient(user);
   }
 ```
-This action is very simple, however, as written, any user could call this function, and "fake" a receipt from this contract. This could be used in malicious ways, and should be seen as a vulnerability. To correct this, require that the authorization provided in the call to this action is from the contract itself, for this, use [get_self](https://developers.eos.io/eosio-cpp/v1.3.0/reference#get_self)
+This action is very simple, however, as written, any user could call this function, and "fake" a receipt from this contract. This could be used in malicious ways, and should be seen as a vulnerability. To correct this, require that the authorization provided in the call to this action is from the contract itself, for this, use [get_self](/manuals/eosio.cdt/latest/classeosio_1_1contract#function-get_self)
 ```cpp
   [[eosio::action]]
   void notify(name user, std::string msg) {
@@ -271,7 +271,7 @@ executed transaction: e9e30524186bb6501cf490ceb744fe50654eb393ce0dd733f3bb6c68ff
 #   addressbook <= addressbook::notify          {"user":"alice","msg":"alicesuccessfully emplaced record to addressbook"}
 #         alice <= addressbook::notify          {"user":"alice","msg":"alicesuccessfully emplaced record to addressbook"}
 ```
-The last entry in the previous log is an `addressbook::notify` action sent to `alice`. Use [cleos get actions](https://developers.eos.io/eosio-cleos/reference#cleos-get-transactions) to display actions executed and relevant to alice.
+The last entry in the previous log is an `addressbook::notify` action sent to `alice`. Use [cleos get actions](/manuals/eos/latest/cleos/command-reference/get/actions) to display actions executed and relevant to alice.
 ```shell
 cleos get actions alice
 ```
