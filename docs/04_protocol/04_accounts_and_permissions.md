@@ -128,7 +128,13 @@ In contrast, transactions are agnostic to accounts, although there is an indirec
 
 # 3. Permissions
 
-Permissions control what EOSIO accounts can do and how actions are authorized. This is accomplished through a flexible permission structure that links each account to a list of hierarchical named permissions, and each named permission to an authority table.
+Permissions control what EOSIO accounts can do and how actions are authorized. This is accomplished through a flexible permission structure that links each account to a list of hierarchical named permissions, and each named permission to an authority table - see the `permission` schema below.
+
+Name | Type | Mandatory
+-|-|-
+`perm_name` | `name` | yes
+`parent` | `name` | yes
+`required_auth` | `authority` | yes
 
 
 ## 3.1. Permission Levels
