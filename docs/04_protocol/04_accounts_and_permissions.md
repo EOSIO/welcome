@@ -79,7 +79,7 @@ The example above depicts `alice`'s account, her named permissions along with th
 
 # 2. Accounts
 
-Each account is identified by a human readable name between 2 and 12 characters in length. The characters can include a-z, 1-5, and optional dots (.) except the first and last characters **[schema:Name]**. This allows roughly one exa ($2^{60}$) accounts. The exact number is:
+Each account is identified by a human readable name between 2 and 12 characters in length. The characters can include a-z, 1-5, and optional dots (.) except the first and last characters. This allows roughly one exa ($2^{60}$) accounts. The exact number is:
 
 $$
 31^{2} \cdot \sum_{n=0}^{n=10} 32^{n} = (2^{5}-1) \cdot (2^{55}-1) = 1,116,892,707,587,882,977
