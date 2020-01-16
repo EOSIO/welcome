@@ -1,0 +1,138 @@
+sections:
+  - title: Core
+    listings:
+      - title: eos-vm
+        description:
+        link: https://github.com/EOSIO/eos-vm
+
+      - title: nodeos
+        description:
+        link: /manuals/eos/latest/nodeos
+
+      - title: cleos
+        description:
+        link: /manuals/eos/latest/cleos
+
+      - title: keosd
+        description:
+        link: /manuals/eos/latest/keosd
+
+      - title: eosio.cdt
+        description:
+        link: /manuals/eosio.cdt
+
+      - title: eosio.contracts
+        description:
+        link: /manuals/eosio.contracts
+
+  - title: Examples
+    listings:
+      - title: eosio-java-android-example-app
+        description:
+        link: https://github.com/EOSIO/eosio-java-android-example-app
+
+      - title: eosio-swift-ios-example-app
+        description:
+        link: https://github.com/EOSIO/eosio-swift-ios-example-app
+
+      - title: tropical-example-web-app
+        description:
+        link: https://github.com/EOSIO/tropical-example-web-app
+
+  - title: Tools
+    listings:
+      - title: eosio-explorer
+        description:
+        link: https://github.com/EOSIO/eosio-explorer
+
+      - title: eosio-toppings
+        description:
+        link: https://github.com/EOSIO/eosio-toppings
+
+      - title: eosio-web-ide
+        description:
+        link: https://github.com/EOSIO/eosio-web-ide
+
+  - title: Javascript SDK
+    listings:
+      - title: eosjs
+        description:
+        link: /manuals/eosjs
+
+      - title: eosjs-keygen
+        description:
+        link: https://github.com/EOSIO/eosjs-keygen
+
+  - title: Swift SDK
+    listings:
+      - title: eosio-swift
+        description:
+        link: https://github.com/EOSIO/eosio-swift
+
+      - title: eosio-swift-abieos-serialization-provider
+        description:
+        link: https://github.com/EOSIO/eosio-swift-abieos-serialization-provider
+
+      - title: eosio-swift-ecc
+        description:
+        link: https://github.com/EOSIO/eosio-swift-ecc
+
+      - title: eosio-swift-reference-ios-authenticator-signature-provider
+        description:
+        link: https://github.com/EOSIO/eosio-swift-reference-ios-authenticator-signature-provider
+
+      - title: eosio-swift-softkey-signature-provider
+        description:
+        link: https://github.com/EOSIO/eosio-swift-softkey-signature-provider
+
+      - title: eosio-swift-vault-signature-provider
+        description:
+        link: https://github.com/EOSIO/eosio-swift-vault-signature-provider
+
+      - title: eosio-swift-vault
+        description:
+        link: https://github.com/EOSIO/eosio-swift-vault
+
+  - title: Java SDK
+    listings:
+      - title: eosio-java-android-abieos-serialization-provider
+        description:
+        link: https://github.com/EOSIO/eosio-java-android-abieos-serialization-provider
+
+      - title: eosio-java-android-rpc-provider
+        description:
+        link: https://github.com/EOSIO/eosio-java-android-rpc-provider
+
+      - title: eosio-java-softkey-signature-provider
+        description:
+        link: https://github.com/EOSIO/eosio-java-softkey-signature-provider
+
+      - title: eosio-android-keystore-signature-provider
+        description:
+        link: https://github.com/EOSIO/eosio-android-keystore-signature-provider
+
+  - title: EOSIO Labs
+    listings:
+      - title: eosjs-ios-browser-signature-provider-interface
+        description:
+        link: eosjs-ios-browser-signature-provider-interface
+
+      - title: eosjs-ledger-signature-provider
+        description:
+        link: https://github.com/EOSIO/eosjs-ledger-signature-provider
+
+      - title: eosjs-signature-provider-interface
+        description:
+        link: https://github.com/EOSIO/eosjs-signature-provider-interface
+
+      - title: eosjs-window-message-signature-provider-interface
+        description:
+        link: eosjs-window-message-signature-provider-interface
+
+      - title: ual-authenticator-walkthrough
+        description:
+        link: https://github.com/EOSIO/ual-authenticator-walkthrough
+
+      - title: ual-reactjs-renderer
+        description:
+        link: https://github.com/EOSIO/ual-reactjs-renderer
