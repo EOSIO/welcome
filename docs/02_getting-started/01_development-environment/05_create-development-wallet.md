@@ -19,7 +19,7 @@ Without password imported keys will not be retrievable.
 "PW5Kewn9L76X8Fpd....................t42S9XCw2"
 ```
 [[info | About Wallets]]
-| A common misconception in cryptocurrency regarding wallets is that they store tokens. A wallet **does not** store tokens. What a wallet does is store private keys in an encrypted file and sign transactions.
+| A common misconception in cryptocurrency regarding wallets is that they store tokens. However, in reality, a wallet is used to store private keys in an encrypted file to sign transactions. Wallets do not serve as a storage medium for tokens.
 
 A user builds a transaction object, usually through an interface, sends that object to the wallet to be signed, the wallet then returns that transaction object with a signature which is then broadcast to the network. When/if the network confirms that the transaction is valid, it is included into a block on the blockchain.
 
