@@ -92,7 +92,7 @@ Ownership of each account on an EOSIO blockchain is solely determined by the acc
 
 ## 2.1. Account Schema
 
-Besides the account name, the blockchain associates other fields with each account instance stored in the chain database, such as ram quota/usage, cpu/net limits/weights, voter info, etc. - see Account schema below. More importantly, each account holds the list of named permissions assigned to it. This allows a flexible permission structure that makes single or multi-user authorizations possible - see [3. Permissions](#3-permissions).
+Besides the account name, the blockchain associates other fields with each account instance stored in the chain database, such as ram quota/usage, cpu/net limits/weights, voter info, etc. - see `account` schema below. More importantly, each account holds the list of named permissions assigned to it. This allows a flexible permission structure that makes single or multi-user authorizations possible - see [3. Permissions](#3-permissions).
 
 Name | Type | Mandatory
 -|-|-
@@ -115,6 +115,8 @@ Name | Type | Mandatory
 `refund_request` | variant | yes
 `voter_info` | variant | yes
 `rex_info` | variant | yes
+
+The `name` type consists of a 64-bit value that encodes alphanumeric characters into 5-bit chunks, except the last character, if any, which uses a 4-bit chunk. The `name` type is used to store account names, action names, etc.
 
 
 ## 2.2. Actions and Transactions
