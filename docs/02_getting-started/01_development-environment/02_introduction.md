@@ -3,9 +3,6 @@ content_title: "1.1: Introduction"
 link_text: "1.1: Introduction"
 ---
 
-[[info]]
-| Looking for the version of this series that uses [Docker](https://developers.eos.io/eosio-home/v1.7.0/docs/introduction)?
-
 ## EOSIO versions
 The subsequent tutorials are up to date with the following EOSIO components.
 
