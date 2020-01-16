@@ -82,7 +82,7 @@ Created new private key with a public key of: "EOS8PEJ5FM42xLpHK...X6PymQu97KrGD
 ## Step 5: Follow this tutorial series more easily
 Enter the public key provided in the last step in the box below. It will persist the **development public key** you just generated throughout the documentation.
 
-<div class="eosio-helper-box"><form><label>Development Public Key</label><input class="helper-cookie" name="YOUR_PUBLIC_KEY" type="text" /><input type="submit" /><span></span></form></div>
+<div class="eosio-helper-box"><form id="YOUR_PUBLIC_KEY"><label>Development Public Key</label><input class="helper-cookie" name="YOUR_PUBLIC_KEY" type="text" /><input type="submit" /><span></span></form></div>
 
 ## Step 6: Import the Development Key
 Every new EOSIO chain has a default "system" user called "eosio". This account is used to setup the chain by loading system contracts that dictate the governance and consensus of the EOSIO chain. Every new EOSIO chain comes with a development key, and this key is the same. Load this key to sign transactions on behalf of the system user (eosio)
