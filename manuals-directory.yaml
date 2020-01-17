@@ -19,11 +19,11 @@ sections:
 
       - title: eosio.cdt
         description:
-        link: /manuals/eosio.cdt
+        link: /manuals/eosio.cdt/latest/index
 
       - title: eosio.contracts
         description:
-        link: /manuals/eosio.contracts
+        link: /manuals/eosio.contracts/latest/index
 
   - title: Examples
     listings:
@@ -57,7 +57,7 @@ sections:
     listings:
       - title: eosjs
         description:
-        link: /manuals/eosjs
+        link: /manuals/eosjs/latest/index
 
       - title: eosjs-keygen
         description:

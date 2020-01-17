@@ -5,7 +5,8 @@
       "name": "collate_markdown",
       "options": {
         "docs_dir": "docs",
-        "disable_indices": true
+        "disable_indices": true,
+        "exclude": "/gitpod-eosio/**"
       }
     },
     {

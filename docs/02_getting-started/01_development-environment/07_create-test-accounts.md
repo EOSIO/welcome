@@ -8,7 +8,7 @@ An account is a collection of authorisations, stored on the blockchain, and used
 This tutorial series uses two "user" accounts, `bob` and `alice`, as well as the default `eosio` account for configuration. Additionally accounts are made for various contracts throughout this tutorial series.
 ## Step 1: Create Test Accounts
 
-[[caution | Noy your public key]]
+[[caution | Not your public key]]
 | In a previous step, you created a wallet and created a development key pair. You were asked to place that public key into a form, but either you skipped this step or have cookies disabled. You will need to replace YOUR_PUBLIC_KEY below with the public key you generated.
 
 Throughout these tutorials the accounts `bob` and `alice` are used. Create two accounts using [cleos create account](https://developers.eos.io/eosio-cleos/reference#cleos-create-account)
