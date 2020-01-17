@@ -14,15 +14,15 @@ If your goal is to see a full EOS blockchain at work on your local machine you c
 
 If your goal is to go beyond and understand what the script is doing, you can follow this tutorial which will get you through the same steps explaining also along the way each step needed to go through.
 
-### **1.1. Install pre-compiled eosio and eosio.cdt binaries**
+### **1.1. Install prebuilt eosio and eosio.cdt binaries**
 
-Go to [Install EOSIO pre-compiled binaries](https://developers.eos.io/eosio-home/docs/setting-up-your-environment) tutorial and install the `nodeos` binaries but do not start the `nodeos` yet.
+Go to [Install Prebuilt Binaries](/manuals/eos/latest/install/install-prebuilt-binaries) documentation section and install the `nodeos` binaries but do not start the `nodeos` yet.
 
-Go to [Install EOSIO.CDT binaries](https://github.com/EOSIO/eosio.cdt#binary-releases) tutorial and install the `EOSIO.CDT` binaries; you can stop following that tutorial at the step "Building your first smart contract".
+Go to [Binary Releases](/manuals/eosio.cdt/latest/installation) documentation section and install the `EOSIO.CDT` binaries.
 
 ### **1.2. Set up wallet**
 
-Go to [Create development wallet](https://developers.eos.io/eosio-home/docs/wallets) tutorial, configure your default wallet, create a public and private development keys (we will refer to them as `EOS_PUB_DEV_KEY` and `EOS_PRIV_DEV_KEY`) and import them into the wallet you created previously.
+Go to [Create Development Wallet](/getting-started/development-environment/create-development-wallet) documentation section, configure your default wallet, create a public and private development keys (we will refer to them as `EOS_PUB_DEV_KEY` and `EOS_PRIV_DEV_KEY`) and import them into the wallet you created previously.
 
 ### **1.3. Create '~/biosboot/genesis' directory**
 
@@ -315,8 +315,7 @@ pwd
 
 You will also need an older version of `eosio.contracts` specifically v1.8.0, so follow the instructions below to build it and remember the path where they are built:
 
-1. Install eosio.cdt version 1.6.3 binaries by following the steps outlined in below tutorial
-[Install eosio.cdt binaries](https://github.com/EOSIO/eosio.cdt/tree/release/1.6.x#binary-releases)
+1. Install eosio.cdt version 1.6.3 binaries by following the steps outlined in [Install eosio.cdt binaries](https://github.com/EOSIO/eosio.cdt/tree/release/1.6.x#binary-releases) documentation section.
 
 2. After the eosio.cdt 1.6.3 version is installed you can compile the older version of eosio.contracts:
 
@@ -342,7 +341,7 @@ cleos set contract eosio.token EOSIO_CONTRACTS_DIRECTORY/eosio.token/
 
 You should see something like this on the command line after the above command is executed:
 ```
-Reading WAST/WASM from /Users/tutorial/Documents/eos/contracts/eosio.token/eosio.token.wasm...
+Reading WAST/WASM from /users/documents/eos/contracts/eosio.token/eosio.token.wasm...
 Using already assembled WASM...
 Publishing contract...
 executed transaction: 17fa4e06ed0b2f52cadae2cd61dee8fb3d89d3e46d5b133333816a04d23ba991  8024 bytes  974 us
@@ -358,7 +357,7 @@ cleos set contract eosio.msig EOSIO_CONTRACTS_DIRECTORY/eosio.msig/
 ```
 
 ```
-Reading WAST/WASM from /Users/tutorial/Documents/eos/build/contracts/eosio.msig/eosio.msig.wasm...
+Reading WAST/WASM from /users/documents/eos/build/contracts/eosio.msig/eosio.msig.wasm...
 Using already assembled WASM...
 Publishing contract...
 executed transaction: 007507ad01de884377009d7dcf409bc41634e38da2feb6a117ceced8554a75bc  8840 bytes  925 us
@@ -409,7 +408,7 @@ cleos set contract eosio EOSIO_OLD_CONTRACTS_DIRECTORY/eosio.system/
 ```
 
 ```
-Reading WAST/WASM from /Users/tutorial/Documents/eos/build/contracts/eosio.system/eosio.system.wasm...
+Reading WAST/WASM from /users/documents/eos/build/contracts/eosio.system/eosio.system.wasm...
 Using already assembled WASM...
 Publishing contract...
 executed transaction: 2150ed87e4564cd3fe98ccdea841dc9ff67351f9315b6384084e8572a35887cc  39968 bytes  4395 us
@@ -811,6 +810,6 @@ tail -f ./blockchain/nodeos.log
 ```
 ### **4.2. You can test various commands, create accounts, check balance on accounts, transfer tokens between accounts, etc.**
 
-To create new accounts you can use the commands presented in [`Create test accounts`](https://developers.eos.io/eosio-home/docs/accounts-1) tutorial.
+To create new accounts you can use the commands presented in [`Create Test Accounts`](/getting-started/development-environment/create-test-accounts) documentation section.
 
-To issue, allocate and transfer tokens between accounts you can use the commands presented in [`Deploy, Issue and Transfer Tokens`](https://developers.eos.io/eosio-home/docs/token-contract) toturial
+To issue, allocate and transfer tokens between accounts you can use the commands presented in [`Deploy, Issue and Transfer Tokens`](/getting-started/smart-contract-development/deploy-issue-and-transfer-tokens) documentation section.

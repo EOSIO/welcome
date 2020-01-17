@@ -14,7 +14,7 @@ The basic relationship between these components is illustrated in the following 
 ![EOSIO Development Lifecycle](./images/EOSIO-Overview-dev.svg)
 
 
-[[ info | Note ]]
+[[info | Note]]
 | EOSIO also provides a frontend library for javascript development called EOSJS along with Swift and Java SDKs for native mobile applications development.
 
 ## Nodeos
