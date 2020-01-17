@@ -10,7 +10,7 @@ An EOSIO blockchain is a highly efficient, deterministic, distributed state mach
 
 ## 1.1. Block Producers
 
-In the EOSIO ecosystem, block production and block validation are performed by special nodes called "block producers". Producers are elected by EOSIO stakeholders (see [4. Producer Voting/Scheduling](#4-producer-voting/scheduling)). Each producer runs an instance of an EOSIO node through the `nodeos` service. For this reason, producers that are on the active schedule to produce blocks are also called "active" or "producing" nodes.
+In the EOSIO ecosystem, block production and block validation are performed by special nodes called "block producers". Producers are elected by EOSIO stakeholders (see [4. Producer Voting/Scheduling](#4-producer-votingscheduling)). Each producer runs an instance of an EOSIO node through the `nodeos` service. For this reason, producers that are on the active schedule to produce blocks are also called "active" or "producing" nodes.
 
 
 ## 1.2. The Need for Consensus
