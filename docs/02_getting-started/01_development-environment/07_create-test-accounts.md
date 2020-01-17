@@ -11,7 +11,7 @@ This tutorial series uses two "user" accounts, `bob` and `alice`, as well as the
 
 ## Step 1: Create Test Accounts
 
-[[caution | Noy your public key]]
+[[caution | Not your public key]]
 | In a previous step, you created a wallet and created a development key pair. You were asked to place that public key into a form, but either you skipped this step or have cookies disabled. You will need to replace YOUR_PUBLIC_KEY below with the public key you generated.
 
 Throughout these tutorials the accounts `bob` and `alice` are used. Create two accounts using [cleos create account](/manuals/eos/latest/cleos/command-reference/create/account)
