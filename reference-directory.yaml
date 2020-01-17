@@ -2,30 +2,30 @@ sections:
   - title: Nodeos RPC API Reference
     listings:
       - title:  Nodeos Chain API
-        description: Nodeos Chain API Reference Documentation
+        description: Reference Documentation
         link: /manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index
       - title: Nodeos Producer API
-        description: Nodeos Producer API Reference Documentation
+        description: Reference Documentation
         link: /manuals/eos/latest/nodeos/plugins/producer_api_plugin/api-reference/index
       - title: Nodeos Net API
-        description: Nodeos Net API Reference Documentation
+        description: Reference Documentation
         link: /manuals/eos/latest/nodeos/plugins/net_api_plugin/api-reference
       - title: Nodeos DB Size API
-        description: Nodeos DB Size API Reference Documentation
+        description: Reference Documentation
         link: /manuals/eos/latest/nodeos/plugins/db_size_api_plugin/api-reference
       - title: Nodeos Test Control API
-        description: Nodeos Test Control API Reference Documentation
+        description: Reference Documentation
         link: /manuals/eos/latest/nodeos/plugins/test_control_api_plugin/api-reference
   - title: SDK API References
     listings:
       - title: eosjs Javascript API
-        description: eosjs Javascript API Reference Documentation
+        description: Reference Documentation
         link: /manuals/eosjs/latest/API-Reference/index
       - title: eosio-swift Swift API
-        description: EOSIO SDK for Swift is an API for integrating with EOSIO-based blockchains using the EOSIO RPC API
+        description: Reference Documentation
         link: http://eosio.github.io/eosio-swift
       - title: eosio-java Java API
-        description: eosio-java Java API Reference Documentation
+        description: Reference Documentation
         link: http://eosio.github.io/eosio-java
   - title: Smart Contract Action References
     listings:
