@@ -116,7 +116,7 @@ Name | Type | Mandatory
 `voter_info` | variant | yes
 `rex_info` | variant | yes
 
-The `name` type consists of a 64-bit value that encodes alphanumeric characters into 5-bit chunks, except the last character, if any, which uses a 4-bit chunk. The `name` type is used to store account names, action names, etc.
+The `name` type consists of a 64-bit value that encodes alphanumeric characters into 5-bit chunks, except the last character, if any, which uses a 4-bit chunk. The `name` type is used to encode account names, action names, etc. The `time_point` type stores timestamps in microseconds. The `asset` type associates a currency or token symbol with a given amount. The `account_resource_limit` type keeps track of the amount used, available, and maximum that can be used in a given window for the given resource (NET or CPU). The `permission` type holds the list of permission levels associated with the account - see [3. Permissions](#3-permissions).
 
 
 ## 2.2. Actions and Transactions
@@ -135,6 +135,8 @@ Name | Type | Mandatory
 `perm_name` | `name` | yes
 `parent` | `name` | yes
 `required_auth` | `authority` | yes
+
+The `parent` field links the named permission level to its parent permission. This is what allows hierarchical permission levels in EOSIO.
 
 
 ## 3.1. Permission Levels
@@ -171,12 +173,13 @@ Name | Type | Mandatory
 `accounts` | array of `permission_level_weight` | yes
 `waits` | array of `wait_weight` | yes
 
+The `key_weight` type contains the actor's public key and associated weight. The `permission_level_weight` type consists of the actor's `account@permission` level and associated weight. The `wait_weight` contains the time wait and associated weight (used satisfying actions in delayed user transactions - see [3.6.3. Delayed User Transactions](02_transactions_protocol.md#363-delayed-user-transactions)). All of these types allow to define lists of authority factors that are used for satisfaction of action authorizations. Authority factors are described next.
 
 ### 3.2.1. Authority Factors
 
 Every authority table linked to a given permission lists potential "factors" explicitly used in the evaluation of the action authorization. A factor type can be one of the following:
 
-*   Actor's account name
+*   Actor's account name and permission level
 *   Actor's public key
 *   Time wait
 
