@@ -2,30 +2,30 @@ sections:
   - title: Nodeos RPC API Reference
     listings:
       - title: Nodeos Chain API
-        description: Reference Documentation
+        description: Provides access to the blockchain information and interaction with the blockchain
         link: /manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index
       - title: Nodeos Producer API
-        description: Reference Documentation
+        description: Provides access to a producer node
         link: /manuals/eos/latest/nodeos/plugins/producer_api_plugin/api-reference/index
       - title: Nodeos Net API
-        description: Reference Documentation
+        description: Provides access to the blockchain's network
         link: /manuals/eos/latest/nodeos/plugins/net_api_plugin/api-reference
       - title: Nodeos DB Size API
-        description: Reference Documentation
+        description: Provides access to the blockchain's database
         link: /manuals/eos/latest/nodeos/plugins/db_size_api_plugin/api-reference
       - title: Nodeos Test Control API
-        description: Reference Documentation
+        description: Provides control of nodeos shutdown if some test conditions are met, for testing purposes
         link: /manuals/eos/latest/nodeos/plugins/test_control_api_plugin/api-reference
   - title: SDK API References
     listings:
       - title: eosjs Javascript API
-        description: Reference Documentation
+        description: Provides integration with EOSIO-based blockchains using the EOSIO Nodeos RPC API
         link: /manuals/eosjs/latest/API-Reference/index
       - title: eosio-swift Swift API
-        description: Reference Documentation
+        description: Provides integration with EOSIO-based blockchains using the EOSIO Nodeos RPC API
         link: http://eosio.github.io/eosio-swift
       - title: eosio-java Java API
-        description: Reference Documentation
+        description: Provides integration with EOSIO-based blockchains using the EOSIO Nodeos RPC API
         link: http://eosio.github.io/eosio-java
   - title: Smart Contract Action References
     listings:
