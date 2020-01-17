@@ -25,9 +25,9 @@ Block.one implements and maintains these `system contracts`, as samples only, en
 
 Also part of the `system` layer are the following concepts:
 
-1. [System accounts](https://eosio.github.io/eosio.contracts/latest/index/#system-contracts-system-accounts-priviledged-accounts)
-2. [RAM](https://eosio.github.io/eosio.contracts/latest/index/#ram)
-3. [CPU](https://eosio.github.io/eosio.contracts/latest/index/#cpu)
-4. [NET](https://eosio.github.io/eosio.contracts/latest/index/#net)
-5. [Stake](https://eosio.github.io/eosio.contracts/latest/index/#stake)
-6. [Vote](https://eosio.github.io/eosio.contracts/latest/index/#vote)
+1. [System accounts](/manuals/eosio.contracts/latest/index/#system-contracts-system-accounts-priviledged-accounts)
+2. [RAM](/manuals/eosio.contracts/latest/index/#ram)
+3. [CPU](/manuals/eosio.contracts/latest/index/#cpu)
+4. [NET](/manuals/eosio.contracts/latest/index/#net)
+5. [Stake](/manuals/eosio.contracts/latest/index/#stake)
+6. [Vote](/manuals/eosio.contracts/latest/index/#vote)
