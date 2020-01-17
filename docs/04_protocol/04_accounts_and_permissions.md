@@ -162,7 +162,14 @@ In the current EOSIO implementation, the implicit default permission linked to a
 
 ## 3.2. Authority Table
 
-Each account's permission can be linked to an authority table used to determine whether a given action authorization can be satisfied. The authority table contains the applicable permission name and threshold, the "factors" and their weights, all of which are used in the evaluation to determine whether the authorization can be satisfied. The permission threshold is the target numerical value that must be reached to satisfy the action authorization.
+Each account's permission can be linked to an authority table used to determine whether a given action authorization can be satisfied. The authority table contains the applicable permission name and threshold, the "factors" and their weights, all of which are used in the evaluation to determine whether the authorization can be satisfied. The permission threshold is the target numerical value that must be reached to satisfy the action authorization - see the `authority` schema below.
+
+Name | Type | Mandatory
+-|-|-
+`threshold` | `uint32_t` | yes
+`keys` | array of `key_weight` | yes
+`accounts` | array of `permission_level_weight` | yes
+`waits` | array of `wait_weight` | yes
 
 
 ### 3.2.1. Authority Factors
