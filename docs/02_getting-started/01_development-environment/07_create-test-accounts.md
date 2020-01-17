@@ -2,16 +2,19 @@
 content_title: "1.6: Create Test Accounts"
 link_text: "1.6: Create Test Accounts"
 ---
+
 ## What is an account?
-An account is a collection of authorisations, stored on the blockchain, and used to identify a sender/recipient. It has a flexible authorisation structure that enables it to be owned either by an individual or group of individuals depending on **how** permissions have been configured. An account is required to send or receive a valid transaction to the blockchain
+
+An account is a collection of authorizations, stored on the blockchain, and used to identify a sender/recipient. It has a flexible authorization structure that enables it to be owned either by an individual or group of individuals depending on **how** permissions have been configured. An account is required to send or receive a valid transaction to the blockchain
 
 This tutorial series uses two "user" accounts, `bob` and `alice`, as well as the default `eosio` account for configuration. Additionally accounts are made for various contracts throughout this tutorial series.
+
 ## Step 1: Create Test Accounts
 
 [[caution | Noy your public key]]
 | In a previous step, you created a wallet and created a development key pair. You were asked to place that public key into a form, but either you skipped this step or have cookies disabled. You will need to replace YOUR_PUBLIC_KEY below with the public key you generated.
 
-Throughout these tutorials the accounts `bob` and `alice` are used. Create two accounts using [cleos create account](https://developers.eos.io/eosio-cleos/reference#cleos-create-account)
+Throughout these tutorials the accounts `bob` and `alice` are used. Create two accounts using [cleos create account](/manuals/eos/latest/cleos/command-reference/create/account)
 
 ```shell
 cleos create account eosio bob YOUR_PUBLIC_KEY
@@ -31,7 +34,7 @@ Note in `cleos` command a public key is associated with account `alice`. Each EO
 
 Be aware that the account name is the only identifier for ownership. You can change the public key but it would not change the ownership of your EOSIO account.
 
-Check which public key is associated with `alice` using [cleos get account](https://developers.eos.io/eosio-cleos/reference#cleos-get-account)
+Check which public key is associated with `alice` using [cleos get account](/manuals/eos/latest/cleos/command-reference/get/account)
 
 ```shell
 cleos get account alice
