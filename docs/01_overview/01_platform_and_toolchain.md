@@ -11,10 +11,10 @@ The EOSIO platform is made up of the following components and toolchain:
 
 The basic relationship between these components is illustrated in the following diagram:
 
-![EOSIO Development Lifecycle](../images/EOSIO-Overview-dev.svg)
+![EOSIO Development Lifecycle](./images/EOSIO-Overview-dev.svg)
 
 
-[[ info | Note ]]
+[[info | Note]]
 | EOSIO also provides a frontend library for javascript development called EOSJS along with Swift and Java SDKs for native mobile applications development.
 
 ## Nodeos
