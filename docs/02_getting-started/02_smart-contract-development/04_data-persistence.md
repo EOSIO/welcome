@@ -89,7 +89,7 @@ struct person {
 | A table's data structure cannot be modified while it has data in it. If you need to make changes to a table's data structure in any way, you first need to remove all its rows
 
 ## Step 5: Configure the Multi-Index Table
-Now that the data structure of the table has been defined with a `struct` we need to configure the table. The [eosio::multi_index](/manuals/eosio.cdt/latest/classeosio_1_1multi__index.html) constructor needs to be named and configured to use the struct we previously defined.
+Now that the data structure of the table has been defined with a `struct` we need to configure the table. The [eosio::multi_index](/manuals/eosio.cdt/latest/classeosio_1_1multi__index) constructor needs to be named and configured to use the struct we previously defined.
 
 ```cpp
 typedef eosio::multi_index<"people"_n, person> address_index;
