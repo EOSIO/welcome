@@ -30,17 +30,17 @@ sections:
   - title: Smart Contract Action References
     listings:
       - title: eosio.system
-        description: eosio.system contract defines the structures and actions needed for blockchain's core functionality
+        description: Contract's Actions Reference Documentation
         link: /manuals/eosio.contracts/latest/action-reference/eosio.system
       - title: eosio.token
-        description: eosio.token contract defines the structures and actions that allow users to create, issue, and manage tokens on eosio based blockchains
+        description: Contract's Actions Reference Documentation
         link: /manuals/eosio.contracts/latest/action-reference/eosio.token
       - title: eosio.msig
-        description: eosio.msig contract defines the structures and actions needed to manage the proposals and approvals on blockchain
+        description: Contract's Actions Reference Documentation
         link: /manuals/eosio.contracts/latest/action-reference/eosio.msig
       - title: eosio.wrap
-        description: eosio.wrap contract simplifies Block Producer superuser actions by making them more readable and easier to audit
+        description: Contract's Actions Reference Documentation
         link: /manuals/eosio.contracts/latest/action-reference/eosio.wrap
       - title: eosio.bios
-        description: eosio.bios contract defines the structures and actions needed for blockchain's basic core functionality
+        description: Contract's Actions Reference Documentation
         link: /manuals/eosio.contracts/latest/action-reference/eosio.bios
