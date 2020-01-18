@@ -3,9 +3,6 @@ content_title: "1.5: Start your node setup"
 link_text: "1.5: Start your node setup"
 ---
 
-[[info]]
-| Looking for the version of this series that uses [Docker](https://developers.eos.io/eosio-home/v1.7.0/docs/introduction)?
-
 ## Step 1: Boot Node and Wallet
 ## Step 1.1: Start keosd
 First let us start keosd:
@@ -77,7 +74,7 @@ Press `ctrl + c` to close the log
 ## Step 2.2: Check the Wallet
 
 Open the shell and run the cleos command to list available wallets. We will talk more about wallets in the future. For now, we need to validate the installation and see that the command line client
-[cleos](https://developers.eos.io/eosio-cleos/docs) is working as intended.
+[cleos](/manuals/eos/latest/cleos) is working as intended.
 
 
 ```shell

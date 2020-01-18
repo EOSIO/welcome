@@ -2,30 +2,38 @@
 content_title: "2.6: Adding Inline Actions"
 link_text: "2.6 Adding Inline Actions"
 ---
+
 ## Introduction
+
 It was previously demonstrated by authoring the `addressbook` contract the basics of multi-index tables. In this part of the series you'll learn how to construct actions, and send those actions from within a contract.
+
 ## Step 1: Adding eosio.code to permissions
+
 In order for the inline actions to be sent from `addressbook`, add the `eosio.code` permission to the contract's account's active permission. Open your terminal and run the following code
 ```shell
 cleos set account permission addressbook active --add-code
 ```
 The `eosio.code` authority is a pseudo authority implemented to enhance security, and enable contracts to execute inline actions.
+
 ## Step 2: Notify Action
+
 If not still opened, open the `addressbook.cpp` contract authored in the last tutorial. Write an action that dispatches a "transaction receipt" whenever a transaction occurs. To do this, create a helper function in the `addressbook` class.
 ```cpp
 [[eosio::action]]
 void notify(name user, std::string msg) {}
 ```
 This function is very simple, it just accepts a user account as a `name` type and a message as a `string` type. The user parameter dictates which user gets the message that is sent.
+
 ## Step 3: Copy action to sender using require_recipient
-This transaction needs to be copied to the user so it can be considered as a receipt. To do this, use the [require_recipient](https://eosio.github.io/eosio.cdt/1.5.0/group__action.html#function-requirerecipient) method.  Calling `require_recipient` adds an account to the require_recipient set and ensures that these accounts receive a notification of the action being executed. The notification is like sending a "carbon copy" of the action to the accounts in the require_recipient set.
+
+This transaction needs to be copied to the user so it can be considered as a receipt. To do this, use the [require_recipient](/manuals/eosio.cdt/latest/group__action/#function-require_recipient) method.  Calling `require_recipient` adds an account to the require_recipient set and ensures that these accounts receive a notification of the action being executed. The notification is like sending a "carbon copy" of the action to the accounts in the require_recipient set.
 ```cpp
   [[eosio::action]]
   void notify(name user, std::string msg) {
    require_recipient(user);
   }
 ```
-This action is very simple, however, as written, any user could call this function, and "fake" a receipt from this contract. This could be used in malicious ways, and should be seen as a vulnerability. To correct this, require that the authorization provided in the call to this action is from the contract itself, for this, use [get_self](https://developers.eos.io/eosio-cpp/v1.3.0/reference#get_self)
+This action is very simple, however, as written, any user could call this function, and "fake" a receipt from this contract. This could be used in malicious ways, and should be seen as a vulnerability. To correct this, require that the authorization provided in the call to this action is from the contract itself, for this, use [get_self](/manuals/eosio.cdt/latest/classeosio_1_1contract#function-get_self)
 ```cpp
   [[eosio::action]]
   void notify(name user, std::string msg) {
@@ -34,7 +42,9 @@ This action is very simple, however, as written, any user could call this functi
   }
 ```
 Now if user `bob` calls this function directly, but passes the parameter `alice` the action will throw an exception.
+
 ## Step 4: Notify helper for sending inline transactions
+
 Since this inline action will be called several times, write a quick helper for maximum code reuse. In the private region of your contract, define a new method.
 ```cpp
 ...
@@ -42,7 +52,9 @@ Since this inline action will be called several times, write a quick helper for 
     void send_summary(name user, std::string message){}
 ```
 Inside of this helper construct an action and send it.
+
 ## Step 5: The Action Constructor
+
 Modify the `addressbook`  contract to send a receipt to the user every time they take an action on the contract.
 
 To begin, address the "create record" case. This is the case that fires when a record is not found in the table, i.e., when `iterator == addresses.end()` is `true`.
@@ -63,12 +75,13 @@ Save this object to an `action` variable called `notification`
 
 ```
 The action constructor requires a number of parameters.
-- A [permission_level](https://eosio.github.io/eosio.cdt/structeosio_1_1permission__level.html) struct
+- A [permission_level](/manuals/eosio.cdt/latest/structeosio_1_1permission__level) struct
 - The contract to call (initialised using `eosio::name` type)
 - The action (initialised using `eosio::name` type)
 - The data to pass to the action, a tuple of positionals that correlate to the actions being called.
 
 ## The Permission struct
+
 In this contract the permission should be authorized by the `active` authority of the contract using `get_self()`. As a reminder, to use the 'active` authority inline you will need your contract's to give active authority to `eosio.code` pseudo-authority (instructions above)
 ```cpp
 ...
@@ -79,8 +92,10 @@ In this contract the permission should be authorized by the `active` authority o
       );
     }
 ```
+
 ## The "code" AKA "account where contract is deployed"
-Since the action called is in this contract, use  [get_self](https://eosio.github.io/eosio.cdt/classeosio_1_1contract.html#function-getself). `"addressbook"_n` would also work here, but if this contract were deployed under a different account name, it wouldn't work. Because of this, `get_self()` is the superior option.
+
+Since the action called is in this contract, use  [get_self](/manuals/eosio.cdt/latest/classeosio_1_1contract/#function-get_self). `"addressbook"_n` would also work here, but if this contract were deployed under a different account name, it wouldn't work. Because of this, `get_self()` is the superior option.
 ```cpp
 ...
   private:
@@ -93,7 +108,9 @@ Since the action called is in this contract, use  [get_self](https://eosio.githu
       );
     }
 ```
+
 ## The action
+
 The `notify` action was previously defined to be called from this inline action. Use the _n operator here.
 ```cpp
 ...
@@ -107,7 +124,9 @@ The `notify` action was previously defined to be called from this inline action.
       );
     }
 ```
+
 ## The Data
+
 Finally, define the data to pass to this action. The notify function accepts two parameters, an `name` and a `string`. The action constructor expects data as type `bytes`, so use `make_tuple`, a function available through `std` C++ library.  Data passed in the tuple is positional, and determined by the order of the parameters accepted by the action that being called.
 
 - Pass the `user` variable that is provided as a parameter of the `upsert()` action.
@@ -124,7 +143,9 @@ Finally, define the data to pass to this action. The notify function accepts two
       );
     }
 ```
+
 ## Send the action.
+
 Finally, send the action using the `send` method of the action struct.
 ```cpp
 ...
@@ -144,7 +165,9 @@ Now that the helper is defined, it should probably be called from the relevant l
 - After the contract `emplaces` a new record: `send_summary(user, "successfully emplaced record to addressbook");`
 - After the contract `modifies` an existing record: `send_summary(user, "successfully modified record in addressbook.");`
 - After the contract `erases` an existing record: `send_summary(user, "successfully erased record from addressbook");`
+
 ## Step 7: Recompile and Regenerate the ABI File
+
 Now that everything is in place, here's the current state of the `addressbook` contract:
 ```cpp
 #include <eosio/eosio.hpp>
@@ -230,11 +253,9 @@ private:
     ).send();
   };
 
-
   typedef eosio::multi_index<"people"_n, person,
     indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>
   > address_index;
-
 };
 ```
 Open your terminal, and navigate to `CONTRACTS_DIR/addressbook`
@@ -257,7 +278,9 @@ executed transaction: 1898d22d994c97824228b24a1741ca3bd5c7bc2eba9fea8e83446d78bf
 #         eosio <= eosio::setabi                {"account":"addressbook","abi":"0e656f73696f3a3a6162692f312e30010c6163636f756e745f6e616d65046e616d65...
 ```
 Success!
+
 ## Step 8: Testing it
+
 Now that the contract has been modified and deployed, test it. In the previous tutorial, alice's addressbook record was deleted during the testing steps, so calling `upsert` will fire the inline action just written inside of the "create" case.
 
 Run the following command in your terminal
@@ -271,7 +294,7 @@ executed transaction: e9e30524186bb6501cf490ceb744fe50654eb393ce0dd733f3bb6c68ff
 #   addressbook <= addressbook::notify          {"user":"alice","msg":"alicesuccessfully emplaced record to addressbook"}
 #         alice <= addressbook::notify          {"user":"alice","msg":"alicesuccessfully emplaced record to addressbook"}
 ```
-The last entry in the previous log is an `addressbook::notify` action sent to `alice`. Use [cleos get actions](https://developers.eos.io/eosio-cleos/reference#cleos-get-transactions) to display actions executed and relevant to alice.
+The last entry in the previous log is an `addressbook::notify` action sent to `alice`. Use [cleos get actions](/manuals/eos/latest/cleos/command-reference/get/actions) to display actions executed and relevant to alice.
 ```shell
 cleos get actions alice
 ```
