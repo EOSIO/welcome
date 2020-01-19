@@ -30,8 +30,6 @@ After performing these steps, you will have a fully functional **eos blockchain*
 Alternatively, if you would like to automate these steps, you can use the [bios-boot-tutorial.py](https://github.com/EOSIO/eos/blob/master/tutorials/bios-boot-tutorial/bios-boot-tutorial.py) python script that implements the preparatory steps. However, the script uses different and additional data values. See the file `accounts.json` for the producer names and the user account names that the script uses. If your goal is to build a fully functional EOS blockchain on your local machine by automation, you can run the `bios-boot-tutorial.py` script directly by following the [README.md](https://github.com/EOSIO/eos/blob/master/tutorials/bios-boot-tutorial/README.md) instructions.
 
 
-If you want to go through each step manually, follow the instructions 
-
 If your goal is to go beyond and understand what the script is doing, you can follow this tutorial which will get you through the same steps explaining also along the way each step needed to go through.
 
 
@@ -53,7 +51,7 @@ Create and configure your default wallet, followed by creating a public and priv
 For instructions on creating a wallet and importing the keys, see the [Create development wallet](https://developers.eos.io/eosio-home/docs/wallets) tutorial.
 
 
-### **1.3. Create '~/biosboot/genesis' directory**
+### **1.3. Create biosboot/genesis directory**
 
 Create a new directory `~/biosboot/genesis` to start the genesis node by executing `nodeos` with specific parameters that will create the blockchain database, the log file, and the configuration file inside the directory.
 
@@ -64,7 +62,7 @@ cd biosboot
 mkdir genesis
 cd genesis
 ```
-### **1.4. Create a JSON file in `~/biosboot/` directory**
+### **1.4. Create a JSON file in ~/biosboot/ directory**
 
 1. Create an empty `genesis.json` file in the `~/biosboot/` directory and open it in your preferred text editor (demonstrated with nano editor here):
 ```shell
@@ -226,7 +224,7 @@ chmod 755 stop.sh
 ./stop.sh
 ```
 
-#### 1.5.2 Restarting `nodeos` 
+#### 1.5.2 Restarting nodeos
 
 After stopping the `nodeos` process, you will not be able to restart it using the  `.genesis_start.sh` script created in *1.5 Start the genesis node* as once a node runs and produces blocks, the blockchain database initializes and gets populated. Thus, `nodeos` is not able to start with the `--genesis-json` parameter. Therefore, it is recommended to create a new script, `start.sh` by following the same steps outlined in *1.5 Start a genesis node* and copy the below content to the script. Also, assign execution privileges to the script and use this file for any future nodeos restarts after you stopped the process.
 
@@ -334,7 +332,7 @@ cd ~/biosboot/genesis/
 ./clean.sh
 ./genesis_start.sh
 ```
-### **1.6. Inspect the `nodeos.log` file**
+### **1.6. Inspect the nodeos.log file**
 
 Inspect the `nodeos.log` file with the following command, and use `CTRL+C to` exit the listing mode.
 ```shell
@@ -381,7 +379,7 @@ executed transaction: ca68bb3e931898cdd3c72d6efe373ce26e6845fc486b42bc5d185643ea
 #         eosio <= eosio::newaccount            {"creator":"eosio","name":"eosio.bpay","owner":{"threshold":1,"keys":[{"key":"EOS84BLRbGbFahNJEpnnJH...
 ```
 
-### **1.8. Build `eosio.contracts`**
+### **1.8. Build eosio.contracts**
 
 
 In order to build `eosio.contracts`, create a dedicated directory for `eosio.contracts`, clone the `eosio.contracts` sources and build them. Print the current directory in the terminal and make a note of it. The current directory will be referred to as `EOSIO_CONTRACTS_DIRECTORY`.
@@ -410,10 +408,13 @@ git checkout release/1.8.x
 cd ./build/contracts/
 pwd
 ```
-
 Make note of the printed local path, we will reference to this directory as `EOSIO_OLD_CONTRACTS_DIRECTORY` from here onward when needed.
 
-### **1.9. Install the `eosio.token` contract**
+3. Restore the eosio.cdt version installed at the beginning of the tutorial.
+
+
+
+### **1.9. Install the eosio.token contract**
 
 Now we have to set the `eosio.token` contract. This contract enables you to create, issue, transfer, and get information about tokens. To set the `eosio.token` contract:
 
@@ -431,7 +432,7 @@ executed transaction: 17fa4e06ed0b2f52cadae2cd61dee8fb3d89d3e46d5b133333816a04d2
 #         eosio <= eosio::setabi                {"account":"eosio.token","abi":{"types":[],"structs":[{"name":"transfer","base":"","fields":[{"name"...
 ```
 
-### **1.10. Set the `eosio.msig` contract**
+### **1.10. Set the eosio.msig contract**
 
 The `eosio.msig` contract enables and simplifies defining and managing permission levels and performing multi-signature actions. To set the `eosio.msig` contract:
 ```shell
@@ -448,7 +449,7 @@ executed transaction: 007507ad01de884377009d7dcf409bc41634e38da2feb6a117ceced855
 #         eosio <= eosio::setabi                {"account":"eosio.msig","abi":{"types":[{"new_type_name":"account_name","type":"name"}],"structs":[{...
 ```
 
-### **1.11. Create and allocate the `SYS` currency**
+### **1.11. Create and allocate the SYS currency**
 
 Create the `SYS` currency with a maximum value of 10 billion tokens. Then, issue one billion tokens. Replace `SYS` with your specific currency designation.
 
@@ -480,7 +481,7 @@ executed transaction: a53961a566c1faa95531efb422cd952611b17d728edac833c9a5558242
 ---
 
 
-### **1.12. Set the `eosio.system` contract**
+### **1.12. Set the eosio.system contract**
 
 **Activate the `PREACTIVATE_FEATURE` protocol**
 
@@ -576,13 +577,13 @@ Producers are chosen by election. The list of producers can change. Rather than 
 
 As soon as possible after installing the `eosio.system` contract, we want to designate `eosio.msig` as a privileged account so that it can authorize on behalf of the `eosio` account. As soon as possible, `eosio` will resign its authority and `eosio.prods` will take over.
 
-### **2.1. Designate `eosio.msig` as privileged account**
+### **2.1. Designate eosio.msig as privileged account**
 
 To designate `eosio.msig` as a privileged account:
 ```shell
 cleos push action eosio setpriv '["eosio.msig", 1]' -p eosio@active
 ```
-### **2.2. Initialize `system` account**
+### **2.2. Initialize system account**
 
 To initialize the `system` account with code zero (needed at initialization time) and `SYS` token with precision 4; precision can range from [0 .. 18]:
 
