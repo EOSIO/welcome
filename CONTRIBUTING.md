@@ -36,7 +36,7 @@ Guidelines for documentation issue reports:
 
 A good issue report shouldn't leave others needing to chase you up for more information. Be sure to include the details of your environment and relevant tests that demonstrate the problem.
 
-[Report an issue](https://github.com/EOSIO/welcome/issues/new?title=Documentation+Issue)
+[Report an issue](https://github.com/EOSIO/welcome/issues/new?title=%5Bdocs%5D%20Suggestion%20/%20Change%20Request)
 
 ### New Document Request
 
