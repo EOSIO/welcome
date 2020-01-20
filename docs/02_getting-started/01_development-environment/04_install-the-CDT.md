@@ -56,8 +56,8 @@ cd eosio.cdt
 ```
 It may take up to 30 minutes to clone the repository
 
-[[success | Virtual machine environment ]]
-In case you are using a virtual machine. It should be configured with at least 2 CPUs (does not have to be two physical ones) and 8G of memory to avoid compilation errors
+[[success | Virtual machine environment]]
+| In case you are using a virtual machine. It should be configured with at least 2 CPUs (does not have to be two physical ones) and 8G of memory to avoid compilation errors
 
 ## Build
 ```shell
