@@ -3,13 +3,12 @@
 Interested in contributing? That's awesome! Here are some guidelines to get started quickly and easily:
 
 - [Reporting An Issue](#reporting-an-issue)
-  - [Bug Reports](#bug-reports)
-  - [Feature Requests](#feature-requests)
-  - [Change Requests](#change-requests)
+  - [Filing a Documentation Issue](#filing-a-documentation-issue)
+  - [New Documentation Content Requests](#new-documentation-content-requests)
+  - [Documentation Change Requests](#documentation-change-requests)
 - [Working on Documentation](#working-on-documentation)
-  - [Feature Branches](#feature-branches)
+  - [Documentation Changes Branches](#documentation-changes-branches)
   - [Submitting Pull Requests](#submitting-pull-requests)
-  - [Testing and Quality Assurance](#testing-and-quality-assurance)
 - [Conduct](#conduct)
 - [Contributor License & Acknowledgments](#contributor-license--acknowledgments)
 - [References](#references)
@@ -24,46 +23,44 @@ The GitHub issue tracker is the preferred channel for [bug reports](#bug-reports
 
 * Please **be civil**. Keep the discussion on topic and respect the opinions of others. See also our [Contributor Code of Conduct](#conduct).
 
-### Bug Reports
+### Filing a Documentation Issue
 
-A bug is a _demonstrable problem_ that is caused by the code in the repository. Good bug reports are extremely helpful - thank you!
+A documentation issue is a _demonstrable problem_ that is present in the documentation repository. Good reports are extremely helpful - thank you!
 
-Guidelines for bug reports:
+Guidelines for documentation issue reports:
 
-1. **Use the GitHub issue search** &mdash; check if the issue has already been
-   reported.
+1. **Use the GitHub issue search** &mdash; check if the issue has already been reported.
 
 2. **Check if the issue has been fixed** &mdash; look for [closed issues in the
-   current milestone](https://github.com/EOSIO/welcome/issues?q=is%3Aissue+is%3Aclosed) or try to reproduce it
-   using the latest `develop` branch.
+   current milestone](https://github.com/EOSIO/welcome/issues?q=is%3Aissue+is%3Aclosed) or try to find it using the latest `master` branch.
 
-A good bug report shouldn't leave others needing to chase you up for more information. Be sure to include the details of your environment and relevant tests that demonstrate the failure.
+A good issue report shouldn't leave others needing to chase you up for more information. Be sure to include the details of your environment and relevant tests that demonstrate the problem.
 
-[Report a bug](https://github.com/EOSIO/welcome/issues/new?title=Bug%3A)
+[Report an issue](https://github.com/EOSIO/welcome/issues/new?title=Bug%3A)
 
-### Feature Requests
+### New Documentation Content Requests
 
-Feature requests are welcome. Before you submit one be sure to have:
+New documentation content requests are welcome. Before you submit one be sure to have:
 
-1. **Use the GitHub search** and check the feature hasn't already been requested.
-1. Take a moment to think about whether your idea fits with the scope and aims of the project.
-1. Remember, it's up to *you* to make a strong case to convince the project's leaders of the merits of this feature. Please provide as much detail and context as possible, this means explaining the use case and why it is likely to be common.
+1. **Use the GitHub search** and check the new documentation hasn't already been requested.
+2. Take a moment to think about whether your idea fits with the scope and aims of the project.
+3. Remember, it's up to *you* to make a strong case to convince the project's leaders of the merits of this documentation request.
 
-### Change Requests
+### Documentation Change Requests
 
-Change requests cover both architectural and functional changes to how documentation works. If you have an idea for a new or different dependency, a refactor, or an improvement to a feature, etc - please be sure to:
+If you have an idea for improvement to documentation, section, paragraph, section, etc - please be sure to:
 
 1. **Use the GitHub search** and check someone else didn't get there first
-1. Take a moment to think about the best way to make a case for, and explain what you're thinking. Are you sure this shouldn't really be
-   a [bug report](#bug-reports) or a [feature request](#feature-requests)?  Is it really one idea or is it many? What's the context? What problem are you solving? Why is what you are suggesting better than what's already there?
+2. Take a moment to think about the best way to make a case for, and explain what you're thinking. Are you sure this shouldn't really be
+   [New Documentation Content Requests](#new-documentation-content-requests)?  Is it really one idea or is it many? What's the context? Why is what you are suggesting better than what's already there?
 
 ## Working on documentation
 
-Code contributions are welcome and encouraged! If you are looking for a good place to start, check out the [good first issue](https://github.com/EOSIO/welcome/labels/good%20first%20issue) label in GitHub issues.
+Documentation contributions are welcome and encouraged! If you are looking for a good place to start, check out the [good first issue](https://github.com/EOSIO/welcome/labels/good%20first%20issue) label in GitHub issues.
 
-Also, please follow these guidelines when submitting code:
+Also, please follow these guidelines when submitting your proposed documentation changes:
 
-### Feature Branches
+### Documentation Changes Branches
 
 To get it out of the way:
 
@@ -73,12 +70,6 @@ To get it out of the way:
 ### Submitting Pull Requests
 
 Pull requests are awesome. If you're looking to raise a PR for something which doesn't have an open issue, please think carefully about [raising an issue](#reporting-an-issue) which your PR can close, especially if you're fixing a bug. This makes it more likely that there will be enough information available for your PR to be properly tested and merged.
-
-### Testing and Quality Assurance
-
-Never underestimate just how useful quality assurance is. If you're looking to get involved with the code base and don't know where to start, checking out and testing a pull request is one of the most useful things you could do.
-
-Essentially, [check out the latest develop branch](#working-on-documentation), take it for a spin, and if you find anything odd, please follow the [bug report guidelines](#bug-reports) and let us know!
 
 ## Conduct
 
