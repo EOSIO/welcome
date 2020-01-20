@@ -40,7 +40,7 @@ If your goal is to go beyond and understand what the script is doing, you can fo
 
 For instructions to install the `nodeos` binaries, see the [Install EOSIO pre-compiled binaries](https://developers.eos.io/eosio-home/docs/setting-up-your-environment) tutorial but do not start `nodeos` at this stage. 
 
-**Eosio.cdt Binaries**
+**EOSIO.CDT Binaries**
 
 For instructions to install the EOSIO.CDT binaries, see the [Install EOSIO.CDT binaries](https://github.com/EOSIO/eosio.cdt#binary-releases) tutorial.
 
@@ -424,7 +424,7 @@ cleos set contract eosio.token EOSIO_CONTRACTS_DIRECTORY/eosio.token/
 
 Output:
 ```
-Reading WAST/WASM from /Users/tutorial/Documents/eos/contracts/eosio.token/eosio.token.wasm...
+Reading WAST/WASM from /users/documents/eos/contracts/eosio.token/eosio.token.wasm...
 Using already assembled WASM...
 Publishing contract...
 executed transaction: 17fa4e06ed0b2f52cadae2cd61dee8fb3d89d3e46d5b133333816a04d23ba991  8024 bytes  974 us
@@ -441,7 +441,7 @@ cleos set contract eosio.msig EOSIO_CONTRACTS_DIRECTORY/eosio.msig/
 
 Output:
 ```
-Reading WAST/WASM from /Users/tutorial/Documents/eos/build/contracts/eosio.msig/eosio.msig.wasm...
+Reading WAST/WASM from /users/documents/eos/build/contracts/eosio.msig/eosio.msig.wasm...
 Using already assembled WASM...
 Publishing contract...
 executed transaction: 007507ad01de884377009d7dcf409bc41634e38da2feb6a117ceced8554a75bc  8840 bytes  925 us
@@ -506,7 +506,7 @@ cleos set contract eosio EOSIO_OLD_CONTRACTS_DIRECTORY/eosio.system/
 ```
 
 ```
-Reading WAST/WASM from /Users/tutorial/Documents/eos/build/contracts/eosio.system/eosio.system.wasm...
+Reading WAST/WASM from /users/documents/eos/build/contracts/eosio.system/eosio.system.wasm...
 Using already assembled WASM...
 Publishing contract...
 executed transaction: 2150ed87e4564cd3fe98ccdea841dc9ff67351f9315b6384084e8572a35887cc  39968 bytes  4395 us
@@ -928,7 +928,5 @@ You can test various commands, create accounts, check balance on accounts, trans
 
 For commands on creating new accounts, see the [`Create test accounts`](https://developers.eos.io/eosio-home/docs/accounts-1) tutorial.
 
-
 For commands on issuing, allocating and transferring token between accounts, see the 
 [`Deploy, Issue and Transfer Tokens`](https://developers.eos.io/eosio-home/docs/token-contract) tutorial.
-

@@ -1,11 +1,36 @@
 {
-  "name": "documentation-root",
+  "name": "welcome",
   "generators": [
     {
       "name": "collate_markdown",
       "options": {
         "docs_dir": "docs",
-        "disable_indices": true
+        "disable_indices": true,
+        "exclude": "/gitpod-eosio/**"
+      }
+    },
+    {
+      "name": "directory",
+      "options": {
+        "directory_source": "manuals-directory.yaml",
+        "directory_markdown_output": "manuals",
+        "directory_nav_parent": "Software Manuals"
+      }
+    },
+    {
+      "name": "directory",
+      "options": {
+        "directory_source": "reference-directory.yaml",
+        "directory_markdown_output": "reference",
+        "directory_nav_parent": "Reference"
+      }
+    },
+    {
+      "name": "directory",
+      "options": {
+        "directory_source": "resource-directory.yaml",
+        "directory_markdown_output": "resources",
+        "directory_nav_parent": "Resources"
       }
     },
     {
@@ -30,7 +55,7 @@
       },
       {
         "text": "Software Manuals",
-        "path": "/software-manuals"
+        "path": "/manuals"
       },
       {
         "text": "Reference",
@@ -86,7 +111,7 @@
           "text": "Get familiar with the key concepts behind EOSIO, learn about the core stack, and what it can do for your project ",
           "button": {
             "text": "Learn EOSIO",
-            "link": "/"
+            "link": "/overview"
           }
         },
         {

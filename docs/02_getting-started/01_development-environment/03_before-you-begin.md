@@ -3,14 +3,11 @@ content_title: "1.2: Before You Begin"
 link_text: "1.2: Before You Begin"
 ---
 
-[[info]]
-| Looking for the version of this series that uses [Docker](https://developers.eos.io/eosio-home/v1.7.0/docs/introduction)?
-
 ## Step 1: Install binaries
 This tutorial is going to use pre-built binaries. For you to get started as quickly as possible this is the best option. Building from source is a more advanced option but will set you back an hour or more and you may encounter build errors.
 
 [[info]]
-| You can find how to build EOSIO from source [here](https://developers.eos.io/eosio-nodeos/docs/getting-the-code).
+| You can find how to build EOSIO from source [here](/manuals/eos/latest/install/build-from-source/).
 
 The below commands will download binaries for respective operating systems.
 

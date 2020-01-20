@@ -19,7 +19,7 @@ Without password imported keys will not be retrievable.
 "PW5Kewn9L76X8Fpd....................t42S9XCw2"
 ```
 [[info | About Wallets]]
-| A common misconception in cryptocurrency regarding wallets is that they store tokens. A wallet **does not** store tokens. What a wallet does is store private keys in an encrypted file and sign transactions.
+| A common misconception in cryptocurrency regarding wallets is that they store tokens. However, in reality, a wallet is used to store private keys in an encrypted file to sign transactions. Wallets do not serve as a storage medium for tokens.
 
 A user builds a transaction object, usually through an interface, sends that object to the wallet to be signed, the wallet then returns that transaction object with a signature which is then broadcast to the network. When/if the network confirms that the transaction is valid, it is included into a block on the blockchain.
 
@@ -82,7 +82,7 @@ Created new private key with a public key of: "EOS8PEJ5FM42xLpHK...X6PymQu97KrGD
 ## Step 5: Follow this tutorial series more easily
 Enter the public key provided in the last step in the box below. It will persist the **development public key** you just generated throughout the documentation.
 
-<div class=\"eosio-helper-box\">\n  <form> \n    <label>Development Public Key</label>\n    <input class=\"helper-cookie\" name=\"YOUR_PUBLIC_KEY\" type=\"text\" />\n    <input type=\"submit\" />\n    <span></span>\n  </form>\n</div>
+<div class="eosio-helper-box"><form id="YOUR_PUBLIC_KEY"><label>Development Public Key</label><input class="helper-cookie" name="YOUR_PUBLIC_KEY" type="text" /><input type="submit" /><span></span></form></div>
 
 ## Step 6: Import the Development Key
 Every new EOSIO chain has a default "system" user called "eosio". This account is used to setup the chain by loading system contracts that dictate the governance and consensus of the EOSIO chain. Every new EOSIO chain comes with a development key, and this key is the same. Load this key to sign transactions on behalf of the system user (eosio)

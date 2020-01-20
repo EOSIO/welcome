@@ -1,0 +1,45 @@
+sections:
+  - title: Developers
+    listings:
+      - title: EOSIO Github
+        description: The place where all EOSIO open source software can be reviewed, used and/or forked
+        link: https://github.com/EOSIO
+      - title: Elemental Battles
+        description: Learn how to build your first blockchain based game on EOSIO software
+        link: https://battles.eos.io/
+      - title: EOSIO StackExchange
+        description: A question and answer site for users and developers
+        link: https://eosio.stackexchange.com/
+      - title: Developers Telegram
+        description: For EOSIO development discussion only, all chains welcome. No memes. No prices. No promotion
+        link: https://t.me/joinchat/EaEnSUPktgfoI-XPfMYtcQ
+      - title: EOSIO Testnet
+        description: Block.one’s official EOSIO Testnet
+        link: https://testnet.eos.io/
+      - title: EOSIO Deprecation Schedule
+        description: Table tracking significant deprecations in EOSIO software
+        link: https://github.com/EOSIO/eos/issues/7597
+      - title: EOSIO White Paper
+        description: The EOSIO software introduces a new blockchain architecture designed to enable vertical and horizontal scaling of decentralized applications
+        link: https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md
+      - title: EOSIO Hackathons
+        description: Past and future Hackathons information and news
+        link: https://hackathon.eos.io/
+      - title: EOSIO Bug Bounty Program
+        description: A Bug Bounty program offering to external individuals to receive compensation for reporting EOSIO bugs
+        link: https://hackerone.com/eosio
+  - title: News
+    listings:
+      - title: EOSIO News
+        description: Latest news about EOSIO platform brought to you by block.one organization
+        link: https://eos.io/news/
+  - title: Webinars
+    listings:
+      - title: EOSIO Webinars
+        description: Introduction to EOSIO Blockchain Development by Block.one
+        link: https://eos.io/webinars/
+  - title: FAQs
+    listings:
+      - title: EOSIO FAQ
+        description: Frequently Asked Questions
+        link: https://eos.io/faq/
