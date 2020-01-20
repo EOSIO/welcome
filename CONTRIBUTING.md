@@ -4,7 +4,7 @@ Interested in contributing? That's awesome! Here are some guidelines to get star
 
 - [Reporting An Issue](#reporting-an-issue)
   - [Reporting A Documentation Issue](#reporting-a-documentation-issue)
-  - [New Documentation Content Requests](#new-documentation-content-requests)
+  - [New Document Request](#new-document-request)
   - [Documentation Change Requests](#documentation-change-requests)
 - [Working on Documentation](#working-on-documentation)
   - [Documentation Changes Branches](#documentation-changes-branches)
@@ -38,11 +38,11 @@ A good issue report shouldn't leave others needing to chase you up for more info
 
 [Report an issue](https://github.com/EOSIO/welcome/issues/new?title=Documentation+Issue)
 
-### New Documentation Content Requests
+### New Document Request
 
-New documentation content requests are welcome. Before you submit one be sure to have:
+New document requests are welcome. Before you submit one be sure to have:
 
-1. **Use the GitHub search** and check the new documentation hasn't already been requested.
+1. **Use the GitHub search** and check the new document hasn't already been requested.
 2. Take a moment to think about whether your idea fits with the scope and aims of the project.
 3. Remember, it's up to *you* to make a strong case to convince the project's leaders of the merits of this documentation request.
 
@@ -52,7 +52,7 @@ If you have an idea for improvement to documentation, section, paragraph, sectio
 
 1. **Use the GitHub search** and check someone else didn't get there first
 2. Take a moment to think about the best way to make a case for, and explain what you're thinking. Are you sure this shouldn't really be
-   [New Documentation Content Requests](#new-documentation-content-requests)?  Is it really one idea or is it many? What's the context? Why is what you are suggesting better than what's already there?
+   [New Document Request](#new-document-request)?  Is it really one idea or is it many? What's the context? Why is what you are suggesting better than what's already there?
 
 ## Working on documentation
 
