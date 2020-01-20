@@ -3,7 +3,7 @@
 Interested in contributing? That's awesome! Here are some guidelines to get started quickly and easily:
 
 - [Reporting An Issue](#reporting-an-issue)
-  - [Filing a Documentation Issue](#filing-a-documentation-issue)
+  - [Reporting A Documentation Issue](#reporting-a-documentation-issue)
   - [New Documentation Content Requests](#new-documentation-content-requests)
   - [Documentation Change Requests](#documentation-change-requests)
 - [Working on Documentation](#working-on-documentation)
@@ -17,13 +17,13 @@ Interested in contributing? That's awesome! Here are some guidelines to get star
 
 If you're about to raise an issue because you think you've found a problem with documentation, please read this first.
 
-The GitHub issue tracker is the preferred channel for [bug reports](#bug-reports), [feature requests](#feature-requests), and [submitting pull requests](#submitting-pull-requests), but please respect the following restrictions:
+The GitHub issue tracker is the preferred channel for [Reporting a Documentation Issue](#reporting-a-documentation-issue), [New Documentation Feature Requests](#new-documentation-feature-requests), and [Submitting Pull Requests](#submitting-pull-requests), but please respect the following restrictions:
 
 * Please **search for existing issues**. Help us keep duplicate issues to a minimum by checking to see if someone has already reported your problem or requested your idea.
 
 * Please **be civil**. Keep the discussion on topic and respect the opinions of others. See also our [Contributor Code of Conduct](#conduct).
 
-### Filing a Documentation Issue
+### Reporting a Documentation Issue
 
 A documentation issue is a _demonstrable problem_ that is present in the documentation repository. Good reports are extremely helpful - thank you!
 
@@ -36,7 +36,7 @@ Guidelines for documentation issue reports:
 
 A good issue report shouldn't leave others needing to chase you up for more information. Be sure to include the details of your environment and relevant tests that demonstrate the problem.
 
-[Report an issue](https://github.com/EOSIO/welcome/issues/new?title=Bug%3A)
+[Report an issue](https://github.com/EOSIO/welcome/issues/new?title=Documentation+Issue)
 
 ### New Documentation Content Requests
 
@@ -69,7 +69,7 @@ To get it out of the way:
 
 ### Submitting Pull Requests
 
-Pull requests are awesome. If you're looking to raise a PR for something which doesn't have an open issue, please think carefully about [raising an issue](#reporting-an-issue) which your PR can close, especially if you're fixing a bug. This makes it more likely that there will be enough information available for your PR to be properly tested and merged.
+Pull requests are awesome. If you're looking to raise a PR for something which doesn't have an open issue, please think carefully about [raising an issue](#reporting-an-issue) which your PR can close. This makes it more likely that there will be enough information available for your PR to be properly tested and merged.
 
 ## Conduct
 
