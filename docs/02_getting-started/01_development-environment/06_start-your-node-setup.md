@@ -99,3 +99,6 @@ This will check that the RPC API is working correctly, pick one.
 ```shell
 curl http://localhost:8888/v1/chain/get_info
 ```
+
+## What's Next? 
+- [Create Test Accounts](https://developers.eos.io/getting-started/development-environment/create-test-accounts): Learn how to create test accounts in the EOSIO blockchain along with troubleshooting steps. 

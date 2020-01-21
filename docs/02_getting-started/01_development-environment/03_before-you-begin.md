@@ -59,3 +59,6 @@ Enter the absolute path to your contract directory below, and it will be inserte
 <div class=\"eosio-helper-box\">
 <form> <label>Absolute Path to Contract Directory</label> <input class=\"helper-cookie\" name=\"CONTRACTS_DIR\" type=\"text\" /> <input type=\"submit\" /><span></span></form>
 </div>
+
+## What's Next? 
+- [Install the CDT](https://developers.eos.io/getting-started/development-environment/install-the-CDT): Steps to install the EOSIO Contract Development Toolkit (CDT) on your system.
