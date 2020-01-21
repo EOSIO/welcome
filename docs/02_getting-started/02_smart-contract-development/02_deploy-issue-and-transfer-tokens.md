@@ -144,3 +144,6 @@ cleos get currency balance eosio.token alice SYS
 ```
 
 Excellent! Everything adds up.
+
+## What's Next? 
+- [Understanding ABI Files](https://developers.eos.io/getting-started/smart-contract-development/understanding-ABI-files): Introduction to Application Binary Files (ABI) and how the ABI file correlates to the `eosio.token` contract.

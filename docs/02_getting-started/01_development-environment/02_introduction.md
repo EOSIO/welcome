@@ -75,3 +75,6 @@ If using an OS on any flavor of linux, you'll be able to follow these tutorials 
 ## Windows
 
 If you are developing on Windows, unfortunately we do not provided powershell ports and instructions at this time. In the future we may append powershell commands. In the mean-time your best bet is to use a VM with Ubuntu, and set up your development environment inside this VM. If you're an advanced Window's developer familiar with porting Linux instructions, you should encounter minimal issues.
+
+## What's Next? 
+- [Before You Begin](https://developers.eos.io/getting-started/development-environment/before-you-begin): Steps to download and install binaries on your system.

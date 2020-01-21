@@ -199,3 +199,6 @@ executed transaction: 235bd766c2097f4a698cfb948eb2e709532df8d18458b92c9c6aae74ed
 #    hello <= hello::hi               {"user":"alice"}
 >> Hello, alice
 ```
+
+## What's Next? 
+- [Deploy, Issue and Transfer Tokens](https://developers.eos.io/getting-started/smart-contract-development/deploy-issue-and-transfer-tokens): Learn how to deploy, issue and transfer tokens. 

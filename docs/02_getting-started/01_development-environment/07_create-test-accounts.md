@@ -79,3 +79,6 @@ Wallets:
   "default *"
 ]
 ```
+
+## What's Next? 
+- [Hello World](https://developers.eos.io/getting-started/smart-contract-development/hello-world): The Hello World of EOSIO! Learn how to set up your environment and deploy your first smart contract.

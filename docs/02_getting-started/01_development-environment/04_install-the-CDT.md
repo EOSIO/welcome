@@ -75,3 +75,6 @@ Installing `eosio.cdt` will make the compiled binary global so it can be accessa
 ## Getting Errors during build.
 - Search your errors for the string "/usr/local/include/eosiolib/"
 - If found, `rm -fr /usr/local/include/eosiolib/` or navigate to `/usr/local/include/` and delete `eosiolib` using your operating system's file browser.
+
+## What's Next? 
+- [Create Development Wallet](https://developers.eos.io/getting-started/development-environment/create-development-wallet): Steps to create a new development wallet used to store public-private key pair.
