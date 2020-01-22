@@ -334,9 +334,24 @@ After all actions included in the transaction are executed, the transaction ente
 
 ### 3.6.1. Transaction Receipt
 
-After all action receipts are generated for the transaction, a transaction receipt is finally created and pushed into the signed block, along with other transaction receipts included in the block. The transaction receipt summarizes the result of the transaction (executed, unexecuted, failed, deferred, expired, etc.), including the actual amount of CPU billed in microseconds, and the total NET storage used **[schema:TransactionReceipt]**.
+After all action receipts are generated for the transaction, a transaction receipt is finally created and pushed into the signed block, along with other transaction receipts included in the block. The transaction receipt summarizes the result of the transaction (executed, unexecuted, failed, deferred, expired, etc.), including the actual amount of CPU billed in microseconds, and the total NET storage used - see `transaction_receipt` schema below.
 
-The transaction receipt also includes the transaction ID or the packed transaction itself. The actual choice depends on the transaction type. Receipts generated from Deferred transactions and Delayed User transactions are stored by transaction ID; all other types are stored as packed transactions.
+Name | Type | Description
+-|-|-
+`status` | `uint8_t` | result of transaction execution attempt
+`cpu_usage_us` | `uint32_t` | total CPU used in microseconds
+`net_usage_words` | `unsigned int` | total NET used in 64-bit words
+`trx` | `variant` | holds transaction ID or packed transaction
+
+The `status` field is an 8-bit enumeration type that can hold one of the following results:
+
+* `executed` - transaction succeeded, no error handler executed.
+* `soft_fail` - transaction failed, error handler succeeded.
+* `hard_fail` - transaction failed, error handler failed.
+* `delayed` - transaction scheduled for future execution.
+* `expired` - transaction expired, CPU/NET refunded to user.
+
+The `trx` field holds the transaction ID or the packed transaction itself. The actual choice depends on the transaction type. Receipts generated from Deferred transactions and Delayed User transactions are stored by transaction ID; all other types are stored as packed transactions.
 
 
 ### 3.6.2. Deferred Transactions
@@ -356,4 +371,4 @@ A transaction is verified and validated at various stages during its lifecycle: 
 
 ### 3.7.1. Validation Process
 
-When validating a transaction as part of a block, multiple validations occur at various levels. In full block validation, all transactions recorded in the block are replayed and the locally calculated merkle tree root hashes (generated from the transaction receipt data and the action receipt data, respectively) are compared against the "transaction_mroot" and "action_mroot" fields in the block header. Therefore, if a recorded transaction is tampered within a block, not only the merkle tree root hashes would cause a mismatch, but also the transaction signature(s) would fail to validate. If the tampering was not performed by a bona-fide block producer, the block signature would fail to validate as well. **[doc:consensus::block validation]**.
+When validating a transaction as part of a block, multiple validations occur at various levels. In full block validation, all transactions recorded in the block are replayed and the locally calculated merkle tree root hashes (generated from the transaction receipt data and the action receipt data, respectively) are compared against the `transaction_mroot` and `action_mroot` fields in the block header. Therefore, if a recorded transaction is tampered within a block, not only the merkle tree root hashes would cause a mismatch, but also the transaction signature(s) would fail to validate. If the tampering was not performed by a bona-fide block producer, the block signature would fail to validate as well - see [Consensus Protocol: 5.3. Block Validation](01_consensus_protocol.md#53-block-validation).
