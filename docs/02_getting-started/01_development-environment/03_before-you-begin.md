@@ -56,8 +56,8 @@ Enter the absolute path to your contract directory below, and it will be inserte
 
 ![cli](../images/cli_2.2.2.gif)
 
-<div class=\"eosio-helper-box\">
-<form> <label>Absolute Path to Contract Directory</label> <input class=\"helper-cookie\" name=\"CONTRACTS_DIR\" type=\"text\" /> <input type=\"submit\" /><span></span></form>
+<div class="eosio-helper-box">
+<form id="CONTRACTS_DIR"> <label>Absolute Path to Contract Directory</label> <input class="helper-cookie" name="CONTRACTS_DIR" type="text" /> <input type="submit" /><span></span></form>
 </div>
 
 ## What's Next? 
