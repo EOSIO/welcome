@@ -11,8 +11,10 @@ This tutorial series uses two "user" accounts, `bob` and `alice`, as well as the
 
 ## Step 1: Create Test Accounts
 
-[[caution | Not your public key]]
-| In a previous step, you created a wallet and created a development key pair. You were asked to place that public key into a form, but either you skipped this step or have cookies disabled. You will need to replace YOUR_PUBLIC_KEY below with the public key you generated.
+[[caution | Public Key Persistence]]
+| In section **1.4 Create Development Wallet**, you created a development key pair and pasted the public key in the **Development Public Key** field for the value to persist throughout the tutorial. 
+
+In the following steps, if you see `YOUR_PUBLIC_KEY` instead of the public key value, you can either go back to section **1.4 Create Development Wallet** and persist the value or replace `YOUR_PUBLIC_KEY` with the public key value manually.
 
 Throughout these tutorials the accounts `bob` and `alice` are used. Create two accounts using [cleos create account](/manuals/eos/latest/cleos/command-reference/create/account)
 
@@ -79,3 +81,6 @@ Wallets:
   "default *"
 ]
 ```
+
+## What's Next? 
+- [Hello World](https://developers.eos.io/getting-started/smart-contract-development/hello-world): The Hello World of EOSIO! Learn how to set up your environment and deploy your first smart contract.

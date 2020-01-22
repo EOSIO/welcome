@@ -248,3 +248,6 @@ private:
 
 };
 ```
+
+## What's Next? 
+- [Adding Inline Actions](https://developers.eos.io/getting-started/smart-contract-development/adding-inline-actions): Learn how to construct actions and send those actions from within a contract.

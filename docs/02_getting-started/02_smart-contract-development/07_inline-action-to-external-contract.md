@@ -458,3 +458,6 @@ private:
   typedef eosio::multi_index<"people"_n, person, indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>> address_index;
 };
 ```
+
+## What's Next? 
+- [Linking Custom Permissions](https://developers.eos.io/getting-started/smart-contract-development/linking-custom-permission): Learn how create a custom permission and how to link the permission to an action of a contract.

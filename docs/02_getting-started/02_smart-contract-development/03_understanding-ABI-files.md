@@ -502,3 +502,6 @@ Every time you change a struct, add a table, add an action or add parameters to 
 ## Table returns no rows
 
 Check that your table is accurately described in the ABI file. For example, If you use `cleos` to add a table on a contract with a malformed ABI definition and then get rows from that table, you will receive an empty result. `cleos` will not produce an error when adding a row nor reading a row when a contract has failed to properly describe its tables in its ABI.
+
+## What's Next? 
+- [Data Persistence](https://developers.eos.io/getting-started/smart-contract-development/data-persistence): Learn how data persistence works on EOSIO by writing a simple smart contract that functions as an address book. 

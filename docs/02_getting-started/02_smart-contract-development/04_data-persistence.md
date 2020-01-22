@@ -727,3 +727,6 @@ Looking good!
 
 ## Wrapping Up
 You've learned how to configure tables, instantiate tables, create new rows, modify existing rows and work with iterators. You've learned how to test against an empty iterator result. Congrats!
+
+## What's Next? 
+- [Secondary Indices](https://developers.eos.io/getting-started/smart-contract-development/secondary-indices): Learn how to add another index to the `addressbook` contract that you created in the preceding **Data Persistence** section. 

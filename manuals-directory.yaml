@@ -2,137 +2,137 @@ sections:
   - title: Core
     listings:
       - title: eos-vm
-        description:
+        description: EOS VM - A Low-Latency, High Performance and Extensible WebAssembly Engine
         link: https://github.com/EOSIO/eos-vm
 
       - title: nodeos
-        description:
+        description: The core service daemon that runs on every EOSIO node
         link: /manuals/eos/latest/nodeos
 
       - title: cleos
-        description:
+        description: A command line interface to interact with the blockchain and manage wallets
         link: /manuals/eos/latest/cleos
 
       - title: keosd
-        description:
+        description: aA key manager service daemon for storing private keys and signing digital messages
         link: /manuals/eos/latest/keosd
 
       - title: eosio.cdt
-        description:
+        description: Contract Development Toolkit is a suite of tools used to build EOSIO contracts
         link: /manuals/eosio.cdt/latest/index
 
       - title: eosio.contracts
-        description:
+        description: Smart contracts that provide some of the basic functions of the EOSIO blockchain
         link: /manuals/eosio.contracts/latest/index
 
   - title: Examples
     listings:
       - title: eosio-java-android-example-app
-        description:
+        description: Application demonstrating integration with EOSIO-based blockchains using EOSIO SDK for Java
         link: https://github.com/EOSIO/eosio-java-android-example-app
 
       - title: eosio-swift-ios-example-app
-        description:
+        description: Application demonstrating integration with EOSIO-based blockchains using EOSIO SDK for Swift
         link: https://github.com/EOSIO/eosio-swift-ios-example-app
 
       - title: tropical-example-web-app
-        description:
+        description: An example for developers showing an application built on EOSIO combining UAL, Manifest Spec, and Ricardian Contracts
         link: https://github.com/EOSIO/tropical-example-web-app
 
   - title: Tools
     listings:
       - title: eosio-explorer
-        description:
+        description: An application providing Web GUI to communicate with EOSIO blockchain in a local development environment
         link: https://github.com/EOSIO/eosio-explorer
 
       - title: eosio-toppings
-        description:
+        description: A monorepo composed of the various packages which work together to create a web-based development tool to help users create applications on the EOSIO blockchain
         link: https://github.com/EOSIO/eosio-toppings
 
       - title: eosio-web-ide
-        description:
+        description: EOSIO Quickstart Web IDE lets developers start experiment building applications on EOSIO platform in a matter of minutes
         link: https://github.com/EOSIO/eosio-web-ide
 
   - title: Javascript SDK
     listings:
       - title: eosjs
-        description:
+        description: A Javascript library which provides an API for integrating with EOSIO-based blockchains using the EOSIO Nodeos RPC API
         link: /manuals/eosjs/latest/index
 
       - title: eosjs-keygen
-        description:
+        description: A Javascript library for managing keys in local storage
         link: https://github.com/EOSIO/eosjs-keygen
 
   - title: Swift SDK
     listings:
       - title: eosio-swift
-        description:
+        description: An API for integrating with EOSIO-based blockchains using the EOSIO RPC API
         link: https://github.com/EOSIO/eosio-swift
 
       - title: eosio-swift-abieos-serialization-provider
-        description:
+        description: A pluggable serialization provider for EOSIO SDK for Swift.
         link: https://github.com/EOSIO/eosio-swift-abieos-serialization-provider
 
       - title: eosio-swift-ecc
-        description:
+        description: A library for working with public and private keys, cryptographic signatures, encryption/decryption, etc. as part of the EOSIO SDK for Swift family of libraries
         link: https://github.com/EOSIO/eosio-swift-ecc
 
       - title: eosio-swift-reference-ios-authenticator-signature-provider
-        description:
+        description: A pluggable signature provider for EOSIO SDK for Swift
         link: https://github.com/EOSIO/eosio-swift-reference-ios-authenticator-signature-provider
 
       - title: eosio-swift-softkey-signature-provider
-        description:
+        description: An example pluggable signature provider for EOSIO SDK for Swift. It allows for signing transactions using in-memory K1 keys
         link: https://github.com/EOSIO/eosio-swift-softkey-signature-provider
 
       - title: eosio-swift-vault-signature-provider
-        description:
+        description: A pluggable signature provider for EOSIO SDK for Swift
         link: https://github.com/EOSIO/eosio-swift-vault-signature-provider
 
       - title: eosio-swift-vault
-        description:
+        description: An utility library for working with public/private keys and signing with Apple's Keychain and Secure Enclave
         link: https://github.com/EOSIO/eosio-swift-vault
 
   - title: Java SDK
     listings:
       - title: eosio-java-android-abieos-serialization-provider
-        description:
+        description: A pluggable serialization provider for EOSIO SDK for Java
         link: https://github.com/EOSIO/eosio-java-android-abieos-serialization-provider
 
       - title: eosio-java-android-rpc-provider
-        description:
+        description: An Android RPC provider implementation for use within EOSIO SDK for Java as a plugin.
         link: https://github.com/EOSIO/eosio-java-android-rpc-provider
 
       - title: eosio-java-softkey-signature-provider
-        description:
+        description: An example pluggable signature provider for EOSIO SDK for Java
         link: https://github.com/EOSIO/eosio-java-softkey-signature-provider
 
       - title: eosio-android-keystore-signature-provider
-        description:
+        description: An example pluggable signature provider for EOSIO SDK for Java written in Kotlin
         link: https://github.com/EOSIO/eosio-android-keystore-signature-provider
 
   - title: EOSIO Labs
     listings:
       - title: eosjs-ios-browser-signature-provider-interface
-        description:
-        link: eosjs-ios-browser-signature-provider-interface
+        description: A Signature Provider Interface for communicating with an authenticator from iOS Safari using the EOSIO Authentication Transport Protocol Specification
+        link: https://github.com/EOSIO/eosjs-ios-browser-signature-provider-interface
 
       - title: eosjs-ledger-signature-provider
-        description:
+        description: A SignatureProvider for communicating with eosjs from a Ledger device
         link: https://github.com/EOSIO/eosjs-ledger-signature-provider
 
       - title: eosjs-signature-provider-interface
-        description:
+        description: An abstract class that implements the EOSJS Signature Provider interface, and provides helper methods for interacting with an authenticator using the EOSIO Authentication Transport Protocol Specification
         link: https://github.com/EOSIO/eosjs-signature-provider-interface
 
       - title: eosjs-window-message-signature-provider-interface
-        description:
-        link: eosjs-window-message-signature-provider-interface
+        description: A Signature Provider Interface for communicating with an authenticator over the Window Messaging API using the EOSIO Authentication Transport Protocol Specification
+        link: https://github.com/EOSIO/eosjs-window-message-signature-provider-interface
 
       - title: ual-authenticator-walkthrough
-        description:
+        description: A tutorial walks through the steps required to create a UAL for Ledger Authenticator
         link: https://github.com/EOSIO/ual-authenticator-walkthrough
 
       - title: ual-reactjs-renderer
-        description:
+        description: A library provides a React renderer around the Universal Authenticator Library
         link: https://github.com/EOSIO/ual-reactjs-renderer

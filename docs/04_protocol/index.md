@@ -2,7 +2,7 @@
 
 ## Core
 
-`EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suite custom business requirements.
+`EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements.
 
 The core protocols are:
 
@@ -25,9 +25,9 @@ Block.one implements and maintains these `system contracts`, as samples only, en
 
 Also part of the `system` layer are the following concepts:
 
-1. [System accounts](https://github.com/EOSIO/eosio.contracts/tree/master/docs/01_core_concepts/01_system.md)
-2. [RAM](https://github.com/EOSIO/eosio.contracts/tree/master/docs/01_core_concepts/02_ram.md)
-3. [CPU](https://github.com/EOSIO/eosio.contracts/tree/master/docs/01_core_concepts/03_cpu.md)
-4. [NET](https://github.com/EOSIO/eosio.contracts/tree/master/docs/01_core_concepts/04_net.md)
-5. [Stake](https://github.com/EOSIO/eosio.contracts/tree/master/docs/01_core_concepts/05_stake.md)
-6. [Vote](https://github.com/EOSIO/eosio.contracts/tree/master/docs/01_core_concepts/06_vote.md)
+1. [System accounts](/manuals/eosio.contracts/latest/index/#system-contracts-system-accounts-priviledged-accounts)
+2. [RAM](/manuals/eosio.contracts/latest/index/#ram)
+3. [CPU](/manuals/eosio.contracts/latest/index/#cpu)
+4. [NET](/manuals/eosio.contracts/latest/index/#net)
+5. [Stake](/manuals/eosio.contracts/latest/index/#stake)
+6. [Vote](/manuals/eosio.contracts/latest/index/#vote)
