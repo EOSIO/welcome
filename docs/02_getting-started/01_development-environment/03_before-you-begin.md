@@ -4,7 +4,7 @@ link_text: "1.2: Before You Begin"
 ---
 
 ## Step 1: Install binaries
-This tutorial is going to use pre-built binaries. For you to get started as quickly as possible this is the best option. Building from source is a more advanced option but will set you back an hour or more and you may encounter build errors.
+To get started as quickly as possible we recommend using pre-built binaries. Building from source is a more advanced option but will set you back an hour or more and you may encounter build errors.
 
 [[info]]
 | You can find how to build EOSIO from source [here](/manuals/eos/latest/install/build-from-source/).
@@ -56,8 +56,13 @@ Enter the absolute path to your contract directory below, and it will be inserte
 
 ![cli](../images/cli_2.2.2.gif)
 
-<div class=\"eosio-helper-box\">
-<form> <label>Absolute Path to Contract Directory</label> <input class=\"helper-cookie\" name=\"CONTRACTS_DIR\" type=\"text\" /> <input type=\"submit\" /><span></span></form>
+<div class="eosio-helper-box">
+    <form id="CONTRACTS_DIR">
+        <label>Absolute Path to Contract Directory</label>
+        <input class="helper-cookie" name="CONTRACTS_DIR" type="text" />
+        <input type="submit" />
+        <span></span>
+    </form>
 </div>
 
 ## What's Next? 
