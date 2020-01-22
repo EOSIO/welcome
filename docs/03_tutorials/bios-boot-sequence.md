@@ -38,20 +38,20 @@ If your goal is to go beyond and understand what the script is doing, you can fo
 **Pre-compiled EOSIO Binaries**
 
 
-For instructions to install the `nodeos` binaries, see the [Install EOSIO pre-compiled binaries](https://developers.eos.io/eosio-home/docs/setting-up-your-environment) tutorial but do not start `nodeos` at this stage. 
+For instructions to install the `nodeos` binaries, see the [Install EOSIO pre-compiled binaries](/manuals/eos/latest/install/install-prebuilt-binaries) tutorial but do not start `nodeos` at this stage. 
 
 **EOSIO.CDT Binaries**
 
-For instructions to install the EOSIO.CDT binaries, see the [Install EOSIO.CDT binaries](https://github.com/EOSIO/eosio.cdt#binary-releases) tutorial.
+For instructions to install the EOSIO.CDT binaries, see the [Install EOSIO.CDT binaries](/manuals/eosio.cdt/latest/installation) tutorial.
 
 ### **1.2. Create a development wallet**
 
 Create and configure your default wallet, followed by creating a public and private development keys. After the key-pair is created, import the public and private key in your wallet. For reference purposes, we will refer the public key as `EOS_PUB_DEV_KEY` and the private key as `EOS_PRIV_DEV_KEY`.
 
-For instructions on creating a wallet and importing the keys, see the [Create development wallet](https://developers.eos.io/eosio-home/docs/wallets) tutorial.
+For instructions on creating a wallet and importing the keys, see the [Create development wallet](/getting-started/development-environment/create-development-wallet) tutorial.
 
 
-### **1.3. Create biosboot/genesis directory**
+### **1.3. Create ~/biosboot/genesis directory**
 
 Create a new directory `~/biosboot/genesis` to start the genesis node by executing `nodeos` with specific parameters that will create the blockchain database, the log file, and the configuration file inside the directory.
 
@@ -926,7 +926,7 @@ tail -f ./blockchain/nodeos.log
 ```
 You can test various commands, create accounts, check balance on accounts, transfer tokens between accounts, etc.
 
-For commands on creating new accounts, see the [`Create test accounts`](https://developers.eos.io/eosio-home/docs/accounts-1) tutorial.
+For commands on creating new accounts, see the [`Create test accounts`](/getting-started/development-environment/create-test-accounts) tutorial.
 
 For commands on issuing, allocating and transferring token between accounts, see the 
-[`Deploy, Issue and Transfer Tokens`](https://developers.eos.io/eosio-home/docs/token-contract) tutorial.
+[`Deploy, Issue and Transfer Tokens`](/getting-started/smart-contract-development/deploy-issue-and-transfer-tokens) tutorial.
