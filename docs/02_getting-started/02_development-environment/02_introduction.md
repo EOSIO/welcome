@@ -9,9 +9,9 @@ The subsequent tutorials are up to date with the following EOSIO components.
 
 | Component | Version |
 | ------ | ------ |
-| eosio | 1.8.6 |
-| eosio.cdt | 1.6.3 |
-| eosio.contracts | 1.8.1 |
+| eosio | 2.0.0 |
+| eosio.cdt | 1.7.0 |
+| eosio.contracts | 1.9.0 |
 
 ## What you'll learn
 
