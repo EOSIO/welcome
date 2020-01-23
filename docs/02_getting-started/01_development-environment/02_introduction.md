@@ -3,6 +3,16 @@ content_title: "1.1: Introduction"
 link_text: "1.1: Introduction"
 ---
 
+## EOSIO versions
+
+The subsequent tutorials are up to date with the following EOSIO components.
+
+| Component | Version |
+| ------ | ------ |
+| eosio | 1.8.6 |
+| eosio.cdt | 1.6.3 |
+| eosio.contracts | 1.8.1 |
+
 ## What you'll learn
 
 _Only a sample of what you'll learn_
