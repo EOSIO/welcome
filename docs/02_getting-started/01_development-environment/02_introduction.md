@@ -23,7 +23,7 @@ Other toolchains in development by 3rd parties include: Rust, Python, and Solidi
 
 # Linux / Mac OS Experience
 
-## The EOSIO software supports the following environments for development as well as deployment and installation
+## The EOSIO software supports the following environments for development and/or deployment
 
 * Amazon Linux 2
 * Centos 7
