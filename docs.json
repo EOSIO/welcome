@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": "/gitpod-eosio/**"
+        "exclude": ["09_get-involved"]
       }
     },
     {
@@ -31,6 +31,13 @@
         "directory_source": "resource-directory.yaml",
         "directory_markdown_output": "resources",
         "directory_nav_parent": "Resources"
+      }
+    },
+    {
+      "name": "collate_markdown",
+      "options": {
+        "docs_dir": "docs/09_get-involved",
+        "output_dir": "get-involved"
       }
     },
     {
