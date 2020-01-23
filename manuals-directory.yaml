@@ -1,10 +1,6 @@
 sections:
   - title: Core
     listings:
-      - title: eos-vm
-        description: EOS VM - A Low-Latency, High Performance and Extensible WebAssembly Engine
-        link: https://github.com/EOSIO/eos-vm
-
       - title: nodeos
         description: The core service daemon that runs on every EOSIO node
         link: /manuals/eos/latest/nodeos
@@ -24,6 +20,10 @@ sections:
       - title: eosio.contracts
         description: Smart contracts that provide some of the basic functions of the EOSIO blockchain
         link: /manuals/eosio.contracts/latest/index
+
+      - title: eos-vm
+        description: EOS VM - A Low-Latency, High Performance and Extensible WebAssembly Engine
+        link: https://github.com/EOSIO/eos-vm
 
   - title: Examples
     listings:
