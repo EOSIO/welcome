@@ -32,7 +32,7 @@ Other toolchains in development by 3rd parties include: Rust, Python, and Solidi
 * MacOS 10.14 (Mojave) and higher
 
 [[info | Note]]
-| if you are developing on __Windows__, unfortunately we do not provide powershell ports and instructions at this time. In the future we may append powershell commands. In the mean-time your best bet is to use a VM with Ubuntu, and set up your development environment inside this VM. If you're an advanced Window's developer familiar with porting Linux instructions, you should encounter minimal issues.
+| if you are developing on __Windows__, unfortunately we do not provide PowerShell ports and instructions at this time. In the future we may append PowerShell commands. In the mean-time your best bet is to use a VM with Ubuntu, and set up your development environment inside this VM. If you're an advanced Window's developer familiar with porting Linux instructions, you should encounter minimal issues.
 
 ## Command Line Knowledge
 
