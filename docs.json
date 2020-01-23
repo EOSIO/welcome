@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": "/gitpod-eosio/**"
+        "exclude": ["09_get-involved"]
       }
     },
     {
@@ -34,144 +34,18 @@
       }
     },
     {
+      "name": "collate_markdown",
+      "options": {
+        "docs_dir": "docs/09_get-involved",
+        "output_dir": "get-involved"
+      }
+    },
+    {
       "name": "glossary",
       "options": {
         "glossary_markdown_output": "glossary",
         "glossary_source": "docs/glossary.yaml"
       }
     }
-  ],
-  "children": [
-    { "repo": "eosio.cdt", "path": "manuals/eosio.cdt", "tagged": "true" },
-    { "repo": "eosio.contracts", "path": "manuals/eosio.contracts", "tagged": "true" },
-    { "repo": "eos", "path": "manuals/eos", "tagged": "true" },
-    { "repo": "eosjs", "path": "manuals/eosjs", "tagged": "true" }
-  ],
-  "site_properties": {
-    "primary_navigation": [
-      {
-        "text": "Getting Started",
-        "path": "/getting-started"
-      },
-      {
-        "text": "Software Manuals",
-        "path": "/manuals"
-      },
-      {
-        "text": "Reference",
-        "path": "/reference"
-      },
-      {
-        "text": "Resources",
-        "path": "/resources"
-      },
-      {
-        "text": "Glossary",
-        "path": "/glossary"
-      }
-    ],
-    "landing_page": {
-      "header": {
-        "links": [
-          {
-            "text": "Getting Started",
-            "link": "/getting-started"
-          },
-          {
-            "text": "User Guides",
-            "link": "/software-manuals"
-          },
-          {
-            "text": "API Reference",
-            "link": "/reference"
-          },
-          {
-            "text": "Resources",
-            "link": "/resources"
-          }
-        ]
-      },
-      "banner": {
-        "title": "EOSIO Developer Portal",
-        "text": "EOSIO is a free, open-source blockchain software protocol that provides developers and entrepreneurs with a platform on which to build, deploy and run high-performing blockchain applications",
-        "buttons": [
-          {
-            "text": "Get Started",
-            "link": "/getting-started"
-          },
-          {
-            "text": "Try EOSIO",
-            "link": "https://gitpod.io/#https://github.com/EOSIO/eosio-web-ide"
-          }
-        ]
-      },
-      "cards": [
-        {
-          "title": "How EOSIO Works",
-          "text": "Get familiar with the key concepts behind EOSIO, learn about the core stack, and what it can do for your project ",
-          "button": {
-            "text": "Learn EOSIO",
-            "link": "/overview"
-          }
-        },
-        {
-          "title": "Getting Started",
-          "text": "The Hello World of EOSIO. Follow step-by-step instructions to set up your environment & deploy your first smart contract",
-          "button": {
-            "text": "GET STARTED",
-            "link": "/getting-started"
-          }
-        },
-        {
-          "title": "The EOSIO Stack",
-          "text": "Learn how to implement the core modules of EOSIO platform in your applications",
-          "button": {
-            "text": "EXPLORE THE STACK",
-            "link": "/software-manuals"
-          }
-        },
-        {
-          "title": "API References",
-          "text": "Consult our documentation for EOSIO APIs and SDKs",
-          "button": {
-            "text": "EXPLORE APIs",
-            "link": "/reference"
-          }
-        },
-        {
-          "title": "Resources",
-          "text": "Dive into helpful resources such as white papers, glossary, community and more",
-          "button": {
-            "text": "VIEW RESOURCES",
-            "link": "/resources"
-          }
-        },
-        {
-          "title": "Elemental Battles",
-          "text": "Learn how to build your first blockchain game on EOSIO platform without prior experience in blockchain development",
-          "button": {
-            "text": "DEVELOP A GAME",
-            "link": "https://battles.eos.io"
-          }
-        }
-      ],
-      "poster": {
-        "title": "We ♥ Open Source",
-        "text": "Learn about the many ways you can contribute to our offerings and to this documentation",
-        "button": {
-          "text": "GET INVOLVED",
-          "link": "/get-involved"
-        }
-      },
-      "subscriber": {
-        "title": "Stay in the loop",
-        "text": "We’ll only send you EOSIO developer related emails",
-        "placeholder": "Please enter your email address",
-        "button": {
-          "text": "SUBSCRIBE TO DEVELOPER UPDATES",
-          "link": "//eos.us15.list-manage.com/subscribe/post?u=f113d9b507d4714a62f3824a9&id=d1b9a7357c"
-        }
-      }
-    }
-  }
+  ]
 }
