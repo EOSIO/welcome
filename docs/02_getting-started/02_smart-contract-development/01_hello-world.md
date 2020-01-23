@@ -121,10 +121,10 @@ cleos create account eosio hello YOUR_PUBLIC_KEY -p eosio@active
 ```
 Deploy the compiled `wasm` to the blockchain with [cleos set contract](/manuals/eos/latest/cleos/command-reference/set/set-contract).
 
-[[info | Get an error? Check if your wallet needs to be unlocked.]]
+[[info | Get an error?]]
+| Check if your wallet needs to be unlocked.
 
 <div class="no-contracts-helper">In previous steps you should have created a `contracts` directory and obtained the absolute path and then saved it into a cookie. Replace "CONTRACTS_DIR" in the command below with the absolute path to your `contracts` directory.</div>
-
 
 ```shell
 cleos set contract hello CONTRACTS_DIR/hello -p hello@active
