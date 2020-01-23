@@ -7,5 +7,5 @@ If you do not want to install on your local machine `EOSIO` binaries, or if you 
 
 You can give it a try in a matter of seconds [right now](https://gitpod.io/#https://github.com/EOSIO/eosio-web-ide) and you can read more details about it [on github project's page](https://github.com/EOSIO/eosio-web-ide).
 
-## What's Next? 
-- [Introduction](/getting-started/development-environment/introduction): Get started by setting up your development environment for `EOSIO`.
+## What's Next?
+- [Getting Started](/getting-started/development-environment/introduction): Install EOSIO in your local development environment.
