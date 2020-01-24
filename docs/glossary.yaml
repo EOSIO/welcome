@@ -181,8 +181,8 @@ terms:
     name: "Permission Threshold"
   - definition: "A permission weight is a value given to an account for authorization purposes. This is typically used in the context of a mutli-sig to give one or more accounts more control over a multi-sig than others."
     name: "Permission Weight"
-  - definition: "See Permission"
-    name: Authorization
+    synonyms: 
+      - Authorization
   - definition: "In the context of a multiple index table, an index is a particular ordering of the elements in the table. Multiple index indices allow the same data in one table to be viewed as different data structures by specifying the specific index on the table. EOSIO multiple index tables allow for up to 16 unique indices."
     name: Indices
   - definition: "Wait is measured in seconds and it is the time to wait until a delayed transaction is executed. Its value can not be higher than the max_transaction_delay which is set in the global configuration file."
