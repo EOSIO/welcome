@@ -189,7 +189,12 @@ Produced blocks need to be finalized before they can be signed, committed, relay
 
 ### 5.2.3. Sign Block
 
-After the transactions have been pushed into the block and the block is finalized, the block is ready to be signed by the producer. This involves computing a signature digest from the serialized contents of the block header, which includes the transaction receipts included in the block. After the block is signed with the producer’s private key, the signature digest is added to the signed block instance. At this point, the signed block is committed and pushed (relayed) to other producing nodes for validation.
+After the transactions have been pushed into the block and the block is finalized, the block is ready to be signed by the producer. This involves computing a signature digest from the serialized contents of the block header, which includes the transaction receipts included in the block. After the block is signed with the producer’s private key, the signature digest is added to the signed block instance. This completes the block signing.
+
+
+### 5.2.4. Commit Block
+
+After the block is signed, it is committed to the local chain. This pushes the block to the reversible block database (see [Network Peer Protocol: 2.2.1. Fork Database](03_network_peer_protocol.md#221-fork-database)). This makes the block available for syncing with other nodes for validation (see the [Network Peer Protocol](03_network_peer_protocol.md) for more information about block syncing).
 
 
 ## 5.3. Block Validation
