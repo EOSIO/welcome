@@ -71,8 +71,10 @@ terms:
     name: Wallet
   - definition: "The REX (Resource Exchange) is a CPU and Network resource rental market in which holders of the core token of a blockchain can buy and sell slices of the REX pool in the form of REX tokens. Blockchain users can then rent CPU and Network resources from the REX pool."
     name: REX
-  - definition: "RAM is required to store account information such as keys, balances, and contract state on an EOSIO based blockchain. Because the amount of RAM available to a single computer is limited by Moore’s Law and other technological advances, RAM is fundamentally scarce and must be purchased on a free-market inside an EOSIO based blockchain (see RAM Market)."
+  - definition: "RAM is required to store account information such as keys, balances, and contract state on an EOSIO based blockchain. Because the amount of RAM available to a single computer is limited by Moore’s Law and other technological advances, RAM is fundamentally scarce and must be purchased on a free-market inside an EOSIO based blockchain."
     name: RAM
+    related: 
+      - name: "RAM Market" 
   - definition: "EOSIO adopts a free-market approach to allocating scarce resources. To facilitate this market, the eosio system contract allows users to buy RAM from the system and sell RAM back to the system in exchange for the blockchain's native tokens. This provides liquidity in the RAM market while facilitating price discovery. The less unallocated RAM available to the market maker the higher the market maker prices the remaining RAM. The algorithm used for this market maker is known as a Bancor Relay. A Bancor Relay does not set the price of RAM. It only offers to buy and sell at previously established market rates. Anytime the current market rate is different than the current price offered by the Bancor Relay, traders will buy or sell RAM pushing to closer to the market determined price."
     name: "Bancor Relay"
     synonyms: 
