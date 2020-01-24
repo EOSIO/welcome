@@ -44,7 +44,7 @@
       "name": "glossary",
       "options": {
         "glossary_markdown_output": "glossary",
-        "glossary_source": "docs/glossary.yaml"
+        "glossary_source": "glossary.yaml"
       }
     }
   ]
