@@ -350,7 +350,7 @@ The operation mode for each node is stored in a sync manager context within the 
 
 ## 3.1. Block ID
 
-The EOSIO software checks whether two blocks match or hold the same content by comparing their block IDs. A block ID is a function that depends on the contents of the block header **[schema:Block]** and the block number. Checking whether two blocks are equal is crucial for syncing a node’s local chain with that of its peers. To generate the block ID from the block contents, the block header is serialized and a SHA-256 digest is created. The most significant 32 bits of the hash are retained while the least significant 32 bits are assigned the block number. Note that the block header includes the root hash of both the transaction merkle tree and the action merkle tree. Therefore, the block ID depends on all transactions included in the block as well as all actions included in each transaction.
+The EOSIO software checks whether two blocks match or hold the same content by comparing their block IDs. A block ID is a function that depends on the contents of the block header and the block number (see [Consensus Protocol: 5.1. Block Structure](01_consensus_protocol.md#51-block-structure)). Checking whether two blocks are equal is crucial for syncing a node’s local chain with that of its peers. To generate the block ID from the block contents, the block header is serialized and a SHA-256 digest is created. The most significant 32 bits of the hash are retained while the least significant 32 bits are assigned the block number. Note that the block header includes the root hash of both the transaction merkle tree and the action merkle tree. Therefore, the block ID depends on all transactions included in the block as well as all actions included in each transaction.
 
 
 ## 3.2. In-Sync Mode
@@ -571,7 +571,7 @@ Data Message | Description
 
 ### 4.2.1. Handshake Message
 
-The handshake message is sent by a node when connecting to another peer. It is used by the connecting node to pass its chain state (LIB number/ID and head block number/ID) to the peer. It is also used by the peer to perform basic validation on the node the first time it connects, such as whether it belongs to the same blockchain, validating that fields are within range, detecting inconsistent block states on the node, such as whether its LIB is ahead of the head block, etc. The handshake message consists of the following fields **[schema:HandshakeMessage]**:
+The handshake message is sent by a node when connecting to another peer. It is used by the connecting node to pass its chain state (LIB number/ID and head block number/ID) to the peer. It is also used by the peer to perform basic validation on the node the first time it connects, such as whether it belongs to the same blockchain, validating that fields are within range, detecting inconsistent block states on the node, such as whether its LIB is ahead of the head block, etc. The handshake message consists of the following fields:
 
 Message Field | Description
 -|-
@@ -603,7 +603,7 @@ The peer key corresponds to the public key of the node attempting to connect to 
 
 ### 4.2.2. Chain Size Message
 
-The chain size message was defined for future use, but it is currently not implemented. The idea was to send ad-hoc status notifications of the node’s chain state after a successful connection to another peer. The chain size message consists of the following fields **[schema:ChainSizeMessage]**:
+The chain size message was defined for future use, but it is currently not implemented. The idea was to send ad-hoc status notifications of the node’s chain state after a successful connection to another peer. The chain size message consists of the following fields:
 
 Message Field | Description
 -|-
@@ -617,7 +617,7 @@ The chain size message is superseded by the handshake message, which also sends 
 
 ### 4.2.3. Go Away Message
 
-The go away message is sent to a peer before closing the connection. It is usually the result of an error that prevents the node from continuing the p2p protocol further. The go away message consists of the following fields **[schema:GoAwayMessage]**:
+The go away message is sent to a peer before closing the connection. It is usually the result of an error that prevents the node from continuing the p2p protocol further. The go away message consists of the following fields:
 
 Message Field | Description
 -|-
@@ -644,7 +644,7 @@ After the peer receives the go away message, the peer should also close the conn
 
 ### 4.2.4. Time Message
 
-The time message is used to synchronize events among peers, measure time intervals, and detect network anomalies such as duplicate messages, invalid timestamps, broken nodes, etc. The time message consists of the following fields **[schema:TimeMessage]**:
+The time message is used to synchronize events among peers, measure time intervals, and detect network anomalies such as duplicate messages, invalid timestamps, broken nodes, etc. The time message consists of the following fields:
 
 Message Field | Description
 -|-
@@ -656,7 +656,7 @@ Message Field | Description
 
 ### 4.2.5. Notice Message
 
-The notice message is sent to notify a peer which blocks and loose transactions the node currently has. The notice message consists of the following fields **[schema:NoticeMessage]**:
+The notice message is sent to notify a peer which blocks and loose transactions the node currently has. The notice message consists of the following fields :
 
 Message Field | Description
 -|-
@@ -668,7 +668,7 @@ Notice messages are lightweight since they only contain block IDs and transactio
 
 ### 4.2.6. Request Message
 
-The request message is sent to notify a peer which blocks and loose transactions the node currently needs. The request message consists of the following fields **[schema:RequestMessage]**:
+The request message is sent to notify a peer which blocks and loose transactions the node currently needs. The request message consists of the following fields:
 
 Message Field | Description
 -|-
@@ -678,7 +678,7 @@ Message Field | Description
 
 ### 4.2.7. Sync Request Message
 
-The sync request message requests a range of blocks from peer. The sync request message consists of the following fields **[schema:SyncRequestMessage]**:
+The sync request message requests a range of blocks from peer. The sync request message consists of the following fields:
 
 Message Field | Description
 -|-

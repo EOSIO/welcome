@@ -136,12 +136,12 @@ When a block is not produced by a given producer during its assigned time slot, 
 
 # 5. Block Lifecycle
 
-Blocks are created by the active producer on schedule during its assigned timeslot, then relayed to other producer nodes for syncing and validation. This process continues from producer to producer until a new schedule of producers is approved at a later schedule round. When a valid block meets the consensus requirements (see [3. EOSIO Consensus (DPoS + aBFT)](#3-eosio-consensus-dpos--abft)), the block becomes final and is considered irreversible. Therefore, blocks undergo three major phases during their lifespan: production, validation, and finality. Each phase goes through various stages as well.
+Blocks are created by the active producer on schedule during its assigned timeslot, then relayed to other producer nodes for syncing and validation. This process continues from producer to producer until a new schedule of producers is approved at a later schedule round. When a valid block meets the consensus requirements (see [3. EOSIO Consensus](#3-eosio-consensus-dpos--abft)), the block becomes final and is considered irreversible. Therefore, blocks undergo three major phases during their lifespan: production, validation, and finality. Each phase goes through various stages as well.
 
 
 ## 5.1. Block Structure
 
-As an inter-chained sequence of blocks, the fundamental unit within the blockchain is the block. A block contains records of valid transactions and additional cryptographic overhead such as hashes and signatures necessary for block confirmation, re-execution of transactions during validation, blockchain replays, protection against replay attacks, etc. (see the `block` schema below).
+As an inter-chained sequence of blocks, the fundamental unit within the blockchain is the block. A block contains records of pre-validated transactions and additional cryptographic overhead such as hashes and signatures necessary for block confirmation, re-execution of transactions during validation, blockchain replays, protection against replay attacks, etc. (see `block` schema below).
 
 ### `block` schema
 
@@ -163,7 +163,7 @@ Name | Type | Description
 `block_num` | `uint32_t` | block number (sequential counter value since genesis block 0)
 `ref_block_prefix` | `uint32_t` | lower 32 bits of `id`; used to prevent replay attacks
 
-Some of the block fields are known in advance when the block is created, so they are added during block initialization. Others are computed and added during block finalization, such as the merkle root hashes for transactions and actions, the block number and block ID, the signature of the producer that created and signed the block, etc.
+Some of the block fields are known in advance when the block is created, so they are added during block initialization. Others are computed and added during block finalization, such as the merkle root hashes for transactions and actions, the block number and block ID, the signature of the producer that created and signed the block, etc. (see [Network Peer Protocol: 3.1. Block ID](03_network_peer_protocol.md#31-block-id))
 
 ## 5.2. Block Production
 

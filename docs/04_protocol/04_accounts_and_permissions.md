@@ -130,7 +130,7 @@ In contrast, transactions are agnostic to accounts, although there is an indirec
 
 # 3. Permissions
 
-Permissions control what EOSIO accounts can do and how actions are authorized. This is accomplished through a flexible permission structure that links each account to a list of hierarchical named permissions, and each named permission to an authority table (see the `permission` schema below).
+Permissions control what EOSIO accounts can do and how actions are authorized. This is accomplished through a flexible permission structure that links each account to a list of hierarchical named permissions, and each named permission to an authority table (see `permission` schema below).
 
 ## `permission` schema
 
@@ -168,7 +168,7 @@ In the current EOSIO implementation, the implicit default permission linked to a
 
 ## 3.2. Authority Table
 
-Each account's permission can be linked to an authority table used to determine whether a given action authorization can be satisfied. The authority table contains the applicable permission name and threshold, the "factors" and their weights, all of which are used in the evaluation to determine whether the authorization can be satisfied. The permission threshold is the target numerical value that must be reached to satisfy the action authorization (see the `authority` schema below).
+Each account's permission can be linked to an authority table used to determine whether a given action authorization can be satisfied. The authority table contains the applicable permission name and threshold, the "factors" and their weights, all of which are used in the evaluation to determine whether the authorization can be satisfied. The permission threshold is the target numerical value that must be reached to satisfy the action authorization (see `authority` schema below).
 
 ### `authority` schema
 
@@ -179,7 +179,7 @@ Name | Type | Description
 `accounts` | array of `permission_level_weight` | list of `account@permission` levels and weights
 `waits` | array of `wait_weight` | list of time waits and weights
 
-The `key_weight` type contains the actor's public key and associated weight. The `permission_level_weight` type consists of the actor's `account@permission` level and associated weight. The `wait_weight` contains the time wait and associated weight (used satisfying actions in delayed user transactions (see [Transactions Protocol: 3.6.3. Delayed User Transactions](02_transactions_protocol.md#363-delayed-user-transactions)). All of these types allow to define lists of authority factors that are used for satisfaction of action authorizations (see [3.2.1. Authority factors](#321-authority-factors) below).
+The `key_weight` type contains the actor's public key and associated weight. The `permission_level_weight` type consists of the actor's `account@permission` level and associated weight. The `wait_weight` contains the time wait and associated weight (used to satisfy action authorizations in delayed user transactions (see [Transactions Protocol: 3.6.3. Delayed User Transactions](02_transactions_protocol.md#363-delayed-user-transactions)). All of these types allow to define lists of authority factors that are used for satisfaction of action authorizations (see [3.2.1. Authority factors](#321-authority-factors) below).
 
 ### 3.2.1. Authority Factors
 
