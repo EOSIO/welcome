@@ -14,6 +14,7 @@ In the EOSIO ecosystem, block production and block validation are performed by s
 
 
 ## 1.2. The Need for Consensus
+
 Block validation presents a challenge among any group of distributed nodes. A consensus model must be in place to validate such blocks in a fault tolerant way within the decentralized system. Consensus is the way for such distributed nodes and users to agree upon the current state of the blockchain (see [3. EOSIO Consensus (DPoS + aBFT)](#3-eosio-consensus-dpos--abft)).
 
 
@@ -143,7 +144,7 @@ Blocks are created by the active producer on schedule during its assigned timesl
 
 As an inter-chained sequence of blocks, the fundamental unit within the blockchain is the block. A block contains records of pre-validated transactions and additional cryptographic overhead such as hashes and signatures necessary for block confirmation, re-execution of transactions during validation, blockchain replays, protection against replay attacks, etc. (see `block` schema below).
 
-### `block` schema
+### block schema
 
 Name | Type | Description
 -|-|-

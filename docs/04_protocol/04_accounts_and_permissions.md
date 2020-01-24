@@ -94,7 +94,7 @@ Ownership of each account on an EOSIO blockchain is solely determined by the acc
 
 Besides the account name, the blockchain associates other fields with each account instance stored in the chain database, such as ram quota/usage, cpu/net limits/weights, voter info, etc. (see `account` schema below). More importantly, each account holds the list of named permissions assigned to it. This allows a flexible permission structure that makes single or multi-user authorizations possible (see [3. Permissions](#3-permissions)).
 
-### `account` schema
+### account schema
 
 Name | Type | Description
 -|-|-
@@ -132,7 +132,7 @@ In contrast, transactions are agnostic to accounts, although there is an indirec
 
 Permissions control what EOSIO accounts can do and how actions are authorized. This is accomplished through a flexible permission structure that links each account to a list of hierarchical named permissions, and each named permission to an authority table (see `permission` schema below).
 
-## `permission` schema
+## permission schema
 
 Name | Type | Description
 -|-|-
@@ -170,7 +170,7 @@ In the current EOSIO implementation, the implicit default permission linked to a
 
 Each account's permission can be linked to an authority table used to determine whether a given action authorization can be satisfied. The authority table contains the applicable permission name and threshold, the "factors" and their weights, all of which are used in the evaluation to determine whether the authorization can be satisfied. The permission threshold is the target numerical value that must be reached to satisfy the action authorization (see `authority` schema below).
 
-### `authority` schema
+### authority schema
 
 Name | Type | Description
 -|-|-
