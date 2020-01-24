@@ -3,23 +3,23 @@ sections:
     listings:
       - title: nodeos
         description: The core service daemon that runs on every EOSIO node
-        link: /manuals/eos/latest/nodeos
+        link: https://developers.eos.io/manuals/eos/latest/nodeos
 
       - title: cleos
         description: A command line interface to interact with the blockchain and manage wallets
-        link: /manuals/eos/latest/cleos
+        link: https://developers.eos.io/manuals/eos/latest/cleos
 
       - title: keosd
         description: aA key manager service daemon for storing private keys and signing digital messages
-        link: /manuals/eos/latest/keosd
+        link: https://developers.eos.io/manuals/eos/latest/keosd
 
       - title: eosio.cdt
         description: Contract Development Toolkit is a suite of tools used to build EOSIO contracts
-        link: /manuals/eosio.cdt/latest/index
+        link: https://developers.eos.io/manuals/eosio.cdt/latest/index
 
       - title: eosio.contracts
         description: Smart contracts that provide some of the basic functions of the EOSIO blockchain
-        link: /manuals/eosio.contracts/latest/index
+        link: https://developers.eos.io/manuals/eosio.contracts/latest/index
 
       - title: eos-vm
         description: EOS VM - A Low-Latency, High Performance and Extensible WebAssembly Engine
@@ -57,7 +57,7 @@ sections:
     listings:
       - title: eosjs
         description: A Javascript library which provides an API for integrating with EOSIO-based blockchains using the EOSIO Nodeos RPC API
-        link: /manuals/eosjs/latest/index
+        link: https://developers.eos.io/manuals/eosjs/latest/index
 
       - title: eosjs-keygen
         description: A Javascript library for managing keys in local storage

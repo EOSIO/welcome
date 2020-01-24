@@ -62,14 +62,14 @@ class [[eosio::contract("abcounter")]] abcounter : public eosio::contract {
     using count_index = eosio::multi_index<"counts"_n, counter>;
 };
 ```
-The first new concept in the code above is that we are explicitly restricting calls to the one action to a **specific account** in this contract using [require_auth](/manuals/eosio.cdt/latest/group__action/#function-require_auth) to the `addressbook` contract, as seen below.
+The first new concept in the code above is that we are explicitly restricting calls to the one action to a **specific account** in this contract using [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action/#function-require_auth) to the `addressbook` contract, as seen below.
 ```cpp
 //Only the addressbook account/contract can authorize this command.
 require_auth( name("addressbook"));
 ```
 Previously, a dynamic value was used with `require_auth`.
 
-Another new concept in the code above, is [action wrapper](/manuals/eosio.cdt/latest/structeosio_1_1action__wrapper). As shown below the first template parameter is the 'action' we are going to call and the second one should point to the action function
+Another new concept in the code above, is [action wrapper](https://developers.eos.io/manuals/eosio.cdt/latest/structeosio_1_1action__wrapper). As shown below the first template parameter is the 'action' we are going to call and the second one should point to the action function
 ```text
 using count_action = action_wrapper<"count"_n, &abcounter::count>;
 ```
@@ -112,9 +112,9 @@ void increment_counter(name user, std::string type) {
 ```
 Let's go through the code listing above.
 
-This time we use the [action wrapper](/manuals/eosio.cdt/latest/structeosio_1_1action__wrapper) instead of calling a function. To do that, we firstly initialised the count_action object defined earlier. The first parameter we pass is the callee contract name, in this case `abcounter`. The second parameter is the permission struct.
+This time we use the [action wrapper](https://developers.eos.io/manuals/eosio.cdt/latest/structeosio_1_1action__wrapper) instead of calling a function. To do that, we firstly initialised the count_action object defined earlier. The first parameter we pass is the callee contract name, in this case `abcounter`. The second parameter is the permission struct.
 
-- For the permission, [get_self()](/manuals/eosio.cdt/latest/classeosio_1_1contract/#function-get_self)  returns the current `addressbook` contract. The `active` permission of `addressbook` is used.
+- For the permission, [get_self()](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1contract/#function-get_self)  returns the current `addressbook` contract. The `active` permission of `addressbook` is used.
 
 Unlike the `Adding Inline Actions` tutorial, we won't need to specify the action because the action wrapper type incorporates the action when it is defined.
 
