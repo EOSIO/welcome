@@ -37,7 +37,7 @@ sudo yum install ./eosio-1.8.6-1.el7.x86_64.rpm
 ```
 
 [[warning]]
-| If you have previous versions of eosio installed on your system, please uninstall before proceeding. Detail instruction see [here](https://github.com/EOSIO/eos/blob/master/README.md)
+| If you have previous versions of eosio installed on your system, please uninstall before proceeding. For detailed instructions, see [here](https://github.com/EOSIO/eos/blob/master/README.md).
 
 ## Step 2: Setup a development directory, stick to it.
 You're going to need to pick a directory to work from, it's suggested to create a `contracts` directory somewhere on your local drive.
