@@ -94,6 +94,8 @@ Ownership of each account on an EOSIO blockchain is solely determined by the acc
 
 Besides the account name, the blockchain associates other fields with each account instance stored in the chain database, such as ram quota/usage, cpu/net limits/weights, voter info, etc. (see `account` schema below). More importantly, each account holds the list of named permissions assigned to it. This allows a flexible permission structure that makes single or multi-user authorizations possible (see [3. Permissions](#3-permissions)).
 
+### `account` schema
+
 Name | Type | Description
 -|-|-
 `account_name` | `name` | encoded 13-char account name
@@ -109,7 +111,7 @@ Name | Type | Description
 `net_limit` | `account_resource_limit` | total net used, available, and max
 `cpu_limit` | `account_resource_limit` | total cpu used, available, and max
 `ram_usage` | `int64_t` | amount of RAM in bytes used by account
-`permissions` | array of `permission` | list of named permission levels
+`permissions` | array of `permission` | list of named [permissions](#3-permissions)
 `total_resources` | `variant` | total cpu/net weights for all accounts
 `self_delegated_bandwidth` | `variant` | cpu/net stake delegated from self 
 `refund_request` | `variant` | cpu/net refund amounts for token unstaking
@@ -130,11 +132,13 @@ In contrast, transactions are agnostic to accounts, although there is an indirec
 
 Permissions control what EOSIO accounts can do and how actions are authorized. This is accomplished through a flexible permission structure that links each account to a list of hierarchical named permissions, and each named permission to an authority table (see the `permission` schema below).
 
+## `permission` schema
+
 Name | Type | Description
 -|-|-
 `perm_name` | `name` | named permission
 `parent` | `name` | parent's named permission
-`required_auth` | `authority` | associated authority table
+`required_auth` | `authority` | associated [authority](#32-authority-table) table
 
 The `parent` field links the named permission level to its parent permission. This is what allows hierarchical permission levels in EOSIO.
 
@@ -166,14 +170,16 @@ In the current EOSIO implementation, the implicit default permission linked to a
 
 Each account's permission can be linked to an authority table used to determine whether a given action authorization can be satisfied. The authority table contains the applicable permission name and threshold, the "factors" and their weights, all of which are used in the evaluation to determine whether the authorization can be satisfied. The permission threshold is the target numerical value that must be reached to satisfy the action authorization (see the `authority` schema below).
 
+### `authority` schema
+
 Name | Type | Description
 -|-|-
-`threshold` | `uint32_t` | threshold value to meet
+`threshold` | `uint32_t` | threshold value to satisfy authorization
 `keys` | array of `key_weight` | list of public keys and weights
 `accounts` | array of `permission_level_weight` | list of `account@permission` levels and weights
 `waits` | array of `wait_weight` | list of time waits and weights
 
-The `key_weight` type contains the actor's public key and associated weight. The `permission_level_weight` type consists of the actor's `account@permission` level and associated weight. The `wait_weight` contains the time wait and associated weight (used satisfying actions in delayed user transactions (see [Transactions Protocol: 3.6.3. Delayed User Transactions](02_transactions_protocol.md#363-delayed-user-transactions)). All of these types allow to define lists of authority factors that are used for satisfaction of action authorizations. Authority factors are described next.
+The `key_weight` type contains the actor's public key and associated weight. The `permission_level_weight` type consists of the actor's `account@permission` level and associated weight. The `wait_weight` contains the time wait and associated weight (used satisfying actions in delayed user transactions (see [Transactions Protocol: 3.6.3. Delayed User Transactions](02_transactions_protocol.md#363-delayed-user-transactions)). All of these types allow to define lists of authority factors that are used for satisfaction of action authorizations (see [3.2.1. Authority factors](#321-authority-factors) below).
 
 ### 3.2.1. Authority Factors
 
@@ -263,4 +269,4 @@ By default every account on the EOSIO blockchain is linked to the `active` permi
 
 Satisfying authorities linked to permissions involves first and foremost the validation/recovery of the public keys that signed the transaction. After a signed transaction is received by a node, the set of signatures is extracted from the transaction instance. The set of public keys are then recovered from the signatures. Then for all actions included in the transaction, the node checks that each `actor:permission` meets or exceeds the minimum permission as defined by the per-account permission links.
 
-Once validated, the set of recovered keys are provided to the authorization manager instance along with the amount of time "waited". The authorization manager then proceeds to check whether the provided "factors" satisfy the authorities, potentially recursing into other linked permission levels/authorities (see [Transactions Protocol: 3.2. Authority Table](#32-authority-table) and [Transactions Protocol: 3.4. Verify Transaction](02_transactions_protocol.md#34-verify-transaction) for more information).
+Once validated, the set of recovered keys are provided to the authorization manager instance along with the amount of time "waited". The authorization manager then proceeds to check whether the provided "factors" satisfy the authorities, potentially recursing into other linked permission levels/authorities (see [3.2. Authority Table](#32-authority-table) and [Transactions Protocol: 3.4. Verify Transaction](02_transactions_protocol.md#34-verify-transaction) for more information).
