@@ -49,8 +49,12 @@ terms:
     name: "Block Producer"
   - definition: "A full node running nodeos that is actively producing blocks. A producing node, if voted out, will become a producing node on \"standy\". Standby producers will produce blocks and will be rewarded proportionally to their vote stake."
     name: "Block-Producing Node"
-  - definition: "A full node running nodeos that is only watching and verifying for itself each block, and maintaining its own local full copy of the blockchain. A non-producing node that is in the \"standby pool\" can, through the process of being voted in, become a Producing Node (see Block-Producing Node). A producing node, if voted out, will become a non-producing node. For large EOSIO changes, non-producing nodes are outside the realm of the \"standby pool\"."
+  - definition: "A full node running nodeos that is only watching and verifying for itself each block, and maintaining its own local full copy of the blockchain. A non-producing node that is in the \"standby pool\" can, through the process of being voted in, become a Producing Node. A producing node, if voted out, will become a non-producing node. For large EOSIO changes, non-producing nodes are outside the realm of the \"standby pool\"."
     name: "Non-Producing Node"
+    related:
+      - name: "Block-Producing Node" 
+      - name: "Configuring a block-producing node" 
+        link: "http://developers.eos.io/manuals/eos/latest/nodeos/usage/node-setups/producing-node
   - definition: "A complete all-or-nothing change to the Blockchain. A combination of one or more actions. Usually the execution result of a Smart Contract."
     name: Transaction
   - definition: "An oracle, in the context of blockchains and smart contracts, is an agent that finds and verifies real-world occurrences and submits this information to a blockchain to be used by smart contracts."
