@@ -3,24 +3,24 @@ sections:
     listings:
       - title: Nodeos Chain API
         description: Provides access to the blockchain information and interaction with the blockchain
-        link: /manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index
+        link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index
       - title: Nodeos Producer API
         description: Provides access to a producer node
-        link: /manuals/eos/latest/nodeos/plugins/producer_api_plugin/api-reference/index
+        link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/producer_api_plugin/api-reference/index
       - title: Nodeos Net API
         description: Provides access to the blockchain's network
-        link: /manuals/eos/latest/nodeos/plugins/net_api_plugin/api-reference
+        link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/net_api_plugin/api-reference
       - title: Nodeos DB Size API
         description: Provides access to the blockchain's database
-        link: /manuals/eos/latest/nodeos/plugins/db_size_api_plugin/api-reference
+        link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/db_size_api_plugin/api-reference
       - title: Nodeos Test Control API
         description: Provides control of nodeos shutdown if some test conditions are met, for testing purposes
-        link: /manuals/eos/latest/nodeos/plugins/test_control_api_plugin/api-reference
+        link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/test_control_api_plugin/api-reference
   - title: SDK API References
     listings:
       - title: eosjs Javascript API
         description: Provides integration with EOSIO-based blockchains using the EOSIO Nodeos RPC API
-        link: /manuals/eosjs/latest/API-Reference/index
+        link: https://developers.eos.io/manuals/eosjs/latest/API-Reference/index
       - title: eosio-swift Swift API
         description: Provides integration with EOSIO-based blockchains using the EOSIO Nodeos RPC API
         link: http://eosio.github.io/eosio-swift
@@ -31,16 +31,16 @@ sections:
     listings:
       - title: eosio.system
         description: Contract defines the structures and actions needed for blockchain's core functionality
-        link: /manuals/eosio.contracts/latest/action-reference/eosio.system
+        link: https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.system
       - title: eosio.token
         description: Contract defines the structures and actions that allow users to create, issue, and manage tokens on eosio based blockchains
-        link: /manuals/eosio.contracts/latest/action-reference/eosio.token
+        link: https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.token
       - title: eosio.msig
         description: Contract defines the structures and actions needed to manage the proposals and approvals on blockchain
-        link: /manuals/eosio.contracts/latest/action-reference/eosio.msig
+        link: https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.msig
       - title: eosio.wrap
         description: Contract simplifies Block Producer superuser actions by making them more readable and easier to audit
-        link: /manuals/eosio.contracts/latest/action-reference/eosio.wrap
+        link: https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.wrap
       - title: eosio.bios
         description: Contract defines the structures and actions needed for blockchain's basic core functionality
-        link: /manuals/eosio.contracts/latest/action-reference/eosio.bios
+        link: https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.bios

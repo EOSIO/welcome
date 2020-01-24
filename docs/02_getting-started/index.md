@@ -9,4 +9,6 @@
 - Custom Permission
 - Payable actions using EOSIO `notify` declarations
 
-[Begin](01_development-environment/02_introduction.md)
+## What's next?
+- [Try EOSIO](/getting-started/try-eosio): Try EOSIO in your browser with Gitpod.
+- [Getting Started](/getting-started/development-environment/introduction): Install EOSIO in your local development environment.

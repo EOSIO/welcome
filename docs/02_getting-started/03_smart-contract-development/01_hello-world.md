@@ -64,7 +64,7 @@ class [[eosio::contract]] hello : public contract {
       }
 };
 ```
-The above action accepts a parameter called `user` that's a [`name`](/manuals/eosio.cdt/latest/structeosio_1_1name) type. EOSIO comes with a number of typedefs, one of the most common typedefs you'll encounter is `name`. Using the `eosio::print` library previously included, concatenate a string and print the `user` parameter. Use the braced initialization of `name{user}` to make the `user` parameter printable.
+The above action accepts a parameter called `user` that's a [`name`](https://developers.eos.io/manuals/eosio.cdt/latest/structeosio_1_1name) type. EOSIO comes with a number of typedefs, one of the most common typedefs you'll encounter is `name`. Using the `eosio::print` library previously included, concatenate a string and print the `user` parameter. Use the braced initialization of `name{user}` to make the `user` parameter printable.
 
 As is, the ABI <<glossary:ABI>> generator in `eosio.cdt` won't know about the `hi()` action without an attribute. Add a C++11 style attribute above the action, this way the abi generator can produce more reliable output.
 
@@ -114,17 +114,17 @@ When a contract is deployed, it is deployed to an account, and the account becom
 ```shell
 cleos wallet keys
 ```
-Create an account for the contract using [cleos create account](/manuals/eos/latest/cleos/command-reference/create/account), with the command provided below.
+Create an account for the contract using [cleos create account](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/create/account), with the command provided below.
 
 ```shell
 cleos create account eosio hello YOUR_PUBLIC_KEY -p eosio@active
 ```
-Deploy the compiled `wasm` to the blockchain with [cleos set contract](/manuals/eos/latest/cleos/command-reference/set/set-contract).
+Deploy the compiled `wasm` to the blockchain with [cleos set contract](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/set/set-contract).
 
-[[info | Get an error? Check if your wallet needs to be unlocked.]]
+[[info | Get an error?]]
+| Check if your wallet needs to be unlocked.
 
-<div class="no-contracts-helper">In previous steps you should have created a `contracts` directory and obtained the absolute path and then saved it into a cookie. Replace \"CONTRACTS_DIR\" in the command below with the absolute path to your `contracts` directory.</div>
-
+<div class="no-contracts-helper">In previous steps you should have created a `contracts` directory and obtained the absolute path and then saved it into a cookie. Replace "CONTRACTS_DIR" in the command below with the absolute path to your `contracts` directory.</div>
 
 ```shell
 cleos set contract hello CONTRACTS_DIR/hello -p hello@active

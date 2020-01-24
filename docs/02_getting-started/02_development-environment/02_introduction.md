@@ -9,9 +9,9 @@ The subsequent tutorials are up to date with the following EOSIO components.
 
 | Component | Version |
 | ------ | ------ |
-| eosio | 1.8.6 |
-| eosio.cdt | 1.6.3 |
-| eosio.contracts | 1.8.1 |
+| eosio | 2.0.0 |
+| eosio.cdt | 1.7.0 |
+| eosio.contracts | 1.9.0 |
 
 ## What you'll learn
 
@@ -31,17 +31,18 @@ At the moment the most mature toolchain for building applications that compile t
 
 Other toolchains in development by 3rd parties include: Rust, Python, and Solidity. While these other languages may appear simpler, their performance will likely impact the scale of application you can build. We expect that C++ will be the best language for developing high-performance and secure smart contracts and plan to use C++ for the foreseeable future.
 
-# Linux / Mac OS Experience
+## Linux / Mac OS Experience
 
-The EOSIO software supports the following environments:
+The EOSIO software supports the following environments for development and/or deployment:
 
-* Amazon 2017.09 and higher
+* Amazon Linux 2
 * Centos 7
-* Fedora 25 and higher (Fedora 27 recommended)
-* Mint 18
-* Ubuntu 16.04 (Ubuntu 16.10 recommended)
+* Ubuntu 16.04
 * Ubuntu 18.04
-* MacOS Darwin 10.12 and higher (MacOS 10.13.x recommended)
+* MacOS 10.14 (Mojave) and higher
+
+[[info | Note]]
+| if you are developing on __Windows__, unfortunately we do not provide PowerShell ports and instructions at this time. In the future we may append PowerShell commands. In the mean-time your best bet is to use a VM with Ubuntu, and set up your development environment inside this VM. If you're an advanced Window's developer familiar with porting Linux instructions, you should encounter minimal issues.
 
 ## Command Line Knowledge
 
@@ -64,17 +65,6 @@ We can use any text editor that, preferably, supports C++ syntax highlighting. S
 Alternatively, you can try out some community driven IDEs specifically developed for EOSIO:
 
 - [EOS Studio](https://www.eosstudio.io/)
-
-## Operating System of Development Environment
-If using an OS on any flavor of linux, you'll be able to follow these tutorials with ease, this includes but is not limited to
-- Mac OS
-- Ubuntu
-- Debian
-- Fedora
-
-## Windows
-
-If you are developing on Windows, unfortunately we do not provided powershell ports and instructions at this time. In the future we may append powershell commands. In the mean-time your best bet is to use a VM with Ubuntu, and set up your development environment inside this VM. If you're an advanced Window's developer familiar with porting Linux instructions, you should encounter minimal issues.
 
 ## What's Next? 
 - [Before You Begin](https://developers.eos.io/getting-started/development-environment/before-you-begin): Steps to download and install binaries on your system.

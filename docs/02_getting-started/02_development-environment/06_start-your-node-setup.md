@@ -1,10 +1,12 @@
 ---
-content_title: "1.5: Start your node setup"
-link_text: "1.5: Start your node setup"
+content_title: "1.5: Start keosd and nodeos"
+link_text: "1.5: Start keosd and nodeos"
 ---
 
 ## Step 1: Boot Node and Wallet
-## Step 1.1: Start keosd
+
+### Step 1.1: Start keosd
+
 First let us start keosd:
 
 ```shell
@@ -21,7 +23,9 @@ info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handle
 info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handler          ] add api url: /v1/wallet/get_public_keys
 ```
 Press enter to continue
-## Step 1.2: Start nodeos
+
+### Step 1.2: Start nodeos
+
 Start nodeos now:
 
 ```shell
@@ -47,8 +51,13 @@ These settings accomplish the following:
 [[warning]]
 | In the above configuration, CORS is enabled for `*` **for development purposes only**, you should **never** enable CORS for `*` on a node that is publicly accessible!
 
+### Troubleshooting
+
+If in the previous step, after starting `nodeos`, you see an error message similar to "Database dirty flag set (likely due to unclean shutdown): replay required" try to start `nodeos` with  `--replay-blockchain`. More details on troubleshooting `nodeos` can be found [here](https://developers.eos.io/manuals/eos/latest/nodeos/troubleshooting/index).
+
 ## Step 2: Check the installation
-## Step 2.1: Check that Nodeos is Producing Blocks
+
+### Step 2.1: Check that Nodeos is Producing Blocks
 
 Run the following command
 
@@ -71,10 +80,10 @@ You should see some output in the console that looks like this:
 ```
 Press `ctrl + c` to close the log
 
-## Step 2.2: Check the Wallet
+### Step 2.2: Check the Wallet
 
 Open the shell and run the cleos command to list available wallets. We will talk more about wallets in the future. For now, we need to validate the installation and see that the command line client
-[cleos](/manuals/eos/latest/cleos) is working as intended.
+[cleos](https://developers.eos.io/manuals/eos/latest/cleos) is working as intended.
 
 
 ```shell
@@ -89,7 +98,7 @@ Wallets:
 
 From this point forward, you'll be executing commands from your local system (Linux or Mac)
 
-## Step 2.3: Check Nodeos endpoints
+### Step 2.3: Check Nodeos endpoints
 
 This will check that the RPC API is working correctly, pick one.
 
