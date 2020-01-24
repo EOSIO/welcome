@@ -7,7 +7,7 @@ link_text: "1.2: Before You Begin"
 To get started as quickly as possible we recommend using pre-built binaries. Building from source is a more advanced option but will set you back an hour or more and you may encounter build errors.
 
 [[info]]
-| You can find how to build EOSIO from source [here](/manuals/eos/latest/install/build-from-source/).
+| You can find how to build EOSIO from source [here](https://developers.eos.io/manuals/eos/latest/install/build-from-source/).
 
 The below commands will download binaries for respective operating systems.
 
