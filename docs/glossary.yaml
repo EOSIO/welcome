@@ -25,10 +25,13 @@ terms:
     name: DPoS
     synonyms:
       - "Delegated Proof-of-Stake"
-  - definition: "The genesis block, also known as block 0, is the very first block in the EOSIO blockchain. The subsequent block added after the genesis block becomes block 1 and continues the sequence. The genesis block lays the foundation for other blocks to be added to form a blockchain."
+  - definition: "The genesis block is the very first block in the EOSIO blockchain. The subsequent block added after the genesis block becomes block 1 and continues the sequence. The genesis block lays the foundation for other blocks to be added to form a blockchain."
     name: Genesis Block
-  - definition: "The genesis node, also known as the single producer node, is the first node in the blockchain network. The genesis node is used to perform a set of actions such as creating system accounts, initializing system, and token contracts in order to create a fully-functional blockchain with varying capabilities such as governance, resource allocation, and more."
+  - definition: "The genesis node is the first node in the blockchain network. The genesis node is used to perform a set of actions such as creating system accounts, initializing system, and token contracts in order to create a fully-functional blockchain with varying capabilities such as governance, resource allocation, and more."
     name: Genesis Node  
+    synonyms: 
+      - "Single Producer Node"
+      - "block 1"
   - definition: "Staking is the act of locking tokens for resources on an EOSIO network. This includes but is not limited to, CPU time, RAM, and on-chain governance."
     name: Staking
   - definition: "A publicly available key that can be authorized to permissions of an account and can be used to identify the origin transaction. A public key can be inferred from a signature."
@@ -97,22 +100,34 @@ terms:
     name: "Blockchain Application"
   - definition: "A block is considered irreversible (i.e. immutable) on an EOSIO based blockchain when 2/3rd of the currently elected block producers have acknowledged it."
     name: "Irreversible Block"
-  - definition: "Any block on an EOSIO based blockchain with a block number greater than the last irreversible block (see Irreversible Block). Reversible blocks are blocks that are not currently guaranteed to be on the blockchain."
+  - definition: "Any block on an EOSIO based blockchain with a block number greater than the last irreversible block. Reversible blocks are blocks that are not currently guaranteed to be on the blockchain."
     name: "Reversible Block"
+    related: 
+      - name: "Irreversible Block"
   - definition: "The pending block is the block currently being built by each node. Transactions are added to the pending block as they are received and processed. The pending block becomes the head block once it is written to the blockchain. Note that a head block is initially reversible."
     name: "Pending Block"
-  - definition: "The list of block producers (see Block Producer) who currently have the possibility of being selected to produce the next block. This list changes with every new block."
+  - definition: "The list of block producers who currently have the possibility of being selected to produce the next block. This list changes with every new block."
     name: "Block Producer Schedule"
+    related:
+      - name: "Block Producer"
   - definition: "EOSIO wraps the boost multi-index library to provide in memory data persistence. A subset of the functionality provided by the boost multi-index is provided in the EOSIO multi-index."
     name: Multi-Index
-  - definition: "A part of the block (see Block) which holds metadata related to the block. In an EOSIO block header this includes things like the transaction Merkle root (see Merkle Tree), the action Merkle root, the producer who produced the block, the block id of the previous block, the block id of the current block, and the block timestamp."
+  - definition: "A part of the block which holds metadata related to the block. In an EOSIO block header this includes things like the transaction Merkle root, the action Merkle root, the producer who produced the block, the block id of the previous block, the block id of the current block, and the block timestamp."
     name: "Block Header"
-  - definition: "A Merkle tree (also known as a hash tree) is a tree in which every leaf node is labelled with the hash of a data block, and every non-leaf node is labelled with the cryptographic hash of the labels of its child nodes. Hash trees allow efficient and secure verification of the contents of large data structures."
+    related:
+      - name: "Block"
+      - name: "Merkle Tree"
+  - definition: "A Merkle tree is a tree in which every leaf node is labelled with the hash of a data block, and every non-leaf node is labelled with the cryptographic hash of the labels of its child nodes. Hash trees allow efficient and secure verification of the contents of large data structures."
     name: "Merkle Tree"
+    synonyms:
+      - "Hash tree" 
   - definition: "A cryptographic hash function is a hash function which takes an input (or 'message') and returns a fixed-size alphanumeric string. The alphanumeric string is called the 'hash value', 'message digest', 'digital fingerprint', 'digest' or 'checksum'."
     name: "Cryptographic Hash"
-  - definition: "In the context of distributed systems, Byzantine Fault Tolerance (BFT) is the ability of a distributed computer network to function as desired and correctly reach a sufficient consensus despite malicious components (nodes) of the system failing or propagating incorrect information to other peers. In an EOSIO based blockchain BFT is achieved using a combination of Delegated Proof of Stake (see DPoS), the last irreversible block (see Irreversible Block), and the fact that a producer cannot sign two blocks with the same block number."
+  - definition: "In the context of distributed systems, Byzantine Fault Tolerance (BFT) is the ability of a distributed computer network to function as desired and correctly reach a sufficient consensus despite malicious components (nodes) of the system failing or propagating incorrect information to other peers. In an EOSIO based blockchain BFT is achieved using a combination of Delegated Proof of Stake, the last irreversible block, and the fact that a producer cannot sign two blocks with the same block number."
     name: "Byzantine Fault Tolerance"
+    related:
+      - name: "Irreversible Block"
+      - name: "DPoS"
   - definition: "cleos is a command line tool that interfaces with the REST api exposed by nodeos, in other words cleos is the command line tool through which you can interface with an EOSIO based blockchain; cleos contains documentation for all of its commands. For a list of all commands known to cleos, simply run it with no arguments. cleos = command line + eos"
     name: Cleos
   - definition: "nodeos is the core EOSIO node daemon that can be configured with plugins to run a node. Example uses are block production, dedicated API endpoints, and local development. nodeos = node + eos"
@@ -127,16 +142,22 @@ terms:
     name: "Account Name"
   - definition: "For non-standards accounts, those under 12 characters, EOSIO based blockchains provide a system where blockchain users can bid on accounts by submitting the bids via an auction process. Only one account name with the highest bidding price can be auctioned off every 24 hours among all submitted account names, that is, the system considers a bidding to be successful only when the bidding price is the highest among all other account bidding prices submitted."
     name: "Account Name Bidding"
-  - definition: "Blockchain governance is a lot like other kinds of governance, except that it's underpinned by smart contracts and transparent voting on the blockchain. Governance, the mechanism by which collective decisions are made, of an EOSIO based blockchain is achieved through 21 active block producers which are appointed by token holder votes. The 21 active block producers continuously create the blockchain via block creation, secure the blocks by validating them, and reach consensus on the state of the blockchain as a whole. Consensus is reached when 2/3+1 active block producers agree on validity of a block (see Irreversible Block), therefore on all transactions contained in it and their order."
+  - definition: "Blockchain governance is a lot like other kinds of governance, except that it's underpinned by smart contracts and transparent voting on the blockchain. Governance, the mechanism by which collective decisions are made, of an EOSIO based blockchain is achieved through 21 active block producers which are appointed by token holder votes. The 21 active block producers continuously create the blockchain via block creation, secure the blocks by validating them, and reach consensus on the state of the blockchain as a whole. Consensus is reached when 2/3+1 active block producers agree on validity of a block , therefore on all transactions contained in it and their order."
     name: Governance
+    related: 
+      - name: "Irreversible Block"
   - definition: "Privileged accounts are accounts which  can execute transactions while skipping the standard authorization check. To ensure that this is not a security hole, the permission authority over these accounts is granted to the eosio.prods account. An account can be set as privileged by sending the native action `setpriv` to an EOSIO based blockchain, specifying the account to be set as privileged, and providing the correct permission, or, by using cleos command line utility."
     name: Privileged
-  - definition: "Multiple Index Tables, or Multi Index Tables, are a way to cache state and/or data in RAM for fast access. Multi index tables support create, read, update, and delete (CRUD) operations, something which the blockchain doesn't (it only supports create and read). Multi index tables are stored in EOSIO RAM and each smart contract using a multi index table reserves a partition of the RAM cache. Access to each partition is controlled using the table name, code, and scope, and can have up to 16 indexes or indices (see Indices) defined."
+  - definition: "Multiple Index Tables, or Multi Index Tables, are a way to cache state and/or data in RAM for fast access. Multi index tables support create, read, update, and delete (CRUD) operations, something which the blockchain doesn't (it only supports create and read). Multi index tables are stored in EOSIO RAM and each smart contract using a multi index table reserves a partition of the RAM cache. Access to each partition is controlled using the table name, code, and scope, and can have up to 16 indexes or indices defined."
     name: "Multiple Index Table"
+    related:
+      - name: "Indices"
   - definition: "nodeos plugins are software components that implement features that complement the native EOSIO blockchain basic implementation. They can be enabled or disabled through the nodeos configuration file or specifying them in the command line that launches the nodeos daemon."
     name: Plugin
-  - definition: "Tables on an EOSIO based blockchain are achieved via Multiple Index Tables (see Multiple Index Table)."
+  - definition: "Tables on an EOSIO based blockchain are achieved via Multiple Index Table."
     name: Tables
+    related: 
+      - name: "Multiple Index Table"
   - definition: "The chain state (or \"database\" as it is often called) is a memory mapped file, which stores the blockchain state of each block (account details, deferred transactions, transactions, data stored using multi index tables in smart contracts, etc.). Once a block becomes irreversible the chain state is no longer cached."
     name: "Chain State"
   - definition: "SYS is the blockchain default token name for an EOSIO based blockchain. Any fork of the EOSIO open source has the option to rename it, through a very simple procedure, to any token name that meets the symbol validation rules."
