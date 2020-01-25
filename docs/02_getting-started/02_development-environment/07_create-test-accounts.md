@@ -12,7 +12,7 @@ This tutorial series uses two "user" accounts, `bob` and `alice`, as well as the
 ## Step 1: Create Test Accounts
 
 [[caution | Public Key Persistence]]
-| In section **1.4 Create Development Wallet**, you created a development key pair and pasted the public key in the **Development Public Key** field for the value to persist throughout the tutorial. 
+| In section **1.4 Create Development Wallet**, you created a development key pair and pasted the public key in the **Development Public Key** field for the value to persist throughout the tutorial.
 
 In the following steps, if you see `YOUR_PUBLIC_KEY` instead of the public key value, you can either go back to section **1.4 Create Development Wallet** and persist the value or replace `YOUR_PUBLIC_KEY` with the public key value manually.
 
@@ -71,7 +71,7 @@ If you get an error while creating the account, make sure your wallet is unlocke
 ```shell
 cleos wallet list
 ```
-You should see an asterisk (*) next to the wallet name, as seen below.
+You should see an asterisk (`*`) next to the wallet name, as seen below.
 
 ```text
 Wallets:
@@ -80,5 +80,5 @@ Wallets:
 ]
 ```
 
-## What's Next? 
-- [Hello World](https://developers.eos.io/getting-started/smart-contract-development/hello-world): The Hello World of EOSIO! Learn how to set up your environment and deploy your first smart contract.
+## What's Next?
+- [Hello World](./04_smart-contract-development/01_hello-world.md): The Hello World of EOSIO! Learn how to set up your environment and deploy your first smart contract.
