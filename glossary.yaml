@@ -27,6 +27,8 @@ terms:
       - "Delegated Proof-of-Stake"
   - definition: "The genesis block is the very first block in the EOSIO blockchain. The subsequent block added after the genesis block becomes block 1 and continues the sequence. The genesis block lays the foundation for other blocks to be added to form a blockchain."
     name: Genesis Block
+    related:
+      name: "Block"
   - definition: "The genesis node is the first node in the blockchain network. The genesis node is used to perform a set of actions such as creating system accounts, initializing system, and token contracts in order to create a fully-functional blockchain with varying capabilities such as governance, resource allocation, and more."
     name: Genesis Node
     synonyms:
@@ -56,7 +58,7 @@ terms:
     name: "Non-Producing Node"
     related:
       - name: "Block-Producing Node"
-      - name: "Configuring a block-producing node"
+      - name: "Guide: Configuring a block-producing node"
         link: "http://developers.eos.io/manuals/eos/latest/nodeos/usage/node-setups/producing-node"
   - definition: "A complete all-or-nothing change to the Blockchain. A combination of one or more actions. Usually the execution result of a Smart Contract."
     name: Transaction
@@ -78,12 +80,17 @@ terms:
     name: RAM
     related:
       - name: "RAM Market"
+      - name: "Bancor Relay"
   - definition: "EOSIO adopts a free-market approach to allocating scarce resources. To facilitate this market, the eosio system contract allows users to buy RAM from the system and sell RAM back to the system in exchange for the blockchain's native tokens. This provides liquidity in the RAM market while facilitating price discovery. The less unallocated RAM available to the market maker the higher the market maker prices the remaining RAM. The algorithm used for this market maker is known as a Bancor Relay. A Bancor Relay does not set the price of RAM. It only offers to buy and sell at previously established market rates. Anytime the current market rate is different than the current price offered by the Bancor Relay, traders will buy or sell RAM pushing to closer to the market determined price."
     name: "Bancor Relay"
     synonyms:
      - Bancor Algorithm
+    related:
+      - name: "RAM Market"
   - definition: "In order to persist data on an EOSIO based blockchain, a user must first purchase RAM. The EOSIO RAM market uses the Bancor Relay algorithm in a system smart contract to offer to buy and sell RAM from users at previously established market rates."
     name: "RAM Market"
+    related:
+      - name: "Bancor Relay"
   - definition: "CPU is processing power granted to an account by an EOSIO based blockchain. The amount of CPU an account has is measured in microseconds, and represents the amount of processing time an account has at its disposal when executing its actions. CPU is recalculated after each block is produced, based on the amount of system tokens the account staked for CPU bandwidth in proportion to the amount of total system tokens staked for CPU bandwidth at that time."
     name: CPU
   - definition: "NET is required to store transactions on an EOSIO based blockchain. The amount of NET an account has is measured in bytes, representing the amount of transaction storage an account has at its disposal when creating a new transaction. NET is recalculated after each block is produced, based on the system tokens staked for NET bandwidth by the account. The amount allocated to an account is proportional with the total system tokens staked for NET by all accounts. Do not confuse NET with RAM, although it is also storage space, NET measures the size of the transactions and not contract state."
@@ -100,6 +107,8 @@ terms:
     name: "Blockchain Application"
   - definition: "A block is considered irreversible (i.e. immutable) on an EOSIO based blockchain when 2/3rd of the currently elected block producers have acknowledged it."
     name: "Irreversible Block"
+    related:
+      - name: "Block"
   - definition: "Any block on an EOSIO based blockchain with a block number greater than the last irreversible block. Reversible blocks are blocks that are not currently guaranteed to be on the blockchain."
     name: "Reversible Block"
     related:
@@ -121,6 +130,8 @@ terms:
     name: "Merkle Tree"
     synonyms:
       - "Hash tree"
+    related:
+      - name: "Block Header"
   - definition: "A cryptographic hash function is a hash function which takes an input (or 'message') and returns a fixed-size alphanumeric string. The alphanumeric string is called the 'hash value', 'message digest', 'digital fingerprint', 'digest' or 'checksum'."
     name: "Cryptographic Hash"
   - definition: "In the context of distributed systems, Byzantine Fault Tolerance (BFT) is the ability of a distributed computer network to function as desired and correctly reach a sufficient consensus despite malicious components (nodes) of the system failing or propagating incorrect information to other peers. In an EOSIO based blockchain BFT is achieved using a combination of Delegated Proof of Stake, the last irreversible block, and the fact that a producer cannot sign two blocks with the same block number."
@@ -209,7 +220,10 @@ terms:
   - definition: "A permission weight is a value given to an account for authorization purposes. This is typically used in the context of a mutli-sig to give one or more accounts more control over a multi-sig than others."
     name: "Permission Weight"
     synonyms:
-      - Authorization
+      - "Authorization"
+    related:
+      - name: "Permission"
+      - name: "Account"
   - definition: "In the context of a multiple index table, an index is a particular ordering of the elements in the table. Multiple index indices allow the same data in one table to be viewed as different data structures by specifying the specific index on the table. EOSIO multiple index tables allow for up to 16 unique indices."
     name: Indices
   - definition: "Wait is measured in seconds and it is the time to wait until a delayed transaction is executed. Its value can not be higher than the max_transaction_delay which is set in the global configuration file."
@@ -222,3 +236,5 @@ terms:
     name: "System Contract"
   - definition: "At the genesis of an EOSIO based blockchain, there is only one account present, `eosio` which is the main system account."
     name: "Privileged Account"
+    related:
+      - name: "Account"
