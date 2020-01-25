@@ -5,11 +5,6 @@ link_text: BIOS Boot Sequence
 
 > _The steps here can be readily expanded for the networked case. Some assumptions are made here regarding how the parties involved will coordinate with each other. However, there are many ways that the community can choose to coordinate. The technical aspects of the process are objective; assumptions of how the coordination might occur are speculative. Several approaches have already been suggested by the community. You are encouraged to review the various approaches and get involved in the discussions as appropriate._
 
-
-
-
-
-
 The BIOS Boot sequence undergoes two significant workflows:
 1. Creating, configuring, and starting the genesis node
 2. Transitioning from single genesis producer to multiple producers
@@ -21,7 +16,6 @@ The information in this section walk you through the preparatory steps for the f
 * Setting up your `eos` environment
 * Starting your genesis `eos` node
 * Setting up additional, interconnected eos nodes with connectivity to the genesis node
-
 
 After performing these steps, you will have a fully functional **eos blockchain** running locally.
 
@@ -49,7 +43,6 @@ For instructions to install the EOSIO.CDT binaries, see the [Install EOSIO.CDT b
 Create and configure your default wallet, followed by creating a public and private development keys. After the key-pair is created, import the public and private key in your wallet. For reference purposes, we will refer the public key as `EOS_PUB_DEV_KEY` and the private key as `EOS_PRIV_DEV_KEY`.
 
 For instructions on creating a wallet and importing the keys, see the [Create development wallet](../02_getting-started/02_development-environment/05_create-development-wallet.md) tutorial.
-
 
 ### **1.3. Create ~/biosboot/genesis directory**
 
