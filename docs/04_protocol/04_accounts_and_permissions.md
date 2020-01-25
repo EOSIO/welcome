@@ -7,7 +7,7 @@ content_title: Accounts and Permissions
 
 An account identifies a participant in an EOSIO blockchain. A participant can be an individual or a group depending on the assigned permissions within the account. Accounts also represent the smart contract actors that push and receive actions to and from other accounts in the blockchain. Actions are always contained within transactions. A transaction can be one or more atomic actions.
 
-Permissions associated with an account are used to authorize actions and transactions to other accounts. Each permission is linked to an authority table which contains a threshold that must be reached in order to allow the action associated with the given permission to be authorized for execution. The following diagram illustrates the relationship between accounts, permissions, and authorities. 
+Permissions associated with an account are used to authorize actions and transactions to other accounts. Each permission is linked to an authority table which contains a threshold that must be reached in order to allow the action associated with the given permission to be authorized for execution. The following diagram illustrates the relationship between accounts, permissions, and authorities.
 
 ```dot-svg
 
@@ -113,7 +113,7 @@ Name | Type | Description
 `ram_usage` | `int64_t` | amount of RAM in bytes used by account
 `permissions` | array of `permission` | list of named [permissions](#3-permissions)
 `total_resources` | `variant` | total cpu/net weights for all accounts
-`self_delegated_bandwidth` | `variant` | cpu/net stake delegated from self 
+`self_delegated_bandwidth` | `variant` | cpu/net stake delegated from self
 `refund_request` | `variant` | cpu/net refund amounts for token unstaking
 `voter_info` | `variant` | name of voter, proxy or producers, vote stake
 `rex_info` | `variant` | vote stake and rex balance if applicable
@@ -160,7 +160,7 @@ The owner permission sits at the root of the permission hierarchy for every acco
 
 ### 3.1.2. Active permission
 
-In the current EOSIO implementation, the implicit default permission linked to all actions is `active`, which sits one level below the `owner` permission within the hierarchy structure. As a result, the `active` permission can do anything the `owner` permission can, except changing the keys associated with the owner. The `active` permission is typically used for voting, transferring funds, and other account operations. For more specific actions, custom permissions are typically created below the `active` permission and mapped to specific contracts or actions. Refer to the [Creating and Linking Custom Permissions](../02_getting-started/02_smart-contract-development/08_linking-custom-permission.md) for more details.
+In the current EOSIO implementation, the implicit default permission linked to all actions is `active`, which sits one level below the `owner` permission within the hierarchy structure. As a result, the `active` permission can do anything the `owner` permission can, except changing the keys associated with the owner. The `active` permission is typically used for voting, transferring funds, and other account operations. For more specific actions, custom permissions are typically created below the `active` permission and mapped to specific contracts or actions. Refer to the [Creating and Linking Custom Permissions](../02_getting-started/03_smart-contract-development/08_linking-custom-permission.md) for more details.
 
 [[info | Custom Permissions]]
 | EOSIO allows to create custom hierarchical permissions that stem from the owner permission. This allows finer control over action authorizations. It also strengthens security in case the `active` permission gets compromised.
