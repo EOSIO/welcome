@@ -96,7 +96,7 @@ typedef eosio::multi_index<"people"_n, person> address_index;
 ```
 With the above `multi_index` configuration there is a table named **people**, that
 
-1. Uses the _n operator to define an eosio::name type and uses that to name the table. This table contains a number of different singular "persons", so name the table "people".
+1. Uses the `_n` operator to define an eosio::name type and uses that to name the table. This table contains a number of different singular "persons", so name the table "people".
 2. Pass in the singular `person` struct defined in the previous step.
 3. Declare this table's type. This type will be used to instantiate this table later.
 4. There are some additional configurations, such as configuring indices, that will be covered further on.
@@ -126,7 +126,6 @@ class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 
     typedef eosio::multi_index<"people"_n, person> address_index;
 };
-
 ```
 
 ## Step 6: The Constructor
@@ -728,5 +727,5 @@ Looking good!
 ## Wrapping Up
 You've learned how to configure tables, instantiate tables, create new rows, modify existing rows and work with iterators. You've learned how to test against an empty iterator result. Congrats!
 
-## What's Next? 
-- [Secondary Indices](https://developers.eos.io/getting-started/smart-contract-development/secondary-indices): Learn how to add another index to the `addressbook` contract that you created in the preceding **Data Persistence** section. 
+## What's Next?
+- [Secondary Indices](./05_secondary-indices.md): Learn how to add another index to the `addressbook` contract that you created in the preceding **Data Persistence** section.

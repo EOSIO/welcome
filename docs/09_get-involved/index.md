@@ -16,11 +16,11 @@ To make a quick edit:
 
 1. Go to the specific page where you have identified an editorial need and click the **Edit** icon at the top right of the page.
 
-![Quick Edit Icon](./images/quick-edits-1.png)
+![Quick Edit Icon](quick-edits-1.png)
 
 2. Fork the repository to suggest changes. Click **Fork this repository**.
 
-![Fork the Repository](./images/quick-edits-2.png)
+![Fork the Repository](quick-edits-2.png)
 
 > If you are not signed in to your Github account, it will redirect you to the Github login page. Sign in with your username and password to continue. If you are new to Github, create a new account.
 
@@ -39,14 +39,14 @@ Filing an issue in a docs repository means reporting a documentation bug in the 
 To file a new issue:
 
 1. Go to the specific page where you have identified an area of improvement and click **Request Changes** at the top right of the page.
-   ![New Issue Icon](./images/file-issues-1.png)
+   ![New Issue Icon](file-issues-1.png)
 2. You will be directed to the Issues tab of the specific repository with an editable Issue form.
 
-   ![New Issue Form](./images/file-issues-2.png)
+   ![New Issue Form](file-issues-2.png)
    > If you are not signed in to your Github account, it will redirect you to the Github login page. Sign in with your username and password to continue. If you do not have a Github account, create a new account.
 3. Enter the issue title and describe the issue with a proposed solution if you have using Markdown syntax.
    > If you are filing an issue for the first time, review the contributing guidelines of the repository.
-   ![Contribution Guidelines](./images/file-issues-3.png)
+   ![Contribution Guidelines](file-issues-3.png)
 4. Click **Submit new issue** to submit the issue to the repository.
 
 

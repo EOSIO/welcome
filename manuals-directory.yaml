@@ -10,7 +10,7 @@ sections:
         link: https://developers.eos.io/manuals/eos/latest/cleos
 
       - title: keosd
-        description: aA key manager service daemon for storing private keys and signing digital messages
+        description: A key manager service daemon for storing private keys and signing digital messages
         link: https://developers.eos.io/manuals/eos/latest/keosd
 
       - title: eosio.cdt
