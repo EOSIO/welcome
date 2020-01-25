@@ -14,6 +14,7 @@ In the EOSIO ecosystem, block production and block validation are performed by s
 
 
 ## 1.2. The Need for Consensus
+
 Block validation presents a challenge among any group of distributed nodes. A consensus model must be in place to validate such blocks in a fault tolerant way within the decentralized system. Consensus is the way for such distributed nodes and users to agree upon the current state of the blockchain (see [3. EOSIO Consensus (DPoS + aBFT)](#3-eosio-consensus-dpos--abft)).
 
 
@@ -136,24 +137,34 @@ When a block is not produced by a given producer during its assigned time slot, 
 
 # 5. Block Lifecycle
 
-Blocks are created by the active producer on schedule during its assigned timeslot, then relayed to other producer nodes for syncing and validation. This process continues from producer to producer until a new schedule of producers is approved at a later schedule round. When a valid block meets the consensus requirements (see [3. EOSIO Consensus (DPoS + aBFT)](#3-eosio-consensus-dpos--abft)), the block becomes final and is considered irreversible. Therefore, blocks undergo three major phases during their lifespan: production, validation, and finality. Each phase goes through various stages as well.
+Blocks are created by the active producer on schedule during its assigned timeslot, then relayed to other producer nodes for syncing and validation. This process continues from producer to producer until a new schedule of producers is approved at a later schedule round. When a valid block meets the consensus requirements (see [3. EOSIO Consensus](#3-eosio-consensus-dpos--abft)), the block becomes final and is considered irreversible. Therefore, blocks undergo three major phases during their lifespan: production, validation, and finality. Each phase goes through various stages as well.
 
 
 ## 5.1. Block Structure
 
-As an inter-chained sequence of blocks, the fundamental unit within the blockchain is the block. A block contains records of valid transactions and additional cryptographic overhead such as hashes and signatures necessary for block confirmation, re-execution of transactions during validation, blockchain replays, protection against replay attacks, etc. **[schema:block]**. The most relevant fields in a block include:
+As an inter-chained sequence of blocks, the fundamental unit within the blockchain is the block. A block contains records of pre-validated transactions and additional cryptographic overhead such as hashes and signatures necessary for block confirmation, re-execution of transactions during validation, blockchain replays, protection against replay attacks, etc. (see `block` schema below).
 
-*   **Block timestamp**: Added at block creation before any transactions are included.
-*   **Producer name**: name of the block producer that created and produced the block.
-*   **Previous block**: ID of previous block; a function of its block header and block number.
-*   **Packed transactions**: List of valid transactions included in the block.
+### block schema
 
-Excluding packed transactions, most of the fields above are known in advance when the block is created, so they can be added at initialization. Other fields are unknown at that point, so they are computed and added during block finalization, such as:
+Name | Type | Description
+-|-|-
+`timestamp` | `block_timestamp_type` | block creation time (before any transactions are included)
+`producer` | `name` | account name for producer of this block
+`confirmed` | `uint16_t` | non-zero if block confirmed by producer of this block
+`previous` | `block_id_type` | block ID of the previous block
+`transaction_mroot` | `checksum256_type` | merkle tree root hash of transaction receipts
+`action_mroot` | `checksum256_type` | merkle tree root hash of action receipts
+`schedule_version` | `uint32_t` | increments when new producer schedule is confirmed for next schedule round (must be `0`; field moved to `new_producers`)
+`new_producers` | `producer_schedule_type` | holds schedule version, producer names and keys for new producer schedule (included in first block of schedule round)
+`header_extensions` | `extensions_type` | extends header fields to support additional features
+`producer_signature` | `signature_type` | digital signature from producer that created and signed block
+`transactions` | array of `transaction_receipt` | list of valid transaction receipts included in block
+`block_extensions` | `extension_type` | extends header fields to support additional features
+`id` | `uint64_t` | UUID of this block ID (a function of block header and block number); can be used to query a transaction within the block
+`block_num` | `uint32_t` | block number (sequential counter value since genesis block 0)
+`ref_block_prefix` | `uint32_t` | lower 32 bits of `id`; used to prevent replay attacks
 
-*   **Transactions merkle root**: a hash of the merkle tree root of transaction receipts.
-*   **Actions merkle root**: a hash of the merkle tree root of action receipts included.
-*   **Producer signature**: digital signature of the producer that created and signed the block.
-
+Some of the block fields are known in advance when the block is created, so they are added during block initialization. Others are computed and added during block finalization, such as the merkle root hashes for transactions and actions, the block number and block ID, the signature of the producer that created and signed the block, etc. (see [Network Peer Protocol: 3.1. Block ID](03_network_peer_protocol.md#31-block-id))
 
 ## 5.2. Block Production
 
@@ -179,7 +190,12 @@ Produced blocks need to be finalized before they can be signed, committed, relay
 
 ### 5.2.3. Sign Block
 
-After the transactions have been pushed into the block and the block is finalized, the block is ready to be signed by the producer. This involves computing a signature digest from the serialized contents of the block header, which includes the transaction receipts included in the block. After the block is signed with the producer’s private key, the signature digest is added to the signed block instance. At this point, the signed block is committed and pushed (relayed) to other producing nodes for validation.
+After the transactions have been pushed into the block and the block is finalized, the block is ready to be signed by the producer. This involves computing a signature digest from the serialized contents of the block header, which includes the transaction receipts included in the block. After the block is signed with the producer’s private key, the signature digest is added to the signed block instance. This completes the block signing.
+
+
+### 5.2.4. Commit Block
+
+After the block is signed, it is committed to the local chain. This pushes the block to the reversible block database (see [Network Peer Protocol: 2.2.1. Fork Database](03_network_peer_protocol.md#221-fork-database)). This makes the block available for syncing with other nodes for validation (see the [Network Peer Protocol](03_network_peer_protocol.md) for more information about block syncing).
 
 
 ## 5.3. Block Validation
