@@ -27,7 +27,7 @@ A smart contract is a piece of code that can execute on a blockchain and keep th
 
 The EOSIO platform implements a proven decentralized consensus algorithm capable of meeting the performance requirements of applications on the blockchain called the _Delegated Proof of Stake_ (DPOS). Under this algorithm, if you hold tokens on a EOSIO-based blockchain, you can select block producers through a continuous approval voting system. Anyone can choose to participate in the block production and will be given an opportunity to produce blocks, provided they can persuade token holders to vote for them.
 
-For more information about DPOS BFT, see [EOSIO Consensus](../04_protocol/01_consensus_protocol/#3-eosio-consensus-dpos--abft).
+For more information about DPOS BFT, see [EOSIO Consensus](../04_protocol/01_consensus_protocol.md#3-eosio-consensus-dpos--abft).
 
 <!-- The link will be updated once the initial site is live -->
 
