@@ -23,7 +23,7 @@ The information in this section walk you through the preparatory steps for the f
 * Setting up additional, interconnected eos nodes with connectivity to the genesis node
 
 
-After performing these steps, you will have a fully functional **eos blockchain** running locally. 
+After performing these steps, you will have a fully functional **eos blockchain** running locally.
 
 **Python Script**
 
@@ -38,7 +38,7 @@ If your goal is to go beyond and understand what the script is doing, you can fo
 **Pre-compiled EOSIO Binaries**
 
 
-For instructions to install the `nodeos` binaries, see the [Install EOSIO pre-compiled binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries) tutorial but do not start `nodeos` at this stage. 
+For instructions to install the `nodeos` binaries, see the [Install EOSIO pre-compiled binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries) tutorial but do not start `nodeos` at this stage.
 
 **EOSIO.CDT Binaries**
 
@@ -48,7 +48,7 @@ For instructions to install the EOSIO.CDT binaries, see the [Install EOSIO.CDT b
 
 Create and configure your default wallet, followed by creating a public and private development keys. After the key-pair is created, import the public and private key in your wallet. For reference purposes, we will refer the public key as `EOS_PUB_DEV_KEY` and the private key as `EOS_PRIV_DEV_KEY`.
 
-For instructions on creating a wallet and importing the keys, see the [Create development wallet](/getting-started/development-environment/create-development-wallet) tutorial.
+For instructions on creating a wallet and importing the keys, see the [Create development wallet](../02_getting-started/02_development-environment/05_create-development-wallet.md) tutorial.
 
 
 ### **1.3. Create ~/biosboot/genesis directory**
@@ -171,7 +171,7 @@ y
 
 ```
 4. Assign execution privileges to the `genesis_start.sh` shell script file and then  execute the `genesis_start.sh` script to start genesis `nodeos`:
-   
+
 
  ```shell
 cd ~/biosboot/genesis/
@@ -194,7 +194,7 @@ chmod 755 genesis_start.sh
 
 To stop `nodeos`:
 
-1. Create a `stop.sh` shell script file in the `~/biosnode/genesis/` directory and copy the following stop.sh script to it. 
+1. Create a `stop.sh` shell script file in the `~/biosnode/genesis/` directory and copy the following stop.sh script to it.
 
 ```shell
 #!/bin/bash
@@ -217,7 +217,7 @@ fi
 ```
 
 2. Execute the `stop.sh` shell script from the same `~/biosboot/genesis/` directory:
-   
+
 ```shell
 cd ~/biosboot/genesis/
 chmod 755 stop.sh
@@ -485,7 +485,7 @@ executed transaction: a53961a566c1faa95531efb422cd952611b17d728edac833c9a5558242
 
 **Activate the `PREACTIVATE_FEATURE` protocol**
 
-All of the protocol upgrade features introduced in v1.8 and v2.0 first require a special protocol feature (codenamed `PREACTIVATE_FEATURE`) to be activated and for an updated version of the system contract that makes use of the functionality introduced by that feature to be deployed. 
+All of the protocol upgrade features introduced in v1.8 and v2.0 first require a special protocol feature (codenamed `PREACTIVATE_FEATURE`) to be activated and for an updated version of the system contract that makes use of the functionality introduced by that feature to be deployed.
 
 To activate the special protocol `PREACTIVATE_FEATURE`:
 
@@ -497,7 +497,7 @@ curl --request POST \
 
 **Set the `eosio.system` contract**
 
-A system contract provides the actions for all token-based operational behavior. Prior to installing the system contract, actions are done independently of accounting. Once the system contract is enabled, actions now have an economic element to them. System Resources (CPU, network, memory) must be paid for and likewise, new accounts must be paid for. The system contract enables tokens to be staked and unstaked, resources to be purchased, potential producers to be registered and subsequently voted on, producer rewards to be claimed, privileges and limits to be set, and more. 
+A system contract provides the actions for all token-based operational behavior. Prior to installing the system contract, actions are done independently of accounting. Once the system contract is enabled, actions now have an economic element to them. System Resources (CPU, network, memory) must be paid for and likewise, new accounts must be paid for. The system contract enables tokens to be staked and unstaked, resources to be purchased, potential producers to be registered and subsequently voted on, producer rewards to be claimed, privileges and limits to be set, and more.
 
 In the first phase, we will install the older version of the `eosio.system` contract.
 
@@ -516,10 +516,10 @@ executed transaction: 2150ed87e4564cd3fe98ccdea841dc9ff67351f9315b6384084e8572a3
 
 **Enable Features**
 
-After you set the `eosio.system` contract, run the following commands to enable the rest of the features which are highly recommended to be enabled for an EOSIO-based blockchain. 
+After you set the `eosio.system` contract, run the following commands to enable the rest of the features which are highly recommended to be enabled for an EOSIO-based blockchain.
 
 ---
-NOTE: Enabling these features are optional. You can choose to enable or continue without these features. 
+NOTE: Enabling these features are optional. You can choose to enable or continue without these features.
 
 ---
 
@@ -926,7 +926,7 @@ tail -f ./blockchain/nodeos.log
 ```
 You can test various commands, create accounts, check balance on accounts, transfer tokens between accounts, etc.
 
-For commands on creating new accounts, see the [`Create test accounts`](/getting-started/development-environment/create-test-accounts) tutorial.
+For commands on creating new accounts, see the [`Create test accounts`](../02_getting-started/02_development-environment/07_create-test-accounts) tutorial.
 
-For commands on issuing, allocating and transferring token between accounts, see the 
+For commands on issuing, allocating and transferring token between accounts, see the
 [`Deploy, Issue and Transfer Tokens`](/getting-started/smart-contract-development/deploy-issue-and-transfer-tokens) tutorial.
