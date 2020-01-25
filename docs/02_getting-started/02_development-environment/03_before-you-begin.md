@@ -65,5 +65,5 @@ Enter the absolute path to your contract directory below, and it will be inserte
     </form>
 </div>
 
-## What's Next? 
-- [Install the CDT](https://developers.eos.io/getting-started/development-environment/install-the-CDT): Steps to install the EOSIO Contract Development Toolkit (CDT) on your system.
+## What's Next?
+- [Install the CDT](./04_install-the-CDT.md): Steps to install the EOSIO Contract Development Toolkit (CDT) on your system.
