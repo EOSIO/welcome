@@ -54,7 +54,7 @@ In this multiple index table declaration, a new type called `asset` is used.  An
 The `symbol` member of an asset instance will be used as the primary key.  By calling the `raw()` function the `symbol` variable will be converted into an unsigned integer so it can be used as a primary key.
 
 ## Constructor
-The constructor initializes the hodl_symbol as “SYS”, which is a token created in the [Deploy, Issue and Transfer Tokens](/getting-started/smart-contract-development/deploy-issue-and-transfer-tokens/#step-5-create-the-token) section.
+The constructor initializes the hodl_symbol as “SYS”, which is a token created in the [Deploy, Issue and Transfer Tokens](./02_deploy-issue-and-transfer-tokens.md#step-5-create-the-token) section.
 ```cpp
 public:
   using contract::contract;

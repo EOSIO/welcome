@@ -42,8 +42,7 @@ For instructions to install the EOSIO.CDT binaries, see the [Install EOSIO.CDT b
 
 Create and configure your default wallet, followed by creating a public and private development keys. After the key-pair is created, import the public and private key in your wallet. For reference purposes, we will refer the public key as `EOS_PUB_DEV_KEY` and the private key as `EOS_PRIV_DEV_KEY`.
 
-For instructions on creating a wallet and importing the keys, see the [Create development wallet](../02_getting-started/02_development-environment/05_create-development-wallet) guide. 
-
+For instructions on creating a wallet and importing the keys, see the [Create development wallet](../02_getting-started/02_development-environment/05_create-development-wallet.md) tutorial.
 
 ### **1.3. Create ~/biosboot/genesis directory**
 
@@ -920,7 +919,7 @@ tail -f ./blockchain/nodeos.log
 ```
 You can test various commands, create accounts, check balance on accounts, transfer tokens between accounts, etc.
 
-For commands on creating new accounts, see the [`Create test accounts`](/getting-started/development-environment/create-test-accounts) tutorial.
+For commands on creating new accounts, see the [`Create test accounts`](../02_getting-started/02_development-environment/07_create-test-accounts) tutorial.
 
 For commands on issuing, allocating and transferring token between accounts, see the
 [`Deploy, Issue and Transfer Tokens`](/getting-started/smart-contract-development/deploy-issue-and-transfer-tokens) tutorial.
