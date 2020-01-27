@@ -28,7 +28,7 @@ terms:
   - definition: "The genesis block is the very first block in the EOSIO blockchain. The subsequent block added after the genesis block becomes block 1 and continues the sequence. The genesis block lays the foundation for other blocks to be added to form a blockchain."
     name: Genesis Block
     related:
-      name: "Block"
+      - name: "Block"
   - definition: "The genesis node is the first node in the blockchain network. The genesis node is used to perform a set of actions such as creating system accounts, initializing system, and token contracts in order to create a fully-functional blockchain with varying capabilities such as governance, resource allocation, and more."
     name: Genesis Node
     synonyms:
