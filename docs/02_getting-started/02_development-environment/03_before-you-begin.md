@@ -11,7 +11,7 @@ To get started as quickly as possible we recommend using pre-built binaries. Bui
 
 The below commands will download binaries for respective operating systems.
 
-## Mac OS X Brew Install:
+### Mac OS X Brew Install:
 ```shell
 brew tap eosio/eosio
 brew install eosio
@@ -20,17 +20,17 @@ brew install eosio
 [[info]]
 | If you don't have Brew installed, follow the installation instructions on the <a href="https://brew.sh/" target="_blank">official Brew website</a>.
 
-## Ubuntu 18.04 Debian Package Install:
+### Ubuntu 18.04 Debian Package Install:
 ```shell
 wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
 sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
 ```
-## Ubuntu 16.04 Debian Package Install:
+### Ubuntu 16.04 Debian Package Install:
 ```shell
 wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-16.04_amd64.deb
 sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
 ```
-## CentOS RPM Package Install:
+### CentOS RPM Package Install:
 ```shell
 wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio-1.8.6-1.el7.x86_64.rpm
 sudo yum install ./eosio-1.8.6-1.el7.x86_64.rpm
