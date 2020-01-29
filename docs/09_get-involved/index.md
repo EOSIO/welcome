@@ -31,7 +31,7 @@ There are many ways you can contribute to EOSIO code. You can report an issue, s
 ### Reporting an Issue
 If you're about to raise an issue because you think you've found a problem with the stack, or you'd like to make a request for a new feature in the codebase, or any other reason, please read this first.
 
-The GitHub issue tracker is the preferred channel for [bug reports](#bug-reports), [feature requests](#feature-requests), and [submitting pull requests](#submitting-pull-requests), but please respect the following restrictions:
+The GitHub issue tracker is the preferred channel for bug reports, feature requests, and submitting pull requests, but please respect the following restrictions:
 
 * Please **search for existing issues**. Help us keep duplicate issues to a minimum by checking to see if someone has already reported your problem or requested your idea.
 
@@ -39,18 +39,18 @@ The GitHub issue tracker is the preferred channel for [bug reports](#bug-reports
 
 #### Bug Reports
 
-A bug is a _demonstrable problem_ that is caused by the code in the repository. Good bug reports are extremely helpful - thank you!
+A bug is a _demonstrable problem_ that is caused by the code in the repository and can be reported in the form of a new issue. 
 
 Guidelines for bug reports:
 
 1. **Use the GitHub issue search** &mdash; check if the issue has already been
    reported.
 
-1. **Check if the issue has been fixed** &mdash; look for closed issues in the
+2. **Check if the issue has been fixed** &mdash; look for closed issues in the
    current milestone or try to reproduce it
    using the latest `develop` branch.
 
-A good bug report shouldn't leave others needing to chase you up for more information. Be sure to include the details of your environment and relevant tests that demonstrate the failure.
+A good bug report or a new issue shouldn't leave others needing to chase you up for more information. Be sure to include the details of your environment and relevant tests that demonstrate the failure.
 
 
 #### Feature Requests
