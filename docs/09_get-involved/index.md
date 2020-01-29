@@ -1,4 +1,6 @@
-# Get Involved with EOSIO Documentation!
+---
+content_title: Get Involved with EOSIO Documentation!
+---
 
 We appreciate your interest in contributing to the EOSIO platform documentation! We always welcome contributions from our community to make our docs better.
 
