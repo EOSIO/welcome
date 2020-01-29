@@ -1,19 +1,34 @@
 We appreciate your interest in contributing to the EOSIO platform! We always welcome contributions from our community to make our code and docs better. 
 
-* [Get Involved with EOSIO Code](#get-involved-with-eosio-code)
+* [Get Involved with EOSIO Community and Code](#get-involved-with-eosio-code)
 * [Get Involved with EOSIO Documentation](#get-involved-with-eosio-documentation)
 
-## Get Involved with EOSIO Code
+## Get Involved with EOSIO Community and Code
 
-The following are different ways you can get involved with EOSIO and its repositories, which are hosted in the [EOSIO](https://github.com/EOSIO) Organization on GitHub. 
+The following are different ways you can get involved with the EOSIO developers community and EOSIO repositories, which are hosted in the [EOSIO](https://github.com/EOSIO) Organization on GitHub. 
 
-EOSIO is a large open source project with over 500 repositories for its stack and core components. Here's a list of the big ones:
+
+
+### Developers Community Involvement
+
+#### EOSIO Stack Exchange
+Engage the EOSIO developer community over [EOSIO Stack Exchange](https://eosio.stackexchange.com/). You can ask a question related to EOSIO or answer questions and share your EOSIO knowledge with the community. 
+
+#### EOSIO Developer Telegram
+Instantly engage the EOSIO developer community over [EOSIO Telegram](https://t.me/joinchat/EaEnSUPktgfoI-XPfMYtcQ) instant messenger. Get involved by sharing your expertise in EOSIO development discussions, sharing community tools and projects that can assist EOSIO developers, and more. 
+
+
+### Get Involved with EOSIO Code
+
+EOSIO is a large open source project with over 500 repositories for its stack and core components. Some of the crucial repositories are but not limited to:
 
 * [eos](https://github.com/EOSIO/eos)
 * [eosio.cdt](https://github.com/EOSIO/eosio.cdt)
 * [eosio.contracts](https://github.com/EOSIO/eosio.contracts)
 
-### Reporting An Issue
+There are many ways you can contribute to EOSIO code. You can report an issue, submit a pull request, and review pull requests. 
+
+### Reporting an Issue
 If you're about to raise an issue because you think you've found a problem with the stack, or you'd like to make a request for a new feature in the codebase, or any other reason, please read this first.
 
 The GitHub issue tracker is the preferred channel for [bug reports](#bug-reports), [feature requests](#feature-requests), and [submitting pull requests](#submitting-pull-requests), but please respect the following restrictions:
@@ -46,19 +61,13 @@ Feature requests are welcome. Before you submit one be sure to have:
 1. Take a moment to think about whether your idea fits with the scope and aims of the project.
 1. Remember, it's up to *you* to make a strong case to convince the project's leaders of the merits of this feature. Please provide as much detail and context as possible, this means explaining the use case and why it is likely to be common.
 
-#### Change Requests
 
-Change requests cover both architectural and functional changes to how the stack works. If you have an idea for a new or different dependency, a refactor, or an improvement to a feature, etc - please be sure to:
-
-1. **Use the GitHub search** and check someone else didn't get there first
-1. Take a moment to think about the best way to make a case for, and explain what you're thinking. Are you sure this shouldn't really be
-   a [bug report](#bug-reports) or a [feature request](#feature-requests)?  Is it really one idea or is it many? What's the context? What problem are you solving? Why is what you are suggesting better than what's already there?
 
 ## Get Involved with EOSIO Documentation 
 
 
 
-You can either submit a Pull Request for quick edits or file a new docs issue.
+The EOSIO documentation is written in Markdown. You can either submit a Pull Request for quick edits or file a new docs issue. For Markdown syntax usage, see the [Markdown Syntax Documentation](https://daringfireball.net/projects/markdown/syntax).
 
 ### Quick Edits
 Quick edits allow for faster reporting of minor content issues from typographical errors to omissions.
