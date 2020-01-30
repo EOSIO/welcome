@@ -5,7 +5,7 @@ We appreciate your interest in contributing to the EOSIO platform! We always wel
 
 ## Get Involved with EOSIO Community and Code
 
-The following are different ways you can get involved with the EOSIO developers community and EOSIO repositories, which are hosted in the [EOSIO](https://github.com/EOSIO) Organization on GitHub. 
+The following are different ways you can get involved with the EOSIO developers community and EOSIO repositories, which are hosted in the [EOSIO Organization](https://github.com/EOSIO) on GitHub. 
 
 
 
@@ -20,11 +20,7 @@ Instantly engage the EOSIO developer community over [EOSIO Telegram](https://t.m
 
 ### Get Involved with EOSIO Code
 
-EOSIO is a large open source project with over 500 repositories for its stack and core components. Some of the crucial repositories are but not limited to:
-
-* [eos](https://github.com/EOSIO/eos)
-* [eosio.cdt](https://github.com/EOSIO/eosio.cdt)
-* [eosio.contracts](https://github.com/EOSIO/eosio.contracts)
+EOSIO is a large open source project with over 500 repositories for its stack and core components. You can visit the repositories in the [EOSIO Organization](https://github.com/EOSIO) on Github and start contributing to the code base.
 
 There are many ways you can contribute to EOSIO code. You can report an issue, submit a pull request, and review pull requests. 
 
