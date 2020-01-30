@@ -61,5 +61,5 @@ To file a new issue:
 4. Click **Submit new issue** to submit the issue to the repository.
 
 
-[[Important]]
+[[info]]
 | We expect and appreciate all contributions to conform to the EOSIO Code of Conduct.
