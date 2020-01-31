@@ -459,5 +459,5 @@ private:
 };
 ```
 
-## What's Next? 
-- [Linking Custom Permissions](https://developers.eos.io/getting-started/smart-contract-development/linking-custom-permission): Learn how create a custom permission and how to link the permission to an action of a contract.
+## What's Next?
+- [Linking Custom Permissions](./08_linking-custom-permission.md): Learn how create a custom permission and how to link the permission to an action of a contract.

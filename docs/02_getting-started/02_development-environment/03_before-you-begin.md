@@ -11,7 +11,7 @@ To get started as quickly as possible we recommend using pre-built binaries. Bui
 
 The below commands will download binaries for respective operating systems.
 
-## Mac OS X Brew Install:
+### Mac OS X Brew Install:
 ```shell
 brew tap eosio/eosio
 brew install eosio
@@ -20,24 +20,24 @@ brew install eosio
 [[info]]
 | If you don't have Brew installed, follow the installation instructions on the <a href="https://brew.sh/" target="_blank">official Brew website</a>.
 
-## Ubuntu 18.04 Debian Package Install:
+### Ubuntu 18.04 Debian Package Install:
 ```shell
 wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
 sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
 ```
-## Ubuntu 16.04 Debian Package Install:
+### Ubuntu 16.04 Debian Package Install:
 ```shell
 wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-16.04_amd64.deb
 sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
 ```
-## CentOS RPM Package Install:
+### CentOS RPM Package Install:
 ```shell
 wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio-1.8.6-1.el7.x86_64.rpm
 sudo yum install ./eosio-1.8.6-1.el7.x86_64.rpm
 ```
 
 [[warning]]
-| If you have previous versions of eosio installed on your system, please uninstall before proceeding. Detail instruction see [here](https://github.com/EOSIO/eos/blob/master/README.md)
+| If you have previous versions of eosio installed on your system, please uninstall before proceeding. For detailed instructions, see [here](https://github.com/EOSIO/eos/blob/master/README.md).
 
 ## Step 2: Setup a development directory, stick to it.
 You're going to need to pick a directory to work from, it's suggested to create a `contracts` directory somewhere on your local drive.
@@ -65,5 +65,5 @@ Enter the absolute path to your contract directory below, and it will be inserte
     </form>
 </div>
 
-## What's Next? 
-- [Install the CDT](https://developers.eos.io/getting-started/development-environment/install-the-CDT): Steps to install the EOSIO Contract Development Toolkit (CDT) on your system.
+## What's Next?
+- [Install the CDT](./04_install-the-CDT.md): Steps to install the EOSIO Contract Development Toolkit (CDT) on your system.

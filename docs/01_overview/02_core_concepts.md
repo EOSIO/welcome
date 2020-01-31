@@ -13,7 +13,7 @@ Wallets are clients that store keys that may or may not be associated with the p
 
 Permissions are arbitrary names used to define the requirements for a transaction sent on behalf of that permission. Permissions can be assigned for authority over specific contract actions by *linking authorization* or linkauth.
 
-For more information about these concepts, see the [_Accounts and Permissions_](/protocol/accounts_and_permissions) documentation.
+For more information about these concepts, see the [_Accounts and Permissions_](../04_protocol/accounts_and_permissions) documentation.
 <!-- The link will be updated once the initial site is live -->
 
 ### Smart Contracts
@@ -27,7 +27,7 @@ A smart contract is a piece of code that can execute on a blockchain and keep th
 
 The EOSIO platform implements a proven decentralized consensus algorithm capable of meeting the performance requirements of applications on the blockchain called the _Delegated Proof of Stake_ (DPOS). Under this algorithm, if you hold tokens on a EOSIO-based blockchain, you can select block producers through a continuous approval voting system. Anyone can choose to participate in the block production and will be given an opportunity to produce blocks, provided they can persuade token holders to vote for them.
 
-For more information about DPOS BFT, see [EOSIO Consensus](/protocol/consensus_protocol/#3-eosio-consensus-dpos--abft).
+For more information about DPOS BFT, see [EOSIO Consensus](../04_protocol/01_consensus_protocol.md#3-eosio-consensus-dpos--abft).
 
 <!-- The link will be updated once the initial site is live -->
 
@@ -51,4 +51,3 @@ More details about CPU as a system resource can be found [here](https://develope
 Besides CPU and RAM, NET is also a very important resource in EOSIO-based blockchains. NET is the network bandwidth, measured in bytes, of transactions and is referred to as `net bandwidth` on the cleos `get account` command. NET is a also a transient system resource and falls under the staking mechanism of EOSIO.
 
 More details about NET as a system resource can be found [here](https://developers.eos.io/manuals/eosio.contracts/latest/index/#net).
-

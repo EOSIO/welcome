@@ -66,5 +66,5 @@ Alternatively, you can try out some community driven IDEs specifically developed
 
 - [EOS Studio](https://www.eosstudio.io/)
 
-## What's Next? 
-- [Before You Begin](https://developers.eos.io/getting-started/development-environment/before-you-begin): Steps to download and install binaries on your system.
+## What's Next?
+- [Before You Begin](./03_before-you-begin.md): Steps to download and install binaries on your system.

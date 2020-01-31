@@ -54,7 +54,7 @@ In this multiple index table declaration, a new type called `asset` is used.  An
 The `symbol` member of an asset instance will be used as the primary key.  By calling the `raw()` function the `symbol` variable will be converted into an unsigned integer so it can be used as a primary key.
 
 ## Constructor
-The constructor initializes the hodl_symbol as “SYS”, which is a token created in the [Deploy, Issue and Transfer Tokens](/getting-started/smart-contract-development/deploy-issue-and-transfer-tokens/#step-5-create-the-token) section.
+The constructor initializes the hodl_symbol as “SYS”, which is a token created in the [Deploy, Issue and Transfer Tokens](./02_deploy-issue-and-transfer-tokens.md#step-5-create-the-token) section.
 ```cpp
 public:
   using contract::contract;
@@ -139,7 +139,7 @@ The important thing to note is the deposit function will actually be triggered b
 ```cpp
 [[eosio::on_notify("eosio.token::transfer")]]
 ```
-The `on_notify` attribute is one of the EOSIO.CDT [attributes](/eosio.cdt/latest/best-practices/abi/abi-code-generator-attributes-explained) that annotates a smart contract action.
+The `on_notify` attribute is one of the EOSIO.CDT [attributes](https://developers.eos.io/manuals/eosio.cdt/latest/best-practices/abi/abi-code-generator-attributes-explained) that annotates a smart contract action.
 
 Annotating an action with an [`on_notify`](https://developers.eos.io/manuals/eosio.cdt/latest/best-practices/abi/abi-code-generator-attributes-explained/#eosioon_notifyvalid_eosio_account_namevalid_eosio_action_name) attribute ensures any incoming notification is forwarded to the annotated action if and only if the notification is dispatched from a specified contract and from a specified action.
 
@@ -309,5 +309,5 @@ executed transaction: 62b1e6848c8c5e6458b9a0f7600e65574eaf60445be114d224adccc5a9
 Party time!
 
 
-## What's Next? 
-- [Elemental Battles](https://battles.eos.io): Build a blockchain game based on EOSIO and continue building your EOSIO knowledge! 
+## What's Next?
+- [Elemental Battles](https://battles.eos.io): Build a blockchain game based on EOSIO and continue building your EOSIO knowledge!
