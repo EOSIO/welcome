@@ -21,10 +21,8 @@ The resource allocation and governance mechanism of any EOSIO-based blockchains 
 ## Staking Mechanism
 In EOSIO-based blockchains, access to the system resources is regulated by a process called the staking mechanism. The system resources that fall under the scope of the staking mechanism are CPU and NET. You can directly interact with the blockchain through the cleos CLI, the RPC APIs, or an application to access CPU and NET by staking system tokens.
 
----
-**NOTE:**    RAM is a persistent system resource on the EOSIO blockchain and does not fall in the scope of the staking mechanism.
-
----
+[[info | Note]]
+| RAM is a persistent system resource on the EOSIO blockchain and does not fall in the scope of the staking mechanism.
 
 When you stake tokens for CPU and NET, you gain access to system resources proportional to the total amount of tokens staked by all other users for the same resource at the same time. This means you can perform transactions at no cost but in the limitations of the staked tokens. The staked tokens guarantee the proportional amount of resources regardless of any variations in the free market.
 

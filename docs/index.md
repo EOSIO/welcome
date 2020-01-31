@@ -18,3 +18,8 @@ A blockchain is a decentralized infrastructure software without a centralized en
 The transactions recorded on the blockchain form an immutable history of the blockchain. Any transaction or change in the blockchain history is traceable and can be audited, thus, making the blockchain history transparent. 
 
 `youtube: https://www.youtube.com/watch?v=MqSE5WLusko`
+
+## What's Next? 
+- [Gettinng Started](../02_getting-started/index.md): Learn how to develop on an EOSIO blockchain
+- [Protocol](../04_protocol/index.md): Understand the protocols that makes up an EOSIO blockchain
+- [Get Involved](../09_get-involved/index.md): Learn how to get involved and contribute to the EOSIO ecosystem.
