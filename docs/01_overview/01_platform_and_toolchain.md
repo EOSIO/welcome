@@ -36,7 +36,7 @@ You can read detailed documentation about `cleos` [here](https://developers.eos.
 `keosd` is a key manager daemon for storing private keys and signing digital messages. `keosd` provides a secure key storage medium for keys to be encrypted in the associated wallet file. The `keosd` daemon also defines a secure enclave for signing transaction created by `cleos` or a third party library.
 
 
-[[ info | Note ]]
+[[info | Note]]
 | `keosd` can be accessed using the wallet API, but it is important to note that the intended usage is for local light client applications. `keosd` is not for cross network access by web applications trying to access users' wallets.
 
 You can read detailed documentation about `keosd` [here](https://developers.eos.io/manuals/eosio/latest/keosd/).
