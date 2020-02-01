@@ -21,14 +21,14 @@ The basic relationship between these components is illustrated in the following 
 
 Nodeos is the core EOSIO node daemon. Nodeos handles the blockchain data persistence layer, peer-to-peer networking, and contract code scheduling. For development environments, nodeos enables you to set up a single node blockchain network. Nodeos offers a wide range of features through plugins which can be enabled or disabled at start time via the command line parameters or configuration files.
 
-You can read detailed documentation about `nodeos` [here](https://developers.eos.io/manuals/eosio/nodeos/latest/index).
+You can read detailed documentation about `nodeos` [here](https://developers.eos.io/manuals/eos/latest/nodeos/index).
 <!-- The link will be updated once the initial site is live -->
 
 ## Cleos
 
 `cleos` is a command line tool that interfaces with the REST APIs exposed by `nodeos`. You can also use `cleos` to deploy and test EOSIO smart contracts.
 
-You can read detailed documentation about `cleos` [here](https://developers.eos.io/manuals/eosio/latest/cleos/index).
+You can read detailed documentation about `cleos` [here](https://developers.eos.io/manuals/eos/latest/cleos/index).
 <!-- The link will be updated once the initial site is live -->
 
 ## Keosd
@@ -39,7 +39,7 @@ You can read detailed documentation about `cleos` [here](https://developers.eos.
 [[info | Note]]
 | `keosd` can be accessed using the wallet API, but it is important to note that the intended usage is for local light client applications. `keosd` is not for cross network access by web applications trying to access users' wallets.
 
-You can read detailed documentation about `keosd` [here](https://developers.eos.io/manuals/eosio/latest/keosd/).
+You can read detailed documentation about `keosd` [here](https://developers.eos.io/manuals/eos/latest/keosd/index).
 <!-- The link will be updated once the initial site is live -->
 
 ## EOSIO.CDT
