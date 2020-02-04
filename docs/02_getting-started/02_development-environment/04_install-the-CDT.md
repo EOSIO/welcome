@@ -49,7 +49,7 @@ The location where `eosio.cdt` is cloned is not that important because you will 
 cd CONTRACTS_DIR
 ```
 ## Download
-Clone version 1.6.1 of the `eosio.cdt` repository.
+Clone version 1.6.3 of the `eosio.cdt` repository.
 ```text
 git clone --recursive https://github.com/eosio/eosio.cdt --branch v1.6.3 --single-branch
 cd eosio.cdt
