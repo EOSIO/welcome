@@ -22,18 +22,18 @@ brew install eosio
 
 ### Ubuntu 18.04 Debian Package Install:
 ```shell
-wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
-sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
+wget https://github.com/EOSIO/eos/releases/download/v2.0.0/eosio_2.0.0-1-ubuntu-18.04_amd64.deb
+sudo apt install ./eosio_2.0.0-1-ubuntu-18.04_amd64.deb
 ```
 ### Ubuntu 16.04 Debian Package Install:
 ```shell
-wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-16.04_amd64.deb
-sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
+wget https://github.com/EOSIO/eos/releases/download/v2.0.0/eosio_2.0.0-1-ubuntu-16.04_amd64.deb
+sudo apt install ./eosio_2.0.0-1-ubuntu-16.04_amd64.deb
 ```
 ### CentOS RPM Package Install:
 ```shell
-wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio-1.8.6-1.el7.x86_64.rpm
-sudo yum install ./eosio-1.8.6-1.el7.x86_64.rpm
+wget https://github.com/EOSIO/eos/releases/download/v2.0.0/eosio-2.0.0-1.el7.x86_64.rpm
+sudo yum install ./eosio-2.0.0-1.el7.x86_64.rpm
 ```
 
 [[warning]]
