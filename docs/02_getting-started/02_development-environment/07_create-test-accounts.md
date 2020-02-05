@@ -47,7 +47,7 @@ permissions:
      owner     1:    1 EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
         active     1:    1 EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 memory:
-     quota:       unlimited  used:      2.66 KiB
+     quota:       unlimited  used:      3.758 KiB
 
 net bandwidth:
      used:               unlimited
