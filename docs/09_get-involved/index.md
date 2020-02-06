@@ -9,7 +9,7 @@ The following are different ways you can get involved with the EOSIO developers 
 
 For more information about the contribution guidelines of a particular repository, look for the "Contributing" link in the right-hand sidebar of the documentation.
 
-![Contributing link location](./contributing-link.png)
+![Contributing link location](./contributing-link-1.png)
 
 ### Developers Community Involvement
 
