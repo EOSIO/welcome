@@ -3,7 +3,7 @@ sections:
     listings:
       - title: EOSIO StackExchange
         description: A question and answer site for users and developers
-        link: https://eosio.stackexchange.com/    
+        link: https://eosio.stackexchange.com/
       - title: Developers Telegram
         description: For EOSIO development discussion only, all chains welcome. No memes. No prices. No promotion
         link: https://t.me/joinchat/EaEnSUPktgfoI-XPfMYtcQ
@@ -36,25 +36,25 @@ sections:
         description: Latest news about EOSIO platform brought to you by block.one
         link: https://eos.io/news/
       - title: EOSIO Twitter
-        description: Latest tweets about EOSIO platform brought to you by block.one 
+        description: Latest tweets about EOSIO platform brought to you by block.one
         link: https://twitter.com/block_one_
       - title: EOSIO Medium
         description: Latest articles about EOSIO platform brought to you by block.one
         link: https://medium.com/eosio
 
 
-    - title: Events
-    listings: 
+  - title: Events
+    listings:
       - title: EOSIO Hackathons
         description: Past and future Hackathons information and news
-        link: https://hackathon.eos.io/   
+        link: https://hackathon.eos.io/
       - title: EOSIO Bug Bounty Program
         description: A Bug Bounty program offering to external individuals to receive compensation for reporting EOSIO bugs
-        link: https://hackerone.com/eosio 
+        link: https://hackerone.com/eosio
       - title: EOSIO Webinars
         description: Introduction to EOSIO Blockchain Development by Block.one
         link: https://eos.io/webinars/
-          
+
   - title: General
     listings:
       - title: EOSIO FAQ
