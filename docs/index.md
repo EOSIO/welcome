@@ -20,6 +20,6 @@ The transactions recorded on the blockchain form an immutable history of the blo
 `youtube: https://www.youtube.com/watch?v=MqSE5WLusko`
 
 ## What's Next? 
-- [Gettinng Started](../02_getting-started/index.md): Learn how to develop on an EOSIO blockchain
-- [Protocol](../04_protocol/index.md): Understand the protocols that makes up an EOSIO blockchain
-- [Get Involved](../09_get-involved/index.md): Learn how to get involved and contribute to the EOSIO ecosystem.
+- [Getting Started](./02_getting-started/index.md): Learn how to develop on an EOSIO blockchain
+- [Protocol](./04_protocol/index.md): Understand the protocols that makes up an EOSIO blockchain
+- [Get Involved](./09_get-involved/index.md): Learn how to get involved and contribute to the EOSIO ecosystem.
