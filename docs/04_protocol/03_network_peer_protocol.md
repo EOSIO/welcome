@@ -272,7 +272,7 @@ The block state identifies a block and the peer it came from. It is transient in
 Block State Fields | Description
 -|-
 `id` | 256-bit block identifier. A function of the block contents and the block number.
-`block_num` | 32-bit unsigned counter that locates the block sequentially in the blockchain.
+`block_num` | 32-bit unsigned counter value that identifies the block sequentially since genesis.
 `connection_id` | 32-bit unsigned integer that identifies the connected peer the block came from.
 `have_block` | boolean value indicating whether the actual block has been received by the node.
 
