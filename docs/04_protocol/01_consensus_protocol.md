@@ -150,19 +150,19 @@ Name | Type | Description
 -|-|-
 `timestamp` | `block_timestamp_type` | block creation time (before any transactions are included)
 `producer` | `name` | account name for producer of this block
-`confirmed` | `uint16_t` | non-zero if block confirmed by producer of this block
-`previous` | `block_id_type` | block ID of the previous block
-`transaction_mroot` | `checksum256_type` | merkle tree root hash of transaction receipts
-`action_mroot` | `checksum256_type` | merkle tree root hash of action receipts
-`schedule_version` | `uint32_t` | increments when new producer schedule is confirmed for next schedule round (must be `0`; field moved to `new_producers`)
-`new_producers` | `producer_schedule_type` | holds schedule version, producer names and keys for new producer schedule (included in first block of schedule round)
-`header_extensions` | `extensions_type` | extends header fields to support additional features
-`producer_signature` | `signature_type` | digital signature from producer that created and signed block
+`confirmed` | `uint16_t` | number of prior blocks confirmed by the producer of this block in current producer schedule
+`previous` | `block_id_type` | block ID for previous block
+`transaction_mroot` | `checksum256_type` | merkle tree root hash of transaction receipts included in block
+`action_mroot` | `checksum256_type` | merkle tree root hash of action receipts included in block
+`schedule_version` | `uint32_t` | number of times producer schedule has changed since genesis
+`new_producers` | `producer_schedule_type` | holds producer names and keys for new proposed producer schedule; null if no change
+`header_extensions` | `extensions_type` | extends block fields to support additional features (included in block ID calculation)
+`producer_signature` | `signature_type` | digital signature by producer that created and signed block
 `transactions` | array of `transaction_receipt` | list of valid transaction receipts included in block
-`block_extensions` | `extension_type` | extends header fields to support additional features
-`id` | `uint64_t` | UUID of this block ID (a function of block header and block number); can be used to query a transaction within the block
-`block_num` | `uint32_t` | block number (sequential counter value since genesis block 0)
-`ref_block_prefix` | `uint32_t` | lower 32 bits of `id`; used to prevent replay attacks
+`block_extensions` | `extension_type` | extends block fields to support additional features (NOT included in block ID calculation)
+`id` | `uint64_t` | UUID of this block ID (a function of block header and block number); can be used to query block for validation/retrieval purposes
+`block_num` | `uint32_t` | block number (sequential counter value since genesis block 0); can be used to query block for validation/retrieval purposes
+`ref_block_prefix` | `uint32_t` | lower 32 bits of block ID; used to prevent replay attacks
 
 Some of the block fields are known in advance when the block is created, so they are added during block initialization. Others are computed and added during block finalization, such as the merkle root hashes for transactions and actions, the block number and block ID, the signature of the producer that created and signed the block, etc. (see [Network Peer Protocol: 3.1. Block ID](03_network_peer_protocol.md#31-block-id))
 
