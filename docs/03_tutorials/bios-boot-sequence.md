@@ -3,7 +3,8 @@ content_title: BIOS Boot Sequence
 link_text: BIOS Boot Sequence
 ---
 
-> _The steps here can be readily expanded for the networked case. Some assumptions are made here regarding how the parties involved will coordinate with each other. However, there are many ways that the community can choose to coordinate. The technical aspects of the process are objective; assumptions of how the coordination might occur are speculative. Several approaches have already been suggested by the community. You are encouraged to review the various approaches and get involved in the discussions as appropriate._
+[[note | Note]]
+| _The steps here can be readily expanded for the networked case. Some assumptions are made here regarding how the parties involved will coordinate with each other. However, there are many ways that the community can choose to coordinate. The technical aspects of the process are objective; assumptions of how the coordination might occur are speculative. Several approaches have already been suggested by the community. You are encouraged to review the various approaches and get involved in the discussions as appropriate._
 
 
 
@@ -475,10 +476,10 @@ executed transaction: a53961a566c1faa95531efb422cd952611b17d728edac833c9a5558242
 #   eosio.token <= eosio.token::issue           {"to":"eosio","quantity":"1000000000.0000 SYS","memo":"memo"}
 ```
 
----
-> _As a point of interest, from an economic point of view, moving token from reserve into circulation, such as by issuing tokens, is an inflationary action. Issuing tokens is just one way that inflation can occur._
 
----
+[[note | Note]]
+| _As a point of interest, from an economic point of view, moving token from reserve into circulation, such as by issuing tokens, is an inflationary action. Issuing tokens is just one way that inflation can occur._
+
 
 
 ### **1.12. Set the eosio.system contract**
@@ -624,7 +625,8 @@ To make the tutorial more realistic, we distribute the 1B tokens to accounts usi
 
 Use the following steps to stake tokens for each account. These steps must be done individually for each account.
 
-> _The key pair is created here for this tutorial. In a "live" scenario, the key value(s) and token share for an account should already be established through some well-defined out-of-band process._
+[[note | Note]]
+| _The key pair is created here for this tutorial. In a "live" scenario, the key value(s) and token share for an account should already be established through some well-defined out-of-band process._
 ```shell
 	$ cleos create key --to-console
 
