@@ -36,7 +36,7 @@
     {
       "name": "collate_markdown",
       "options": {
-        "docs_dir": "docs/09_get-involved",
+        "docs_dir": "docs/get-involved",
         "output_dir": "get-involved"
       }
     },
