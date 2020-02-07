@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": ["09_get-involved"]
+        "exclude": ["get-involved"]
       }
     },
     {
