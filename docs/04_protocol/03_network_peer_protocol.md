@@ -5,7 +5,7 @@ content_title: Network Peer Protocol
 
 # 1. Overview
 
-Nodes on an active EOSIO blockchain must be able to communicate with each other for relaying transactions, pushing blocks, and syncing state between peers. The peer to peer (p2p) protocol, part of the `nodeos` service that runs on every node, serves this purpose. The ability to sync state is crucial for each block to eventually reach finality within the global state of the blockchain and allow each node to advance the last irreversible block (LIB). In this regard, the fundamental goal of the p2p protocol is to sync blocks and propagate transactions between nodes to reach consensus and advance the blockchain state.
+Nodes on an active EOSIO blockchain must be able to communicate with each other for relaying transactions, pushing blocks, and syncing state between peers. The peer-to-peer (p2p) protocol, part of the `nodeos` service that runs on every node, serves this purpose. The ability to sync state is crucial for each block to eventually reach finality within the global state of the blockchain and allow each node to advance the last irreversible block (LIB). In this regard, the fundamental goal of the p2p protocol is to sync blocks and propagate transactions between nodes to reach consensus and advance the blockchain state.
 
 
 ## 1.1. Goals
@@ -111,7 +111,7 @@ At the highest level sits the Net Plugin, which exchanges messages between the n
 
 ## 2.1. Local Chain
 
-The local chain is the node’s local copy of the blockchain. It consists of both the irreversible and reversible blocks received by the node, each block being cryptographically linked to the previous one. The list of irreversible blocks contains the actual copy of the immutable blockchain. The list of reversible blocks is typically shorter in length and it is managed by the Fork Database as the Chain Controller pushes blocks to it. The local chain is depicted below.
+The local chain is the node’s local copy of the blockchain. It consists of both irreversible and reversible blocks received by the node, each block being cryptographically linked to the previous one. The list of irreversible blocks contains the actual copy of the immutable blockchain. The list of reversible blocks is typically shorter in length and it is managed by the Fork Database as the Chain Controller pushes blocks to it. The local chain is depicted below.
 
 ```dot-svg
 
@@ -512,7 +512,7 @@ To make effective use of bandwidth, the required blocks are obtained from variou
 
 ![](images/p2p-node-peer-sync.png "Node-peer syncing")
 
-When both LIB and head blocks are caught up with respect to the peer, the operation mode in the Sync Manager is switched from catch-up to in-sync.
+When both LIB and head blocks are caught up with respect to the peer, the operation mode in the Sync Manager is switched from catch-up mode to in-sync mode.
 
 
 ## 3.4. Mode Switching
@@ -527,7 +527,7 @@ In the first case, the node switches the mode from in-sync to head catchup mode.
 
 # 4. Protocol Algorithm
 
-The p2p protocol algorithm runs on every node, forwarding validated transactions and validated blocks (starting EOSIO v2.x, a node will also forward block IDs of unvalidated blocks it has received). In general, the simplified process is as follows:
+The p2p protocol algorithm runs on every node, forwarding validated transactions and validated blocks. Starting EOSIO v2.0, a node also forwards block IDs of unvalidated blocks it has received. In general, the simplified process is as follows:
 
 1. A node requests data or sends a control message to a peer.
 2. If the request can be fulfilled, the peer executes the request; repeat 1. 
@@ -734,4 +734,4 @@ Protocol messages are placed in a buffer queue and sent to the appropriate conne
 
 # 5. Protocol Improvements
 
-Any software updates to the p2p protocol must also scale progressively and consistently across all nodes. This translates into installing updates that reduce operation downtime and potentially minimize it altogether while deploying new functionality in a backward compatible manner, if possible. On the other hand, data throughput can be increased by taking measures that minimize message footprint, such as using data compression and binary encoding the protocol messages.
+Any software updates to the p2p protocol must also scale progressively and consistently across all nodes. This translates into installing updates that reduce operation downtime and potentially minimize it altogether while deploying new functionality in a backward compatible manner, if possible. On the other hand, data throughput can be increased by taking measures that minimize message footprint, such as using data compression and binary encoding of the protocol messages.
