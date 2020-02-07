@@ -3,7 +3,7 @@ terms:
     name: Account
   - definition: "A JSON-based description on how to convert user actions between their JSON and binary representations. The ABI may also describe how to convert the database state to/from JSON. Once you have described your contract via an ABI this allows developers and users to interact with your contract seamlessly via JSON."
     name: Application Binary Interface
-    Abbreviation:
+    abbreviations:
       - "ABI"
   - definition: "Functionality exposed by a smart contract that is exercised by passing the correct parameters via an approved transaction to an EOSIO network."
     name: Action
@@ -15,15 +15,15 @@ terms:
       - name: Action
   - definition: "An entity that utilizes a combination of automation and input from stakeholders, normally in the form of votes. They are often governed by code which describes the purpose of the organisation."
     name: Decentralized Autonomous Company
-    Abbreviation:
+    abbreviations:
       - "DAC"
   - definition: "A consensus of replicated, shared, and synchronized digital data geographically spread across multiple sites, countries, or institutions. DLT is also called a shared ledger."
     name: Distributed Ledger Technology
-    Abbreviation:
+    abbreviations:
       - "DLT"
   - definition: "A consensus algorithm initially developed by Daniel Larimer in 2013 for Bitshares. It's sometimes referred to as \"Democracy as Proof of Stake\"".
     name: Delegated Proof of Stake
-    Abbreviation:
+    abbreviations:
       - "DPoS"
   - definition: "The genesis block is the very first block in the EOSIO blockchain. The subsequent block added after the genesis block becomes block 1 and continues the sequence. The genesis block lays the foundation for other blocks to be added to form a blockchain."
     name: Genesis Block
@@ -170,7 +170,7 @@ terms:
     name: "Packed Transaction"
   - definition: "An encoding for a private EDSA key. EOSIO uses the same version, checksum, and encoding scheme as the Bitcoin WIF addresses and should be compatible with existing libraries. The following is an example of a WIF Private Key: 5HpHagT65TZzG1PH3CSu63k8DbpvD8s5ip4nEB3kEsreAbuatmU"
     name: Wallet Import Format
-    Abbreviation:
+    abbreviations:
       - "WIF"
   - definition: "Every smart contract must provide an `apply` action handler. The `apply` action handler is a function that listens to all incoming actions and performs the desired behavior. In order to respond to a particular action, code is required to identify and respond to specific action requests. `apply` uses the `receiver`, `code`, and `action` input parameters as filters to map to the desired functions that implement particular actions. To simplify the work for contract developers, EOSIO provides the EOSIO_DISPATCH macro, which encapsulates the lower level action mapping details of the apply function, enabling developers to focus on their application implementation."
     name: Dispatcher
@@ -186,7 +186,7 @@ terms:
     name: WebAssembly
     synonyms:
       - "Web-Assembly Machine"
-    Abbreviation:
+    abbreviations:
       - "Wasm"
   - definition: "An EOSIO based blockchain allows contract developers to persist state across actions, and consequently transaction, boundaries. For example the sample eosio.token contract keeps balances for all users in the database. Each instance of nodeos keeps the database in memory, so contracts can read and write data quickly. However, at any given time there can be multiple correct ways, called modes, to query that data."
     name: "Read Mode"
