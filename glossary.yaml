@@ -148,10 +148,12 @@ terms:
       - name: "Irreversible Block"
   - definition: "Privileged accounts are accounts which  can execute transactions while skipping the standard authorization check. To ensure that this is not a security hole, the permission authority over these accounts is granted to the eosio.prods account. An account can be set as privileged by sending the native action `setpriv` to an EOSIO based blockchain, specifying the account to be set as privileged, and providing the correct permission, or, by using cleos command line utility."
     name: Privileged
-  - definition: "Multiple Index Tables, or Multi Index Tables, are a way to cache state and/or data in RAM for fast access. Multi index tables support create, read, update, and delete (CRUD) operations, something which the blockchain doesn't (it only supports create and read). Multi index tables are stored in EOSIO RAM and each smart contract using a multi index table reserves a partition of the RAM cache. Access to each partition is controlled using the table name, code, and scope, and can have up to 16 indexes or indices defined."
+  - definition: "Multiple Index Tables, are a way to cache state and/or data in RAM for fast access. Multi index tables support create, read, update, and delete (CRUD) operations, something which the blockchain doesn't (it only supports create and read). Multi index tables are stored in EOSIO RAM and each smart contract using a multi index table reserves a partition of the RAM cache. Access to each partition is controlled using the table name, code, and scope, and can have up to 16 indexes or indices defined."
     name: "Multiple Index Table"
     related:
       - name: "Indices"
+    synonyms:
+      - "Multi-Index Tables"
   - definition: "nodeos plugins are software components that implement features that complement the native EOSIO blockchain basic implementation. They can be enabled or disabled through the nodeos configuration file or specifying them in the command line that launches the nodeos daemon."
     name: Plugin
   - definition: "Tables on an EOSIO based blockchain are achieved via Multiple Index Table."
@@ -176,8 +178,11 @@ terms:
     name: "Transaction Reciept"
   - definition: "On completion of the transaction, a transaction receipt is generated. Receiving a transaction hash does not mean that the transaction has been confirmed, it only means that the node accepted it without error, which also means that there is a high probability other producers will accept it. A transaction is considered confirmed when a nodeos instance has received, processed, and written it to a block on the blockchain, i.e. it is in the head block or an earlier block."
     name: "Confirmed Transaction"
-  - definition: "Multisig or msig is a short term for multiple signatures. It’s used to describe the case in which one requires more than one account's permission to execute a transaction. EOSIO provides the system account eosio.msig, which can be used to push onto the blockchain the multisig proposals and their corresponding account's permission required to approve the proposal. Multisig, when used properly, increases the security of an account, the security of a smart contract, and it's also the method by which Block Producers are able to affect changes within an EOSIO blockchain."
+  - definition: "Multisig is a short term for multiple signatures. It’s used to describe the case in which one requires more than one account's permission to execute a transaction. EOSIO provides the system account eosio.msig, which can be used to push onto the blockchain the multisig proposals and their corresponding account's permission required to approve the proposal. Multisig, when used properly, increases the security of an account, the security of a smart contract, and it's also the method by which Block Producers are able to affect changes within an EOSIO blockchain."
     name: Multisig
+    synonyms:
+      - msig
+      - multiple signatures
   - definition: "A transaction is considered unconfirmed as long as no nodeos instance has received, processed, and written it to a block on the blockchain, i.e. it is not in the head block or a block earlier than the head block."
     name: "Unconfirmed Transaction"
   - definition: "WASM stands for WebAssembly. The EOSIO based blockchains execute user-generated applications and code using WebAssembly. WASM is an emerging web standard with widespread support of Google, Microsoft, Apple, and others. At the moment the most mature toolchain for building applications that compile to WASM is clang/llvm with their C/C++ compiler. For best compatibility, it is recommended that you use the EOSIO toolchain to generate WASM."
