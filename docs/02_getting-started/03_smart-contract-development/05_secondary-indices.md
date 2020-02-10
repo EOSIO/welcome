@@ -162,7 +162,7 @@ It should return
     },{
       "key": "bob",
       "first_name": "bob",
-      "last_name": "is a loser",
+      "last_name": "is a guy",
       "age": 49,
       "street": "doesnt exist",
       "city": "somewhere",
