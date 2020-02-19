@@ -148,7 +148,7 @@ As an inter-chained sequence of blocks, the fundamental unit within the blockcha
 
 Name | Type | Description
 -|-|-
-`timestamp` | `block_timestamp_type` | block creation time (before any transactions are included)
+`timestamp` | `block_timestamp_type` | ideal time this block was produced (ends in .000 or .500 seconds)
 `producer` | `name` | account name for producer of this block
 `confirmed` | `uint16_t` | number of prior blocks confirmed by the producer of this block in current producer schedule
 `previous` | `block_id_type` | block ID for previous block
