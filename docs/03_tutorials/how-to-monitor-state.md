@@ -1,10 +1,7 @@
 
-[block:callout]
-{
-  "type": "info",
-  "body": "This article assumes you have installed the EOSIO software and are familiar with using the EOSIO nodeos and cleos tools. It is recommended that you have completed [the Getting Started section](https://developers.eos.io/eosio-home/docs)"
-}
-[/block]
+[[info]]
+|
+This article assumes you have installed the EOSIO software and are familiar with using the EOSIO nodeos and cleos tools. It is recommended that you have completed [the Getting Started section](https://developers.eos.io/eosio-home/docs)
 # Introduction
 
 This tutorial is a guide for monitoring the status of transactions on the blockchain. 
@@ -15,12 +12,9 @@ As an example, we will show how an application can monitor EOS token transfers, 
 # Running Nodeos
 
 It is recommended that a local instance of nodeos is used to monitor activity. This local instance will connect to the blockchain, and when run with the state history plugin, it will collect the history of actions on the blockchain.
-[block:callout]
-{
-  "type": "info",
-  "body": "The local instance in this tutorial will be run as a non-producing node see [Non-Producing Node](https://developers.eos.io/eosio-nodeos/docs/environment-non-producing-node) for more details."
-}
-[/block]
+[[info]]
+|
+The local instance in this tutorial will be run as a non-producing node see [Non-Producing Node](https://developers.eos.io/eosio-nodeos/docs/environment-non-producing-node) for more details.
 Nodeos can be run in three modes:
 
    1. **Speculative**: In this mode, you can see transactions and state changes up to the current head block along with changes in the pending block. The state changes in the pending block are also included in the chain state file. 
@@ -39,12 +33,12 @@ Nodes used for monitoring transactions should be run in:
  - **Read-only** mode to see transactions once they are recorded in the blockchain (Confirmed only)
 
 For more information see [Read Modes](https://developers.eos.io/eosio-nodeos/docs/read-modes)
-[block:callout]
-{
-  "type": "warning",
-  "body": "A transaction is only complete once it has a status of executed and the block containing the transaction is irreversible.\nA transaction is confirmed once it has been written to a block on the blockchain.\nA transaction is unconfirmed if it has been received by nodeos but has not yet been written to a block on the blockchain.\nA transaction may also fail or expire."
-}
-[/block]
+[[warning]]
+|
+A transaction is only complete once it has a status of executed and the block containing the transaction is irreversible.
+A transaction is confirmed once it has been written to a block on the blockchain.
+A transaction is unconfirmed if it has been received by nodeos but has not yet been written to a block on the blockchain.
+A transaction may also fail or expire.
  ## Transaction States
 
 Transactions can have the following states:
@@ -59,12 +53,9 @@ Transactions can have the following states:
 A transaction is not executed until the status is executed, and the transaction can be cancelled up until it is executed, failed or expired, i.e., while it is waiting to be executed.
 
 Transactions can be delayed for **up to** 45 days, these are known as `deferred transactions`,  and the delay can **only** be set when the transaction is generated. A `deferred transaction` can be cancelled at any time before it is executed. For more information about deferred transactions, see [Communication Model](doc:communication-model) 
-[block:callout]
-{
-  "type": "warning",
-  "body": "A transaction may be executed, but only when the block containing the transaction is irreversible can you be sure that the operation is final and complete. A block is irreversible if the block number is less than the block number of the last irreversible block (LIB). The last irreversible block (LIB) is the most recent block which has been acknowledged by 2/3 of the block producers."
-}
-[/block]
+[[warning]]
+|
+A transaction may be executed, but only when the block containing the transaction is irreversible can you be sure that the operation is final and complete. A block is irreversible if the block number is less than the block number of the last irreversible block (LIB). The last irreversible block (LIB) is the most recent block which has been acknowledged by 2/3 of the block producers.
 ## Tracking your transaction
 
 It is always possible that transactions similar to your transactions are processed while you are monitoring the public mainnet. Ensure that you use ALL identifying fields to look at the right transaction. 
