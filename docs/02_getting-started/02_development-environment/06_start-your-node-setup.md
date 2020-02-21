@@ -24,6 +24,16 @@ info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handle
 ```
 Press enter to continue
 
+**Troubleshooting**
+
+After entering `keosd &`, you may encounter this message:
+
+```shell
+"3120000 wallet_exception: Wallet exception Failed to lock access to wallet directory; is another keosd running?"
+```
+
+This is because another instance of `keosd` process might be running in the background. Kill all instances by `pkill keosd` and rerun `keosd &`.
+
 ### Step 1.2: Start nodeos
 
 Start nodeos now:
@@ -52,11 +62,9 @@ These settings accomplish the following:
 [[warning]]
 | In the above configuration, CORS is enabled for `*` **for development purposes only**, you should **never** enable CORS for `*` on a node that is publicly accessible!
 
-### Troubleshooting
+**Troubleshooting**
 
-After entering `keosd &`, if you encounter a message saying "3120000 wallet_exception: Wallet exception Failed to lock access to wallet directory; is another keosd running?", you may have already had `keosd` processes running in the background. Try killing them by, for example, `pkill keosd`.
-
-If in the previous step, after starting `nodeos`, you see an error message similar to "Database dirty flag set (likely due to unclean shutdown): replay required" try to start `nodeos` with  `--replay-blockchain`. More details on troubleshooting `nodeos` can be found [here](https://developers.eos.io/manuals/eos/latest/nodeos/troubleshooting/index).
+After starting `nodeos`, you see an error message similar to "Database dirty flag set (likely due to unclean shutdown): replay required" try to start `nodeos` with  `--replay-blockchain`. More details on troubleshooting `nodeos` can be found [here](https://developers.eos.io/manuals/eos/latest/nodeos/troubleshooting/index).
 
 ## Step 2: Check the installation
 
