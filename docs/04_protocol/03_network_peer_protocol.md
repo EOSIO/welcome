@@ -159,7 +159,6 @@ digraph {
 
 Each node constructs its own local copy of the blockchain as it receives blocks and transactions and syncs their state with other peers. The reversible blocks are those new blocks received that have not yet reached finality. As such, they are likely to form branches that stem from a main common ancestor, which is the LIB (last irreversible block). Other common ancestors different from the LIB are also possible for reversible blocks. In fact, any two sibling branches always have a nearest common ancestor. For instance, in the diagram above, block 52b is the nearest common ancestor for the branches starting at block 53a and 53b that is different from the LIB. Every active branch in the local chain has the potential to become part of the blockchain.
 
-
 ### 2.1.1. LIB Block
 
 All irreversible blocks constructed in a node are expected to match those from other nodes up to the last irreversible block (LIB) of each node. This is the distributed nature of the blockchain. Eventually, as the blocks that follow the LIB block reach finality, the LIB block moves up the chain through one of the branches as it catches up with the head block (HB). When the LIB block advances, the immutable blockchain effectively grows. In this process, the head block might switch branches multiple times depending on the potential head block numbers received and their timestamps, which is ultimately used as tiebreaker.
@@ -172,7 +171,7 @@ The Chain Controller manages the basic operations on blocks and transactions tha
 
 The producer and consumer of the signals defined in the controller and their life cycle during normal operation, fork, and replay are as follows:
 
-#### pre_accepted_block (carry `signed_block_ptr`)
+#### pre_accepted_block (carry signed_block_ptr)
 
 - Produced by
 
@@ -188,7 +187,7 @@ The producer and consumer of the signals defined in the controller and their lif
 | chain_plugin | checkpoint validation |
 | | forward data to pre_accepted_block_channel |
 
-#### accepted_block_header (carry `block_state_ptr`)
+#### accepted_block_header (carry block_state_ptr)
 
 - Produced by
 
@@ -204,7 +203,7 @@ The producer and consumer of the signals defined in the controller and their lif
 | --- | --- |
 | chain_plugin | forward data to accepted_block_header_channel |
 
-#### accepted_block (carry `block_state_ptr`)
+#### accepted_block (carry block_state_ptr)
 
 - Produced by
 
@@ -218,7 +217,7 @@ The producer and consumer of the signals defined in the controller and their lif
 | --- | --- |
 | net_plugin | broadcast block to other peers |
 
-#### irreversible_block (carry `block_state_ptr`)
+#### irreversible_block (carry block_state_ptr)
 
 - Produced by
 
@@ -235,7 +234,7 @@ The producer and consumer of the signals defined in the controller and their lif
 | chain_plugin | forward data to irreversible_block_channel |
 | mongodb_plugin | forward the data to irreversible_block_state_queue |
 
-#### accepted_transaction (carry `transaction_metadata_ptr`)
+#### accepted_transaction (carry transaction_metadata_ptr)
 
 - Produced by
 
@@ -254,7 +253,7 @@ The producer and consumer of the signals defined in the controller and their lif
 | chain_plugin | forward data to accepted_transaction_channel |
 | mongodb_plugin | forward the data to transaction_metadata_queue |
 
-#### applied_transaction (carry `std::tuple<const transaction_trace_ptr&, const signed_transaction&>`)
+#### applied_transaction (carry std::tuple<const transaction_trace_ptr&, const signed_transaction&>)
 
 - Produced by
 
