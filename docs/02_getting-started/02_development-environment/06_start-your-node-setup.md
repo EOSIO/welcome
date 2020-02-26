@@ -64,7 +64,7 @@ These settings accomplish the following:
 
 **Troubleshooting**
 
-After starting `nodeos`, you see an error message similar to "Database dirty flag set (likely due to unclean shutdown): replay required" try to start `nodeos` with  `--replay-blockchain`. More details on troubleshooting `nodeos` can be found [here](https://developers.eos.io/manuals/eos/latest/nodeos/troubleshooting/index).
+After starting `nodeos`, if you see an error message similar to "Database dirty flag set (likely due to unclean shutdown): replay required", try to start `nodeos` with  `--replay-blockchain`. More details on troubleshooting `nodeos` can be found [here](https://developers.eos.io/manuals/eos/latest/nodeos/troubleshooting/index).
 
 ## Step 2: Check the installation
 
