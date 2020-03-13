@@ -1,21 +1,18 @@
 
 
 ## Overview
-Welcome to the EOSIO Community Tools Directory. This is a list of developer tools which are built by members of the EOSIO community, curated by the Developer Relations team at Block.one.
-If you would like to submit a tool to be added to the list, click **Edit** at the right hand side of this page and submit a Pull Request or fill in this form: [link]
+This is a list of developer tools which are built by members of the EOSIO community, curated by the Developer Relations team at Block.one.
 
-[[info | Disclaimer]]
-| The information, links and other material on the website relating to third-party software, hardware, services, networks, blockchains (whether public or private), websites or other resources are provided on an “as-is” basis for your convenience only.  Such resources may be updated, changed or terminated at any time so the information included may be out of date or inaccurate.  The inclusion of any third-party resources does not constitute approval, endorsement or recommendation by us and we disclaim all responsibility and liability for your use of any such third-party resources. 
+If you would like to submit a tool to be added to the list, click **Edit** at the right hand side of this page and submit a Pull Request or fill in [this form](https://blockone.typeform.com/to/gA4F0Q).
 
-## Tools Directory
+## Community Dev Tools
 
-### Testing Tools
+### Testing Tools and Frameworks
 
 * [Azakazam](https://github.com/azarusio/azakazam): A development, testing and deployment framework for EOSIO, aiming to make life easier for developers.
 
 * [Lamington](https://github.com/CoinageCrypto/lamington): The Lamington library includes CLI tools and JavaScript utilities to streamline the EOSIO smart contract building, testing and deployment pipeline.
 
-### EOSFactory
 * [EOSFactory](https://github.com/tokenika/eosfactory): A Python-based EOS smart-contract development and testing framework.
 
 ### Integrated Development Environments (IDEs)
@@ -27,7 +24,7 @@ If you would like to submit a tool to be added to the list, click **Edit** at th
 
 ### Services and Middleware
 * [The DAPP Network](https://liquidapps.io/): Live, universal middleware of services for modern decentralized applications.
-  
+
 * [dfuse](https://www.dfuse.io/en): Blockchain data APIs for searching and monitoring EOSIO networks.
 
 ### History Solutions
@@ -45,3 +42,9 @@ If you would like to submit a tool to be added to the list, click **Edit** at th
 
 ### EOSIO Plugins
 * [EOSIO Kafka Plugin](https://github.com/TP-Lab/kafka_plugin): This plugin allows you to utilize all of Kafka's rich real-time features for building date pipelines and streaming apps.
+
+## Software Development Kits (SDKs)
+* [Zeus SDK](https://github.com/liquidapps-io/zeus-sdk): The Zeus SDK offers a number of functionalities including a command line tool, templates, and a package manager.
+
+[[info | Disclaimer]]
+| The information, links and other material on the website relating to third-party software, hardware, services, networks, blockchains (whether public or private), websites or other resources are provided on an “as-is” basis for your convenience only.  Such resources may be updated, changed or terminated at any time so the information included may be out of date or inaccurate.  The inclusion of any third-party resources does not constitute approval, endorsement or recommendation by us and we disclaim all responsibility and liability for your use of any such third-party resources.
