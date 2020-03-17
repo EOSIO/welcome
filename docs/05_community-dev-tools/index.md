@@ -9,7 +9,7 @@ If you would like to submit a tool to be added to the list, click **Edit** at th
 
 ### Testing Tools and Frameworks
 
-* [Azakazam](https://github.com/azarusio/azakazam): A development, testing and deployment framework for EOSIO, aiming to make life easier for developers.
+* [Azakazam](https://github.com/azarusio/azakazam): A development, testing, and deployment framework for EOSIO, aiming to make life easier for developers.
 
 * [Lamington](https://github.com/CoinageCrypto/lamington): The Lamington library includes CLI tools and JavaScript utilities to streamline the EOSIO smart contract building, testing and deployment pipeline.
 
