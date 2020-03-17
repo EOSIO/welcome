@@ -175,7 +175,7 @@ Previously, a multi_index table was configured, and declared as `address_index`.
 
 1. The first parameter "code", which specifies the owner of this table. As the owner, the account will be charged for storage costs.  Also, only that account can modify or delete the data in this table unless another payer is specified. Here we use the `get_self()` function which will pass the name of this contract.
 
-2. The second parameter "scope" which ensures the uniqueness of the table within this contract. In this case, since we only have one table we can use the value from `get_first_receiver()`. *`get_first_receiver` is the account name this contract is deployed to.*
+2. The second parameter "scope" which ensures the uniqueness of the table within this contract. In this case, since we only have one table we can use the value from `get_first_receiver()`. The value returns from the *`get_first_receiver` function is the account name this contract is deployed to.*
 
 Note that scopes are used to logically separate tables within a multi-index (see the eosio.token contract multi-index for an example, which scopes the table on the token owner).  Scopes were originally intended to separate table state in order to allow for parallel computation on the individual sub-tables.  However, currently inter-blockchain communication has been prioritized over parallelism.  Because of this, scopes are currently only used to logically separate the tables as in the case of eosio.token.
 
