@@ -8,4 +8,4 @@ If you do not want to install `EOSIO` binaries on your local machine, or if you 
 You can give it a try in a matter of seconds [right now](https://gitpod.io/#https://github.com/EOSIO/eosio-web-ide) and you can read more details about it [on the eosio-web-ide project page](https://github.com/EOSIO/eosio-web-ide).
 
 ## What's Next?
-- [Getting Started](./02_development-environment/02_introduction.md): Install EOSIO in your local development environment.
+- [Get Started](./02_development-environment/02_introduction.md): Install EOSIO in your local development environment.

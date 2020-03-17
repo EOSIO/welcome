@@ -33,11 +33,9 @@ Alternatively, if you would like to automate these steps, you can use the [bios-
 
 If your goal is to go beyond and understand what the script is doing, you can follow this tutorial which will get you through the same steps explaining also along the way each step needed to go through.
 
-
 ### 1.1. Install the binaries
 
 **Pre-compiled EOSIO Binaries**
-
 
 For instructions to install the `nodeos` binaries, see the [Install EOSIO pre-compiled binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries) tutorial but do not start `nodeos` at this stage.
 
@@ -931,4 +929,4 @@ You can test various commands, create accounts, check balance on accounts, trans
 For commands on creating new accounts, see the [`Create test accounts`](../02_getting-started/02_development-environment/07_create-test-accounts.md) tutorial.
 
 For commands on issuing, allocating and transferring token between accounts, see the
-[`Deploy, Issue and Transfer Tokens`getting-started/smart-contract-development/deploy-issue-and-transfer-tokens) tutorial.
+[`Deploy, Issue and Transfer Tokens`](../02_getting-started/03_smart-contract-development/02_deploy-issue-and-transfer-tokens.md) section.

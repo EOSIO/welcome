@@ -5,7 +5,7 @@ content_title: Network Peer Protocol
 
 # 1. Overview
 
-Nodes on an active EOSIO blockchain must be able to communicate with each other for relaying transactions, pushing blocks, and syncing state between peers. The peer to peer (p2p) protocol, part of the `nodeos` service that runs on every node, serves this purpose. The ability to sync state is crucial for each block to eventually reach finality within the global state of the blockchain and allow each node to advance the last irreversible block (LIB). In this regard, the fundamental goal of the p2p protocol is to sync blocks and propagate transactions between nodes to reach consensus and advance the blockchain state.
+Nodes on an active EOSIO blockchain must be able to communicate with each other for relaying transactions, pushing blocks, and syncing state between peers. The peer-to-peer (p2p) protocol, part of the `nodeos` service that runs on every node, serves this purpose. The ability to sync state is crucial for each block to eventually reach finality within the global state of the blockchain and allow each node to advance the last irreversible block (LIB). In this regard, the fundamental goal of the p2p protocol is to sync blocks and propagate transactions between nodes to reach consensus and advance the blockchain state.
 
 
 ## 1.1. Goals
@@ -111,7 +111,7 @@ At the highest level sits the Net Plugin, which exchanges messages between the n
 
 ## 2.1. Local Chain
 
-The local chain is the node’s local copy of the blockchain. It consists of both the irreversible and reversible blocks received by the node, each block being cryptographically linked to the previous one. The list of irreversible blocks contains the actual copy of the immutable blockchain. The list of reversible blocks is typically shorter in length and it is managed by the Fork Database as the Chain Controller pushes blocks to it. The local chain is depicted below.
+The local chain is the node’s local copy of the blockchain. It consists of both irreversible and reversible blocks received by the node, each block being cryptographically linked to the previous one. The list of irreversible blocks contains the actual copy of the immutable blockchain. The list of reversible blocks is typically shorter in length and it is managed by the Fork Database as the Chain Controller pushes blocks to it. The local chain is depicted below.
 
 ```dot-svg
 
@@ -159,18 +159,172 @@ digraph {
 
 Each node constructs its own local copy of the blockchain as it receives blocks and transactions and syncs their state with other peers. The reversible blocks are those new blocks received that have not yet reached finality. As such, they are likely to form branches that stem from a main common ancestor, which is the LIB (last irreversible block). Other common ancestors different from the LIB are also possible for reversible blocks. In fact, any two sibling branches always have a nearest common ancestor. For instance, in the diagram above, block 52b is the nearest common ancestor for the branches starting at block 53a and 53b that is different from the LIB. Every active branch in the local chain has the potential to become part of the blockchain.
 
-
 ### 2.1.1. LIB Block
 
 All irreversible blocks constructed in a node are expected to match those from other nodes up to the last irreversible block (LIB) of each node. This is the distributed nature of the blockchain. Eventually, as the blocks that follow the LIB block reach finality, the LIB block moves up the chain through one of the branches as it catches up with the head block (HB). When the LIB block advances, the immutable blockchain effectively grows. In this process, the head block might switch branches multiple times depending on the potential head block numbers received and their timestamps, which is ultimately used as tiebreaker.
-
 
 ## 2.2. Chain Controller
 
 The Chain Controller manages the basic operations on blocks and transactions that change the local chain state, such as validating and executing transactions, pushing blocks, etc. The Chain Controller receives commands from the Net Plugin and dispatches the proper operation on a block or a transaction based on the network message received by the Net Plugin. The network messages are exchanged continuously between the EOSIO nodes as they communicate with each other to sync the state of blocks and transactions.
 
+### 2.2.1. Signals' Producer and Consumer
 
-### 2.2.1. Fork Database
+The producer and consumer of the signals defined in the controller and their life cycle during normal operation, fork, and replay are as follows:
+
+#### pre_accepted_block (carry signed_block_ptr)
+
+- Produced by
+
+| Module | Function | Condition |
+| --- | --- | --- |
+| controller | push_block | before the block is added to the fork db |
+| | replay_push_block | before the replayed block is added to the fork db (only if the replayed block is not irreversible since irreversible block is not added to fork db during replay) |
+
+- Consumed by
+
+| Module | Usage |
+| --- | --- |
+| chain_plugin | checkpoint validation |
+| | forward data to pre_accepted_block_channel |
+
+#### accepted_block_header (carry block_state_ptr)
+
+- Produced by
+
+| Module | Function | Condition |
+| --- | --- | --- |
+| controller | push_block| after the block is added to fork db |
+| | commit_block | after the block is added to fork db (only if you are the one who produce the block, in other words, this is not applicable to the block received from others) |
+| | replay_push_block | after the replayed block is added to fork db | (only if the replayed block is not irreversible since irreversible block is not added to fork db during replay) |
+
+- Consumed by
+
+| Module | Usage |
+| --- | --- |
+| chain_plugin | forward data to accepted_block_header_channel |
+
+#### accepted_block (carry block_state_ptr)
+
+- Produced by
+
+| Module | Function | Condition |
+| --- | --- | --- |
+| controller | commit_block | when the block is finalized |
+
+- Consumed by
+
+| Module | Usage |
+| --- | --- |
+| net_plugin | broadcast block to other peers |
+
+#### irreversible_block (carry block_state_ptr)
+
+- Produced by
+
+| Module | Function | Condition |
+| --- | --- | --- |
+| controller | log_irreversible | before it's appended to the block log and before the chainbase db is committed |
+| | replay_push_block | when replaying an irreversible block |
+
+- Consumed by
+
+| Module | Usage |
+| --- | --- |
+| controller | setting the current lib of wasm_interface |
+| chain_plugin | forward data to irreversible_block_channel |
+| mongodb_plugin | forward the data to irreversible_block_state_queue |
+
+#### accepted_transaction (carry transaction_metadata_ptr)
+
+- Produced by
+
+| Module | Function | Condition |
+| --- | --- | --- |
+| controller | push_transaction | when the transaction executes succesfully (only once, i.e. when it's unapplied and reapplied the signal won't be emitted) |
+| | push_scheduled_transaction | when the scheduled transaction executes succesfully |
+| | | when the scheduled transaction fails (subjective/ soft/ hard) |
+| | | when the scheduled transaction expires |
+| | | after applying onerror |
+
+- Consumed by
+
+| Module | Usage |
+| --- | --- |
+| chain_plugin | forward data to accepted_transaction_channel |
+| mongodb_plugin | forward the data to transaction_metadata_queue |
+
+#### applied_transaction (carry std::tuple<const transaction_trace_ptr&, const signed_transaction&>)
+
+- Produced by
+
+| Module | Function | Condition |
+| --- | --- | --- |
+| controller | push_transaction | when the transaction executes succesfully  |
+| | push_scheduled_transaction | when the scheduled transaction executes succesfully |
+| | | when the scheduled transaction fails (subjective/ soft/ hard) |
+| | | when the scheduled transaction expires |
+| | | after applying onerror |
+
+- Consumed by
+
+| Module | Usage |
+| --- | --- |
+| chain_plugin | forward data to applied_transaction_channel |
+| mongodb_plugin | forward the data to transaction_trace_queue |
+
+#### bad_alloc
+Not used.
+
+### 2.2.2. Signals' Life Cycle
+
+#### A. normal operation where blocks and transactions are input
+
+1. When a transaction is pushed to the blockchain (through RPC or broadcasted by peer)
+   1. Transaction is executed either succesfully/ fail the validation -> `accepted_transaction` is emitted by the controller
+   2. chain_plugin will react to the signal to forward the transaction_metadata to accepted_transaction_channel
+   3. mongodb_plugin will react to the signal and add the transaction_metadata to its queue to be processed later on
+2. When a scheduled transaction is pushed to the blockchain
+   1. Transaction is executed either succesfully/ fail subjectively/ soft fail/ hard fail -> `accepted_transaction` is emitted by the controller
+   2. chain_plugin will react to the signal to forward the transaction_metadata to accepted_transaction_channel
+   3. mongodb_plugin will react to the signal and add the transaction_metadata to its queue to be processed later on
+3. When a block is pushed to the blockchain (through RPC or broadcasted by peer)
+   1. Before the block is added to fork db -> `pre_accepted_block` will be emitted by the controller
+   2. chain_plugin will react to the signal to do validation of the block forward the block_state to accepted_block_header_channel and validate it with the checkpoint
+   3. After the block is added to fork db -> `accepted_block_header` will be emitted by the controller
+   4. chain_plugin will react to the signal to forward the block_state to accepted_block_header_channel
+   5. Then the block will be applied, at this time all the transactions and scheduled_transactions inside the block will be pushed. All signals related to push_transaction and push_scheduled_transaction (see point A.1 and A.2) will be emitted.
+   6. When committing the block -> `accepted_block` will be emitted by the controller
+   7. net_plugin will react to the signal and broadcast the block to the peers
+   8. If a new block becomes irreversible, signals related to irreversible block will be emitted (see point A.5)
+4. When a block is produced
+   1. For the block that is produced by you, the block will be added to the fork_db when it is committed -> `accepted_block_header` will be emitted by the controller
+   2. chain_plugin will react to the signal to forward the block_state to accepted_block_header_channel and validate it with the checkpoint
+   3. Immediately after that (during commiting the block) -> `accepted_block` will be emitted by the controller
+   4. net_plugin will react to the signal and broadcast the block to the peers
+   5. If a new block becomes irreversible, signals related to irreversible block will be emitted (see point A.5)
+5. When a block becomes irreversible
+   1. Once a block is deemed irreversible -> `irreversible_block` will be emitted by the controller before the block is appended to the block log and the chainbase db is committed
+   2. chain_plugin will react to the signal to forward the block_state to irreversible_block_channel and also set the lib of wasm_interface
+   3. mongodb_plugin will react to the signal and add the transaction_metadata to its queue to be processed later on
+
+#### B. operation where forks are presented and resolved
+
+1. When forks are presented, the blockchain will pop all existing blocks up to the forking point and then apply all new blocks in the fork.
+2. When applying the new block, all the transactions and scheduled_transactions inside the block will be pushed. All signals related to push_transaction and push_scheduled_transaction (see point A.1 and A.2) will be emitted.
+3. And then when committing the new block -> `accepted_block` will be emitted by the controller
+4. net_plugin will react to the signal and broadcast the block to the peers
+5. If If a new block becomes irreversible, signals related to irreversible block will be emitted (see point A.5)
+
+#### C. normal replay (with or without replay optimization)
+
+1. When replaying irreversible block -> `irreversible_block` will be emitted by the controller
+2. Refer to A.5 to see how `irreversible_block` signal is responded
+3. When replaying reversible block, before the block is added to fork_db -> `pre_accepted_block` will be emitted by the controller
+4. When replaying reversible block, after the block is added to fork db -> `accepted_block_header` will be emitted by the controller
+5. When replaying reversible block, when the block is committed -> `accepted_block` will be emitted by the controller
+6. Refer to A.3 to see how `pre_accepted_block`, `accepted_block_header` and `accepted_block` signal are responded
+
+### 2.2.3. Fork Database
 
 The Fork Database (Fork DB) provides an internal interface for the Chain Controller to perform operations on the node’s local chain. As new blocks are received from other peers, the Chain Controller pushes these blocks to the Fork DB. Each block is then cryptographically linked to a previous block. Since there might be more than one previous block, the process is likely to produce temporary branches called mini-forks. Thus, the Fork DB serves three main purposes:
 
@@ -272,7 +426,7 @@ The block state identifies a block and the peer it came from. It is transient in
 Block State Fields | Description
 -|-
 `id` | 256-bit block identifier. A function of the block contents and the block number.
-`block_num` | 32-bit unsigned counter that locates the block sequentially in the blockchain.
+`block_num` | 32-bit unsigned counter value that identifies the block sequentially since genesis.
 `connection_id` | 32-bit unsigned integer that identifies the connected peer the block came from.
 `have_block` | boolean value indicating whether the actual block has been received by the node.
 
@@ -512,7 +666,7 @@ To make effective use of bandwidth, the required blocks are obtained from variou
 
 ![](images/p2p-node-peer-sync.png "Node-peer syncing")
 
-When both LIB and head blocks are caught up with respect to the peer, the operation mode in the Sync Manager is switched from catch-up to in-sync.
+When both LIB and head blocks are caught up with respect to the peer, the operation mode in the Sync Manager is switched from catch-up mode to in-sync mode.
 
 
 ## 3.4. Mode Switching
@@ -527,7 +681,7 @@ In the first case, the node switches the mode from in-sync to head catchup mode.
 
 # 4. Protocol Algorithm
 
-The p2p protocol algorithm runs on every node, forwarding validated transactions and validated blocks (starting EOSIO v2.x, a node will also forward block IDs of unvalidated blocks it has received). In general, the simplified process is as follows:
+The p2p protocol algorithm runs on every node, forwarding validated transactions and validated blocks. Starting EOSIO v2.0, a node also forwards block IDs of unvalidated blocks it has received. In general, the simplified process is as follows:
 
 1. A node requests data or sends a control message to a peer.
 2. If the request can be fulfilled, the peer executes the request; repeat 1. 
@@ -734,4 +888,4 @@ Protocol messages are placed in a buffer queue and sent to the appropriate conne
 
 # 5. Protocol Improvements
 
-Any software updates to the p2p protocol must also scale progressively and consistently across all nodes. This translates into installing updates that reduce operation downtime and potentially minimize it altogether while deploying new functionality in a backward compatible manner, if possible. On the other hand, data throughput can be increased by taking measures that minimize message footprint, such as using data compression and binary encoding the protocol messages.
+Any software updates to the p2p protocol must also scale progressively and consistently across all nodes. This translates into installing updates that reduce operation downtime and potentially minimize it altogether while deploying new functionality in a backward compatible manner, if possible. On the other hand, data throughput can be increased by taking measures that minimize message footprint, such as using data compression and binary encoding of the protocol messages.
