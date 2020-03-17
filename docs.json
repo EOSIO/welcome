@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": ["get-involved", "05_community-dev-tools"]
+        "exclude": ["get-involved", "05_community-developer-tools"]
       }
     },
     {
@@ -38,8 +38,8 @@
     {
       "name": "collate_markdown",
       "options": {
-        "docs_dir": "docs/05_community-dev-tools",
-        "output_dir": "05_community-dev-tools"
+        "docs_dir": "docs/05_community-developer-tools",
+        "output_dir": "05_community-developer-tools"
       }
     },
 

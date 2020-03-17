@@ -3,9 +3,9 @@
 ## Overview
 This is a list of developer tools which are built by members of the EOSIO community, curated by the Developer Relations team at Block.one.
 
-If you would like to submit a tool to be added to the list, click **Edit** at the right hand side of this page and submit a Pull Request or fill in [this form](https://blockone.typeform.com/to/gA4F0Q).
+If you would like to submit a tool to be added to the list, please fill in [this form](https://blockone.typeform.com/to/gA4F0Q).
 
-## Community Dev Tools
+## Community Developer Tools
 
 ### Testing Tools and Frameworks
 
