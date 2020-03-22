@@ -132,7 +132,7 @@ Name | Type | Description
 `unpacked_trx` | `signed_transaction` | cached ecompressed transaction
 `trx_id` | `transaction_id_type` | transaction ID
 
-The `unpacked_trx` field holds the cached unpacked transaction after the transaction instance is constructed. If the signed transaction was previously compressed, it is decompressed from the `packed_trx` field and cached to `unpacked_trx`. If the signed transaction was stored uncompressed, it is simply copied verbatim to `unpacked_trx`. The `signatures` field allows a quick signature validatio of the transaction without requiring a full decompression of the transaction.
+The `unpacked_trx` field holds the cached unpacked transaction after the transaction instance is constructed. If the signed transaction was previously compressed, it is decompressed from the `packed_trx` field and cached to `unpacked_trx`. If the signed transaction was stored uncompressed, it is simply copied verbatim to `unpacked_trx`. The `signatures` field allows a quick signature validation of the transaction without requiring a full decompression of the transaction.
 
 
 # 3. Transaction Lifecycle
