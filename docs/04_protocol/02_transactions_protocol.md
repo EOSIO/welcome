@@ -104,16 +104,16 @@ A signed transaction extends the basic contents of the transaction schema to inc
 
 Name | Type | Description
 -|-|-
-`expiration` | `time_point_sec` | the time at which a transaction expires
-`ref_block_num` | `uint16_t` | the lower 16 bits of a block num in the last 2^16 blocks
-`ref_block_prefix` | `uint32_t` | the lower 32 bits of the block id referred by `ref_block_num'
-`max_net_usage_words` | `unsigned_int` | the upper limit on total network bandwidth billed (in 64-bit words)
-`max_cpu_usage_ms` | `uint8_t` | the upper limit on total CPU time billed (in miliseconds)
-`delay_sec` | `unsigned_int` | the number of seconds to delay transaction for
-`context_free_actions` | array of `action` | the list of context-free actions if any
-`actions` | array of `action` | the list of [action instances](#343-action-instance)
-`transaction_extensions` | `extensions_type` | the extends fields to support additional features
-`signatures` | array of `signature_type` | the digital signatures after transaction is signed
+`expiration` | `time_point_sec` | the time the transaction must be confirmed by before it expires
+`ref_block_num` | `uint16_t` | lower 16 bits of a block number in the last $2^{16}$ blocks
+`ref_block_prefix` | `uint32_t` | lower 32 bits of block id referred by `ref_block_num'
+`max_net_usage_words` | `unsigned_int` | upper limit on total network bandwidth billed (in 64-bit words)
+`max_cpu_usage_ms` | `uint8_t` | upper limit on total CPU time billed (in milliseconds)
+`delay_sec` | `unsigned_int` | number of seconds to delay transaction for
+`context_free_actions` | array of `action` | list of context-free actions if any
+`actions` | array of `action` | list of [action instances](#343-action-instance)
+`transaction_extensions` | `extensions_type` | extends fields to support additional features
+`signatures` | array of `signature_type` | digital signatures after transaction is signed
 `context_free_data` | array of `bytes` | context-free action data to send if any
 
 
