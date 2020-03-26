@@ -48,7 +48,7 @@ If you would like to submit a tool to be added to the list, please fill in [this
 ## Software Development Kits (SDKs)
 * [Zeus SDK](https://github.com/liquidapps-io/zeus-sdk): The Zeus SDK offers a number of functionalities including a command line tool, templates, and a package manager.
 
-* [EOSlime](https://github.com/LimeChain/eoslime): EOSlime could be used as EOS Javascript SDK. It integrates eosjs and has on top of that a lot of helper functionality which a developer should implement himself otherwise.
+* [EOSlime](https://github.com/LimeChain/eoslime): EOSlime could be used as the EOS Javascript SDK. It integrates eosjs and adds on top of that a lot of functionality. Which otherwise a developer should implement himself
 
 [[info | Disclaimer]]
 | The information, links and other material on the website relating to third-party software, hardware, services, networks, blockchains (whether public or private), websites or other resources are provided on an “as-is” basis for your convenience only.  Such resources may be updated, changed or terminated at any time so the information included may be out of date or inaccurate.  The inclusion of any third-party resources does not constitute approval, endorsement or recommendation by us and we disclaim all responsibility and liability for your use of any such third-party resources.
