@@ -145,7 +145,7 @@ To create the game, we need host account name and challenger's account name.
 
 ```cpp
 [[eosio::action]]
-void create(const name &challenger, name host);
+void create(const name &challenger, name &host);
 ```
 
 #### Restart
@@ -181,7 +181,7 @@ void move(const name &challenger, const name &host, const name &by, const uint16
 To sum up, we should have declare the following action handlers which will be defined in **tic.tac.toe.cpp** later
 
 ```cpp
-void create(const name &challenger, name host);
+void create(const name &challenger, name &host);
 void restart(const name &challenger, const name &host, const name &by);
 void close(const name &challenger, const name &host);
 void move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column);
@@ -243,7 +243,7 @@ public:
     typedef eosio::multi_index<"games"_n, game> games;
 
     [[eosio::action]]
-    void create(const name &challenger, name host);
+    void create(const name &challenger, name &host);
     
     [[eosio::action]]
     void restart(const name &challenger, const name &host, const name &by);
@@ -278,7 +278,7 @@ For the ***create*** action handler, we want to:
 4. Store the newly created game to the db
 
 ```cpp
-void tic_tac_toe::create(const name &challenger, name host) {
+void tic_tac_toe::create(const name &challenger, name &host) {
     require_auth(host);
     check(challenger != host, "challenger shouldn't be the same as host");
 
@@ -302,7 +302,7 @@ For the ***move*** action handler, we want to:
 1. Ensure that the action has the signature from the host/ challenger
 2. Ensure that the game exists
 3. Ensure that the game is not finished yet
-4. Ensure that the move action is done by host/ challenger
+4. Ensure that the move action is done by host or challenger
 5. Ensure that this is the right user's turn
 6. Verify movement is valid
 7. Update board with the new move
@@ -496,7 +496,7 @@ bool is_valid_movement(const uint16_t &row, const uint16_t &column, const std::v
     return is_valid;
 }
 
-void tic_tac_toe::create(const name &challenger, name host) {
+void tic_tac_toe::create(const name &challenger, name &host) {
     require_auth(host);
     check(challenger != host, "challenger shouldn't be the same as host");
 
