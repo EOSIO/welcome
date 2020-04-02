@@ -42,9 +42,8 @@ cleos create account eosio tic.tac.toe EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHu
 
 Ensure that you have your wallet unlocked and the creator's private active key in the wallet imported, otherwise the above command will fail.
 
-For instructions on wallet unlocking and keys importing, see section [Create Development Wallet](../02_development-environment/05_create-development-wallet.md). 
-
-
+[[info | Wallet Unlocking]]
+| For instructions on wallet unlocking and keys importing, see section [Create Development Wallet](../02_development-environment/05_create-development-wallet.md). 
 
 ## Start
 
@@ -138,7 +137,7 @@ class tic_tac_toe : public eosio::contract {
 
 The **primary_key** method is required by the above table definition for games. That is how the table knows what field is the lookup key for the table.
 
-### Action Structure
+### Action Handlers Structure
 
 #### Create
 
@@ -177,9 +176,9 @@ To make a move, we need host account name and challenger's account name to ident
 void move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column);
 ```
 
-### Action Handler
+<!-- #### Action Handlers -->
 
-Let's declare the action handler which will be defined in **tic.tac.toe.cpp** later
+To sum up, we should have declare the following action handlers which will be defined in **tic.tac.toe.cpp** later
 
 ```cpp
 void create(const name &challenger, name host);
@@ -188,11 +187,9 @@ void close(const name &challenger, const name &host);
 void move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column);
 ```
 
-You can see the final tic.tac.toe.hpp in the next section.
-
 ## Final Contract Header File
 
-The final state of the tic.tac.toe.hpp should be:
+At this step, the final state of the tic.tac.toe.hpp should be:
 
 ```cpp
 // Import necessary library
@@ -259,7 +256,7 @@ public:
 };
 ```
 
-## Contract Implementation
+## Game Logic
 
 Let's open tic.tac.toe.cpp and set up the boilerplate
 
@@ -269,7 +266,7 @@ Let's open tic.tac.toe.cpp and set up the boilerplate
 
 ### Action Handler
 
-We want tic_tac_toe contract to only react to actions sent to the `tic.tac.toe` account and react differently according to the type of the action. The actions that we want to support are ***create***, ***move***, ***restart***, and ***close***. Let's define the individual action handlers in the next section.
+We want `tic tac toe` contract to only react to actions sent to the `tic.tac.toe` account and react differently according to the type of the action. The actions that we declared previously are ***create***, ***move***, ***restart***, and ***close***. Let's define the individual action handlers in the next section.
 
 ### "create" Action Handler
 
@@ -475,7 +472,7 @@ name get_winner(const tic_tac_toe::game &current_game)
 }
 ```
 
-You can see the final tic.tac.toe.cpp below:
+You can see the final tic.tac.toe.cpp in the next section.
 
 ## Final Contract Code
 The final state of the tic.tac.toe.cpp file:
@@ -653,12 +650,12 @@ Ensure that your wallet is unlocked and you have `tic.tac.toe` key imported.
 
 After the deployment and the transaction is confirmed, the contract is already available in the blockchain. You can play with it now!
 
+[[info | Test Account]]
+| If you have not create these accounts already, refer to this article for creating test accounts [Create Test Accounts](../02_development-environment/07_create-test-accounts.md)
+
 ### Create
 
-Assuming you are using two accounts `bob` and `alice` (for the following commands as well):
-
-[[info | Test Account]]
-| Refer to this article for creating test accounts [Create Test Accounts](../02_development-environment/07_create-test-accounts.md)
+We are going to use `bob` and `alice` accounts to play this game:
 
 ```bash
 cleos push action tic.tac.toe create '{"challenger":"bob", "host":"alice"}' --permission alice@active
