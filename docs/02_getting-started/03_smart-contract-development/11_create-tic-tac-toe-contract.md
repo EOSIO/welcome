@@ -5,11 +5,11 @@ link_text: "2.10 Creating a Tic-Tac-Toe Smart Contract"
 
 ## Goal
 
-The following tutorial will guide the user to build a sample Player vs Player game contract. We will use tic tac toe game to demonstrate this. The final result of this tutorial can be found at the end of this tutorial.
+The following tutorial will guide you to build a sample Player vs Player game contract. We will apply the knowledge we acquired eariler and use the tic tac toe game to demonstrate.
 
-## Assumption
+## The rules of the game
 
-For this game, we are using a standard 3x3 tic tac toe board. Players are divided into two roles: **host** and **challenger**. The host always makes the first move. Each pair of players can **ONLY** have up to two games at the same time, one where the first player becomes the host and the other one where the second player becomes the host.
+For this game, we are using a standard 3x3 tic tac toe board. Players are divided into two roles: **host** and **challenger**. The host always makes the first move. Each pair of players can ONLY have up to two games at the same time, one where the first player becomes the host and the other one where the second player becomes the host.
 
 ### Board
 
@@ -176,7 +176,7 @@ To make a move, we need host account name and challenger's account name to ident
 void move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column);
 ```
 
-<!-- #### Action Handlers -->
+#### Sum up
 
 To sum up, we should have declare the following action handlers which will be defined in **tic.tac.toe.cpp** later
 
@@ -632,26 +632,26 @@ name get_winner(const tic_tac_toe::game &current_game)
 Let's compile our contract, using eosio-cpp
 
 ```bash
-eosio-cpp -o tic_tac_toe.wasm tic.tac.toe.cpp
+eosio-cpp -I tic_tac_toe.hpp tic_tac_toe.cpp
 ```
 
 ## Deploy
 
 Now the wasm file and abi file are ready. Time to deploy!
-Create a directory (let's call it tic.tac.toe) and copy your generated tic.tac.toe.wasm tic_tac_toe.abi files.
+Create a directory (let's call it tic_tac_toe) and copy your generated tic.tac.toe.wasm tic_tac_toe.abi files.
 
 ```bash
-cleos set contract tic.tac.toe tic.tac.toe
+cleos set contract tic.tac.toe tic_tac_toe -p tic.tac.toe@active
 ```
 
 Ensure that your wallet is unlocked and you have `tic.tac.toe` key imported.
 
-## Play
+## Play the game
 
 After the deployment and the transaction is confirmed, the contract is already available in the blockchain. You can play with it now!
 
 [[info | Test Account]]
-| If you have not create these accounts already, refer to this article for creating test accounts [Create Test Accounts](../02_development-environment/07_create-test-accounts.md)
+| If you have not created these accounts already, refer to this article for creating test accounts [Create Test Accounts](../02_development-environment/07_create-test-accounts.md)
 
 ### Create
 
