@@ -7,7 +7,7 @@ link_text: "2.10 Creating a Tic-Tac-Toe Smart Contract"
 
 The following tutorial will guide you to build a sample Player vs Player game contract. We will apply the knowledge we acquired eariler and use the tic tac toe game to demonstrate.
 
-## The rules of the game
+## The Rules of the Game
 
 For this game, we are using a standard 3x3 tic tac toe board. Players are divided into two roles: **host** and **challenger**. The host always makes the first move. Each pair of players can ONLY have up to two games at the same time, one where the first player becomes the host and the other one where the second player becomes the host.
 
