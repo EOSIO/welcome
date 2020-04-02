@@ -1,6 +1,6 @@
 ---
-title: "Creating a Tic-Tac-Toe Smart Contract"
-excerpt: ""
+content_title: "2.10 Creating a Tic-Tac-Toe Smart Contract"
+link_text: "2.10 Creating a Tic-Tac-Toe Smart Contract"
 ---
 
 ## Goal
