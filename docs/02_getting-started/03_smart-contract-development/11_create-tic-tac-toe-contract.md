@@ -5,15 +5,15 @@ link_text: "2.10 Creating a Tic-Tac-Toe Smart Contract"
 
 ## Goal
 
-The following tutorial will guide you to build a sample Player vs Player game contract. We will apply the knowledge we acquired eariler and use the tic tac toe game to demonstrate.
+The following tutorial will guide you to build a sample Player vs Player game contract. We will apply the knowledge we acquired eariler and use the tic-tac-toe game to demonstrate.
 
 ## The Rules of the Game
 
-For this game, we are using a standard 3x3 tic tac toe board. Players are divided into two roles: **host** and **challenger**. The host always makes the first move. Each pair of players can ONLY have up to two games at the same time, one where the first player becomes the host and the other one where the second player becomes the host.
+For this game, we are using a standard 3x3 tic-tac-toe board. Players are divided into two roles: **host** and **challenger**. The host always makes the first move. Each pair of players can ONLY have up to two games at the same time, one where the first player becomes the host and the other one where the second player becomes the host.
 
 ### Board
 
-Instead of using `o` and `x` as in the traditional tic tac toe game. We use `1` to denote movement by host, `2` to denote movement by challenger, and `0` to denote empty cell. Furthermore, we will use one dimensional array to store the board. Hence:
+Instead of using `o` and `x` as in the traditional tic-tac-toe game, we use `1` to denote movement by host, `2` to denote movement by challenger, and `0` to denote empty cell. Furthermore, we will use one dimensional array to store the board. Hence:
 
 |           | (0,0) | (1,0) | (2,0) |
 | :-------: | :---: | :---: | :---: |
@@ -176,9 +176,9 @@ To make a move, we need host account name and challenger's account name to ident
 void move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column);
 ```
 
-#### Sum up
+#### Action Handlers Recap 
 
-To sum up, we should have declare the following action handlers which will be defined in **tic.tac.toe.cpp** later
+To recap, we should have declared the following action handlers which will be defined in **tic.tac.toe.cpp** later.
 
 ```cpp
 void create(const name &challenger, name host);
@@ -189,7 +189,7 @@ void move(const name &challenger, const name &host, const name &by, const uint16
 
 ## Final Contract Header File
 
-At this step, the final state of the tic.tac.toe.hpp should be:
+At this stage, the final state of the tic.tac.toe.hpp should be:
 
 ```cpp
 // Import necessary library
@@ -258,7 +258,7 @@ public:
 
 ## Main Game Logic
 
-Let's open tic.tac.toe.cpp and set up the boilerplate
+Let's open tic.tac.toe.cpp and set up the boilerplate:
 
 ```cpp
 #include "tic.tac.toe.hpp"
@@ -629,7 +629,7 @@ name get_winner(const tic_tac_toe::game &current_game)
 
 ## Compile
 
-Let's compile our contract, using eosio-cpp
+Let's compile our contract, using eosio-cpp:
 
 ```bash
 eosio-cpp -I tic_tac_toe.hpp tic_tac_toe.cpp
@@ -637,8 +637,8 @@ eosio-cpp -I tic_tac_toe.hpp tic_tac_toe.cpp
 
 ## Deploy
 
-Now the wasm file and abi file are ready. Time to deploy!
-Create a directory (let's call it tic_tac_toe) and copy your generated tic.tac.toe.wasm tic_tac_toe.abi files.
+Now the Wasm file and the abi file are ready. Time to deploy!
+Create a directory (let's call it tic_tac_toe) and copy your generated tic.tac.toe.wasm and tic_tac_toe.abi files.
 
 ```bash
 cleos set contract tic.tac.toe tic_tac_toe -p tic.tac.toe@active
@@ -646,7 +646,7 @@ cleos set contract tic.tac.toe tic_tac_toe -p tic.tac.toe@active
 
 Ensure that your wallet is unlocked and you have `tic.tac.toe` key imported.
 
-## Play the game
+## Play the Game
 
 After the deployment and the transaction is confirmed, the contract is already available in the blockchain. You can play with it now!
 
