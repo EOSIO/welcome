@@ -256,7 +256,7 @@ public:
 };
 ```
 
-## Game Logic
+## Main Game Logic
 
 Let's open tic.tac.toe.cpp and set up the boilerplate
 
@@ -292,58 +292,6 @@ void tic_tac_toe::create(const name &challenger, name host) {
         g.host = host;
         g.turn = host;
    });
-}
-```
-
-### "restart" Action Handler
-
-For the ***restart*** action handler, we want to:
-
-1. Ensure that the action has the signature from the host/challenger
-2. Ensure that the game exists
-3. Ensure that the restart action is done by host/challenger
-4. Reset the game
-5. Store the updated game to the db
-
-```cpp
-void tic_tac_toe::restart(const name &challenger, const name &host, const name &by)
-{
-    require_auth(by);
-    // Check if game exists
-    games existing_host_games(get_self(), host.value);
-    auto itr = existing_host_games.find(challenger.value);
-    check(itr != existing_host_games.end(), "game doesn't exists");
-
-    // Check if this game belongs to the action sender
-    check(by == itr->host || by == itr->challenger, "this is not your game!");
-
-    // Reset game
-    existing_host_games.modify(itr, itr->host, [](auto &g) {
-        g.reset_game();
-   });
-}
-```
-
-### "close" Action Handler
-
-For the ***close*** action handler, we want to:
-
-1. Ensure that the action has the signature from the host
-2. Ensure that the game exists
-3. Remove the game from the db
-
-```cpp
-void tic_tac_toe::close(const name &challenger, const name &host)
-{
-    require_auth(host);
-
-    // Check if game exists
-    games existing_host_games(get_self(), host.value);
-    auto itr = existing_host_games.find(challenger.value);
-    check(itr != existing_host_games.end(), "game doesn't exists");
-
-    // Remove game
-    existing_host_games.erase(itr);
 }
 ```
 
@@ -469,6 +417,58 @@ name get_winner(const tic_tac_toe::game &current_game)
     }
     // Draw if the board is full, otherwise the winner is not determined yet
     return is_board_full ? "draw"_n : "none"_n;
+}
+```
+
+### "restart" Action Handler
+
+For the ***restart*** action handler, we want to:
+
+1. Ensure that the action has the signature from the host/challenger
+2. Ensure that the game exists
+3. Ensure that the restart action is done by host/challenger
+4. Reset the game
+5. Store the updated game to the db
+
+```cpp
+void tic_tac_toe::restart(const name &challenger, const name &host, const name &by)
+{
+    require_auth(by);
+    // Check if game exists
+    games existing_host_games(get_self(), host.value);
+    auto itr = existing_host_games.find(challenger.value);
+    check(itr != existing_host_games.end(), "game doesn't exists");
+
+    // Check if this game belongs to the action sender
+    check(by == itr->host || by == itr->challenger, "this is not your game!");
+
+    // Reset game
+    existing_host_games.modify(itr, itr->host, [](auto &g) {
+        g.reset_game();
+   });
+}
+```
+
+### "close" Action Handler
+
+For the ***close*** action handler, we want to:
+
+1. Ensure that the action has the signature from the host
+2. Ensure that the game exists
+3. Remove the game from the db
+
+```cpp
+void tic_tac_toe::close(const name &challenger, const name &host)
+{
+    require_auth(host);
+
+    // Check if game exists
+    games existing_host_games(get_self(), host.value);
+    auto itr = existing_host_games.find(challenger.value);
+    check(itr != existing_host_games.end(), "game doesn't exists");
+
+    // Remove game
+    existing_host_games.erase(itr);
 }
 ```
 
