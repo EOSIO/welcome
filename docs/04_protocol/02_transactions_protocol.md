@@ -104,11 +104,11 @@ A signed transaction extends the basic contents of the transaction schema to inc
 
 Name | Type | Description
 -|-|-
-`expiration` | `time_point_sec` | time transaction must be confirmed by
-`ref_block_num` | `uint16_t` | block number in last 2<sup>16</sup> blocks
-`ref_block_prefix` | `uint32_t` | lower 32 bits of block ID
+`expiration` | `time_point_sec` | the time the transaction must be confirmed by before it expires
+`ref_block_num` | `uint16_t` | lower 16 bits of a block number in the last $2^{16}$ blocks
+`ref_block_prefix` | `uint32_t` | lower 32 bits of block id referred by `ref_block_num'
 `max_net_usage_words` | `unsigned_int` | upper limit on total network bandwidth billed (in 64-bit words)
-`max_cpu_usage_ms` | `uint8_t` | upper limit on total CPU time billed (in miliseconds)
+`max_cpu_usage_ms` | `uint8_t` | upper limit on total CPU time billed (in milliseconds)
 `delay_sec` | `unsigned_int` | number of seconds to delay transaction for
 `context_free_actions` | array of `action` | list of context-free actions if any
 `actions` | array of `action` | list of [action instances](#343-action-instance)
@@ -132,7 +132,7 @@ Name | Type | Description
 `unpacked_trx` | `signed_transaction` | cached ecompressed transaction
 `trx_id` | `transaction_id_type` | transaction ID
 
-The `unpacked_trx` field holds the cached unpacked transaction after the transaction instance is constructed. If the signed transaction was previously compressed, it is decompressed from the `packed_trx` field and cached to `unpacked_trx`. If the signed transaction was stored uncompressed, it is simply copied verbatim to `unpacked_trx`. The `signatures` field allows a quick signature validatio of the transaction without requiring a full decompression of the transaction.
+The `unpacked_trx` field holds the cached unpacked transaction after the transaction instance is constructed. If the signed transaction was previously compressed, it is decompressed from the `packed_trx` field and cached to `unpacked_trx`. If the signed transaction was stored uncompressed, it is simply copied verbatim to `unpacked_trx`. The `signatures` field allows a quick signature validation of the transaction without requiring a full decompression of the transaction.
 
 
 # 3. Transaction Lifecycle
