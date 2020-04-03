@@ -1,6 +1,6 @@
 ---
-content_title: "2.10 Creating a Tic-Tac-Toe Smart Contract"
-link_text: "2.10 Creating a Tic-Tac-Toe Smart Contract"
+content_title: "2.10 Tic-Tac-Toe Game Contract"
+link_text: "2.10 Tic-Tac-Toe Game Contract"
 ---
 
 ## Goal
@@ -23,7 +23,7 @@ Instead of using `o` and `x` as in the traditional tic-tac-toe game, we use `1` 
 
 Assuming x is host, the above board is equal to `[0, 2, 1, 0, 1, 0, 1, 2, 2]`
 
-### Action
+### Actions
 
 A user will have the following actions to interact with this contract:
 
@@ -37,13 +37,15 @@ A user will have the following actions to interact with this contract:
 For the following guide, we are going to push the contract to an account called `tic.tac.toe`.
 
 ```bash
-cleos create account eosio tic.tac.toe EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos create account eosio tic.tac.toe YOUR_PUBLIC_KEY
 ```
 
 Ensure that you have your wallet unlocked and the creator's private active key in the wallet imported, otherwise the above command will fail.
 
 [[info | Wallet Unlocking]]
 | For instructions on wallet unlocking and keys importing, see section [Create Development Wallet](../02_development-environment/05_create-development-wallet.md). 
+
+In the above step, if you see `YOUR_PUBLIC_KEY` instead of the public key value, you can either go back to section **1.4 Create Development Wallet** and persist the value or replace `YOUR_PUBLIC_KEY` with the public key value manually.
 
 ## Start
 
