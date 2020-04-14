@@ -671,18 +671,6 @@ cleos push action tic.tac.toe move '{"challenger":"bob", "host":"alice", "by":"a
 cleos push action tic.tac.toe move '{"challenger":"bob", "host":"alice", "by":"bob", "row":1, "column":1}' --permission bob@active
 ```
 
-### Restart
-
-```bash
-cleos push action tic.tac.toe restart '{"challenger":"bob", "host":"alice", "by":"alice"}' --permission alice@active
-```
-
-### Close
-
-```bash
-cleos push action tic.tac.toe close '{"challenger":"bob", "host":"alice"}' --permission alice@active
-```
-
 ### See the game status
 
 ```bash
@@ -708,4 +696,16 @@ $ cleos get table tic.tac.toe alice games
   ],
   "more": false
 }
+```
+
+### Restart
+
+```bash
+cleos push action tic.tac.toe restart '{"challenger":"bob", "host":"alice", "by":"alice"}' --permission alice@active
+```
+
+### Close
+
+```bash
+cleos push action tic.tac.toe close '{"challenger":"bob", "host":"alice"}' --permission alice@active
 ```
