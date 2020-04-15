@@ -1,6 +1,6 @@
 ---
-content_title: "2.10 Tic-Tac-Toe Game Contract"
-link_text: "2.10 Tic-Tac-Toe Game Contract"
+content_title: "Tic-Tac-Toe Game Contract"
+link_text: "Tic-Tac-Toe Game Contract"
 ---
 
 ## Goal
@@ -80,7 +80,7 @@ For this contract, we will need to have a table that stores a list of games. Let
 
 ```cpp
 ...
-class [[eosio::contract("tictactoe")]] tic_tac_toe : public contract {
+class [[eosio::contract("tic.tac.toe")]] tic_tac_toe : public contract {
    public:
     ...
     typedef eosio::multi_index<"games"_n, game> games;
@@ -99,28 +99,28 @@ Let's define the structure for the game. Please ensure that this struct definiti
 class tic_tac_toe : public eosio::contract {
    public:
    ...
+    static constexpr name none = "none"_n;
+    static constexpr name draw = "draw"_n;
+
     struct [[eosio::table]] game
     {
 
-        static const uint16_t board_width = 3;
-        static const uint16_t board_height = board_width;
-
-        game()
-        {
-            initialize_board();
-        }
+        static constexpr uint16_t board_width = 3;
+        static constexpr uint16_t board_height = board_width;
+        
+        game() : board(board_width * board_height, 0){}
 
         name challenger;
         name host;
         name turn;              // = account name of host/ challenger
-        name winner = "none"_n; // = none/ draw/ name of host/ name of challenger
+        name winner = none; // = none/ draw/ name of host/ name of challenger
 
         std::vector<uint8_t> board;
 
         // Initialize board with empty cell
         void initialize_board()
         {
-            board = std::vector<uint8_t>(board_width * board_height, 0);
+            board.assign(board_width * board_height, 0);
         }
 
         // Reset game
@@ -183,17 +183,6 @@ void move(const name &challenger, const name &host, const name &by, const uint16
 To recap, we should have declared the following action handlers which will be defined in **tic.tac.toe.cpp** later.
 
 ```cpp
-void create(const name &challenger, name &host);
-void restart(const name &challenger, const name &host, const name &by);
-void close(const name &challenger, const name &host);
-void move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column);
-```
-
-## Final Contract Header File
-
-At this stage, the final state of the tic.tac.toe.hpp should be:
-
-```cpp
 // Import necessary library
 #include <eosio/eosio.hpp>
 
@@ -206,28 +195,28 @@ public:
     using contract::contract;
     tic_tac_toe(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds) {}
 
+    static constexpr name none = "none"_n;
+    static constexpr name draw = "draw"_n;
+
     struct [[eosio::table]] game
     {
 
-        static const uint16_t board_width = 3;
-        static const uint16_t board_height = board_width;
-
-        game()
-        {
-            initialize_board();
-        }
+        static constexpr uint16_t board_width = 3;
+        static constexpr uint16_t board_height = board_width;
+        
+        game() : board(board_width * board_height, 0){}
 
         name challenger;
         name host;
         name turn;              // = account name of host/ challenger
-        name winner = "none"_n; // = none/ draw/ name of host/ name of challenger
+        name winner = none; // = none/ draw/ name of host/ name of challenger
 
         std::vector<uint8_t> board;
 
         // Initialize board with empty cell
         void initialize_board()
         {
-            board = std::vector<uint8_t>(board_width * board_height, 0);
+            board.assign(board_width * board_height, 0);
         }
 
         // Reset game
@@ -266,11 +255,11 @@ Let's open tic.tac.toe.cpp and set up the boilerplate:
 #include "tic.tac.toe.hpp"
 ```
 
-### Action Handler
+### Action Handlers
 
 We want `tic tac toe` contract to only react to actions sent to the `tic.tac.toe` account and react differently according to the type of the action. The actions that we declared previously are ***create***, ***move***, ***restart***, and ***close***. Let's define the individual action handlers in the next section.
 
-### "create" Action Handler
+### `create` Action Handler
 
 For the ***create*** action handler, we want to:
 
@@ -293,11 +282,11 @@ void tic_tac_toe::create(const name &challenger, name &host) {
         g.challenger = challenger;
         g.host = host;
         g.turn = host;
-   });
+    });
 }
 ```
 
-### "move" Action Handler 
+### `move` Action Handler 
 
 For the ***move*** action handler, we want to:
 
@@ -315,7 +304,7 @@ For the ***move*** action handler, we want to:
 ```cpp
 void tic_tac_toe::move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column)
 {
-    require_auth(by);
+    check(has_auth(by), "the next move should be made by " + by.to_string());
 
     // Check if game exists
     games existing_host_games(get_self(), host.value);
@@ -323,7 +312,8 @@ void tic_tac_toe::move(const name &challenger, const name &host, const name &by,
     check(itr != existing_host_games.end(), "game doesn't exists");
 
     // Check if this game hasn't ended yet
-    check(itr->winner == "none"_n, "the game has ended!");
+    check(itr->winner == tic_tac_toe::none, "the game has ended!");
+    
     // Check if this game belongs to the action sender
     check(by == itr->host || by == itr->challenger, "this is not your game!");
     // Check if this is the  action sender's turn
@@ -333,13 +323,14 @@ void tic_tac_toe::move(const name &challenger, const name &host, const name &by,
     check(is_valid_movement(row, column, itr->board), "not a valid movement!");
 
     // Fill the cell, 1 for host, 2 for challenger
+    //TODO could use constant for 1 and 2 as well
     const uint8_t cell_value = itr->turn == itr->host ? 1 : 2;
     const auto turn = itr->turn == itr->host ? itr->challenger : itr->host;
     existing_host_games.modify(itr, itr->host, [&](auto &g) {
         g.board[row * tic_tac_toe::game::board_width + column] = cell_value;
         g.turn = turn;
         g.winner = get_winner(g);
-   });
+    });
 }
 ```
 
@@ -418,11 +409,11 @@ name get_winner(const tic_tac_toe::game &current_game)
         }
     }
     // Draw if the board is full, otherwise the winner is not determined yet
-    return is_board_full ? "draw"_n : "none"_n;
+    return is_board_full ? tic_tac_toe::draw : tic_tac_toe::none;
 }
 ```
 
-### "restart" Action Handler
+### `restart` Action Handler
 
 For the ***restart*** action handler, we want to:
 
@@ -435,7 +426,8 @@ For the ***restart*** action handler, we want to:
 ```cpp
 void tic_tac_toe::restart(const name &challenger, const name &host, const name &by)
 {
-    require_auth(by);
+    check(has_auth(by), "only " + by.to_string() + "can restart the game");
+
     // Check if game exists
     games existing_host_games(get_self(), host.value);
     auto itr = existing_host_games.find(challenger.value);
@@ -447,11 +439,11 @@ void tic_tac_toe::restart(const name &challenger, const name &host, const name &
     // Reset game
     existing_host_games.modify(itr, itr->host, [](auto &g) {
         g.reset_game();
-   });
+    });
 }
 ```
 
-### "close" Action Handler
+### `close` Action Handler
 
 For the ***close*** action handler, we want to:
 
@@ -462,6 +454,8 @@ For the ***close*** action handler, we want to:
 ```cpp
 void tic_tac_toe::close(const name &challenger, const name &host)
 {
+    check(has_auth(host), "only the host can close the game");
+
     require_auth(host);
 
     // Check if game exists
@@ -477,6 +471,7 @@ void tic_tac_toe::close(const name &challenger, const name &host)
 You can see the final tic.tac.toe.cpp in the next section.
 
 ## Final Contract Code
+
 The final state of the tic.tac.toe.cpp file:
 
 ```cpp
@@ -516,7 +511,8 @@ void tic_tac_toe::create(const name &challenger, name &host) {
 
 void tic_tac_toe::restart(const name &challenger, const name &host, const name &by)
 {
-    require_auth(by);
+    check(has_auth(by), "only " + by.to_string() + "can restart the game");
+
     // Check if game exists
     games existing_host_games(get_self(), host.value);
     auto itr = existing_host_games.find(challenger.value);
@@ -533,6 +529,8 @@ void tic_tac_toe::restart(const name &challenger, const name &host, const name &
 
 void tic_tac_toe::close(const name &challenger, const name &host)
 {
+    check(has_auth(host), "only the host can close the game");
+
     require_auth(host);
 
     // Check if game exists
@@ -546,7 +544,7 @@ void tic_tac_toe::close(const name &challenger, const name &host)
 
 void tic_tac_toe::move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column)
 {
-    require_auth(by);
+    check(has_auth(by), "the next move should be made by " + by.to_string());
 
     // Check if game exists
     games existing_host_games(get_self(), host.value);
@@ -554,7 +552,8 @@ void tic_tac_toe::move(const name &challenger, const name &host, const name &by,
     check(itr != existing_host_games.end(), "game doesn't exists");
 
     // Check if this game hasn't ended yet
-    check(itr->winner == "none"_n, "the game has ended!");
+    check(itr->winner == tic_tac_toe::none, "the game has ended!");
+    
     // Check if this game belongs to the action sender
     check(by == itr->host || by == itr->challenger, "this is not your game!");
     // Check if this is the  action sender's turn
@@ -564,6 +563,7 @@ void tic_tac_toe::move(const name &challenger, const name &host, const name &by,
     check(is_valid_movement(row, column, itr->board), "not a valid movement!");
 
     // Fill the cell, 1 for host, 2 for challenger
+    //TODO could use constant for 1 and 2 as well
     const uint8_t cell_value = itr->turn == itr->host ? 1 : 2;
     const auto turn = itr->turn == itr->host ? itr->challenger : itr->host;
     existing_host_games.modify(itr, itr->host, [&](auto &g) {
@@ -624,9 +624,8 @@ name get_winner(const tic_tac_toe::game &current_game)
         }
     }
     // Draw if the board is full, otherwise the winner is not determined yet
-    return is_board_full ? "draw"_n : "none"_n;
+    return is_board_full ? tic_tac_toe::draw : tic_tac_toe::none;
 }
-
 ```
 
 ## Compile
@@ -639,7 +638,7 @@ eosio-cpp -I tic_tac_toe.hpp tic_tac_toe.cpp
 
 ## Deploy
 
-Now the Wasm file and the abi file are ready. Time to deploy!
+Now the wasm file and the abi file are ready. Time to deploy!
 Create a directory (let's call it tic_tac_toe) and copy your generated tic.tac.toe.wasm and tic_tac_toe.abi files.
 
 ```bash
@@ -655,7 +654,7 @@ After the deployment and the transaction is confirmed, the contract is already a
 [[info | Test Account]]
 | If you have not created these accounts already, refer to this article for creating test accounts [Create Test Accounts](../02_development-environment/07_create-test-accounts.md)
 
-### Create
+### Create a game
 
 We are going to use `bob` and `alice` accounts to play this game:
 
@@ -663,7 +662,7 @@ We are going to use `bob` and `alice` accounts to play this game:
 cleos push action tic.tac.toe create '{"challenger":"bob", "host":"alice"}' --permission alice@active
 ```
 
-### Move
+### Make moves
 
 ```bash
 cleos push action tic.tac.toe move '{"challenger":"bob", "host":"alice", "by":"alice", "row":0, "column":0}' --permission alice@active
@@ -698,13 +697,13 @@ $ cleos get table tic.tac.toe alice games
 }
 ```
 
-### Restart
+### Restart the game
 
 ```bash
 cleos push action tic.tac.toe restart '{"challenger":"bob", "host":"alice", "by":"alice"}' --permission alice@active
 ```
 
-### Close
+### Close the game
 
 ```bash
 cleos push action tic.tac.toe close '{"challenger":"bob", "host":"alice"}' --permission alice@active
