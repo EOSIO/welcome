@@ -5,7 +5,7 @@ link_text: "1.4 Create Development Wallet"
 
 Wallets are repositories of public-private key pairs. Private keys are needed to sign operations performed on the blockchain. Wallets are accessed using cleos.
 ## Step 1: Create a Wallet
-The first step is to create a wallet. Use [cleos wallet create]() to create a new "default" wallet using the option `--to-console` for simplicity. If using cleos in production, it's wise to instead use `--to-file` so your wallet password is not in your bash history. For development purposes and because these are **development and not production keys** `--to-console` poses no security threat.
+The first step is to create a wallet. Use [cleos wallet create]() to create a new "default" wallet using the option `--to-console` for simplicity. If using cleos in production, it's wise to instead use `--file` so your wallet password is not in your bash history. For development purposes and because these are **development and not production keys** `--to-console` poses no security threat.
 
 ```shell
 cleos wallet create --to-console
