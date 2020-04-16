@@ -28,7 +28,7 @@ class [[eosio::contract("abcounter")]] abcounter : public eosio::contract {
     [[eosio::action]]
     void count(name user, std::string type) {
       require_auth( name("addressbook"));
-      count_index counts(get_first_receiver(), get_first_receiver().value);
+      count_index counts(get_first_receiver(), get_first_receiver().value);/
       auto iterator = counts.find(user.value);
 
       if (iterator == counts.end()) {
@@ -201,9 +201,9 @@ public:
 private:
   struct [[eosio::table]] person {
     name key;
-    uint64_t age;
     std::string first_name;
     std::string last_name;
+    uint64_t age;
     std::string street;
     std::string city;
     std::string state;
