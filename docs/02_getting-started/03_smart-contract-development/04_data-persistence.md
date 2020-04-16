@@ -417,7 +417,7 @@ private:
 };    
 ```
 
-## Step 10 Prepare the Ricardian Clauses [Optional]
+## Step 10 Prepare the Ricardian Contract [Optional]
 
 Contracts compiled without a Ricardian contract will generate a compiler warning for each action missing an entry in the Ricardian clause.
 
