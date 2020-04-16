@@ -201,9 +201,9 @@ public:
 private:
   struct [[eosio::table]] person {
     name key;
-    uint64_t age;
     std::string first_name;
     std::string last_name;
+    uint64_t age;
     std::string street;
     std::string city;
     std::string state;
