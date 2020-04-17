@@ -259,7 +259,7 @@ Let's open tic.tac.toe.cpp and set up the boilerplate:
 
 We want `tic tac toe` contract to only react to actions sent to the `tic.tac.toe` account and react differently according to the type of the action. The actions that we declared previously are ***create***, ***move***, ***restart***, and ***close***. Let's define the individual action handlers in the next section.
 
-### `create` Action Handler
+### Action Handler - 'create'
 
 For the ***create*** action handler, we want to:
 
@@ -286,7 +286,7 @@ void tic_tac_toe::create(const name &challenger, name &host) {
 }
 ```
 
-### `move` Action Handler 
+### Action Handler - 'move'
 
 For the ***move*** action handler, we want to:
 
@@ -413,7 +413,7 @@ name get_winner(const tic_tac_toe::game &current_game)
 }
 ```
 
-### `restart` Action Handler
+### Action Handler - restart 
 
 For the ***restart*** action handler, we want to:
 
@@ -443,7 +443,7 @@ void tic_tac_toe::restart(const name &challenger, const name &host, const name &
 }
 ```
 
-### `close` Action Handler
+### Action Handler - close
 
 For the ***close*** action handler, we want to:
 
@@ -654,7 +654,7 @@ After the deployment and the transaction is confirmed, the contract is already a
 [[info | Test Account]]
 | If you have not created these accounts already, refer to this article for creating test accounts [Create Test Accounts](../02_development-environment/07_create-test-accounts.md)
 
-### Create a game
+### Create a Game
 
 We are going to use `bob` and `alice` accounts to play this game:
 
@@ -662,7 +662,7 @@ We are going to use `bob` and `alice` accounts to play this game:
 cleos push action tic.tac.toe create '{"challenger":"bob", "host":"alice"}' --permission alice@active
 ```
 
-### Make moves
+### Make Moves
 
 ```bash
 cleos push action tic.tac.toe move '{"challenger":"bob", "host":"alice", "by":"alice", "row":0, "column":0}' --permission alice@active
@@ -670,7 +670,7 @@ cleos push action tic.tac.toe move '{"challenger":"bob", "host":"alice", "by":"a
 cleos push action tic.tac.toe move '{"challenger":"bob", "host":"alice", "by":"bob", "row":1, "column":1}' --permission bob@active
 ```
 
-### See the game status
+### See the Game Status
 
 ```bash
 $ cleos get table tic.tac.toe alice games
@@ -697,13 +697,13 @@ $ cleos get table tic.tac.toe alice games
 }
 ```
 
-### Restart the game
+### Restart the Game
 
 ```bash
 cleos push action tic.tac.toe restart '{"challenger":"bob", "host":"alice", "by":"alice"}' --permission alice@active
 ```
 
-### Close the game
+### Close the Game
 
 ```bash
 cleos push action tic.tac.toe close '{"challenger":"bob", "host":"alice"}' --permission alice@active
