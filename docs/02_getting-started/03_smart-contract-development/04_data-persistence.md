@@ -2,7 +2,8 @@
 content_title: "2.4: Data Persistence"
 link_text: "2.4: Data Persistence"
 ---
-To learn about data persistence, write a simple smart contract that functions as an address book. While this use case isn't very practical as a production smart contract for various reasons, it's a good contract to start with to learn how data persistence works on EOSIO without being distracted by business logic that does not pertain to eosio's `multi_index` functionality.
+
+To learn about data persistence, write a simple smart contract that functions as an address book. While this use case might not be very practical as a production smart contract, it's a good contract to start with to learn how data persistence works on EOSIO
 ## Step 1: Create a new directory
 Earlier, you created a contract directory, navigate there now.
 
@@ -32,8 +33,8 @@ In a previous tutorial, you created a hello world contract and you learned the b
 using namespace eosio;
 
 class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
-  public:
 
+  public:
   private:
 
 };
@@ -47,18 +48,18 @@ struct person {};
 ```
 When defining the structure of a multi_index table, you will require a unique value to use as the primary key.
 
-For this contract, use a field called "key" with type `name`. This contract will have one unique entry per user, so this key will be a consistent and guaranteed unique value based on the user's `name`
+For this contract, use a field called "account_name" with type `name`. This contract will have one unique entry per user, so this key will be a consistent and guaranteed unique value based on the user's `name`
 
 ```cpp
 struct person {
- name key;
+ name account_name;
 };
 ```
 Since this contract is an address book it probably should store some relevant details for each entry or *person*
 
 ```cpp
 struct person {
- name key;
+ name account_name;
  std::string first_name;
  std::string last_name;
  std::string street;
@@ -68,27 +69,63 @@ struct person {
 ```
 Great. The basic data structure is now complete.
 
-Next, define a `primary_key` method. Every multi_index struct requires a *primary key* to be set. Behind the scenes, this method is used according to the index specification of your multi_index instantiation. EOSIO wraps [boost::multi_index](https://www.boost.org/doc/libs/1_59_0/libs/multi_index/doc/index.html)
+## Step 4: Storage Option
 
-Create an method `primary_key()` and return a struct member, in this case, the `key` member as previously discussed.
+There are two different kind of storage resources. These two storage resource has different trade-offs. With `DISK`, the data storage will be cheap but accessing that data will be expensive. Alternatively, with `RAM`, storage will be expensive, but access will be cheap.
+
+once we choose the storage option, we can configure the table
+
+## Step 5: Configure the Multi-Index Table
+
+Now that the data structure of the table has been defined with a `struct` we need to configure the table. The [eosio::kv_table](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index) constructor needs to be named and configured to use the struct we previously defined.
 
 ```cpp
-struct person {
- name key;
- std::string first_name;
- std::string last_name;
- std::string street;
- std::string city;
- std::string state;
+struct address_table : eosio::kv_table<address_table, person, "addressbook", "eosio.kvram"> {
+   struct {
+      kv_index account {&person::account_name};
+      kv_index age {&person::age};
+   } indices;
 
- uint64_t primary_key() const { return key.value;}
-};
+   address_table(eosio::name contract_name) {
+      init(contract_name, &indices);
+   }
+}
 ```
+
+With the above `kv_table` configuration there is a table named **addressbook**, that
+
+1. Pass the struct reference
+2. Pass in the singular `person` struct defined in the previous step
+3. Name this table as `addressbook`
+4. Choose the RAM as the storage type therefore `eosio.kvram`
+
+You can also define it with a Marco
+
+```cpp
+DEFINE_TABLE(address_table, person, "addressbook", "eosio.kvram"
+   key,
+   age
+)
+```
+
+With the table configuration, we also define the underlying data storage option. When `eosio.kvram` is specified, the "RAM" resource will be used. Respectively, `eosio.kvdisk` indicates "DISK" will be used. These two storage resource has different trade-offs. With `DISK`, the data storage will be cheap but accessing that data will be expensive. Alternatively, with `RAM`, storage will be expensive, but access will be cheap.
 
 [[warning]]
 | A table's data structure cannot be modified while it has data in it. If you need to make changes to a table's data structure in any way, you first need to remove all its rows
 
+With the table configuration above, we also define the index for this table with the code below:
+
+```cpp
+KV_NAMED_INDEX("account"_n, account_name)
+KV_NAMED_INDEX("age"_n, age)
+```
+
+These indices later can be used query and retriving row we inserted.
+
+*Every multi_index struct requires a *primary key* to be set. Behind the scenes, this method is used according to the index specification of your multi_index instantiation*
+
 ## Step 5: Configure the Multi-Index Table
+
 Now that the data structure of the table has been defined with a `struct` we need to configure the table. The [eosio::multi_index](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index) constructor needs to be named and configured to use the struct we previously defined.
 
 ```cpp
@@ -171,6 +208,7 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
 }
 ```
 
+
 Previously, a multi_index table was configured, and declared as `address_index`. To instantiate a table, two parameters are required:
 
 1. The first parameter "code", which specifies the owner of this table. As the owner, the account will be charged for storage costs.  Also, only that account can modify or delete the data in this table unless another payer is specified. Here we use the `get_self()` function which will pass the name of this contract.
@@ -213,9 +251,6 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
   }
 }
 ```
-Create a record in the table using the multi_index method [emplace](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-emplace). This method accepts two arguments, the "payer" of this record who pays the storage usage and a callback function.
-
-The callback function for the emplace method must use a lamba function to create a reference. Inside the body assign the row's values with the ones provided to `upsert`.
 
 ```cpp
 void upsert(name user, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
@@ -224,14 +259,39 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
   auto iterator = addresses.find(user.value);
   if( iterator == addresses.end() )
   {
-    addresses.emplace(user, [&]( auto& row ) {
-      row.key = user;
-      row.first_name = first_name;
-      row.last_name = last_name;
-      row.street = street;
-      row.city = city;
-      row.state = state;
-    });
+    //The user isn't in the table
+  }
+  else {
+    //The user is in the table
+  }
+}
+```
+
+Create a record in the table using the multi_index method [emplace](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-emplace). This method accepts two arguments, the "payer" of this record who pays the storage usage and a callback function.
+
+The callback function for the emplace method must use a lamba function to create a reference. Inside the body assign the row's values with the ones provided to `upsert`.
+
+```cpp
+void upsert(name user, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
+  
+  require_auth( user );
+
+  // address_index addresses(get_self(), get_first_receiver().value);
+  address_table addresses{"addressbook"_n};
+
+  //how find is related to index?
+  auto address = addresses.user.find(user);
+
+  if(user != address.user.end())
+  {
+    addresses.put({
+      .user = user,
+      .first_name = first_name,
+      .last_name = last_name,
+      .street = street,
+      .city = city,
+      .state = state
+    })
   }
   else {
     //The user is in the table
@@ -246,28 +306,20 @@ Next, handle the modification, or update, case of the "upsert" function. Use the
 ```cpp
 void upsert(name user, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
   require_auth( user );
+  
   address_index addresses(get_self(), get_first_receiver().value);
   auto iterator = addresses.find(user.value);
+  
+  address_table addresses{"addressbook"_n};
+  
+  auto address = addresses.user.find(user);
+  
   if( iterator == addresses.end() )
   {
-    addresses.emplace(user, [&]( auto& row ) {
-      row.key = user;
-      row.first_name = first_name;
-      row.last_name = last_name;
-      row.street = street;
-      row.city = city;
-      row.state = state;
-    });
+  	  
   }
   else {
-    addresses.modify(iterator, user, [&]( auto& row ) {
-      row.key = user;
-      row.first_name = first_name;
-      row.last_name = last_name;
-      row.street = street;
-      row.city = city;
-      row.state = state;
-    });
+    
   }
 }
 ```
@@ -282,16 +334,19 @@ Similar to the previous steps, create a public method in the `addressbook`, maki
     void erase(name user){
       require_auth(user);
     }
-
 ```
 Instantiate the table. In `addressbook` each account has only one record. Set `iterator` with [find](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-find)
 
 ```cpp
 ...
     void erase(name user){
-      require_auth(user);
-      address_index addresses(get_self(), get_first_receiver().value);
-      auto iterator = addresses.find(user.value);
+      require_auth(user);  
+  		address_table addresses{"addressbook"_n};
+  
+  		auto address = addresses.user.find(user);
+
+     	eosio::check(address != addresses.account_name.end()); 		
+  		addresses.erase(address.value());
     }
 ...
 ```
@@ -301,21 +356,25 @@ A contract *cannot* erase a record that doesn't exist, so check that the record 
 ...
     void erase(name user){
       require_auth(user);
+  
       address_index addresses(get_self(), get_first_receiver().value);
-      auto iterator = addresses.find(user.value);
+    	auto iterator = addresses.find(user.value);
+      
       check(iterator != addresses.end(), "Record does not exist");
     }
 ...
 ```
-Finally, call the [erase](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-erase-12) method, to erase the iterator. Once the row is erased, the storage space will be free up for the original payer.
+Finally, call the [erase](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-erase-12) method to erase the iterator. Once the row is erased, the storage space will be free up for the original payer.
 
 ```cpp
 ...
   void erase(name user) {
     require_auth(user);
+  
     address_index addresses(get_self(), get_first_receiver().value);
     auto iterator = addresses.find(user.value);
-    check(iterator != addresses.end(), "Record does not exist");
+
+  	check(iterator != addresses.end(), "Record does not exist");
     addresses.erase(iterator);
   }
 ...
