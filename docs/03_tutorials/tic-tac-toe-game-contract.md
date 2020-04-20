@@ -259,7 +259,7 @@ Let's open tic.tac.toe.cpp and set up the boilerplate:
 
 We want `tic tac toe` contract to only react to actions sent to the `tic.tac.toe` account and react differently according to the type of the action. The actions that we declared previously are ***create***, ***move***, ***restart***, and ***close***. Let's define the individual action handlers in the next section.
 
-### Action Handler - 'create'
+### Action Handler - create
 
 For the ***create*** action handler, we want to:
 
@@ -286,7 +286,7 @@ void tic_tac_toe::create(const name &challenger, name &host) {
 }
 ```
 
-### Action Handler - 'move'
+### Action Handler - move
 
 For the ***move*** action handler, we want to:
 
