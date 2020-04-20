@@ -151,7 +151,7 @@ The party action will only allow withdrawals after the configured `the_party` ti
 
 * check the withdrawing account is the account which made the deposit initially
 * find the locked balance
-* transfer the token on behalf of the account to the account itself
+* transfer the token from the `hodl` contract to the account itself
 ```cpp
 [[eosio::action]]
 void party(name hodler)
