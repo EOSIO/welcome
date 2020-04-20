@@ -13,7 +13,7 @@ EOSIO is designed with high transactions throughput in mind and each new version
 
 The consensus mechanism of Delegated Proof of Stake (DPOS) achieves high transaction throughputs because DPOS does not need to wait for all the nodes to complete a transaction to achieve finality. This behavior results in faster confirmations and lower latency.
 
-The `EOS-VM` mentioned earlier, and all its blockchain-dedicated features and improvements add significant contribution to the overall performance of the EOSIO-based blockchains.
+The `EOS VM` mentioned earlier, and all its blockchain-dedicated features and improvements add significant contribution to the overall performance of the EOSIO-based blockchains.
 
 ## Programmable Economics and Governance
 The resource allocation and governance mechanism of any EOSIO-based blockchains are programmable through smart contracts. You can modify the system smart contracts to customize the resource allocation model and governance rules of a EOSIO blockchain. The on-chain governance mechanism can be modified using system smart contracts, as the core layer code does not always have to be updated for the changes to take place.
