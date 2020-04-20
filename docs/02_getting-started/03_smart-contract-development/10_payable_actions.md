@@ -273,7 +273,7 @@ cleos set account permission hodl active --add-code
 ```
 Next, create a testing account:
 ```shell
-cleos create account eosio han DEVELOPMENT_KEY
+cleos create account eosio han YOUR_PUBLIC_KEY
 ```
 Let's transfer some SYS tokens issued in the previous section to `han`:
 ```shell
