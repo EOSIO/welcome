@@ -141,6 +141,8 @@ terms:
     name: Keosd
   - definition: "In the EOSIO based blockchain context Ricardian Contract is a digital document that accompanies a smart contract and defines the terms and conditions of an interaction between the smart contract and its users, written in human readable text, which is then cryptographically signed and verified. It is easily readable for both humans and programs, and aids in providing clarity to any situations that may arise in the interactions between smart contract and its users."
     name: "Ricardian Contract"
+  - definition: "An action within a validated transaction, that is, an action whose transaction was executed and pushed to a block, but may or may not be final yet."
+    name: "Retired Action"
   - definition: "Standard account names can only contain the characters .abcdefghijklmnopqrstuvwxyz12345. a-z (lowercase), 1-5 and . (period), must start with a letter and must be 12 characters in length."
     name: "Standard Account Name"
   - definition: "An account name is a human-readable identifier that is stored on the blockchain. Standard account names can only contain the characters .abcdefghijklmnopqrstuvwxyz12345. a-z (lowercase), 1-5 and . (period), must start with a letter and must be 12 characters in length. Non-standard account names have all restrictions of the standard ones except they can have less than 12 characters in length."
