@@ -160,7 +160,7 @@ Name | Type | Description
 `producer_signature` | `signature_type` | digital signature by producer that created and signed block
 `transactions` | array of `transaction_receipt` | list of valid transaction receipts included in block
 `block_extensions` | `extension_type` | extends block fields to support additional features (NOT included in block ID calculation)
-`id` | `uint64_t` | UUID of this block ID (a function of block header and block number); can be used to query block for validation/retrieval purposes
+`id` | `block_id_type` | UUID of this block ID (a function of block header and block number); can be used to query block for validation/retrieval purposes
 `block_num` | `uint32_t` | block number (sequential counter value since genesis block 0); can be used to query block for validation/retrieval purposes
 `ref_block_prefix` | `uint32_t` | lower 32 bits of block ID; used to prevent replay attacks
 
