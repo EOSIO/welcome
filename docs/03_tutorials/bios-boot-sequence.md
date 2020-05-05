@@ -111,7 +111,7 @@ y
 
 To start the genesis node:
 
-1. Create a `genesis_start.sh` shell script file in the `~/biosnode/genesis/` directory and open the file with your preferred editor (demonstrated with nano editor here):
+1. Create a `genesis_start.sh` shell script file in the `~/biosboot/genesis/` directory and open the file with your preferred editor (demonstrated with nano editor here):
 ```shell
 cd ~/biosboot/genesis
 touch genesis_start.sh
@@ -193,7 +193,7 @@ chmod 755 genesis_start.sh
 
 To stop `nodeos`:
 
-1. Create a `stop.sh` shell script file in the `~/biosnode/genesis/` directory and copy the following stop.sh script to it.
+1. Create a `stop.sh` shell script file in the `~/biosboot/genesis/` directory and copy the following stop.sh script to it.
 
 ```shell
 #!/bin/bash
@@ -685,11 +685,11 @@ accountnum11  EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt  https://acc
 
 We will set up now a new producer using the previously created `accountnum11` account. To set up the new producer, execute these steps to create a dedicated folder for it:
 ```text
-cd ~/netbios/
+cd ~/biosboot/
 mkdir accountnum11
 cd accountnum11
-copy ~/netbios/genesis/stop.sh
-copy ~/netbios/genesis/clean.sh
+copy ~/biosboot/genesis/stop.sh
+copy ~/biosboot/genesis/clean.sh
 
 ```
 Create the following three shell script files and assign execution permission to them: `genesis_start.sh`, `start.sh`, `hard_start.sh`.
