@@ -1,10 +1,9 @@
 terms:
   - definition: "An account is a unique identifier and a requirement to interact with an EOSIO blockchain. Unlike most other cryptocurrencies, transfers are sent to a human readable account name instead of a public key, while keys attributed to the account are used to sign transactions."
     name: Account
-  - definition: "The Application Binary Interface (ABI) is a JSON-based description on how to convert user actions between their JSON and binary representations. The ABI may also describe how to convert the database state to/from JSON. Once you have described your contract via an ABI this allows developers and users to interact with your contract seamlessly via JSON."
-    name: ABI
-    synonyms:
-      - "Application Binary Interface"
+  - definition: "A JSON-based description on how to convert user actions between their JSON and binary representations. The ABI may also describe how to convert the database state to/from JSON. Once you have described your contract via an ABI this allows developers and users to interact with your contract seamlessly via JSON."
+    name: Application Binary Interface
+    abbreviation: "ABI"
   - definition: "Functionality exposed by a smart contract that is exercised by passing the correct parameters via an approved transaction to an EOSIO network."
     name: Action
     related:
@@ -13,20 +12,19 @@ terms:
     name: Block
     related:
       - name: Action
-  - definition: "A DAC is an entity that utilizes a combination of automation and input from stakeholders, normally in the form of votes. They are often governed by code which describes the purpose of the organisation."
-    name: DAC
-    synonyms:
-      - "Decentralized Autonomous Company"
-  - definition: "Distributed Ledger Technologies. A distributed ledger (also called a shared ledger, or referred to as distributed ledger technology) is a consensus of replicated, shared, and synchronized digital data geographically spread across multiple sites, countries, or institutions."
-    name: DLT
-    synonyms:
-      - "Distributed Ledger Technology"
-  - definition: "DPoS stands for \"Delegated Proof of Stake\" and is a consensus algorithm initially developed by Daniel Larimer in 2013 for Bitshares. It's sometimes referred to as \"Democracy as Proof of Stake\""
-    name: DPoS
-    synonyms:
-      - "Delegated Proof-of-Stake"
+  - definition: "An entity that utilizes a combination of automation and input from stakeholders, normally in the form of votes. They are often governed by code which describes the purpose of the organisation."
+    name: Decentralized Autonomous Company
+    abbreviation: "DAC"
+  - definition: "A consensus of replicated, shared, and synchronized digital data geographically spread across multiple sites, countries, or institutions. DLT is also called a shared ledger."
+    name: Distributed Ledger Technology
+    abbreviation: "DLT"
+  - definition: 'A consensus algorithm initially developed by Daniel Larimer in 2013 for Bitshares. It is sometimes referred to as "Democracy as Proof of Stake"'
+    name: Delegated Proof of Stake
+    abbreviation: "DPoS"
   - definition: "The genesis block is the very first block in the EOSIO blockchain. The subsequent block added after the genesis block becomes block 1 and continues the sequence. The genesis block lays the foundation for other blocks to be added to form a blockchain."
     name: Genesis Block
+    related:
+      - name: "Block"
   - definition: "The genesis node is the first node in the blockchain network. The genesis node is used to perform a set of actions such as creating system accounts, initializing system, and token contracts in order to create a fully-functional blockchain with varying capabilities such as governance, resource allocation, and more."
     name: Genesis Node
     synonyms:
@@ -56,7 +54,7 @@ terms:
     name: "Non-Producing Node"
     related:
       - name: "Block-Producing Node"
-      - name: "Configuring a block-producing node"
+      - name: "Guide: Configuring a block-producing node"
         link: "http://developers.eos.io/manuals/eos/latest/nodeos/usage/node-setups/producing-node"
   - definition: "A complete all-or-nothing change to the Blockchain. A combination of one or more actions. Usually the execution result of a Smart Contract."
     name: Transaction
@@ -78,12 +76,17 @@ terms:
     name: RAM
     related:
       - name: "RAM Market"
+      - name: "Bancor Relay"
   - definition: "EOSIO adopts a free-market approach to allocating scarce resources. To facilitate this market, the eosio system contract allows users to buy RAM from the system and sell RAM back to the system in exchange for the blockchain's native tokens. This provides liquidity in the RAM market while facilitating price discovery. The less unallocated RAM available to the market maker the higher the market maker prices the remaining RAM. The algorithm used for this market maker is known as a Bancor Relay. A Bancor Relay does not set the price of RAM. It only offers to buy and sell at previously established market rates. Anytime the current market rate is different than the current price offered by the Bancor Relay, traders will buy or sell RAM pushing to closer to the market determined price."
     name: "Bancor Relay"
     synonyms:
      - Bancor Algorithm
+    related:
+      - name: "RAM Market"
   - definition: "In order to persist data on an EOSIO based blockchain, a user must first purchase RAM. The EOSIO RAM market uses the Bancor Relay algorithm in a system smart contract to offer to buy and sell RAM from users at previously established market rates."
     name: "RAM Market"
+    related:
+      - name: "Bancor Relay"
   - definition: "CPU is processing power granted to an account by an EOSIO based blockchain. The amount of CPU an account has is measured in microseconds, and represents the amount of processing time an account has at its disposal when executing its actions. CPU is recalculated after each block is produced, based on the amount of system tokens the account staked for CPU bandwidth in proportion to the amount of total system tokens staked for CPU bandwidth at that time."
     name: CPU
   - definition: "NET is required to store transactions on an EOSIO based blockchain. The amount of NET an account has is measured in bytes, representing the amount of transaction storage an account has at its disposal when creating a new transaction. NET is recalculated after each block is produced, based on the system tokens staked for NET bandwidth by the account. The amount allocated to an account is proportional with the total system tokens staked for NET by all accounts. Do not confuse NET with RAM, although it is also storage space, NET measures the size of the transactions and not contract state."
@@ -98,6 +101,8 @@ terms:
     name: "Blockchain Application"
   - definition: "A block is considered irreversible (i.e. immutable) on an EOSIO based blockchain when 2/3rd of the currently elected block producers have acknowledged it."
     name: "Irreversible Block"
+    related:
+      - name: "Block"
   - definition: "Any block on an EOSIO based blockchain with a block number greater than the last irreversible block. Reversible blocks are blocks that are not currently guaranteed to be on the blockchain."
     name: "Reversible Block"
     related:
@@ -119,13 +124,15 @@ terms:
     name: "Merkle Tree"
     synonyms:
       - "Hash tree"
+    related:
+      - name: "Block Header"
   - definition: "A cryptographic hash function is a hash function which takes an input (or 'message') and returns a fixed-size alphanumeric string. The alphanumeric string is called the 'hash value', 'message digest', 'digital fingerprint', 'digest' or 'checksum'."
     name: "Cryptographic Hash"
   - definition: "In the context of distributed systems, Byzantine Fault Tolerance (BFT) is the ability of a distributed computer network to function as desired and correctly reach a sufficient consensus despite malicious components (nodes) of the system failing or propagating incorrect information to other peers. In an EOSIO based blockchain BFT is achieved using a combination of Delegated Proof of Stake, the last irreversible block, and the fact that a producer cannot sign two blocks with the same block number."
     name: "Byzantine Fault Tolerance"
     related:
       - name: "Irreversible Block"
-      - name: "DPoS"
+      - name: "Delegated Proof of Stake"
   - definition: "cleos is a command line tool that interfaces with the REST api exposed by nodeos, in other words cleos is the command line tool through which you can interface with an EOSIO based blockchain; cleos contains documentation for all of its commands. For a list of all commands known to cleos, simply run it with no arguments. cleos = command line + eos"
     name: Cleos
   - definition: "nodeos is the core EOSIO node daemon that can be configured with plugins to run a node. Example uses are block production, dedicated API endpoints, and local development. nodeos = node + eos"
@@ -154,7 +161,7 @@ terms:
       - "Multi-Index Tables"
   - definition: "nodeos plugins are software components that implement features that complement the native EOSIO blockchain basic implementation. They can be enabled or disabled through the nodeos configuration file or specifying them in the command line that launches the nodeos daemon."
     name: Plugin
-  - definition: "Tables on an EOSIO based blockchain are achieved via Multiple Index Table."
+  - definition: "Tables on an EOSIO-based blockchain are achieved via Multiple Index Table."
     name: Tables
     related:
       - name: "Multiple Index Table"
@@ -168,8 +175,9 @@ terms:
     name: "EOSIO Types"
   - definition: "In order to transfer transaction content between nodes faster and to save storage space when storing transaction content in and EOSIO based blockchain database, the transactions are 'translated' from json into a packed form which is smaller in size. To get the packed version of a transaction one can use the cleos convert command."
     name: "Packed Transaction"
-  - definition: "WIF stands for Wallet Import Format and is an encoding for a private EDSA key. EOSIO uses the same version, checksum, and encoding scheme as the Bitcoin WIF addresses and should be compatible with existing libraries. The following is an example of a WIF Private Key: 5HpHagT65TZzG1PH3CSu63k8DbpvD8s5ip4nEB3kEsreAbuatmU"
-    name: WIF
+  - definition: "An encoding for a private EDSA key. EOSIO uses the same version, checksum, and encoding scheme as the Bitcoin WIF addresses and should be compatible with existing libraries. The following is an example of a WIF Private Key: 5HpHagT65TZzG1PH3CSu63k8DbpvD8s5ip4nEB3kEsreAbuatmU"
+    name: Wallet Import Format
+    abbreviation: "WIF"
   - definition: "Every smart contract must provide an `apply` action handler. The `apply` action handler is a function that listens to all incoming actions and performs the desired behavior. In order to respond to a particular action, code is required to identify and respond to specific action requests. `apply` uses the `receiver`, `code`, and `action` input parameters as filters to map to the desired functions that implement particular actions. To simplify the work for contract developers, EOSIO provides the EOSIO_DISPATCH macro, which encapsulates the lower level action mapping details of the apply function, enabling developers to focus on their application implementation."
     name: Dispatcher
   - definition: "On completion of a transaction, a transaction receipt is generated. This receipt takes the form of a hash. Receiving a transaction hash does *not* mean that the transaction has been confirmed, it simply means that the node accepted it without error, which also means that there is a high probability other producers will accept it."
@@ -183,10 +191,11 @@ terms:
       - multiple signatures
   - definition: "A transaction is considered unconfirmed as long as no nodeos instance has received, processed, and written it to a block on the blockchain, i.e. it is not in the head block or a block earlier than the head block."
     name: "Unconfirmed Transaction"
-  - definition: "WASM stands for WebAssembly. The EOSIO based blockchains execute user-generated applications and code using WebAssembly. WASM is an emerging web standard with widespread support of Google, Microsoft, Apple, and others. At the moment the most mature toolchain for building applications that compile to WASM is clang/llvm with their C/C++ compiler. For best compatibility, it is recommended that you use the EOSIO toolchain to generate WASM."
-    name: WASM
+  - definition: "The EOSIO based blockchains execute user-generated applications and code using WebAssembly. WASM is an emerging web standard with widespread support of Google, Microsoft, Apple, and others. At the moment the most mature toolchain for building applications that compile to WASM is clang/llvm with their C/C++ compiler. For best compatibility, it is recommended that you use the EOSIO toolchain to generate WASM."
+    name: WebAssembly
     synonyms:
       - "Web-Assembly Machine"
+    abbreviation: "Wasm"
   - definition: "An EOSIO based blockchain allows contract developers to persist state across actions, and consequently transaction, boundaries. For example the sample eosio.token contract keeps balances for all users in the database. Each instance of nodeos keeps the database in memory, so contracts can read and write data quickly. However, at any given time there can be multiple correct ways, called modes, to query that data."
     name: "Read Mode"
   - definition: "Permissions are arbitrary names used to define the requirements for a transaction sent on behalf of that permission. Permissions can be assigned for authority over specific contract actions by \"linking authorization\" or linkauth. Every account has two native named permissions, `owner` and `active`. Every permission name has a \"parent.\" Parents possess the authority to change any of the permission settings for any and all of their children. In addition to the native permissions, an account can possess custom named permissions that are available to further extend account management. Custom permissions are incredibly flexible and address numerous possible use cases when implemented correctly. Given this context permission level is used to identify a specific permission, either active, or owner, or a custom one."
@@ -212,7 +221,10 @@ terms:
   - definition: "A permission weight is a value given to an account for authorization purposes. This is typically used in the context of a mutli-sig to give one or more accounts more control over a multi-sig than others."
     name: "Permission Weight"
     synonyms:
-      - Authorization
+      - "Authorization"
+    related:
+      - name: "Permission"
+      - name: "Account"
   - definition: "In the context of a multiple index table, an index is a particular ordering of the elements in the table. Multiple index indices allow the same data in one table to be viewed as different data structures by specifying the specific index on the table. EOSIO multiple index tables allow for up to 16 unique indices."
     name: Indices
   - definition: "Wait is measured in seconds and it is the time to wait until a delayed transaction is executed. Its value can not be higher than the max_transaction_delay which is set in the global configuration file."
@@ -225,3 +237,5 @@ terms:
     name: "System Contract"
   - definition: "At the genesis of an EOSIO based blockchain, there is only one account present, `eosio` which is the main system account."
     name: "Privileged Account"
+    related:
+      - name: "Account"
