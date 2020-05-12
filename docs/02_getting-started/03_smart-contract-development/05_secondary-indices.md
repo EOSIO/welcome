@@ -37,9 +37,9 @@ indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>
   > address_index;
 ```
 
-In the third parameter, we pass a `index_by` struct which is used to instantiate a index.
+In the third parameter, we pass a `indexed_by` struct which is used to instantiate a index.
 
-In that `index_by` struct, we specify the name of index as `"byage"` and the second type parameter as a function call operator which extracts a const value as an index key. In this case, we point it to the getter we created earlier so this multiple index table will index records by the `age` variable.
+In that `indexed_by` struct, we specify the name of index as `"byage"` and the second type parameter as a function call operator which extracts a const value as an index key. In this case, we point it to the getter we created earlier so this multiple index table will index records by the `age` variable.
 
 ```cpp
 indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>
