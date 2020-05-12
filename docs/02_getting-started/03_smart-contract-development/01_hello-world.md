@@ -33,7 +33,7 @@ using namespace eosio;
 
 class [[eosio::contract]] hello : public contract {};
 ```
-An empty contract doesn't do much good. Add a public access specifier.
+An empty contract doesn't do much good. Add a public access specifier and a using-declaration. The `using` declaration will allow us to write more concise code.
 
 ```cpp
 #include <eosio/eosio.hpp>
@@ -42,6 +42,7 @@ using namespace eosio;
 
 class [[eosio::contract]] hello : public contract {
   public:
+  	 using contract::contract;
 };
 ```
 This contract needs to do something. In the spirit of **hello world** write an action that accepts a "name" parameter, and then prints that parameter out.
@@ -56,6 +57,7 @@ using namespace eosio;
 
 class [[eosio::contract]] hello : public contract {
   public:
+      using contract::contract;
 
       [[eosio::action]]
       void hi( name user ) {
@@ -74,6 +76,7 @@ using namespace eosio;
 
 class [[eosio::contract]] hello : public contract {
   public:
+      using contract::contract;
 
       [[eosio::action]]
       void hi( name user ) {
@@ -91,6 +94,7 @@ using namespace eosio;
 
 class [[eosio::contract]] hello : public contract {
   public:
+      using contract::contract;
 
       [[eosio::action]]
       void hi( name user ) {
