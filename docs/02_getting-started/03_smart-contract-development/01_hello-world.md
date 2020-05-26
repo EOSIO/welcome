@@ -2,7 +2,11 @@
 content_title: "2.1: Hello World Contract"
 link_text: "2.1: Hello World Contract"
 ---
-Create a new directory called "hello" in the contracts directory you previously created, or through your system GUI or with cli and enter the directory.
+
+
+
+## Create the Contract
+Create a new directory called "hello" in the contracts directory you previously created, or through your system GUI or with CLI and enter the directory.
 
 ```shell
 cd CONTRACTS_DIR
@@ -58,6 +62,7 @@ using namespace eosio;
 class [[eosio::contract]] hello : public contract {
   public:
       using contract::contract;
+
       [[eosio::action]]
       void hi( name user ) {
          print( "Hello, ", user);
@@ -101,6 +106,8 @@ class [[eosio::contract]] hello : public contract {
       }
 };
 ```
+## Compile the Contract
+
 
 [[info]]
 | The ABI Generator in eosio.cdt supports several different style of attributes, see the ABI usage guide [here](./03_understanding-ABI-files.md)
@@ -109,6 +116,8 @@ You can compile your code to web assembly (.wasm) as follows:
 ```shell
 eosio-cpp hello.cpp -o hello.wasm
 ```
+
+## Deploy the Contract
 When a contract is deployed, it is deployed to an account, and the account becomes the interface for the contract. As mentioned earlier these tutorials use the same public key for all of the accounts to keep things simple.
 
 ```shell
@@ -130,6 +139,8 @@ Deploy the compiled `wasm` to the blockchain with [cleos set contract](https://d
 cleos set contract hello CONTRACTS_DIR/hello -p hello@active
 
 ```
+
+## Execute the Contract
 Great! Now the contract is set, push an action to it.
 
 ```shell
