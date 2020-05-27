@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": ["get-involved", "05_community-developer-tools"]
+        "exclude": ["get-involved", "05_community-developer-tools", "06_eosio-blockchain-networks"]
       }
     },
     {
@@ -40,6 +40,14 @@
       "options": {
         "docs_dir": "docs/05_community-developer-tools",
         "output_dir": "05_community-developer-tools"
+      }
+    },
+
+    {
+      "name": "collate_markdown",
+      "options": {
+        "docs_dir": "docs/06_eosio-blockchain-networks",
+        "output_dir": "06_eosio-blockchain-networks"
       }
     },
 
