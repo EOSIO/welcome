@@ -1,3 +1,8 @@
+---
+content_title: EOSIO Blockchain Networks
+link_text: EOSIO Blockchain Networks
+---
+
 ## Overview
 This is a list of blockchain networks which are operated using EOSIO software, curated by the Developer Relations team at Block.one.
 If you would like to submit a blockchain network to be added to the list, please fill in [this form](LINK).
