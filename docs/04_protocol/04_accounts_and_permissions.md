@@ -101,7 +101,7 @@ Name | Type | Description
 `account_name` | `name` | encoded 13-char account name
 `head_block_num` | `uint32_t` | last block account was referenced
 `head_block_time` | `time_point` | last time account was referenced
-`privileged` | `bool` | privileged account?
+`privileged` | `bool` | True, if privileged account, False otherwise
 `last_code_update` | `time_point` | time account code was set/updated
 `created` | `time_point` | time account was created
 `core_liquid_balance` | `asset` | current balance of token asset
