@@ -394,7 +394,7 @@ public:
         }
       });
 
-      if(changes.length() > 0) {
+      if(!changes.empty()) {
         send_summary(user, " successfully modified record in addressbook. Fields changed: " + changes);
         increment_counter(user, "modify");
       } else {

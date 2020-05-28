@@ -2,7 +2,7 @@
 content_title: "2.4: Data Persistence"
 link_text: "2.4: Data Persistence"
 ---
-To learn about data persistence, write a simple smart contract that functions as an address book. While this use case isn't very practical as a production smart contract for various reasons, it's a good contract to start with to learn how data persistence works on EOSIO without being distracted by business logic that does not pertain to eosio's `multi_index` functionality.
+To learn about data persistence, we will write a simple smart contract that functions as an address book. While this use case is not very practical as a production smart contract for various reasons, it is a good contract to start with to learn how data persistence works on EOSIO without being distracted by business logic that does not pertain to eosio's `multi_index` functionality.
 ## Step 1: Create a new directory
 Earlier, you created a contract directory, navigate there now.
 
@@ -24,7 +24,7 @@ touch addressbook.cpp
 Open the file in your favorite editor.
 
 ## Step 3: Write an Extended Standard Class and Include EOSIO
-In a previous tutorial, you created a hello world contract and you learned the basics. You will be familiar with the structure below, the class has been named `addressbook` respectively.
+If you followed the previous tutorial, you created a hello world contract and learned the basics. We use a similiar structure below with the class named `addressbook`:
 
 ```cpp
 #include <eosio/eosio.hpp>
@@ -40,7 +40,7 @@ class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 ```
 
 ## Step 4: Create The Data Structure for the Table
-Before a table can be configured and instantiated, a struct that represents the data structure of the address book needs to be written. Since it's an address book, the table will contain people, so create a `struct` called "person"
+Before a table can be configured and instantiated, we need to define a struct that represents the data structure of the address book. Since it is an address book, the table will contain people, so create a `struct` called "person"
 
 ```cpp
 struct person {};
@@ -92,7 +92,7 @@ struct person {
 Now that the data structure of the table has been defined with a `struct` we need to configure the table. The [eosio::multi_index](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index) constructor needs to be named and configured to use the struct we previously defined.
 
 ```cpp
-typedef eosio::multi_index<"people"_n, person> address_index;
+using address_index = eosio::multi_index<"people"_n, person>;
 ```
 With the above `multi_index` configuration there is a table named **people**, that
 
@@ -123,8 +123,8 @@ class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 
       uint64_t primary_key() const { return key.value;}
     };
-
-    typedef eosio::multi_index<"people"_n, person> address_index;
+    
+  using address_index = eosio::multi_index<"people"_n, person>;
 };
 ```
 
@@ -412,8 +412,7 @@ private:
     std::string state;
     uint64_t primary_key() const { return key.value; }
   };
-  typedef eosio::multi_index<"people"_n, person> address_index;
-
+  using address_index = eosio::multi_index<"people"_n, person>;
 };    
 ```
 
