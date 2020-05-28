@@ -2,7 +2,7 @@
 content_title: "2.4: Data Persistence"
 link_text: "2.4: Data Persistence"
 ---
-To learn about data persistence, we will write a simple smart contract that functions as an address book. While this use case is not very practical as a production smart contract for various reasons, it is a good contract to start with to learn how data persistence works on EOSIO without being distracted by business logic that does not pertain to eosio's `multi_index` functionality.
+To learn about data persistence, we will write a simple smart contract that functions as an address book. While this use case is not very practical as a production smart contract, it is a good contract to start with to learn how data persistence works on EOSIO without being distracted by business logic that does not pertain to eosio's `multi_index` functionality.
 ## Step 1: Create a new directory
 Earlier, you created a contract directory, navigate there now.
 
@@ -45,16 +45,16 @@ Before a table can be configured and instantiated, we need to define a struct th
 ```cpp
 struct person {};
 ```
-When defining the structure of a multi_index table, you will require a unique value to use as the primary key.
+When defining the structure of a multi_index table, you use a unique value as the primary key.
 
-For this contract, use a field called "key" with type `name`. This contract will have one unique entry per user, so this key will be a consistent and guaranteed unique value based on the user's `name`
+For this contract, use a field called "key" with type `name` based on the user's `name`. This contract has one unique entry per user, so this key will be a consistent and guaranteed unique value.
 
 ```cpp
 struct person {
  name key;
 };
 ```
-Since this contract is an address book it probably should store some relevant details for each entry or *person*
+Since this contract is an address book it should store some relevant details for each entry or *person*
 
 ```cpp
 struct person {
@@ -68,9 +68,9 @@ struct person {
 ```
 Great. The basic data structure is now complete.
 
-Next, define a `primary_key` method. Every multi_index struct requires a *primary key* to be set. Behind the scenes, this method is used according to the index specification of your multi_index instantiation. EOSIO wraps [boost::multi_index](https://www.boost.org/doc/libs/1_59_0/libs/multi_index/doc/index.html)
+Next, define a `primary_key` method. Every multi_index struct requires a *primary key* method. Behind the scenes, this method is used according to the index specification of your multi_index instantiation. EOSIO `multi_index` wraps [boost::multi_index](https://www.boost.org/doc/libs/1_59_0/libs/multi_index/doc/index.html)
 
-Create an method `primary_key()` and return a struct member, in this case, the `key` member as previously discussed.
+Create a method `primary_key()` and return a struct member, in this case, the `key` member as previously discussed.
 
 ```cpp
 struct person {
@@ -99,7 +99,6 @@ With the above `multi_index` configuration there is a table named **people**, th
 1. Uses the `_n` operator to define an eosio::name type and uses that to name the table. This table contains a number of different singular "persons", so name the table "people".
 2. Pass in the singular `person` struct defined in the previous step.
 3. Declare this table's type. This type will be used to instantiate this table later.
-4. There are some additional configurations, such as configuring indices, that will be covered further on.
 
 So far, our file should look like this.
 
@@ -140,13 +139,13 @@ addressbook(name receiver, name code, datastream<const char*> ds):contract(recei
 ```
 
 ## Step 7: Adding a record to the table
-Previously, the primary key of the multi-index table was defined to enforce that this contract will only store one record per user. To make it all work, some assumptions about the design need to be established.
+Previously, the primary key of the multi-index table was defined to enforce that this contract will only store one record per user. To make it all work, some rules about the design need to be established.
 
 1. The only account authorized to modify the address book is the user.
-2. the **primary_key** of our table is unique, based on username
+2. The **primary_key** of our table is unique, based on username
 3. For usability, the contract should have the ability to both create and modify a table row with a single action.
 
-In EOSIO a chain has unique accounts, so `name` is an ideal candidate as a **primary_key** in this specific use case. The [name](https://developers.eos.io/manuals/eosio.cdt/latest/structeosio_1_1name) type is a `uint64_t`.
+On a EOSIO blockchain an account name is unique, therefore the `name` type is an ideal candidate as a **primary_key**. Behind the scenes, the [name](https://developers.eos.io/manuals/eosio.cdt/latest/structeosio_1_1name) type is an `uint64_t` integer.
 
 Next, define an action for the user to add or update a record. This action will need to accept any values that this action needs to be able to emplace (create) or modify.
 
