@@ -324,7 +324,7 @@ The contract is now mostly complete. Users can create, modify and erase records.
 
 ## Step 9: Preparing for the ABI
 
-## 9.1 ABI Action Declarations
+### 9.1 ABI Action Declarations
 
 [eosio.cdt](https://developers.eos.io/manuals/eosio.cdt/latest) includes an ABI Generator, but for it to work will require some declarations.
 
@@ -335,7 +335,7 @@ Above both the `upsert` and `erase` functions add the following C++11 declaratio
 ```
 The above declaration will extract the arguments of the action and create necessary ABI *struct* descriptions in the generated ABI file.
 
-## 9.2 ABI Table Declarations
+### 9.2 ABI Table Declarations
 Add an ABI declaration to the table. Modify the following line defined in the private region of your contract:
 
 ```cpp
