@@ -32,9 +32,9 @@ uint64_t get_secondary_1() const { return age;}
 A field has been defined as the secondary index, next the  `address_index` table needs to be reconfigured.
 
 ```cpp
-typedef eosio::multi_index<"people"_n, person,
+using address_index = eosio::multi_index<"people"_n, person,
 indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>
-  > address_index;
+>;
 ```
 
 In the third parameter, we pass a `indexed_by` struct which is used to instantiate a index.
@@ -244,7 +244,7 @@ private:
 
   };
 
-  typedef eosio::multi_index<"people"_n, person, indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>> address_index;
+  using address_index = eosio::multi_index<"people"_n, person, indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>>;
 
 };
 ```
