@@ -79,13 +79,13 @@ The example above depicts `alice`'s account, her named permissions along with th
 
 # 2. Accounts
 
-Each account is identified by a human readable name between 1 and 12 characters in length. The characters can include a-z, 1-5, and optional dots (.) except the last character. This allows one exa ($2^{60}$) accounts minus one:
+Each account is identified by a human readable name between 1 and 12 characters in length. The characters can include a-z, 1-5, and optional dots (.) except the last character. This allows exactly one exa ($2^{60}$) accounts minus one:
 
 $$
 31^{1} \cdot \sum_{n=0}^{n=11} 32^{n} = 2^{60}-1 = 1,152,921,504,606,846,975
 $$
 
-which is in the order of $1 x 10^{18}$.
+which is in the order of $1 \times 10^{18}$.
 
 Ownership of each account on an EOSIO blockchain is solely determined by the account name. Therefore, an account can update its keys without having to redistribute them to other parties.
 
