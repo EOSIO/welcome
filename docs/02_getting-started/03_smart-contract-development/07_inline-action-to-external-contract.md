@@ -11,6 +11,7 @@ Navigate to `CONTRACTS_DIR` if not already there, create a directory called `abc
 ```shell
 cd CONTRACTS_DIR
 mkdir abcounter
+cd abcounter
 touch abcounter.cpp
 ```
 Open the `abcounter.cpp` file in your favorite editor and paste the following code into the file. This contract is very basic, and for the most part does not cover much that we haven't already covered up until this point. There are a few exceptions though, and they are covered in full below.
@@ -394,7 +395,7 @@ public:
         }
       });
 
-      if(changes.length() > 0) {
+      if(!changes.empty()) {
         send_summary(user, " successfully modified record in addressbook. Fields changed: " + changes);
         increment_counter(user, "modify");
       } else {
