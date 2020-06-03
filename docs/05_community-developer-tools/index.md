@@ -22,7 +22,7 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 ### Non-Fungible Token (NFT) Standards
 * [dGoods](https://github.com/MythicalGames/dgoods): An open source and free standard for handling the virtual representation of items, both digital and physical.
-* [SimpleAssets](https://github.com/EOSIO/eosjs-keygen): A simple standard for digital assets on EOSIO blockchains: Non-Fungible Tokens (NFTs), Fungible Tokens (FTs), and Non-Transferable Tokens (NTTs).
+* [SimpleAssets](https://github.com/CryptoLions/SimpleAssets): A simple standard for digital assets on EOSIO blockchains: Non-Fungible Tokens (NFTs), Fungible Tokens (FTs), and Non-Transferable Tokens (NTTs).
 
 ### Services and Middleware
 * [The DAPP Network](https://liquidapps.io/): Live, universal middleware of services for modern decentralized applications.
