@@ -39,7 +39,7 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 ### Block Explorers
 * [Bloks.io](https://bloks.io/): Block explorer with several features across many EOSIO blockchain networks.
-* [EOSX](https://eosx.io): Explorer, wallet and network monitor for multiple EOSIO blockchains all in one. Easy, fast and clean.
+* [EOSX](https://eosx.io): Explorer and network monitor for multiple EOSIO blockchains, all in one.
 
 ### EOSIO Plugins
 * [EOSIO Kafka Plugin](https://github.com/TP-Lab/kafka_plugin): This plugin allows you to utilize all of Kafka's rich real-time features for building date pipelines and streaming apps.
