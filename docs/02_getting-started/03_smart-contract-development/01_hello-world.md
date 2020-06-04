@@ -6,7 +6,7 @@ link_text: "2.1: Hello World Contract"
 
 
 ## Create the Contract
-Create a new directory called **hello** in the **contracts** directory you previously created and enter the directory:
+Create a new directory called **hello** in the **contracts** directory you previously created and enter the newly created directory.:
 
 ```shell
 cd CONTRACTS_DIR
