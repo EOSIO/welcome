@@ -18,8 +18,10 @@ prosperity in trustless commerce.
 * [Europechain](https://europechain.io/): Europechain is a GDPR-supported enterprise blockchain platform managed and governed by experienced validators registered in the European Union.
 * [Meet.one](https://meet.one/): Based on the concept of *open and sharing*, the MEET.ONE team will build a blockchain infrastructure based on EOSIO, work with block producers and developers to promote the development of trusted Internet, and work together to empower the internet with blockchain.
 * [Proton](https://www.protonchain.com/): Proton is a new public blockchain and smart contract platform designed for both consumer applications and peer-peer payments.
-* [RemChain](https://remme.io/protocol-pkid/remchain): The first public blockchain built on top of [[Remme's Public Key Infrastructure]](https://remme.io/protocol-pkid) Protocol.
+* [RemChain](https://remme.io/protocol-pkid/remchain): The first public blockchain built on top of [Remme's Public Key Infrastructure](https://remme.io/protocol-pkid) Protocol.
 * [Telos](https://telosnetwork.io/): Telos is a smart contract blockchain built to support the economies of the future.
 * [Ultra](https://ultra.io/): Ultra is bringing the blockchain revolution to the gaming industry and creating a fair ecosystem for the future of games distribution.
 * [Wax](https://wax.io/): WAX has created a full suite of blockchain-based tools that allows anyone to trade digital or even physical items instantly and securely, to anyone, anywhere.
 * [WORBLI](https://worbli.io/): WORBLI is a financial services oriented blockchain network.
+
+[[info | Disclaimer]] | The information, links and other material on the website relating to third-party software, hardware, services, networks, blockchains (whether public or private), websites or other resources are provided on an “as-is” basis for your convenience only. Such resources may be updated, changed or terminated at any time so the information included may be out of date or inaccurate. The inclusion of any third-party resources does not constitute approval, endorsement or recommendation by us and we disclaim all responsibility and liability for your use of any such third-party resources.
