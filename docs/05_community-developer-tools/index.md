@@ -9,8 +9,6 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 ### Testing Tools and Frameworks
 
-* [EOSlime](https://github.com/LimeChain/eoslime): EOS Javascript development, testing and deployment framework based on eosjs.js. The framework's main purpose is to help developers quickly onboard and start building with confidence.
-
 * [Azakazam](https://github.com/azarusio/azakazam): A development, testing, and deployment framework for EOSIO, aiming to make life easier for developers.
 
 * [Lamington](https://github.com/CoinageCrypto/lamington): The Lamington library includes CLI tools and JavaScript utilities to streamline the EOSIO smart contract building, testing and deployment pipeline.
