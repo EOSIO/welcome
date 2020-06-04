@@ -7,7 +7,7 @@ link_text: EOSIO Blockchain Networks
 
 EOSIO blockchain software is flexible and highly configurable. It can be used to launch entire blockchain networks to suit particular business use cases and processes. 
 
-This is a list of blockchain networks which are operated using EOSIO software, curated by the Developer Relations team at Block.one. If you would like to submit a blockchain network to be added to the list, please fill in [this form](LINK).
+This is a list of blockchain networks which are operated using EOSIO software, curated by the Developer Relations team at Block.one. If you would like to submit a blockchain network to be added to the list, please fill in [this form](https://blockone.typeform.com/to/ZsBWsL).
 
 ## EOSIO Blockchain Networks
 * [BOSCore](https://boscore.io/): The BOS Network is committed to providing users with easy-to-access and easy-to-use blockchain services, providing a more user-friendly infrastructure for DApp operations, working to support richer application scenarios, and actively promoting
