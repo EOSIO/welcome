@@ -10,6 +10,7 @@ EOSIO blockchain software is flexible and highly configurable. It can be used to
 This is a list of blockchain networks which are operated using EOSIO software, curated by the Developer Relations team at Block.one. If you would like to submit a blockchain network to be added to the list, please fill in [this form](https://blockone.typeform.com/to/ZsBWsL).
 
 ## EOSIO Blockchain Networks
+* [EOS](https://t.me/EOSproject): The first global public EOSIO blockchain network started by a community of block producers and thousands of enterprising individuals in 2018 upon the release of EOSIO blockchain software. The EOS network is one of the most developed of EOSIO networks and is the most widely adopted, performant, and decentralized public blockchain network leveraging delegated proof of stake.
 * [BOSCore](https://boscore.io/): The BOS Network is committed to providing users with easy-to-access and easy-to-use blockchain services, providing a more user-friendly infrastructure for DApp operations, working to support richer application scenarios, and actively promoting
 prosperity in trustless commerce.
 * [COFFE network](https://coffe.io/): COFFE is an EOSIO platform fork (an independent software development branch) that features modified DPoS-based consensus algorithms.
