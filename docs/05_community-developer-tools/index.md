@@ -17,8 +17,14 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 * [EOSFactory](https://github.com/tokenika/eosfactory): A Python-based EOS smart-contract development and testing framework.
 
+* [Hydra](https://klevoya.com/hydra/): Hydra is a simple and fast EOSIO smart contract test and execution environment.
+
+* [Tank](https://github.com/mixbytes/tank): Tank is a console tool which can set up a blockchain cluster in minutes in a cloud and bench it using various transaction loads.
+
 ### Integrated Development Environments (IDEs)
 * [EOS Studio](https://www.eosstudio.io/): Integrated with various tools required for EOSIO in a unified graphical application, EOS Studio provides a powerful and easy-to-use environment for dApp development.
+
+* [Adappt IDE](https://github.com/eosrapid/adappt): Adappt is a fully featured IDE that allows for the rapid development, testing, and deployment of EOSIO smart contracts.
 
 ### Non-Fungible Token (NFT) Standards
 * [dGoods](https://github.com/MythicalGames/dgoods): An open source and free standard for handling the virtual representation of items, both digital and physical.
@@ -30,7 +36,7 @@ If you would like to submit a tool to be added to the list, please fill in [this
 * [dfuse](https://www.dfuse.io/en): Blockchain data APIs for searching and monitoring EOSIO networks.
 
 ### History Solutions
-* [Hyperion History API](https://github.com/eosrio/Hyperion-History-API): A scalable, Full History API Solution for EOSIO based-blockchains
+* [Hyperion History API](https://github.com/eosrio/Hyperion-History-API): A scalable, Full History API Solution for EOSIO based-blockchains.
 
 ### Testnets
 * [CryptoKylin Testnet](https://www.cryptokylin.io/): CryptoKylin Testnet is for dApp developers who want to test their EOSIO smart contracts before deploying on production networks.
@@ -48,7 +54,12 @@ If you would like to submit a tool to be added to the list, please fill in [this
 ## Software Development Kits (SDKs)
 * [Zeus SDK](https://github.com/liquidapps-io/zeus-sdk): The Zeus SDK offers a number of functionalities including a command line tool, templates, and a package manager.
 
-* [EOSlime](https://github.com/LimeChain/eoslime): EOSlime could be used as the EOS Javascript SDK. It integrates eosjs and adds on top of that a lot of functionality. Which otherwise a developer should implement himself
+* [EOSlime](https://github.com/LimeChain/eoslime): EOSlime could be used as the EOSIO Javascript SDK. It integrates eosjs and adds some functionality on top of it.
+
+## Wallets
+* [Greymass Anchor](https://github.com/greymass/anchor): A feature rich, open-source, EOSIO Wallet.
+
+* [Scatter](https://github.com/GetScatter/ScatterDesktop): Scatter desktop is a cutting-egde wallet as well as a global local-machine authentication provider.
 
 [[info | Disclaimer]]
 | The information, links and other material on the website relating to third-party software, hardware, services, networks, blockchains (whether public or private), websites or other resources are provided on an “as-is” basis for your convenience only.  Such resources may be updated, changed or terminated at any time so the information included may be out of date or inaccurate.  The inclusion of any third-party resources does not constitute approval, endorsement or recommendation by us and we disclaim all responsibility and liability for your use of any such third-party resources.
