@@ -919,7 +919,7 @@ tail -f ./blockchain/nodeos.log
 
 ```
 
-```text
+```shell
 cd ~/biosboot/accountnum11/
 tail -f ./blockchain/nodeos.log
 
