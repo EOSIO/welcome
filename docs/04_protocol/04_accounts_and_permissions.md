@@ -79,13 +79,13 @@ The example above depicts `alice`'s account, her named permissions along with th
 
 # 2. Accounts
 
-Each account is identified by a human readable name between 2 and 12 characters in length. The characters can include a-z, 1-5, and optional dots (.) except the first and last characters. This allows roughly one exa ($2^{60}$) accounts. The exact number is:
+Each account is identified by a human readable name between 1 and 12 characters in length. The characters can include a-z, 1-5, and optional dots (.) except the last character. This allows exactly one exa ($2^{60}$) accounts minus one:
 
 $$
-31^{2} \cdot \sum_{n=0}^{n=10} 32^{n} = (2^{5}-1) \cdot (2^{55}-1) = 1,116,892,707,587,882,977
+31^{1} \cdot \sum_{n=0}^{n=11} 32^{n} = 2^{60}-1 = 1,152,921,504,606,846,975
 $$
 
-which is in the order of $10^{18}$.
+which is in the order of $1 \times 10^{18}$.
 
 Ownership of each account on an EOSIO blockchain is solely determined by the account name. Therefore, an account can update its keys without having to redistribute them to other parties.
 
@@ -101,7 +101,7 @@ Name | Type | Description
 `account_name` | `name` | encoded 13-char account name
 `head_block_num` | `uint32_t` | last block account was referenced
 `head_block_time` | `time_point` | last time account was referenced
-`privileged` | `bool` | privileged account?
+`privileged` | `bool` | True, if privileged account, False otherwise
 `last_code_update` | `time_point` | time account code was set/updated
 `created` | `time_point` | time account was created
 `core_liquid_balance` | `asset` | current balance of token asset

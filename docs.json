@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": ["get-involved", "05_community-developer-tools", "06_eosio-blockchain-networks"]
+        "exclude": ["get-involved", "05_community-developer-tools", "06_eosio-blockchain-networks", "07_tools"]
       }
     },
     {
@@ -33,8 +33,6 @@
         "directory_nav_parent": "Resources"
       }
     },
-
-
     {
       "name": "collate_markdown",
       "options": {
@@ -42,7 +40,14 @@
         "output_dir": "05_community-developer-tools"
       }
     },
-
+    {
+      "name": "collate_markdown",
+      "options": {
+        "docs_dir": "docs/07_tools",
+        "output_dir": "07_tools",
+        "disable_summary_gen": true
+      }
+    },
     {
       "name": "collate_markdown",
       "options": {
@@ -50,8 +55,6 @@
         "output_dir": "06_eosio-blockchain-networks"
       }
     },
-
-
     {
       "name": "collate_markdown",
       "options": {
