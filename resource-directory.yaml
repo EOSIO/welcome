@@ -48,9 +48,6 @@ sections:
       - title: EOSIO Hackathons
         description: Past and future Hackathons information and news
         link: https://hackathon.eos.io/
-      - title: EOSIO Bug Bounty Program
-        description: A Bug Bounty program offering to external individuals to receive compensation for reporting EOSIO bugs
-        link: https://hackerone.com/eosio
       - title: EOSIO Webinars
         description: Introduction to EOSIO Blockchain Development by Block.one
         link: https://eos.io/webinars/
