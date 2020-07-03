@@ -129,7 +129,7 @@ Name | Type | Description
 `compression` | `compression_type` | compression method used
 `packed_context_free_data` | `bytes` | compressed context-free data (if transaction compressed)
 `packed_trx` | `bytes` | compressed transaction (if compressed)
-`unpacked_trx` | `signed_transaction` | cached ecompressed transaction
+`unpacked_trx` | `signed_transaction` | cached decompressed transaction
 `trx_id` | `transaction_id_type` | transaction ID
 
 The `unpacked_trx` field holds the cached unpacked transaction after the transaction instance is constructed. If the signed transaction was previously compressed, it is decompressed from the `packed_trx` field and cached to `unpacked_trx`. If the signed transaction was stored uncompressed, it is simply copied verbatim to `unpacked_trx`. The `signatures` field allows a quick signature validation of the transaction without requiring a full decompression of the transaction.
