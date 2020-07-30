@@ -7,6 +7,7 @@ publications, documents or other material (collectively, Material) is your accep
 terms of this important notice.
 
 ## Software
+
 We are not responsible for ensuring the overall performance of Software or any related
 applications. Any test results or performance figures are indicative and will not reflect
 performance under all conditions. Software may contain components that are open
@@ -43,11 +44,13 @@ services to third parties shall advise such third parties of this important noti
 limitations, restrictions and exclusions of liability.
 
 ## Trademarks
+
 Block.one, EOSIO, EOS, the heptahedron and associated logos and related marks are our
 trademarks. Other trademarks referenced in Material are the property of their respective
 owners.
 
 ## Third parties
+
 Any reference in Material to any third party or third-party product, resource or service is not
 an endorsement or recommendation by Block.one. We are not responsible for, and
 disclaim any and all responsibility and liability for, your use of or reliance on any of these
@@ -55,6 +58,7 @@ resources. Third-party resources may be updated, changed or terminated at any ti
 information in Material may be out of date or inaccurate.
 
 ## Forward-looking statements
+
 Please note that in making statements expressing Block.one’s vision, we do not guarantee
 anything, and all aspects of our vision are subject to change at any time and in all respects at
 Block.one’s sole discretion, with or without notice. We call these “forward-looking
