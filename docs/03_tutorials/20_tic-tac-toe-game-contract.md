@@ -196,6 +196,7 @@ Complete the following steps to create the tictactoe.hpp file:
    Add this code to the .hpp file:
 
 ```c++
+// 5. Import the eosio base library.
 #include <eosio/eosio.hpp>
 ```
 
@@ -203,7 +204,8 @@ Complete the following steps to create the tictactoe.hpp file:
    Add this code to the .hpp file:
 
 ```c++
-  using namespace eosio;
+//6. use the eosio namespace
+using namespace eosio;
 ```
 
 7. Declare the class.
@@ -227,13 +229,13 @@ public:
 };
 ```
 12. Declare game data structure and use the [[eosio::table]] attribute to let the compiler know this uses a multi index table. Click on this link for more information about the attribute [Generator Attributes](https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes) . Click on this link for more information about [Multi Index Table](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex)
-13. Use the EOSLIB_SERIALIZE macro to define how the data is serialized / deserialized in and out of the multi index table.  Click on this link for more information about [EOSLIB_SERIALIZE](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__serialize)
-14. Create a **primary_key** method. This is automatically used as an index for the table.
+13. Create a **primary_key** method. This is automatically used as an index for the table.
+14. Use the EOSLIB_SERIALIZE macro to define how the data is serialized / deserialized in and out of the multi index table.  Click on this link for more information about [EOSLIB_SERIALIZE](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__serialize)
 
     Add this code to the .hpp file inside the public section of the class:
 
 ```c++
-    // Declare game data structure.
+    // 12. Declare game data structure.
     struct [[eosio::table]] game
     {
         static constexpr uint16_t boardWidth = 3;
@@ -258,8 +260,11 @@ public:
             winner = "none"_n;
         }
 
-        auto primary_key() const { return challenger.value; }
-        EOSLIB_SERIALIZE( game, (challenger)(host)(turn)(winner)(board))
+        // 13. primary key accessor
+		auto primary_key() const { return challenger.value; }
+
+        //14. EOSLIB_SERIALIZE macro defining how the abi serializes / deserializes  
+		EOSLIB_SERIALIZE( game, (challenger)(host)(turn)(winner)(board))
     };
 ```
 
@@ -267,7 +272,7 @@ public:
     Add this code to the .hpp file inside the public section of the class, after the declaration of the game structure:
 
 ```c++
-    // Define the game data structure using the multi-index table template.
+    // 15. Define the game data structure using the multi-index table template.
     typedef eosio::multi_index<"games"_n, game> games;
 ```
 
