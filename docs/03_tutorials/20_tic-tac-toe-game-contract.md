@@ -1,132 +1,259 @@
 ---
-content_title: "Tic-Tac-Toe Game Contract"
-link_text: "Tic-Tac-Toe Game Contract"
+content_title: "Tic Tac Toe Game Contract"
+link_text: "Tic Tac Toe Game Contract"
 ---
 
-## Goal
+# Your Guide to Tic Tac Toe on EOSIO 
+This tic tac toe tutorial guides you step by step to build a tic tac toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to the EOSIO blockchain. In this tutorial we use the EOSIO Testnet blockchain and show you how to play the game by calling the smart contract.
 
-The following tutorial will guide you to build a sample Player vs Player game contract. We will apply the knowledge we acquired eariler and use the tic-tac-toe game to demonstrate.
+We explain the purpose of each step and why it is important.
+
+## Prerequisites for the Tutorial
+This tutorial requires the following tools and knowledge:
+
+* EOSIO platform software, specifically cleos, keosd and eosio.cdt which compiles the smart contract. Click the following link for eosio.cdt installation instructions: [Install the CDT](https://developers.eos.io/welcome/latest/getting-started/development-environment/install-the-CDT "EOSIO.CDT Installation Instructions")
+* Knowledge of the C++ programming language
+* A code editor or an IDE. Click the following link for more information: [EOSIO Prerequisites](https://developers.eos.io/welcome/latest/getting-started/development-environment/introduction "Set up to use EOSIO")
+   
+### Tutorial Workflow
+
+Start->Step 1: Understand how the game works
+Step 1->Step 2: Create the necessary accounts and key pairs
+Step 2->Step 3: Write the tic tac toe contract
+Step 3->Step 4: Compile and deploy the smart contract to the blockchian
+Step 4->Step 5: Play the game, by sending signed transactions to the blockchain 
+Step 5->Finish : ;)
+
 
 ## The Rules of the Game
+The EOSIO tic tac toe rules are:
 
-For this game, we are using a standard 3x3 tic-tac-toe board. Players are divided into two roles: **host** and **challenger**. The host always makes the first move. Each pair of players can ONLY have up to two games at the same time, one where the first player becomes the host and the other one where the second player becomes the host.
+* Player one (the host) makes the first move, followed by player two (the challenger). 
+* The first player to complete a row or diagonal of either X’s or O’s wins the game.
+* If no player completes a row or diagonal of either X’s or O’s, the game is a draw. 
 
-### Board
+### Understand how the game works
+The smart contract contains the game logic, therefore this section explains how the game works. 
 
-Instead of using `o` and `x` as in the traditional tic-tac-toe game, we use `1` to denote movement by host, `2` to denote movement by challenger, and `0` to denote empty cell. Furthermore, we will use one dimensional array to store the board. Hence:
+The game is played by two players, so we need two blockchain accounts. The tutorial explains how to create and use these blockchain accounts on the EOSIO Tesnet in the next step. 
 
-|           | (0,0) | (1,0) | (2,0) |
+One player is the host, who starts the game, and one player is the challenger. 
+
+The game ‘board’ is nine squares, and each player takes a turn to place their ‘marker’ in a square. A player wins the game when three markers are placed in a row.
+
+In the example below the player who placed x has won.
+
+| Row       | 0     | 1     | 0     |
 | :-------: | :---: | :---: | :---: |
-| **(0,0)** | -     | o     | x     |
-| **(0,1)** | -     | x     | -     |
-| **(0,2)** | x     | o     | o     |
+|     0     |   -   |   o   |   x   |
+|     1     |   -   |   x   |   -   |
+|     2     |   x   |   o   |   o   |
 
-Assuming x is host, the above board is equal to `[0, 2, 1, 0, 1, 0, 1, 2, 2]`
+When all the squares contain a marker and no player has three markers in a row, then the game is a draw.
 
-### Actions
+## Accounts, key pairs, and secure your private key
+Accounts are stored on the blockchain with a public key. Use a private key to access the account, though be sure to secure your private key.
 
-A user will have the following actions to interact with this contract:
+### Create the necessary accounts and key pairs
+The game requires two accounts and each account requires at least one key pair (public and private keys). 
+* Each account identifies a player and a player ‘pushes’ a transaction to the blockchain to play the game. 
+* Each account stores a public key on the blockchain.
+    * Store the matching private key locally.
+* A local private key signs each ‘pushed’ transaction and the blockchain uses asymmetric cryptography to verify that the correct private key signed the ‘pushed’ transaction.
+* Smart Contracts deploy to blockchain accounts. A blockchain account supports only one smart contract.   
 
-- create: create a new game
-- restart: restart an existing game, host or challenger is allowed to do this
-- close: close an existing game, which frees up the storage used to store the game, only host is allowed to do this
-- move: make a movement
+Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account.
 
-### Contract account
+This tutorial uses the EOSIO Testnet.
 
-For the following guide, we are going to push the contract to an account called `tic.tac.toe`.
+If you do not have an EOSIO Testnet account, complete the following steps to create an EOSIO Testnet account:
+1. Click on the following link to open the EOSIO Testnet website [EOSIO Testnet - Block.one's official EOSIO Testnet](https://https://testnet.eos.io/ "block.one testnet") 
+2. Click the "Start Building" button in the middle of the web page or the "Getting Started" option on the top right of the page to set up an account ![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_GetStarted.png "Testnet Getting Started Screen") 
 
-```bash
-cleos create account eosio tic.tac.toe YOUR_PUBLIC_KEY
+    * The “Start Building” button opens a form for your name, password, country of residence, and it asks you to confirm terms and conditions. 
+    * Complete the form and click the “Register“ button to sign up for an EOSIO developer account. 
+    * Check your email account for a message “EOSIO Testnet” to verify your account. Follow instructions in the email to verify your account.
+
+Complete the following steps to Log in to your EOSIO Testnet account
+
+1. Click on the following link to open the EOSIO Testnet website [EOSIO Testnet - Block.one's official EOSIO Testnet](https://https://testnet.eos.io/ "block.one testnet")
+
+2. Use your credentials to login
+
+The login process creates an EOSIO Testnet account. This game needs two EOSIO Testnet accounts, one for the host and one for the challenger. 
+
+To create an additional EOSIO Testnet account, click the "Create another account" button. You now have two accounts and can select each account from the drop down box to view account details. 
+
+View your account details on the "Blockchain Accounts" page:
+
+* Account Name - This option provides a random account name generated by the EOSIO Testnet. If there is more than one account name, select the account name from a drop down box. This option also enables you to create another account, if desired.
+
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountName.png "Testnet Account Name Screen")
+
+* TNT Balances - This option shows the Temporary Network Token (TNT) token balance for the account. Use tokens to purchase resources. New TNT tokens are available every hour. Click the "Request Tokens" button to replenish your account by 10 tokens.
+
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountBalances.png "Testnet Account Balances Screen")
+
+* Resource Usage - This option shows the amount of resource available for,  and used by, each account.
+
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountResourceUse.png "Testnet Account Balances Screen")
+
+* Keys - This option shows automatically generated public and private keys pairs. For more information about account and permissions click the following link [Accounts and Permissions](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions "Accounts and Permissions Overview")
+
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountKeys.png "Testnet Account Keys Screen")
+
+At the bottom of the page you can use TNT to request additional EOSIO resources for RAM, CPU, and NET.
+
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountRequestResources.png "Testnet Account Request Resources Screen")
+
+### EOSIO Resources 
+The EOSIO blockchain accounts own and consume three resources:
+
+* RAM - This resource is the amount of RAM available to an account. RAM stores smart contracts loaded on the blockchain. Smart contacts use RAM via the multi-index table to store smart contract state. Spend TNT to purchase more RAM, RAM can be sold.
+* CPU - This resource is the amount of CPU which can be used by an account in each 24 hour period. Transactions consume CPU. Stake TNT for more CPU. Unstaking returns CPU. 
+* NET - This resource is the amount of data which can be written to blockchain blocks by an account in each 24 hour period. The blockchain blocks store transactions and transaction parameters, the history of blockchain . Stake TNT for more NET. Unstaking returns NET. 
+
+## TicTacToe Smart Contract
+After you create your accounts create the smart contract. Use your favorite text editor of IDE to create the .hpp and.cpp files.
+
+### Smart Contract Requirements
+The tictactoe.hpp file (or header file) contains the declarations of the smart contract. Declarations inform the smart contract compiler what data structures to use in the smart contract to represent the game board and track game play. The header file also declares the smart contract actions that operate the game.
+
+
+The tictactoe.cpp file contains implementations of the smart contract actions declared in the tictactoe.hpp header file and uses the data structures declared in the header file.
+
+The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the eosio-cpp tool from the EOSIO.CDT. Click the following link for more information on the EOSIO.CDT: [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "EOSIO.CDT documentation") . The eosio.cdt builds the smart contract and creates an ABI file. Click on the following link for more information about the ABI file: [ABI File](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Understand ABL Files") 
+
+#### Game Board Representation
+A std::vecror represents the tic tac toe board. The number 0 marks an empty square. The number 1 denotes a movement by the host. The number 2 denotes a movement by the challenger. To make a movement, you push a  transaction to the tic tac toe smart contract.
+
+Logically the board looks like:
+
+| Row       | 0     | 1     | 0     |
+| :-------: | :---: | :---: | :---: |
+|     0     |   -   |   -   |   -   |
+|     1     |   -   |   -   |   -   |
+|     2     |   -   |   -   |   -   |
+
+This board is represented as a std::vector of integers with the positions in the following order:
+ 
+[0,0] [0,1] [0,2] [1,0] [1,1] [1,2] [2,0] [2,1] [2,2]
+
+For example, in the above game board illustration 
+
+* An empty board is represented as [0, 0, 0, 0, 0, 0, 0, 0, 0].
+* The host takes the first move and marks their square with an X in row 0, column 2, which results in an array represented as [0, 0, 1, 0, 0, 0, 0, 0, 0].
+* The challenger takes the next move and marks their square with an O in row 0, column 1 which results in an array represented as [0, 2, 1, 0,  0, 0, 0, 0, 0].
+
+At the end of a drawn game, the board array may be  represented as [1, 2, 1, 1, 2, 2, 2, 1, 1] 
+
+Array Representation
+| Row       | 0     | 1     | 0     |
+| :-------: | :---: | :---: | :---: |
+|     0     |   1   |   2   |   1   |
+|     1     |   1   |   2   |   2   |
+|     2     |   2   |   1   |   1   |
+
+Game Representation
+| Row       | 0     | 1     | 0     |
+| :-------: | :---: | :---: | :---: |
+|     0     |   x   |   o   |   x   |
+|     1     |   x   |   o   |   o   |
+|     2     |   o   |   x   |   x   |
+
+#### Smart Contract Actions
+A smart contract exposes methods or ‘actions’ that transactions use to operate business logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction, each action in the transaction, is rolled back. For more details about transactions and actions click the following link [Transaction and Action Information](https://developers.eos.io/welcome/latest/protocol/transactions_protocol "Tranasctions Protocol")
+You can use cleos to create transactions or to call an action directly. In this tutorial we call actions directly. 
+
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/TransactionsAndActions.png "Transactions and Actions")
+
+### Create TicTacToe.hpp file
+This section creates the tictactoe.hpp file. This header file contains the declarations of the tictactoe class, the definitions of tictactoe game data structures, and the declarations of tictactoe game methods, known as actions in EOSIO smart contracts.
+
+
+#### Game Data Structures
+The TicTacToe smart contract hpp file defines the following public data structures to store game information.  
+
+* game - The game data structure contains game data. The structure has variables of type eosio::name, for challenger, host, turn and winner. Click on this link for a definition of eosio::name [EOSIO Name Structure](https://developers.eos.io/manuals/eosio.cdt/v1.7/structeosio_1_1name "eosio.cdt reference - name structure") . The structure has a vector representing the game board  
+* Games - Games is a type definition that uses a class template. Games uses an eosio::muti_index template to define a type which stores a game structure in RAM. Clink on this link for more information about eosio::multi_index [EOSIO Multi Index Table](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex "eosio.cdt reference - multi index table") and click on this link for more general information about multi index tables https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/data-persistence 
+
+#### Game Actions
+The TicTacToe smart contract  hpp file defines the following four public actions to operate the game logic.  
+
+* Create - This action launches a new game and creates a new game board array. The host may use this command.
+* Restart - This action clears data from an existing game board array. The host or the challenger may use this command.
+* Close - This action deletes and removes existing game data and frees up any storage the game uses. No game data persists. The host may use this command.
+* Move - This action sets a marker on the gameboard and updates the game board array. The host or the challenger may use this command.
+
+#### Procedure to create the tictactoe.hpp file
+Complete the following steps to create the tictactoe.hpp file:
+
+1. Create a tictactoe folder on your local drive.
+2. Change directory into the tictactoe folder. 
+3. Create the tictactoe.hpp file.
+4. Open the tictactoe.hpp file with your text editor.
+5. Import the eosio base library.
+   Add this code to the .hpp file:
+
+```c++
+#include <eosio/eosio.hpp>
 ```
 
-Ensure that you have your wallet unlocked and the creator's private active key in the wallet imported, otherwise the above command will fail.
+6. For convenience use the eosio namespace.
+   Add this code to the .hpp file:
 
-[[info | Wallet Unlocking]]
-| For instructions on wallet unlocking and keys importing, see section [Create Development Wallet](../02_development-environment/05_create-development-wallet.md). 
+```c++
+  using namespace eosio;
+```
 
-In the above step, if you see `YOUR_PUBLIC_KEY` instead of the public key value, you can either go back to section **1.4 Create Development Wallet** and persist the value or replace `YOUR_PUBLIC_KEY` with the public key value manually.
+7. Declare the class.
+8. Use the [[eosio::contract(contract_name)]] attribute lets compiler know this is a smart contract and that the compiler should generate the main dispatcher and the ABI. Click on this link for more information https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes 
+9. Inherit from the eosio::contract public base class.
+10. Introduce base class members.
+11. Use the base class constructor.
+    Add this code to the .hpp file:
 
-## Start
-
-We are going to create two files here:
-
-1. **tic.tac.toe.hpp** => header file where the structure of the contract is defined
-2. **tic.tac.toe.cpp** => main part of the contract where the action handler is defined
-
-## Defining Structure
-
-Let's first start with the header file and define the structure of the contract. Open **tic.tac.toe.hpp** and start with the following boilerplate:
-
-```cpp
-// Import necessary library
-#include <eosio/eosio.hpp>
-
-// Generic eosio library, i.e. print, type, math, etc
-using namespace eosio;
-
-
-class[[eosio::contract("tic.tac.toe")]] tic_tac_toe : public contract
+```c++
+// 7. Declare the class. 8. Use the [[eosio::contract(contract_name)]] attribute. 9. Inherit from the base class. 
+class[[eosio::contract("tictactoe")]] TicTacToe : public contract
 {
 public:
+    
+    // 10 Introduce base class members. 
     using contract::contract;
-    tic_tac_toe(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds) {}
+    
+    // 11. Use the base class constructor.
+    TicTacToe(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds) {}
 };
 ```
+12. Declare game data structure and use the [[eosio::table]] attribute to let the compiler know this uses a multi index table. Click on this link for more information about the attribute [Generator Attributes](https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes) . Click on this link for more information about [Multi Index Table](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex)
+13. Use the EOSLIB_SERIALIZE macro to define how the data is serialized / deserialized in and out of the multi index table.  Click on this link for more information about [EOSLIB_SERIALIZE](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__serialize)
+14. Create a **primary_key** method. This is automatically used as an index for the table.
 
-### Games Table
+    Add this code to the .hpp file inside the public section of the class:
 
-For this contract, we will need to have a table that stores a list of games. Let's define it:
-
-```cpp
-...
-class [[eosio::contract("tic.tac.toe")]] tic_tac_toe : public contract {
-   public:
-    ...
-    typedef eosio::multi_index<"games"_n, game> games;
-};
-```
-
-- First template parameter  defines the name of the table
-- Second template parameter defines the structure that it stores (will be defined in the next section)
-
-### Game Structure
-
-Let's define the structure for the game. Please ensure that this struct definition appears before the table definition in the code.
-
-```cpp
-...
-class tic_tac_toe : public eosio::contract {
-   public:
-   ...
-    static constexpr name none = "none"_n;
-    static constexpr name draw = "draw"_n;
-
+```c++
+    // Declare game data structure.
     struct [[eosio::table]] game
     {
-
-        static constexpr uint16_t board_width = 3;
-        static constexpr uint16_t board_height = board_width;
+        static constexpr uint16_t boardWidth = 3;
+        static constexpr uint16_t boardHeight = boardWidth;
         
-        game() : board(board_width * board_height, 0){}
+        game() : board(boardWidth * boardHeight, 0){}
 
-        name challenger;
-        name host;
-        name turn;              // = account name of host/ challenger
+        name challenger, host, turn; // = account name of host, challenger and turn to store whose turn it is.
         name winner = none; // = none/ draw/ name of host/ name of challenger
 
         std::vector<uint8_t> board;
 
-        // Initialize board with empty cell
-        void initialize_board()
-        {
-            board.assign(board_width * board_height, 0);
+        // Initialize the board with empty cell
+        void initializeBoard(){
+            board.assign(boardWidth * boardHeight, 0);
         }
 
         // Reset game
-        void reset_game()
-        {
-            initialize_board();
+        void resetGame(){
+            initializeBoard();
             turn = host;
             winner = "none"_n;
         }
@@ -134,151 +261,84 @@ class tic_tac_toe : public eosio::contract {
         auto primary_key() const { return challenger.value; }
         EOSLIB_SERIALIZE( game, (challenger)(host)(turn)(winner)(board))
     };
-};
 ```
 
-The **primary_key** method is required by the above table definition for games. That is how the table knows what field is the lookup key for the table.
+15. Define the games type which uses the game data structure with the multi-index table template. Click on this link for more information about the multi-index table template used to define multi index table types [function multi_index](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex/#function-multi_index)
+    Add this code to the .hpp file inside the public section of the class, after the declaration of the game structure:
 
-### Action Handlers Structure
-
-#### Create
-
-To create the game, we need host account name and challenger's account name.
-
-```cpp
-[[eosio::action]]
-void create(const name &challenger, name &host);
-```
-
-#### Restart
-
-To restart the game, we need host account name and challenger's account name to identify the game. Furthermore, we need to specify who wants to restart the game, so we can verify the correct signature is provided.
-
-```cpp
-[[eosio::action]]
-void restart(const name &challenger, const name &host, const name &by);
-
-```
-
-#### Close
-
-To close the game, we need host account name and challenger's account name to identify the game.
-
-```cpp
-[[eosio::action]]
-void close(const name &challenger, const name &host);
-```
-
-#### Move
-
-To make a move, we need host account name and challenger's account name to identify the game. Furthermore, we need to specify who makes this move and the movement he is making.
-
-```cpp
-[[eosio::action]]   
-void move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column);
-```
-
-#### Action Handlers Recap 
-
-To recap, we should have declared the following action handlers which will be defined in **tic.tac.toe.cpp** later.
-
-```cpp
-// Import necessary library
-#include <eosio/eosio.hpp>
-
-// Generic eosio library, i.e. print, type, math, etc
-using namespace eosio;
-
-class[[eosio::contract("tic.tac.toe")]] tic_tac_toe : public contract
-{
-public:
-    using contract::contract;
-    tic_tac_toe(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds) {}
-
-    static constexpr name none = "none"_n;
-    static constexpr name draw = "draw"_n;
-
-    struct [[eosio::table]] game
-    {
-
-        static constexpr uint16_t board_width = 3;
-        static constexpr uint16_t board_height = board_width;
-        
-        game() : board(board_width * board_height, 0){}
-
-        name challenger;
-        name host;
-        name turn;              // = account name of host/ challenger
-        name winner = none; // = none/ draw/ name of host/ name of challenger
-
-        std::vector<uint8_t> board;
-
-        // Initialize board with empty cell
-        void initialize_board()
-        {
-            board.assign(board_width * board_height, 0);
-        }
-
-        // Reset game
-        void reset_game()
-        {
-            initialize_board();
-            turn = host;
-            winner = "none"_n;
-        }
-
-        auto primary_key() const { return challenger.value; }
-        EOSLIB_SERIALIZE( game, (challenger)(host)(turn)(winner)(board))
-    };
-
+```c++
+    // Define the game data structure using the multi-index table template.
     typedef eosio::multi_index<"games"_n, game> games;
+```
 
+16. Declare class methods and use the [[eosio::action]] attribute to let the compiler know this is a smart contract action. Click on this link for more information about [Generator Attributes](https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes) 
+    Add this code to the .hpp file inside the public section of the class:
+
+```c++
     [[eosio::action]]
     void create(const name &challenger, name &host);
     
     [[eosio::action]]
     void restart(const name &challenger, const name &host, const name &by);
-    
+
     [[eosio::action]]
     void close(const name &challenger, const name &host);
- 
+    
     [[eosio::action]]   
     void move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column);
-};
 ```
 
-## Main Game Logic
+17. The Move action uses the following private supporting methods to determine if a move is valid. They also check for a winning move:
+    * IsEmptyCell()
+    * IsValidMove()
+    * GetWinner()
+    Add this code to the .hpp file inside a private section of the class:
 
-Let's open tic.tac.toe.cpp and set up the boilerplate:
-
-```cpp
-#include "tic.tac.toe.hpp"
+```c++
+    bool IsEmptyCell(const uint8_t &cell);
+    bool IsValidMove(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board);
+    name GetWinner(const game &currentGame);
 ```
 
-### Action Handlers
+The complete tictactoe.hpp file can be downlaoded from github here: [Tictactoe tutorial source](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/src/tictactoe/ "ticttactoe example code")  
 
-We want `tic tac toe` contract to only react to actions sent to the `tic.tac.toe` account and react differently according to the type of the action. The actions that we declared previously are ***create***, ***move***, ***restart***, and ***close***. Let's define the individual action handlers in the next section.
+### Create TicTacToe.cpp file
+This file contains the implementations of the tictactoe class  smart contract actions and supporting methods.
 
-### Action Handler - create
+#### Procedure to create the tictactoe.cpp file
+Complete the following steps to create the tictactoe.cpp file:
 
-For the ***create*** action handler, we want to:
+1. Ensure you are in the tictactoe folder. 
+2. Create the tictactoe.cpp file.
+3. Open the tictactoe.cpp file with your text editor.
+4. Import the tictactoe.hpp file and make the tictactoe definitions from the previous section available.
+   Add this code to the .cpp file: 
 
-1. Ensure that the action has the signature from the host
-2. Ensure that the challenger and host are not the same player
-3. Ensure that there is no existing game
-4. Store the newly created game to the db
+```c++
+#include "tictactoe.hpp"
+```
+#### Procedure to implement actions
+Complete the following steps to add the code to the .cpp file and implement the actions:
 
-```cpp
-void tic_tac_toe::create(const name &challenger, name &host) {
+1. Implement Create.
+   * Ensure that the action has the signature from the host
+   * Ensure that the challenger and host are not the same player
+   * Ensure that there is no existing game
+   * Store the newly created game to the multi index table
+
+   Add this code to the .cpp file:
+
+```c++
+void tictactoe::create(const name &challenger, name &host) {
     require_auth(host);
-    check(challenger != host, "challenger shouldn't be the same as host");
+    check(challenger != host, "Challenger should not be the same as the host.");
 
     // Check if game already exists
-    games existing_host_games(get_self(), host.value);
-    auto itr = existing_host_games.find(challenger.value);
-    check(itr == existing_host_games.end(), "game already exists");
+    games existingHostGames(get_self(), host.value);
+    auto itr = existingHostGames.find(challenger.value);
+    check(itr == existingHostGames.end(), "Game already exists.");
 
-    existing_host_games.emplace(host, [&](auto &g) {
+    existingHostGames.emplace(host, [&](auto &g) {
         g.challenger = challenger;
         g.host = host;
         g.turn = host;
@@ -286,425 +346,347 @@ void tic_tac_toe::create(const name &challenger, name &host) {
 }
 ```
 
-### Action Handler - move
+2. Implement Restart.
+   * Ensure that the action has the signature from the host/challenger
+   * Ensure that the game exists
+   * Ensure that the restart action is done by host/challenger
+   * Reset the game
+   * Store the updated game to the multi index table
 
-For the ***move*** action handler, we want to:
+   Add this code to the .cpp file:
 
-1. Ensure that the action has the signature from the host/ challenger
-2. Ensure that the game exists
-3. Ensure that the game is not finished yet
-4. Ensure that the move action is done by host or challenger
-5. Ensure that this is the right user's turn
-6. Verify movement is valid
-7. Update board with the new move
-8. Change the move_turn to the other player
-9. Determine if there is a winner
-10. Store the updated game to the db
-
-```cpp
-void tic_tac_toe::move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column)
-{
-    check(has_auth(by), "the next move should be made by " + by.to_string());
+```c++
+void tictactoe::restart(const name &challenger, const name &host, const name &by){
+    check(has_auth(by), "Only " + by.to_string() + "can restart the game.");
 
     // Check if game exists
-    games existing_host_games(get_self(), host.value);
-    auto itr = existing_host_games.find(challenger.value);
-    check(itr != existing_host_games.end(), "game doesn't exists");
+    games existingHostGames(get_self(), host.value);
+    auto itr = existingHostGames.find(challenger.value);
+    check(itr != existingHostGames.end(), "Game does not exist.");
 
-    // Check if this game hasn't ended yet
-    check(itr->winner == tic_tac_toe::none, "the game has ended!");
-    
     // Check if this game belongs to the action sender
-    check(by == itr->host || by == itr->challenger, "this is not your game!");
-    // Check if this is the  action sender's turn
-    check(by == itr->turn, "it's not your turn yet!");
+    check(by == itr->host || by == itr->challenger, "This is not your game.");
 
-    // Check if user makes a valid movement
-    check(is_valid_movement(row, column, itr->board), "not a valid movement!");
-
-    // Fill the cell, 1 for host, 2 for challenger
-    //TODO could use constant for 1 and 2 as well
-    const uint8_t cell_value = itr->turn == itr->host ? 1 : 2;
-    const auto turn = itr->turn == itr->host ? itr->challenger : itr->host;
-    existing_host_games.modify(itr, itr->host, [&](auto &g) {
-        g.board[row * tic_tac_toe::game::board_width + column] = cell_value;
-        g.turn = turn;
-        g.winner = get_winner(g);
+    // Reset game
+    existingHostGames.modify(itr, itr->host, [](auto &g) {
+        g.resetGame();
     });
 }
 ```
 
-### Movement Validation
 
-Valid movement is defined as movement done inside the board on an empty cell:
+3. Implement Close.
+   * Ensure that the action has the signature from the host
+   * Ensure that the game exists
+   * Remove the game from the db
 
-```cpp
-bool is_empty_cell(const uint8_t &cell)
-{
-    return cell == 0;
-}
+   Add this code to the .cpp file:
 
-bool is_valid_movement(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board)
-{
-    uint32_t movement_location = row * tic_tac_toe::game::board_width + column;
-    bool is_valid = movement_location < board.size() && is_empty_cell(board[movement_location]);
-    return is_valid;
+```c++
+void tictactoe::close(const name &challenger, const name &host){
+    check(has_auth(host), "Only the host can close the game.");
+
+    require_auth(host);
+
+    // Check if game exists
+    games existingHostGames(get_self(), host.value);
+    auto itr = existingHostGames.find(challenger.value);
+    check(itr != existingHostGames.end(), "Game does not exist.");
+
+    // Remove game
+    existingHostGames.erase(itr);
 }
 ```
 
-### Get Winner
+4. Implement Move supporting methods.
+   * Implement IsValidMove.
+   Add this code to the .cpp file:
 
-Winner is defined as the first player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row.
+```c++
+bool tictactoe::IsEmptyCell(const uint8_t &cell){
+    return cell == 0;
+}
+``` 
 
-```cpp
-...
-name get_winner(const tic_tac_toe::game &current_game)
+   * Implment IsValidMove
+   Add this code to the .cpp file:
+
+```c++
+bool tictactoe::IsValidMove(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board){
+    uint32_t movementLocation = row * game::boardWidth + column;
+    bool isValid = movementLocation < board.size() && IsEmptyCell(board[movementLocation]);
+    return isValid;
+}
+```
+
+   * Implement getWinner. The winner is the first player who places three of their marks in a horizontal, vertical, or diagonal row.
+
+   Add this code to the .cpp file:
+
+```c++
+name tictactoe::GetWinner(const game &currentGame)
 {
-    auto &board = current_game.board;
+    auto &board = currentGame.board;
 
-    bool is_board_full = true;
+    bool isBoardFull = true;
 
     // Use bitwise AND operator to determine the consecutive values of each column, row and diagonal
     // Since 3 == 0b11, 2 == 0b10, 1 = 0b01, 0 = 0b00
-    std::vector<uint32_t> consecutive_column(tic_tac_toe::game::board_width, 3);
-    std::vector<uint32_t> consecutive_row(tic_tac_toe::game::board_height, 3);
-    uint32_t consecutive_diagonal_backslash = 3;
-    uint32_t consecutive_diagonal_slash = 3;
+    std::vector<uint32_t> consecutiveColumn(game::boardWidth, 3);
+    std::vector<uint32_t> consecutiveRow(game::boardHeight, 3);
+    uint32_t consecutiveDiagonalBackslash = 3;
+    uint32_t consecutiveDiagonalSlash = 3;
 
     for (uint32_t i = 0; i < board.size(); i++)
     {
-        is_board_full &= is_empty_cell(board[i]);
-        uint16_t row = uint16_t(i / tic_tac_toe::game::board_width);
-        uint16_t column = uint16_t(i % tic_tac_toe::game::board_width);
+        isBoardFull &= IsEmptyCell(board[i]);
+        uint16_t row = uint16_t(i / game::boardWidth);
+        uint16_t column = uint16_t(i % game::boardWidth);
 
         // Calculate consecutive row and column value
-        consecutive_row[column] = consecutive_row[column] & board[i];
-        consecutive_column[row] = consecutive_column[row] & board[i];
+        consecutiveRow[column] = consecutiveRow[column] & board[i];
+        consecutiveColumn[row] = consecutiveColumn[row] & board[i];
         // Calculate consecutive diagonal \ value
         if (row == column)
         {
-            consecutive_diagonal_backslash = consecutive_diagonal_backslash & board[i];
+            consecutiveDiagonalBackslash = consecutiveDiagonalBackslash & board[i];
         }
         // Calculate consecutive diagonal / value
-        if (row + column == tic_tac_toe::game::board_width - 1)
+        if (row + column == game::boardWidth - 1)
         {
-            consecutive_diagonal_slash = consecutive_diagonal_slash & board[i];
+            consecutiveDiagonalSlash = consecutiveDiagonalSlash & board[i];
         }
     }
 
     // Inspect the value of all consecutive row, column, and diagonal and determine winner
-    std::vector<uint32_t> aggregate = {consecutive_diagonal_backslash, consecutive_diagonal_slash};
-    aggregate.insert(aggregate.end(), consecutive_column.begin(), consecutive_column.end());
-    aggregate.insert(aggregate.end(), consecutive_row.begin(), consecutive_row.end());
+    std::vector<uint32_t> aggregate = {consecutiveDiagonalBackslash, consecutiveDiagonalSlash};
+    aggregate.insert(aggregate.end(), consecutiveColumn.begin(), consecutiveColumn.end());
+    aggregate.insert(aggregate.end(), consecutiveRow.begin(), consecutiveRow.end());
 
     for (auto value : aggregate)
     {
         if (value == 1)
         {
-            return current_game.host;
+            return currentGame.host;
         }
         else if (value == 2)
         {
-            return current_game.challenger;
+            return currentGame.challenger;
         }
     }
     // Draw if the board is full, otherwise the winner is not determined yet
-    return is_board_full ? tic_tac_toe::draw : tic_tac_toe::none;
+    return isBoardFull ? draw : none;
 }
 ```
 
-### Action Handler - restart 
+5. Implement Move.
+   * Ensure that the action has the signature from the host/ challenger
+   * Ensure that the game exists
+   * Ensure that the game is not finished yet
+   * Ensure that the move action is done by host or challenger
+   * Ensure that this is the right user's turn
+   * Verify movement is valid 
+   * Update board with the new move
+   * Change the move_turn to the other player
+   * Determine if there is a winner
+   * Store the updated game to the multi index table
 
-For the ***restart*** action handler, we want to:
+   Add this code to the .cpp file:
 
-1. Ensure that the action has the signature from the host/challenger
-2. Ensure that the game exists
-3. Ensure that the restart action is done by host/challenger
-4. Reset the game
-5. Store the updated game to the db
-
-```cpp
-void tic_tac_toe::restart(const name &challenger, const name &host, const name &by)
-{
-    check(has_auth(by), "only " + by.to_string() + "can restart the game");
-
-    // Check if game exists
-    games existing_host_games(get_self(), host.value);
-    auto itr = existing_host_games.find(challenger.value);
-    check(itr != existing_host_games.end(), "game doesn't exists");
-
-    // Check if this game belongs to the action sender
-    check(by == itr->host || by == itr->challenger, "this is not your game!");
-
-    // Reset game
-    existing_host_games.modify(itr, itr->host, [](auto &g) {
-        g.reset_game();
-    });
-}
-```
-
-### Action Handler - close
-
-For the ***close*** action handler, we want to:
-
-1. Ensure that the action has the signature from the host
-2. Ensure that the game exists
-3. Remove the game from the db
-
-```cpp
-void tic_tac_toe::close(const name &challenger, const name &host)
-{
-    check(has_auth(host), "only the host can close the game");
-
-    require_auth(host);
+```c++
+void tictactoe::move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column){
+    check(has_auth(by), "The next move should be made by " + by.to_string());
 
     // Check if game exists
-    games existing_host_games(get_self(), host.value);
-    auto itr = existing_host_games.find(challenger.value);
-    check(itr != existing_host_games.end(), "game doesn't exists");
-
-    // Remove game
-    existing_host_games.erase(itr);
-}
-```
-
-You can see the final tic.tac.toe.cpp in the next section.
-
-## Final Contract Code
-
-The final state of the tic.tac.toe.cpp file:
-
-```cpp
-// Import necessary library
-#include "tic.tac.toe.hpp"
-
-// Generic eosio library, i.e. print, type, math, etc
-using namespace eosio;
-
-bool is_empty_cell(const uint8_t &cell)
-{
-    return cell == 0;
-}
-
-bool is_valid_movement(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board)
-{
-    uint32_t movement_location = row * tic_tac_toe::game::board_width + column;
-    bool is_valid = movement_location < board.size() && is_empty_cell(board[movement_location]);
-    return is_valid;
-}
-
-void tic_tac_toe::create(const name &challenger, name &host) {
-    require_auth(host);
-    check(challenger != host, "challenger shouldn't be the same as host");
-
-    // Check if game already exists
-    games existing_host_games(get_self(), host.value);
-    auto itr = existing_host_games.find(challenger.value);
-    check(itr == existing_host_games.end(), "game already exists");
-
-    existing_host_games.emplace(host, [&](auto &g) {
-        g.challenger = challenger;
-        g.host = host;
-        g.turn = host;
-    });
-}
-
-void tic_tac_toe::restart(const name &challenger, const name &host, const name &by)
-{
-    check(has_auth(by), "only " + by.to_string() + "can restart the game");
-
-    // Check if game exists
-    games existing_host_games(get_self(), host.value);
-    auto itr = existing_host_games.find(challenger.value);
-    check(itr != existing_host_games.end(), "game doesn't exists");
-
-    // Check if this game belongs to the action sender
-    check(by == itr->host || by == itr->challenger, "this is not your game!");
-
-    // Reset game
-    existing_host_games.modify(itr, itr->host, [](auto &g) {
-        g.reset_game();
-    });
-}
-
-void tic_tac_toe::close(const name &challenger, const name &host)
-{
-    check(has_auth(host), "only the host can close the game");
-
-    require_auth(host);
-
-    // Check if game exists
-    games existing_host_games(get_self(), host.value);
-    auto itr = existing_host_games.find(challenger.value);
-    check(itr != existing_host_games.end(), "game doesn't exists");
-
-    // Remove game
-    existing_host_games.erase(itr);
-}
-
-void tic_tac_toe::move(const name &challenger, const name &host, const name &by, const uint16_t &row, const uint16_t &column)
-{
-    check(has_auth(by), "the next move should be made by " + by.to_string());
-
-    // Check if game exists
-    games existing_host_games(get_self(), host.value);
-    auto itr = existing_host_games.find(challenger.value);
-    check(itr != existing_host_games.end(), "game doesn't exists");
+    games existingHostGames(get_self(), host.value);
+    auto itr = existingHostGames.find(challenger.value);
+    check(itr != existingHostGames.end(), "Game does not exist.");
 
     // Check if this game hasn't ended yet
-    check(itr->winner == tic_tac_toe::none, "the game has ended!");
+    check(itr->winner == none, "The game has ended.");
     
     // Check if this game belongs to the action sender
-    check(by == itr->host || by == itr->challenger, "this is not your game!");
+    check(by == itr->host || by == itr->challenger, "This is not your game.");
     // Check if this is the  action sender's turn
     check(by == itr->turn, "it's not your turn yet!");
 
     // Check if user makes a valid movement
-    check(is_valid_movement(row, column, itr->board), "not a valid movement!");
+    check(IsValidMove(row, column, itr->board), "Not a valid movement.");
 
     // Fill the cell, 1 for host, 2 for challenger
     //TODO could use constant for 1 and 2 as well
-    const uint8_t cell_value = itr->turn == itr->host ? 1 : 2;
+    const uint8_t cellValue = itr->turn == itr->host ? 1 : 2;
     const auto turn = itr->turn == itr->host ? itr->challenger : itr->host;
-    existing_host_games.modify(itr, itr->host, [&](auto &g) {
-        g.board[row * tic_tac_toe::game::board_width + column] = cell_value;
+    existingHostGames.modify(itr, itr->host, [&](auto &g) {
+        g.board[row * game::boardWidth + column] = cellValue;
         g.turn = turn;
-        g.winner = get_winner(g);
+        g.winner = GetWinner(g);
     });
 }
+```
+The complete tictactoe.cpp file can be downlaoded from github here: [Tictactoe tutorial source](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/src/tictactoe/ "ticttactoe example code")  
 
-name get_winner(const tic_tac_toe::game &current_game)
+
+## Compile and deploy the smart contract to the blockchain
+To deploy the smart contract to the blockchain first use the EOSIO.CDT eosio-cpp tool to build the .wasm file and a corresponding .abi file. Click on this link for details on [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cdt reference eosio-cpp tool") and Click on this link for details about [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "Contract Development Toolkit")  
+The .wasm file (or webassembly) is the binary code that the wasm engine in the blockchain executes. The webassembly engine currently used in eosio is [eos-vm](https://github.com/EOSIO/eos-vm "git eos-vm"). The application binary interface or .abi file defines how to pack and unpack the data used by a smart contract [Understanding ABI Files](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Getting Started - ABI files").     
+
+### Compile the Smart Contract Code
+To compile the smart contract change to the tictactoe folder  and run eosio-cpp. Click the following link for more information about using the eosio-cpp: [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cpp command reference") .This tutorial uses .hpp or header files, use the “-I” option to tell the compiler where the .hpp file is located.
+
+```console
+tictactoe$ eosio-cpp -I ./ tictactoe.cpp
+```
+
+The output from this command is:
+
+```console
+Warning, empty ricardian clause file
+Warning, empty ricardian clause file
+Warning, action <create> does not have a ricardian contract
+Warning, action <restart> does not have a ricardian contract
+Warning, action <close> does not have a ricardian contract
+Warning, action <move> does not have a ricardian contract
+```
+
+For this tutorial we ignore these warnings. Click on the following link for s tutorial showing how to add the optional ricardian contracts [Prepare the Ricardian Contract](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/data-persistence#step-10-prepare-the-ricardian-contract-optional "Getting Started - Data Peristence")
+
+The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe.abi.
+
+### Deploy the Smart Contract to the Testnet
+To deploy the smart contract use the Testnet Deploy page.
+
+Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy"): 
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy.png "Testnet deploy")
+
+Follow these steps to deploy the smart contract to the testnet:
+
+1. Deploy the .wasm file, click on the browse button in step 1, locate and select the tictactoe.wasm file.
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Wasm.png "Testnet deploy wasm")
+
+2. Deploy the .abi file, click on the browse button in step 2, locate and select the tictactoe.abi file.
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_ABI.png "Testnet deploy ABI")
+
+3. Select an account and active permission. This account owns the smart contract instance.
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Account.png "Testnet deploy account")
+
+4. Press the deploy button. The deployment results are shown in the “Deployment Result” window. In the case below deployment failed due to lack of memory. Fix this in the Blockchain Accounts Request Resources section. 
+
+Fail
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Fail.png "Testnet deploy fail")
+
+Success!
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Success.png "Testnet deploy success")
+
+## Play The Game
+Now that the smart contract has been successfully deployed, push smart contract actions to the blockchain to play the game.  
+
+Go to the EOSIO Testnet [Push Action](https://testnet.eos.io/push-action "Testnet - push action"): 
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction.png "Testnet push action")
+
+Pushing an action requires the following settings:
+* Smart Contract Name - This field contains the name of the account where the smart contract was deployed.
+* Action Type - This field contains the action name. Select from the list of actions.
+* Action Payload - This field contains json containing data or parameters pushed to the action. 
+* Permission - This field contains the account and permission used to push the transaction.
+
+### Push 'create' to the Testnet to create a game
+A game requires a host and a challenger. Use the accounts created earlier in the “Create the necessary accounts and key pairs” sectio of the tutorial for these. These accounts use arbitrary names. In this example assume the host has the account name of ‘mcazyfujecke’ and the challenger has the account name of ‘vswlkiegwdsk’.
+
+The create action takes two parameters, the challenger and the host, therefore the required payload in json format is:
+
+```json
 {
-    auto &board = current_game.board;
-
-    bool is_board_full = true;
-
-    // Use bitwise AND operator to determine the consecutive values of each column, row and diagonal
-    // Since 3 == 0b11, 2 == 0b10, 1 = 0b01, 0 = 0b00
-    std::vector<uint32_t> consecutive_column(tic_tac_toe::game::board_width, 3);
-    std::vector<uint32_t> consecutive_row(tic_tac_toe::game::board_height, 3);
-    uint32_t consecutive_diagonal_backslash = 3;
-    uint32_t consecutive_diagonal_slash = 3;
-
-    for (uint32_t i = 0; i < board.size(); i++)
-    {
-        is_board_full &= is_empty_cell(board[i]);
-        uint16_t row = uint16_t(i / tic_tac_toe::game::board_width);
-        uint16_t column = uint16_t(i % tic_tac_toe::game::board_width);
-
-        // Calculate consecutive row and column value
-        consecutive_row[column] = consecutive_row[column] & board[i];
-        consecutive_column[row] = consecutive_column[row] & board[i];
-        // Calculate consecutive diagonal \ value
-        if (row == column)
-        {
-            consecutive_diagonal_backslash = consecutive_diagonal_backslash & board[i];
-        }
-        // Calculate consecutive diagonal / value
-        if (row + column == tic_tac_toe::game::board_width - 1)
-        {
-            consecutive_diagonal_slash = consecutive_diagonal_slash & board[i];
-        }
-    }
-
-    // Inspect the value of all consecutive row, column, and diagonal and determine winner
-    std::vector<uint32_t> aggregate = {consecutive_diagonal_backslash, consecutive_diagonal_slash};
-    aggregate.insert(aggregate.end(), consecutive_column.begin(), consecutive_column.end());
-    aggregate.insert(aggregate.end(), consecutive_row.begin(), consecutive_row.end());
-
-    for (auto value : aggregate)
-    {
-        if (value == 1)
-        {
-            return current_game.host;
-        }
-        else if (value == 2)
-        {
-            return current_game.challenger;
-        }
-    }
-    // Draw if the board is full, otherwise the winner is not determined yet
-    return is_board_full ? tic_tac_toe::draw : tic_tac_toe::none;
+  "challenger": "vswlkiegwdsk",
+  "host": "mcazyfujecke"
 }
 ```
 
-## Compile
+Sign the push action with ‘mcazyfujecke@active’, the host of the game.
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Create.png "Testnet push action create")
 
-Let's compile our contract, using eosio-cpp:
+### Push 'move' to the Testnet to make game moves
+Players make moves in turn by pushing ‘move’ actions to the blockchain. The host moves first, and each move must be signed by the appropriate account.
 
-```bash
-eosio-cpp -I tic_tac_toe.hpp tic_tac_toe.cpp
-```
+The move action takes the following five parameters: 
+* The challenger
+* The host
+* The player who makes the move
+Place a marker with the row and the column parameters.
 
-## Deploy
+The host makes the first move. The required payload in json format is:
 
-Now the wasm file and the abi file are ready. Time to deploy!
-Create a directory (let's call it tic_tac_toe) and copy your generated tic.tac.toe.wasm and tic_tac_toe.abi files.
-
-```bash
-cleos set contract tic.tac.toe tic_tac_toe -p tic.tac.toe@active
-```
-
-Ensure that your wallet is unlocked and you have `tic.tac.toe` key imported.
-
-## Play the Game
-
-After the deployment and the transaction is confirmed, the contract is already available in the blockchain. You can play with it now!
-
-[[info | Test Account]]
-| If you have not created these accounts already, refer to this article for creating test accounts [Create Test Accounts](../02_development-environment/07_create-test-accounts.md)
-
-### Create a Game
-
-We are going to use `bob` and `alice` accounts to play this game:
-
-```bash
-cleos push action tic.tac.toe create '{"challenger":"bob", "host":"alice"}' --permission alice@active
-```
-
-### Make Moves
-
-```bash
-cleos push action tic.tac.toe move '{"challenger":"bob", "host":"alice", "by":"alice", "row":0, "column":0}' --permission alice@active
-
-cleos push action tic.tac.toe move '{"challenger":"bob", "host":"alice", "by":"bob", "row":1, "column":1}' --permission bob@active
-```
-
-### See the Game Status
-
-```bash
-$ cleos get table tic.tac.toe alice games
+```json
 {
-  "rows": [{
-      "challenger": "bob",
-      "host": "alice",
-      "turn": "bob",
-      "winner": "none",
-      "board": [
-        1,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0
-      ]
-    }
-  ],
-  "more": false
+  "challenger": "vswlkiegwdsk",
+  "host": "mcazyfujecke",
+  "by": "mcazyfujecke",
+  "row": 0,
+  "column": 1
 }
 ```
 
-### Restart the Game
+Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Move_first.png "Testnet push action first move")
 
-```bash
-cleos push action tic.tac.toe restart '{"challenger":"bob", "host":"alice", "by":"alice"}' --permission alice@active
+The challenger makes the second move. The required payload in json format is:
+
+```json
+{
+  "challenger": "vswlkiegwdsk",
+  "host": "mcazyfujecke",
+  "by": "vswlkiegwdsk",
+  "row": 0,
+  "column": 1
+}
 ```
 
-### Close the Game
+Sign the push action with vswlkiegwdsk@active’ - the challenger.
+![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Move_second.png "Testnet push action second move")
 
-```bash
-cleos push action tic.tac.toe close '{"challenger":"bob", "host":"alice"}' --permission alice@active
+Continue to make moves until the game ends with a win or a draw.
+
+### Check game status 
+Look at the data in the multi index table to check the game status. 
+
+The following steps show you how:
+1. Go to the “Blockchain Accounts” page, select the account you used to push the smart contract to the blockchain. 
+2. Click on the “account name”. This will takes you to the account details page. 
+3. Click on “smart contract”. 
+4. Scroll down to view the multi index table section. 
+5. Select “games” for the multi index table and the name of the host account in the “Scope Name” field. 
+6. Click “Get Data” to populate Multi-Index Table Raw Data with stored smart contract data.  
+
+### Push "restart" to the Testnet to restart the Game
+The restart action takes three parameters, the challenger, the host, and by. Therefore the required payload in json format is:
+
+```json
+{
+  "challenger": "vswlkiegwdsk",
+  "host": "mcazyfujecke",
+  "by": "mcazyfujecke"
+}
 ```
+
+Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
+
+Check the game status to see that the board has been reset.
+
+### Push "close" to the Testnet to close the game
+The close action takes two parameters, the challenger and the host. Therefore, the required payload in json format is:
+
+```json
+{
+  "challenger": "vswlkiegwdsk",
+  "host": "mcazyfujecke"
+}
+```
+
+Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
+
+Check the game status to see that game data has been removed.
+
+## Next Steps
+Continue to play the game and to push actions to the testnet. Try to sign actions with different accounts, and try to make illegal moves. 
+
+Visit the [EOSIO Developer Portal](https://developers.eos.io/ "eosio developers portal") to learn more about EOSIO.
