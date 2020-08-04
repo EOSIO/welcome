@@ -92,19 +92,19 @@ View your account details on the "Blockchain Accounts" page:
 
 * TNT Balances - This option shows the Temporary Network Token (TNT) token balance for the account. Use tokens to purchase resources. New TNT tokens are available every hour. Click the "Request Tokens" button to replenish your account by 10 tokens.
 
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountBalances.png "Testnet Account Balances Screen")
+![Testnet Account Balances Screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountBalances.png "Testnet Account Balances Screen")
 
 * Resource Usage - This option shows the amount of resource available for,  and used by, each account.
 
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountResourceUse.png "Testnet Account Balances Screen")
+![Testnet Account Resources Screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountResourceUse.png "Testnet Account Resources Screen")
 
 * Keys - This option shows automatically generated public and private keys pairs. For more information about account and permissions click the following link [Accounts and Permissions](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions "Accounts and Permissions Overview")
 
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountKeys.png "Testnet Account Keys Screen")
+![Testnet Account Keys Screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountKeys.png "Testnet Account Keys Screen")
 
 At the bottom of the page you can use TNT to request additional EOSIO resources for RAM, CPU, and NET.
 
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountRequestResources.png "Testnet Account Request Resources Screen")
+![Testnet Account Request Resources Screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_AccountRequestResources.png "Testnet Account Request Resources Screen")
 
 ### EOSIO Resources 
 The EOSIO blockchain accounts own and consume three resources:
@@ -165,7 +165,7 @@ Game Representation
 A smart contract exposes methods or ‘actions’ that transactions use to operate business logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction, each action in the transaction, is rolled back. For more details about transactions and actions click the following link [Transaction and Action Information](https://developers.eos.io/welcome/latest/protocol/transactions_protocol "Tranasctions Protocol")
 You can use cleos to create transactions or to call an action directly. In this tutorial we call actions directly. 
 
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/TransactionsAndActions.png "Transactions and Actions")
+![Transactions and Actions](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/TransactionsAndActions.png "Transactions and Actions")
 
 ### Create TicTacToe.hpp file
 This section creates the tictactoe.hpp file. This header file contains the declarations of the tictactoe class, the definitions of tictactoe game data structures, and the declarations of tictactoe game methods, known as actions in EOSIO smart contracts.
@@ -557,32 +557,32 @@ The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe
 To deploy the smart contract use the Testnet Deploy page.
 
 Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy"): 
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy.png "Testnet deploy")
+![Testnet deploy screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy.png "Testnet deploy")
 
 Follow these steps to deploy the smart contract to the testnet:
 
 1. Deploy the .wasm file, click on the browse button in step 1, locate and select the tictactoe.wasm file.
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Wasm.png "Testnet deploy wasm")
+![Testnet deploy wasm screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Wasm.png "Testnet deploy wasm")
 
 2. Deploy the .abi file, click on the browse button in step 2, locate and select the tictactoe.abi file.
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_ABI.png "Testnet deploy ABI")
+![Testnet deploy ABI screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_ABI.png "Testnet deploy ABI")
 
 3. Select an account and active permission. This account owns the smart contract instance.
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Account.png "Testnet deploy account")
+![Testnet deploy account screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Account.png "Testnet deploy account")
 
 4. Press the deploy button. The deployment results are shown in the “Deployment Result” window. In the case below deployment failed due to lack of memory. Fix this in the Blockchain Accounts Request Resources section. 
 
 Fail
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Fail.png "Testnet deploy fail")
+![Testnet deploy fail screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Fail.png "Testnet deploy fail")
 
 Success!
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Success.png "Testnet deploy success")
+![Testnet deploy success screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Success.png "Testnet deploy success")
 
 ## Play The Game
 Now that the smart contract has been successfully deployed, push smart contract actions to the blockchain to play the game.  
 
 Go to the EOSIO Testnet [Push Action](https://testnet.eos.io/push-action "Testnet - push action"): 
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction.png "Testnet push action")
+![Testnet push action screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction.png "Testnet push action")
 
 Pushing an action requires the following settings:
 * Smart Contract Name - This field contains the name of the account where the smart contract was deployed.
@@ -603,7 +603,7 @@ The create action takes two parameters, the challenger and the host, therefore t
 ```
 
 Sign the push action with ‘mcazyfujecke@active’, the host of the game.
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Create.png "Testnet push action create")
+![Testnet push action create screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Create.png "Testnet push action create")
 
 ### Push 'move' to the Testnet to make game moves
 Players make moves in turn by pushing ‘move’ actions to the blockchain. The host moves first, and each move must be signed by the appropriate account.
@@ -627,7 +627,7 @@ The host makes the first move. The required payload in json format is:
 ```
 
 Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Move_first.png "Testnet push action first move")
+![Testnet push action first move screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Move_first.png "Testnet push action first move")
 
 The challenger makes the second move. The required payload in json format is:
 
@@ -642,7 +642,7 @@ The challenger makes the second move. The required payload in json format is:
 ```
 
 Sign the push action with vswlkiegwdsk@active’ - the challenger.
-![alt text](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Move_second.png "Testnet push action second move")
+![Testnet push action second move screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Move_second.png "Testnet push action second move")
 
 Continue to make moves until the game ends with a win or a draw.
 
