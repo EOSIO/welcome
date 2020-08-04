@@ -68,7 +68,9 @@ This tutorial uses the EOSIO Testnet.
 
 If you do not have an EOSIO Testnet account, complete the following steps to create an EOSIO Testnet account:
 1. Click on the following link to open the EOSIO Testnet website [EOSIO Testnet - Block.one's official EOSIO Testnet](https://https://testnet.eos.io/ "block.one testnet") 
-2. Click the "Start Building" button in the middle of the web page or the "Getting Started" option on the top right of the page to set up an account ![Testnet Getting Started](https://github.com/EOSIO/welcome/blob/phil-tictactoe/docs/03_tutorials/resources/tictactoe/Testnet_GetStarted.png "Testnet Getting Started Screen") 
+2. Click the "Start Building" button in the middle of the web page or the "Getting Started" option on the top right of the page to set up an account ![Testnet Getting Started](https://github.com/EOSIO/welcome/blob/phil-tictactoe/docs/03_tutorials/resources/tictactoe/Testnet_GetStarted.png =100X100 "Testnet Getting Started Screen") 
+
+<img src="https://github.com/EOSIO/welcome/blob/phil-tictactoe/docs/03_tutorials/resources/tictactoe/Testnet_GetStarted.png" width="200" height="200">
 
     * The “Start Building” button opens a form for your name, password, country of residence, and it asks you to confirm terms and conditions. 
     * Complete the form and click the “Register“ button to sign up for an EOSIO developer account. 
