@@ -72,7 +72,7 @@ If you do not have an EOSIO Testnet account, complete the following steps to cre
 
 Philtester
 
-<img src="https://github.com/EOSIO/welcome/blob/phil-tictactoe/docs/03_tutorials/resources/tictactoe/Testnet_GetStarted.png" width="750" height="1000">
+<img src="https://github.com/EOSIO/welcome/blob/phil-tictactoe/docs/03_tutorials/resources/tictactoe/Testnet_GetStarted.png" alt="Testnet Getting Started" width="750" height="1000">
 
 end philtester
 
