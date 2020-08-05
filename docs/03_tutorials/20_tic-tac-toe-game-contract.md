@@ -35,11 +35,9 @@ The EOSIO tic tac toe rules are:
 ### Understand how the game works
 The smart contract contains the game logic, therefore this section explains how the game works. 
 
-The game is played by two players, so we need two blockchain accounts. The tutorial explains how to create and use these blockchain accounts on the EOSIO Tesnet in the next step. 
+The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on the [EOSIO Tesnet](https://testnet.eos.io/) in the next step. 
 
-One player is the host, who starts the game, and one player is the challenger. 
-
-The game ‘board’ is nine squares, and each player takes a turn to place their ‘marker’ in a square. A player wins the game when three markers are placed in a row.
+One player is the host, who starts the game, and one player is the challenger. The game ‘board’ is nine squares, and each player takes a turn to place their ‘marker’ in a square. A player wins the game when three markers are placed in a row.
 
 In the example below the player who placed x has won.
 
@@ -62,7 +60,8 @@ The game requires two accounts and each account requires at least one key pair (
 * A local private key signs each ‘pushed’ transaction and the blockchain uses asymmetric cryptography to verify that the correct private key signed the ‘pushed’ transaction.
 * Smart Contracts deploy to blockchain accounts. A blockchain account supports only one smart contract.   
 
-Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account.
+[[note | Note]]
+| _Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account._
 
 This tutorial uses the EOSIO Testnet.
 
@@ -605,7 +604,7 @@ Pushing an action requires the following settings:
 ### Push 'create' to the Testnet to create a game
 A game requires a host and a challenger. Use the accounts created earlier in the “Create the necessary accounts and key pairs” sectio of the tutorial for these. These accounts use arbitrary names. In this example assume the host has the account name of ‘mcazyfujecke’ and the challenger has the account name of ‘vswlkiegwdsk’.
 
-The create action takes two parameters, the challenger and the host, therefore the required payload in json format is:
+The create action takes two parameters, the "challenger" and the "host". The required payload in json format is:
 
 ```json
 {
@@ -621,11 +620,7 @@ Sign the push action with ‘mcazyfujecke@active’, the host of the game.
 ### Push 'move' to the Testnet to make game moves
 Players make moves in turn by pushing ‘move’ actions to the blockchain. The host moves first, and each move must be signed by the appropriate account.
 
-The move action takes the following five parameters: 
-* The challenger
-* The host
-* The player who makes the move
-Place a marker with the row and the column parameters.
+The move action takes five parameters, the "challenger", the "host", the player who makes the move or "by" and "row" and "column" parameters to show where the marker is placed.
 
 The host makes the first move. The required payload in json format is:
 
@@ -673,7 +668,7 @@ The following steps show you how:
 6. Click “Get Data” to populate Multi-Index Table Raw Data with stored smart contract data.  
 
 ### Push "restart" to the Testnet to restart the Game
-The restart action takes three parameters, the challenger, the host, and by. Therefore the required payload in json format is:
+The restart action takes three parameters, the "challenger", the "host", and "by". The required payload in json format is:
 
 ```json
 {
@@ -688,7 +683,7 @@ Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
 Check the game status to see that the board has been reset.
 
 ### Push "close" to the Testnet to close the game
-The close action takes two parameters, the challenger and the host. Therefore, the required payload in json format is:
+The close action takes two parameters, the "challenger" and the "host". The required payload in json format is:
 
 ```json
 {
