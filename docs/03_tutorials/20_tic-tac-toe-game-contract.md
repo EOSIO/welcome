@@ -536,7 +536,7 @@ The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe
 ### Deploy the Smart Contract to the Testnet
 To deploy the smart contract use the Testnet Deploy page.
 
-Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy"):
+Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy") page:
 
 ![Testnet deploy screen](./resources/tictactoe/testnet-deploy.png "Testnet Title Panel - Deploy")
 
