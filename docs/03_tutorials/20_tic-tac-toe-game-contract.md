@@ -69,10 +69,9 @@ This tutorial uses the EOSIO Testnet.
 If you do not have an EOSIO Testnet account, complete the following steps to create an EOSIO Testnet account:
 1. Click on the following link to open the EOSIO Testnet website [EOSIO Testnet - Block.one's official EOSIO Testnet](https://testnet.eos.io/ "block.one testnet") 
 2. Click the "Start Building" button in the middle of the web page or the "Getting Started" option on the top right of the page to set up an account. Complete the form and sign up.
-
-  * The “Start Building” button opens a form for your name, password, country of residence, and asks you to confirm terms and conditions. 
-  * Complete the form and click the “Register“ button to sign up for an EOSIO developer account. 
-  * Check your email account for a message “EOSIO Testnet” to verify your account. Follow instructions in the email to verify your account.
+    * The “Start Building” button opens a form for your name, password, country of residence, and asks you to confirm terms and conditions. 
+    * Complete the form and click the “Register“ button to sign up for an EOSIO developer account. 
+    * Check your email account for a message “EOSIO Testnet” to verify your account. Follow instructions in the email to verify your account.
 
 Complete the following steps to Log in to your EOSIO Testnet account
 
