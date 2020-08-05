@@ -538,7 +538,7 @@ To deploy the smart contract use the Testnet Deploy page.
 
 Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy"):
 
-![Testnet deploy screen](./resources/tictactoe/testnet-deploy.png ""Testnet Title Panel - Deploy"")
+![Testnet deploy screen](./resources/tictactoe/testnet-deploy.png "Testnet Title Panel - Deploy")
 
 Follow these steps to deploy the smart contract to the testnet:
 
@@ -569,7 +569,7 @@ Now that the smart contract has been successfully deployed, push smart contract 
 
 Go to the EOSIO Testnet  [Push Action](https://testnet.eos.io/push-action "Testnet - push action") page:
 
-![Testnet push action screen](./resources/tictactoe/testnet-pushaction.png ""Testnet Title Panel - Push Action")
+![Testnet push action screen](./resources/tictactoe/testnet-pushaction.png "Testnet Title Panel - Push Action")
 
 Pushing an action requires the following settings:
 * Smart Contract Name - This field contains the name of the account where the smart contract was deployed.
