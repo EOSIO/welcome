@@ -561,32 +561,39 @@ The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe
 ### Deploy the Smart Contract to the Testnet
 To deploy the smart contract use the Testnet Deploy page.
 
-Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy"): 
+Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy"):
+
 ![Testnet deploy screen](./resources/tictactoe/testnet-deploy.png "Testnet deploy")
 
 Follow these steps to deploy the smart contract to the testnet:
 
 1. Deploy the .wasm file, click on the browse button in step 1, locate and select the tictactoe.wasm file.
+
 ![Testnet deploy wasm screen](./resources/tictactoe/testnet-deploy-wasm.png "Testnet deploy wasm")
 
 2. Deploy the .abi file, click on the browse button in step 2, locate and select the tictactoe.abi file.
+
 ![Testnet deploy ABI screen](./resources/tictactoe/testnet-deploy-ABI.png "Testnet deploy ABI")
 
 3. Select an account and active permission. This account owns the smart contract instance.
+
 ![Testnet deploy account screen](./resources/tictactoe/testnet-deploy-account.png "Testnet deploy account")
 
 4. Press the deploy button. The deployment results are shown in the “Deployment Result” window. In the case below deployment failed due to lack of memory. Fix this in the Blockchain Accounts Request Resources section. 
 
 Fail
+
 ![Testnet deploy fail screen](./resources/tictactoe/testnet-deploy-fail.png "Testnet deploy fail")
 
 Success!
+
 ![Testnet deploy success screen](./resources/tictactoe/testnet-deploy-success.png "Testnet deploy success")
 
 ## Play The Game
 Now that the smart contract has been successfully deployed, push smart contract actions to the blockchain to play the game.  
 
-Go to the EOSIO Testnet [Push Action](https://testnet.eos.io/push-action "Testnet - push action"): 
+Go to the EOSIO Testnet [Push Action](https://testnet.eos.io/push-action "Testnet - push action"):
+
 ![Testnet push action screen](./resources/tictactoe/testnet-pushaction.png "Testnet push action")
 
 Pushing an action requires the following settings:
@@ -608,6 +615,7 @@ The create action takes two parameters, the challenger and the host, therefore t
 ```
 
 Sign the push action with ‘mcazyfujecke@active’, the host of the game.
+
 ![Testnet push action create screen](./resources/tictactoe/testnet-pushaction-create.png "Testnet push action create")
 
 ### Push 'move' to the Testnet to make game moves
@@ -632,6 +640,7 @@ The host makes the first move. The required payload in json format is:
 ```
 
 Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
+
 ![Testnet push action first move screen](./resources/tictactoe/testnet-pushaction-move-first.png "Testnet push action first move")
 
 The challenger makes the second move. The required payload in json format is:
@@ -647,6 +656,7 @@ The challenger makes the second move. The required payload in json format is:
 ```
 
 Sign the push action with vswlkiegwdsk@active’ - the challenger.
+
 ![Testnet push action second move screen](./resources/tictactoe/testnet-pushaction-move-second.png "Testnet push action second move")
 
 Continue to make moves until the game ends with a win or a draw.
