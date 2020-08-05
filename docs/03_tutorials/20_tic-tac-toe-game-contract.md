@@ -43,7 +43,7 @@ cleos create account eosio tic.tac.toe YOUR_PUBLIC_KEY
 Ensure that you have your wallet unlocked and the creator's private active key in the wallet imported, otherwise the above command will fail.
 
 [[info | Wallet Unlocking]]
-| For instructions on wallet unlocking and keys importing, see section [Create Development Wallet](../02_development-environment/05_create-development-wallet.md). 
+| For instructions on wallet unlocking and keys importing, see section [Create Development Wallet](../02_getting-started/02_development-environment/05_create-development-wallet.md). 
 
 In the above step, if you see `YOUR_PUBLIC_KEY` instead of the public key value, you can either go back to section **1.4 Create Development Wallet** and persist the value or replace `YOUR_PUBLIC_KEY` with the public key value manually.
 
@@ -652,7 +652,7 @@ Ensure that your wallet is unlocked and you have `tic.tac.toe` key imported.
 After the deployment and the transaction is confirmed, the contract is already available in the blockchain. You can play with it now!
 
 [[info | Test Account]]
-| If you have not created these accounts already, refer to this article for creating test accounts [Create Test Accounts](../02_development-environment/07_create-test-accounts.md)
+| If you have not created these accounts already, refer to this article for creating test accounts [Create Test Accounts](../02_getting-started/02_development-environment/07_create-test-accounts.md)
 
 ### Create a Game
 
