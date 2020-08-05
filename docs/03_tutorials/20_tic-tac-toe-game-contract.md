@@ -68,7 +68,9 @@ This tutorial uses the EOSIO Testnet.
 
 If you do not have an EOSIO Testnet account, complete the following steps to create an EOSIO Testnet account:
 1. Click on the following link to open the EOSIO Testnet website [EOSIO Testnet - Block.one's official EOSIO Testnet](https://testnet.eos.io/ "block.one testnet") 
-2. Click the "Start Building" button in the middle of the web page or the "Getting Started" option on the top right of the page to set up an account ![Testnet Getting Started](./resources/tictactoe/testnet-get-started.png "Testnet Getting Started Screen") 
+2. Click the "Start Building" button in the middle of the web page or the "Getting Started" option on the top right of the page to set up an account 
+
+![Testnet Getting Started](./resources/tictactoe/testnet-get-started.png "Testnet Getting Started Screen") 
 
     * The “Start Building” button opens a form for your name, password, country of residence, and it asks you to confirm terms and conditions. 
     * Complete the form and click the “Register“ button to sign up for an EOSIO developer account. 
@@ -534,7 +536,7 @@ The complete tictactoe.cpp file can be downlaoded from github here: [Tictactoe t
 
 ## Compile and deploy the smart contract to the blockchain
 To deploy the smart contract to the blockchain first use the EOSIO.CDT eosio-cpp tool to build the .wasm file and a corresponding .abi file. Click on this link for details on [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cdt reference eosio-cpp tool") and Click on this link for details about [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "Contract Development Toolkit")
-  
+
 The .wasm file (or webassembly) is the binary code that the wasm engine in the blockchain executes. The webassembly engine currently used in eosio is [eos-vm](https://github.com/EOSIO/eos-vm "git eos-vm"). The application binary interface or .abi file defines how to pack and unpack the data used by a smart contract [Understanding ABI Files](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Getting Started - ABI files").     
 
 ### Compile the Smart Contract Code
