@@ -11,7 +11,7 @@ We explain the purpose of each step and why it is important.
 ## Prerequisites for the Tutorial
 This tutorial requires the following tools and knowledge:
 
-* EOSIO platform software, specifically cleos, keosd and eosio.cdt which compiles the smart contract. Click the following link for eosio.cdt installation instructions: [Install the CDT](https://developers.eos.io/welcome/latest/getting-started/development-environment/install-the-CDT "EOSIO.CDT Installation Instructions")
+* EOSIO platform software, specifically cleos, keosd and eosio.cdt which compiles the smart contract. Click here to [Install the CDT](https://developers.eos.io/welcome/latest/getting-started/development-environment/install-the-CDT "EOSIO.CDT Installation Instructions")
 * Knowledge of the C++ programming language
 * A code editor or an IDE. Click the following link for more information: [EOSIO Prerequisites](https://developers.eos.io/welcome/latest/getting-started/development-environment/introduction "Set up to use EOSIO")
    
@@ -63,21 +63,14 @@ The game requires two accounts and each account requires at least one key pair (
 [[note | Note]]
 | _Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account._
 
-This tutorial uses the EOSIO Testnet.
-
-If you do not have an EOSIO Testnet account, complete the following steps to create an EOSIO Testnet account:
+This tutorial uses the EOSIO Testnet. If you do not have an EOSIO Testnet account, complete the following steps to create an EOSIO Testnet account:
 1. Click on the following link to open the EOSIO Testnet website [EOSIO Testnet - Block.one's official EOSIO Testnet](https://testnet.eos.io/ "block.one testnet") 
 2. Click the "Start Building" button in the middle of the web page or the "Getting Started" option on the top right of the page to set up an account.
     * The “Start Building” button opens a form for your name, password, country of residence, and asks you to confirm terms and conditions. 
     * Complete the form and click the “Register“ button to sign up for an EOSIO developer account. 
     * Check your email account for a message “EOSIO Testnet” to verify your account. Follow instructions in the email to verify your account.
 
-Complete the following steps to Log in to your EOSIO Testnet account
-
-1. Click on the following link to open the EOSIO Testnet website [Block.one's official EOSIO Testnet](https://https://testnet.eos.io/ "block.one testnet")
-2. Use your credentials to login
-
-The login process creates an EOSIO Testnet account. This game needs two EOSIO Testnet accounts, one for the host and one for the challenger. 
+Login to your EOSIO Testnet account. This game needs two EOSIO Testnet accounts, one for the host and one for the challenger. 
 
 To create an additional EOSIO Testnet account, click the "Create another account" button. You now have two accounts and can select each account from the drop down box to view account details. 
 
