@@ -99,7 +99,7 @@ View your account details on the "Blockchain Accounts" page:
 
 ![Testnet Account Keys Screen](./resources/tictactoe/testnet-account-keys.png "Testnet Account Keys Screen")
 
-At the bottom of the page you can use TNT to request additional EOSIO resources for RAM, CPU, and NET.
+* Request Resources - At the bottom of the page you can use TNT to request additional EOSIO resources for RAM, CPU, and NET.
 
 ![Testnet Account Request Resources Screen](./resources/tictactoe/testnet-account-request-resources.png "Testnet Account Request Resources Screen")
 
@@ -406,8 +406,7 @@ bool tictactoe::IsEmptyCell(const uint8_t &cell){
     return cell == 0;
 }
 ``` 
-
-   * Implment IsValidMove
+   * Implement IsValidMove
    Add this code to the .cpp file:
 
 ```c++
@@ -417,7 +416,6 @@ bool tictactoe::IsValidMove(const uint16_t &row, const uint16_t &column, const s
     return isValid;
 }
 ```
-
    * Implement getWinner. The winner is the first player who places three of their marks in a horizontal, vertical, or diagonal row.
 
    Add this code to the .cpp file:
