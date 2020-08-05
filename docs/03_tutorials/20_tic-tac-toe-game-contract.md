@@ -283,7 +283,7 @@ public:
     name GetWinner(const game &currentGame);
 ```
 
-The complete tictactoe.hpp file can be downloaded from github here: [Tictactoe tutorial hpp source](./03_tutorials/src/tictactoe/tictactoe.hpp "ticttactoe example code")  
+The complete tictactoe.hpp file can be downloaded from github here: [Tictactoe tutorial hpp source](./src/tictactoe/tictactoe.hpp "ticttactoe example code")  
 
 ### Create TicTacToe.cpp file
 This section creates the tictactoe.cpp file. This file contains the implementations of the tictactoe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
