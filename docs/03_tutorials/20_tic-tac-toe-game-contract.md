@@ -122,7 +122,7 @@ The tictactoe.hpp file (or header file) contains the declarations of the smart c
 
 The tictactoe.cpp file contains implementations of the smart contract actions declared in the tictactoe.hpp header file and uses the data structures declared in the header file.
 
-The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the eosio-cpp tool from the EOSIO.CDT. Click the following link for more information on the EOSIO.CDT: [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "EOSIO.CDT documentation") . The eosio.cdt builds the smart contract and creates an ABI file. Click on the following link for more information about the ABI file: [ABI File](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Understand ABL Files") 
+The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the eosio-cpp tool from the EOSIO.CDT. Click the following link for more information on the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "EOSIO.CDT documentation") . The eosio.cdt builds the smart contract and creates an ABI file. Click on the following link for more information about the [ABI File](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Understand ABL Files") 
 
 #### Game Board Representation
 A std::vecror represents the tic tac toe board. The number 0 marks an empty square. The number 1 denotes a movement by the host. The number 2 denotes a movement by the challenger. To make a movement, you push a  transaction to the tic tac toe smart contract.
@@ -165,7 +165,7 @@ Game Representation
 A smart contract exposes methods or ‘actions’ that transactions use to operate business logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction, each action in the transaction, is rolled back. For more details about transactions and actions click the following link [Transaction and Action Information](https://developers.eos.io/welcome/latest/protocol/transactions_protocol "Tranasctions Protocol")
 You can use cleos to create transactions or to call an action directly. In this tutorial we call actions directly. 
 
-![Transactions and Actions](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/TransactionsAndActions.png "Transactions and Actions")
+![Transactions and Actions](./resources/tictactoe/transactions-and-actions.png "Transactions and Actions")
 
 ### Create TicTacToe.hpp file
 This section creates the tictactoe.hpp file. This header file contains the declarations of the tictactoe class, the definitions of tictactoe game data structures, and the declarations of tictactoe game methods, known as actions in EOSIO smart contracts.
@@ -174,8 +174,8 @@ This section creates the tictactoe.hpp file. This header file contains the decla
 #### Game Data Structures
 The TicTacToe smart contract hpp file defines the following public data structures to store game information.  
 
-* game - The game data structure contains game data. The structure has variables of type eosio::name, for challenger, host, turn and winner. Click on this link for a definition of eosio::name [EOSIO Name Structure](https://developers.eos.io/manuals/eosio.cdt/v1.7/structeosio_1_1name "eosio.cdt reference - name structure") . The structure has a vector representing the game board  
-* Games - Games is a type definition that uses a class template. Games uses an eosio::muti_index template to define a type which stores a game structure in RAM. Clink on this link for more information about eosio::multi_index [EOSIO Multi Index Table](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex "eosio.cdt reference - multi index table") and click on this link for more general information about multi index tables https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/data-persistence 
+* game - The game data structure contains game data. The structure has variables of type eosio::name, for challenger, host, turn and winner. Click on this link for a definition of [eosio::name](https://developers.eos.io/manuals/eosio.cdt/v1.7/structeosio_1_1name "eosio.cdt reference - name structure") . The structure has a vector representing the game board  
+* Games - Games is a type definition that uses a class template. Games uses an eosio::muti_index template to define a type which stores a game structure in RAM. Clink on this link for more information on [eosio::multi_index](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex "eosio.cdt reference - multi index table") and click on this link for more general information about [multi index tables](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/data-persistence) 
 
 #### Game Actions
 The TicTacToe smart contract  hpp file defines the following four public actions to operate the game logic.  
@@ -209,7 +209,7 @@ using namespace eosio;
 ```
 
 7. Declare the class.
-8. Use the [[eosio::contract(contract_name)]] attribute lets compiler know this is a smart contract and that the compiler should generate the main dispatcher and the ABI. Click on this link for more information https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes 
+8. Use the [[eosio::contract(contract_name)]] attribute lets compiler know this is a smart contract and that the compiler should generate the main dispatcher and the ABI. Click on this link for more information on [generator attributes](https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes) 
 9. Inherit from the eosio::contract public base class.
 10. Introduce base class members.
 11. Use the base class constructor.
@@ -305,7 +305,7 @@ public:
     name GetWinner(const game &currentGame);
 ```
 
-The complete tictactoe.hpp file can be downlaoded from github here: [Tictactoe tutorial source](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/src/tictactoe/ "ticttactoe example code")  
+The complete tictactoe.hpp file can be downloaded from github here: [Tictactoe tutorial source](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/src/tictactoe/ "ticttactoe example code")  
 
 ### Create TicTacToe.cpp file
 This file contains the implementations of the tictactoe class  smart contract actions and supporting methods.
@@ -562,32 +562,32 @@ The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe
 To deploy the smart contract use the Testnet Deploy page.
 
 Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy"): 
-![Testnet deploy screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy.png "Testnet deploy")
+![Testnet deploy screen](./resources/tictactoe/testnet-deploy.png "Testnet deploy")
 
 Follow these steps to deploy the smart contract to the testnet:
 
 1. Deploy the .wasm file, click on the browse button in step 1, locate and select the tictactoe.wasm file.
-![Testnet deploy wasm screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Wasm.png "Testnet deploy wasm")
+![Testnet deploy wasm screen](./resources/tictactoe/testnet-deploy-wasm.png "Testnet deploy wasm")
 
 2. Deploy the .abi file, click on the browse button in step 2, locate and select the tictactoe.abi file.
-![Testnet deploy ABI screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_ABI.png "Testnet deploy ABI")
+![Testnet deploy ABI screen](./resources/tictactoe/testnet-deploy-ABI.png "Testnet deploy ABI")
 
 3. Select an account and active permission. This account owns the smart contract instance.
-![Testnet deploy account screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Account.png "Testnet deploy account")
+![Testnet deploy account screen](./resources/tictactoe/testnet-deploy-account.png "Testnet deploy account")
 
 4. Press the deploy button. The deployment results are shown in the “Deployment Result” window. In the case below deployment failed due to lack of memory. Fix this in the Blockchain Accounts Request Resources section. 
 
 Fail
-![Testnet deploy fail screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Fail.png "Testnet deploy fail")
+![Testnet deploy fail screen](./resources/tictactoe/testnet-deploy-fail.png "Testnet deploy fail")
 
 Success!
-![Testnet deploy success screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_Deploy_Success.png "Testnet deploy success")
+![Testnet deploy success screen](./resources/tictactoe/testnet-deploy-success.png "Testnet deploy success")
 
 ## Play The Game
 Now that the smart contract has been successfully deployed, push smart contract actions to the blockchain to play the game.  
 
 Go to the EOSIO Testnet [Push Action](https://testnet.eos.io/push-action "Testnet - push action"): 
-![Testnet push action screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction.png "Testnet push action")
+![Testnet push action screen](./resources/tictactoe/testnet-pushaction.png "Testnet push action")
 
 Pushing an action requires the following settings:
 * Smart Contract Name - This field contains the name of the account where the smart contract was deployed.
@@ -608,7 +608,7 @@ The create action takes two parameters, the challenger and the host, therefore t
 ```
 
 Sign the push action with ‘mcazyfujecke@active’, the host of the game.
-![Testnet push action create screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Create.png "Testnet push action create")
+![Testnet push action create screen](./resources/tictactoe/testnet-pushaction-create.png "Testnet push action create")
 
 ### Push 'move' to the Testnet to make game moves
 Players make moves in turn by pushing ‘move’ actions to the blockchain. The host moves first, and each move must be signed by the appropriate account.
@@ -632,7 +632,7 @@ The host makes the first move. The required payload in json format is:
 ```
 
 Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
-![Testnet push action first move screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Move_first.png "Testnet push action first move")
+![Testnet push action first move screen](./resources/tictactoe/testnet-pushaction-move-first.png "Testnet push action first move")
 
 The challenger makes the second move. The required payload in json format is:
 
@@ -647,7 +647,7 @@ The challenger makes the second move. The required payload in json format is:
 ```
 
 Sign the push action with vswlkiegwdsk@active’ - the challenger.
-![Testnet push action second move screen](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/resources/tictactoe/Testnet_PushAction_Move_second.png "Testnet push action second move")
+![Testnet push action second move screen](./resources/tictactoe/testnet-pushaction-move-second.png "Testnet push action second move")
 
 Continue to make moves until the game ends with a win or a draw.
 
