@@ -67,14 +67,8 @@ Use a wallet to securely store private keys. Keep your private keys private and 
 This tutorial uses the EOSIO Testnet.
 
 If you do not have an EOSIO Testnet account, complete the following steps to create an EOSIO Testnet account:
-1. Click on the following link to open the EOSIO Testnet website [EOSIO Testnet - Block.one's official EOSIO Testnet](https://https://testnet.eos.io/ "block.one testnet") 
-2. Click the "Start Building" button in the middle of the web page or the "Getting Started" option on the top right of the page to set up an account ![Testnet Getting Started](https://github.com/EOSIO/welcome/blob/phil-tictactoe/docs/03_tutorials/resources/tictactoe/Testnet_GetStarted.png "Testnet Getting Started Screen") 
-
-Philtester
-
-<img src="https://github.com/EOSIO/welcome/blob/phil-tictactoe/docs/03_tutorials/resources/tictactoe/Testnet_GetStarted.png" alt="Testnet Getting Started" width="750" height="1000">
-
-end philtester
+1. Click on the following link to open the EOSIO Testnet website [EOSIO Testnet - Block.one's official EOSIO Testnet](https://testnet.eos.io/ "block.one testnet") 
+2. Click the "Start Building" button in the middle of the web page or the "Getting Started" option on the top right of the page to set up an account ![Testnet Getting Started](./resources/tictactoe/testnet-get-started.png "Testnet Getting Started Screen") 
 
     * The “Start Building” button opens a form for your name, password, country of residence, and it asks you to confirm terms and conditions. 
     * Complete the form and click the “Register“ button to sign up for an EOSIO developer account. 
