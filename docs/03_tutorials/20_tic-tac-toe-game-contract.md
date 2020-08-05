@@ -104,7 +104,7 @@ The EOSIO blockchain accounts own and consume three resources:
 * NET - This resource is the amount of data which can be written to blockchain blocks by an account in each 24 hour period. The blockchain blocks store transactions and transaction parameters, the history of blockchain . Stake TNT for more NET. Unstaking returns NET. 
 
 ## TicTacToe Smart Contract
-After you create your accounts create the smart contract. Use your favorite text editor of IDE to create the .hpp and.cpp files.
+Once you have your eosio accounts you can create the smart contract. Use your favorite text editor of IDE to create the .hpp and.cpp files.
 
 ### Smart Contract Requirements
 The tictactoe.hpp file (or header file) contains the declarations of the smart contract. Declarations inform the smart contract compiler what data structures to use in the smart contract to represent the game board and track game play. The header file also declares the smart contract actions that operate the game.
@@ -298,7 +298,7 @@ public:
 The complete tictactoe.hpp file can be downloaded from github here: [Tictactoe tutorial source](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/src/tictactoe/ "ticttactoe example code")  
 
 ### Create TicTacToe.cpp file
-This file contains the implementations of the tictactoe class  smart contract actions and supporting methods.
+This section creates the tictactoe.cpp file. This file contains the implemntations of the tictactoe smart contract actions and supporting private methods using the declarations from the header file.
 
 #### Procedure to create the tictactoe.cpp file
 Complete the following steps to create the tictactoe.cpp file:
