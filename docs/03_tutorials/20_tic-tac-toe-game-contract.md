@@ -74,8 +74,7 @@ If you do not have an EOSIO Testnet account, complete the following steps to cre
 
 Complete the following steps to Log in to your EOSIO Testnet account
 
-1. Click on the following link to open the EOSIO Testnet website [EOSIO Testnet - Block.one's official EOSIO Testnet](https://https://testnet.eos.io/ "block.one testnet")
-
+1. Click on the following link to open the EOSIO Testnet website [Block.one's official EOSIO Testnet](https://https://testnet.eos.io/ "block.one testnet")
 2. Use your credentials to login
 
 The login process creates an EOSIO Testnet account. This game needs two EOSIO Testnet accounts, one for the host and one for the challenger. 
@@ -320,10 +319,7 @@ Complete the following steps to create the tictactoe.cpp file:
 ```c++
 #include "tictactoe.hpp"
 ```
-#### Procedure to implement actions
-Complete the following steps to add the code to the .cpp file and implement the actions:
-
-1. Implement Create.
+5. Implement Create.
    * Ensure that the action has the signature from the host
    * Ensure that the challenger and host are not the same player
    * Ensure that there is no existing game
@@ -349,7 +345,7 @@ void tictactoe::create(const name &challenger, name &host) {
 }
 ```
 
-2. Implement Restart.
+6. Implement Restart.
    * Ensure that the action has the signature from the host/challenger
    * Ensure that the game exists
    * Ensure that the restart action is done by host/challenger
@@ -378,7 +374,7 @@ void tictactoe::restart(const name &challenger, const name &host, const name &by
 ```
 
 
-3. Implement Close.
+7. Implement Close.
    * Ensure that the action has the signature from the host
    * Ensure that the game exists
    * Remove the game from the db
@@ -401,7 +397,7 @@ void tictactoe::close(const name &challenger, const name &host){
 }
 ```
 
-4. Implement Move supporting methods.
+8. Implement Move supporting methods.
    * Implement IsValidMove.
    Add this code to the .cpp file:
 
@@ -482,7 +478,7 @@ name tictactoe::GetWinner(const game &currentGame)
 }
 ```
 
-5. Implement Move.
+9. Implement Move.
    * Ensure that the action has the signature from the host/ challenger
    * Ensure that the game exists
    * Ensure that the game is not finished yet
