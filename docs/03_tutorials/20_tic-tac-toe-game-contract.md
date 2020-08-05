@@ -592,7 +592,7 @@ Success!
 ## Play The Game
 Now that the smart contract has been successfully deployed, push smart contract actions to the blockchain to play the game.  
 
-Go to the EOSIO Testnet [Push Action](https://testnet.eos.io/push-action "Testnet - push action"):
+Go to the EOSIO Testnet  [Push Action](https://testnet.eos.io/push-action "Testnet - push action") page:
 
 ![Testnet push action screen](./resources/tictactoe/testnet-pushaction.png "Testnet push action")
 
