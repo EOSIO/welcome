@@ -72,7 +72,7 @@ This tutorial uses the EOSIO Testnet. If you do not have an EOSIO Testnet accoun
 
 Login to your EOSIO Testnet account. This game needs two EOSIO Testnet accounts, one for the host and one for the challenger. 
 
-To create an additional EOSIO Testnet account, click the "Create another account" button. You now have two accounts and can select each account from the drop down box to view account details. 
+To create an additional EOSIO Testnet accounts, click the "Create another account" button. This will generate a new account with associated public and private keys. Once you have two accounts you can select each account from the drop down box to view account details. 
 
 View your account details on the "Blockchain Accounts" page:
 
