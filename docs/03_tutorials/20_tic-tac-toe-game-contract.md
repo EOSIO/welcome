@@ -298,7 +298,7 @@ public:
 The complete tictactoe.hpp file can be downloaded from github here: [Tictactoe tutorial source](https://https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/src/tictactoe/ "ticttactoe example code")  
 
 ### Create TicTacToe.cpp file
-This section creates the tictactoe.cpp file. This file contains the implemntations of the tictactoe smart contract actions and supporting private methods using the declarations from the header file.
+This section creates the tictactoe.cpp file. This file contains the implementations of the tictactoe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
 
 #### Procedure to create the tictactoe.cpp file
 Complete the following steps to create the tictactoe.cpp file:
@@ -681,9 +681,7 @@ The close action takes two parameters, the "challenger" and the "host". The requ
 
 Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
 
-Check the game status to see that game data has been removed.
+Check the game status to see that game data has been removed.  
 
 ## Next Steps
-Continue to play the game and to push actions to the testnet. Try to sign actions with different accounts, and try to make illegal moves. 
-
-Visit the [EOSIO Developer Portal](https://developers.eos.io/ "eosio developers portal") to learn more about EOSIO.
+Visit the [EOSIO Developer Portal](https://developers.eos.io/ "eosio developers portal") to learn more about EOSIO and try building a more advanced web based game with [Elemental Battles.](https://battles.eos.io/) 
