@@ -502,7 +502,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     });
 }
 ```
-The complete tictactoe.cpp file can be downlaoded from github here: [Tictactoe tutorial cpp source](./03_tutorials/src/tictactoe/tictactoe.cpp "ticttactoe example code")  
+The complete tictactoe.cpp file can be downlaoded from github here: [Tictactoe tutorial cpp source](./src/tictactoe/tictactoe.cpp "ticttactoe example code")  
 
 
 ## Compile and deploy the smart contract to the blockchain
