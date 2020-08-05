@@ -533,7 +533,8 @@ The complete tictactoe.cpp file can be downlaoded from github here: [Tictactoe t
 
 
 ## Compile and deploy the smart contract to the blockchain
-To deploy the smart contract to the blockchain first use the EOSIO.CDT eosio-cpp tool to build the .wasm file and a corresponding .abi file. Click on this link for details on [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cdt reference eosio-cpp tool") and Click on this link for details about [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "Contract Development Toolkit")  
+To deploy the smart contract to the blockchain first use the EOSIO.CDT eosio-cpp tool to build the .wasm file and a corresponding .abi file. Click on this link for details on [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cdt reference eosio-cpp tool") and Click on this link for details about [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "Contract Development Toolkit")
+  
 The .wasm file (or webassembly) is the binary code that the wasm engine in the blockchain executes. The webassembly engine currently used in eosio is [eos-vm](https://github.com/EOSIO/eos-vm "git eos-vm"). The application binary interface or .abi file defines how to pack and unpack the data used by a smart contract [Understanding ABI Files](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Getting Started - ABI files").     
 
 ### Compile the Smart Contract Code
@@ -554,7 +555,7 @@ Warning, action <close> does not have a ricardian contract
 Warning, action <move> does not have a ricardian contract
 ```
 
-For this tutorial we ignore these warnings. Click on the following link for s tutorial showing how to add the optional ricardian contracts [Prepare the Ricardian Contract](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/data-persistence#step-10-prepare-the-ricardian-contract-optional "Getting Started - Data Peristence")
+For this tutorial we ignore these warnings. Click on the following link for a tutorial showing how to add the optional ricardian contracts [Prepare the Ricardian Contract](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/data-persistence#step-10-prepare-the-ricardian-contract-optional "Getting Started - Data Peristence")
 
 The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe.abi.
 
