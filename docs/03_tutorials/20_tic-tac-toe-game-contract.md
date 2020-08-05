@@ -92,19 +92,19 @@ View your account details on the "Blockchain Accounts" page:
 
 * TNT Balances - This option shows the Temporary Network Token (TNT) token balance for the account. Use tokens to purchase resources. New TNT tokens are available every hour. Click the "Request Tokens" button to replenish your account by 10 tokens.
 
-![Testnet Account Balances Screen](./resources/tictactoe/Testnet_AccountBalances.png "Testnet Account Balances Screen")
+![Testnet Account Balances Screen](./resources/tictactoe/testnet-account-balances.png "Testnet Account Balances Screen")
 
 * Resource Usage - This option shows the amount of resource available for,  and used by, each account.
 
-![Testnet Account Resources Screen](./resources/tictactoe/Testnet_AccountResourceUse.png "Testnet Account Resources Screen")
+![Testnet Account Resources Screen](./resources/tictactoe/testnet-account-resource-use.png "Testnet Account Resources Screen")
 
 * Keys - This option shows automatically generated public and private keys pairs. For more information about account and permissions click the following link [Accounts and Permissions](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions "Accounts and Permissions Overview")
 
-![Testnet Account Keys Screen](./resources/tictactoe/Testnet_AccountKeys.png "Testnet Account Keys Screen")
+![Testnet Account Keys Screen](./resources/tictactoe/testnet-account-keys.png "Testnet Account Keys Screen")
 
 At the bottom of the page you can use TNT to request additional EOSIO resources for RAM, CPU, and NET.
 
-![Testnet Account Request Resources Screen](./resources/tictactoe/Testnet_AccountRequestResources.png "Testnet Account Request Resources Screen")
+![Testnet Account Request Resources Screen](./resources/tictactoe/testnet-account-request-resources.png "Testnet Account Request Resources Screen")
 
 ### EOSIO Resources 
 The EOSIO blockchain accounts own and consume three resources:
