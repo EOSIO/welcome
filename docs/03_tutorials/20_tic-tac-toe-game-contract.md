@@ -72,6 +72,7 @@ If you do not have an EOSIO Testnet account, complete the following steps to cre
 
 ![Testnet Getting Started](./resources/tictactoe/testnet-get-started.png "Testnet Getting Started Screen") 
 
+
 * The “Start Building” button opens a form for your name, password, country of residence, and it asks you to confirm terms and conditions. 
 * Complete the form and click the “Register“ button to sign up for an EOSIO developer account. 
 * Check your email account for a message “EOSIO Testnet” to verify your account. Follow instructions in the email to verify your account.
