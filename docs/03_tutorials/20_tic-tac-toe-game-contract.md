@@ -55,7 +55,7 @@ Accounts are stored on the blockchain with a public key. Use a private key to ac
 ### Smart Contract Actions
 A smart contract exposes methods or ‘actions’ that transactions use to operate business logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction, each action in the transaction, is rolled back. For more details about transactions and actions click on this link [Transaction Protocol.](https://developers.eos.io/welcome/latest/protocol/transactions_protocol "Tranasctions Protocol") You can use cleos to create transactions, which contain one or more actions, or to call an action directly. 
 
-![Transactions and Actions](./resources/tictactoe/transactions-and-actions.png "Transactions and Actions")
+![Transactions and Actions](./resources/tictactoe/transactions-and-actions-temp.png "Transactions and Actions")
 
 ### EOSIO Resources 
 The EOSIO blockchain accounts own and consume three resources:
