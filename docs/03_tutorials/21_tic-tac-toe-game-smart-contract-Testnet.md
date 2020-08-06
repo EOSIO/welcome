@@ -72,6 +72,11 @@ The game requires two accounts, one for each player, and each account requires a
 ### Procedure to create Accounts
 Follow this link for a guide on [Creating Testnet Accounts.](https://testnet.eos.io/faq)
 
+Go to the EOSIO Testnet [Blockchain Accounts](https://testnet.eos.io/user/blockchain-accounts "Testnet - blockchain accounts") page:
+
+![Testnet blockchain accounts screen](./resources/tictactoe/testnet-blockchain-accounts.png "Testnet Title Panel - Blockchain Accounts")
+
+
 Create two accounts on the testnet, these accounts are created with arbitrary names.
 1. The host - the host will load the smart contract
 2. The challenger - the challenger will play the game with the host.
