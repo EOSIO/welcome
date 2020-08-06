@@ -70,7 +70,7 @@ For more information click on this link [Core Concepts](https://developers.eos.i
 The game requires two accounts, one for each player, and each account requires at least one key pair (public and private keys.) One account 'owns' the smart contract, a blockchain account supports only one smart contract and a smart contract must be loaded by an account. Accounts then identify which player ‘pushes’ a transaction to the blockchain. An account is created by calling an EOSIO system contract and this action requires a public key which is stored on the blockchain.  The blockchain then uses asymmetric cryptography to verify that the account pushing the transaction is signed with the matching private key and has the required authority to perform an action.  
 
 ### Procedure to create Accounts
-Follow this link for a guide on [Creating Testnet Accounts.](https://testnet.eos.io/faq)
+Follow this link for a guide on [creating Testnet Accounts.](https://testnet.eos.io/faq)
 
 Go to the EOSIO Testnet [Blockchain Accounts](https://testnet.eos.io/user/blockchain-accounts "Testnet - blockchain accounts") page:
 
@@ -523,7 +523,7 @@ For this tutorial we ignore these warnings. Click on the following link for a tu
 The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe.abi.
 
 ### Deploy the Smart Contract to the Testnet
-Follow this link for a guide on [Deploying smart contracts on the Testnet.](https://testnet.eos.io/faq)
+Follow this link for a guide on [deploying smart contracts on the Testnet.](https://testnet.eos.io/faq)
 
 Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy") page:
 
@@ -537,9 +537,9 @@ Follow these steps to deploy the smart contract to the testnet:
 4. Press the deploy button. The deployment results are shown in the “Deployment Result” window. In the case below deployment failed due to lack of memory. Fix this in the Blockchain Accounts Request Resources section. 
 
 ## Play The Game
-Now that the smart contract has been successfully deployed, push smart contract actions to the blockchain to play the game. Follow this link for a guide on [Pushing actions on the Testnet.](https://testnet.eos.io/faq)
+Now that the smart contract has been successfully deployed, push smart contract actions to the blockchain to play the game. Follow this link for a guide on [pushing actions on the Testnet.](https://testnet.eos.io/faq)
   
-Go to the EOSIO Testnet  [Push Action](https://testnet.eos.io/push-action "Testnet - push action") page:
+Go to the EOSIO Testnet [Push Action](https://testnet.eos.io/push-action "Testnet - push action") page:
 
 ![Testnet push action screen](./resources/tictactoe/testnet-pushaction.png "Testnet Title Panel - Push Action")
 
