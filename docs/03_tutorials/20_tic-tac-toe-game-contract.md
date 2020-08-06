@@ -75,12 +75,14 @@ Create two accounts
 1. the host - the host will load the smart contract
 2. the challenger - the challenger will play the game with the host.
 
-* Using the command line to [Create Accounts](https://developers.eos.io/welcome/latest/getting-started/development-environment/create-test-accounts)
+#### Use the command line
+Using the command line to [Create Accounts](https://developers.eos.io/welcome/latest/getting-started/development-environment/create-test-accounts)
     1. [How To Create A Wallet](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-a-wallet)
 	2. [How To Create Key Pairs](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-key-pairs)
     3. [How To Create An Account](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-an-account#gatsby-focus-wrapper)
 
-* Using the Testnet UI to [Create Accounts](https://testnet.eos.io/faq)
+#### Use the Testnet UI 
+Using the Testnet UI to [Create Accounts](https://testnet.eos.io/faq)
 
 [[note | Note]]
 | _You can also use three or more accounts, one for the smart contract and separate accounts for the host(s) and the challenger(s)._
