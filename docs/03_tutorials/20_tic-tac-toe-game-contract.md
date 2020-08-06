@@ -67,6 +67,10 @@ The EOSIO blockchain accounts own and consume three resources:
 For more information click on this link [Core Concepts](https://developers.eos.io/welcome/latest/overview/core_concepts)
 
 ## Create the necessary accounts and key pairs
+The game requires two accounts, one for each player, and each account requires at least one key pair (public and private keys.) One account 'owns' the smart contract, a blockchain account supports only one smart contract and a smart contract must be loaded by an account. Accounts then identify which player ‘pushes’ a transaction to the blockchain. An account is created by calling an EOSIO system contract and this action requires a public key which is stored on the blockchain.  The blockchain then uses asymmetric cryptography to verify that the account pushing the transaction is signed with the matching private key and has the required authority to perform an action.  
+
+
+## Create the necessary accounts and key pairs
 The game requires two accounts and each account requires at least one key pair (public and private keys). 
 * Each account identifies a player and a player ‘pushes’ a transaction to the blockchain to play the game. 
 * Each account stores a public key on the blockchain.
