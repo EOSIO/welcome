@@ -291,7 +291,7 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
 
 ### Step 7.1: Return values from action
 
-Starting with EOSIO version 2.1 you can return values from actions. Because the `upsert` action has two outcomes, one that creates a new row in the table and another that updates the row if it already exists, you can take advantage of this new feature and return two different results, one for each case. The results can be any standard type and for exemplification they will be in the form of a `std::pair<int, std::string>` consisting of an integer and a string detailing the result. You will also have to change the return type of the function that implements the `upsert` action to be of type `std::pari<int, std::string>`.
+Starting with EOSIO version 2.1 you can return values from actions. Because the `upsert` action has two outcomes, one that creates a new row in the table and another that updates the row if it already exists, you can take advantage of this new feature and return two different results, one for each case. The returned results can be of any C++ standard type or any standard library type as well as user defined types. For exemplification they will be in the form of a `std::pair<int, std::string>` consisting of an integer and a string detailing the result. You will also have to change the return type of the function that implements the `upsert` action to be of type `std::pair<int, std::string>`.
 
 ```cpp
 std::pair<int, std::string> upsert(name user, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
