@@ -32,7 +32,7 @@ The EOSIO tic tac toe rules are:
 * The first player to complete a row or diagonal of either X’s or O’s wins the game.
 * If no player completes a row or diagonal of either X’s or O’s, the game is a draw. 
 
-### Understand how the game works
+## Understand how the game works
 The smart contract contains the game logic, therefore this section introduces how the game works. 
 
 The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on the [EOSIO Tesnet](https://testnet.eos.io/) in the next step. Use these accounts to "push actions" to the blockchain. These actions 'start', 'restart', and 'close' the game. Pushing a 'move' action will place a 'marker' on the game 'board'.    
@@ -49,10 +49,10 @@ In the example below the player who placed x has won.
 
 When all the squares contain a marker and no player has three markers in a row, then the game is a draw.
 
-#### Accounts, key pairs, and secure your private key
+### Accounts, key pairs, and secure your private key
 Accounts are stored on the blockchain with a public key. Use a private key to access the account, though be sure to secure your private key. For more information about account and permissions click on this link [Accounts and Permissions](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions "Accounts and Permissions Overview")
 
-#### Smart Contract Actions
+### Smart Contract Actions
 A smart contract exposes methods or ‘actions’ that transactions use to operate business logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction, each action in the transaction, is rolled back. For more details about transactions and actions click on this link [Transaction and Action Information.](https://developers.eos.io/welcome/latest/protocol/transactions_protocol "Tranasctions Protocol") You can use cleos to create transactions, which contain one or more actions, or to call an action directly. 
 
 ![Transactions and Actions](./resources/tictactoe/transactions-and-actions.png "Transactions and Actions")
@@ -111,7 +111,7 @@ The tictactoe.cpp file contains implementations of the smart contract actions de
 
 The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the eosio-cpp tool from the EOSIO.CDT. Click on this link for more information on the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "EOSIO.CDT documentation") . The EOSIO.CDT builds the smart contract and creates an ABI file. Click on this link for more information about [ABI Files](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Understand ABL Files") 
 
-#### Game Board Representation
+### Game Board Representation
 A std::vecror represents the tic tac toe board. The number 0 marks an empty square. The number 1 denotes a movement by the host. The number 2 denotes a movement by the challenger. To make a movement, you push a  transaction to the tic tac toe smart contract.
 
 Logically the board looks like:
@@ -166,7 +166,7 @@ The TicTacToe smart contract  hpp file defines the following four public actions
 * Close - This action deletes and removes existing game data and frees up any storage the game uses. No game data persists. The host may use this command.
 * Move - This action sets a marker on the gameboard and updates the game board array. The host or the challenger may use this command.
 
-#### Procedure to create the tictactoe.hpp file
+### Procedure to create the tictactoe.hpp file
 Complete the following steps to create the tictactoe.hpp file:
 
 1. Create a tictactoe folder on your local drive.
@@ -291,7 +291,7 @@ The complete tictactoe.hpp file can be downloaded from github here: [Tictactoe t
 ### Create TicTacToe.cpp file
 This section creates the tictactoe.cpp file. This file contains the implementations of the tictactoe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
 
-#### Procedure to create the tictactoe.cpp file
+### Procedure to create the tictactoe.cpp file
 Complete the following steps to create the tictactoe.cpp file:
 
 1. Ensure you are in the tictactoe folder. 
