@@ -73,8 +73,8 @@ The game requires two accounts, one for each player, and each account requires a
 Follow this link for a guide on [Creating Testnet Accounts.](https://testnet.eos.io/faq)
 
 Create two accounts on the testnet, these accounts are created with arbitrary names.
-1. the host - the host will load the smart contract
-2. the challenger - the challenger will play the game with the host.
+1. The host - the host will load the smart contract
+2. The challenger - the challenger will play the game with the host.
 
 
 [[note | Note]]
