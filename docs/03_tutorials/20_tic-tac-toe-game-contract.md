@@ -103,7 +103,7 @@ The tictactoe.hpp file (or header file) contains the declarations of the smart c
 
 The tictactoe.cpp file contains implementations of the smart contract actions declared in the tictactoe.hpp header file and uses the data structures declared in the header file.
 
-The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the eosio-cpp tool from the EOSIO.CDT. Click on this link for more information on the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "EOSIO.CDT documentation") . The eosio.cdt builds the smart contract and creates an ABI file. Click on this link for more information about the [ABI File](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Understand ABL Files") 
+The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the eosio-cpp tool from the EOSIO.CDT. Click on this link for more information on the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "EOSIO.CDT documentation") . The EOSIO.CDT builds the smart contract and creates an ABI file. Click on this link for more information about [ABI Files](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Understand ABL Files") 
 
 #### Game Board Representation
 A std::vecror represents the tic tac toe board. The number 0 marks an empty square. The number 1 denotes a movement by the host. The number 2 denotes a movement by the challenger. To make a movement, you push a  transaction to the tic tac toe smart contract.
@@ -189,7 +189,7 @@ using namespace eosio;
 ```
 
 7. Declare the class.
-8. Use the [[eosio::contract(contract_name)]] attribute lets compiler know this is a smart contract and that the compiler should generate the main dispatcher and the ABI. Click on this link for more information on [generator attributes](https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes) 
+8. Use the [[eosio::contract(contract_name)]] attribute lets compiler know this is a smart contract and that the compiler should generate the main dispatcher and the ABI. Click on this link for more information on [generator attributes.](https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes) 
 9. Inherit from the eosio::contract public base class.
 10. Introduce base class members.
 11. Use the base class constructor.
@@ -208,7 +208,7 @@ public:
     TicTacToe(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds) {}
 };
 ```
-12. Declare game data structure and use the [[eosio::table]] attribute to let the compiler know this uses a multi index table. Click here for more information about the attribute [Generator Attributes](https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes) . Click on this link for more information about [Multi Index Table](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex)
+12. Declare game data structure and use the [[eosio::table]] attribute to let the compiler know this uses a multi index table. Click on this link for more information on [generator attributes.](https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes) Click on this link for more information about [Multi Index Table](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex)
 13. Create a **primary_key** method. This is automatically used as an index for the table.
 14. Use the EOSLIB_SERIALIZE macro to define how the data is serialized / deserialized in and out of the multi index table.  Click on this link for more information about [EOSLIB_SERIALIZE](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__serialize)
 
@@ -256,7 +256,7 @@ public:
     typedef eosio::multi_index<"games"_n, game> games;
 ```
 
-16. Declare class methods and use the [[eosio::action]] attribute to let the compiler know this is a smart contract action. Click on this link for more information about [Generator Attributes](https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes) 
+16. Declare class methods and use the [[eosio::action]] attribute to let the compiler know this is a smart contract action. Click on this link for more information on [generator attributes.](https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes) 
     Add this code to the .hpp file inside the public section of the class:
 
 ```c++
