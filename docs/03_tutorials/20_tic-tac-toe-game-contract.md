@@ -70,16 +70,17 @@ For more information click on this link [Core Concepts](https://developers.eos.i
 The game requires two accounts, one for each player, and each account requires at least one key pair (public and private keys.) One account 'owns' the smart contract, a blockchain account supports only one smart contract and a smart contract must be loaded by an account. Accounts then identify which player ‘pushes’ a transaction to the blockchain. An account is created by calling an EOSIO system contract and this action requires a public key which is stored on the blockchain.  The blockchain then uses asymmetric cryptography to verify that the account pushing the transaction is signed with the matching private key and has the required authority to perform an action.  
 
 ### Procedure to create Accounts
+
+Create two accounts
+1. the host - the host will load the smart contract
+2. the challenger - the challenger will play the game with the host.
+
 * Using the command line to [Create Accounts](https://developers.eos.io/welcome/latest/getting-started/development-environment/create-test-accounts)
     1. [How To Create A Wallet](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-a-wallet)
 	2. [How To Create Key Pairs](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-key-pairs)
     3. [How To Create An Account](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-an-account#gatsby-focus-wrapper)
 
 * Using the Testnet UI to [Create Accounts](https://testnet.eos.io/faq)
-
-Create two accounts
-* the host - the host will load the smart contract
-* the challenger - the challenger will play the game with the host.
 
 [[note | Note]]
 | _You can also use three or more accounts, one for the smart contract and separate accounts for the host(s) and the challenger(s)._
