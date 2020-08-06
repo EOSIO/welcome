@@ -49,10 +49,16 @@ In the example below the player who placed x has won.
 
 When all the squares contain a marker and no player has three markers in a row, then the game is a draw.
 
-## Accounts, key pairs, and secure your private key
+#### Accounts, key pairs, and secure your private key
 Accounts are stored on the blockchain with a public key. Use a private key to access the account, though be sure to secure your private key. For more information about account and permissions click on this link [Accounts and Permissions](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions "Accounts and Permissions Overview")
 
-### Create the necessary accounts and key pairs
+#### Smart Contract Actions
+A smart contract exposes methods or ‘actions’ that transactions use to operate business logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction, each action in the transaction, is rolled back. For more details about transactions and actions click on this link [Transaction and Action Information.](https://developers.eos.io/welcome/latest/protocol/transactions_protocol "Tranasctions Protocol") You can use cleos to create transactions or to call an action directly. In this tutorial we call actions directly. 
+
+![Transactions and Actions](./resources/tictactoe/transactions-and-actions.png "Transactions and Actions")
+
+
+## Create the necessary accounts and key pairs
 The game requires two accounts and each account requires at least one key pair (public and private keys). 
 * Each account identifies a player and a player ‘pushes’ a transaction to the blockchain to play the game. 
 * Each account stores a public key on the blockchain.
@@ -141,11 +147,6 @@ Game Representation
 |     0     |   x   |   o   |   x   |
 |     1     |   x   |   o   |   o   |
 |     2     |   o   |   x   |   x   |
-
-#### Smart Contract Actions
-A smart contract exposes methods or ‘actions’ that transactions use to operate business logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction, each action in the transaction, is rolled back. For more details about transactions and actions click on this link [Transaction and Action Information.](https://developers.eos.io/welcome/latest/protocol/transactions_protocol "Tranasctions Protocol") You can use cleos to create transactions or to call an action directly. In this tutorial we call actions directly. 
-
-![Transactions and Actions](./resources/tictactoe/transactions-and-actions.png "Transactions and Actions")
 
 ### Create TicTacToe.hpp file
 This section creates the tictactoe.hpp file. This header file contains the declarations of the tictactoe class, the definitions of tictactoe game data structures, and the declarations of tictactoe game methods, known as actions in EOSIO smart contracts.
