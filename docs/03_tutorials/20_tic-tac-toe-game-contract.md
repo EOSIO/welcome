@@ -57,6 +57,14 @@ A smart contract exposes methods or ‘actions’ that transactions use to opera
 
 ![Transactions and Actions](./resources/tictactoe/transactions-and-actions.png "Transactions and Actions")
 
+### EOSIO Resources 
+The EOSIO blockchain accounts own and consume three resources:
+
+* RAM - This resource is the amount of RAM available to an account. RAM stores smart contracts loaded on the blockchain. Smart contacts use RAM via the multi-index table to store smart contract state. Spend TNT to purchase more RAM, RAM can be sold.
+* CPU - This resource is the amount of CPU which can be used by an account in each 24 hour period. Transactions consume CPU. Stake TNT for more CPU. Unstaking returns CPU. 
+* NET - This resource is the amount of data which can be written to blockchain blocks by an account in each 24 hour period. The blockchain blocks store transactions and transaction parameters, the history of blockchain . Stake TNT for more NET. Unstaking returns NET.
+
+For more information click on this link [Core Concepts](https://developers.eos.io/welcome/latest/overview/core_concepts)
 
 ## Create the necessary accounts and key pairs
 The game requires two accounts and each account requires at least one key pair (public and private keys). 
@@ -90,15 +98,6 @@ View your account details on the "Blockchain Accounts" page:
 * Resource Usage - This option shows the amount of resource available for,  and used by, each account.
 * Keys - This option shows automatically generated public and private keys pairs. 
 * Request Resources - At the bottom of the page you can use TNT to request additional EOSIO resources for RAM, CPU, and NET.
-
-### EOSIO Resources 
-The EOSIO blockchain accounts own and consume three resources:
-
-* RAM - This resource is the amount of RAM available to an account. RAM stores smart contracts loaded on the blockchain. Smart contacts use RAM via the multi-index table to store smart contract state. Spend TNT to purchase more RAM, RAM can be sold.
-* CPU - This resource is the amount of CPU which can be used by an account in each 24 hour period. Transactions consume CPU. Stake TNT for more CPU. Unstaking returns CPU. 
-* NET - This resource is the amount of data which can be written to blockchain blocks by an account in each 24 hour period. The blockchain blocks store transactions and transaction parameters, the history of blockchain . Stake TNT for more NET. Unstaking returns NET.
-
-For more information click on this link [Core Concepts](https://developers.eos.io/welcome/latest/overview/core_concepts)
 
 ## TicTacToe Smart Contract
 Once you have your eosio accounts you can create the smart contract. Use your favorite text editor of IDE to create the .hpp and.cpp files.
