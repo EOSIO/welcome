@@ -33,11 +33,11 @@ The EOSIO tic tac toe rules are:
 * If no player completes a row or diagonal of either X’s or O’s, the game is a draw. 
 
 ### Understand how the game works
-The smart contract contains the game logic, therefore this section explains how the game works. 
+The smart contract contains the game logic, therefore this section introduces how the game works. 
 
-The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on the [EOSIO Tesnet](https://testnet.eos.io/) in the next step. 
+The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on the [EOSIO Tesnet](https://testnet.eos.io/) in the next step. Use these accounts to "push actions" to the blockchain. These actions 'start', 'restart', and 'close' the game. Pushing a 'move' action will place a 'marker' on the game 'board'.    
 
-One player is the host, who starts the game, and one player is the challenger. The game ‘board’ is nine squares, and each player takes a turn to place their ‘marker’ in a square. A player wins the game when three markers are placed in a row.
+One player is the host, who starts the game, and one player is the challenger. The game board is nine squares, and each player takes a turn to place their marker in a square. A player wins the game when three markers are placed in a row.
 
 In the example below the player who placed x has won.
 
