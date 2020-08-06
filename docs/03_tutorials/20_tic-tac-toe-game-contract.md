@@ -77,6 +77,7 @@ Create two accounts
 
 #### Use the command line
 Using the command line to [Create Accounts](https://developers.eos.io/welcome/latest/getting-started/development-environment/create-test-accounts)
+
     1. [How To Create A Wallet](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-a-wallet)
 	2. [How To Create Key Pairs](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-key-pairs)
     3. [How To Create An Account](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-an-account#gatsby-focus-wrapper)
