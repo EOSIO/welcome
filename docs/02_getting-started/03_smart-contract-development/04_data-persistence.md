@@ -2,14 +2,17 @@
 content_title: "2.4: Data Persistence"
 link_text: "2.4: Data Persistence"
 ---
+
 To learn about data persistence, you write a simple smart contract that functions as an address book. While this use case is not very practical as a production smart contract, it is a good contract to start with to learn how data persistence works on EOSIO without being distracted by business logic that does not pertain to eosio's `multi_index` functionality.
 
 ## Step 1: Create a new directory
+
 Earlier, you created a contract directory, navigate there now.
 
 ```shell
 cd CONTRACTS_DIR
 ```
+
 Create a new directory for our contract and enter the directory
 
 ```shell
@@ -22,9 +25,11 @@ cd addressbook
 ```shell
 touch addressbook.cpp
 ```
+
 Open the file in your favorite editor.
 
 ## Step 3: Write an Extended Standard Class and Include EOSIO
+
 If you followed the previous tutorial, you created a hello world contract and learned the basics. The code snippet uses a similiar structure with a class named `addressbook`:
 
 ```cpp
@@ -41,11 +46,13 @@ class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 ```
 
 ## Step 4: Create The Data Structure for the Table
+
 Before a table can be configured and instantiated, we need to define a struct that represents the data structure of the address book. Since it is an address book, the table will contain people, so create a `struct` called "person"
 
 ```cpp
 struct person {};
 ```
+
 When defining the structure of a multi_index table, you use a unique value as the primary key.
 
 For this contract, use a field called "key" with type `name` based on the user's `name`. This contract has one unique entry per user, so this key will be a consistent and guaranteed unique value.
@@ -55,6 +62,7 @@ struct person {
  name key;
 };
 ```
+
 Since this contract is an address book it should store some relevant details for each entry or *person*
 
 ```cpp
@@ -67,6 +75,7 @@ struct person {
  std::string state;
 };
 ```
+
 Great. The basic data structure is now complete.
 
 Next, define a `primary_key` method. Every `multi_index` struct requires a *primary key* method. Behind the scenes, this method is used according to the index specification of your `multi_index` instantiation. EOSIO `multi_index` wraps [boost::multi_index](https://www.boost.org/doc/libs/1_59_0/libs/multi_index/doc/index.html)
@@ -90,11 +99,13 @@ struct person {
 | A table's data structure cannot be modified while it has data in it. If you need to make changes to a table's data structure in any way, you first need to remove all its rows
 
 ## Step 5: Configure the Multi-Index Table
+
 Now that the data structure of the table has been defined with a `struct` we need to configure the table. The [eosio::multi_index](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index) constructor needs to be named and configured to use the struct we previously defined.
 
 ```cpp
 using address_index = eosio::multi_index<"people"_n, person>;
 ```
+
 With the above `multi_index` configuration there is a table named **people**, that
 
 1. Uses the `_n` operator to define an eosio::name type and uses that to name the table. This table contains a number of different singular "persons", so name the table "people".
@@ -123,12 +134,13 @@ class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 
       uint64_t primary_key() const { return key.value;}
     };
-    
+
   using address_index = eosio::multi_index<"people"_n, person>;
 };
 ```
 
 ## Step 6: The Constructor
+
 When working with C++ classes, the first public method you should create is a constructor.
 
 Our constructor will be responsible for initially setting up the contract.
@@ -140,6 +152,7 @@ addressbook(name receiver, name code, datastream<const char*> ds):contract(recei
 ```
 
 ## Step 7: Adding a record to the table
+
 Previously, the primary key of the multi-index table was defined to enforce that this contract will only store one record per user. To make it all work, some rules about the design need to be established.
 
 1. The only account authorized to modify the address book is the user.
@@ -195,6 +208,7 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
   auto iterator = addresses.find(user.value);
 }
 ```
+
 Security has been established and the table instantiated, great!  Next up, write the code for creating or modifying the table.  
 
 First, detect whether a particular user already exists in the table. To do this, use table's [find](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index#function-find) method by passing the `user` parameter. The find method will return an iterator. Use that iterator to test it against the [end](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index#function-end) method. The "end" method is an alias for "null".
@@ -213,6 +227,7 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
   }
 }
 ```
+
 Create a record in the table using the multi_index method [emplace](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-emplace). This method accepts two arguments, the "payer" of this record who pays the storage usage and a callback function.
 
 The callback function for the emplace method must use a lamba function to create a reference. Inside the body assign the row's values with the ones provided to `upsert`.
@@ -238,7 +253,9 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
   }
 }
 ```
+
 Next, handle the modification, or update, case of the "upsert" function. Use the [modify](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-modify-12) method, passing a few arguments:
+
 - The iterator defined earlier, presently set to the user as declared when calling this action.
 - The "payer", who will pay for the storage cost of this row, in this case, the user.
 - The callback function that actually modifies the row.
@@ -271,11 +288,50 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
   }
 }
 ```
-The `addressbook` contract now has a functional action that will enable a user to create a row in the table if that record does not yet exist, and modify it if it already exists.
+
+### Step 7.1: Return values from action
+
+Starting with EOSIO version 2.1 you can return values from actions. Because the `upsert` action has two outcomes, one that creates a new row in the table and another that updates the row if it already exists, you can take advantage of this new feature and return two different results, one for each case. The results can be any standard type and for exemplification they will be in the form of a `std::pair<int, std::string>` consisting of an integer and a string detailing the result. You will also have to change the return type of the function that implements the `upsert` action to be of type `std::pari<int, std::string>`.
+
+```cpp
+std::pair<int, std::string> upsert(name user, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
+  require_auth( user );
+  std::pair<int, std::string> results = {0, "NOP"};
+  address_index addresses(get_self(), get_first_receiver().value);
+  auto iterator = addresses.find(user.value);
+  if( iterator == addresses.end() )
+  {
+    addresses.emplace(user, [&]( auto& row ) {
+      row.key = user;
+      row.first_name = first_name;
+      row.last_name = last_name;
+      row.street = street;
+      row.city = city;
+      row.state = state;
+    });
+    results = {1, "New row created."}
+  }
+  else {
+    addresses.modify(iterator, user, [&]( auto& row ) {
+      row.key = user;
+      row.first_name = first_name;
+      row.last_name = last_name;
+      row.street = street;
+      row.city = city;
+      row.state = state;
+    });
+    results = {2, "Existing row updated."}
+  }
+  return results;
+}
+```
+
+The `addressbook` contract now has a functional action that will enable a user to create a row in the table if that record does not yet exist, and modify it if it already exists. And for each case it will return a different result.
 
 But what if the user wants to remove the record entirely?
 
 ## Step 8: Remove record from the table
+
 Similar to the previous steps, create a public method in the `addressbook`, making sure to include the ABI declarations and a [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action/#function-require_auth) that tests against the action's argument `user` to verify only the owner of a record can modify their account.
 
 ```cpp
@@ -284,6 +340,7 @@ Similar to the previous steps, create a public method in the `addressbook`, maki
     }
 
 ```
+
 Instantiate the table. In `addressbook` each account has only one record. Set `iterator` with [find](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-find)
 
 ```cpp
@@ -295,6 +352,7 @@ Instantiate the table. In `addressbook` each account has only one record. Set `i
     }
 ...
 ```
+
 A contract *cannot* erase a record that doesn't exist, so check that the record indeed exists before proceeding.
 
 ```cpp
@@ -307,6 +365,7 @@ A contract *cannot* erase a record that doesn't exist, so check that the record 
     }
 ...
 ```
+
 Finally, call the [erase](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-erase-12) method, to erase the iterator. Once the row is erased, the storage space will be free up for the original payer.
 
 ```cpp
@@ -320,6 +379,7 @@ Finally, call the [erase](https://developers.eos.io/manuals/eosio.cdt/latest/cla
   }
 ...
 ```
+
 The contract is now mostly complete. Users can create, modify and erase records. However, the contract is not quite ready to be compiled.
 
 ## Step 9: Preparing for the ABI
@@ -333,19 +393,23 @@ Above both the `upsert` and `erase` functions add the following C++11 declaratio
 ```cpp
 [[eosio::action]]
 ```
+
 The above declaration will extract the arguments of the action and create necessary ABI *struct* descriptions in the generated ABI file.
 
 ### 9.2 ABI Table Declarations
+
 Add an ABI declaration to the table. Modify the following line defined in the private region of your contract:
 
 ```cpp
 struct person {
 ```
+
 To this:
 
 ```cpp
 struct [[eosio::table]] person {
 ```
+
 The `[[eosio.table]]` declaration will add the necessary descriptions to the ABI file.
 
 Now our contract is ready to be compiled.
@@ -413,7 +477,7 @@ private:
     uint64_t primary_key() const { return key.value; }
   };
   using address_index = eosio::multi_index<"people"_n, person>;
-};    
+};
 ```
 
 ## Step 10 Prepare the Ricardian Contract [Optional]
@@ -450,11 +514,13 @@ icon:
 ```
 
 ## Step 11 Prepare the Ricardian Clauses [Optional]
+
 To define Ricardian clauses for this smart contract create and open a new file called addressbook.clauses.md. Notice again that the name of the Ricardian clauses must match the name of the smart contract.
 
 ```shell
 touch addressbook.clauses.md
 ```
+
 Add Ricardian clause definitions to this file:
 
 ```yaml
@@ -498,6 +564,7 @@ icon:
 ```
 
 ## Step 12: Compile the Contract
+
 Execute the following command from your terminal.
 
 ```shell
@@ -631,11 +698,13 @@ If you created a Ricardian contract and Ricardian clauses, the definitions will 
 ```
 
 ## Step 13: Deploy the Contract
+
 Create an account for the contract, execute the following shell command
 
 ```shell
 cleos create account eosio addressbook YOUR_PUBLIC_KEY -p eosio@active
 ```
+
 Deploy the `addressbook` contract
 
 ```text
@@ -650,6 +719,7 @@ warning: transaction executed locally, but may not be confirmed by the network y
 ```
 
 ## Step 14: Test the Contract
+
 Add a row to the table
 
 ```shell
@@ -666,6 +736,7 @@ Check that **alice** cannot add records for another user.
 ```text
 cleos push action addressbook upsert '["bob", "bob", "is a loser", "doesnt exist", "somewhere", "someplace"]' -p alice@active
 ```
+
 As expected, the `require_auth` in our contract prevented alice from creating/modifying another user's row.
 
 ```shell
@@ -675,6 +746,7 @@ If you are currently using 'cleos push action' command, try to add the relevant 
 Error Details:
 missing authority of bob
 ```
+
 Retrieve alice's record.
 
 ```shell
@@ -696,6 +768,7 @@ cleos get table addressbook addressbook people --lower alice --limit 1
   "next_key": ""
 }
 ```
+
 Test to see that **alice** can remove the record.
 
 ```shell
@@ -707,6 +780,7 @@ executed transaction: 0a690e21f259bb4e37242cdb57d768a49a95e39a83749a02bced652ac4
 #   addressbook <= addressbook::erase           {"user":"alice"}
 warning: transaction executed locally, but may not be confirmed by the network yet    ]
 ```
+
 Check that the record was removed:
 
 ```shell
@@ -724,7 +798,9 @@ cleos get table addressbook addressbook people --lower alice --limit 1
 Looking good!
 
 ## Wrapping Up
+
 You've learned how to configure tables, instantiate tables, create new rows, modify existing rows and work with iterators. You've learned how to test against an empty iterator result. Congrats!
 
 ## What's Next?
+
 - [Secondary Indices](./05_secondary-indices.md): Learn how to add another index to the `addressbook` contract that you created in the preceding **Data Persistence** section.
