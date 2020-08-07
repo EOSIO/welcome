@@ -99,7 +99,7 @@ The tictactoe.cpp file contains implementations of the smart contract actions de
 The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the eosio-cpp tool from the EOSIO.CDT. Click on this link for more information on the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "EOSIO.CDT documentation") . The EOSIO.CDT builds the smart contract and creates an ABI file. Click on this link for more information about [ABI Files](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Understand ABL Files") 
 
 ### Game Board Representation
-A std::vecror represents the tic tac toe board. The number 0 marks an empty square. The number 1 denotes a movement by the host. The number 2 denotes a movement by the challenger. To make a movement, you push a  transaction to the tic tac toe smart contract.
+A std::vector represents the tic tac toe board. The number 0 marks an empty square. The number 1 denotes a movement by the host. The number 2 denotes a movement by the challenger. To make a movement, you push a  transaction to the tic tac toe smart contract.
 
 Logically the board looks like:
 
