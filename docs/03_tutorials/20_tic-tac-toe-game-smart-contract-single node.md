@@ -69,6 +69,13 @@ For more information click on this link [Core Concepts](https://developers.eos.i
 ## Create the necessary accounts and key pairs
 The game requires two accounts, one for each player, and each account requires at least one key pair (public and private keys.) One account 'owns' the smart contract, a blockchain account supports only one smart contract and a smart contract must be loaded by an account. Accounts then identify which player ‘pushes’ a transaction to the blockchain. An account is created by calling an EOSIO system contract and this action requires a public key which is stored on the blockchain.  The blockchain then uses asymmetric cryptography to verify that the account pushing the transaction is signed with the matching private key and has the required authority to perform an action.  
 
+### Run a local [single node testnet
+Run [nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/index) locally to start a blockchain running with a single node. [Configure nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/usage/nodeos-configuration) with [plugins](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/index) to produce blocks, store a history of the blockchain in memory, provide http rpc access to these plugins and to output running information to a file.
+
+```console
+nodeos -e -p eosio --plugin eosio::producer_plugin --plugin eosio::producer_api_plugin --plugin eosio::chain_api_plugin --plugin eosio::http_plugin --plugin eosio::history_plugin --plugin eosio::history_api_plugin --filter-on="*" --access-control-allow-origin='*' --contracts-console --http-validate-host=false --verbose-http-errors >> nodeos.log 2>&1 &
+```
+
 ### Procedure to create Accounts
 
 Create two accounts
