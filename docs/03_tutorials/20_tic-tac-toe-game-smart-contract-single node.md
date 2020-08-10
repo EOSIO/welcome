@@ -112,7 +112,7 @@ For this tutorial we need to create two accounts
 1. The host - the host will load the smart contract
 2. The challenger - the challenger will play the game with the host.
 
-#### Coomands
+#### Commands
 To use the command line to create the accounts run the following commands. Make sure that the local wallet is [open](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/open) and [unlocked](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/unlock) and run these commands to create the accounts with the private keys stored in the local wallet.
 
 Create a wallet called 'local'.
@@ -591,7 +591,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     });
 }
 ```
-The complete tictactoe.cpp file can be downlaoded from github here: [Tictactoe tutorial cpp source](./src/tictactoe/tictactoe.cpp "ticttactoe example code")  
+The complete tictactoe.cpp file can be downloaded from github here: [Tictactoe tutorial cpp source](./src/tictactoe/tictactoe.cpp "ticttactoe example code")  
 
 
 ## Compile and deploy the smart contract to the blockchain
@@ -624,7 +624,10 @@ The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe
 ### Deploy the Smart Contract to the Testnet
 [Deploy the smart contract](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-deploy-a-smart-contract) on the single node testnet with the following commandline.
 
-*********** cleos set contract phil
+In the smae directory as the generated wasm and ABI files run
+```console
+cleos set contract host ./ tictactoe.wasm tictactoe.abi -p host@active
+```
 
 ## Play The Game
 Now that the smart contract has been successfully deployed, [push smart contract actions](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/push/push-action) to the blockchain to play the game.  
@@ -637,14 +640,16 @@ The create action takes two parameters, the "challenger" and the "host". The req
 
 ```json
 {
-  "challenger": "vswlkiegwdsk",
-  "host": "mcazyfujecke"
+  "challenger": "challenger",
+  "host": "host"
 }
 ```
 
-Sign the push action with ‘mcazyfujecke@active’, the host of the game.
+Sign the push action with host@active’, the host of the game.
 
-*********** cleos push action phil
+```console
+cleos push action tictactoe create '{"challenger":"challenger", "host":"host"}' --permission host@active
+```
 
 ### Push 'move' to the single node testnet to make game moves
 Players make moves in turn by pushing ‘move’ actions to the blockchain. The host moves first, and each move must be signed by the appropriate account.
@@ -655,77 +660,91 @@ The host makes the first move. The required payload in json format is:
 
 ```json
 {
-  "challenger": "vswlkiegwdsk",
-  "host": "mcazyfujecke",
-  "by": "mcazyfujecke",
+  "challenger": "challenger",
+  "host": "host",
+  "by": "host",
   "row": 0,
   "column": 1
 }
 ```
 
-Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
+Sign the push action with host@active’ - the host of the game.
 
-*********** cleos push action phil
+```console
+cleos push action tictactoe move '{"challenger":"challenger", "host":"host", "by":"host", "row":0, "column":1}' --permission host@active
+```
 
 The challenger makes the second move. The required payload in json format is:
 
 ```json
 {
-  "challenger": "vswlkiegwdsk",
-  "host": "mcazyfujecke",
-  "by": "vswlkiegwdsk",
-  "row": 0,
+  "challenger": "challenger",
+  "host": "host",
+  "by": "challenger",
+  "row": 1,
   "column": 1
 }
 ```
 
-Sign the push action with vswlkiegwdsk@active’ - the challenger.
+Sign the push action with challenger@active’ - the challenger.
 
-*********** cleos push action phil
+```console
+cleos push action tictactoe move '{"challenger":"challenger", "host":"host", "by":"challenger", "row":1, "column":1}' --permission challenger@active
+```
 
 Continue to make moves until the game ends with a win or a draw.
 
 ### Check game status 
 Look at the data in the multi index table to check the game status. 
 
-*********** cleos get table phil
+```console
+cleos get table tictactoe host games
+```
 
 ### Push "restart" to the Testnet to restart the Game
 The restart action takes three parameters, the "challenger", the "host", and "by". The required payload in json format is:
 
 ```json
 {
-  "challenger": "vswlkiegwdsk",
-  "host": "mcazyfujecke",
-  "by": "mcazyfujecke"
+  "challenger": "challenger",
+  "host": "host",
+  "by": "host"
 }
 ```
 
-Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
+Sign the push action with host@active’ - the host of the game.
 
-*********** cleos push action phil
+```console
+cleos push action tictactoe restart '{"challenger":"challenger", "host":"host", "by":"host"}' --permission host@active
+```
 
 Check the game status to see that the board has been reset.
 
-*********** cleos get table phil
+```console
+cleos get table tictactoe host games
+```
 
 ### Push "close" to the Testnet to close the game
 The close action takes two parameters, the "challenger" and the "host". The required payload in json format is:
 
 ```json
 {
-  "challenger": "vswlkiegwdsk",
-  "host": "mcazyfujecke"
+  "challenger": "challenger",
+  "host": "host"
 }
 ```
 
-Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
+Sign the push action with ‘host@active’ - the host of the game.
 
-*********** cleos push action phil
+```console
+cleos push action tictactoe close '{"challenger":"challenger", "host":"host"}' --permission host@active
+```
 
 Check the game status to see that game data has been removed.  
 
-*********** cleos get table phil
+```console
+cleos get table tictactoe host games
+```
 
 ## Next Steps
 Visit the [EOSIO Developer Portal](https://developers.eos.io/ "eosio developers portal") to learn more about EOSIO and try building a more advanced web based game with [Elemental Battles.](https://battles.eos.io/) 
