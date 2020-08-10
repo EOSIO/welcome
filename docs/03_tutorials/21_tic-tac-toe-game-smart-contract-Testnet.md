@@ -236,7 +236,7 @@ public:
     };
 ```
 
-15. Define the games type which uses the game data structure with the multi-index table template. Click on this link for more information about the multi-index table template used to define multi index table types [function multi_index.](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex/#function-multi_index) Set the name to "games" and use the [eosio::name]((https://developers.eos.io/manuals/eosio.cdt/v1.5/structeosio_1_1name) operator[_n](https://developers.eos.io/manuals/eosio.cdt/v1.5/name_8hpp#function-operator_n) to convert the string "games" to a uint64_t as required by [eosio::name.](https://developers.eos.io/manuals/eosio.cdt/v1.5/structeosio_1_1name)
+15. Define the games type which uses the game data structure with the multi-index table template. Click on this link for more information about the multi-index table template used to define multi index table types [function multi_index.](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex/#function-multi_index) Set the name to "games" and use the [eosio::name](https://developers.eos.io/manuals/eosio.cdt/v1.5/structeosio_1_1name) operator[_n](https://developers.eos.io/manuals/eosio.cdt/v1.5/name_8hpp#function-operator_n) to convert the string "games" to a uint64_t as required by [eosio::name.](https://developers.eos.io/manuals/eosio.cdt/v1.5/structeosio_1_1name)
     Add this code to the .hpp file inside the public section of the class, after the declaration of the game structure:
 
 ```c++
