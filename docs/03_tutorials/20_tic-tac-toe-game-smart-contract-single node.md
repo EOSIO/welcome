@@ -523,50 +523,15 @@ For this tutorial we ignore these warnings. Click on the following link for a tu
 The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe.abi.
 
 ### Deploy the Smart Contract to the Testnet
-To deploy the smart contract use the Testnet Deploy page.
+[Deploy the smart contract](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-deploy-a-smart-contract) on the single node testnet with the following commandline.
 
-Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy") page:
-
-![Testnet deploy screen](./resources/tictactoe/testnet-deploy.png "Testnet Title Panel - Deploy")
-
-Follow these steps to deploy the smart contract to the testnet:
-
-1. Deploy the .wasm file, click on the browse button in step 1, locate and select the tictactoe.wasm file.
-
-![Testnet deploy wasm screen](./resources/tictactoe/testnet-deploy-wasm.png "Testnet deploy wasm")
-
-2. Deploy the .abi file, click on the browse button in step 2, locate and select the tictactoe.abi file.
-
-![Testnet deploy ABI screen](./resources/tictactoe/testnet-deploy-ABI.png "Testnet deploy ABI")
-
-3. Select an account and active permission. This account owns the smart contract instance.
-
-![Testnet deploy account screen](./resources/tictactoe/testnet-deploy-account.png "Testnet deploy account")
-
-4. Press the deploy button. The deployment results are shown in the “Deployment Result” window. In the case below deployment failed due to lack of memory. Fix this in the Blockchain Accounts Request Resources section. 
-
-Fail
-
-![Testnet deploy fail screen](./resources/tictactoe/testnet-deploy-fail.png "Testnet deploy fail")
-
-Success!
-
-![Testnet deploy success screen](./resources/tictactoe/testnet-deploy-success.png "Testnet deploy success")
+*********** cleos set contract phil
 
 ## Play The Game
-Now that the smart contract has been successfully deployed, push smart contract actions to the blockchain to play the game.  
+Now that the smart contract has been successfully deployed, [push smart contract actions](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/push/push-action) to the blockchain to play the game.  
 
-Go to the EOSIO Testnet  [Push Action](https://testnet.eos.io/push-action "Testnet - push action") page:
 
-![Testnet push action screen](./resources/tictactoe/testnet-pushaction.png "Testnet Title Panel - Push Action")
-
-Pushing an action requires the following settings:
-* Smart Contract Name - This field contains the name of the account where the smart contract was deployed.
-* Action Type - This field contains the action name. Select from the list of actions.
-* Action Payload - This field contains json containing data or parameters pushed to the action. 
-* Permission - This field contains the account and permission used to push the transaction.
-
-### Push 'create' to the Testnet to create a game
+### Push 'create' to the single node testnet to create a game
 A game requires a host and a challenger. Use the accounts created earlier in the “Create the necessary accounts and key pairs” sectio of the tutorial for these. These accounts use arbitrary names. In this example assume the host has the account name of ‘mcazyfujecke’ and the challenger has the account name of ‘vswlkiegwdsk’.
 
 The create action takes two parameters, the "challenger" and the "host". The required payload in json format is:
@@ -580,9 +545,9 @@ The create action takes two parameters, the "challenger" and the "host". The req
 
 Sign the push action with ‘mcazyfujecke@active’, the host of the game.
 
-![Testnet push action create screen](./resources/tictactoe/testnet-pushaction-create.png "Testnet push action create")
+*********** cleos push action phil
 
-### Push 'move' to the Testnet to make game moves
+### Push 'move' to the single node testnet to make game moves
 Players make moves in turn by pushing ‘move’ actions to the blockchain. The host moves first, and each move must be signed by the appropriate account.
 
 The move action takes five parameters, the "challenger", the "host", the player who makes the move or "by" and "row" and "column" parameters to show where the marker is placed.
@@ -601,7 +566,7 @@ The host makes the first move. The required payload in json format is:
 
 Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
 
-![Testnet push action first move screen](./resources/tictactoe/testnet-pushaction-move-first.png "Testnet push action first move")
+*********** cleos push action phil
 
 The challenger makes the second move. The required payload in json format is:
 
@@ -617,20 +582,14 @@ The challenger makes the second move. The required payload in json format is:
 
 Sign the push action with vswlkiegwdsk@active’ - the challenger.
 
-![Testnet push action second move screen](./resources/tictactoe/testnet-pushaction-move-second.png "Testnet push action second move")
+*********** cleos push action phil
 
 Continue to make moves until the game ends with a win or a draw.
 
 ### Check game status 
 Look at the data in the multi index table to check the game status. 
 
-The following steps show you how:
-1. Go to the “Blockchain Accounts” page, select the account you used to push the smart contract to the blockchain. 
-2. Click on the “account name”. This will takes you to the account details page. 
-3. Click on “smart contract”. 
-4. Scroll down to view the multi index table section. 
-5. Select “games” for the multi index table and the name of the host account in the “Scope Name” field. 
-6. Click “Get Data” to populate Multi-Index Table Raw Data with stored smart contract data.  
+*********** cleos get table phil
 
 ### Push "restart" to the Testnet to restart the Game
 The restart action takes three parameters, the "challenger", the "host", and "by". The required payload in json format is:
@@ -645,7 +604,11 @@ The restart action takes three parameters, the "challenger", the "host", and "by
 
 Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
 
+*********** cleos push action phil
+
 Check the game status to see that the board has been reset.
+
+*********** cleos get table phil
 
 ### Push "close" to the Testnet to close the game
 The close action takes two parameters, the "challenger" and the "host". The required payload in json format is:
@@ -659,7 +622,11 @@ The close action takes two parameters, the "challenger" and the "host". The requ
 
 Sign the push action with ‘mcazyfujecke@active’ - the host of the game.
 
+*********** cleos push action phil
+
 Check the game status to see that game data has been removed.  
+
+*********** cleos get table phil
 
 ## Next Steps
 Visit the [EOSIO Developer Portal](https://developers.eos.io/ "eosio developers portal") to learn more about EOSIO and try building a more advanced web based game with [Elemental Battles.](https://battles.eos.io/) 
