@@ -91,7 +91,6 @@ info  2020-08-10T07:57:06.400 thread-0  producer_plugin.cpp:2134      produce_bl
 info 
 ```
 
-
 ### Procedure to create Accounts
 
 Create two accounts
@@ -122,7 +121,7 @@ To check the wallet run
 cleos wallet list
 ```
 
-the output
+the output shows two wallets, one for each version of this tutorial, and * shows that the local wallet is unlocked.
 ```console
 Wallets:
 [
@@ -131,13 +130,54 @@ Wallets:
 ]
 ```
 
-Shows two wallets, for each version of this tutorial, and * shows that the local wallet is open.
+[[note | Note]]
+| _ Account creation requires a creator account; every new blockchain is created with an account called eosio. The eosio account is a special account that can be used to bootstrap a blockchain, and in a production blockchain the eosio account keys are resigned. Click the follwing link for more information about [bootstrapping a blockchain for real world use.](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence) To use our local single node testnet we need to add the private key of the eosio account to our wallet so that we can create other accounts. **The private key is well known and so any blockchain where the eosio acount has not be resigned is not secure.**
 
+The eosio private key is **5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3**
+_
+
+### Import the eosio private key
+```console
+cleos wallet import --name local 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+``` 
 
 and for each account:
 
 1. [How To Create Key Pairs](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-key-pairs)
 2. [How To Create An Account](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-an-account#gatsby-focus-wrapper)
+
+Make sure that the local wallet is [open](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/open) and [unlocked](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/unlock) and run these commands to create the accounts with the private keys stored in the local wallet.
+
+```console
+cleos create key --to-console
+```
+```console
+Private key: 5JSRUrUVbRsV2yJ2XSMtRtPzQ5UKbSYEGEjdKfGMS1xsvRZj7FH
+Public key: EOS5p55prHwrN6KosqF4NdRayVW2mqwA8RGNEbaZXRBs2SQHwBWSf
+```
+```console
+cleos create key --to-console
+```
+```console
+Private key: 5JReVMTiiztAUyQGp9w7BMMm1HVUurDmEKuSL53DQww3JKVZjot
+Public key: EOS7qkiVnptc8wbHzHPC9jj1YECKJgQeUktBTm8RDA64oH3e75QW5
+```
+
+```console
+cleos create account eosio host EOS5p55prHwrN6KosqF4NdRayVW2mqwA8RGNEbaZXRBs2SQHwBWSf
+```
+and import the matching private key to the local wallet
+```console
+cleos wallet import --name local --private-key 5JSRUrUVbRsV2yJ2XSMtRtPzQ5UKbSYEGEjdKfGMS1xsvRZj7FH
+```
+
+```console
+cleos create account eosio challenger EOS7qkiVnptc8wbHzHPC9jj1YECKJgQeUktBTm8RDA64oH3e75QW5
+```
+and import the matching private key to the local wallet
+```console
+cleos wallet import --name local --private-key 5JReVMTiiztAUyQGp9w7BMMm1HVUurDmEKuSL53DQww3JKVZjot
+```
 
 [[note | Note]]
 | _You can also use three or more accounts, one for the smart contract and separate accounts for the host(s) and the challenger(s)._
