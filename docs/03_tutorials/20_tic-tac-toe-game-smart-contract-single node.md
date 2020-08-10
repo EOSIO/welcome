@@ -69,12 +69,28 @@ For more information click on this link [Core Concepts](https://developers.eos.i
 ## Create the necessary accounts and key pairs
 The game requires two accounts, one for each player, and each account requires at least one key pair (public and private keys.) One account 'owns' the smart contract, a blockchain account supports only one smart contract and a smart contract must be loaded by an account. Accounts then identify which player ‘pushes’ a transaction to the blockchain. An account is created by calling an EOSIO system contract and this action requires a public key which is stored on the blockchain.  The blockchain then uses asymmetric cryptography to verify that the account pushing the transaction is signed with the matching private key and has the required authority to perform an action.  
 
-### Run a local [single node testnet
+### Run a local single node testnet
 Run [nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/index) locally to start a blockchain running with a single node. [Configure nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/usage/nodeos-configuration) with [plugins](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/index) to produce blocks, store a history of the blockchain in memory, provide http rpc access to these plugins and to output running information to a file.
 
 ```console
 nodeos -e -p eosio --plugin eosio::producer_plugin --plugin eosio::producer_api_plugin --plugin eosio::chain_api_plugin --plugin eosio::http_plugin --plugin eosio::history_plugin --plugin eosio::history_api_plugin --filter-on="*" --access-control-allow-origin='*' --contracts-console --http-validate-host=false --verbose-http-errors >> nodeos.log 2>&1 &
 ```
+Look at the nodeos.log file to ensure nodeos is running and producing blocks, the ouput will look like:
+
+```console
+info  2020-08-10T07:57:04.561 thread-0  http_plugin.cpp:895           add_handler          ] add api url: /v1/history/get_key_accounts
+info  2020-08-10T07:57:04.561 thread-0  http_plugin.cpp:895           add_handler          ] add api url: /v1/history/get_transaction
+info  2020-08-10T07:57:04.561 thread-0  net_plugin.cpp:3414           plugin_startup       ] my node_id is 12eac267ddd48fbda96d0cdd9e4e231d2bfd72f8c0bdbee1987d8952f8be10dc
+info  2020-08-10T07:57:04.562 thread-0  net_plugin.cpp:3470           plugin_startup       ] starting listener, max clients is 25
+info  2020-08-10T07:57:04.563 thread-0  http_plugin.cpp:794           operator()           ] start listening for http requests
+info  2020-08-10T07:57:04.563 thread-0  http_plugin.cpp:895           add_handler          ] add api url: /v1/node/get_supported_apis
+info  2020-08-10T07:57:04.902 thread-0  producer_plugin.cpp:2134      produce_block        ] Produced block 94febe2c222c42a7... #2 @ 2020-08-10T07:57:05.000 signed by eosio [trxs: 0, lib: 1, confirmed: 0]
+info  2020-08-10T07:57:05.301 thread-0  producer_plugin.cpp:2134      produce_block        ] Produced block 602b3c6b86d28a20... #3 @ 2020-08-10T07:57:05.500 signed by eosio [trxs: 0, lib: 2, confirmed: 0]
+info  2020-08-10T07:57:05.901 thread-0  producer_plugin.cpp:2134      produce_block        ] Produced block 320d2f4119d18816... #4 @ 2020-08-10T07:57:06.000 signed by eosio [trxs: 0, lib: 3, confirmed: 0]
+info  2020-08-10T07:57:06.400 thread-0  producer_plugin.cpp:2134      produce_block        ] Produced block 3fa7c7d9f2c1c2da... #5 @ 2020-08-10T07:57:06.500 signed by eosio [trxs: 0, lib: 4, confirmed: 0]
+info 
+```
+
 
 ### Procedure to create Accounts
 
