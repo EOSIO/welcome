@@ -103,6 +103,37 @@ Using the command line to create Accounts will require the following steps:
 
 1. [How To Create A Wallet](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-a-wallet)
 
+```console
+cleos wallet create --name local --to-console
+```
+
+This command outputs to stdout
+```console
+Creating wallet: local
+Save password to use in the future to unlock this wallet.
+Without password imported keys will not be retrievable.
+"PW5K8dtLxB8q56JbT8UA5FQyDykNT24LS6i6gcBuxbYSixFgEpFa7"
+```
+
+Save the password, you will need this to unlock the wallet later.
+
+To check the wallet run
+```console 
+cleos wallet list
+```
+
+the output
+```console
+Wallets:
+[
+  "local *",
+  "testnet"
+]
+```
+
+Shows two wallets, for each version of this tutorial, and * shows that the local wallet is open.
+
+
 and for each account:
 
 1. [How To Create Key Pairs](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-key-pairs)
