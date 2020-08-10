@@ -4,7 +4,7 @@ link_text: "Tic Tac Toe Game Contract"
 ---
 
 # Your Guide to Tic Tac Toe on EOSIO 
-This tic tac toe tutorial guides you step by step to build a tic tac toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to the EOSIO blockchain. In this tutorial we use the EOSIO Testnet blockchain and show you how to play the game by calling the smart contract.
+This tic tac toe tutorial guides you step by step to build a tic tac toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use a local [single node testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet#gatsby-focus-wrapper) and show you how to play the game by calling the smart contract. [Getting Started](https://developers.eos.io/welcome/latest/getting-started/index) also uses a single node testnet.
 
 We explain the purpose of each step and why it is important.
 
@@ -35,7 +35,7 @@ The EOSIO tic tac toe rules are:
 ## Understand how the game works
 The smart contract contains the game logic, therefore this section introduces how the game works. 
 
-The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on the [EOSIO Tesnet](https://testnet.eos.io/) in the next step. Use these accounts to "push actions" to the blockchain. These actions 'start', 'restart', and 'close' the game. Pushing a 'move' action will place a 'marker' on the game 'board'.    
+The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on a local single node blockchain in the next step. Use these accounts to "push actions" to the blockchain. These actions 'start', 'restart', and 'close' the game. Pushing a 'move' action will place a 'marker' on the game 'board'.    
 
 One player is the host, who starts the game, and one player is the challenger. The game board is nine squares, and each player takes a turn to place their marker in a square. A player wins the game when three markers are placed in a row.
 
@@ -236,7 +236,7 @@ public:
     };
 ```
 
-15. Define the games type which uses the game data structure with the multi-index table template. Click on this link for more information about the multi-index table template used to define multi index table types [function multi_index](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex/#function-multi_index)
+15. Define the games type which uses the game data structure with the multi-index table template. Click on this link for more information about the multi-index table template used to define multi index table types [function multi_index.](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex/#function-multi_index) Set the name to "games" and use the [eosio::name]((https://developers.eos.io/manuals/eosio.cdt/v1.5/structeosio_1_1name) operator[_n](https://developers.eos.io/manuals/eosio.cdt/v1.5/name_8hpp#function-operator_n) to convert the string "games" to a uint64_t as required by [eosio::name.](https://developers.eos.io/manuals/eosio.cdt/v1.5/structeosio_1_1name) 
     Add this code to the .hpp file inside the public section of the class, after the declaration of the game structure:
 
 ```c++

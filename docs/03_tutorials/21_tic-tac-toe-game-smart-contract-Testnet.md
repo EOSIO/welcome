@@ -4,7 +4,7 @@ link_text: "Tic Tac Toe Game Contract"
 ---
 
 # Your Guide to Tic Tac Toe on EOSIO 
-This tic tac toe tutorial guides you step by step to build a tic tac toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to the EOSIO blockchain. In this tutorial we use the EOSIO Testnet blockchain and show you how to play the game by calling the smart contract.
+This tic tac toe tutorial guides you step by step to build a tic tac toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use the EOSIO Testnet blockchain and show you how to play the game by calling the smart contract.
 
 We explain the purpose of each step and why it is important.
 
@@ -236,7 +236,7 @@ public:
     };
 ```
 
-15. Define the games type which uses the game data structure with the multi-index table template. Click on this link for more information about the multi-index table template used to define multi index table types [function multi_index](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex/#function-multi_index)
+15. Define the games type which uses the game data structure with the multi-index table template. Click on this link for more information about the multi-index table template used to define multi index table types [function multi_index.](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex/#function-multi_index) Set the name to "games" and use the [eosio::name]((https://developers.eos.io/manuals/eosio.cdt/v1.5/structeosio_1_1name) operator[_n](https://developers.eos.io/manuals/eosio.cdt/v1.5/name_8hpp#function-operator_n) to convert the string "games" to a uint64_t as required by [eosio::name.](https://developers.eos.io/manuals/eosio.cdt/v1.5/structeosio_1_1name)
     Add this code to the .hpp file inside the public section of the class, after the declaration of the game structure:
 
 ```c++
