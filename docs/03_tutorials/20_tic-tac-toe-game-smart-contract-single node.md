@@ -115,6 +115,7 @@ For this tutorial we need to create two accounts
 #### Coomands
 To use the command line to create the accounts run the following commands. Make sure that the local wallet is [open](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/open) and [unlocked](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/unlock) and run these commands to create the accounts with the private keys stored in the local wallet.
 
+Create a wallet called 'local'.
 
 ```console
 cleos wallet create --name local --to-console
@@ -135,7 +136,7 @@ To check the wallet run
 cleos wallet list
 ```
 
-the output shows two wallets, one for each version of this tutorial, and * shows that the local wallet is unlocked.
+The output shows two wallets, one for each version of this tutorial, and * shows that the local wallet is unlocked.
 ```console
 Wallets:
 [
@@ -143,6 +144,7 @@ Wallets:
   "testnet"
 ]
 ```
+Create two key pairs, one for each account.
 
 ```console
 cleos create key --to-console
@@ -159,18 +161,22 @@ Private key: 5JReVMTiiztAUyQGp9w7BMMm1HVUurDmEKuSL53DQww3JKVZjot
 Public key: EOS7qkiVnptc8wbHzHPC9jj1YECKJgQeUktBTm8RDA64oH3e75QW5
 ```
 
+Create the host account.  
 ```console
 cleos create account eosio host EOS5p55prHwrN6KosqF4NdRayVW2mqwA8RGNEbaZXRBs2SQHwBWSf
 ```
-and import the matching private key to the local wallet
+
+Import the matching private key to the local wallet
 ```console
 cleos wallet import --name local --private-key 5JSRUrUVbRsV2yJ2XSMtRtPzQ5UKbSYEGEjdKfGMS1xsvRZj7FH
 ```
 
+Create the challenger account and import a private key into the local wallet. 
 ```console
 cleos create account eosio challenger EOS7qkiVnptc8wbHzHPC9jj1YECKJgQeUktBTm8RDA64oH3e75QW5
 ```
-and import the matching private key to the local wallet
+
+Import the matching private key to the local wallet
 ```console
 cleos wallet import --name local --private-key 5JReVMTiiztAUyQGp9w7BMMm1HVUurDmEKuSL53DQww3JKVZjot
 ```
