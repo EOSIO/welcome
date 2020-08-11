@@ -18,7 +18,7 @@ This tutorial requires the following tools and knowledge:
 ### Tutorial Workflow
 
 ```sequence
-Andrew->Brendan: Says Hello
+Start->Step1: Understand how the game works
 Note right of Brendan: Brendan thinks\nabout it
 Brendan-->Andrew: How are you?
 Andrew->>Brendan: I am good thanks!
