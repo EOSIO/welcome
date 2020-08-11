@@ -83,10 +83,10 @@ Create two accounts on the testnet, these accounts are created with arbitrary na
 2. The challenger - the challenger will play the game with the host.
 
 
-[[note | Note]]
+[[note]]
 | _You can also use three or more accounts, one for the smart contract and separate accounts for the host(s) and the challenger(s)._
 
-[[note | Note]]
+[[warning]]
 | _Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account._
 
 ## TicTacToe Smart Contract
