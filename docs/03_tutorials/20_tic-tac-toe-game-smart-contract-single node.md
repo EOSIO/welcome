@@ -16,6 +16,7 @@ This tutorial requires the following tools and knowledge:
 * A code editor or an IDE. Click on this link for more information [EOSIO Prerequisites](https://developers.eos.io/welcome/latest/getting-started/development-environment/introduction "Set up to use EOSIO")
    
 ### Tutorial Workflow
+
 ```sequence
 Title: Build a TicTacToe Game
 Game Rules->Understand how the Game works : Requirements
