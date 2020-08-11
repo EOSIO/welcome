@@ -16,6 +16,14 @@ This tutorial requires the following tools and knowledge:
 * A code editor or an IDE. Click on this link for more information [EOSIO Prerequisites](https://developers.eos.io/welcome/latest/getting-started/development-environment/introduction "Set up to use EOSIO")
    
 ### Tutorial Workflow
+
+```sequence
+Andrew->Brendan: Says Hello
+Note right of Brendan: Brendan thinks\nabout it
+Brendan-->Andrew: How are you?
+Andrew->>Brendan: I am good thanks!
+```
+
 ```sequence
 Start->Step 1: Understand how the game works
 Step 1->Step 2: Create the necessary accounts and key pairs
