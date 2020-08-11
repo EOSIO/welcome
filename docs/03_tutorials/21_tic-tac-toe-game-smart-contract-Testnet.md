@@ -16,13 +16,14 @@ This tutorial requires the following tools and knowledge:
 * A code editor or an IDE. Click on this link for more information [EOSIO Prerequisites](https://developers.eos.io/welcome/latest/getting-started/development-environment/introduction "Set up to use EOSIO")
    
 ### Tutorial Workflow
-
+```flowchart
 Start->Step 1: Understand how the game works
 Step 1->Step 2: Create the necessary accounts and key pairs
 Step 2->Step 3: Write the tic tac toe contract
 Step 3->Step 4: Compile and deploy the smart contract to the blockchian
 Step 4->Step 5: Play the game, by sending signed transactions to the blockchain 
-Step 5->Finish : ;)
+Step 5->Finish
+```
 
 
 ## The Rules of the Game
