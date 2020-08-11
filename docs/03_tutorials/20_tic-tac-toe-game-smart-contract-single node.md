@@ -17,12 +17,23 @@ This tutorial requires the following tools and knowledge:
    
 ### Tutorial Workflow
 ```sequence
-Start->Step 1: Understand how the game works
-Step 1->Step 2: Create the necessary accounts and key pairs
-Step 2->Step 3: Write the tic tac toe contract
-Step 3->Step 4: Compile and deploy the smart contract to the blockchian
-Step 4->Step 5: Play the game, by sending signed transactions to the blockchain 
-Step 5->Finish
+Title: Build a TicTacToe Game
+Game Rules->Understand how the Game works : Requirements
+Understand how the Game works->Create the Accounts  : EOSIO Accounts and Key Pairs
+Understand how the Game works->Create the Accounts  : EOSIO Actions
+Understand how the Game works->Create the Accounts  : EOSIO Resources
+Create the Accounts->TicTacToe Smart Contract : Requirements
+Create the Accounts->TicTacToe Smart Contract : Game Board
+Create the Accounts->TicTacToe Smart Contract : Code the hpp
+Create the Accounts->TicTacToe Smart Contract : Code the cpp
+TicTacToe Smart Contract -> Compile and Deploy : Compile
+TicTacToe Smart Contract -> Compile and Deploy : Deploy to the blockchain
+Compile and Deploy -> Play the Game : Push Create
+Compile and Deploy -> Play the Game : Push Move
+Compile and Deploy -> Play the Game : Get Status
+Compile and Deploy -> Play the Game : Push Restart
+Compile and Deploy -> Play the Game : Push Close
+Play the Game -> Next Steps : Complete the tutorial
 ```
 
 ## The Rules of the Game
