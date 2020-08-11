@@ -25,12 +25,12 @@ Andrew->>Brendan: I am good thanks!
 ```
 
 ```sequence
-Start->Step 1: Understand how the game works
-Step 1->Step 2: Create the necessary accounts and key pairs
-Step 2->Step 3: Write the tic tac toe contract
-Step 3->Step 4: Compile and deploy the smart contract to the blockchian
-Step 4->Step 5: Play the game, by sending signed transactions to the blockchain 
-Step 5->Finish
+Start->Step1: Understand how the game works
+Step1->Step2: Create the necessary accounts and key pairs
+Step2->Step3: Write the tic tac toe contract
+Step3->Step4: Compile and deploy the smart contract to the blockchian
+Step4->Step5: Play the game, by sending signed transactions to the blockchain 
+Step5->Finish
 ```
 
 
