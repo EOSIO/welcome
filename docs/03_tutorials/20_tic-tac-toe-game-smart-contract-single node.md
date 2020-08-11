@@ -1,6 +1,6 @@
 ---
-content_title: "Tic Tac Toe Game Contract"
-link_text: "Tic Tac Toe Game Contract"
+content_title: "Tic Tac Toe Game Contract Using Single Node"
+link_text: "Tic Tac Toe Game Contract Using Single Node"
 ---
 
 # Your Guide to Tic Tac Toe on EOSIO 
@@ -41,7 +41,7 @@ One player is the host, who starts the game, and one player is the challenger. T
 
 In the example below the player who placed x has won.
 
-| Row       | 0     | 1     | 0     |
+| Row       | 0     | 1     | 2     |
 | :-------: | :---: | :---: | :---: |
 |     0     |   -   |   o   |   x   |
 |     1     |   -   |   x   |   -   |
@@ -92,9 +92,9 @@ info
 ```
 
 [[note | Note]]
-| _ Account creation requires a creator account; every new blockchain is created with an account called eosio. The eosio account is a special account that can be used to bootstrap a blockchain, click the following link for more information about [bootstrapping a blockchain for real world use.](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence) In a production blockchain the eosio account keys are [resigned](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence#3-resign-eosio-account-and-system-accounts).  To use our local single node testnet we need to add the private key of the eosio account to our wallet so that we can create other accounts. **The private key is well known and so any blockchain where the eosio acount has not been resigned is not secure.**
+| _Account creation requires a creator account; every new blockchain is created with an account called eosio. The eosio account is a special account that can be used to bootstrap a blockchain, click the following link for more information about [bootstrapping a blockchain for real world use.](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence) In a production blockchain the eosio account keys are [resigned](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence#3-resign-eosio-account-and-system-accounts).  To use our local single node testnet we need to add the private key of the eosio account to our wallet so that we can create other accounts. **The private key is well known and so any blockchain where the eosio acount has not been resigned is not secure.**
 
-The eosio private key is **5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3** _
+The eosio private key is **5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3**_
 
 ### Import the eosio private key
 ```console
@@ -202,7 +202,7 @@ A std::vector represents the tic tac toe board. The number 0 marks an empty squa
 
 Logically the board looks like:
 
-| Row       | 0     | 1     | 0     |
+| Row       | 0     | 1     | 2     |
 | :-------: | :---: | :---: | :---: |
 |     0     |   -   |   -   |   -   |
 |     1     |   -   |   -   |   -   |
@@ -221,14 +221,16 @@ For example, in the above game board illustration
 At the end of a drawn game, the board array may be  represented as [1, 2, 1, 1, 2, 2, 2, 1, 1] 
 
 Array Representation
-| Row       | 0     | 1     | 0     |
+
+| Row       | 0     | 1     | 2     |
 | :-------: | :---: | :---: | :---: |
 |     0     |   1   |   2   |   1   |
 |     1     |   1   |   2   |   2   |
 |     2     |   2   |   1   |   1   |
 
 Game Representation
-| Row       | 0     | 1     | 0     |
+
+| Row       | 0     | 1     | 2     |
 | :-------: | :---: | :---: | :---: |
 |     0     |   x   |   o   |   x   |
 |     1     |   x   |   o   |   o   |

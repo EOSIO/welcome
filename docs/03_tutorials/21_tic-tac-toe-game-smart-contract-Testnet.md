@@ -1,6 +1,6 @@
 ---
-content_title: "Tic Tac Toe Game Contract"
-link_text: "Tic Tac Toe Game Contract"
+content_title: "Tic Tac Toe Game Contract Using Testnet"
+link_text: "Tic Tac Toe Game Contract Using Testnet"
 ---
 
 # Your Guide to Tic Tac Toe on EOSIO 
@@ -41,7 +41,7 @@ One player is the host, who starts the game, and one player is the challenger. T
 
 In the example below the player who placed x has won.
 
-| Row       | 0     | 1     | 0     |
+| Row       | 0     | 1     | 2     |
 | :-------: | :---: | :---: | :---: |
 |     0     |   -   |   o   |   x   |
 |     1     |   -   |   x   |   -   |
@@ -103,7 +103,7 @@ A std::vector represents the tic tac toe board. The number 0 marks an empty squa
 
 Logically the board looks like:
 
-| Row       | 0     | 1     | 0     |
+| Row       | 0     | 1     | 2     |
 | :-------: | :---: | :---: | :---: |
 |     0     |   -   |   -   |   -   |
 |     1     |   -   |   -   |   -   |
@@ -122,14 +122,16 @@ For example, in the above game board illustration
 At the end of a drawn game, the board array may be  represented as [1, 2, 1, 1, 2, 2, 2, 1, 1] 
 
 Array Representation
-| Row       | 0     | 1     | 0     |
+
+| Row       | 0     | 1     | 2     |
 | :-------: | :---: | :---: | :---: |
 |     0     |   1   |   2   |   1   |
 |     1     |   1   |   2   |   2   |
 |     2     |   2   |   1   |   1   |
 
 Game Representation
-| Row       | 0     | 1     | 0     |
+
+| Row       | 0     | 1     | 2     |
 | :-------: | :---: | :---: | :---: |
 |     0     |   x   |   o   |   x   |
 |     1     |   x   |   o   |   o   |
