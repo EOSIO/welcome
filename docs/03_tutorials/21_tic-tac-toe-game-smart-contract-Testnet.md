@@ -22,7 +22,7 @@ Game\nRules->Understand\nHow\nTo\Use\EOSIO : What is it?
 Understand\nHow To\nUse EOSIO->Create\nAccounts  : Accounts
 Understand\nHow To\nUse EOSIO->Create\nAccounts  : Key Pairs
 Understand\nHow To\nUse EOSIO->Create\nAccounts  : Actions
-Understand\nHow\nTo\Use\EOSIO->Create\nAccounts  : Resources
+Understand\nHow To\nUse EOSIO->Create\nAccounts  : Resources
 Create\nAccounts->Smart\nContract : Game Board
 Create\nAccounts->Smart\nContract : Game Logic
 Smart\nContract -> Compile\nDeploy : Code
