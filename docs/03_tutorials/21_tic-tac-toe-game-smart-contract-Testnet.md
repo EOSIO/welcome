@@ -23,11 +23,9 @@ Understand\n EOSIO->Create\nAccounts  : Accounts
 Understand\n EOSIO->Create\nAccounts  : Key Pairs
 Understand\n EOSIO->Create\nAccounts  : Actions
 Understand\n EOSIO->Create\nAccounts  : Resources
-Create\nAccounts->Smart\nContract : Game Board
-Create\nAccounts->Smart\nContract : Game Logic
+Create\nAccounts->Smart\nContract : Data and Logic
 Smart\nContract -> Compile\nDeploy : Code
-Compile\nDeploy -> Play\nGame : Compile
-Compile\nDeploy -> Play\nGame : Deploy
+Compile\nDeploy -> Play\nGame : Blockchain
 Play\nGame -> Next\nSteps : Push Action
 Play\nGame -> Next\nSteps : Get Status
 ```
