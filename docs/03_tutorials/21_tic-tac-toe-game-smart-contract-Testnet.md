@@ -22,9 +22,9 @@ Understand\n Game->Understand\n EOSIO : What?
 Understand\n EOSIO->Create\nAccounts  : Accounts
 Understand\n EOSIO->Create\nAccounts  : Actions
 Understand\n EOSIO->Create\nAccounts  : Resources
-Create\nAccounts->Create\nSmart\nContract : How?
+Create\nAccounts->Create\nSmart Contract : How?
 Create\nSmart\nContract -> Compile\nDeploy : Code
-Compile\nDeploy -> Play\nGame : Set \nSmart Contract \n to Blockchain
+Compile\nDeploy -> Play\nGame : Load
 Play\nGame -> Next\nSteps : Push Action
 Play\nGame -> Next\nSteps : Get Status
 ```
