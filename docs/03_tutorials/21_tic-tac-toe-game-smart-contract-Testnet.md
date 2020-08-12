@@ -20,7 +20,8 @@ This tutorial requires the following tools and knowledge:
 ```sequence
 Title: Build a TicTacToe Game
 Game\nRules->Understand\nhow\nthe\nGame\nworks : Requirements
-Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Accounts and Key Pairs
+Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Accounts
+Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Key Pairs
 Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Actions
 Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Resources
 Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Requirements
