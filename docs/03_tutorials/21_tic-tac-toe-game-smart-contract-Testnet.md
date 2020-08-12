@@ -25,8 +25,8 @@ Understand\n EOSIO->Create\nAccounts  : Resources
 Create\nAccounts->Create\nSmart Contract : How?
 Create\nSmart Contract -> Compile\nDeploy : Code
 Compile\nDeploy -> Play\nGame : Load
-Play\nGame -> Next\nSteps : Push Action
-Play\nGame -> Next\nSteps : Get Status
+Play\nGame -> Play\nGame : Push Action
+Play\nGame -> Play\nGame : Get Status
 ```
 
 
