@@ -81,8 +81,8 @@ nodeos -e -p eosio --plugin eosio::producer_plugin --plugin eosio::producer_api_
 ```
 Look at the nodeos.log file to ensure nodeos is running and producing blocks, the ouput will look like:
 
-```console
-info  2020-08-10T07:57:04.561 thread-0  http_plugin.cpp:895           add_handler          ] add api url: /v1/history/get_key_accounts
+[[info]]
+| info  2020-08-10T07:57:04.561 thread-0  http_plugin.cpp:895           add_handler          ] add api url: /v1/history/get_key_accounts
 info  2020-08-10T07:57:04.561 thread-0  http_plugin.cpp:895           add_handler          ] add api url: /v1/history/get_transaction
 info  2020-08-10T07:57:04.561 thread-0  net_plugin.cpp:3414           plugin_startup       ] my node_id is 12eac267ddd48fbda96d0cdd9e4e231d2bfd72f8c0bdbee1987d8952f8be10dc
 info  2020-08-10T07:57:04.562 thread-0  net_plugin.cpp:3470           plugin_startup       ] starting listener, max clients is 25
@@ -93,7 +93,7 @@ info  2020-08-10T07:57:05.301 thread-0  producer_plugin.cpp:2134      produce_bl
 info  2020-08-10T07:57:05.901 thread-0  producer_plugin.cpp:2134      produce_block        ] Produced block 320d2f4119d18816... #4 @ 2020-08-10T07:57:06.000 signed by eosio [trxs: 0, lib: 3, confirmed: 0]
 info  2020-08-10T07:57:06.400 thread-0  producer_plugin.cpp:2134      produce_block        ] Produced block 3fa7c7d9f2c1c2da... #5 @ 2020-08-10T07:57:06.500 signed by eosio [trxs: 0, lib: 4, confirmed: 0]
 info 
-```
+
 
 [[info]]
 | Account creation requires a creator account; every new blockchain is created with an account called eosio. The eosio account is a special account that can be used to bootstrap a blockchain, click the following link for more information about [bootstrapping a blockchain for real world use.](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence) In a production blockchain the eosio account keys are [resigned](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence#3-resign-eosio-account-and-system-accounts).  To use our local single node testnet we need to add the private key of the eosio account to our wallet so that we can create other accounts. **The private key is well known and so any blockchain where the eosio acount has not been resigned is not secure.**
