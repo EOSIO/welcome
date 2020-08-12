@@ -19,22 +19,22 @@ This tutorial requires the following tools and knowledge:
 
 ```sequence
 Title: Build a TicTacToe Game
-Game Rules->Understand\nhow\nthe\nGame\nworks : Requirements
-Understand how the Game works->Create the Accounts  : EOSIO Accounts and Key Pairs
-Understand how the Game works->Create the Accounts  : EOSIO Actions
-Understand how the Game works->Create the Accounts  : EOSIO Resources
-Create the Accounts->TicTacToe Smart Contract : Requirements
-Create the Accounts->TicTacToe Smart Contract : Game Board
-Create the Accounts->TicTacToe Smart Contract : Code the hpp
-Create the Accounts->TicTacToe Smart Contract : Code the cpp
-TicTacToe Smart Contract -> Compile and Deploy : Compile
-TicTacToe Smart Contract -> Compile and Deploy : Deploy to the blockchain
-Compile and Deploy -> Play the Game : Push Create
-Compile and Deploy -> Play the Game : Push Move
-Compile and Deploy -> Play the Game : Get Status
-Compile and Deploy -> Play the Game : Push Restart
-Compile and Deploy -> Play the Game : Push Close
-Play the Game -> Next Steps : Complete the tutorial
+Game\nRules->Understand\nhow\nthe\nGame\nworks : Requirements
+Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Accounts and Key Pairs
+Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Actions
+Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Resources
+Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Requirements
+Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Game Board
+Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Code the hpp
+Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Code the cpp
+TicTacToe\nSmart\nContract -> Compile\nand\nDeploy : Compile
+TicTacToe\nSmart\nContract -> Compile\nand\nDeploy : Deploy to the blockchain
+Compile\nand\nDeploy -> Play\nthe\nGame : Push Create
+Compile\nand\nDeploy -> Play\nthe\nGame : Push Move
+Compile\nand\nDeploy -> Play\nthe\nGame : Get Status
+Compile\nand\nDeploy -> Play\nthe\nGame : Push Restart
+Compile\nand\nDeploy -> Play\nthe\nGame : Push Close
+Play\nthe\nGame -> Next\nSteps : Complete the tutorial
 ```
 
 
