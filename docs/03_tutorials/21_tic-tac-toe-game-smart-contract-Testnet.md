@@ -19,9 +19,9 @@ This tutorial requires the following tools and knowledge:
 
 ```sequence
 Game\nRules->Understand\nHow\nTo\Use\EOSIO : What is it?
-Understand\nHow\nTo\Use\EOSIO->Create\nAccounts  : Accounts
-Understand\nHow\nTo\Use\EOSIO->Create\nAccounts  : Key Pairs
-Understand\nHow\nTo\Use\EOSIO->Create\nAccounts  : Actions
+Understand\nHow To\nUse EOSIO->Create\nAccounts  : Accounts
+Understand\nHow To\nUse EOSIO->Create\nAccounts  : Key Pairs
+Understand\nHow To\nUse EOSIO->Create\nAccounts  : Actions
 Understand\nHow\nTo\Use\EOSIO->Create\nAccounts  : Resources
 Create\nAccounts->Smart\nContract : Game Board
 Create\nAccounts->Smart\nContract : Game Logic
