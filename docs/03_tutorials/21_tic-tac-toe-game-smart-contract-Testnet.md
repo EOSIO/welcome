@@ -18,14 +18,14 @@ This tutorial requires the following tools and knowledge:
 ### Tutorial Workflow
 
 ```sequence
-Game\nRules->Understand\n EOSIO : What is it?
+Game\nRules->Understand\n EOSIO : What?
 Understand\n EOSIO->Create\nAccounts  : Accounts
 Understand\n EOSIO->Create\nAccounts  : Key Pairs
 Understand\n EOSIO->Create\nAccounts  : Actions
 Understand\n EOSIO->Create\nAccounts  : Resources
-Create\nAccounts->Smart\nContract : Data and Logic
+Create\nAccounts->Smart\nContract : How?
 Smart\nContract -> Compile\nDeploy : Code
-Compile\nDeploy -> Play\nGame : Blockchain
+Compile\nDeploy -> Play\nGame : Load
 Play\nGame -> Next\nSteps : Push Action
 Play\nGame -> Next\nSteps : Get Status
 ```
