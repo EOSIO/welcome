@@ -19,18 +19,18 @@ This tutorial requires the following tools and knowledge:
 
 ```sequence
 Title: Build a TicTacToe Game
-Game\nRules->Understandnthe\nGame : Requirements
-Understand\nthe\nGame->Create\nAccounts  : Accounts
-Understand\nthe\nGame->Create\nAccounts  : Key Pairs
-Understand\nthe\nGame->Create\nAccounts  : Actions
-Understand\nthe\nGame->Create\nAccounts  : Resources
+Game\nRules->Understand\nGame : Requirements
+Understand\nGame->Create\nAccounts  : Accounts
+Understand\nGame->Create\nAccounts  : Key Pairs
+Understand\nGame->Create\nAccounts  : Actions
+Understand\nGame->Create\nAccounts  : Resources
 Create\nAccounts->Smart\nContract : Game Board
 Create\nAccounts->Smart\nContract : Code
 Smart\nContract -> Compile\nDeploy : Compile
 Smart\nContract -> Compile\nDeploy : Deploy
 Compile\nDeploy -> Play\nGame : Push Action
 Compile\nDeploy -> Play\nGame : Get Status
-Play\nthe\nGame -> Next\nSteps : Finish
+Play\nGame -> Next\nSteps : Finish
 ```
 
 
