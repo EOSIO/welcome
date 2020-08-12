@@ -19,7 +19,7 @@ This tutorial requires the following tools and knowledge:
 
 ```sequence
 Title: Build a TicTacToe Game
-Game Rules->Understand how the Game works : Requirements
+Game Rules->Understand\nhow\nthe\nGame\nworks : Requirements
 Understand how the Game works->Create the Accounts  : EOSIO Accounts and Key Pairs
 Understand how the Game works->Create the Accounts  : EOSIO Actions
 Understand how the Game works->Create the Accounts  : EOSIO Resources
