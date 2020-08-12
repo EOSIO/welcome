@@ -102,7 +102,7 @@ info
 | The eosio private key is **5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3**
 
 ### Import the eosio private key
-```console
+```shell
 cleos wallet import --name local 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 ``` 
 
@@ -122,7 +122,7 @@ To use the command line to create the accounts run the following commands. Make 
 
 Create a wallet called 'local'.
 
-```console
+```shell
 cleos wallet create --name local --to-console
 ```
 
@@ -137,7 +137,7 @@ Without password imported keys will not be retrievable.
 Save the password, you will need this to unlock the wallet later.
 
 To check the wallet run
-```console 
+```shell 
 cleos wallet list
 ```
 
@@ -151,14 +151,14 @@ Wallets:
 ```
 Create two key pairs, one for each account.
 
-```console
+```shell
 cleos create key --to-console
 ```
 ```console
 Private key: 5JSRUrUVbRsV2yJ2XSMtRtPzQ5UKbSYEGEjdKfGMS1xsvRZj7FH
 Public key: EOS5p55prHwrN6KosqF4NdRayVW2mqwA8RGNEbaZXRBs2SQHwBWSf
 ```
-```console
+```shell
 cleos create key --to-console
 ```
 ```console
@@ -167,22 +167,22 @@ Public key: EOS7qkiVnptc8wbHzHPC9jj1YECKJgQeUktBTm8RDA64oH3e75QW5
 ```
 
 Create the host account.  
-```console
+```shell
 cleos create account eosio host EOS5p55prHwrN6KosqF4NdRayVW2mqwA8RGNEbaZXRBs2SQHwBWSf
 ```
 
 Import the matching private key to the local wallet
-```console
+```shell
 cleos wallet import --name local --private-key 5JSRUrUVbRsV2yJ2XSMtRtPzQ5UKbSYEGEjdKfGMS1xsvRZj7FH
 ```
 
 Create the challenger account and import a private key into the local wallet. 
-```console
+```shell
 cleos create account eosio challenger EOS7qkiVnptc8wbHzHPC9jj1YECKJgQeUktBTm8RDA64oH3e75QW5
 ```
 
 Import the matching private key to the local wallet
-```console
+```shell
 cleos wallet import --name local --private-key 5JReVMTiiztAUyQGp9w7BMMm1HVUurDmEKuSL53DQww3JKVZjot
 ```
 
@@ -609,7 +609,7 @@ The .wasm file (or webassembly) is the binary code that the wasm engine in the b
 ### Compile the Smart Contract Code
 To compile the smart contract change to the tictactoe folder  and run eosio-cpp. Click on this link for more information about using the eosio-cpp: [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cpp command reference") .This tutorial uses .hpp or header files, use the “-I” option to tell the compiler where the .hpp file is located.
 
-```console
+```shell
 tictactoe$ eosio-cpp -I ./ tictactoe.cpp
 ```
 
@@ -632,7 +632,7 @@ The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe
 [Deploy the smart contract](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-deploy-a-smart-contract) on the single node testnet with the following commandline.
 
 In the smae directory as the generated wasm and ABI files run
-```console
+```shell
 cleos set contract host ./ tictactoe.wasm tictactoe.abi -p host@active
 ```
 
@@ -654,7 +654,7 @@ The create action takes two parameters, the "challenger" and the "host". The req
 
 Sign the push action with host@active’, the host of the game.
 
-```console
+```shell
 cleos push action tictactoe create '{"challenger":"challenger", "host":"host"}' --permission host@active
 ```
 
@@ -677,7 +677,7 @@ The host makes the first move. The required payload in json format is:
 
 Sign the push action with host@active’ - the host of the game.
 
-```console
+```shell
 cleos push action tictactoe move '{"challenger":"challenger", "host":"host", "by":"host", "row":0, "column":1}' --permission host@active
 ```
 
@@ -695,7 +695,7 @@ The challenger makes the second move. The required payload in json format is:
 
 Sign the push action with challenger@active’ - the challenger.
 
-```console
+```shell
 cleos push action tictactoe move '{"challenger":"challenger", "host":"host", "by":"challenger", "row":1, "column":1}' --permission challenger@active
 ```
 
@@ -704,7 +704,7 @@ Continue to make moves until the game ends with a win or a draw.
 ### Check game status 
 Look at the data in the multi index table to check the game status. 
 
-```console
+```shell
 cleos get table tictactoe host games
 ```
 
@@ -721,13 +721,13 @@ The restart action takes three parameters, the "challenger", the "host", and "by
 
 Sign the push action with host@active’ - the host of the game.
 
-```console
+```shell
 cleos push action tictactoe restart '{"challenger":"challenger", "host":"host", "by":"host"}' --permission host@active
 ```
 
 Check the game status to see that the board has been reset.
 
-```console
+```shell
 cleos get table tictactoe host games
 ```
 
@@ -743,13 +743,13 @@ The close action takes two parameters, the "challenger" and the "host". The requ
 
 Sign the push action with ‘host@active’ - the host of the game.
 
-```console
+```shell
 cleos push action tictactoe close '{"challenger":"challenger", "host":"host"}' --permission host@active
 ```
 
 Check the game status to see that game data has been removed.  
 
-```console
+```shell
 cleos get table tictactoe host games
 ```
 

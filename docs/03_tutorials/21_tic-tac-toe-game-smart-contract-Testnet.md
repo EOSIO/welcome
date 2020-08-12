@@ -510,7 +510,7 @@ The .wasm file (or webassembly) is the binary code that the wasm engine in the b
 ### Compile the Smart Contract Code
 To compile the smart contract change to the tictactoe folder  and run eosio-cpp. Click on this link for more information about using the eosio-cpp: [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cpp command reference") .This tutorial uses .hpp or header files, use the “-I” option to tell the compiler where the .hpp file is located.
 
-```console
+```shell
 tictactoe$ eosio-cpp -I ./ tictactoe.cpp
 ```
 
