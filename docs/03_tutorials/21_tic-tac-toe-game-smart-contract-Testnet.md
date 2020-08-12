@@ -1,10 +1,10 @@
 ---
-content_title: "Tic Tac Toe Game Contract Using Testnet"
-link_text: "Tic Tac Toe Game Contract Using Testnet"
+content_title: "Tic-tac-toe Game Contract Using Testnet"
+link_text: "Tic-tac-toe Game Contract Using Testnet"
 ---
 
 # Your Guide to Tic Tac Toe on EOSIO 
-This tic tac toe tutorial guides you step by step to build a tic tac toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use the EOSIO Testnet blockchain and show you how to play the game by calling the smart contract.
+This tic-tac-toe tutorial guides you step by step to build a tic-tac-toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use the EOSIO Testnet blockchain and show you how to play the game by calling the smart contract.
 
 [[note]]
 | EOSIO is blockchain software platform developed by block.one. Smart contracts which run on EOSIO will run on any blockchain which is run on the EOSIO platform. EOS is a digital token, though it also refers to the first public blockchain run on the EOSIO platform, EOS or the public mainnet. In this tutorial we will use the block.one testnet, which is a blockchain operated by block.one for testing.
@@ -35,7 +35,7 @@ Play\nGame -> Play\nGame : Get
 
 
 ## The Rules of the Game
-The EOSIO tic tac toe rules are:
+The EOSIO tic-tac-toe rules are:
 
 * Player one (the host) makes the first move, followed by player two (the challenger). 
 * The first player to complete a row or diagonal of either X’s or O’s wins the game.
@@ -146,18 +146,18 @@ Game Representation
 |     1     |   x   |   o   |   o   |
 |     2     |   o   |   x   |   x   |
 
-### Create TicTacToe.hpp file
+### Create tictactoe.hpp file
 This section creates the tictactoe.hpp file. This header file contains the declarations of the tictactoe class, the definitions of tictactoe game data structures, and the declarations of tictactoe game methods, known as actions in EOSIO smart contracts.
 
 
 #### Game Data Structures
-The TicTacToe smart contract hpp file defines the following public data structures to store game information.  
+The tic-tac-toe smart contract hpp file defines the following public data structures to store game information.  
 
 * game - The game data structure contains game data. The structure has variables of type eosio::name, for challenger, host, turn and winner. Click on this link for a definition of [eosio::name](https://developers.eos.io/manuals/eosio.cdt/v1.7/structeosio_1_1name "eosio.cdt reference - name structure") . The structure has a vector representing the game board  
 * Games - Games is a type definition that uses a class template. Games uses an eosio::muti_index template to define a type which stores a game structure in RAM. Click on this link for more information on [eosio::multi_index](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex "eosio.cdt reference - multi index table") and click on this link for more general information about [multi index tables](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/data-persistence) 
 
 #### Game Actions
-The TicTacToe smart contract  hpp file defines the following four public actions to operate the game logic.  
+The tic-tac-toe smart contract hpp file defines the following four public actions to operate the game logic.  
 
 * Create - This action launches a new game and creates a new game board array. The host may use this command.
 * Restart - This action clears data from an existing game board array. The host or the challenger may use this command.
@@ -286,7 +286,7 @@ public:
 
 The complete tictactoe.hpp file can be downloaded from github here: [Tictactoe tutorial hpp source](./src/tictactoe/tictactoe.hpp "ticttactoe example code")  
 
-### Create TicTacToe.cpp file
+### Create tictactoe.cpp file
 This section creates the tictactoe.cpp file. This file contains the implementations of the tictactoe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
 
 ### Procedure to create the tictactoe.cpp file
