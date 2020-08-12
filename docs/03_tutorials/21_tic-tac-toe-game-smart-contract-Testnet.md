@@ -6,6 +6,10 @@ link_text: "Tic Tac Toe Game Contract Using Testnet"
 # Your Guide to Tic Tac Toe on EOSIO 
 This tic tac toe tutorial guides you step by step to build a tic tac toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use the EOSIO Testnet blockchain and show you how to play the game by calling the smart contract.
 
+[[note]]
+| EOSIO is blockchain software platform developed by block.one. Smart contracts which run on EOSIO will run on any blockchain which is run on the EOSIO platform. EOS is a digital token, though it also refers to the first public blockchain run on the EOSIO platform, EOS or the public mainnet. In this tutorial we will use the block.one testnet, which is a blockchain operated by block.one for testing.
+
+
 We explain the purpose of each step and why it is important.
 
 ## Prerequisites for the Tutorial

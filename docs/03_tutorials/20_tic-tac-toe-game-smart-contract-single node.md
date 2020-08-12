@@ -6,6 +6,10 @@ link_text: "Tic Tac Toe Game Contract Using Single Node"
 # Your Guide to Tic Tac Toe on EOSIO 
 This tic tac toe tutorial guides you step by step to build a tic tac toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use a local [single node testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet#gatsby-focus-wrapper) and show you how to play the game by calling the smart contract. [Getting Started](https://developers.eos.io/welcome/latest/getting-started/index) also uses a single node testnet.
 
+[[note]]
+| EOSIO is blockchain software platform developed by block.one. Smart contracts which run on EOSIO will run on any blockchain which is run on the EOSIO platform. EOS is a digital token, though it also refers to the first public blockchain run on the EOSIO platform, EOS or the public mainnet. In this tutorial we will use the EOSIO platform to run a blockchain on your local machine. This runs only one producing node and is commonly called a single node testnet.
+
+
 We explain the purpose of each step and why it is important.
 
 ## Prerequisites for the Tutorial
