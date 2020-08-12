@@ -96,10 +96,10 @@ info
 ```
 
 [[info]]
-| _Account creation requires a creator account; every new blockchain is created with an account called eosio. The eosio account is a special account that can be used to bootstrap a blockchain, click the following link for more information about [bootstrapping a blockchain for real world use.](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence) In a production blockchain the eosio account keys are [resigned](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence#3-resign-eosio-account-and-system-accounts).  To use our local single node testnet we need to add the private key of the eosio account to our wallet so that we can create other accounts. **The private key is well known and so any blockchain where the eosio acount has not been resigned is not secure.**_
+| Account creation requires a creator account; every new blockchain is created with an account called eosio. The eosio account is a special account that can be used to bootstrap a blockchain, click the following link for more information about [bootstrapping a blockchain for real world use.](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence) In a production blockchain the eosio account keys are [resigned](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence#3-resign-eosio-account-and-system-accounts).  To use our local single node testnet we need to add the private key of the eosio account to our wallet so that we can create other accounts. **The private key is well known and so any blockchain where the eosio acount has not been resigned is not secure.**
 
-[[note]]
-| _The eosio private key is **5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3**_
+[[caution]]
+| The eosio private key is **5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3**
 
 ### Import the eosio private key
 ```console
@@ -187,10 +187,10 @@ cleos wallet import --name local --private-key 5JReVMTiiztAUyQGp9w7BMMm1HVUurDmE
 ```
 
 [[note | Note]]
-| _You can also use three or more accounts, one for the smart contract and separate accounts for the host(s) and the challenger(s)._
+| You can also use three or more accounts, one for the smart contract and separate accounts for the host(s) and the challenger(s).
 
-[[note | Note]]
-| _Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account._
+[[warning | Keep your keys safe]]
+| Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account.
 
 ## TicTacToe Smart Contract
 Once you have your eosio accounts you can create the smart contract. Use your favorite text editor of IDE to create the .hpp and.cpp files.

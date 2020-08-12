@@ -88,10 +88,10 @@ Create two accounts on the testnet, these accounts are created with arbitrary na
 
 
 [[note]]
-| _You can also use three or more accounts, one for the smart contract and separate accounts for the host(s) and the challenger(s)._
+| You can also use three or more accounts, one for the smart contract and separate accounts for the host(s) and the challenger(s).
 
-[[warning]]
-| _Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account._
+[[warning | Keep your keys safe]]
+| Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account.
 
 ## TicTacToe Smart Contract
 Once you have your eosio accounts you can create the smart contract. Use your favorite text editor of IDE to create the .hpp and.cpp files.
