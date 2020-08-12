@@ -19,22 +19,17 @@ This tutorial requires the following tools and knowledge:
 
 ```sequence
 Title: Build a TicTacToe Game
-Game\nRules->Understand\nhow\nthe\nGame\nworks : Requirements
-Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Accounts
-Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Key Pairs
-Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Actions
-Understand\nhow\nthe\nGame\nworks->Create\nthe\nAccounts  : EOSIO Resources
-Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Requirements
-Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Game Board
-Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Code the hpp
-Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Code the cpp
-TicTacToe\nSmart\nContract -> Compile\nand\nDeploy : Compile
-TicTacToe\nSmart\nContract -> Compile\nand\nDeploy : Deploy
-Compile\nand\nDeploy -> Play\nthe\nGame : Push Create
-Compile\nand\nDeploy -> Play\nthe\nGame : Push Move
-Compile\nand\nDeploy -> Play\nthe\nGame : Get Status
-Compile\nand\nDeploy -> Play\nthe\nGame : Push Restart
-Compile\nand\nDeploy -> Play\nthe\nGame : Push Close
+Game\nRules->Understandnthe\nGame : Requirements
+Understand\nthe\nGame->Create\nAccounts  : Accounts
+Understand\nthe\nGame->Create\nAccounts  : Key Pairs
+Understand\nthe\nGame->Create\nAccounts  : Actions
+Understand\nthe\nGame->Create\nAccounts  : Resources
+Create\nAccounts->Smart\nContract : Game Board
+Create\nAccounts->Smart\nContract : Code
+Smart\nContract -> Compile\nDeploy : Compile
+Smart\nContract -> Compile\nDeploy : Deploy
+Compile\nDeploy -> Play\nGame : Push Action
+Compile\nDeploy -> Play\nGame : Get Status
 Play\nthe\nGame -> Next\nSteps : Finish
 ```
 
