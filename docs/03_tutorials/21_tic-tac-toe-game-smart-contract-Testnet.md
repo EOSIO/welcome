@@ -18,19 +18,18 @@ This tutorial requires the following tools and knowledge:
 ### Tutorial Workflow
 
 ```sequence
-Title: Build a TicTacToe Game
-Game\nRules->Understand\nGame : Requirements
-Understand\nGame->Create\nAccounts  : Accounts
-Understand\nGame->Create\nAccounts  : Key Pairs
-Understand\nGame->Create\nAccounts  : Actions
-Understand\nGame->Create\nAccounts  : Resources
+Game\nRules->Understand\nHow\nTo\Use\EOSIO : What is it?
+Understand\nHow\nTo\Use\EOSIO->Create\nAccounts  : Accounts
+Understand\nHow\nTo\Use\EOSIO->Create\nAccounts  : Key Pairs
+Understand\nHow\nTo\Use\EOSIO->Create\nAccounts  : Actions
+Understand\nHow\nTo\Use\EOSIO->Create\nAccounts  : Resources
 Create\nAccounts->Smart\nContract : Game Board
-Create\nAccounts->Smart\nContract : Code
-Smart\nContract -> Compile\nDeploy : Compile
-Smart\nContract -> Compile\nDeploy : Deploy
-Compile\nDeploy -> Play\nGame : Push Action
-Compile\nDeploy -> Play\nGame : Get Status
-Play\nGame -> Next\nSteps : Finish
+Create\nAccounts->Smart\nContract : Game Logic
+Smart\nContract -> Compile\nDeploy : Code
+Compile\nDeploy -> Play\nGame : Compile
+Compile\nDeploy -> Play\nGame : Deploy
+Play\nGame -> Next\nSteps : Push Action
+Play\nGame -> Next\nSteps : Get Status
 ```
 
 
