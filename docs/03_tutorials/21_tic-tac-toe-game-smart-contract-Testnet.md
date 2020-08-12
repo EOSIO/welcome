@@ -29,13 +29,13 @@ Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Game Board
 Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Code the hpp
 Create\nthe\nAccounts->TicTacToe\nSmart\nContract : Code the cpp
 TicTacToe\nSmart\nContract -> Compile\nand\nDeploy : Compile
-TicTacToe\nSmart\nContract -> Compile\nand\nDeploy : Deploy to the blockchain
+TicTacToe\nSmart\nContract -> Compile\nand\nDeploy : Deploy
 Compile\nand\nDeploy -> Play\nthe\nGame : Push Create
 Compile\nand\nDeploy -> Play\nthe\nGame : Push Move
 Compile\nand\nDeploy -> Play\nthe\nGame : Get Status
 Compile\nand\nDeploy -> Play\nthe\nGame : Push Restart
 Compile\nand\nDeploy -> Play\nthe\nGame : Push Close
-Play\nthe\nGame -> Next\nSteps : Complete the tutorial
+Play\nthe\nGame -> Next\nSteps : Finish
 ```
 
 
