@@ -18,23 +18,15 @@ This tutorial requires the following tools and knowledge:
 ### Tutorial Workflow
 
 ```sequence
-Title: Build a TicTacToe Game
-Game Rules->Understand how the Game works : Requirements
-Understand how the Game works->Create the Accounts  : EOSIO Accounts and Key Pairs
-Understand how the Game works->Create the Accounts  : EOSIO Actions
-Understand how the Game works->Create the Accounts  : EOSIO Resources
-Create the Accounts->TicTacToe Smart Contract : Requirements
-Create the Accounts->TicTacToe Smart Contract : Game Board
-Create the Accounts->TicTacToe Smart Contract : Code the hpp
-Create the Accounts->TicTacToe Smart Contract : Code the cpp
-TicTacToe Smart Contract -> Compile and Deploy : Compile
-TicTacToe Smart Contract -> Compile and Deploy : Deploy to the blockchain
-Compile and Deploy -> Play the Game : Push Create
-Compile and Deploy -> Play the Game : Push Move
-Compile and Deploy -> Play the Game : Get Status
-Compile and Deploy -> Play the Game : Push Restart
-Compile and Deploy -> Play the Game : Push Close
-Play the Game -> Next Steps : Complete the tutorial
+Understand\n Game->Understand\n EOSIO : What?
+Understand\n EOSIO->Create\nAccounts  : Accounts
+Understand\n EOSIO->Create\nAccounts  : Actions
+Understand\n EOSIO->Create\nAccounts  : Resources
+Create\nAccounts->Create\nSmart Contract : How?
+Create\nSmart Contract -> Compile\nDeploy : Code
+Compile\nDeploy -> Play\nGame : Load
+Play\nGame -> Play\nGame : Push
+Play\nGame -> Play\nGame : Get
 ```
 
 ## The Rules of the Game
