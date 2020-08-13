@@ -66,6 +66,19 @@
         "disable_summary_gen": true
       }
     },
+
+  
+  {
+    "name": "collate_markdown",
+    "options": {
+      "docs_dir": "docs/08_testnet-quick-start-guide",
+      "output_dir": "08_testnet-quick-start-guide",
+      "disable_summary_gen": true
+    }
+  },
+
+
+    
     {
       "name": "collate_markdown",
       "options": {
