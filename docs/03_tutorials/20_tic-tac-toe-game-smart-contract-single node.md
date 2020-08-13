@@ -4,7 +4,7 @@ link_text: "Tic-tac-toe Game Contract Using Single Node"
 ---
 
 # Your Guide to Tic-tac-toe on EOSIO 
-This tic-tac-toe tutorial guides you step by step to build a tic tac toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use a local [single node testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet#gatsby-focus-wrapper) and show you how to play the game by calling the smart contract. [Getting Started](https://developers.eos.io/welcome/latest/getting-started/index) also uses a single node testnet.
+This tic-tac-toe tutorial guides you step by step to build a tic-tac-toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use a local [single node testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet#gatsby-focus-wrapper) and show you how to play the game by calling the smart contract. [Getting Started](https://developers.eos.io/welcome/latest/getting-started/index) also uses a single node testnet.
 
 [[note]]
 | EOSIO is blockchain software platform developed by block.one. Smart contracts which run on EOSIO will run on any blockchain which is run on the EOSIO platform. EOS is a digital token, though it also refers to the first public blockchain run on the EOSIO platform, EOS or the public mainnet. In this tutorial we will use the EOSIO platform to run a blockchain on your local machine. This runs only one producing node and is commonly called a single node testnet.
@@ -383,10 +383,10 @@ public:
     name GetWinner(const game &currentGame);
 ```
 
-The complete tictactoe.hpp file can be downloaded from github here: [Tictactoe tutorial hpp source](./src/tictactoe/tictactoe.hpp "ticttactoe example code")  
+The complete tictactoe.hpp file can be downloaded from github here: [Tic-tac-toe tutorial hpp source](./src/tictactoe/tictactoe.hpp "tic-tac-toe example code")  
 
 ### Create tictactoe.cpp file
-This section creates the tictactoe.cpp file. This file contains the implementations of the tictactoe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
+This section creates the tictactoe.cpp file. This file contains the implementations of the tic-tac-toe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
 
 ### Procedure to create the tictactoe.cpp file
 Complete the following steps to create the tictactoe.cpp file:
@@ -602,7 +602,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     });
 }
 ```
-The complete tictactoe.cpp file can be downloaded from github here: [Tictactoe tutorial cpp source](./src/tictactoe/tictactoe.cpp "ticttactoe example code")  
+The complete tictactoe.cpp file can be downloaded from github here: [Tic-tac-toe tutorial cpp source](./src/tictactoe/tictactoe.cpp "tic-tac-toe example code")  
 
 
 ## Compile and deploy the smart contract to the blockchain

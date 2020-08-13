@@ -97,7 +97,7 @@ Create two accounts on the testnet, these accounts are created with arbitrary na
 [[warning | Keep your keys safe]]
 | Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account.
 
-## TicTacToe Smart Contract
+## Tic-tac-toe Smart Contract
 Once you have your eosio accounts you can create the smart contract. Use your favorite text editor of IDE to create the .hpp and.cpp files.
 
 ### Smart Contract Requirements
@@ -284,10 +284,10 @@ public:
     name GetWinner(const game &currentGame);
 ```
 
-The complete tictactoe.hpp file can be downloaded from github here: [Tictactoe tutorial hpp source](./src/tictactoe/tictactoe.hpp "ticttactoe example code")  
+The complete tictactoe.hpp file can be downloaded from github here: [Tic-tac-toe tutorial hpp source](./src/tictactoe/tictactoe.hpp "tic-tac-toe example code")  
 
 ### Create tictactoe.cpp file
-This section creates the tictactoe.cpp file. This file contains the implementations of the tictactoe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
+This section creates the tictactoe.cpp file. This file contains the implementations of the tic-tac-toe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
 
 ### Procedure to create the tictactoe.cpp file
 Complete the following steps to create the tictactoe.cpp file:
@@ -503,7 +503,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     });
 }
 ```
-The complete tictactoe.cpp file can be downloaded from github here: [Tictactoe tutorial cpp source](./src/tictactoe/tictactoe.cpp "ticttactoe example code")  
+The complete tictactoe.cpp file can be downloaded from github here: [Tic-tac-toe tutorial cpp source](./src/tictactoe/tictactoe.cpp "tic-tac-toe example code")  
 
 
 ## Compile and deploy the smart contract to the blockchain
