@@ -18,7 +18,7 @@ Complete the following steps to create a Testnet developer account:
 
 1. Visit the [sign-up page](https://testnet.eos.io/user#signup) on the Testnet website and enter the requested details. 
    
-![Sign Up](../images/signup-1.png)
+![Sign Up](./images/signup-1.png)
 
 2. Read the Testnet terms and conditions and click the checkboxes to indicate your agreement to the terms and conditions.
 2. Click the checkbox in the **I’m not a robot** captcha clicker and then click **Register**. 
