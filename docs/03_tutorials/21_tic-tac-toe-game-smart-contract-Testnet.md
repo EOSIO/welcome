@@ -44,7 +44,7 @@ The EOSIO tic-tac-toe rules are:
 ## Understand how the game works
 The smart contract contains the game logic, therefore this section introduces how the game works. 
 
-The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on the [EOSIO Tesnet](https://testnet.eos.io/) in the next step. Use these accounts to "push actions" to the blockchain. These actions 'start', 'restart', and 'close' the game. Pushing a 'move' action will place a 'marker' on the game 'board'.    
+The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on the [EOSIO Tesnet](https://testnet.eos.io/) in the next step. [**Ensure you have a testnet developer account before you continue**](../08_testnet-quick-start-quide/index.md#getting-started-with-testnet). Use these accounts to "push actions" to the blockchain. These actions 'start', 'restart', and 'close' the game. Pushing a 'move' action will place a 'marker' on the game 'board'.    
 
 One player is the host, who starts the game, and one player is the challenger. The game board is nine squares, and each player takes a turn to place their marker in a square. A player wins the game when three markers are placed in a row.
 
@@ -79,9 +79,7 @@ For more information click on this link [Core Concepts](https://developers.eos.i
 The game requires two accounts, one for each player, and each account requires at least one key pair (public and private keys.) One account 'owns' the smart contract, a blockchain account supports only one smart contract and a smart contract must be loaded by an account. Accounts then identify which player ‘pushes’ a transaction to the blockchain. An account is created by calling an EOSIO system contract and this action requires a public key which is stored on the blockchain.  The blockchain then uses asymmetric cryptography to verify that the account pushing the transaction is signed with the matching private key and has the required authority to perform an action.  
 
 ### Procedure to create Accounts
-Follow this link for a guide on [creating Testnet Accounts.](https://testnet.eos.io/faq)
-
-Test [creating Testnet Accounts.](../06_eosio-blockchain-networks/index.md)
+Follow this link for a guide on [creating Testnet Accounts.](../08_testnet-quick-start-quide/index.md#blockchain-account-configuration)
 
 Go to the EOSIO Testnet [Blockchain Accounts](https://testnet.eos.io/user/blockchain-accounts "Testnet - blockchain accounts") page:
 
@@ -536,7 +534,7 @@ For this tutorial we ignore these warnings. Click on the following link for a tu
 The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe.abi.
 
 ### Deploy the Smart Contract to the Testnet
-Follow this link for a guide on [deploying smart contracts on the Testnet.](https://testnet.eos.io/faq)
+Follow this link for a guide on [deploying smart contracts on the Testnet.](../08_testnet-quick-start-quide/index.md#smart-contract-deployment)
 
 Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy") page:
 
@@ -550,7 +548,7 @@ Follow these steps to deploy the smart contract to the testnet:
 4. Press the deploy button. The deployment results are shown in the “Deployment Result” window. In the case below deployment failed due to lack of memory. Fix this in the Blockchain Accounts Request Resources section. 
 
 ## Play The Game
-Now that the smart contract has been successfully deployed, push smart contract actions to the blockchain to play the game. Follow this link for a guide on [pushing actions on the Testnet.](https://testnet.eos.io/faq)
+Now that the smart contract has been successfully deployed, push smart contract actions to the blockchain to play the game. Follow this link for a guide on [pushing actions on the Testnet.](../08_testnet-quick-start-quide/index.md#push-actions)
   
 Go to the EOSIO Testnet [Push Action](https://testnet.eos.io/push-action "Testnet - push action") page:
 
