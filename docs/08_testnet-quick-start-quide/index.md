@@ -17,11 +17,14 @@ This section outlines the steps for creating a new Testnet developer account.
 Complete the following steps to create a Testnet developer account:
 
 1. Visit the [sign-up page](https://testnet.eos.io/user#signup) on the Testnet website and enter the requested details. 
+   
+![Sign Up](../images/signup-1.png)
+
 2. Read the Testnet terms and conditions and click the checkboxes to indicate your agreement to the terms and conditions.
-3. Click the checkbox in the **I’m not a robot** captcha clicker and then click **Register**. 
-4. Visit your inbox to verify your email address.
-5. Click **VERIFY ACCOUNT** in the verification email.
-6. Once your email address is verified, enter your login details and click **Log in**.
+2. Click the checkbox in the **I’m not a robot** captcha clicker and then click **Register**. 
+3. Visit your inbox to verify your email address.
+4. Click **VERIFY ACCOUNT** in the verification email.
+5. Once your email address is verified, enter your login details and click **Log in**.
 
 [[info | Note]]
 | After you click **Log In**, the welcome page invites you to a getting started tour. Complete the getting started tour, or optionally, click **Skip tour** at the bottom. 
