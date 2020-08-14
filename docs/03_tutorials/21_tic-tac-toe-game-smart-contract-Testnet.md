@@ -81,6 +81,8 @@ The game requires two accounts, one for each player, and each account requires a
 ### Procedure to create Accounts
 Follow this link for a guide on [creating Testnet Accounts.](https://testnet.eos.io/faq)
 
+Test [creating Testnet Accounts.](../docs/06_eosio-blockchain-networks/index.md)
+
 Go to the EOSIO Testnet [Blockchain Accounts](https://testnet.eos.io/user/blockchain-accounts "Testnet - blockchain accounts") page:
 
 ![Testnet blockchain accounts screen](./resources/tictactoe/testnet-blockchain-accounts.png "Testnet Title Panel - Blockchain Accounts")
