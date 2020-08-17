@@ -52,7 +52,7 @@ The EOSIO Testnet provisions a new EOSIO blockchain account every time you sign 
 [[info | Note]]
 | You can see your existing blockchain accounts in the drop-down menu.
 
-#### Result
+**Result**
 
 The previous action creates a new blockchain account as show below:
 
@@ -63,7 +63,7 @@ Temporary Network Tokens (TNTs) are the native tokens of the EOSIO Testnet. By d
 
 To request new TNTs, In the **TNT Balances** block, click the **Request Tokens** button to replenish your account by 10 tokens.
 
-#### Result
+**Result**
 
 This action replenishes your account by 10 tokens and disables the **Request Tokens** button for the next 60 minutes as show below:
 
@@ -102,7 +102,8 @@ Once your new blockchain account is created, you can view the following account 
 2. From the drop-down menu, select the blockchain account.
 3. Click on the account name.
 
-#### Result
+**Result**
+
 This action displays the account details.
 
 # Smart Contract Deployment
@@ -129,10 +130,10 @@ Upload and deploy your smart contract on the EOSIO blockchain in a 3-step sequen
 2. Click the **Browse** button to select the generated ABI file.
 3. From the drop-down menu, select the blockchain account with sufficient system resources and click the **Deploy** button.
 
-#### Result
+**Result**
 The smart contract successfully deploys to the selected account.
 
-*[[info | Info]]
+[[info | Info]]
 | If you encounter an unsuccessful deploy error message, make sure you have sufficient RAM on your account.
 
 # Push Actions
@@ -153,7 +154,7 @@ View the push actions data that is populated in the multi-index table.
 **Complete the following steps to view multi-index table data:**
 
 1. Log in to EOSIO Testnet and navigate to **Blockchain Accounts** from the top navigation menu.
-2. Select the blockchain account from the drop-down and then click on the **Account Name**.
+2. Select the blockchain account that has a smart contract loaded from the drop-down and then click on the **Account Name**.
 In the account details page, click **Smart Contract**.
 3. Scroll down to the **Multi-Index Tables** section and select:
    1. The multi-index table from the drop-down.
