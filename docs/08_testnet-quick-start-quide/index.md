@@ -76,14 +76,18 @@ After creating new accounts, request Temporary Network Tokens (TNTs) as outlined
 ## Request Tokens
 Temporary Network Tokens (TNTs) are the native tokens of the EOSIO Testnet. By default, each account contains 32 TNTs. Tokens allow you to get more system resources on Testnet to deploy contracts, interact with smart contracts, and store data on the blockchain.
 
-To request new TNTs, In the **TNT Balances** block, click the **Request Tokens** button to replenish your account by 10 tokens.
+**To request new TNTs**, In the **Balances (TNT)** block, click the **Request Tokens** button to replenish your account by 10 tokens.
+
+ ![request tokens](./images/request-tokens.png)
 
 **Result**
 
 This action replenishes your account by 10 tokens and disables the **Request Tokens** button for the next 60 minutes as show below:
 
+   ![request tokens](./images/request-tokens-disabled.png)
+
 [[info | Note]]
-| TNTs are replenished every hour by the system. After requesting the first set of tokens, wait for an hour before requesting another round of tokens.
+| TNTs are replenished every hour by the system. After requesting the first set of tokens, wait for 60 minutes before requesting another round of tokens.
 
 ## Buy and Stake System Resources
 
