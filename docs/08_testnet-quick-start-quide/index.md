@@ -15,21 +15,30 @@ When you register on the EOSIO Testnet, we will create a new developer account f
 ## Testnet Sign Up
 This section outlines the steps for creating a new Testnet developer account.
 
-
 Complete the following steps to create a Testnet developer account:
 
 1. Visit the [sign-up page](https://testnet.eos.io/user#signup) on the Testnet website and enter the requested details.
 
-![Sign Up](./images/signup-1.png)
-
+   ![Sign Up](./images/signup-1.png)
 2. Read the Testnet terms and conditions and click the checkboxes to indicate your agreement to the terms and conditions.
-2. Click the checkbox in the **I’m not a robot** captcha clicker and then click **Register**.
-3. Visit your inbox to verify your email address.
-4. Click **VERIFY ACCOUNT** in the verification email.
-5. Once your email address is verified, enter your login details and click **Log in**.
 
-[[info | Note]]
-| After you click **Log In**, the welcome page invites you to a getting started tour. Complete the getting started tour, or optionally, click **Skip tour** at the bottom.
+   ![Sign Up](./images/signup-2.png)
+3. Click the checkbox in the **I’m not a robot** captcha clicker and then click **Register**.
+
+   ![Sign Up](./images/signup-3.png)
+4. You will see a conformation for your registration. Visit your inbox to verify your email address.
+
+    ![Sign Up](./images/signup-4.png)
+5. Click **VERIFY ACCOUNT** in the verification email.
+
+    ![Sign Up](./images/signup-5.png)
+6. Once your email address is verified, enter your login details and click **Log in**.
+
+     ![Sign Up](./images/signup-6.png)
+
+
+After you click **Log In**, the welcome page invites you to a getting started tour. Complete the getting started tour, or optionally, click **Skip tour** at the bottom.
+      ![Sign Up](./images/signup-welcome.png)
 
 ## Testnet Login
 If you already have a Developer Testnet account, log in at [EOSIO Testnet Login](https://testnet.eos.io/user#login).
@@ -47,7 +56,11 @@ The EOSIO Testnet provisions a new EOSIO blockchain account every time you sign 
 **Complete the following steps to create a new account:**
 
 1. Log in to [EOSIO Testnet](https://testnet.eos.io/user#login) and navigate to **Blockchain Accounts** from the top navigation menu.
+
+     ![new account](./images/new-bc-account-1.png)
 2. To create a new account, click the **create another account** button (outlined in red below) next to the existing account name in the drop-down menu.
+
+      ![new account](./images/new-bc-account-2.png)
 
 [[info | Note]]
 | You can see your existing blockchain accounts in the drop-down menu.
@@ -55,6 +68,8 @@ The EOSIO Testnet provisions a new EOSIO blockchain account every time you sign 
 **Result**
 
 The previous action creates a new blockchain account as show below:
+
+   ![new account](./images/new-bc-account-3.png)
 
 After creating new accounts, request Temporary Network Tokens (TNTs) as outlined in the next section *Request Tokens*.
 
