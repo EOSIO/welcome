@@ -97,8 +97,14 @@ Complete the following steps to buy and stake system resources:
 
 1. On the **Blockchain Accounts** page, scroll down to **Request Resources**.
 2. To buy **RAM**, enter the amount in bytes and click on the **Get RAM** button.
+
+   ![Get RAM](./images/get-ram.png)
 3. To stake **CPU**, enter the TNT amount and click the **Stake** button.
+
+   ![Stake CPU](./images/stake-cpu.png)
 4. To stake **NET**, enter the TNT amount and click the **Stake** button.
+
+   ![Stake NET](./images/stake-net.png)
 
 To learn more about ***EOSIO system resources***, see the following documentation on the *EOSIO Developers Portal*:
 
@@ -111,19 +117,35 @@ To learn more about ***EOSIO system resources***, see the following documentatio
 Once your new blockchain account is created, you can view the following account details in the Testnet:
 
 * **TNT Balances**: This detail displays the Temporary Network Token (TNT) total balance, available balance, and the staked balance for the specific account. Use tokens to purchase system resources.
+
+   ![bc account](./images/tnt-balance.png)
 * **Resource Usage**: This detail displays the percentage utilization of system resources and the amount of resources available.
+
+   ![bc account](./images/resource-usage.png)
 * **Keys**: This detail displays automatically generated public and private keys pairs.
-* **Transaction list**: the number of transactions performed on behalf of the account.
+
+   ![bc account](./images/account-keys.png)
+* **Transaction list**: The number of transactions performed on behalf of the account.
+
+   ![bc account](./images/transaction-list.png)
 
 **Complete the following steps to view account details:**
 
 1. Log in to [EOSIO Testnet](https://testnet.eos.io/user#login) and navigate to **Blockchain Accounts** from the top navigation menu.
+
+   ![bc account](./images/bcaccount-nav.png)
 2. From the drop-down menu, select the blockchain account.
+
+   ![select account](./images/select-account.png)
 3. Click on the account name.
+
+    ![select account](./images/account-name.png)
 
 **Result**
 
 This action displays the account details.
+
+   ![select account](./images/account-details-view.png)
 
 # Smart Contract Deployment
 
@@ -146,14 +168,22 @@ Upload and deploy your smart contract on the EOSIO blockchain in a 3-step sequen
 **Complete the following steps to upload and deploy your smart contract:**
 
 1. Click the **Browse** button to select the compiled WASM file.
+
+   ![SM Upload](./images/sm-upload-1.png)
 2. Click the **Browse** button to select the generated ABI file.
+
+    ![SM Upload](./images/sm-upload-2.png)
 3. From the drop-down menu, select the blockchain account with sufficient system resources and click the **Deploy** button.
+
+   ![SM Upload](./images/sm-upload-3.png)
 
 **Result**
 The smart contract successfully deploys to the selected account.
 
+   ![SM Upload](./images/sm-upload-success.png)
+
 [[info | Info]]
-| If you encounter an unsuccessful deploy error message, make sure you have sufficient RAM on your account.
+| If you encounter an unsuccessful deploy error message, make sure you have sufficient RAM on your account and try again.
 
 # Push Actions
 An action is authorized by one or more actors created on the blockchain. Actions are created explicitly within a smart contract, or generated implicitly by application code.
@@ -167,8 +197,8 @@ For more information on Actions in EOSIO, see the [Actions Protocol](https://dev
 3. Enter the JSON payload containing the data or parameters implemented in the source files. 
 4. Select the relevant permission associated with the account and click **Push**.
 
-# View Actions Data in Multi-index Table
-View the push actions data that is populated in the multi-index table.
+# View Actions Data in Multi-Index Table
+View the push actions data that is populated in the multi-Index table.
 
 **Complete the following steps to view multi-index table data:**
 

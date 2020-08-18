@@ -40,7 +40,9 @@
         "output_dir": "05_community-developer-tools",
         "disable_readme_import": true
       }
+
     },
+
     {
       "name": "collate_markdown",
       "options": {
