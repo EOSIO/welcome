@@ -1,6 +1,8 @@
 # **Abstract**
 
-This guide is for users who intend to use the EOSIO Testnet for building blockchain applications on EOSIO. This guide also supports EOSIO-based documentation tutorials that use the Testnet to perform various smart contract operations including pushing permission-based actions.
+This guide is for users who intend to use the EOSIO Testnet as a testing environment for deploying smart contracts and building blockchain applications on EOSIO. The EOSIO Testnent allows developers to quickly onboard by creating new blockchain accounts and test smart contracts on the latest builds of the EOSIO software. You can deploy smart contracts, push transactions, and view the multi-index table in a user-friendly GUI.
+
+This guide also supports EOSIO-based documentation tutorials that use the Testnet to perform various smart contract operations including pushing permission-based actions.
 
 The EOSIO Testnet is a web application that you can access using your login credentials. You don't have to download binaries to install the system as no external installation and configuration are required.
 
@@ -17,7 +19,7 @@ This section outlines the steps for creating a new Testnet developer account.
 
 Complete the following steps to create a Testnet developer account:
 
-1. Visit the [sign up page](https://testnet.eos.io/user#signup) on the Testnet website and enter the requested details.
+1. Visit the [signup page](https://testnet.eos.io/user#signup) on the Testnet website and enter the requested details.
 
    ![Sign Up](./images/signup-1.png)
 2. Read the Testnet terms and conditions and click the checkboxes to indicate your agreement to the terms and conditions.
@@ -35,7 +37,6 @@ Complete the following steps to create a Testnet developer account:
 6. Once your email address is verified, enter your login details and click **Log in**.
 
      ![Sign Up](./images/signup-6.png)
-
 
 After you click **Log In**, the welcome page invites you to a getting started tour. Complete the getting started tour, or optionally, click **Skip tour** at the bottom.
       ![Sign Up](./images/signup-welcome.png)
@@ -65,9 +66,7 @@ The EOSIO Testnet provisions a new EOSIO blockchain account every time you sign 
 [[info | Note]]
 | You can see your existing blockchain accounts in the drop-down menu.
 
-**Result**
-
-The previous action creates a new blockchain account as show below:
+**Result**: The previous action creates a new blockchain account as show below:
 
    ![new account](./images/new-bc-account-3.png)
 
@@ -80,9 +79,7 @@ Temporary Network Tokens (TNTs) are the native tokens of the EOSIO Testnet. By d
 
  ![request tokens](./images/request-tokens.png)
 
-**Result**
-
-This action replenishes your account by 10 tokens and disables the **Request Tokens** button for the next 60 minutes as show below:
+**Result**: This action replenishes your account by 10 tokens and disables the **Request Tokens** button for the next 60 minutes as show below:
 
    ![request tokens](./images/request-tokens-disabled.png)
 
@@ -141,9 +138,7 @@ Once your new blockchain account is created, you can view the following account 
 
     ![select account](./images/account-name.png)
 
-**Result**
-
-This action displays the account details.
+**Result**: This action displays the account details.
 
    ![select account](./images/account-details-view.png)
 
@@ -177,8 +172,7 @@ Upload and deploy your smart contract on the EOSIO blockchain in a 3-step sequen
 
    ![SM Upload](./images/sm-upload-3.png)
 
-**Result**
-The smart contract successfully deploys to the selected account.
+**Result**: The smart contract successfully deploys to the selected account.
 
    ![SM Upload](./images/sm-upload-success.png)
 
@@ -214,6 +208,8 @@ View the push actions data that is populated in the multi-Index table.
 **Complete the following steps to view multi-index table data:**
 
 1. Log in to EOSIO Testnet and navigate to **Blockchain Accounts** from the top navigation menu.
+
+   ![bc account](./images/bcaccount-nav.png)
 2. Select the blockchain account that has a smart contract loaded from the drop-down.
 
    ![SM Upload](./images/mit-1.png)
@@ -235,9 +231,7 @@ The type of key in **Key Type**.
 
       ![SM Upload](./images/mit-6.png)
 
-**Result**
-
-The right hand interface displays the Multi-Index raw data related to your actions.
+**Result**: The right hand interface displays the Multi-Index raw data related to your actions.
 
    ![SM Upload](./images/mit-7.png)
 
