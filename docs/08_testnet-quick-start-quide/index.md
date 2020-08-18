@@ -214,17 +214,31 @@ View the push actions data that is populated in the multi-Index table.
 **Complete the following steps to view multi-index table data:**
 
 1. Log in to EOSIO Testnet and navigate to **Blockchain Accounts** from the top navigation menu.
-2. Select the blockchain account that has a smart contract loaded from the drop-down and then click on the **Account Name**.
-In the account details page, click **Smart Contract**.
-3. Scroll down to the **Multi-Index Tables** section and select:
+2. Select the blockchain account that has a smart contract loaded from the drop-down.
+
+   ![SM Upload](./images/mit-1.png)
+3. Click on the **Account Name**.
+
+   ![SM Upload](./images/mit-2.png)
+4. In the account details page, click **Smart Contract**.
+
+   ![SM Upload](./images/mit-3.png)
+5. Scroll down to the **Multi-Index Tables** section and select:
    1. The multi-index table from the drop-down.
+         ![SM Upload](./images/mit-4.png)
    2. The name of your blockchain account in **Scope Name**.
+
+         ![SM Upload](./images/mit-5.png)
    3. The number of indexes in **Index**.
 The type of key in **Key Type**.
-4. Click **Get data**.
+6. Click **Get data**.
+
+      ![SM Upload](./images/mit-6.png)
 
 #### Result
-The right hand interface displays the Multi-Index raw data related to your actions. 
+The right hand interface displays the Multi-Index raw data related to your actions.
+
+   ![SM Upload](./images/mit-7.png)
 
 # View Transactions
 A transaction instance contains a transaction header and the list of action instances and transaction extensions that make the actual transaction.
@@ -234,5 +248,13 @@ For more information on Transactions in EOSIO, see the [Transactions Protocol](.
 **Complete the following steps to view transactions on the Testnet:**
 
 1. Navigate to the **Transactions** page form the top navigation menu.
+
+   ![Transaction Data](./images/trxn-1.png)
 2. From the **Transactions list**, click on a transaction.
+
+    ![Transaction Data](./images/trxn-2.png)
 3. View the transaction details with the associated metadata including the number of actions part of the transaction.
+
+    ![Transaction Data](./images/trxn-3.png)
+
+    ![Transaction Data](./images/trxn-4.png)
