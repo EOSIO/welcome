@@ -4,10 +4,10 @@ link_text: "Tic-tac-toe Game Contract Using Single Node"
 ---
 
 # Your Guide to Tic-tac-toe on EOSIO 
-This tic-tac-toe tutorial guides you step by step to build a tic-tac-toe game which runs on an EOSIO blockchain. You create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use a local [single node testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet#gatsby-focus-wrapper) and show you how to play the game by calling the smart contract. [Getting Started](https://developers.eos.io/welcome/latest/getting-started/index) also uses a single node testnet.
+This tic-tac-toe tutorial guides you step by step to build a tic-tac-toe game which runs on an EOSIO blockchain. You will create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use a local [single node testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet) and show you how to play the game by calling the smart contract. For another example in using the single node testnet see the [Getting Started](https://developers.eos.io/welcome/latest/getting-started/index) section.
 
 [[note]]
-| EOSIO is blockchain software platform developed by block.one. Smart contracts which run on EOSIO will run on any blockchain which is run on the EOSIO platform. EOS is a digital token, though it also refers to the first public blockchain run on the EOSIO platform, EOS or the public mainnet. In this tutorial we will use the EOSIO platform to run a blockchain on your local machine. This runs only one producing node and is commonly called a single node testnet.
+| EOSIO is a blockchain software platform developed by block.one. Smart contracts which run on the EOSIO platform should run on any blockchain which based on the EOSIO platform. EOS is a digital token, though it also refers to the first public blockchain run on the EOSIO platform, EOS or the public mainnet. In this tutorial we will use the EOSIO platform to run a blockchain on your local machine. This runs only one producing node and is commonly called a single node testnet.
 
 
 We explain the purpose of each step and why it is important.
@@ -15,7 +15,7 @@ We explain the purpose of each step and why it is important.
 ## Prerequisites for the Tutorial
 This tutorial requires the following tools and knowledge:
 
-* EOSIO platform software, specifically cleos, keosd and eosio.cdt which compiles the smart contract. Click on this link to [Install the CDT.](https://developers.eos.io/welcome/latest/getting-started/development-environment/install-the-CDT "EOSIO.CDT Installation Instructions") Click on this link for an [overview of the EOSIO platform and tool.](https://developers.eos.io/welcome/latest/overview/platform_and_toolchain)
+* EOSIO platform software, specifically `cleos`, `keosd` and `eosio.cdt` which compiles the smart contract. Click on this link to [Install the CDT.](https://developers.eos.io/welcome/latest/getting-started/development-environment/install-the-CDT "EOSIO.CDT Installation Instructions") Click on this link for an [overview of the EOSIO platform and toolchain.](https://developers.eos.io/welcome/latest/overview/platform_and_toolchain)
 * Knowledge of the C++ programming language
 * A code editor or an IDE. Click on this link for more information [EOSIO Prerequisites](https://developers.eos.io/welcome/latest/getting-started/development-environment/introduction "Set up to use EOSIO")
    
@@ -41,9 +41,9 @@ The EOSIO tic-tac-toe rules are:
 * If no player completes a row or diagonal of either X’s or O’s, the game is a draw. 
 
 ## Understand how the game works
-The smart contract contains the game logic, therefore this section introduces how the game works. 
+The smart contract contains the game logic, therefore this section introduces how the game works and some of the EOSIO concepts needed to build a smart contract.
 
-The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on a local single node blockchain in the next step. Use these accounts to "push actions" to the blockchain. These actions 'start', 'restart', and 'close' the game. Pushing a 'move' action will place a 'marker' on the game 'board'.    
+The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on a local single node blockchain in the next step. Use these accounts to "push actions" to the blockchain. These actions `start`, `restart`, and `close` the game. Pushing a `move` action will place a 'marker' on the game 'board'.    
 
 One player is the host, who starts the game, and one player is the challenger. The game board is nine squares, and each player takes a turn to place their marker in a square. A player wins the game when three markers are placed in a row.
 
@@ -61,16 +61,16 @@ When all the squares contain a marker and no player has three markers in a row, 
 Accounts are stored on the blockchain with a public key. Use a private key to access the account, though be sure to secure your private key. For more information about account and permissions click on this link [Accounts and Permissions](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions "Accounts and Permissions Overview")
 
 ### Smart Contract Actions
-A smart contract exposes methods or ‘actions’ that transactions use to operate business logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction, each action in the transaction, is rolled back. For more details about transactions and actions click on this link [Transaction Protocol.](https://developers.eos.io/welcome/latest/protocol/transactions_protocol "Tranasctions Protocol") You can use cleos to create transactions and push transactions to the blockchain. Transactions contain one or more actions. You can also use Cleos to call actions directly. Actions can call other actions and can call actions from other smart contracts.
+A smart contract exposes methods or ‘actions’ that transactions use to operate the game logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction fails and the blockchain state is restored to the original state. For more details about transactions and actions click on this link [Transaction Protocol.](https://developers.eos.io/welcome/latest/protocol/transactions_protocol "Tranasctions Protocol") You can use `cleos` to create transactions and push transactions to the blockchain. Transactions contain one or more actions. You can also use `cleos` to call actions directly. Actions can call other actions and can also call actions from other smart contracts.
 
 ![Transactions and Actions](./resources/tictactoe/transactions-and-actions-temp.png "Transactions and Actions")
 
 ### EOSIO Resources 
-The EOSIO blockchain accounts own and consume three resources:
+The EOSIO blockchain accounts own and consume three resources. By default a single node testnet does load the smart contracts which track resources so this is for information only:
 
-* RAM - This resource is the amount of RAM available to an account. RAM stores smart contracts loaded on the blockchain. Smart contacts use RAM via the multi-index table to store smart contract state. Spend TNT to purchase more RAM, RAM can be sold.
-* CPU - This resource is the amount of CPU which can be used by an account in each 24 hour period. Transactions consume CPU. Stake TNT for more CPU. Unstaking returns CPU. 
-* NET - This resource is the amount of data which can be written to blockchain blocks by an account in each 24 hour period. The blockchain blocks store transactions and transaction parameters, the history of blockchain . Stake TNT for more NET. Unstaking returns NET.
+* RAM - This resource is the amount of RAM available to an account. RAM stores smart contracts loaded on the blockchain. Smart contacts use RAM via the multi-index table to store smart contract state. Spend tokens to purchase more RAM, RAM can be sold.
+* CPU - This resource is the amount of CPU which can be used by an account in each 24 hour period. Transactions consume CPU. Stake tokens for more CPU. Unstaking returns CPU. 
+* NET - This resource is the amount of data which can be written to blockchain blocks by an account in each 24 hour period. The blockchain blocks store transactions and transaction parameters, the history of blockchain . Stake tokens for more NET. Unstaking returns NET.
 
 For more information click on this link [Core Concepts](https://developers.eos.io/welcome/latest/overview/core_concepts)
 
@@ -78,12 +78,12 @@ For more information click on this link [Core Concepts](https://developers.eos.i
 The game requires two accounts, one for each player, and each account requires at least one key pair (public and private keys.) One account 'owns' the smart contract, a blockchain account supports only one smart contract and a smart contract must be loaded by an account. Accounts then identify which player ‘pushes’ a transaction to the blockchain. An account is created by calling an EOSIO system contract and this action requires a public key which is stored on the blockchain.  The blockchain then uses asymmetric cryptography to verify that the account pushing the transaction is signed with the matching private key and has the required authority to perform an action.  
 
 ### Run a local single node testnet
-Run [nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/index) locally to start a blockchain running with a single node. [Configure nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/usage/nodeos-configuration) with [plugins](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/index) to produce blocks, store a history of the blockchain in memory, provide http rpc access to these plugins and to output running information to a file.
+Run [nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/index) locally to start a blockchain running on a single node. [Configure nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/usage/nodeos-configuration) with [plugins](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/index) to produce blocks, store a history of the blockchain in memory, provide HTTP RPC access to these plugins and to output running information to a file.
 
 ```shell
 nodeos -e -p eosio --plugin eosio::producer_plugin --plugin eosio::producer_api_plugin --plugin eosio::chain_api_plugin --plugin eosio::http_plugin --plugin eosio::history_plugin --plugin eosio::history_api_plugin --filter-on="*" --access-control-allow-origin='*' --contracts-console --http-validate-host=false --verbose-http-errors >> nodeos.log 2>&1 &
 ```
-Look at the nodeos.log file to ensure nodeos is running and producing blocks, the ouput will look like:
+Look at the `nodeos.log` file to ensure `nodeos` is running and producing blocks. The ouput should look as follows:
 
 ```console
 info  2020-08-10T07:57:04.561 thread-0  http_plugin.cpp:895           add_handler          ] add api url: /v1/history/get_key_accounts
@@ -99,18 +99,6 @@ info  2020-08-10T07:57:06.400 thread-0  producer_plugin.cpp:2134      produce_bl
 info 
 ```
 
-[[info]]
-| Account creation requires a creator account; every new blockchain is created with an account called eosio. The eosio account is a special account that can be used to bootstrap a blockchain, click the following link for more information about [bootstrapping a blockchain for real world use.](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence) In a production blockchain the eosio account keys are [resigned](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence#3-resign-eosio-account-and-system-accounts).  To use our local single node testnet we need to add the private key of the eosio account to our wallet so that we can create other accounts. **The private key is well known and so any blockchain where the eosio acount has not been resigned is not secure.**
-
-[[caution]]
-| The eosio private key is **5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3**
-
-### Import the eosio private key
-```shell
-cleos wallet import --name local 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-``` 
-
-
 ### Procedure to create Accounts
 1. Create a wallet - [How To Create A Wallet](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-a-wallet)
 2. Create key pair - [How To Create Key Pairs](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-key-pairs)
@@ -118,7 +106,7 @@ cleos wallet import --name local 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zk
 4. Import the account private key to the wallet - [How To Import A Key](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-import-a-key)
 
 For this tutorial we need to create two accounts
-1. The host - the host will load the smart contract
+1. The host - the host will load the smart contract.
 2. The challenger - the challenger will play the game with the host.
 
 #### Commands
@@ -153,6 +141,18 @@ Wallets:
   "testnet"
 ]
 ```
+
+[[info]]
+| Account creation requires a creator account; every new blockchain is created with an account called `eosio`. The `eosio` account is a special account that can be used to bootstrap a blockchain, click the following link for more information about [bootstrapping a blockchain for real world use.](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence) In a production blockchain the eosio account keys are [resigned](https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence#3-resign-eosio-account-and-system-accounts).  To use our local single node testnet we need to add the private key of the eosio account to our wallet so that we can create other accounts. **The private key is well known and so any blockchain where the eosio acount has not been resigned is not secure.**
+
+[[caution]]
+| The eosio private key is **5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3**
+
+#### Import the eosio private key
+```shell
+cleos wallet import --name local 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+``` 
+
 Create two key pairs, one for each account.
 
 ```shell
@@ -191,23 +191,23 @@ cleos wallet import --name local --private-key 5JReVMTiiztAUyQGp9w7BMMm1HVUurDmE
 ```
 
 [[note | Note]]
-| You can also use three or more accounts, one for the smart contract and separate accounts for the host(s) and the challenger(s).
+| You can also use three or more accounts, one for the smart contract and separate accounts for the host(s) and the challenger(s). 
 
 [[warning | Keep your keys safe]]
 | Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account.
 
 ## Tic-tac-toe Smart Contract
-Once you have your eosio accounts you can create the smart contract. Use your favorite text editor of IDE to create the .hpp and.cpp files.
+Once you have your eosio accounts you can create the smart contract. Use your favorite text editor of IDE to create the `.hpp` and `.cpp` files.
 
 ### Smart Contract Requirements
-The tictactoe.hpp file (or header file) contains the declarations of the smart contract. Declarations inform the smart contract compiler what data structures to use in the smart contract to represent the game board and track game play. The header file also declares the smart contract actions that operate the game.
+The `tictactoe.hpp` file (or header file) contains the declarations of the smart contract. Declarations inform the smart contract compiler what data structures to use in the smart contract to represent the game board and track game play. The header file also declares the smart contract actions that operate the game.
 
-The tictactoe.cpp file contains implementations of the smart contract actions declared in the tictactoe.hpp header file and uses the data structures declared in the header file.
+The `tictactoe.cpp` file contains implementations of the smart contract actions declared in the `tictactoe.hpp` header file and uses the data structures declared in the header file.
 
-The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the eosio-cpp tool from the EOSIO.CDT. Click on this link for more information on the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "EOSIO.CDT documentation") . The EOSIO.CDT builds the smart contract and creates an ABI file. Click on this link for more information about [ABI Files](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Understand ABL Files") 
+The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the `eosio-cpp` tool from the EOSIO.CDT. Click on this link for more information on the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "EOSIO.CDT documentation") . The EOSIO.CDT builds the smart contract and creates an ABI file. Click on this link for more information about [ABI Files](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Understand ABL Files") 
 
 ### Game Board Representation
-A std::vector represents the tic-tac-toe board. The number 0 marks an empty square. The number 1 denotes a movement by the host. The number 2 denotes a movement by the challenger. To make a movement, you push a  transaction to the tic-tac-toe smart contract.
+A `std::vector` represents the tic-tac-toe board. The number 0 marks an empty square. The number 1 denotes a movement by the host. The number 2 denotes a movement by the challenger. To make a movement, you push a transaction to the tic-tac-toe smart contract.
 
 Logically the board looks like:
 
@@ -217,7 +217,7 @@ Logically the board looks like:
 |     1     |   -   |   -   |   -   |
 |     2     |   -   |   -   |   -   |
 
-This board is represented as a std::vector of integers with the positions in the following order:
+This board is represented as a `std::vector` of integers with the positions in the following order:
  
 [0,0] [0,1] [0,2] [1,0] [1,1] [1,2] [2,0] [2,1] [2,2]
 
@@ -246,7 +246,7 @@ Game Representation
 |     2     |   o   |   x   |   x   |
 
 ### Create tictactoe.hpp file
-This section creates the tictactoe.hpp file. This header file contains the declarations of the tictactoe class, the definitions of tictactoe game data structures, and the declarations of tictactoe game methods, known as actions in EOSIO smart contracts.
+This section creates the `tictactoe.hpp` file. This header file contains the declarations of the tictactoe class, the definitions of tictactoe game data structures, and the declarations of tictactoe game methods, known as actions in EOSIO smart contracts.
 
 
 #### Game Data Structures
@@ -258,18 +258,18 @@ The tic-tac-toe smart contract hpp file defines the following public data struct
 #### Game Actions
 The tic-tac-toe smart contract hpp file defines the following four public actions to operate the game logic.  
 
-* Create - This action launches a new game and creates a new game board array. The host may use this command.
-* Restart - This action clears data from an existing game board array. The host or the challenger may use this command.
-* Close - This action deletes and removes existing game data and frees up any storage the game uses. No game data persists. The host may use this command.
-* Move - This action sets a marker on the gameboard and updates the game board array. The host or the challenger may use this command.
+* create - This action launches a new game and creates a new game board array. The host may use this command.
+* restart - This action clears data from an existing game board array. The host or the challenger may use this command.
+* close - This action deletes and removes existing game data and frees up any storage the game uses. No game data persists. The host may use this command.
+* move - This action sets a marker on the gameboard and updates the game board array. The host or the challenger may use this command.
 
 ### Procedure to create the tictactoe.hpp file
-Complete the following steps to create the tictactoe.hpp file:
+Complete the following steps to create the `tictactoe.hpp` file:
 
 1. Create a tictactoe folder on your local drive.
 2. Change directory into the tictactoe folder. 
-3. Create the tictactoe.hpp file.
-4. Open the tictactoe.hpp file with your text editor.
+3. Create the `tictactoe.hpp` file.
+4. Open the `tictactoe.hpp` file with your text editor.
 5. Import the eosio base library.
    Add this code to the .hpp file:
 
@@ -279,7 +279,7 @@ Complete the following steps to create the tictactoe.hpp file:
 ```
 
 6. For convenience use the eosio namespace.
-   Add this code to the .hpp file:
+   Add this code to the `.hpp` file:
 
 ```c++
 //6. use the eosio namespace
@@ -310,7 +310,7 @@ public:
 13. Create a **primary_key** method. This is automatically used as an index for the table.
 14. Use the EOSLIB_SERIALIZE macro to define how the data is serialized / deserialized in and out of the multi index table.  Click on this link for more information about [EOSLIB_SERIALIZE](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__serialize)
 
-    Add this code to the .hpp file inside the public section of the class:
+    Add this code to the `.hpp` file inside the public section of the class:
 
 ```c++
     // 12. Declare game data structure.
@@ -355,7 +355,7 @@ public:
 ```
 
 16. Declare class methods and use the [[eosio::action]] attribute to let the compiler know this is a smart contract action. Click on this link for more information on [generator attributes.](https://developers.eos.io/manuals/eosio.cdt/v1.6/guides/generator-attributes) 
-    Add this code to the .hpp file inside the public section of the class:
+    Add this code to the `.hpp` file inside the public section of the class:
 
 ```c++
     [[eosio::action]]
@@ -372,30 +372,30 @@ public:
 ```
 
 17. The Move action uses the following private supporting methods to determine if a move is valid. They also check for a winning move:
-    * IsEmptyCell()
-    * IsValidMove()
-    * GetWinner()
-    Add this code to the .hpp file inside a private section of the class:
+    * `isEmptyCell()`
+    * `isValidMove()`
+    * `getWinner()`
+    Add this code to the `.hpp` file inside a private section of the class:
 
 ```c++
-    bool IsEmptyCell(const uint8_t &cell);
-    bool IsValidMove(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board);
-    name GetWinner(const game &currentGame);
+    bool isEmptyCell(const uint8_t &cell);
+    bool isValidMove(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board);
+    name getWinner(const game &currentGame);
 ```
 
-The complete tictactoe.hpp file can be downloaded from github here: [Tic-tac-toe tutorial hpp source](./src/tictactoe/tictactoe.hpp "tic-tac-toe example code")  
+The complete `tictactoe.hpp` file can be downloaded from github here: [Tic-tac-toe tutorial hpp source](./src/tictactoe/tictactoe.hpp "tic-tac-toe example code")  
 
 ### Create tictactoe.cpp file
-This section creates the tictactoe.cpp file. This file contains the implementations of the tic-tac-toe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
+This section creates the `tictactoe.cpp` file. This file contains the implementations of the tic-tac-toe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
 
 ### Procedure to create the tictactoe.cpp file
 Complete the following steps to create the tictactoe.cpp file:
 
 1. Ensure you are in the tictactoe folder. 
-2. Create the tictactoe.cpp file.
-3. Open the tictactoe.cpp file with your text editor.
-4. Import the tictactoe.hpp file and make the tictactoe definitions from the previous section available.
-   Add this code to the .cpp file: 
+2. Create the `tictactoe.cpp` file.
+3. Open the `tictactoe.cpp` file with your text editor.
+4. Import the `tictactoe.hpp` file and make the tictactoe definitions from the previous section available.
+   Add this code to the `.cpp` file: 
 
 ```c++
 #include "tictactoe.hpp"
@@ -406,7 +406,7 @@ Complete the following steps to create the tictactoe.cpp file:
    * Ensure that there is no existing game
    * Store the newly created game to the multi index table
 
-   Add this code to the .cpp file:
+   Add this code to the `.cpp` file:
 
 ```c++
 void tictactoe::create(const name &challenger, name &host) {
@@ -433,7 +433,7 @@ void tictactoe::create(const name &challenger, name &host) {
    * Reset the game
    * Store the updated game to the multi index table
 
-   Add this code to the .cpp file:
+   Add this code to the `.cpp` file:
 
 ```c++
 void tictactoe::restart(const name &challenger, const name &host, const name &by){
@@ -460,7 +460,7 @@ void tictactoe::restart(const name &challenger, const name &host, const name &by
    * Ensure that the game exists
    * Remove the game from the db
 
-   Add this code to the .cpp file:
+   Add this code to the `.cpp` file:
 
 ```c++
 void tictactoe::close(const name &challenger, const name &host){
@@ -479,30 +479,32 @@ void tictactoe::close(const name &challenger, const name &host){
 ```
 
 8. Implement Move supporting methods.
-   * Implement IsValidMove.
-   Add this code to the .cpp file:
+   * Implement `isEmptyCell`.
+
+   Add this code to the `.cpp` file:
 
 ```c++
-bool tictactoe::IsEmptyCell(const uint8_t &cell){
+bool tictactoe::isEmptyCell(const uint8_t &cell){
     return cell == 0;
 }
 ``` 
-   * Implement IsValidMove
-   Add this code to the .cpp file:
+   * Implement `isValidMove`
+
+   Add this code to the `.cpp` file:
 
 ```c++
-bool tictactoe::IsValidMove(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board){
+bool tictactoe::isValidMove(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board){
     uint32_t movementLocation = row * game::boardWidth + column;
     bool isValid = movementLocation < board.size() && IsEmptyCell(board[movementLocation]);
     return isValid;
 }
 ```
-   * Implement getWinner. The winner is the first player who places three of their marks in a horizontal, vertical, or diagonal row.
+   * Implement `getWinner`. The winner is the first player who places three of their marks in a horizontal, vertical, or diagonal row.
 
-   Add this code to the .cpp file:
+   Add this code to the `.cpp` file:
 
 ```c++
-name tictactoe::GetWinner(const game &currentGame)
+name tictactoe::getWinner(const game &currentGame)
 {
     auto &board = currentGame.board;
 
@@ -602,16 +604,16 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     });
 }
 ```
-The complete tictactoe.cpp file can be downloaded from github here: [Tic-tac-toe tutorial cpp source](./src/tictactoe/tictactoe.cpp "tic-tac-toe example code")  
+The complete `tictactoe.cpp` file can be downloaded from github here: [Tic-tac-toe tutorial cpp source](./src/tictactoe/tictactoe.cpp "tic-tac-toe example code")  
 
 
 ## Compile and deploy the smart contract to the blockchain
-To deploy the smart contract to the blockchain first use the EOSIO.CDT (EOSIO Contract Development Toolkit) eosio-cpp tool to build the .wasm file and a corresponding .abi file. Click on this link for details on [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cdt reference eosio-cpp tool") and click on this link for details about the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "Contract Development Toolkit")
+To deploy the smart contract to the blockchain first use the EOSIO.CDT (EOSIO Contract Development Toolkit) `eosio-cpp` tool to build the .wasm file and a corresponding .abi file. Click on this link for details on [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cdt reference eosio-cpp tool") and click on this link for details about the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "Contract Development Toolkit")
 
 The .wasm file (or webassembly) is the binary code that the wasm engine in the blockchain executes. The webassembly engine currently used in eosio is [eos-vm](https://github.com/EOSIO/eos-vm "git eos-vm"). The application binary interface or .abi file defines how to pack and unpack the data used by a smart contract see [Understanding ABI Files](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Getting Started - ABI files") for more information.     
 
 ### Compile the Smart Contract Code
-To compile the smart contract change to the tictactoe folder  and run eosio-cpp. Click on this link for more information about using the eosio-cpp: [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cpp command reference") .This tutorial uses .hpp or header files, use the “-I” option to tell the compiler where the .hpp file is located.
+To compile the smart contract change to the tictactoe folder  and run eosio-cpp. Click on this link for more information about using the `eosio-cpp`: [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cpp command reference") .This tutorial uses `.hpp` or header files, use the “-I” option to tell the compiler where the `.hpp` file is located.
 
 ```shell
 tictactoe$ eosio-cpp -I ./ tictactoe.cpp
@@ -632,7 +634,7 @@ For this tutorial we ignore these warnings. Click on the following link for a tu
 
 The tictactoe directory now contains two new files, tictactoe.wasm and tictactoe.abi.
 
-### Deploy the Smart Contract to the Testnet
+### Deploy the Smart Contract to the single node testnet
 [Deploy the smart contract](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-deploy-a-smart-contract) on the single node testnet with the following commandline.
 
 In the smae directory as the generated wasm and ABI files run
@@ -644,7 +646,7 @@ cleos set contract host ./ tictactoe.wasm tictactoe.abi -p host@active
 Now that the smart contract has been successfully deployed, [push smart contract actions](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/push/push-action) to the blockchain to play the game.  
 
 
-### Push 'create' to the single node testnet to create a game
+### Push 'create' to the Smart Contract to create a game
 A game requires a host and a challenger. Use the accounts created earlier in the “Create the necessary accounts and key pairs” sectio of the tutorial for these. These accounts use arbitrary names. In this example assume the host has the account name of ‘mcazyfujecke’ and the challenger has the account name of ‘vswlkiegwdsk’.
 
 The create action takes two parameters, the "challenger" and the "host". The required payload in json format is:
@@ -662,7 +664,7 @@ Sign the push action with host@active’, the host of the game.
 cleos push action tictactoe create '{"challenger":"challenger", "host":"host"}' --permission host@active
 ```
 
-### Push 'move' to the single node testnet to make game moves
+### Push 'move' to the Smart Contract to make game moves
 Players make moves in turn by pushing ‘move’ actions to the blockchain. The host moves first, and each move must be signed by the appropriate account.
 
 The move action takes five parameters, the "challenger", the "host", the player who makes the move or "by" and "row" and "column" parameters to show where the marker is placed.
@@ -712,7 +714,7 @@ Look at the data in the multi index table to check the game status.
 cleos get table tictactoe host games
 ```
 
-### Push "restart" to the Testnet to restart the Game
+### Push "restart" to the Smart Contract to restart the Game
 The restart action takes three parameters, the "challenger", the "host", and "by". The required payload in json format is:
 
 ```json
@@ -735,7 +737,7 @@ Check the game status to see that the board has been reset.
 cleos get table tictactoe host games
 ```
 
-### Push "close" to the Testnet to close the game
+### Push "close" to the Smart Contract to close the game
 The close action takes two parameters, the "challenger" and the "host". The required payload in json format is:
 
 ```json

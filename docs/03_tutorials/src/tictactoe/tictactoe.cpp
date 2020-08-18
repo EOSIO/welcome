@@ -51,19 +51,19 @@ void tictactoe::close(const name &challenger, const name &host)
     existingHostGames.erase(itr);
 }
 
-bool tictactoe::IsEmptyCell(const uint8_t &cell)
+bool tictactoe::isEmptyCell(const uint8_t &cell)
 {
     return cell == 0;
 }
 
-bool tictactoe::IsValidMove(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board)
+bool tictactoe::isValidMove(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board)
 {
     uint32_t movementLocation = row * game::boardWidth + column;
     bool isValid = movementLocation < board.size() && IsEmptyCell(board[movementLocation]);
     return isValid;
 }
 
-name tictactoe::GetWinner(const game &currentGame)
+name tictactoe::getWinner(const game &currentGame)
 {
     auto &board = currentGame.board;
 
