@@ -193,9 +193,20 @@ For more information on Actions in EOSIO, see the [Actions Protocol](https://dev
 **Complete the following steps to push actions on the Testnet:**
 
 1. Navigate to the **Push Action** page from the top navigation menu.
-2. Enter the account name on which the smart contract is deployed and select the action type in the **Action Type** drop-down menu. 
-3. Enter the JSON payload containing the data or parameters implemented in the source files. 
+
+   ![SM Upload](./images/push-action-1.png)
+2. Enter the account name on which the smart contract is deployed and select the action type in the **Action Type** drop-down menu.
+
+   ![SM Upload](./images/push-action-2.png)
+3. Enter the JSON payload containing the data or parameters implemented in the source files as shown in the example below.
+
+   ![SM Upload](./images/push-action-3.png)
 4. Select the relevant permission associated with the account and click **Push**.
+
+   ![SM Upload](./images/push-action-4.png)
+
+**Result**
+![SM Upload](./images/push-action-success.png)
 
 # View Actions Data in Multi-Index Table
 View the push actions data that is populated in the multi-Index table.
