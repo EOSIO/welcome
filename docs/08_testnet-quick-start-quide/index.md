@@ -1,15 +1,16 @@
-# **Abstract**
+# **Overview**
 
-This guide is for users who intend to use the EOSIO Testnet as a testing environment for deploying smart contracts and building blockchain applications on EOSIO. The EOSIO Testnent allows developers to quickly onboard by creating new blockchain accounts and test smart contracts on the latest builds of the EOSIO software. You can deploy smart contracts, push transactions, and view the multi-index table in a user-friendly GUI.
-
-This guide also supports EOSIO-based documentation tutorials that use the Testnet to perform various smart contract operations including pushing permission-based actions.
+This guide is for users who intend to use the EOSIO Testnet as a testing environment for deploying smart contracts and building blockchain applications on EOSIO. The EOSIO Testnet allows developers to quickly onboard by creating new blockchain accounts and test smart contracts on the latest builds of the EOSIO software. You can deploy smart contracts, push transactions, and view the multi-index table in a user-friendly GUI.
 
 The EOSIO Testnet is a web application that you can access using your login credentials. You don't have to download binaries to install the system as no external installation and configuration are required.
+
+[[info]]
+| This guide also supports EOSIO-based documentation tutorials that use the Testnet to perform various smart contract operations including pushing permission-based actions.
 
 # Getting Started with Testnet
 This chapter provides instructions for registering a new EOSIO Testnet developer account and steps to log in to the Testnet web interface.
 
-When you register on the EOSIO Testnet, we will create a new developer account for you - a login credential for you to log into the Testnet. With the new developer account, a new blockchain account is also provisioned to interact with the blockchain by deploying smart contracts or pushing actions.
+When you register on the EOSIO Testnet, we will create a new developer account for you - a login credential for you to log in to the Testnet. With the new developer account, a new blockchain account is also provisioned to interact with the blockchain by deploying smart contracts, pushing actions, reading blockchain data, and other related operations.
 
 [[info | Note]]
 | The developer account is only used for login purposes and should not be confused with a blockchain account.
@@ -152,7 +153,7 @@ You must have the following prerequisites before uploading and deploying a smart
 1. EOSIO CDT-compiled smart contract files. 
     1. The WASM file
     2. The ABI file
-1. Testnent blockchain account with sufficient system resources. See the previous section of this guide **Buy and Stake System Resources** for information on staking and unstaking in the Testnent.
+1. Testnet blockchain account with sufficient system resources. See the previous section of this guide **Buy and Stake System Resources** for information on staking and unstaking in the Testnet.
 
 [[info | Info]]
 | For more information on how to build and compile smart contract source files, see the [Hello World Contract](../02_getting-started/03_smart-contract-development/01_hello-world.md) section on the *EOSIO Developers Portal*. 
@@ -182,17 +183,17 @@ Upload and deploy your smart contract on the EOSIO blockchain in a 3-step sequen
 # Push Actions
 An action is authorized by one or more actors created on the blockchain. Actions are created explicitly within a smart contract, or generated implicitly by application code.
 
-For more information on Actions in EOSIO, see the [Actions Protocol](https://developers.eos.io/welcome/latest/protocol/transactions_protocol/#11-actions) page on the *EOSIO Developers Portal*.
+For more information on Actions in EOSIO, see the [Actions](https://developers.eos.io/welcome/latest/protocol/transactions_protocol/#11-actions) section in Transaction Protocol on the *EOSIO Developers Portal*.
 
 **Complete the following steps to push actions on the Testnet:**
 
 1. Navigate to the **Push Action** page from the top navigation menu.
 
    ![SM Upload](./images/push-action-1.png)
-2. Enter the account name on which the smart contract is deployed and select the action type in the **Action Type** drop-down menu.
+2. Enter the account name where the smart contract is deployed and select the action type in the **Action Type** drop-down menu.
 
    ![SM Upload](./images/push-action-2.png)
-3. Enter the JSON payload containing the data or parameters implemented in the source files as shown in the example below.
+3. Enter the JSON payload containing the action data according to the parameters from the corresponding smart contract action as shown in the example below.
 
    ![SM Upload](./images/push-action-3.png)
 4. Select the relevant permission associated with the account and click **Push**.
@@ -202,7 +203,7 @@ For more information on Actions in EOSIO, see the [Actions Protocol](https://dev
 **Result**
 ![SM Upload](./images/push-action-success.png)
 
-# View Actions Data in Multi-Index Table
+# View Actions Data
 View the push actions data that is populated in the multi-Index table.
 
 **Complete the following steps to view multi-index table data:**
@@ -248,7 +249,7 @@ For more information on Transactions in EOSIO, see the [Transactions Protocol](.
 2. From the **Transactions list**, click on a transaction.
 
     ![Transaction Data](./images/trxn-2.png)
-3. View the transaction details with the associated metadata including the number of actions part of the transaction.
+3. View the transaction details containing associated metadata including the list of actions within the transaction.
 
     ![Transaction Data](./images/trxn-3.png)
 
