@@ -273,10 +273,11 @@ public:
 ```
 
 17. The move action uses the following private supporting methods to determine if a move is valid. They also check for a winning move:
-    * isEmptyCell()
-    * isValidMove()
-    * getWinner()
-    Add this code to the .hpp file inside a private section of the class:
+    * isEmptyCell
+    * isValidMove
+    * getWinner
+    
+	Add this code to the .hpp file inside a private section of the class:
 
 ```c++
     bool isEmptyCell(const uint8_t &cell);
