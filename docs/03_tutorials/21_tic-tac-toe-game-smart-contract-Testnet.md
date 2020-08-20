@@ -3,7 +3,7 @@ content_title: "Tic-tac-toe Game Contract Using Testnet"
 link_text: "Tic-tac-toe Game Contract Using Testnet"
 ---
 
-# Your Guide to Tic-tac-toe on EOSIO 
+# Tic-tac-toe on EOSIO 
 This tic-tac-toe tutorial guides you step by step to build a tic-tac-toe game which runs on an EOSIO blockchain. You will create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use the EOSIO Testnet blockchain and show you how to play the game by calling the smart contract.
 
 [[info]]
@@ -51,7 +51,7 @@ The EOSIO tic-tac-toe rules are:
 * The first player to complete a row or diagonal of either X’s or O’s wins the game.
 * If no player completes a row or diagonal of either X’s or O’s, the game is a draw. 
 
-## Understand how the game works
+## Understanding the Game
 The smart contract contains the game logic, therefore this section introduces how the game works and some of the EOSIO concepts needed to build a smart contract.
 
 ### The Game logic
@@ -89,7 +89,7 @@ For more information click on this link [Core Concepts](https://developers.eos.i
 ## Create Accounts and Key Pairs
 The game requires two accounts, one for each player, and each account requires at least one key pair (public and private keys.) One account 'owns' the smart contract, a blockchain account supports only one smart contract and a smart contract must be loaded by an account. Accounts then identify which player ‘pushes’ a transaction to the blockchain. An account is created by calling an EOSIO system contract and this action requires a public key which is stored on the blockchain.  The blockchain then uses asymmetric cryptography to verify that the account pushing the transaction is signed with the matching private key and has the required authority to perform an action.  
 
-### Procedure to create Accounts
+### Procedure for Accounts
 Follow this link for a guide on [creating EOSIO Testnet accounts.](../08_testnet-quick-start-quide/index.md#blockchain-account-configuration)
 
 Go to the EOSIO Testnet [Blockchain Accounts](https://testnet.eos.io/user/blockchain-accounts "Testnet - blockchain accounts") page:
@@ -175,7 +175,7 @@ The tic-tac-toe smart contract .hpp file defines the following four public actio
 * close - This action deletes and removes existing game data and frees up any storage the game uses. No game data persists. The host may use this command.
 * move - This action sets a marker on the gameboard and updates the game board array. The host or the challenger may use this command.
 
-### Procedure to create the tictactoe.hpp file
+### Procedure for tictactoe.hpp file
 Complete the following steps to create the tictactoe.hpp file:
 
 1. Create a tictactoe folder on your local drive containing tictactoe.hpp
@@ -298,7 +298,7 @@ The complete tictactoe.hpp file can be downloaded from github here: [Tic-tac-toe
 ### Create tictactoe.cpp file
 This section creates the tictactoe.cpp file. This file contains the implementations of the tic-tac-toe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
 
-### Procedure to create the tictactoe.cpp file
+### Procedure for tictactoe.cpp file
 Complete the following steps to create the tictactoe.cpp file:
 
 1. Create a tictactoe.cpp file in the tictactoe folder.
@@ -520,7 +520,7 @@ To deploy the smart contract to the blockchain first use the EOSIO.CDT (EOSIO Co
 
 The `.wasm` file (or webassembly) is the binary code that the wasm engine in the blockchain executes. The webassembly engine currently used in eosio is [eos-vm](https://github.com/EOSIO/eos-vm "git eos-vm"). The application binary interface or `.abi` file defines how to pack and unpack the data used by a smart contract, see [Understanding ABI Files](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files "Getting Started - ABI files") for more information.     
 
-### Compile the Smart Contract Code
+### Compilation
 To compile the smart contract change to the tictactoe folder  and run `eosio-cpp`. Click on this link for more information about using the [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cpp command reference") .This tutorial uses .hpp or header files, use the “-I” option to tell the compiler where the .hpp file is located.
 
 ```shell
