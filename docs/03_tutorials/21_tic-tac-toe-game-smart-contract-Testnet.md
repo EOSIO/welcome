@@ -175,7 +175,7 @@ The tic-tac-toe smart contract .hpp file defines the following four public actio
 * close - This action deletes and removes existing game data and frees up any storage the game uses. No game data persists. The host may use this command.
 * move - This action sets a marker on the gameboard and updates the game board array. The host or the challenger may use this command.
 
-### Procedure for tictactoe.hpp file
+#### Procedure for tictactoe.hpp file
 Complete the following steps to create the tictactoe.hpp file:
 
 1. Create a tictactoe folder on your local drive containing tictactoe.hpp
@@ -298,7 +298,7 @@ The complete tictactoe.hpp file can be downloaded from github here: [Tic-tac-toe
 ### Create tictactoe.cpp file
 This section creates the tictactoe.cpp file. This file contains the implementations of the tic-tac-toe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
 
-### Procedure for tictactoe.cpp file
+#### Procedure for tictactoe.cpp file
 Complete the following steps to create the tictactoe.cpp file:
 
 1. Create a tictactoe.cpp file in the tictactoe folder.
