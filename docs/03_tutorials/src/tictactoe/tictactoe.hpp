@@ -10,8 +10,9 @@ using namespace eosio;
 // Use the [[eosio::contract(contract_name)]] attribute to let the 
 // compiler know this is a smart contract.
 // Inherit from the eosio::contract public base class. 
-class[[eosio::contract("tictactoe")]] tphil : public contract
+class[[eosio::contract("tictactoe")]] tictactoe : public contract
 {    
+ public:
     // Introduce base class members. 
     using contract::contract;
     
@@ -20,8 +21,6 @@ class[[eosio::contract("tictactoe")]] tphil : public contract
 
     static constexpr name none = "none"_n;
     static constexpr name draw = "draw"_n;
-
- public:
 
     // Declare game data structure.
     struct [[eosio::table]] game

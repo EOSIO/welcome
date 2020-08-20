@@ -59,7 +59,7 @@ bool tictactoe::isEmptyCell(const uint8_t &cell)
 bool tictactoe::isValidMove(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board)
 {
     uint32_t movementLocation = row * game::boardWidth + column;
-    bool isValid = movementLocation < board.size() && IsEmptyCell(board[movementLocation]);
+    bool isValid = movementLocation < board.size() && isEmptyCell(board[movementLocation]);
     return isValid;
 }
 
@@ -78,7 +78,7 @@ name tictactoe::getWinner(const game &currentGame)
 
     for (uint32_t i = 0; i < board.size(); i++)
     {
-        isBoardFull &= IsEmptyCell(board[i]);
+        isBoardFull &= isEmptyCell(board[i]);
         uint16_t row = uint16_t(i / game::boardWidth);
         uint16_t column = uint16_t(i % game::boardWidth);
 
@@ -135,7 +135,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     check(by == itr->turn, "it's not your turn yet!");
 
     // Check if user makes a valid movement
-    check(IsValidMove(row, column, itr->board), "Not a valid movement.");
+    check(isValidMove(row, column, itr->board), "Not a valid movement.");
 
     // Fill the cell, 1 for host, 2 for challenger
     //TODO could use constant for 1 and 2 as well
@@ -144,7 +144,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     existingHostGames.modify(itr, itr->host, [&](auto &g) {
         g.board[row * game::boardWidth + column] = cellValue;
         g.turn = turn;
-        g.winner = GetWinner(g);
+        g.winner = getWinner(g);
     });
 }
 
