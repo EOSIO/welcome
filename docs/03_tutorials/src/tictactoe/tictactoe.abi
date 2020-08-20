@@ -1,0 +1,138 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.1",
+    "types": [],
+    "structs": [
+        {
+            "name": "close",
+            "base": "",
+            "fields": [
+                {
+                    "name": "challenger",
+                    "type": "name"
+                },
+                {
+                    "name": "host",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "create",
+            "base": "",
+            "fields": [
+                {
+                    "name": "challenger",
+                    "type": "name"
+                },
+                {
+                    "name": "host",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "game",
+            "base": "",
+            "fields": [
+                {
+                    "name": "challenger",
+                    "type": "name"
+                },
+                {
+                    "name": "host",
+                    "type": "name"
+                },
+                {
+                    "name": "turn",
+                    "type": "name"
+                },
+                {
+                    "name": "winner",
+                    "type": "name"
+                },
+                {
+                    "name": "board",
+                    "type": "uint8[]"
+                }
+            ]
+        },
+        {
+            "name": "move",
+            "base": "",
+            "fields": [
+                {
+                    "name": "challenger",
+                    "type": "name"
+                },
+                {
+                    "name": "host",
+                    "type": "name"
+                },
+                {
+                    "name": "by",
+                    "type": "name"
+                },
+                {
+                    "name": "row",
+                    "type": "uint16"
+                },
+                {
+                    "name": "column",
+                    "type": "uint16"
+                }
+            ]
+        },
+        {
+            "name": "restart",
+            "base": "",
+            "fields": [
+                {
+                    "name": "challenger",
+                    "type": "name"
+                },
+                {
+                    "name": "host",
+                    "type": "name"
+                },
+                {
+                    "name": "by",
+                    "type": "name"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "close",
+            "type": "close",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "create",
+            "type": "create",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "move",
+            "type": "move",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "restart",
+            "type": "restart",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "games",
+            "type": "game",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": []
+}
