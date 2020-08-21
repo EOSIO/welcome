@@ -2,7 +2,7 @@
 
 This guide is for users who intend to use the EOSIO Testnet as a testing environment for deploying smart contracts and building blockchain applications on EOSIO. The EOSIO Testnet allows developers to quickly onboard by creating new blockchain accounts and test smart contracts on the latest builds of the EOSIO software. You can deploy smart contracts, push transactions, and view the multi-index table in a user-friendly GUI.
 
-The EOSIO Testnet is a web application that you can access using your login credentials. You don't have to download binaries to install the system as no external installation and configuration are required.
+The EOSIO Testnet is a web application that you can access using your login credentials. You don't have to download binaries to install the system as no external installation or configuration is required.
 
 [[info]]
 | This guide also supports EOSIO-based documentation tutorials that use the Testnet to perform various smart contract operations including pushing permission-based actions.
@@ -87,7 +87,7 @@ Temporary Network Tokens (TNTs) are the native tokens of the EOSIO Testnet. By d
 [[info | Note]]
 | TNTs are replenished every hour by the system. After requesting the first set of tokens, wait for 60 minutes before requesting another round of tokens.
 
-## Buy and Stake System Resources
+## Buy and Stake Resources
 
 For more information on staking, see the [Staking on EOSIO Based Blockchains](https://developers.eos.io/manuals/eosio.contracts/latest/key-concepts/stake) section on the *EOSIO Developers Portal*.
 
