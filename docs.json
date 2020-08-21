@@ -38,7 +38,8 @@
       "options": {
         "docs_dir": "docs/08_testnet-quick-start-quide",
         "output_dir": "08_testnet-quick-start-quide",
-        "disable_readme_import": true
+        "disable_readme_import": true,
+        "exclude": ["images"]
       }
     },
     {
