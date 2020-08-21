@@ -514,7 +514,8 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     });
 }
 ```
-The complete tictactoe.cpp file can be downloaded from github here: [Tic-tac-toe tutorial cpp source.](./src/tictactoe/tictactoe.cpp "tic-tac-toe example code")  
+
+The complete tictactoe.cpp file can be downloaded from github here: [Tic-tac-toe tutorial cpp source.](https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/src/tictactoe/tictactoe.cpp "tic-tac-toe example cpp")
 
 
 ## Compile and Deploy
