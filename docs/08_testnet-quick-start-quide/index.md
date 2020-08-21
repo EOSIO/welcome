@@ -23,13 +23,13 @@ Complete the following steps to create a Testnet developer account:
 1. Visit the [signup page](https://testnet.eos.io/user#signup) on the Testnet website and enter the requested details.
 
    ![Sign Up](./images/signup-1.png)
-2. Read the Testnet terms and conditions and click the checkboxes to indicate your agreement to the terms and conditions.
+2. Read the terms and conditions and click the checkboxes if you agree.
 
    ![Sign Up](./images/signup-2.png)
 3. Click the checkbox in the **I’m not a robot** captcha clicker and then click **Register**.
 
    ![Sign Up](./images/signup-3.png)
-4. You will see a conformation for your registration. Visit your inbox to verify your email address.
+4. Visit your inbox to verify your email address.
 
     ![Sign Up](./images/signup-4.png)
 5. Click **VERIFY ACCOUNT** in the verification email.
@@ -50,7 +50,7 @@ This section provides instructions on creating new blockchain accounts within th
 
 An account is a collection of authorizations, is stored on the blockchain, and is used to identify a sender/recipient. The flexible authorization structure of an account enables it to be owned either by an individual or group of individuals dependant on how permissions are configured. An account sends or receives a valid transaction to the blockchain.
 
-For more information on EOSIO accounts and associated permissions, see the [Accounts and Permissions](../04_protocol/04_accounts_and_permissions.md) page on the [_EOSIO Developers Portal_](https://developers.eos.io/).
+For more information on EOSIO accounts and associated permissions, see the [Accounts and Permissions](../04_protocol/04_accounts_and_permissions.md) page on the _EOSIO Developers Portal_.
 
 ## Create New Account
 The EOSIO Testnet provisions a new EOSIO blockchain account every time you sign up for a new EOSIO Testnet developer account. If you require more EOSIO blockchain accounts, follow the steps below.
@@ -60,7 +60,7 @@ The EOSIO Testnet provisions a new EOSIO blockchain account every time you sign 
 1. Log in to [EOSIO Testnet](https://testnet.eos.io/user#login) and navigate to **Blockchain Accounts** from the top navigation menu.
 
      ![new account](./images/new-bc-account-1.png)
-2. To create a new account, click the **create another account** button (outlined in red below) next to the existing account name in the drop-down menu.
+2. To create a new account, click **create another account** next to the existing account name as shown below.
 
       ![new account](./images/new-bc-account-2.png)
 
@@ -71,7 +71,7 @@ The EOSIO Testnet provisions a new EOSIO blockchain account every time you sign 
 
    ![new account](./images/new-bc-account-3.png)
 
-After creating new accounts, request Temporary Network Tokens (TNTs) as outlined in the next section *Request Tokens*.
+After creating new accounts, request Temporary Network Tokens (TNTs) as outlined in the next section **Request Tokens**.
 
 ## Request Tokens
 Temporary Network Tokens (TNTs) are the native tokens of the EOSIO Testnet. By default, each account contains 32 TNTs. Tokens allow you to get more system resources on Testnet to deploy contracts, interact with smart contracts, and store data on the blockchain.
@@ -208,10 +208,10 @@ View the push actions data that is populated in the multi-Index table.
 
 **Complete the following steps to view multi-index table data:**
 
-1. Log in to EOSIO Testnet and navigate to **Blockchain Accounts** from the top navigation menu.
+1. Log in to [EOSIO Testnet](https://testnet.eos.io/user#login) and navigate to **Blockchain Accounts** from the top navigation menu.
 
    ![bc account](./images/bcaccount-nav.png)
-2. Select the blockchain account that has a smart contract loaded from the drop-down.
+2. Select the blockchain account that has a smart contract deployed from the drop-down.
 
    ![SM Upload](./images/mit-1.png)
 3. Click on the **Account Name**.
