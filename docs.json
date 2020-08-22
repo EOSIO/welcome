@@ -38,8 +38,15 @@
       "options": {
         "docs_dir": "docs/08_testnet-quick-start-quide",
         "output_dir": "08_testnet-quick-start-quide",
-        "disable_readme_import": true,
         "exclude": ["images"]
+      }
+    },
+    {
+      "name": "collate_markdown",
+      "options": {
+        "docs_dir": "docs/08_testnet-quick-start-quide/images",
+        "output_dir": "08_testnet-quick-start-quide/images",
+        "disable_summary_gen": true
       }
     },
     {
