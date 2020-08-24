@@ -20,7 +20,7 @@ This tutorial requires the following:
 
 and
 
-* An EOSIO Testnet account, click on the following link for the [EOSIO Testnet quick start guide](../08_testnet-quick-start-quide/index.md) 
+* An EOSIO Testnet account, click on the following link for the [EOSIO Testnet quick start guide](../testnet-quick-start-quide/index.md) 
 * Familiarity with the EOSIO tools `cleos` and `keosd`.
 * The EOSIO Contract Development Toolkit or eosio.cdt. Click on this link to [install the CDT.](../02_getting-started/02_development-environment/04_install-the-CDT.md "EOSIO.CDT Installation Instructions") 
 * Familiarity with the `eosio.cdt` which is used to compile smart contracts. 
@@ -55,7 +55,7 @@ The EOSIO tic-tac-toe rules are:
 The smart contract contains the game logic, therefore this section introduces how the game works and some of the EOSIO concepts needed to build a smart contract.
 
 ### The Game logic
-The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on the [EOSIO Tesnet](https://testnet.eos.io/) in the next step. [**Ensure you have a EOSIO Testnet developer account before you continue**](../08_testnet-quick-start-quide/index.md#getting-started-with-testnet). Use these accounts to "push actions" to the blockchain. These actions start, restart, and close the game. Pushing a move action will place a 'marker' on the game 'board'.    
+The game is played by two players, so we need two blockchain accounts. This tutorial explains how to create and use these blockchain accounts on the [EOSIO Tesnet](https://testnet.eos.io/) in the next step. [**Ensure you have a EOSIO Testnet developer account before you continue**](../testnet-quick-start-quide/index.md#getting-started-with-testnet). Use these accounts to "push actions" to the blockchain. These actions start, restart, and close the game. Pushing a move action will place a 'marker' on the game 'board'.    
 
 One player is the host, who starts the game, and one player is the challenger. The game board is nine squares, and each player takes a turn to place their marker in a square. A player wins the game when three markers are placed in a row.
 
@@ -75,7 +75,7 @@ Accounts are stored on the blockchain with a public key. Use a private key to ac
 ### Smart Contract Actions
 A smart contract exposes methods or ‘actions’ that transactions use to operate the game logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction fails and the blockchain state is restored to the original state. For more details about transactions and actions click on this link [Transactions Protocol.](../04_protocol/02_transactions_protocol.md "Tranasctions Protocol") You can use `cleos` to create transactions and push transactions to the blockchain. Transactions contain one or more actions. You can also use `cleos` to call actions directly. Actions can call other actions and can also call actions from other smart contracts.
 
-![Transactions and Actions](./images/tictactoe/transactions-and-actions-temp.png "Transactions and Actions")
+![Transactions and Actions](images/tictactoe/transactions-and-actions-temp.png "Transactions and Actions")
 
 ### EOSIO Resources 
 The EOSIO blockchain accounts own and consume three resources:
@@ -90,11 +90,11 @@ For more information click on this link [Core Concepts](../01_overview/02_core_c
 The game requires two accounts, one for each player, and each account requires at least one key pair (public and private keys.) One account 'owns' the smart contract, a blockchain account supports only one smart contract and a smart contract must be loaded by an account. Accounts then identify which player ‘pushes’ a transaction to the blockchain. An account is created by calling an EOSIO system contract and this action requires a public key which is stored on the blockchain.  The blockchain then uses asymmetric cryptography to verify that the account pushing the transaction is signed with the matching private key and has the required authority to perform an action.  
 
 ### Procedure for Accounts
-Follow this link for a guide on [creating EOSIO Testnet accounts.](../08_testnet-quick-start-quide/index.md#blockchain-account-configuration)
+Follow this link for a guide on [creating EOSIO Testnet accounts.](../testnet-quick-start-quide/index.md#blockchain-account-configuration)
 
 Go to the EOSIO Testnet [Blockchain Accounts](https://testnet.eos.io/user/blockchain-accounts "Testnet - blockchain accounts") page:
 
-![Testnet blockchain accounts screen](./images/tictactoe/testnet-blockchain-accounts.png "Testnet Title Panel - Blockchain Accounts")
+![Testnet blockchain accounts screen](images/tictactoe/testnet-blockchain-accounts.png "Testnet Title Panel - Blockchain Accounts")
 
 
 Create two accounts on the testnet, these accounts are created with arbitrary names.
@@ -297,6 +297,8 @@ public:
 ```
 
 The complete tictactoe.hpp file can be downloaded from github here: [Tic-tac-toe tutorial hpp source.](https://github.com/EOSIO/welcome/blob/release/2.0.x/docs/03_tutorials/src/tictactoe/tictactoe.hpp  "tic-tac-toe example hpp")  
+
+
 
 
 ### Create tictactoe.cpp file
@@ -546,11 +548,11 @@ For this tutorial we ignore these warnings. Click on the following link for a tu
 The tictactoe directory now contains two new files, `tictactoe.wasm` and `tictactoe.abi`.
 
 ### Deploy to the Testnet
-Follow this link for a guide on [deploying smart contracts on the EOSIO Testnet.](../08_testnet-quick-start-quide/index.md#smart-contract-deployment)
+Follow this link for a guide on [deploying smart contracts on the EOSIO Testnet.](../testnet-quick-start-quide/index.md#smart-contract-deployment)
 
 Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy") page:
 
-![Testnet deploy screen](./images/tictactoe/testnet-deploy.png "Testnet Title Panel - Deploy")
+![Testnet deploy screen](images/tictactoe/testnet-deploy.png "Testnet Title Panel - Deploy")
 
 Follow these steps to deploy the smart contract to the testnet:
 
@@ -560,11 +562,11 @@ Follow these steps to deploy the smart contract to the testnet:
 4. Press the deploy button. The deployment results are shown in the “Deployment Result” window. In the case below deployment failed due to lack of memory. Fix this in the Blockchain Accounts Request Resources section. 
 
 ## Play The Game
-Now that the smart contract has been successfully deployed push smart contract actions to the blockchain to play the game. Follow this link for a guide on [pushing actions on the EOSIO Testnet.](../08_testnet-quick-start-quide/index.md#push-actions)
+Now that the smart contract has been successfully deployed push smart contract actions to the blockchain to play the game. Follow this link for a guide on [pushing actions on the EOSIO Testnet.](../testnet-quick-start-quide/index.md#push-actions)
   
 Go to the EOSIO Testnet [Push Action](https://testnet.eos.io/push-action "Testnet - push action") page:
 
-![Testnet push action screen](./images/tictactoe/testnet-pushaction.png "Testnet Title Panel - Push Action")
+![Testnet push action screen](images/tictactoe/testnet-pushaction.png "Testnet Title Panel - Push Action")
 
 Pushing an action requires the following settings:
 * Smart Contract Name - This field contains the name of the account where the smart contract was deployed.
@@ -622,7 +624,7 @@ Sign the push action with `vswlkiegwdsk@active` - the challenger.
 Continue to make moves until the game ends with a win or a draw.
 
 ### Check Game Status 
-Look at the data in the multi index table to check the game status. Follow this link for a guide on [viewing actions data in multi index tables on the EOSIO Testnet.](../08_testnet-quick-start-quide/index.md#view-actions-data-in-multi-index-table) 
+Look at the data in the multi index table to check the game status. Follow this link for a guide on [viewing actions data in multi index tables on the EOSIO Testnet.](../testnet-quick-start-quide/index.md#view-actions-data-in-multi-index-table) 
 
 The following steps show you how:
 1. Go to the “Blockchain Accounts” page, select the account you used to push the smart contract to the blockchain. 
