@@ -296,10 +296,7 @@ public:
     name getWinner(const game &currentGame);
 ```
 
-The complete tictactoe.hpp file can be downloaded from github here: [Tic-tac-toe tutorial hpp source.](https://github.com/EOSIO/welcome/blob/release/2.0.x/docs/03_tutorials/src/tictactoe/tictactoe.hpp  "tic-tac-toe example hpp")  
-
-
-
+The complete tictactoe.hpp file can be downloaded from github here: [Tic-tac-toe tutorial hpp source.](https://github.com/EOSIO/welcome/blob/release/2.0.x/src/tictactoe/tictactoe.hpp  "tic-tac-toe example hpp")  
 
 ### Create tictactoe.cpp file
 This section creates the tictactoe.cpp file. This file contains the implementations of the tic-tac-toe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
@@ -518,7 +515,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
 }
 ```
 
-The complete tictactoe.cpp file can be downloaded from github here: [Tic-tac-toe tutorial cpp source.](https://github.com/EOSIO/welcome/blob/release/2.0.x/docs/03_tutorials/src/tictactoe/tictactoe.cpp  "tic-tac-toe example cpp")
+The complete tictactoe.cpp file can be downloaded from github here: [Tic-tac-toe tutorial cpp source.](https://github.com/EOSIO/welcome/blob/release/2.0.x/src/tictactoe/tictactoe.cpp  "tic-tac-toe example cpp")
 
 ## Compile and Deploy
 To deploy the smart contract to the blockchain first use the EOSIO.CDT (EOSIO Contract Development Toolkit) `eosio-cpp` tool to build the `.wasm` file and a corresponding `.abi` file. Click on this link for details on [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/v1.7/command-reference/eosio-cpp "eosio-cdt reference eosio-cpp tool") and click on this link for details about the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/v1.7/index "Contract Development Toolkit")
