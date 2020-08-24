@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": ["get-involved", "05_community-developer-tools", "06_eosio-blockchain-networks", "07_tools", "08_testnet-quick-start-quide"]
+        "exclude": ["get-involved", "05_community-developer-tools", "06_eosio-blockchain-networks", "07_tools", "08_testnet-quick-start-guide"]
       }
     },
     {
@@ -36,10 +36,17 @@
     {
       "name": "collate_markdown",
       "options": {
-        "docs_dir": "docs/08_testnet-quick-start-quide",
-        "output_dir": "08_testnet-quick-start-quide",
-        "disable_readme_import": true,
+        "docs_dir": "docs/08_testnet-quick-start-guide",
+        "output_dir": "08_testnet-quick-start-guide",
         "exclude": ["images"]
+      }
+    },
+    {
+      "name": "collate_markdown",
+      "options": {
+        "docs_dir": "docs/08_testnet-quick-start-guide/images",
+        "output_dir": "08_testnet-quick-start-guide/images",
+        "disable_summary_gen": true
       }
     },
     {
