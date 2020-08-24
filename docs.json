@@ -38,7 +38,8 @@
       "options": {
         "docs_dir": "docs/08_testnet-quick-start-guide",
         "output_dir": "08_testnet-quick-start-guide",
-        "exclude": ["images"]
+        "exclude": ["images"],
+        "disable_readme_import": true
       }
     },
     {
@@ -46,7 +47,8 @@
       "options": {
         "docs_dir": "docs/08_testnet-quick-start-guide/images",
         "output_dir": "08_testnet-quick-start-guide/images",
-        "disable_summary_gen": true
+        "disable_summary_gen": true,
+        "disable_readme_import": true
       }
     },
     {
