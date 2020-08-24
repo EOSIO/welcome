@@ -36,17 +36,19 @@
     {
       "name": "collate_markdown",
       "options": {
-        "docs_dir": "docs/08_testnet-quick-start-quide",
-        "output_dir": "08_testnet-quick-start-quide",
-        "exclude": ["images"]
+        "docs_dir": "docs/08_testnet-quick-start-guide",
+        "output_dir": "08_testnet-quick-start-guide",
+        "exclude": ["images"],
+        "disable_readme_import": true
       }
     },
     {
       "name": "collate_markdown",
       "options": {
-        "docs_dir": "docs/08_testnet-quick-start-quide/images",
-        "output_dir": "08_testnet-quick-start-quide/images",
-        "disable_summary_gen": true
+        "docs_dir": "docs/08_testnet-quick-start-guide/images",
+        "output_dir": "08_testnet-quick-start-guide/images",
+        "disable_summary_gen": true,
+        "disable_readme_import": true
       }
     },
     {
