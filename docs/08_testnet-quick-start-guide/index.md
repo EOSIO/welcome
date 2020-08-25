@@ -50,7 +50,7 @@ This section provides instructions on creating new blockchain accounts within th
 
 An account is a collection of authorizations, is stored on the blockchain, and is used to identify a sender/recipient. The flexible authorization structure of an account enables it to be owned either by an individual or group of individuals dependant on how permissions are configured. An account sends or receives a valid transaction to the blockchain.
 
-For more information on EOSIO accounts and associated permissions, see the [Accounts and Permissions](../04_protocol/04_accounts_and_permissions.md) page on the _EOSIO Developers Portal_.
+For more information on EOSIO accounts and associated permissions, see the [Accounts and Permissions](../protocol/accounts_and_permissions.md) page on the _EOSIO Developers Portal_.
 
 ## Create New Account
 The EOSIO Testnet provisions a new EOSIO blockchain account every time you sign up for a new EOSIO Testnet developer account. If you require more EOSIO blockchain accounts, follow the steps below.
@@ -156,7 +156,7 @@ You must have the following prerequisites before uploading and deploying a smart
 1. Testnet blockchain account with sufficient system resources. See the previous section of this guide **Buy and Stake System Resources** for information on staking and unstaking in the Testnet.
 
 [[info | Info]]
-| For more information on how to build and compile smart contract source files, see the [Hello World Contract](../02_getting-started/03_smart-contract-development/01_hello-world.md) section on the *EOSIO Developers Portal*. 
+| For more information on how to build and compile smart contract source files, see the [Hello World Contract](../getting-started/smart-contract-development/hello-world.md) section on the *EOSIO Developers Portal*. 
 
 ## Upload and Deploy
 Upload and deploy your smart contract on the EOSIO blockchain in a 3-step sequential process.
@@ -239,7 +239,7 @@ The type of key in **Key Type**.
 # View Transactions
 A transaction instance contains a transaction header and the list of action instances and transaction extensions that make the actual transaction.
 
-For more information on Transactions in EOSIO, see the [Transactions Protocol](../04_protocol/02_transactions_protocol.md) section on the *EOSIO Developers Portal*.
+For more information on Transactions in EOSIO, see the [Transactions Protocol](../protocol/transactions_protocol.md) section on the *EOSIO Developers Portal*.
 
 **Complete the following steps to view transactions on the Testnet:**
 
