@@ -397,7 +397,7 @@ public:
     name getWinner(const game &currentGame);
 ```
 
-The complete tictactoe.hpp file can be downloaded from github here: [Tic-tac-toe tutorial hpp source.](https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/src/tictactoe/tictactoe.hpp "tic-tac-toe example hpp")  
+The complete tictactoe.hpp file can be downloaded from github here: [Tic-tac-toe tutorial hpp source.](https://github.com/EOSIO/welcome/blob/release/2.0.x/src/tictactoe/tictactoe.hpp  "tic-tac-toe example hpp")
 
 ### Create tictactoe.cpp file
 This section creates the tictactoe.cpp file. This file contains the implementations of the tic-tac-toe smart contract actions and the private methods used by the smart contract actions, based the declarations in the header file.
@@ -616,7 +616,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
 }
 ```
 
-The complete tictactoe.cpp file can be downloaded from github here: [Tic-tac-toe tutorial cpp source.](https://github.com/EOSIO/welcome/tree/master/docs/03_tutorials/src/tictactoe/tictactoe.cpp "tic-tac-toe example cpp")
+The complete tictactoe.cpp file can be downloaded from github here: [Tic-tac-toe tutorial cpp source.](https://github.com/EOSIO/welcome/blob/release/2.0.x/src/tictactoe/tictactoe.cpp  "tic-tac-toe example cpp")
 
 
 ## Compile and Deploy
@@ -659,7 +659,7 @@ Now that the smart contract has been successfully deployed [push smart contract 
 
 
 ### Create a Game
-A game requires a host and a challenger. Use the accounts created earlier in the “Create the necessary accounts and key pairs” section of the tutorial for these. These accounts use arbitrary names. In this example assume the host has the account name of ‘mcazyfujecke’ and the challenger has the account name of ‘vswlkiegwdsk’.
+A game requires a host and a challenger. Use the accounts created earlier in the “Create the necessary accounts and key pairs” section of the tutorial for these. These accounts use arbitrary names. In this example assume the host has the account name of ``host`` and the challenger has the account name of `challenger`.
 
 The create action takes two parameters, the "challenger" and the "host". The required payload in `json` format is:
 
@@ -670,7 +670,7 @@ The create action takes two parameters, the "challenger" and the "host". The req
 }
 ```
 
-Sign the push action with host@active, the host of the game.
+Sign the push action with `host@active`, the host of the game.
 
 ```shell
 cleos push action tictactoe create '{"challenger":"challenger", "host":"host"}' --permission host@active
@@ -693,7 +693,7 @@ The host makes the first move. The required payload in `json` format is:
 }
 ```
 
-Sign the push action with host@active’ - the host of the game.
+Sign the push action with `host@active` - the host of the game.
 
 ```shell
 cleos push action tictactoe move '{"challenger":"challenger", "host":"host", "by":"host", "row":0, "column":1}' --permission host@active
@@ -711,7 +711,7 @@ The challenger makes the second move. The required payload in `json` format is:
 }
 ```
 
-Sign the push action with challenger@active’ - the challenger.
+Sign the push action with `challenger@active` - the challenger.
 
 ```shell
 cleos push action tictactoe move '{"challenger":"challenger", "host":"host", "by":"challenger", "row":1, "column":1}' --permission challenger@active
@@ -737,7 +737,7 @@ The restart action takes three parameters, the "challenger", the "host", and "by
 }
 ```
 
-Sign the push action with host@active’ - the host of the game.
+Sign the push action with `host@active` - the host of the game.
 
 ```shell
 cleos push action tictactoe restart '{"challenger":"challenger", "host":"host", "by":"host"}' --permission host@active
