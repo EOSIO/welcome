@@ -75,7 +75,7 @@ Accounts are stored on the blockchain with a public key. Use a private key to ac
 ### Smart Contract Actions
 A smart contract exposes methods or ‘actions’ that transactions use to operate the game logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction fails and the blockchain state is restored to the original state. For more details about transactions and actions click on this link [Transactions Protocol.](../04_protocol/02_transactions_protocol.md "Tranasctions Protocol") You can use `cleos` to create transactions and push transactions to the blockchain. Transactions contain one or more actions. You can also use `cleos` to call actions directly. Actions can call other actions and can also call actions from other smart contracts.
 
-![Transactions and Actions](./images/tictactoe/transactions-and-actions-temp.png "Transactions and Actions")
+![Transactions and Actions](images/tictactoe/transactions-and-actions-temp.png "Transactions and Actions")
 
 ### EOSIO Resources 
 The EOSIO blockchain accounts own and consume three resources:
@@ -94,7 +94,7 @@ Follow this link for a guide on [creating EOSIO Testnet accounts.](../testnet-qu
 
 Go to the EOSIO Testnet [Blockchain Accounts](https://testnet.eos.io/user/blockchain-accounts "Testnet - blockchain accounts") page:
 
-![Testnet blockchain accounts screen](./images/tictactoe/testnet-blockchain-accounts.png "Testnet Title Panel - Blockchain Accounts")
+![Testnet blockchain accounts screen](images/tictactoe/testnet-blockchain-accounts.png "Testnet Title Panel - Blockchain Accounts")
 
 
 Create two accounts on the testnet, these accounts are created with arbitrary names.
@@ -550,7 +550,7 @@ Follow this link for a guide on [deploying smart contracts on the EOSIO Testnet.
 
 Go to the EOSIO Testnet [Deploy](https://testnet.eos.io/deployment "Testnet - deploy") page:
 
-![Testnet deploy screen](./images/tictactoe/testnet-deploy.png "Testnet Title Panel - Deploy")
+![Testnet deploy screen](images/tictactoe/testnet-deploy.png "Testnet Title Panel - Deploy")
 
 Follow these steps to deploy the smart contract to the testnet:
 
@@ -564,7 +564,7 @@ Now that the smart contract has been successfully deployed push smart contract a
   
 Go to the EOSIO Testnet [Push Action](https://testnet.eos.io/push-action "Testnet - push action") page:
 
-![Testnet push action screen](./images/tictactoe/testnet-pushaction.png "Testnet Title Panel - Push Action")
+![Testnet push action screen](images/tictactoe/testnet-pushaction.png "Testnet Title Panel - Push Action")
 
 Pushing an action requires the following settings:
 * Smart Contract Name - This field contains the name of the account where the smart contract was deployed.
