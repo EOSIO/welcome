@@ -659,7 +659,7 @@ Now that the smart contract has been successfully deployed [push smart contract 
 
 
 ### Create a Game
-A game requires a host and a challenger. Use the accounts created earlier in the “Create the necessary accounts and key pairs” section of the tutorial for these. These accounts use arbitrary names. In this example assume the host has the account name of ``host`` and the challenger has the account name of `challenger`.
+A game requires a host and a challenger. Use the accounts created earlier in the “Create the necessary accounts and key pairs” section of the tutorial for these. These accounts use arbitrary names. In this example assume the host has the account name of `host` and the challenger has the account name of `challenger`.
 
 The create action takes two parameters, the "challenger" and the "host". The required payload in `json` format is:
 
