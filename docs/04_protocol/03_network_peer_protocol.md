@@ -719,8 +719,10 @@ The protocol also defines the following data messages for exchanging the actual 
 
 Data Message | Description
 -|-
-`signed_block` | serialized contents of a signed block.
-`packed_transaction` | serialized contents of a packed transaction.
+`signed_block_v0` | serialized contents of a signed block v0 (no pruned CFD support).
+`packed_transaction_v0` | serialized contents of a packed transaction v0 (no pruned CFD).
+`signed_block` | serialized contents of a signed block v1 (with pruned context-free data support).
+`trx_message_v1` | serialized contents of transaction ID and packed transaction v1 (supports pruned CFD).
 
 
 ### 4.2.1. Handshake Message
