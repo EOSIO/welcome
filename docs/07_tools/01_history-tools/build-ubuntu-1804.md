@@ -81,8 +81,8 @@ make -j10 install
 
 ```
 cd ~
-wget https://github.com/EOSIO/eos/releases/download/v1.8.1/eosio_1.8.1-1-ubuntu-18.04_amd64.deb
-apt install -y ./eosio_1.8.1-1-ubuntu-18.04_amd64.deb
+wget https://github.com/EOSIO/eos/releases/download/v1.8.10/eosio_1.8.10-1-ubuntu-18.04_amd64.deb
+sudo apt install -y ./eosio_1.8.10-1-ubuntu-18.04_amd64.deb
 ```
 
 # Install CDT 1.6.2
@@ -90,7 +90,7 @@ apt install -y ./eosio_1.8.1-1-ubuntu-18.04_amd64.deb
 ```
 cd ~
 wget https://github.com/EOSIO/eosio.cdt/releases/download/v1.6.2/eosio.cdt_1.6.2-1-ubuntu-18.04_amd64.deb
-apt install -y ./eosio.cdt_1.6.2-1-ubuntu-18.04_amd64.deb
+sudo apt install -y ./eosio.cdt_1.6.2-1-ubuntu-18.04_amd64.deb
 ```
 
 # Build History Tools
