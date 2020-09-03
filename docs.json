@@ -55,29 +55,35 @@
       "name": "collate_markdown",
       "options": {
         "docs_dir": "docs/05_community-developer-tools",
-        "output_dir": "05_community-developer-tools"
+        "output_dir": "05_community-developer-tools",
+        "disable_readme_import": true
       }
+
     },
+
     {
       "name": "collate_markdown",
       "options": {
         "docs_dir": "docs/07_tools",
         "output_dir": "07_tools",
-        "disable_summary_gen": true
+        "disable_summary_gen": true,
+        "disable_readme_import": true
       }
     },
     {
       "name": "collate_markdown",
       "options": {
         "docs_dir": "docs/06_eosio-blockchain-networks",
-        "output_dir": "06_eosio-blockchain-networks"
+        "output_dir": "06_eosio-blockchain-networks",
+        "disable_readme_import": true
       }
     },
     {
       "name": "collate_markdown",
       "options": {
         "docs_dir": "docs/get-involved",
-        "output_dir": "get-involved"
+        "output_dir": "get-involved",
+        "disable_readme_import": true
       }
     },
     {
