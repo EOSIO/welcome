@@ -30,7 +30,7 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 * [SimpleAssets](https://github.com/CryptoLions/SimpleAssets): A simple standard for digital assets on EOSIO blockchains: Non-Fungible Tokens (NFTs), Fungible Tokens (FTs), and Non-Transferable Tokens (NTTs).
 
-* [Marble](https://github.com/Dappetizer/marble-digital-items): Marble is a lightweight, highly customizable digital item standard for just about anything.
+* [Marble](https://github.com/Dappetizer/marble-digital-items): Marble is a lightweight, highly customizable digital item standard.
 
 * [Atomic Assets](https://github.com/pinknetworkx/atomicassets-contract): AtomicAssets is a Non Fungible Token (NFT) standard for EOSIO blockchains which focuses heavily on RAM efficiency and usability.
 
@@ -55,6 +55,7 @@ If you would like to submit a tool to be added to the list, please fill in [this
 ### Block Explorers
 
 * [Bloks.io](https://bloks.io/): Block explorer with several features across many EOSIO blockchain networks.
+*
 * [EOSX](https://eosx.io): Explorer and network monitor for multiple EOSIO blockchains, all in one.
 
 ### EOSIO Plugins
