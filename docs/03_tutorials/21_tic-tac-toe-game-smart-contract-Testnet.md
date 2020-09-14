@@ -205,7 +205,7 @@ using namespace eosio;
 
 ```c++
 // 7. Declare the class. 8. Use the [[eosio::contract(contract_name)]] attribute. 9. Inherit from the base class. 
-class[[eosio::contract("tictactoe")]] TicTacToe : public contract
+class[[eosio::contract("tictactoe")]] tictactoe : public contract
 {
 public:
     
@@ -213,7 +213,7 @@ public:
     using contract::contract;
     
     // 11. Use the base class constructor.
-    TicTacToe(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds) {}
+    tictactoe(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds) {}
 };
 ```
 9. Declare game data structure and use the `[[eosio::table]]` attribute to let the compiler know this uses a multi index table. Click on this link for more information on [generator attributes.](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/abi/abi-code-generator-attributes-explained) Click on this link for more information about [Multi Index Table](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex)
@@ -501,7 +501,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     check(by == itr->turn, "it's not your turn yet!");
 
     // Check if user makes a valid movement
-    check(IsValidMove(row, column, itr->board), "Not a valid movement.");
+    check(isValidMove(row, column, itr->board), "Not a valid movement.");
 
     // Fill the cell, 1 for host, 2 for challenger
     //TODO could use constant for 1 and 2 as well
@@ -510,7 +510,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     existingHostGames.modify(itr, itr->host, [&](auto &g) {
         g.board[row * game::boardWidth + column] = cellValue;
         g.turn = turn;
-        g.winner = GetWinner(g);
+        g.winner = getWinner(g);
     });
 }
 ```
