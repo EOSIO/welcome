@@ -27,7 +27,12 @@ If you would like to submit a tool to be added to the list, please fill in [this
 ### Non-Fungible Token (NFT) Standards
 
 * [dGoods](https://github.com/MythicalGames/dgoods): An open source and free standard for handling the virtual representation of items, both digital and physical.
+
 * [SimpleAssets](https://github.com/CryptoLions/SimpleAssets): A simple standard for digital assets on EOSIO blockchains: Non-Fungible Tokens (NFTs), Fungible Tokens (FTs), and Non-Transferable Tokens (NTTs).
+
+* [Marble](https://github.com/Dappetizer/marble-digital-items): Marble is a lightweight, highly customizable digital item standard.
+
+* [Atomic Assets](https://github.com/pinknetworkx/atomicassets-contract): AtomicAssets is a Non Fungible Token (NFT) standard for EOSIO blockchains which focuses heavily on RAM efficiency and usability.
 
 ### Services and Middleware
 
@@ -50,6 +55,7 @@ If you would like to submit a tool to be added to the list, please fill in [this
 ### Block Explorers
 
 * [Bloks.io](https://bloks.io/): Block explorer with several features across many EOSIO blockchain networks.
+*
 * [EOSX](https://eosx.io): Explorer and network monitor for multiple EOSIO blockchains, all in one.
 
 ### EOSIO Plugins
@@ -60,7 +66,7 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 * [Zeus SDK](https://github.com/liquidapps-io/zeus-sdk): The Zeus SDK offers a number of functionalities including a command line tool, templates, and a package manager.
 
-* [EOSlime](https://github.com/LimeChain/eoslime): EOSlime could be used as the EOSIO Javascript SDK. It integrates eosjs and adds some functionality on top of it.
+* [EOSlime](https://github.com/LimeChain/eoslime): EOS Javascript development, testing and deployment framework based on eosjs.js. EOSlime could be used as the EOS Javascript SDK. The framework's main purpose is to help developers quickly onboard and start building with confidence.
 
 ## Wallets
 
@@ -68,7 +74,7 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 * [Scatter](https://github.com/GetScatter/ScatterDesktop): Scatter desktop is a cutting-egde wallet as well as a global local-machine authentication provider.
 
-* [EOSlime](https://github.com/LimeChain/eoslime): EOS Javascript development, testing and deployment framework based on eosjs.js. EOSlime could be used as the EOS Javascript SDK. The framework's main purpose is to help developers quickly onboard and start building with confidence. 
+* [Portis](https://docs.portis.io/#/): Portis is a "Non-Custodial Blockchain Wallet that Makes Apps Simple for Everyone"
 
 [[info | Disclaimer]]
 | The information, links and other material on the website relating to third-party software, hardware, services, networks, blockchains (whether public or private), websites or other resources are provided on an “as-is” basis for your convenience only.  Such resources may be updated, changed or terminated at any time so the information included may be out of date or inaccurate.  The inclusion of any third-party resources does not constitute approval, endorsement or recommendation by us and we disclaim all responsibility and liability for your use of any such third-party resources.
