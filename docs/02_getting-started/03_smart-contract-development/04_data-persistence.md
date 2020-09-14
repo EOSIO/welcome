@@ -78,7 +78,7 @@ struct person {
 
 Great. The basic data structure is now complete.
 
-Next, define a `primary_key` method. Every `multi_index` struct requires a *primary key* method. Behind the scenes, this method is used according to the index specification of your `multi_index` instantiation. EOSIO `multi_index` wraps [boost::multi_index](https://www.boost.org/doc/libs/1_59_0/libs/multi_index/doc/index.html)
+Next, define a `primary_key` method. Every `multi_index` struct requires a *primary key* method. Behind the scenes, this method is used according to the index specification of your `multi_index` instantiation. EOSIO `multi_index` is patterned after [boost::multi_index](https://www.boost.org/doc/libs/1_59_0/libs/multi_index/doc/index.html).
 
 Create a method `primary_key()` and return a struct member, in this case, the `key` member as previously discussed.
 
