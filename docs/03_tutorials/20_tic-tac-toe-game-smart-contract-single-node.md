@@ -520,7 +520,7 @@ bool tictactoe::isEmptyCell(const uint8_t &cell){
 ```c++
 bool tictactoe::isValidMove(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board){
     uint32_t movementLocation = row * game::boardWidth + column;
-    bool isValid = movementLocation < board.size() && IsEmptyCell(board[movementLocation]);
+    bool isValid = movementLocation < board.size() && isEmptyCell(board[movementLocation]);
     return isValid;
 }
 ```
@@ -544,7 +544,7 @@ name tictactoe::getWinner(const game &currentGame)
 
     for (uint32_t i = 0; i < board.size(); i++)
     {
-        isBoardFull &= IsEmptyCell(board[i]);
+        isBoardFull &= isEmptyCell(board[i]);
         uint16_t row = uint16_t(i / game::boardWidth);
         uint16_t column = uint16_t(i % game::boardWidth);
 
