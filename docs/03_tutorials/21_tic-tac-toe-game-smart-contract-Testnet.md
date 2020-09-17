@@ -70,7 +70,7 @@ In the example below the player who placed x has won.
 When all the squares contain a marker and no player has three markers in a row, then the game is a draw.
 
 ### Accounts and Key Pairs
-Accounts are stored on the blockchain with a public key. Use a private key to access the account, though be sure to secure your private key. For more information about account and permissions click on this link [Accounts and Permissions.](../04_protocol/04_accounts_and_permissions.md "Accounts and Permissions Overview")
+A blockchain account has a human readable name which is between 1 and 12 characters in length. Each account identifies a blockchain participant and the authority of that participant. Loading a smart contracts requires an account; an account can own one smart contract instance and a smart contract instance must be loaded by an account. Accounts are stored on the blockchain with their public keys. Each account requires at least one key pair (public and private keys.) The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check that the account has the required authority to perform an action. For more information about accounts and permissions click on this link [Accounts and Permissions.](../04_protocol/04_accounts_and_permissions.md "Accounts and Permissions Overview")
 
 ### Smart Contract Actions
 A smart contract exposes methods or ‘actions’ that transactions use to operate the game logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction fails and the blockchain state is restored to the original state. For more details about transactions and actions click on this link [Transactions Protocol.](../04_protocol/02_transactions_protocol.md "Tranasctions Protocol") You can use `cleos` to create transactions and push transactions to the blockchain. Transactions contain one or more actions. You can also use `cleos` to call actions directly. Actions can call other actions and can also call actions from other smart contracts.
@@ -87,7 +87,7 @@ The EOSIO blockchain accounts own and consume three resources:
 For more information click on this link [Core Concepts](../01_overview/02_core_concepts.md)
 
 ## Create Accounts and Key Pairs
-The game requires two accounts, one for each player, and each account requires at least one key pair (public and private keys.) One account 'owns' the smart contract, a blockchain account supports only one smart contract and a smart contract must be loaded by an account. Accounts then identify which player ‘pushes’ a transaction to the blockchain. An account is created by calling an EOSIO system contract and this action requires a public key which is stored on the blockchain.  The blockchain then uses asymmetric cryptography to verify that the account pushing the transaction is signed with the matching private key and has the required authority to perform an action.  
+The game requires at least two blockchain accounts, one for each player. The tutorial also creates a blockchain account to load the smart contract.  
 
 ### Procedure for Accounts
 Follow this link for a guide on [creating EOSIO Testnet accounts.](../testnet-quick-start-guide/index.md#blockchain-account-configuration)
@@ -573,7 +573,7 @@ Pushing an action requires the following settings:
 * Permission - This field contains the account and permission used to push the transaction.
 
 ### Create a Game
-A game requires a host and a challenger. Use the accounts created earlier in the “Create the necessary accounts and key pairs” section of the tutorial for these. These accounts use arbitrary names. In this example assume the host has the account name of `mcazyfujecke` and the challenger has the account name of `vswlkiegwdsk`.
+A game requires a host and a challenger. Use the accounts created earlier in the [Create the necessary accounts and key pairs](#create-accounts-and-key-pairs) section of the tutorial for these. These accounts can use arbitrary names. In this example assume the host has the account name of `mcazyfujecke` and the challenger has the account name of `vswlkiegwdsk`.
 
 The create action takes two parameters, the "challenger" and the "host". The required payload in `json` format is:
 
