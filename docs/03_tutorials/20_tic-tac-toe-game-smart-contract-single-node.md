@@ -70,7 +70,7 @@ In the example below the player who placed x has won.
 When all the squares contain a marker and no player has three markers in a row, then the game is a draw.
 
 ### Accounts and Key Pairs
-Accounts are stored on the blockchain with a public key. Use a private key to access the account, though be sure to secure your private key. For more information about account and permissions click on this link [Accounts and Permissions.](../04_protocol/04_accounts_and_permissions.md "Accounts and Permissions Overview")
+A blockchain account has a human readable name which is between 1 and 12 characters in length. Each account identifies a blockchain participant and the authority of that participant. You use an account to deploy a smart contract; an account can own one smart contract instance and a smart contract instance must be loaded by an account. Accounts are stored on the blockchain with their public keys. Each account requires at least one key pair (public and private keys.) The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check that the account has the required authority to perform an action. For more information about accounts and permissions click on this link [Accounts and Permissions.](../04_protocol/04_accounts_and_permissions.md "Accounts and Permissions Overview")
 
 ### Smart Contract Actions
 A smart contract exposes methods or ‘actions’ that transactions use to operate the game logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction fails and the blockchain state is restored to the original state. For more details about transactions and actions click on this link [Transactions Protocol.](../04_protocol/02_transactions_protocol.md "Tranasctions Protocol") You can use `cleos` to create transactions and push transactions to the blockchain. Transactions contain one or more actions. You can also use `cleos` to call actions directly. Actions can call other actions and can also call actions from other smart contracts.
@@ -86,10 +86,7 @@ The EOSIO blockchain accounts own and consume three resources. By default a sing
 
 For more information click on this link [Core Concepts](../01_overview/02_core_concepts.md)
 
-## Create Accounts and Key Pairs
-The game requires two accounts, one for each player, and each account requires at least one key pair (public and private keys.) One account 'owns' the smart contract, a blockchain account supports only one smart contract and a smart contract must be loaded by an account. Accounts then identify which player ‘pushes’ a transaction to the blockchain. An account is created by calling an EOSIO system contract and this action requires a public key which is stored on the blockchain.  The blockchain then uses asymmetric cryptography to verify that the account pushing the transaction is signed with the matching private key and has the required authority to perform an action.  
-
-### Run a local single node testnet
+## Run a local single node testnet
 Run [nodeos](https://developers.eos.io/manuals/eos/v2.0/nodeos/index) locally to start a blockchain running on a single node. [Configure nodeos](https://developers.eos.io/manuals/eos/v2.0/nodeos/usage/nodeos-configuration) with [plugins](https://developers.eos.io/manuals/eos/v2.0/nodeos/plugins/index) to produce blocks, store a history of the blockchain in memory, provide HTTP RPC access to these plugins and to output running information to a file.
 
 ```shell
@@ -111,15 +108,19 @@ info  2020-08-10T07:57:06.400 thread-0  producer_plugin.cpp:2134      produce_bl
 info 
 ```
 
+## Create Accounts and Key Pairs
+The game requires at least two blockchain accounts, one for each player. The tutorial also creates a blockchain account to load the smart contract. 
+
 ### Procedure for Accounts
 1. Create a wallet - [How To Create A Wallet](https://developers.eos.io/manuals/eos/v2.0/cleos/how-to-guides/how-to-create-a-wallet)
 2. Create key pair - [How To Create Key Pairs](https://developers.eos.io/manuals/eos/v2.0/cleos/how-to-guides/how-to-create-key-pairs)
 3. Create the account - [How To Create An Account](https://developers.eos.io/manuals/eos/v2.0/cleos/how-to-guides/how-to-create-an-account#gatsby-focus-wrapper)
 4. Import the account private key to the wallet - [How To Import A Key](https://developers.eos.io/manuals/eos/v2.0/cleos/how-to-guides/how-to-import-a-key)
 
-For this tutorial we need to create two accounts
+For this tutorial we need to create two player accounts and an account for the smart contract
 1. The host - the host will load the smart contract.
 2. The challenger - the challenger will play the game with the host.
+3. The tictactoe account - the smart contract is loaded to this account.
 
 #### Cleos Commands
 To use the command line to create the accounts run the following commands. Make sure that the local wallet is [open](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/wallet/open) and [unlocked](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/wallet/unlock) and run these commands to create the accounts with the private keys stored in the local wallet.
@@ -166,7 +167,7 @@ Wallets:
 cleos wallet import --name local 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 ``` 
 
-Create two key pairs, one for each account.
+Create three key pairs, one for the smart contract, and two separate accounts for the host and the challenger.
 
 ```shell
 cleos create key --to-console
@@ -182,12 +183,18 @@ cleos create key --to-console
 Private key: 5JReVMTiiztAUyQGp9w7BMMm1HVUurDmEKuSL53DQww3JKVZjot
 Public key: EOS7qkiVnptc8wbHzHPC9jj1YECKJgQeUktBTm8RDA64oH3e75QW5
 ```
+```shell
+cleos create key --to-console
+```
+```console
+Private key: 5JyC1kXq3WSpsyBc7rYpkBQBSc9GjLvVQ2QHFnS1iojiYNmKifX
+Public key: EOS7RGhr3mEvHm66Rter6vj8ZSGJ1uV8wZSEUuaeRj1Ywvi9YqFZn
+```
 
 Create the host account.  
 ```shell
 cleos create account eosio host EOS5p55prHwrN6KosqF4NdRayVW2mqwA8RGNEbaZXRBs2SQHwBWSf
 ```
-
 Import the matching private key to the local wallet
 ```shell
 cleos wallet import --name local --private-key 5JSRUrUVbRsV2yJ2XSMtRtPzQ5UKbSYEGEjdKfGMS1xsvRZj7FH
@@ -203,8 +210,15 @@ Import the matching private key to the local wallet
 cleos wallet import --name local --private-key 5JReVMTiiztAUyQGp9w7BMMm1HVUurDmEKuSL53DQww3JKVZjot
 ```
 
-[[info]
-| You can also use three or more accounts, one for the smart contract and separate accounts for the host(s) and the challenger(s). 
+Create the tictactoe smart contract account.  
+```shell
+cleos create account eosio tictactoe EOS7RGhr3mEvHm66Rter6vj8ZSGJ1uV8wZSEUuaeRj1Ywvi9YqFZn
+```
+
+Import the matching private key to the local wallet
+```shell
+cleos wallet import --name local --private-key 5JyC1kXq3WSpsyBc7rYpkBQBSc9GjLvVQ2QHFnS1iojiYNmKifX
+```
 
 [[warning | Keep your keys safe]]
 | Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account.
@@ -306,7 +320,7 @@ using namespace eosio;
 
 ```c++
 // 7. Declare the class. 8. Use the [[eosio::contract(contract_name)]] attribute. 9. Inherit from the base class. 
-class[[eosio::contract("tictactoe")]] TicTacToe : public contract
+class[[eosio::contract("tictactoe")]] tictactoe : public contract
 {
 public:
     
@@ -314,7 +328,7 @@ public:
     using contract::contract;
     
     // 11. Use the base class constructor.
-    TicTacToe(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds) {}
+    tictactoe(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds) {}
 };
 ```
 9. Declare game data structure and use the `[[eosio::table]]` attribute to let the compiler know this uses a multi index table. Click on this link for more information on [generator attributes.](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/abi/abi-code-generator-attributes-explained) Click on this link for more information about [Multi Index Table](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex)
@@ -506,7 +520,7 @@ bool tictactoe::isEmptyCell(const uint8_t &cell){
 ```c++
 bool tictactoe::isValidMove(const uint16_t &row, const uint16_t &column, const std::vector<uint8_t> &board){
     uint32_t movementLocation = row * game::boardWidth + column;
-    bool isValid = movementLocation < board.size() && IsEmptyCell(board[movementLocation]);
+    bool isValid = movementLocation < board.size() && isEmptyCell(board[movementLocation]);
     return isValid;
 }
 ```
@@ -530,7 +544,7 @@ name tictactoe::getWinner(const game &currentGame)
 
     for (uint32_t i = 0; i < board.size(); i++)
     {
-        isBoardFull &= IsEmptyCell(board[i]);
+        isBoardFull &= isEmptyCell(board[i]);
         uint16_t row = uint16_t(i / game::boardWidth);
         uint16_t column = uint16_t(i % game::boardWidth);
 
@@ -602,7 +616,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     check(by == itr->turn, "it's not your turn yet!");
 
     // Check if user makes a valid movement
-    check(IsValidMove(row, column, itr->board), "Not a valid movement.");
+    check(isValidMove(row, column, itr->board), "Not a valid movement.");
 
     // Fill the cell, 1 for host, 2 for challenger
     //TODO could use constant for 1 and 2 as well
@@ -611,7 +625,7 @@ void tictactoe::move(const name &challenger, const name &host, const name &by, c
     existingHostGames.modify(itr, itr->host, [&](auto &g) {
         g.board[row * game::boardWidth + column] = cellValue;
         g.turn = turn;
-        g.winner = GetWinner(g);
+        g.winner = getWinner(g);
     });
 }
 ```
@@ -647,11 +661,11 @@ For this tutorial we ignore these warnings. Click on the following link for a tu
 The tictactoe directory now contains two new files, `tictactoe.wasm` and `tictactoe.abi`.
 
 ### Deploy the Single Node Testnet
-[Deploy the smart contract](https://developers.eos.io/manuals/eos/v2.0/cleos/how-to-guides/how-to-deploy-a-smart-contract) on the single node testnet with the following commandline.
+[Deploy the smart contract](https://developers.eos.io/manuals/eos/v2.0/cleos/how-to-guides/how-to-deploy-a-smart-contract) on the single node testnet tictactoe account with the following command.
 
 In the same directory as the generated `wasm` and `ABI` files run
 ```shell
-cleos set contract host ./ tictactoe.wasm tictactoe.abi -p host@active
+cleos set contract tictactoe ./ tictactoe.wasm tictactoe.abi -p tictactoe@active
 ```
 
 ## Play The Game
@@ -659,7 +673,7 @@ Now that the smart contract has been successfully deployed [push smart contract 
 
 
 ### Create a Game
-A game requires a host and a challenger. Use the accounts created earlier in the “Create the necessary accounts and key pairs” section of the tutorial for these. These accounts use arbitrary names. In this example assume the host has the account name of `host` and the challenger has the account name of `challenger`.
+A game requires a host and a challenger. Use the accounts created earlier in the [Create the necessary accounts and key pairs](#create-accounts-and-key-pairs) section of the tutorial for these. These accounts can use arbitrary names. In this example assume the host has the account name of `host` and the challenger has the account name of `challenger`.
 
 The create action takes two parameters, the "challenger" and the "host". The required payload in `json` format is:
 
