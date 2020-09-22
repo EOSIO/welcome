@@ -3,17 +3,17 @@ content_title: "2.4: Data Persistence"
 link_text: "2.4: Data Persistence"
 ---
 
-This tutorial demonstrates shows data persistence by building a simple addressbook smart contract. This use case is not very practical as a production smart contract, however it is a good smart contract to learn how data persistence works on EOSIO without being distracted by business logic that does not pertain to eosio's `Key-Value API` functionality.
+This tutorial demonstrates data persistence and builds a simple addressbook smart contract. The implementation is not a full production smart contract, however it is a good smart contract to learn how data persistence works on EOSIO without being distracted by business logic not related to eosio's `Key-Value API` functionality.
 
 ## Step 1: Create a new directory
 
-In the previous [2.1: Hello World Contract](./01_hello-world.md) tutorial, you created a contract directory, navigate there now.
+In the previous [2.1: Hello World Contract](./01_hello-world.md) tutorial, you created a contract directory, open a command shell and navigate there.
 
 ```shell
 cd CONTRACTS_DIR
 ```
 
-Create a new directory for our contract and enter the directory
+Create a new directory for our contract and enter the directory.
 
 ```shell
 mkdir addressbook
@@ -48,8 +48,9 @@ class [[eosio::contract]] addressbook : public eosio::contract {
 ## Step 4: Create The Data Structure For The Address Book
 
 In this step you will create the following:
-1. the C++ `person` struct which defines the structure of the objects stored in `addressbook` underlying `kv table`
-2. the `kv_address_table` type which defines the `kv table` where the `person` objects are stored
+
+1. the C++ `person` structure which defines the structure of the objects stored in `addressbook` underlying `kv table`,
+2. the `kv_address_table` type which defines the `kv table` where the `person` objects are stored.
 
 ### Step 4.1: Define The Person Structure
 
@@ -62,7 +63,7 @@ struct person {
 };
 ```
 
-The object stored in a `kv table` row must have defined a property witch will store unique values. To accomplish this, for the `person` structure, define a property named `account_name` with type `eosio::name`. A unique index, called `primary index`, will be defined later based on this property.
+The object stored in a `kv table` row must have defined a property witch stores unique values. To accomplish this, for the `person` structure, define a property named `account_name` of type `eosio::name`. A unique index, called `primary index`, will be defined later based on this property.
 
 ```cpp
 struct person {
@@ -123,7 +124,7 @@ class [[eosio::contract]] addressbook : public eosio::contract {
 The `addressbook` underlying `kv table` data structure is now complete.
 
 [[warning]]
-| If you add or remove a property to the underlying data structure for a `kv table`, attempting to read the old rows will fail.
+| If you add or remove a property to the underlying data structure for a `kv table`, attempting to read the old rows fails.
 
 Your only options are:
 
@@ -134,7 +135,7 @@ The same restrictions apply to the multi index tables, except that upgrading fro
 
 ## Step 5: Adding a record to the table
 
-Previously, a unique key was defined to enforce that this contract will only store one record per user. To make it all work, some rules about the design need to be established.
+Previously, a unique key was defined to enforce that this contract stores only one record per user. To make it all work, a few rules about the design need to be established.
 
 1. The only account authorized to modify the addressbook is the user.
 2. The **primary_key** of our table is unique, based on `account_name` property.
@@ -161,6 +162,7 @@ Earlier, it was mentioned that only the user has control over their own record, 
 
 ```cpp
 void upsert(eosio::name account_name, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
+
   require_auth( account_name );
 }
 ```
@@ -169,6 +171,7 @@ To access the previously defined `kv_address_table`, declare a variable of its t
 
 ```cpp
 void upsert(name account_name, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
+
   require_auth( account_name );
   kv_address_table addresses{"kvaddrbook"_n};
 }
@@ -178,6 +181,7 @@ To create a new record or update it, if it already exists, call the `put` method
 
 ```cpp
 void upsert(name account_name, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
+
   require_auth( account_name );
   addresses.put({account_name, first_name, last_name, street, city, state}, get_self());
 }
@@ -185,10 +189,11 @@ void upsert(name account_name, std::string first_name, std::string last_name, st
 
 ### Step 7.1: Return values from action
 
-Starting with EOSIO version 2.1 you can return values from actions. Because the `upsert` action has two outcomes, one that creates a new row in the table and another that updates the row if it already exists, you can take advantage of this new feature and return two different results, one for each case. The returned results can be of any C++ standard type or any standard library type as well as user defined types. For exemplification they will be in the form of a `std::pair<int, std::string>` consisting of an integer and a string detailing the result. You will also have to change the return type of the function that implements the `upsert` action to be of type `std::pair<int, std::string>`.
+Starting with EOSIO version 2.1 you can return values from actions. Because the `upsert` action has two outcomes, one that creates a new row in the table and another that updates the row if it already exists, you can take advantage of this new feature and return two different results, one for each case. The returned results can be of any C++ standard type or any standard library type as well as user defined types. For exemplification they are defined as a `std::pair<int, std::string>` consisting of an integer and a string detailing the result. Also change the return type of the function that implements the `upsert` action to be of type `std::pair<int, std::string>`.
 
 ```cpp
 std::pair<int, std::string> upsert(name account_name, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
+
    require_auth( account_name );
    kv_address_table addresses{"kvaddrbook"_n};
 
@@ -199,12 +204,12 @@ std::pair<int, std::string> upsert(name account_name, std::string first_name, st
 
    // upsert into kv_table
    addresses.put({
-         account_name, 
-         first_name, 
-         {account_name, last_name}, 
-         street, 
-         city, 
-         state}, 
+         account_name,
+         first_name,
+         {account_name, last_name},
+         street,
+         city,
+         state},
       get_self());
 
    // print customized message for insert vs update
@@ -220,13 +225,13 @@ std::pair<int, std::string> upsert(name account_name, std::string first_name, st
 }
 ```
 
-The `kvaddrbook` contract now has a functional action that will enable a user to create a row in the table if that record does not yet exist, and modify it if it already exists. And for each case it will return a different result.
+The `addressbook` contract has an action that enables a user to create a row in the table, if that record does not yet exist, and modify it if it already exists. And for each case it returns a different result.
 
 But what if the user wants to remove the record entirely?
 
 ## Step 8: Remove record from the table
 
-Similar to the previous steps, create a public method in the `kvaddrbook`, making sure to include the ABI declarations and a [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action/#function-require_auth) that tests against the action's argument `user` to verify only the owner of a record can modify their account.
+Similar to the previous steps, create a public method in the `addressbook` contract, making sure to include the ABI declarations and a [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action/#function-require_auth) that tests against the action's argument `account_name` to verify only the owner of a record can modify their account.
 
 ```cpp
     void del(name account_name){
@@ -234,7 +239,7 @@ Similar to the previous steps, create a public method in the `kvaddrbook`, makin
     }
 ```
 
-In `kvaddrbook` each account has only one record. Set `iterator` with `find` method of the `kv_table::index` class.
+In addressbook each account has only one record. Set `iterator` with `find` method of the `kv_table::index` class.
 
 ```cpp
 ...
@@ -272,7 +277,7 @@ A contract *cannot* erase a record that doesn't exist, so check that the record 
 ...
 ```
 
-Finally, call the `erase` method in case the person exists. Once the row is erased, the storage space will be free up for the original payer.
+Finally, call the `erase` method in case the person exists. Once the row is erased, the storage space is freed for the original payer.
 
 ```cpp
 ...
@@ -307,15 +312,15 @@ The contract is now mostly complete. Users can create, modify and erase records.
 
 ### 9.1 ABI Action Declarations
 
-[eosio.cdt](https://developers.eos.io/manuals/eosio.cdt/latest) includes an ABI Generator, but for it to work will require some declarations.
+[eosio.cdt](https://developers.eos.io/manuals/eosio.cdt/latest) includes an ABI Generator, with requires some specific declarations related to EOSIO smart contracts and actions definitions.
 
-Above both the `upsert` and `erase` functions add the following C++11 declaration:
+Above both the `upsert` and `del` functions add the following C++11 declaration:
 
 ```cpp
 [[eosio::action]]
 ```
 
-The above declaration will extract the arguments of the action and create necessary ABI *struct* descriptions in the generated ABI file.
+The above declaration extracts the arguments of the action and creates necessary ABI *struct* descriptions in the generated ABI file.
 
 ### 9.2 ABI Table Declarations
 
@@ -331,7 +336,7 @@ To this:
 struct [[eosio::table]] person {
 ```
 
-The `[[eosio.table]]` declaration will add the necessary descriptions to the ABI file.
+The `[[eosio.table]]` declaration adds the necessary descriptions to the ABI file.
 
 Now our contract is ready to be compiled.
 
@@ -470,11 +475,11 @@ void addressbook::del(name account_name) {
 
 ## Step 10 Prepare the Ricardian Contract [Optional]
 
-Contracts compiled without a Ricardian contract will generate a compiler warning for each action missing an entry in the Ricardian clause.
+Contracts compiled without a Ricardian contract generate a compiler warning for each action missing an entry in the Ricardian clause.
 
 ```shell
 Warning, action <upsert> does not have a ricardian contract
-Warning, action <erase> does not have a ricardian contract
+Warning, action <del> does not have a ricardian contract
 ```
 
 To define Ricardian contracts for this smart contract, create a new file called addressbook.contracts.md. Notice that the name of the Ricardian contracts must match the name of the smart contract.
@@ -490,14 +495,14 @@ Add Ricardian Contract definitions to this file:
 ---
 spec-version: 0.0.2
 title: Upsert
-summary: This action will either insert or update an entry in the `addressbook`. If an entry exists with the same name as the specified user parameter, the record is updated with the first_name, last_name, street, city, and state parameters. If a record does not exist, a new record is created. The data is stored in the key-value table. The ram costs are paid by the smart contract.
+summary: This action inserts or updates an entry in the `addressbook`. If an entry exists with the same name as the specified account_name parameter, the record is updated with the first_name, last_name, street, city, and state parameters. If a record does not exist, a new record is created. The data is stored in the key-value table. The ram costs are paid by the smart contract.
 icon:
 
-<h1 class="contract">erase</h1>
+<h1 class="contract">del</h1>
 ---
 spec-version: 0.0.2
-title: Erase
-summary: This action will remove an entry from the `addressbook` if an entry in the key-value table exists with the specified name.
+title: Del
+summary: This action removes an entry from the `addressbook` if an entry in the key-value table exists with the specified name.
 icon:
 ```
 
@@ -516,7 +521,7 @@ Add Ricardian clause definitions to this file:
 ---
 spec-version: 0.0.1
 title: General Data Storage
-summary: This smart contract will store data added by the user. The user consents to the storage of this data by signing the transaction.
+summary: This smart contract stores data added by the user. The user consents to the storage of this data by signing the transaction.
 icon:
 
 
@@ -524,7 +529,7 @@ icon:
 ---
 spec-version: 0.0.1
 title: General Data Use
-summary: This smart contract will store user data. The smart contract will not use the stored data for any purpose outside store and delete.
+summary: This smart contract stores user data. The smart contract does not use the stored data for any purpose outside store and delete.
 icon:
 
 <h1 class="clause">Data Ownership</h1>
@@ -559,7 +564,7 @@ Execute the following command from your terminal.
 eosio-cpp addressbook.cpp -o addressbook.wasm
 ```
 
-If you created a Ricardian contract and Ricardian clauses, the definitions will appear in the .abi file. An example for the addressbook.cpp, built including the contract and clause definitions described above is shown below.
+If you created a Ricardian contract and Ricardian clauses, the definitions appear in the .abi file. An example for the addressbook.cpp, built including the contract and clause definitions described above is shown below.
 
 ```json
 {
@@ -568,11 +573,11 @@ If you created a Ricardian contract and Ricardian clauses, the definitions will 
     "types": [],
     "structs": [
         {
-            "name": "erase",
+            "name": "del",
             "base": "",
             "fields": [
                 {
-                    "name": "user",
+                    "name": "account_name",
                     "type": "name"
                 }
             ]
@@ -612,7 +617,7 @@ If you created a Ricardian contract and Ricardian clauses, the definitions will 
             "base": "",
             "fields": [
                 {
-                    "name": "user",
+                    "name": "account_name",
                     "type": "name"
                 },
                 {
@@ -640,14 +645,14 @@ If you created a Ricardian contract and Ricardian clauses, the definitions will 
     ],
     "actions": [
         {
-            "name": "erase",
-            "type": "erase",
-            "ricardian_contract": "---\nspec-version: 0.0.2\ntitle: Erase\nsummary: his action will remove an entry from the `addressbook` if an entry exists with the same name \nicon:"
+            "name": "del",
+            "type": "del",
+            "ricardian_contract": "---\nspec-version: 0.0.2\ntitle: Erase\nsummary: his action removes an entry from the `addressbook` if an entry exists with the same name \nicon:"
         },
         {
             "name": "upsert",
             "type": "upsert",
-            "ricardian_contract": "---\nspec-version: 0.0.2\ntitle: Upsert\nsummary: This action will either insert or update an entry in the `addressbook`. If an entry exists with the same name as the user parameter the record is updated with the first_name, last_name, street, city and state parameters. If a record does not exist a new record is created. The data is stored in the key-value table. The ram costs are paid by the smart contract.\nicon:"
+            "ricardian_contract": "---\nspec-version: 0.0.2\ntitle: Upsert\nsummary: This action either inserts or updates an entry in the `addressbook`. If an entry exists with the same name as the account_name parameter the record is updated with the first_name, last_name, street, city and state parameters. If a record does not exist a new record is created. The data is stored in the key-value table. The ram costs are paid by the smart contract.\nicon:"
         }
     ],
     "tables": [
@@ -662,11 +667,11 @@ If you created a Ricardian contract and Ricardian clauses, the definitions will 
     "ricardian_clauses": [
         {
             "id": "Data Storage",
-            "body": "---\nspec-version: 0.0.1\ntitle: General data Storage\nsummary: This smart contract will store data added by the user. The user verifies they are happy for this data to be stored.\nicon:"
+            "body": "---\nspec-version: 0.0.1\ntitle: General data Storage\nsummary: This smart contract stores data added by the user. The user verifies they are happy for this data to be stored.\nicon:"
         },
         {
             "id": "Data Usage",
-            "body": "---\nspec-version: 0.0.1\ntitle: General data Use\nsummary: This smart contract will store user data. The smart contract will not use the stored data for any purpose outside store and delete \nicon:"
+            "body": "---\nspec-version: 0.0.1\ntitle: General data Use\nsummary: This smart contract stores user data. The smart contract does not use the stored data for any purpose outside store and delete \nicon:"
         },
         {
             "id": "Data Ownership",
@@ -760,12 +765,12 @@ cleos get table addressbook addressbook people --lower alice --limit 1
 Test to see that **alice** can remove the record.
 
 ```shell
-cleos push action addressbook erase '["alice"]' -p alice@active
+cleos push action addressbook del '["alice"]' -p alice@active
 ```
 
 ```shell
 executed transaction: 0a690e21f259bb4e37242cdb57d768a49a95e39a83749a02bced652ac4b3f4ed  104 bytes  1623 us
-#   addressbook <= addressbook::erase           {"account_name":"alice"}
+#   addressbook <= addressbook::del           {"account_name":"alice"}
 warning: transaction executed locally, but may not be confirmed by the network yet    ]
 ```
 
