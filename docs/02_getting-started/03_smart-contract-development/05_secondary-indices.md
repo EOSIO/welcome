@@ -20,11 +20,11 @@ cleos push action addressbook erase '["bob"]' -p bob@active
 
 ## Step 2: Add secondary non-unique index to `kv_addresses_table` configuration
 
-A non-unique index must be defined for at least two properties of the structure defining the `kv table` rows. The first one needs to be a property that stores unique values, because under the hood every `kv index` (non-unique or unique) is stored as a unique index, and by providing as the first property one that has unique values it ensures the uniques of the values combined (including non-unique ones). The rest of the properties defined for the non-unique index, next to the first one, are the ones indexed non-uniquely.
+A non-unique index must be defined for at least two properties of the structure underlying the `kv table` rows. The first one needs to be a property that stores unique values, because under the hood every `kv index` (non-unique or unique) is stored as a unique index, and by providing as the first property one that has unique values it ensures the uniqueness of the values combined (including non-unique ones). The rest of the properties defined for the non-unique index, next to the first one, are the ones indexed non-uniquely.
 
 `KV API` provides the `non_unique` template type which is a clear way for developers to mark an index as non-unique.
 
-For details about `KV API` indexes consult the `How-To Create KV API Indexes` section covering this subject.
+For details about `KV API` indexes consult the `How-To Create KV API Indexes` section which covers this subject.
 
 Add the following `last_name_idx` non-unique index definition next to the already existing one `account_name_uidx`.
 
@@ -35,7 +35,7 @@ Add the following `last_name_idx` non-unique index definition next to the alread
 
 ## Step 3: Use the new non-unique index
 
-You can now use the newly created index. For that create a new action which will return all entries in the addressbook which share the same last name.
+You can now use the newly created index. For that create a new action which returns all entries in the addressbook which share the same last name.
 
 In the `addressbook.hpp` add the following:
 
