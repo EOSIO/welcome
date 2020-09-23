@@ -363,15 +363,18 @@ The `status` field is an 8-bit enumeration type that can hold one of the followi
 * `executed` - transaction succeeded, no error handler executed.
 * `soft_fail` - transaction failed, error handler succeeded.
 * `hard_fail` - transaction failed, error handler failed.
-* `delayed` - transaction scheduled for future execution.
+* `delayed` - transaction delayed by user for future execution.
 * `expired` - transaction expired, CPU/NET refunded to user.
+
+[[info | "delayed" status]]
+| The `delayed` state of the `status` field only applies to **delayed user transactions**, that is, explicit user-created transactions that have a "delay" to satisfy authorizations (see [3.6.3. Delayed User Transactions](#362-delayed-user-transactions) for more information).
 
 The `trx` field holds the transaction ID or the packed transaction itself. The actual choice depends on the transaction type. Receipts generated from Deferred Transactions and Delayed User Transactions are stored by transaction ID; all other types are stored as packed transactions.
 
 
 ### 3.6.2. Deferred Transactions
 
-Deferred transactions are generated as a side effect of processing the blockchain, so their state is stored in the chain database, not within a block. Therefore, there is no need to explicitly include their contents in the transaction receipt. All in-sync nodes should be aware of the form of a deferred transaction as a matter of consensus.
+Deferred transactions are generated as a side effect of processing the blockchain, so their state is stored in the chain database, not within a block. Therefore, there is no need to explicitly include their contents in the transaction receipt. All in-sync nodes should be aware of the form of a deferred transaction as a matter of consensus. Deferred transactions issued by a smart contract have no role or effect on the `delayed` status field of the transaction receipt.
 
 
 ### 3.6.3. Delayed User Transactions
