@@ -54,16 +54,16 @@ In this step you will create the following:
 
 ### Step 4.1: Define The Person Structure
 
-The `addressbook` smart contract keeps a record for each person into a `key-value table` also referred to as `kv table`.  A `kv table` serves as an on-chain storage location which is organized as a table of rows where each row stores objects with the same definition.
+The `addressbook` smart contract stores person records in a `key-value table` also referred to as `kv table`.  A `kv table` is an on-chain storage location which is organized as a table of rows where each row stores objects of the same type.
 
-Define a C++ structure that represents the data structure of the `person` records stored in the `addressbook`.
+Define a C++ structure which represents the `person` stored in the `addressbook`.
 
 ```cpp
 struct person {
 };
 ```
 
-The object stored in a `kv table` row must have defined a property witch stores unique values. To accomplish this, for the `person` structure, define a property named `account_name` of type `eosio::name`. A unique index, called `primary index`, will be defined later based on this property.
+The object stored in a `kv table` row must have defined a property which stores unique values. To accomplish this, for the `person` structure, define a property named `account_name` of type `eosio::name`. A unique index, called `primary index`, will be defined later based on this property.
 
 ```cpp
 struct person {
