@@ -227,7 +227,7 @@ The process to verify a transaction is twofold. First, the public keys associate
 
 ### 3.4.1. Transaction Context
 
-After the public keys are recovered, a transaction context is created from the transaction instance. This context keeps track of the trace of actions and the action receipt generated as each action is dispatched and executed. All state generated is kept within a transaction trace instance and a list of action receipts. The transaction trace consists of a list of action traces. Each action trace contains information about the executed action, such as the action receipt, the action instance, whether it is a context-free action, and the transaction ID that generated the action. The action receipt is generated later during transaction execution and finalization.
+After the public keys are recovered, a transaction context is created from the transaction instance. This context keeps track of the trace of actions and the action receipt generated as each action is dispatched and executed. All state generated is kept within a transaction trace instance and a list of action receipts. The transaction trace consists of a list of action traces. Each action trace contains information about the executed action, which includes the action receipt, the action instance, whether it is a context-free action, and the transaction ID that generated the action. The action receipt is generated later during transaction execution and finalization.
 
 
 ### 3.4.2. Permission Check
@@ -327,7 +327,7 @@ To execute the transaction, a chain database session is started and a snapshot i
 
 ### 3.5.1. Apply Context
 
-To prepare for action execution, an apply context is created locally for each action. The apply context, as its name implies, contains references to the necessary resources to apply the action, such as an instance to the chain controller (see [Network Peer Protocol: 2.2. Chain Controller](03_network_peer_protocol.md#22-chain-controller)), the chain database where state is kept, the transaction context where the transaction is running, the actual action instance, the receiver account to whom the action is intended, etc.
+To prepare for action execution, an apply context is created locally for each action. The apply context, as its name implies, contains references to the necessary resources to apply the action, such as an instance to the chain controller (see [Network Peer Protocol: 2.2. Chain Controller](03_network_peer_protocol.md#22-chain-controller)), the chain database where state is kept, the transaction context where the transaction is running, the actual action instance, and the receiver account to whom the action is intended.
 
 
 ### 3.5.2. Action Trace
