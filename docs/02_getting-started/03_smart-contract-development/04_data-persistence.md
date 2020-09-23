@@ -13,7 +13,7 @@ In the previous [2.1: Hello World Contract](./01_hello-world.md) tutorial, you c
 cd CONTRACTS_DIR
 ```
 
-Create a new directory for our contract and enter the directory.
+Create a new directory for the contract and enter the directory.
 
 ```shell
 mkdir addressbook
@@ -138,7 +138,7 @@ The same restrictions apply to the multi index tables, except that upgrading fro
 Previously, a unique key was defined to enforce that this contract stores only one record per user. To make it all work, a few rules about the design need to be established.
 
 1. The only account authorized to modify the addressbook is the user.
-2. The **primary_key** of our table is unique, based on `account_name` property.
+2. The **primary_key** of the `kv table` is unique, based on `account_name` property.
 3. For usability, the contract should have the ability to both create and modify a table row with a single action.
 
 On a EOSIO blockchain an account name is unique, therefore the `account_name` property is an ideal candidate as a **primary_key**. Behind the scenes, the [eosio::name](https://developers.eos.io/manuals/eosio.cdt/latest/structeosio_1_1name) type is an `uint64_t` integer.
@@ -338,9 +338,7 @@ struct [[eosio::table]] person {
 
 The `[[eosio.table]]` declaration adds the necessary descriptions to the ABI file.
 
-Now our contract is ready to be compiled.
-
-Below is the final state of our `addressbook` contract:
+The `addressbook` smart contract is ready to be compiled now and below is the final version of the code files:
 
 The `addressbook.hpp` header file:
 
@@ -657,7 +655,7 @@ If you created a Ricardian contract and Ricardian clauses, the definitions appea
     ],
     "tables": [
         {
-            "name": "people",
+            "name": "kvaddrbook",
             "type": "person",
             "index_type": "i64",
             "key_names": [],
@@ -730,7 +728,7 @@ Check that **alice** cannot add records for another user.
 cleos push action addressbook upsert '["bob", "bob", "is a loser", "doesnt exist", "somewhere", "someplace"]' -p alice@active
 ```
 
-As expected, the `require_auth` in our contract prevented alice from creating/modifying another user's row.
+As expected, the `require_auth` used in the action method prevented alice from creating/modifying another user's row.
 
 ```shell
 Error 3090004: Missing required authority
@@ -743,7 +741,7 @@ missing authority of bob
 Retrieve alice's record.
 
 ```shell
-cleos get table addressbook addressbook people --lower alice --limit 1
+cleos get table addressbook addressbook kvaddrbook --lower alice --limit 1
 ```
 
 ```shell
@@ -777,7 +775,7 @@ warning: transaction executed locally, but may not be confirmed by the network y
 Check that the record was removed:
 
 ```shell
-cleos get table addressbook addressbook people --lower alice --limit 1
+cleos get table addressbook addressbook kvaddrbook --lower alice --limit 1
 ```
 
 ```shell
