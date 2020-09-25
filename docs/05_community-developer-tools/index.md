@@ -66,7 +66,7 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 * [Greymass Anchor](https://github.com/greymass/anchor): A feature rich, open-source, EOSIO Wallet.
 
-* [Scatter](https://github.com/GetScatter/ScatterDesktop): Scatter desktop is a cutting-egde wallet as well as a global local-machine authentication provider.
+* [Scatter](https://github.com/GetScatter/ScatterDesktop): Scatter desktop is a cutting-edge wallet as well as a global local-machine authentication provider.
 
 * [EOSlime](https://github.com/LimeChain/eoslime): EOS Javascript development, testing and deployment framework based on eosjs.js. EOSlime could be used as the EOS Javascript SDK. The framework's main purpose is to help developers quickly onboard and start building with confidence. 
 
