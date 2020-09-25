@@ -97,22 +97,26 @@ Call the `kv::table::init()` method from the constructor of the `kv_address_tabl
 For the last step, instantiate a data member of type `kv_address_table` and initialize its name which must be an `eosio::name` type, let's say `kvaddrbook`.
 
 ```hpp
-class [[eosio::contract]] addressbook : public eosio::contract {
+class [[eosio::contract]] addressbook : public contract {
    public:
       using contract::contract;
 
       addressbook(name receiver, name code, datastream<const char*> ds)
          : contract(receiver, code, ds) {}
 
-      struct [[eosio::table]] kv_address_table : kv::table<person> {
+      struct [[eosio::table]] kv_address_table : eosio::kv::table<person, "kvaddrbook"_n> {
 
-         kv::table::index<name> account_name_uidx {"accnameuidx"_n, &person::account_name};
+      index<name> account_name_uidx {
+         name{"accname"_n},
+         &person::account_name };
+      index<non_unique<name, string>> last_name_idx {
+         name{"lastnameidx"_n},
+         &person::last_name };
 
-         kv_address_table(eosio::name contract_name) {
+         kv_address_table(name contract_name) {
             init(contract_name,
-               "kvaddrbook"_n,
-               eosio::kv_ram,
-               account_name_uidx);
+               account_name_uidx,
+               last_name_idx);
          }
       };
 
@@ -192,17 +196,24 @@ void upsert(name account_name, std::string first_name, std::string last_name, st
 Starting from EOSIO version 2.1 you can return values from actions. Because the `upsert` action has two outcomes, one that creates a new row in the table and another that updates the row if it already exists, you can take advantage of this new feature and return two different results, one for each case. The returned results can be of any C++ standard type or any standard library type as well as any user defined types. For exemplification they are defined as a `std::pair<int, std::string>` consisting of an integer and a string detailing the result. Also change the return type of the function that implements the `upsert` action to be of type `std::pair<int, std::string>`.
 
 ```cpp
-std::pair<int, std::string> upsert(name account_name, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
+// creates if not exists, or updates if already exists, a person
+pair<int, string> addressbook::upsert(
+      name account_name,
+      string first_name,
+      string last_name,
+      string street,
+      string city,
+      string state) {
 
    require_auth( account_name );
    kv_address_table addresses{"kvaddrbook"_n};
 
-   std::pair<int, std::string> results = {0, "NOP"};
+   pair<int, string> results = {0, "NOP"};
 
-   // retrieves the person by account name
+   // retrieve the person by account name
    auto itr = addresses.account_name_uidx.find(account_name);
 
-   // upsert into kv::table
+   // upsert into kv_table
    addresses.put({
          account_name,
          first_name,
@@ -214,11 +225,11 @@ std::pair<int, std::string> upsert(name account_name, std::string first_name, st
 
    // print customized message for insert vs update
    if (itr == addresses.account_name_uidx.end()) {
-      eosio::print_f("Person was successfully added to addressbook.");
+      print_f("Person was successfully added to addressbook.");
       results = {1, "New row created."};
    }
    else {
-      eosio::print_f("Person was successfully updated in addressbook.");
+      print_f("Person was successfully updated in addressbook.");
       results = {2, "Existing row updated."};
    }
    return results;
@@ -281,7 +292,7 @@ Finally, call the `erase` method in case the person already exists. Once the row
 
 ```cpp
 ...
-    // deletes a person based on primary key account_name
+// deletes a person based on primary key account_name
     void addressbook::del(name account_name) {
 
         require_auth(account_name);
@@ -295,12 +306,12 @@ Finally, call the `erase` method in case the person already exists. Once the row
             // extract person from iterator and delete it
             const auto& person_found = itr.value();
 
-            // delete it from kv::table
+            // delete it from kv_table
             addresses.erase(person_found);
-            eosio::print_f("Person was successfully deleted from addressbook.");
+            print_f("Person was successfully deleted from addressbook.");
         }
         else {
-            eosio::print_f("Person not found in addressbook.");
+            print_f("Person not found in addressbook.");
         }
     }
 ...
@@ -348,37 +359,38 @@ using namespace std;
 using namespace eosio;
 
 struct person {
- eosio::name account_name;
- std::string first_name;
- std::string last_name;
- std::string street;
- std::string city;
- std::string state;
+ name account_name;
+ string first_name;
+ non_unique<name, string> last_name;
+ string street;
+ string city;
+ string state;
 };
 
-class [[eosio::contract]] addressbook : public eosio::contract {
+class [[eosio::contract]] addressbook : public contract {
    public:
       using contract::contract;
 
       addressbook(name receiver, name code, datastream<const char*> ds)
          : contract(receiver, code, ds) {}
 
-      struct [[eosio::table]] kv_address_table : kv::table<person> {
+      struct [[eosio::table]] kv_address_table : eosio::kv::table<person, "kvaddrbook"_n> {
 
-         kv::table::index<name> account_name_uidx {"accnameuidx"_n, &person::account_name};
+        index<name> account_name_uidx {
+            name{"accname"_n},
+            &person::account_name };
 
-         kv_address_table(eosio::name contract_name) {
+        kv_address_table(name contract_name) {
             init(contract_name,
-               "kvaddrbook"_n,
-               eosio::kv_ram,
-               account_name_uidx);
-         }
+               account_name_uidx,
+               last_name_idx);
+        }
       };
 
       // creates if not exists, or updates if already exists, a person
       [[eosio::action]]
-      std::pair<int, std::string> upsert(
-         eosio::name account_name,
+      pair<int, string> upsert(
+         name account_name,
          string first_name,
          string last_name,
          string street,
@@ -388,10 +400,6 @@ class [[eosio::contract]] addressbook : public eosio::contract {
       // deletes a person based on primary key account_name
       [[eosio::action]]
       void del(name account_name);
-
-      // retrieves list of persons with the same last name
-      [[eosio::action]]
-      std::vector<person> getbylastname(string last_name);
 
       using upsert_action = action_wrapper<"upsert"_n, &addressbook::upsert>;
       using del_action = action_wrapper<"del"_n, &addressbook::del>;
@@ -408,8 +416,8 @@ The `addressbook.cpp` file:
 
 // creates if not exists, or updates if already exists, a person
 [[eosio::action]]
-std::pair<int, std::string> addressbook::upsert(
-      eosio::name account_name,
+pair<int, string> addressbook::upsert(
+      name account_name,
       string first_name,
       string last_name,
       string street,
@@ -419,28 +427,28 @@ std::pair<int, std::string> addressbook::upsert(
    require_auth( account_name );
    kv_address_table addresses{"kvaddrbook"_n};
 
-   std::pair<int, std::string> results = {0, "NOP"};
+   pair<int, string> results = {0, "NOP"};
 
-   // retreive the person by account name
+   // retrieve the person by account name
    auto itr = addresses.account_name_uidx.find(account_name);
 
-   // upsert into kv::table
+   // upsert into kv_table
    addresses.put({
-         account_name, 
-         first_name, 
-         {account_name, last_name}, 
-         street, 
-         city, 
-         state}, 
+         account_name,
+         first_name,
+         {account_name, last_name},
+         street,
+         city,
+         state},
       get_self());
 
    // print customized message for insert vs update
    if (itr == addresses.account_name_uidx.end()) {
-      eosio::print_f("Person was successfully added to addressbook.");
+      print_f("Person was successfully added to addressbook.");
       results = {1, "New row created."};
    }
    else {
-      eosio::print_f("Person was successfully updated in addressbook.");
+      print_f("Person was successfully updated in addressbook.");
       results = {2, "Existing row updated."};
    }
    return results;
@@ -461,12 +469,12 @@ void addressbook::del(name account_name) {
       // extract person from iterator and delete it
       const auto& person_found = itr.value();
 
-      // delete it from kv::table
+      // delete it from kv_table
       addresses.erase(person_found);
-      eosio::print_f("Person was successfully deleted from addressbook.");
+      print_f("Person was successfully deleted from addressbook.");
    }
    else {
-      eosio::print_f("Person not found in addressbook.");
+      print_f("Person not found in addressbook.");
    }
 }
 ```
