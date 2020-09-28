@@ -27,14 +27,19 @@ Other toolchains in development by 3rd parties include: Rust, Python, and Solidi
 
 The EOSIO software supports the following environments for development and/or deployment:
 
+**Linux Distributions**
 * Amazon Linux 2
-* Centos 7
-* Ubuntu 16.04
+* CentOS Linux 8.x
+* CentOS Linux 7.x
+* Ubuntu 20.04
 * Ubuntu 18.04
-* MacOS 10.14 (Mojave) and higher
+* Ubuntu 16.04
+
+**macOS**
+* macOS 10.14 (Mojave) or later
 
 [[info | Note]]
-| if you are developing on __Windows__, unfortunately we do not provide PowerShell ports and instructions at this time. In the future we may append PowerShell commands. In the mean-time your best bet is to use a VM with Ubuntu, and set up your development environment inside this VM. If you're an advanced Window's developer familiar with porting Linux instructions, you should encounter minimal issues.
+| If you are developing on __Windows__, we do not provide PowerShell ports and instructions at this time. You can use a VM with Ubuntu (or any supported Linux distro), and set up your development environment inside the VM. If you are an advanced Windows developer familiar with porting Linux instructions, you should encounter minimal issues.
 
 ### Command Line Knowledge
 
