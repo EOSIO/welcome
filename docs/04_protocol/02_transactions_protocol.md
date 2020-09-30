@@ -227,7 +227,7 @@ The process to verify a transaction is twofold. First, the public keys associate
 
 ### 3.4.1. Transaction Context
 
-After the public keys are recovered, a transaction context is created from the transaction instance. This context keeps track of the trace of actions and the action receipt generated as each action is dispatched and executed. All state generated is kept within a transaction trace instance and a list of action receipts. The transaction trace consists of a list of action traces. Each action trace contains information about the executed action, such as the action receipt, the action instance, whether it is a context-free action, and the transaction ID that generated the action. The action receipt is generated later during transaction execution and finalization.
+Once the public keys are recovered, a transaction context is created from the transaction instance. The transaction context keeps track of the trace of actions and the action receipt generated as each action is dispatched and executed. All state generated is kept within a transaction trace instance and a list of action receipts. The transaction trace consists of a list of action traces. Each action trace contains information about the executed action, which includes the action receipt, the action instance, whether it is a context-free action, and the transaction ID that generated the action. The action receipt is generated later during transaction execution and finalization.
 
 
 ### 3.4.2. Permission Check
@@ -327,7 +327,7 @@ To execute the transaction, a chain database session is started and a snapshot i
 
 ### 3.5.1. Apply Context
 
-To prepare for action execution, an apply context is created locally for each action. The apply context, as its name implies, contains references to the necessary resources to apply the action, such as an instance to the chain controller (see [Network Peer Protocol: 2.2. Chain Controller](03_network_peer_protocol.md#22-chain-controller)), the chain database where state is kept, the transaction context where the transaction is running, the actual action instance, the receiver account to whom the action is intended, etc.
+To prepare for action execution, an apply context instance is created locally for each action. The apply context, as its name implies, contains references to the necessary resources to apply the action, such as an instance to the chain controller (see [Network Peer Protocol: 2.2. Chain Controller](03_network_peer_protocol.md#22-chain-controller)), the chain database where state is kept, the transaction context where the transaction is running, the actual action instance, and the receiver account to whom the action is intended.
 
 
 ### 3.5.2. Action Trace
@@ -363,16 +363,21 @@ The `status` field is an 8-bit enumeration type that can hold one of the followi
 * `executed` - transaction succeeded, no error handler executed.
 * `soft_fail` - transaction failed, error handler succeeded.
 * `hard_fail` - transaction failed, error handler failed.
-* `delayed` - transaction scheduled for future execution.
+* `delayed` - transaction delayed by user for future execution.
 * `expired` - transaction expired, CPU/NET refunded to user.
+
+[[info | 'delayed' status]]
+| The `delayed` status only applies to **delayed user transactions**, that is, explicit user-created transactions that have a delay to satisfy authorizations (see [3.6.3. Delayed User Transactions](#363-delayed-user-transactions) for more information).
 
 The `trx` field holds the transaction ID or the packed transaction itself. The actual choice depends on the transaction type. Receipts generated from Deferred Transactions and Delayed User Transactions are stored by transaction ID; all other types are stored as packed transactions.
 
 
 ### 3.6.2. Deferred Transactions
 
-Deferred transactions are generated as a side effect of processing the blockchain, so their state is stored in the chain database, not within a block. Therefore, there is no need to explicitly include their contents in the transaction receipt. All in-sync nodes should be aware of the form of a deferred transaction as a matter of consensus.
+Deferred transactions are generated as a side effect of processing the blockchain, so their state is stored in the chain database, not within a block. Therefore, there is no need to explicitly include their contents in the transaction receipt. All in-sync nodes should be aware of the form of a deferred transaction as a matter of consensus. Deferred transactions issued by a smart contract have no role or effect on the `delayed` status field of the transaction receipt.
 
+[[caution | Deprecation Notice]]
+| Deferred transactions are deprecated as of EOSIO 2.0. For more details on their behavior, refer to the [Deferred Transactions](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/deferred_transactions) section on the `eosio.cdt` documentation.
 
 ### 3.6.3. Delayed User Transactions
 
