@@ -52,11 +52,13 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 * [The EOSIO Testnet](https://testnet.eos.io/): Block.one's EOSIO Testnet to test EOSIO smart contracts before deploying on production networks.
 
-### Block Explorers
+### Block Explorers and Dashboards
 
 * [Bloks.io](https://bloks.io/): Block explorer with several features across many EOSIO blockchain networks.
-*
+
 * [EOSX](https://eosx.io): Explorer and network monitor for multiple EOSIO blockchains, all in one.
+
+* [EOSIO Dashboard](https://github.com/eoscostarica/eosio-dashboard): EOSIO Dashboard is an open-source tool that helps you visualize relevant data about Block Producer nodes and rewards distribution in the EOS network.
 
 ### EOSIO Plugins
 
