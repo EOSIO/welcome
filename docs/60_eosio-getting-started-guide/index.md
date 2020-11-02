@@ -15,9 +15,6 @@ The EOSIO platform is made up of the following components and toolchain:
 
 In the getting started guide we introduce you to concepts, tools and SDK's you will use to build robust blockchain solutions. 
 
-# Blockchain Terminology in an EOSIO World
-You can find EOSIO definitions in our [Glossary](https://developers.eos.io/welcome/latest/glossary/index)
-
 # Configuration Guides
 
 ## Plugin Guides
