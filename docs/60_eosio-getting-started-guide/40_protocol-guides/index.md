@@ -1,3 +1,8 @@
+---
+content_title: Protocol Guides
+link_text: Protocol Guides
+---
+
 # EOSIO Protocol
 
 ## Core
