@@ -40,6 +40,8 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 * [dfuse](https://www.dfuse.io/en): Blockchain data APIs for searching and monitoring EOSIO networks.
 
+* [Bitquery GraphQL API](https://bitquery.io/labs/graphql ): Single endpoint for 20+ blockchain datasets, including EOS.
+
 ### History Solutions
 
 * [Hyperion History API](https://github.com/eosrio/Hyperion-History-API): A scalable, Full History API Solution for EOSIO based-blockchains.
