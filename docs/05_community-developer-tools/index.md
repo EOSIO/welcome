@@ -78,7 +78,9 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 * [Scatter](https://github.com/GetScatter/ScatterDesktop): Scatter desktop is a cutting-edge wallet as well as a global local-machine authentication provider.
 
-* [Portis](https://docs.portis.io/#/): Portis is a "Non-Custodial Blockchain Wallet that Makes Apps Simple for Everyone"
+* [Portis](https://docs.portis.io/#/): Portis is a "Non-Custodial Blockchain Wallet that Makes Apps Simple for Everyone".
+
+* [Wombat](https://github.com/wombat-tech): Wombat is "the most user-friendly way of handling blockchain on Desktop, iOS & Android." and lets users "send, receive, and earn various tokens without any technical knowledge." 
 
 [[info | Disclaimer]]
 | The information, links and other material on the website relating to third-party software, hardware, services, networks, blockchains (whether public or private), websites or other resources are provided on an “as-is” basis for your convenience only.  Such resources may be updated, changed or terminated at any time so the information included may be out of date or inaccurate.  The inclusion of any third-party resources does not constitute approval, endorsement or recommendation by us and we disclaim all responsibility and liability for your use of any such third-party resources.
