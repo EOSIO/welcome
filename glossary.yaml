@@ -99,7 +99,7 @@ terms:
     name: "Private Network"
   - definition: "A blockchain application is a software application that has integrated a blockchain in its architecture as the storage layer for part of, or, all of its data. This includes software applications that do not own their own contract on the blockchain and instead only interact with the system contracts of the blockchain."
     name: "Blockchain Application"
-  - definition: "Irreversible blocks are blocks that contain confirmed, final transactions. A block is considered irreversible (i.e., immutable) on an EOSIO-based blockchain when a supermajority, consisting of 2/3rds, plus one of the currently elected block producers have confirmed the block."
+  - definition: "Irreversible blocks are blocks that contain confirmed, final transactions. A block is considered irreversible (i.e., immutable) on an EOSIO-based blockchain when a supermajority, consisting of 2/3rds plus one of the currently elected block producers have confirmed the block."
     name: "Irreversible Block"
     related:
       - name: "Block"
