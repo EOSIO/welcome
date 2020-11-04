@@ -1,9 +1,7 @@
 ---
-content_title: Installing Cleos
-link_text: Installing Cleos
+content_title: Installing Keosd
+link_text: Installing Keosd
 ---
-
-
 
 It is recommended that you install the EOSIO prebuilt binaries, these binaries will install `nodeos`, `cleos`, and `keosd`.
 
