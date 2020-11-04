@@ -1,6 +1,6 @@
 ---
-content_title: "2.5: Secondary Indices"
-link_text: "2.5: Secondary Indices"
+content_title: "Secondary Indices"
+link_text: "Secondary Indices"
 ---
 The following section shows how to add another index to the `addressbook` contract, so you can iterate through the records in a different way besides using the primary index.
 

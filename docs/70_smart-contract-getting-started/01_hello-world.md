@@ -1,6 +1,6 @@
 ---
-content_title: "2.1: Hello World Contract"
-link_text: "2.1: Hello World Contract"
+content_title: "Hello World Contract"
+link_text: "Hello World Contract"
 ---
 
 ## Create the Contract

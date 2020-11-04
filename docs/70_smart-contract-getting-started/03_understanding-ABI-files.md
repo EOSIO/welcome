@@ -1,6 +1,6 @@
 ---
-content_title: "2.3: Understanding ABI Files"
-link_text: "2.3: Understanding ABI Files"
+content_title: "Understanding ABI Files"
+link_text: "Understanding ABI Files"
 ---
 
 ## Introduction

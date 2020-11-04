@@ -1,6 +1,6 @@
 ---
-content_title: "2.7: Inline Actions to External Contracts"
-link_text: "2.7: Inline Actions to External Contracts"
+content_title: "Inline Actions to External Contracts"
+link_text: "Inline Actions to External Contracts"
 ---
 Previously, we sent an inline action to an action that was defined in the contract. In this part of the tutorial, we'll explore sending actions to an external contract. Since we've already gone over quite a bit of contract authoring, we'll keep this contract extremely simple. We'll author a contract that counts actions written by the contract. This contract has very little real-world use, but will demonstrate inline action calls to an external contract
 

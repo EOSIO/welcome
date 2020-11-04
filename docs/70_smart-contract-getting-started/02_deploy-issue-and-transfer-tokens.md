@@ -1,6 +1,6 @@
 ---
-content_title: "2.2: Deploy, Issue and Transfer Tokens"
-link_text: "2.2: Deploy, Issue and Transfer Tokens"
+content_title: "Deploy, Issue and Transfer Tokens"
+link_text: "Deploy, Issue and Transfer Tokens"
 ---
 ## Step 1: Obtain Contract Source
 

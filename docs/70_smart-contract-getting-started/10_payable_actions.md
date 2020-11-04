@@ -1,6 +1,6 @@
 ---
-content_title: "2.9: Payable actions"
-link_text: "2.9: Payable actions"
+content_title: "Payable actions"
+link_text: "Payable actions"
 ---
 ## Goal
 This tutorial illustrates how to write a smart contract that has payable actions. Payable actions are actions that require you to transfer some tokens to actions prior to use other functionality of the smart contract. Also, the EOSIO `asset` type is covered in this tutorial.

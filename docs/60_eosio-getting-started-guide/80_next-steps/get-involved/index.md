@@ -91,7 +91,6 @@ To make a quick edit:
 
 Congrats! You have submitted your suggestion. Our team will review your pull request and merge it if it's a valid change.
 
-
 ### Filing a Docs Issue
 Filing an issue in a docs repository means reporting a documentation bug in the form of a Github issue.
 

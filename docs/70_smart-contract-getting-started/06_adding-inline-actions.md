@@ -1,6 +1,6 @@
 ---
-content_title: "2.6: Adding Inline Actions"
-link_text: "2.6 Adding Inline Actions"
+content_title: "Adding Inline Actions"
+link_text: "Adding Inline Actions"
 ---
 
 ## Introduction
