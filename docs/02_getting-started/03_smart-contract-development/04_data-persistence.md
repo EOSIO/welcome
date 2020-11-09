@@ -41,7 +41,7 @@ class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 ```
 
 ## Step 4: Create The Data Structure for the Table
-Before a table can be configured and instantiated, we need to define a struct that represents the data structure of the address book. Since it is an address book, the table will contain people, so create a `struct` called "person"
+Before a table can be configured and instantiated, we need to define a struct that represents the data structure of the address book. Since it is an address book, the table will contain people, so create a `struct` called "person." For this exercise, create the struct` called "person" in the `private` section of the "addressbook" class.
 
 ```cpp
 struct person {};
@@ -261,7 +261,6 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
   }
   else {
     addresses.modify(iterator, user, [&]( auto& row ) {
-      row.key = user;
       row.first_name = first_name;
       row.last_name = last_name;
       row.street = street;
