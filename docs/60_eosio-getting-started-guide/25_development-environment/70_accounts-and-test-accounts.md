@@ -1,6 +1,6 @@
 ---
-content_title: "1.6: Create Test Accounts"
-link_text: "1.6: Create Test Accounts"
+content_title: "Accounts and Test Accounts"
+link_text: "Accounts and Test Accounts"
 ---
 
 ## What is an account?

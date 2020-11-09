@@ -3,113 +3,50 @@ content_title: "EOSIO Getting Started Guide"
 link_text: "EOSIO Getting Started Guide"
 ---
 
-# Welcome
 Welcome to the EOSIO platform. This getting started guide will quickly show you how to use the EOSIO platform.
 
 The EOSIO platform is made up of the following components and toolchain:
 
-1. `nodeos`:  the core EOSIO node daemon that can be configured with plugins to run a node. Example uses are block production, dedicated API endpoints, and local development.
-2. `cleos`: the command line interface to interact with the blockchain and to manage wallets.
-3. `keosd`: the component that securely stores EOSIO keys in wallets.
-4. `EOSIO.CDT`: toolchain for WebAssembly (Wasm)  and a set of tools to facilitate smart contract writing for the EOSIO platform.
+* `nodeos`:  the core EOSIO node daemon that can be configured with plugins to run a node. Example uses are block production, dedicated API endpoints, and local development.
+* `cleos`: the command line interface to interact with the blockchain and to manage wallets.
+* `keosd`: the component that securely stores EOSIO keys in wallets.
+* `EOSIO.CDT`: toolchain for WebAssembly (Wasm)  and a set of tools to facilitate smart contract writing for the EOSIO platform.
 
-In the getting started guide we introduce you to concepts, tools and SDK's you will use to build robust blockchain solutions. 
+In the getting started guide we introduce you to concepts, tools and SDK's you will use to build robust blockchain solutions.
 
-# Configuration Guides
+# Installation Guides
 
-## Plugin Guides
+There are two ways to install and use the EOSIO software:
+
+* [Install EOSIO Prebuilt Binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries)
+* [Build EOSIO from Source](https://developers.eos.io/manuals/eos/latest/install/build-from-source/index)
+
+[[info]]
+| If you are new to EOSIO, it is recommended that you install the [EOSIO Prebuilt Binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries), then proceed to the [Getting Started](https://developers.eos.io/eosio-home/docs/) section of the [EOSIO Developer Portal](https://developers.eos.io/). If you are an advanced developer, a block producer, or no binaries are available for your platform, you may need to [Build EOSIO from source](https://developers.eos.io/manuals/eos/latest/install/build-from-source/index) instead.
+
+# Plugin Guides
 Use plugins to extend, or specialise, the behaviour of nodeos and kleosd:
 
 * [Nodeos Plugins](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/index) 
 * [Keosd PLugins](https://developers.eos.io/manuals/eos/latest/keosd/plugins/index)
 
-## Development Environment
-Smart contracts are written in C++. Any editor or IDE can be used to create a smart contract. The EOSIO.CDT provides eosio libraries and tools used to compile the smart contract before it can be deployed to the blockchain.   
+# Configuration Guides
+For information about configuring your EOSIO components click [here.](20_configuration-guides) These configuration guides will show you how to run a local blockchain, become a block producer, and set up an environment to build, test and deply smart contracts. 
 
-### Example Editors and IDEs
-
-- [Sublime Text](https://www.sublimetext.com/)
-- [Atom Editor](https://atom.io/)
-- [CLion](https://www.jetbrains.com/clion/)
-- [Eclipse](http://www.eclipse.org/downloads/packages/release/oxygen/1a/eclipse-ide-cc-developers)
-- [Visual Studio Code](https://code.visualstudio.com/)
-
-Alternatively, you can use IDEs specifically developed for EOSIO:
-
-- [EOS Studio](https://www.eosstudio.io/)
-
-[[info]]
-| The resources listed above are developed, offered, and maintained by third-parties and not by block.one. Providing information, material, or commentaries about such third-party resources does not mean we endorse or recommend any of these resources. We are not responsible, and disclaim any responsibility or liability, for your use of or reliance on any of these resources. Third-party resources may be updated, changed or terminated at any time, so the information below may be out of date or inaccurate. USAGE AND RELIANCE IS ENTIRELY AT YOUR OWN RISK
-
+# Development Environment
+Smart contracts are written in C++. Any editor or IDE can be used to create a smart contract. The EOSIO.CDT provides eosio libraries and tools used to compile the smart contract before it can be deployed to the blockchain. Follow this link [Development Environment](25_development-environment) to see how to set up your development environment.  
 
 # Quick Start Guides
-Building distributed applications on EOSIO follows familiar development patterns and programming languages used for developing non-blockchain applications. In the following guides we show you the primitives you need to build your own smart contracts:
-
-
-* Build and Deploy smart contracts:
-	* [Understand resources see HK engineer samples](https://developers.eos.io/welcome/badlink)
-	* [How to build and Deploy see HK engineer samples](https://developers.eos.io/welcome/badlink)
-	* [Understanding ABI files](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files)
-
-* Hello World: 
-	* [Your first smart contract deployed to a blocklchain](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/hello-world)
-
-* Write to the blockchain:
-	* Work with state in your smart contract 
-		* [Data Persistence](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/data-persistence)
-		* [Secondary Indices](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/secondary-indices)
-	* Store data in the blocks.log 
-		* [Store files to blocks.log - see HK engineer samples](https://developers.eos.io/welcome/badlink)
-
-* Read from the blockchain:
-	* [State History  - TBD](https://developers.eos.io/welcome/badlink)
-	* [EOSIO History Tools  - TBD](https://developers.eos.io/welcome/badlink)
-	* [Dfuse  - TBD](https://developers.eos.io/welcome/badlink)
-
-* Calling Actions:
-	* [Adding inline Actions](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/adding-inline-actions)
-	* [Inline Actions to External Contracts](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/inline-action-to-external-contract)
-
-* Payable Actions:
-	* [Payable Actions](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/payable_actions)
-
+Building distributed applications on EOSIO follows familiar development patterns and programming languages used for developing non-blockchain applications. In the quick start guides we show you the primitives you need to build your own blockchain applications. Follow this link [Quick Start Guides](30_quick-start-guides) to start your journey on the EOSIO platform.
+ 
 # Protocol Guides
-In this section we describe the base components and protocols used in the EOSIO platform.
-
-## Core
-`EOSIO Core` provides the basic building blocks for the `system` layer. The `core` implementation is open source.
-
-The core protocols are:
-
-1. [Consensus Protocol](01_consensus_protocol.md)
-2. [Transactions Protocol](02_transactions_protocol.md)
-3. [Network or Peer to Peer Protocol](03_network_peer_protocol.md)
-4. [Accounts and Permissions](04_accounts_and_permissions.md)
-
-## System
-Core blockchain features such as consensus, fee schedules, account creation and modification, token economics, block producer registration, voting, multi-sig, etc are implemented with smart contracts which are deployed on an EOSIO blockchain. These smart contracts are known as `system contracts` or the `system` layer. 
-
-1. [eosio.bios](https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.bios)
-2. [eosio.system](https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.system)
-3. [eosio.msig](https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.msig)
-4. [eosio.token](https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.token)
-5. [eosio.wrap](https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.wrap)
-
-The `system` layer also includes:
-
-1. [System accounts](https://developers.eos.io/manuals/eosio.contracts/latest/index/#system-contracts-system-accounts-priviledged-accounts)
-2. [RAM](https://developers.eos.io/manuals/eosio.contracts/latest/index/#ram)
-3. [CPU](https://developers.eos.io/manuals/eosio.contracts/latest/index/#cpu)
-4. [NET](https://developers.eos.io/manuals/eosio.contracts/latest/index/#net)
-5. [Stake](https://developers.eos.io/manuals/eosio.contracts/latest/index/#stake)
-6. [Vote](https://developers.eos.io/manuals/eosio.contracts/latest/index/#vote)
-
+In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follw this link [Protocol Guides](40_protocol-guides) to read more about `EOSIO Core.`
 
 # Manuals (Component Guides)
 Click on the following links to find detailed documentation for each component.
 
 ## Core Components
-The main componets of the EOSIO platform.
+The main components of the EOSIO platform.
 * [nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/index) : The core service daemon that runs on every EOSIO node.
 * [cleos](https://developers.eos.io/manuals/eos/latest/cleos/index) : A command line interface to interact with the blockchain and manage wallets.
 * [keosd](https://developers.eos.io/manuals/eos/latest/keosd/index) : A key manager service daemon for storing private keys and signing digital messages.
@@ -161,24 +98,19 @@ Sample applications.
 * [eosio-java-android-example-app](https://github.com/EOSIO/eosio-java-android-example-app) : Application demonstrating integration with EOSIO-based blockchains using EOSIO SDK for Java
 * [eosio-swift-ios-example-app](https://github.com/EOSIO/eosio-swift-ios-example-app) : Application demonstrating integration with EOSIO-based blockchains using EOSIO SDK for Swift
 * [tropical-example-web-app](https://github.com/EOSIO/tropical-example-web-app) : An example for developers showing an application built on EOSIO combining UAL, Manifest Spec, and Ricardian Contracts
-        
-# Hello World
-Let's start with a simple smart contract producing the traditional "hello world." The [Hello World](./03_smart-contract-development/01_hello-world.md) tutorial will guide you step by step in building a simple smart contract and deploying the smart contract to an EOSIO blockchain. 
 
 # Testnet
 The EOSIO Testnet is a web application that you can access using your login credentials. You don't have to download binaries to install the system as no external installation or configuration is required. The EOSIO Testnet is Block.one's offical testnet and uses the latest EOSIO software.
 
 * [EOSIO Testnet](https://testnet.eos.io/) Block.one's official EOSIO Testnet.
 
-## What's next?
+# EOSIO Blockchain Networks
+There are many public blockchains using the EOSIO platform, follow this link [EOSIO Blockchains](65_eosio-blockchain-networks) to see a list of blockchains, and click [here](50_provide-feedback) to let us know about your EOSIO based blockchain.
 
-- [Payable Actions](../28_smart-contract-development/10_payable_actions.md): Learn how to create payable actions.
-- [Deploy, Issue and Transfer Tokens](../28_smart-contract-development/20_deploy-issue-and-transfer-tokens.md): Learn how to create, issue and trasnfer tokens using eosio.token.
-- [Understand ABI files](../28_smart-contract-development/30_understanding-ABI-files.md): Learn about ABI files.
-- [Data Persistence](../28_smart-contract-development/40_data-persistence.md): Learn how to save state on the blockchain.
-- [Secondary Indices](../28_smart-contract-development/50_secondary-indices.md): Learn how to use secondary indices on multi index.
-- [Add Inline Actions ](../28_smart-contract-development/60_adding-inline-actions.md): Learn how to call inline actions.
-- [Call Actions on External Contracts](../28_smart-contract-development/70_inline-action-to-external-contract.md): Learn how to call actions in other smart contracts.
-- [Linking Custom Permissions](../28_smart-contract-development/80_linking-custom-permission.md): Learn how to link custom permissions.
+# Hello World
+Let's start with a simple smart contract producing the traditional "hello world." The [Hello World](../70_smart-contract-getting-started/01_hello-world.md) tutorial will guide you step by step in building a simple smart contract and deploying this smart contract to an EOSIO blockchain. 
+
+# Next Steps
+Want to [get involved in the EOSIO platform?](80_next-steps) 
 
 

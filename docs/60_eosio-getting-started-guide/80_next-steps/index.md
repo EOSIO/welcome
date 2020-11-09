@@ -30,8 +30,6 @@ EOSIO is a large open source project with over 500 repositories for its stack an
 
 There are many ways you can contribute to EOSIO code. You can report an issue, submit a pull request, and review pull requests.
 
-
-
 ## Code of Conduct
 
 While contributing, please be respectful and constructive, so that participation in our project is a positive experience for everyone.
