@@ -17,7 +17,7 @@ using namespace eosio;
 class [[eosio::contract("hodl")]] hodl : public eosio::contract{
   private:
   public:
-}
+};
 ```
 This contract needs to set up a few constraints:
 
