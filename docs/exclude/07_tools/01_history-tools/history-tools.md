@@ -8,10 +8,7 @@ The EOSIO History Tools is a legacy, proof-of-concept (PoC) application that dem
 ## Migration Notice
 
 The following History Tools components have been migrated to the following EOSIO repositories:
-* `rodeos` (formerly `combo-rocksdb`, `fill-rocksdb`, `wasm-ql-rocksdb`):
-  * service daemon: https://github.com/EOSIO/eos
 * `wasm-ql`:
-  * rodeos support: https://github.com/EOSIO/eos
   * nodeos support: https://github.com/EOSIO/eos
   * cdt support: https://github.com/EOSIO/eosio.cdt
 * `abi-wasm`:
