@@ -3,7 +3,7 @@ content_title: "Supported Operating Systems"
 link_text: "Supported Operating Systems"
 ---
 
-The EOSIO software supports the following environments for development and/or deployment:
+The EOSIO platform is supported on the following environments:
 
 **Linux Distributions**
 * Amazon Linux 2

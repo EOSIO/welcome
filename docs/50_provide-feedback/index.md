@@ -3,9 +3,9 @@ content_title: Provide Feedback
 link_text: Provide Feedback
 ---
 
-Your feedback is important to us, help us create better documents that help you build better blockchain applications.
+Your feedback is important to us, help us create better documents that help you build better blockchain applications. Follow the instructions below to find out how to give us feedback or update the documentation in the developers portal.  
 
-### Reporting an Issue
+## Reporting an Issue
 If you're about to raise an issue because you think you've found a problem with the stack, or you'd like to make a request for a new feature in the codebase, or any other reason, please read this first.
 
 The GitHub issue tracker is the preferred channel for bug reports, feature requests, and submitting pull requests, but please respect the following restrictions:
@@ -14,7 +14,7 @@ The GitHub issue tracker is the preferred channel for bug reports, feature reque
 
 * Please **be civil**. Keep the discussion on topic and respect the opinions of others. See our [Code of Conduct](#code-of-conduct).
 
-#### Bug Reports
+### Bug Reports
 
 A bug is a _demonstrable problem_ that is caused by the code in the repository and can be reported in the form of a new issue.
 
@@ -29,7 +29,7 @@ Guidelines for bug reports:
 
 A good bug report or a new issue shouldn't leave others needing to chase you up for more information. Be sure to include the details of your environment and relevant tests that demonstrate the failure.
 
-#### Feature Requests
+### Feature Requests
 
 Feature requests are welcome. Before you submit one be sure to have:
 

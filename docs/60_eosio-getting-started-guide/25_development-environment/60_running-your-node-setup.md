@@ -3,6 +3,8 @@ content_title: "Running keosd and nodeos"
 link_text: "Running keosd and nodeos"
 ---
 
+This section shows you the command lines you will use to run 
+
 ## Step 1: Boot Node and Wallet
 
 ### Step 1.1: Start keosd

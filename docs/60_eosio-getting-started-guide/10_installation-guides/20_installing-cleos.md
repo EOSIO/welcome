@@ -3,12 +3,9 @@ content_title: Installing Cleos
 link_text: Installing Cleos
 ---
 
+The installation process will install `nodeos`, `cleos`, and `keosd`, the components required to run and interact with a blockchain. 
 
-
-It is recommended that you install the EOSIO prebuilt binaries, these binaries will install `nodeos`, `cleos`, and `keosd`.
+[Cleos](https://developers.eos.io/welcome/latest/glossary/index/#cleos) is the command line interface used to interact with [Nodeos.](https://developers.eos.io/welcome/latest/glossary/index/#nodeos)
 
 Follow this link [Installation Guide](https://developers.eos.io/manuals/eos/latest/install/index) for more information.
-
-## What's Next?
-- [Install the CDT](./04_install-the-CDT.md): Steps to install the EOSIO Contract Development Toolkit (CDT) on your system.
 

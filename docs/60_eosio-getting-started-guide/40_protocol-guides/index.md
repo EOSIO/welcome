@@ -3,11 +3,11 @@ content_title: Protocol Guides
 link_text: Protocol Guides
 ---
 
-# EOSIO Protocol
+The EOSIO Protocol section describes how the `EOSIO platform` actually works and can be split into two layers. The core which is open source and implemented in `C++` and system which is implemented in smart contracts running on the core.  
 
 ## Core
 
-`EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements.
+The `EOSIO Core` provides the basic building blocks for the `system` layer and are not implemented as smart contracts. The `core` implementation is open source and the source code can be customised to suit specific business requirements.
 
 The core protocols are:
 

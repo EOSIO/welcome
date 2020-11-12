@@ -3,9 +3,15 @@ content_title: Configuration Guides
 link_text: Configuration Guides
 ---
 
+The configuration guides section will show you how to configure [Nodeos.](https://developers.eos.io/welcome/latest/glossary/index/#nodeos) How [Nodeos](https://developers.eos.io/welcome/latest/glossary/index/#nodeos) is configured will depend on what your deired use is. [Nodeos](https://developers.eos.io/welcome/latest/glossary/index/#nodeos) configuration controls which [plugins](https://developers.eos.io/welcome/latest/glossary/index/#plugin) are used and how those [plugins](https://developers.eos.io/welcome/latest/glossary/index/#plugin) are configured. The [plugins](https://developers.eos.io/welcome/latest/glossary/index/#plugin) are used to specify [Nodeos](https://developers.eos.io/welcome/latest/glossary/index/#nodeos) behaviour for specific purposes. 
+
+# Smart Contracts and blockchain configuration
+
+The `EOSIO platform` provides a blockchain platform and a key feature of the `EOSIO platform` is it's flexibility. Smart Contracts are part of this flexibility. Many features are implemented using smart contracts, and as smart contracts can be edited and built so you can customise blockchain behaviour. Some examples are consensus, governance and resource models. For more information see [eosio.contracts](https://developers.eos.io/manuals/eosio.contracts/latest/index) and the [bios boot sequence tutorial.](../../90_tutorials/10_bios-boot-sequence.md)    
+
 # Development and Testing
 
-There are several ways to configure a `nodeos` environment for development and testing. Which option to use largely depends on what the project goals are. Some practical options are provided below.
+There are several ways to configure a [Nodeos](https://developers.eos.io/welcome/latest/glossary/index/#nodeos) environment for development and testing. Which option to use largely depends on what the project goals are. Some practical options are provided below.
 
 ## Local Single-Node Testnet
 
@@ -19,20 +25,6 @@ While this option can technically be used for smart contract development, it may
 
 * [Configure Nodeos as a Local Two-Node Testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-multi-node-testnet)
 * [Configure Nodeos as a Local 21-Node Testnet](https://github.com/EOSIO/eos/blob/master/tutorials/bios-boot-tutorial/README.md)
-
-## Official Testnet
-
-The official testnet is available for testing EOSIO dApps and smart contracts:
-
-* [testnet.eos.io](https://testnet.eos.io/)
-
-## Third-Party Testnets
-
-The following third-party testnets are available for testing EOSIO dApps and smart contracts:
-
-* Jungle Testnet [monitor](https://monitor.jungletestnet.io/), [website](https://jungletestnet.io/)
-* [CryptoKylin Testnet](https://www.cryptokylin.io/)
-* [Telos Testnet](https://mon-test.telosfoundation.io/)
 
 # Block Producers
 

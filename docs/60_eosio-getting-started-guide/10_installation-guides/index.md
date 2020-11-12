@@ -3,13 +3,21 @@ content_title: Installation Guides
 link_text: Installation Guides
 ---
 
-There are two ways to install and use the EOSIO software:
+The `EOSIO platform` can be installed using binary files released by Block.one or you can get the open source code and build the binary files locally. This section provide installation instructions using binary files. To see if your environment is supported see our list of [supported environments.](05_versions-and-operating-systems.md)    
 
-* [Install EOSIO Prebuilt Binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries)
-* [Build EOSIO from Source](https://developers.eos.io/manuals/eos/latest/install/build-from-source/index)
+## Blockchain
+Follow this link [Nodeos, Cleos and Keosd](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries) for instructions on installing the components required to interact and run a blockchain.
+
+* [Nodeos](/10_installing-nodeos.md)
+* [Cleos](/10_installing-cleos.md)
+* [Keosd](/10_installing-keosd.md)
+
+## Smart Contract Development
+The EOSIO Contract Development Toolkit, CDT for short, is a collection of tools used to build smart contracts. Follow this link [Installation Guide](https://developers.eos.io/manuals/eosio.cdt/latest/installation) for more information.
+
+For advanced users seeking to customise installation or the `EOSIO platform` there is the option of [Building EOSIO from Source.](https://developers.eos.io/manuals/eos/latest/install/build-from-source/index)
 
 [[info]]
-| If you are new to EOSIO, it is recommended that you install the [EOSIO Prebuilt Binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries), then proceed to the [Getting Started](https://developers.eos.io/eosio-home/docs/) section of the [EOSIO Developer Portal](https://developers.eos.io/). If you are an advanced developer, a block producer, or no binaries are available for your platform, you may need to [Build EOSIO from source](https://developers.eos.io/manuals/eos/latest/install/build-from-source/index) instead.
+| If you are new to EOSIO, we recommended you install the [EOSIO Prebuilt Binaries.](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries)
 
 
-[EOSIO software versions and supported environments.](05_versions-and-operating-systems.md) 

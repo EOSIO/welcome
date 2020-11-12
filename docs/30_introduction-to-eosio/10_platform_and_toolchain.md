@@ -2,12 +2,9 @@
 content_title: Platform and Toolchain
 ---
 
-The EOSIO platform is made up of the following components and toolchain:
+The EOSIO platform provides a number of components and libraries which are used to operate blockchain nodes, collect blockchain data, to interact with these nodes, and to build smart contracts. The main component is `nodeos` (node + EOSIO = nodeos). This is the core EOSIO node daemon that can be configured with plugins to run a node. Example uses are block production, dedicated API endpoints, and local development. `Cleos` (CLI + EOSIO = cleos) is a command line interface which interacts with `nodeos`, allowing you to send commands and actions to a blockchain. `Cleos` also interacts with `keosd` (key + EOSIO = keosd), a local component that securely stores EOSIO keys.     
 
-1. `nodeos` (node + EOSIO = nodeos):  the core EOSIO node daemon that can be configured with plugins to run a node. Example uses are block production, dedicated API endpoints, and local development.
-2. `cleos` (CLI + EOSIO = cleos): the command line interface to interact with the blockchain and to manage wallets.
-3. `keosd` (key + EOSIO = keosd): the component that securely stores EOSIO keys in wallets.
-4. `EOSIO.CDT`: toolchain for WebAssembly (Wasm)  and a set of tools to facilitate smart contract writing for the EOSIO platform.
+To build smart contracts you require `EOSIO.CDT`, the block.one developed toolchain and libraries, which generate the `WebAssembly` binary instructions or `bytecode` into `wasm` files. The generated `wasm` files are the smart contracts which can be deployed to EOSIO blockchains.
 
 The basic relationship between these components is illustrated in the following diagram:
 

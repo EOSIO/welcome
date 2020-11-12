@@ -3,7 +3,7 @@ content_title: "EOSIO versions"
 link_text: "EOSIO versions"
 ---
 
-The subsequent tutorials are up to date with the following EOSIO components.
+The current component versions of the `EOSIO platform` are:
 
 | Component | Version |
 | ------ | ------ |

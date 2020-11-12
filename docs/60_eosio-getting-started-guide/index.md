@@ -3,16 +3,7 @@ content_title: "EOSIO Getting Started Guide"
 link_text: "EOSIO Getting Started Guide"
 ---
 
-Welcome to the EOSIO platform. This getting started guide will quickly show you how to use the EOSIO platform.
-
-The EOSIO platform is made up of the following components and toolchain:
-
-* `nodeos`:  the core EOSIO node daemon that can be configured with plugins to run a node. Example uses are block production, dedicated API endpoints, and local development.
-* `cleos`: the command line interface to interact with the blockchain and to manage wallets.
-* `keosd`: the component that securely stores EOSIO keys in wallets.
-* `EOSIO.CDT`: toolchain for WebAssembly (Wasm)  and a set of tools to facilitate smart contract writing for the EOSIO platform.
-
-In the getting started guide we introduce you to concepts, tools and SDK's you will use to build robust blockchain solutions.
+Welcome to the `EOSIO platform`. This getting started guide will guide you to the information you need to install and use the `EOSIO platform`. The sections below should let you easily find the information you need to understand how the EOSIO platfrom works and how to install the components you need. Once you understand the `EOSIO platform` follow our getting started guides to learn how to build [smart contracts](70_smart-contract-getting-started) or how to be a [block producer](80_block-producer-getting-started).
 
 # Installation Guides
 
