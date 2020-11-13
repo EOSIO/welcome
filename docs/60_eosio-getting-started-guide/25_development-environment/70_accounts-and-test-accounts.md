@@ -1,15 +1,15 @@
 ---
-content_title: "Accounts and Test Accounts"
-link_text: "Accounts and Test Accounts"
+content_title: "Accounts"
+link_text: "Accounts"
 ---
 
-## What is an account?
+An account is a collection of authorizations, stored on the blockchain, accounts identify individual users. Accounts also identify  smart contracts, each smart contract requires an account, and an account can have one smart contract. 
 
-An account is a collection of authorizations, stored on the blockchain, and used to identify a sender/recipient. It has a flexible authorization structure that enables it to be owned either by an individual or group of individuals depending on **how** permissions have been configured. An account is required to send or receive a valid transaction to the blockchain
+EOSIO accounst have a flexible authorization structure which enables it to be controlled by an individual or group of individuals (multisig) depending on **how** permissions have been configured. An account is required to send or receive a valid transaction to the blockchain
 
 This tutorial series uses two "user" accounts, `bob` and `alice`, as well as the default `eosio` account for configuration. Additionally accounts are made for various contracts throughout this tutorial series.
 
-## Step 1: Create Test Accounts
+## Create Test Accounts
 
 [[caution | Public Key Persistence]]
 | In section **1.4 Create Development Wallet**, you created a development key pair and pasted the public key in the **Development Public Key** field for the value to persist throughout the tutorial.
@@ -30,7 +30,7 @@ executed transaction: 40c605006de...  200 bytes  153 us
 warning: transaction executed locally, but may not be confirmed by the network yet    ]
 ```
 
-## Step 2: Public Key
+## Public Key
 Note in `cleos` command a public key is associated with account `alice`. Each EOSIO account is associated with a public key.
 
 Be aware that the account name is the only identifier for ownership. You can change the public key but it would not change the ownership of your EOSIO account.
@@ -79,6 +79,3 @@ Wallets:
   "default *"
 ]
 ```
-
-## What's Next?
-- [Hello World](../03_smart-contract-development/01_hello-world.md): The Hello World of EOSIO! Learn how to set up your environment and deploy your first smart contract.

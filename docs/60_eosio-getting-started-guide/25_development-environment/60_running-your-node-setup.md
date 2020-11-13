@@ -3,13 +3,12 @@ content_title: "Running keosd and nodeos"
 link_text: "Running keosd and nodeos"
 ---
 
-This section shows you the command lines you will use to run 
+To develop smart contracts you need to test smart contracts. To do this requires deploying smart contracts to a blockchain. In the [configuration guides](../20_configuration-guides) we discuss some of the options. In this section we show you some command lines for running [Nodeos](https://developers.eos.io/welcome/latest/glossary/index/#nodeos) and [Keosd.](https://developers.eos.io/welcome/latest/glossary/index/#keosd)   
 
-## Step 1: Boot Node and Wallet
 
-### Step 1.1: Start keosd
+### Starting keosd
 
-First let us start keosd:
+To start keosd:
 
 ```shell
 keosd &
@@ -36,7 +35,7 @@ After entering `keosd &`, you may encounter this message:
 
 This is because another instance of `keosd` process might be running in the background. Kill all instances by `pkill keosd` and rerun `keosd &`.
 
-### Step 1.2: Start nodeos
+### Starting nodeos
 
 Start nodeos now:
 
@@ -68,9 +67,9 @@ These settings accomplish the following:
 
 After starting `nodeos`, if you see an error message similar to "Database dirty flag set (likely due to unclean shutdown): replay required", try to start `nodeos` with  `--replay-blockchain`. More details on troubleshooting `nodeos` can be found [here](https://developers.eos.io/manuals/eos/latest/nodeos/troubleshooting/index).
 
-## Step 2: Check the installation
+## Validating Nodeos
 
-### Step 2.1: Check that Nodeos is Producing Blocks
+### Check that Nodeos is Producing Blocks
 
 Run the following command
 
@@ -93,7 +92,7 @@ You should see some output in the console that looks like this:
 ```
 Press `ctrl + c` to close the log
 
-### Step 2.2: Check the Wallet
+### Check the Wallet
 
 Open the shell and run the cleos command to list available wallets. We will talk more about wallets in the future. For now, we need to validate the installation and see that the command line client
 [cleos](https://developers.eos.io/manuals/eos/latest/cleos) is working as intended.
@@ -111,7 +110,7 @@ Wallets:
 
 From this point forward, you'll be executing commands from your local system (Linux or Mac)
 
-### Step 2.3: Check Nodeos endpoints
+### Check Nodeos endpoints
 
 This will check that the RPC API is working correctly, pick one.
 
@@ -122,5 +121,3 @@ This will check that the RPC API is working correctly, pick one.
 curl http://localhost:8888/v1/chain/get_info
 ```
 
-## What's Next?
-- [Create Test Accounts](./07_create-test-accounts.md): Learn how to create test accounts in the EOSIO blockchain along with troubleshooting steps. 
