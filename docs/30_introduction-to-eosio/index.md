@@ -20,14 +20,14 @@ The transactions recorded on the blockchain form an immutable history of the blo
 
 Learn about EOSIO's available tools, the core concepts and underlying technical features
 
-- [Platform and Toolchain](01_platform_and_toolchain.md)
-- [Core Concepts](02_core_concepts.md)
-- [Technical Features](03_technical_features.md)
-
+- [Platform and Toolchain](10_platform_and_toolchain.md)
+- [Core Concepts](20_core_concepts.md)
+- [Technical Features](30_technical_features.md)
+- [Community Developer Tools](40_community-developer-tools.md)
 
 ## What's Next?
-- [Get Started](./02_getting-started/index.md): Learn how to develop on an EOSIO blockchain
-- [Protocol](./04_protocol/index.md): Understand the protocols that makes up an EOSIO blockchain
-- [Get Involved](./get-involved/index.md): Learn how to get involved and contribute to the EOSIO ecosystem.
+- [Get Started](../60_eosio-getting-started-guide/index.md): Learn how to develop on an EOSIO blockchain
+- [Protocol](../60_eosio-getting-started-guide/40_protocol-guides/index.md): Understand the protocols that makes up an EOSIO blockchain
+- [Get Involved](../96_get-involved/index.md): Learn how to get involved and contribute to the EOSIO ecosystem.
 
 

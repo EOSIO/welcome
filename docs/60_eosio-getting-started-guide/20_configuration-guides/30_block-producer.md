@@ -3,7 +3,7 @@ content_title: Distributed Multi-Node Blockchains
 link_text: Block Producers
 ---
 
-Block producers will generally operate in a distributed and/or decentralised environment. A [block producer](https://developers.eos.io/welcome/latest/glossary/index/#block-producer) may run many instances of [Nodeos](https://developers.eos.io/welcome/latest/glossary/index/#nodeos) and generally these may be in one of two modes:
+Block producers will generally operate in a distributed and/or decentralised environment. A [block producer](../../glossary/index#block-producer) may run many instances of [Nodeos](../../glossary/index#nodeos) and generally these may be in one of two modes:
 
  * [Producing Node](https://developers.eos.io/manuals/eos/latest/nodeos/usage/node-setups/producing-node)
  * [Non-Producing Node](https://developers.eos.io/manuals/eos/latest/nodeos/usage/node-setups/non-producing-node)

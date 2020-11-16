@@ -158,7 +158,7 @@ After the transaction instance is created at the application level, the transact
 
 ## 3.2. Sign Transaction
 
-The transaction must be signed by a set of keys sufficient to satisfy the accumulated set of explicit `actor:permission` pairs specified in all the actions enclosed within the transaction. This linkage is done through the authority table for the given permission (see [Accounts and Permissions: 3. Permissions](04_accounts_and_permissions.md#3-permissions)). The actual signing key is obtained by querying the wallet associated with the signing account on the client where the application is run.
+The transaction must be signed by a set of keys sufficient to satisfy the accumulated set of explicit `actor:permission` pairs specified in all the actions enclosed within the transaction. This linkage is done through the authority table for the given permission (see [Accounts and Permissions: 3. Permissions](40_accounts_and_permissions.md#3-permissions)). The actual signing key is obtained by querying the wallet associated with the signing account on the client where the application is run.
 
 The transaction signing process takes three parameters: the transaction instance to sign, the set of public keys from which the associated private keys within the application wallet are retrieved, and the chain ID. The chain ID identifies the actual EOSIO blockchain and consists of a hash of its genesis state, which depends on the blockchain’s initial configuration parameters. Before signing the transaction, the EOSIO software first computes a digest of the transaction. The digest value is a SHA-256 hash of the chain ID, the transaction instance, and the context free data if the transaction has any context free actions. Any instance fields get serialized before computing any cryptographic hashes to avoid including reference fields (memory addresses) in the hash computation. The transaction digest computation and the signing process are depicted below.
 
@@ -317,7 +317,7 @@ digraph {
 
 ### 3.4.4. Authority Check
 
-After the minimum permission levels are checked, the authority table for the receiver account’s permission that matches each actor’s permission within the action instance is checked (see [Accounts and Permissions: 3. Permissions](04_accounts_and_permissions.md#3-permissions) for more details).
+After the minimum permission levels are checked, the authority table for the receiver account’s permission that matches each actor’s permission within the action instance is checked (see [Accounts and Permissions: 3. Permissions](40_accounts_and_permissions.md#3-permissions) for more details).
 
 
 ## 3.5. Execute Transaction
@@ -327,7 +327,7 @@ To execute the transaction, a chain database session is started and a snapshot i
 
 ### 3.5.1. Apply Context
 
-To prepare for action execution, an apply context instance is created locally for each action. The apply context, as its name implies, contains references to the necessary resources to apply the action, such as an instance to the chain controller (see [Network Peer Protocol: 2.2. Chain Controller](03_network_peer_protocol.md#22-chain-controller)), the chain database where state is kept, the transaction context where the transaction is running, the actual action instance, and the receiver account to whom the action is intended.
+To prepare for action execution, an apply context instance is created locally for each action. The apply context, as its name implies, contains references to the necessary resources to apply the action, such as an instance to the chain controller (see [Network Peer Protocol: 2.2. Chain Controller](30_network_peer_protocol.md#22-chain-controller)), the chain database where state is kept, the transaction context where the transaction is running, the actual action instance, and the receiver account to whom the action is intended.
 
 
 ### 3.5.2. Action Trace
@@ -391,4 +391,4 @@ A transaction is verified and validated at various stages during its lifecycle: 
 
 ### 3.7.1. Validation Process
 
-When validating a transaction as part of a block, multiple validations occur at various levels. In full block validation, all transactions recorded in the block are replayed and the locally calculated merkle tree root hashes (generated from the transaction receipt data and the action receipt data, respectively) are compared against the `transaction_mroot` and `action_mroot` fields in the block header. Therefore, if a recorded transaction is tampered within a block, not only the merkle tree root hashes would cause a mismatch, but also the transaction signature(s) would fail to validate. If the tampering was not performed by a bona-fide block producer, the block signature would fail to validate as well (see [Consensus Protocol: 5.3. Block Validation](01_consensus_protocol.md#53-block-validation)).
+When validating a transaction as part of a block, multiple validations occur at various levels. In full block validation, all transactions recorded in the block are replayed and the locally calculated merkle tree root hashes (generated from the transaction receipt data and the action receipt data, respectively) are compared against the `transaction_mroot` and `action_mroot` fields in the block header. Therefore, if a recorded transaction is tampered within a block, not only the merkle tree root hashes would cause a mismatch, but also the transaction signature(s) would fail to validate. If the tampering was not performed by a bona-fide block producer, the block signature would fail to validate as well (see [Consensus Protocol: 5.3. Block Validation](10_consensus_protocol.md#53-block-validation)).

@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": ["exclude"]
+        "exclude": ["exclude", "07_tools"]
       }
     },
     {
@@ -38,6 +38,15 @@
       "options": {
         "glossary_markdown_output": "glossary",
         "glossary_source": "glossary.yaml"
+      }
+    },
+	{
+      "name": "collate_markdown",
+      "options": {
+        "docs_dir": "docs/07_tools",
+        "output_dir": "07_tools",
+        "disable_summary_gen": true,
+        "disable_readme_import": true
       }
     }
   ]

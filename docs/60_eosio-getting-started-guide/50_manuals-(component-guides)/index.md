@@ -1,6 +1,6 @@
 ---
-content_title: Manuals (Component Guides)
-link_text: Manuals (Component Guides)
+content_title: Software Manuals
+link_text: Software Manuals
 ---
 
 # Manuals (Component Guides)

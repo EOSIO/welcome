@@ -160,7 +160,7 @@ The owner permission sits at the root of the permission hierarchy for every acco
 
 ### 3.1.2. Active permission
 
-In the current EOSIO implementation, the implicit default permission linked to all actions is `active`, which sits one level below the `owner` permission within the hierarchy structure. As a result, the `active` permission can do anything the `owner` permission can, except changing the keys associated with the owner. The `active` permission is typically used for voting, transferring funds, and other account operations. For more specific actions, custom permissions are typically created below the `active` permission and mapped to specific contracts or actions. Refer to the [Creating and Linking Custom Permissions](../02_getting-started/03_smart-contract-development/08_linking-custom-permission.md) for more details.
+In the current EOSIO implementation, the implicit default permission linked to all actions is `active`, which sits one level below the `owner` permission within the hierarchy structure. As a result, the `active` permission can do anything the `owner` permission can, except changing the keys associated with the owner. The `active` permission is typically used for voting, transferring funds, and other account operations. For more specific actions, custom permissions are typically created below the `active` permission and mapped to specific contracts or actions. Refer to the [Creating and Linking Custom Permissions](../70_smart-contract-getting-started/80_linking-custom-permission.md) for more details.
 
 [[info | Custom Permissions]]
 | EOSIO allows to create custom hierarchical permissions that stem from the owner permission. This allows finer control over action authorizations. It also strengthens security in case the `active` permission gets compromised.
@@ -179,7 +179,7 @@ Name | Type | Description
 `accounts` | array of `permission_level_weight` | list of `account@permission` levels and weights
 `waits` | array of `wait_weight` | list of time waits and weights
 
-The `key_weight` type contains the actor's public key and associated weight. The `permission_level_weight` type consists of the actor's `account@permission` level and associated weight. The `wait_weight` contains the time wait and associated weight (used to satisfy action authorizations in delayed user transactions (see [Transactions Protocol: 3.6.3. Delayed User Transactions](02_transactions_protocol.md#363-delayed-user-transactions)). All of these types allow to define lists of authority factors that are used for satisfaction of action authorizations (see [3.2.1. Authority factors](#321-authority-factors) below).
+The `key_weight` type contains the actor's public key and associated weight. The `permission_level_weight` type consists of the actor's `account@permission` level and associated weight. The `wait_weight` contains the time wait and associated weight (used to satisfy action authorizations in delayed user transactions (see [Transactions Protocol: 3.6.3. Delayed User Transactions](20_transactions_protocol.md#363-delayed-user-transactions)). All of these types allow to define lists of authority factors that are used for satisfaction of action authorizations (see [3.2.1. Authority factors](#321-authority-factors) below).
 
 ### 3.2.1. Authority Factors
 
@@ -194,7 +194,7 @@ The potential actors who may execute the action are specified by either public k
 
 ### 3.2.2. Authority Threshold
 
-Authorization over a given action is determined by satisfying all explicit authorizations specified in the action instance (see [Transactions Protocol: 3.4.3. Action Instance](02_transactions_protocol.md#343-action-instance)). Those are in turn individually satisfied by evaluating each "factor" (account, public key, wait) for satisfaction (potentially recursively) and summing the weights of those that are satisfied. If the sum equals or exceeds the weight threshold, the action is authorized.
+Authorization over a given action is determined by satisfying all explicit authorizations specified in the action instance (see [Transactions Protocol: 3.4.3. Action Instance](20_transactions_protocol.md#343-action-instance)). Those are in turn individually satisfied by evaluating each "factor" (account, public key, wait) for satisfaction (potentially recursively) and summing the weights of those that are satisfied. If the sum equals or exceeds the weight threshold, the action is authorized.
 
 
 ### 3.2.3. Authority Example
@@ -269,4 +269,4 @@ By default every account on the EOSIO blockchain is linked to the `active` permi
 
 Satisfying authorities linked to permissions involves first and foremost the validation/recovery of the public keys that signed the transaction. After a signed transaction is received by a node, the set of signatures is extracted from the transaction instance. The set of public keys are then recovered from the signatures. Then for all actions included in the transaction, the node checks that each `actor:permission` meets or exceeds the minimum permission as defined by the per-account permission links.
 
-Once validated, the set of recovered keys are provided to the authorization manager instance along with the amount of time "waited". The authorization manager then proceeds to check whether the provided "factors" satisfy the authorities, potentially recursing into other linked permission levels/authorities (see [3.2. Authority Table](#32-authority-table) and [Transactions Protocol: 3.4. Verify Transaction](02_transactions_protocol.md#34-verify-transaction) for more information).
+Once validated, the set of recovered keys are provided to the authorization manager instance along with the amount of time "waited". The authorization manager then proceeds to check whether the provided "factors" satisfy the authorities, potentially recursing into other linked permission levels/authorities (see [3.2. Authority Table](#32-authority-table) and [Transactions Protocol: 3.4. Verify Transaction](20_transactions_protocol.md#34-verify-transaction) for more information).

@@ -14,7 +14,7 @@ The EOSIO platform is supported on the following environments:
 * Ubuntu 16.04
 
 **macOS**
-* macOS 10.14 (Mojave) or later
+* macOS 10.14 (Mojave)
 
 [[info | Note]]
 | It may be possible to install EOSIO on other Unix-based operating systems. This is not officially supported, though.

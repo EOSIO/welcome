@@ -13,8 +13,8 @@ Wallets are clients that store keys that may or may not be associated with the p
 
 Permissions are arbitrary names used to define the requirements for a transaction sent on behalf of that permission. Permissions can be assigned for authority over specific contract actions by *linking authorization* or linkauth.
 
-For more information about these concepts, see the [_Accounts and Permissions_](../04_protocol/accounts_and_permissions) documentation.
-<!-- The link will be updated once the initial site is live -->
+For more information about these concepts, see the [_Accounts and Permissions_](../60_eosio-getting-started-guide/40_protocol-guides/40_accounts_and_permissions) documentation.
+
 
 ### Smart Contracts
 A smart contract is a piece of code that can execute on a blockchain and keep the state of contract execution as a part of the immutable history of that blockchain instance. Therefore, developers can rely on that blockchain as a trusted computation environment in which inputs, execution, and the results of a smart contract are independent and free of external influence.
@@ -27,7 +27,7 @@ A smart contract is a piece of code that can execute on a blockchain and keep th
 
 The EOSIO platform implements a proven decentralized consensus algorithm capable of meeting the performance requirements of applications on the blockchain called the _Delegated Proof of Stake_ (DPOS). Under this algorithm, if you hold tokens on a EOSIO-based blockchain, you can select block producers through a continuous approval voting system. Anyone can choose to participate in the block production and will be given an opportunity to produce blocks, provided they can persuade token holders to vote for them.
 
-For more information about DPOS BFT, see [EOSIO Consensus](../04_protocol/01_consensus_protocol.md#3-eosio-consensus-dpos--abft).
+For more information about DPOS BFT, see [EOSIO Consensus](../60_eosio-getting-started-guide/40_protocol-guides/10_consensus_protocol.md#3-eosio-consensus-dpos--abft).
 
 <!-- The link will be updated once the initial site is live -->
 

@@ -183,7 +183,7 @@ Upload and deploy your smart contract on the EOSIO blockchain in a 3-step sequen
 # Push Actions
 An action is authorized by one or more actors created on the blockchain. Actions are created explicitly within a smart contract, or generated implicitly by application code.
 
-For more information on Actions in EOSIO, see the [Actions](https://developers.eos.io/welcome/latest/protocol/transactions_protocol/#11-actions) section in Transaction Protocol on the *EOSIO Developers Portal*.
+For more information on Actions in EOSIO, see the [Actions](../40_protocol-guides/20_transactions_protocol/#11-actions) section in Transaction Protocol on the *EOSIO Developers Portal*.
 
 **Complete the following steps to push actions on the Testnet:**
 
@@ -239,7 +239,7 @@ The type of key in **Key Type**.
 # View Transactions
 A transaction instance contains a transaction header and the list of action instances and transaction extensions that make the actual transaction.
 
-For more information on Transactions in EOSIO, see the [Transactions Protocol](../04_protocol/02_transactions_protocol.md) section on the *EOSIO Developers Portal*.
+For more information on Transactions in EOSIO, see the [Transactions Protocol](../40_protocol-guides/20_transactions_protocol) section on the *EOSIO Developers Portal*.
 
 **Complete the following steps to view transactions on the Testnet:**
 

@@ -3,7 +3,7 @@ content_title: "Running keosd and nodeos"
 link_text: "Running keosd and nodeos"
 ---
 
-To develop smart contracts you need to test smart contracts. To do this requires deploying smart contracts to a blockchain. In the [configuration guides](../20_configuration-guides) we discuss some of the options. In this section we show you some command lines for running [Nodeos](https://developers.eos.io/welcome/latest/glossary/index/#nodeos) and [Keosd.](https://developers.eos.io/welcome/latest/glossary/index/#keosd)   
+To develop smart contracts you need to test smart contracts. To do this requires deploying smart contracts to a blockchain. In the [configuration guides](../20_configuration-guides) we discuss some of the options. In this section we show you some command lines for running [Nodeos](../../glossary/index#nodeos) and [Keosd.](../../glossary/index#keosd)   
 
 
 ### Starting keosd
