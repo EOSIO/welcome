@@ -15,16 +15,18 @@ This section will introduce you to the EOSIO library and show you the concepts y
 * [Payable Actions](10_payable-actions.md) - Custom resource managment
 
 
-# Set up a cookie to assist in getting started with smart contracts
 
-## Setup a development directory, stick to it.
+
+## Set up a cookie to assist in getting started with smart contracts
+
+### Setup a development directory, stick to it.
 You're going to need to pick a directory to work from, it's suggested to create a `contracts` directory somewhere on your local drive.
 ```shell
 mkdir contracts
 cd contracts
 ```
 
-## Enter your local directory below.
+### Enter your local directory below.
 Get the path of that directory and save it for later, as you're going to need it, you can use the following command to get your absolute path.
 ```
 pwd
