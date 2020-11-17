@@ -3,7 +3,7 @@ content_title: "EOSIO Getting Started Guide"
 link_text: "EOSIO Getting Started Guide"
 ---
 
-Welcome to the `EOSIO platform`. This getting started guide will guide you to the information you need to install and use the `EOSIO platform`. The sections below should let you easily find the information you need to understand how the EOSIO platfrom works and how to install the components you need. Once you understand the `EOSIO platform` follow our getting started guides to learn how to build [smart contracts](70_smart-contract-getting-started) or how to be a [block producer](80_block-producer-getting-started).
+Welcome to the `EOSIO platform`. This getting started guide will guide you to the information you need to install and use the `EOSIO platform`. The sections below should let you easily find the information you need to understand how the EOSIO platfrom works and how to install the components you need. Once you understand the `EOSIO platform` follow our getting started guides to learn how to build [smart contracts](../70_smart-contract-getting-started) or how to be a [block producer](../80_block-producer-getting-started).
 
 # Installation Guides
 
@@ -96,10 +96,10 @@ The EOSIO Testnet is a web application that you can access using your login cred
 * [EOSIO Testnet](https://testnet.eos.io/) Block.one's official EOSIO Testnet.
 
 # EOSIO Blockchain Networks
-There are many public blockchains using the EOSIO platform, follow this link [EOSIO Blockchains](65_eosio-blockchain-networks) to see a list of blockchains, and click [here](50_provide-feedback) to let us know about your EOSIO based blockchain.
+There are many public blockchains using the EOSIO platform, follow this link [EOSIO Blockchains](65_eosio-blockchain-networks) to see a list of blockchains, and click [here](../50_provide-feedback) to let us know about your EOSIO based blockchain.
 
 # Hello World
-Let's start with a simple smart contract producing the traditional "hello world." The [Hello World](../70_smart-contract-getting-started/01_hello-world.md) tutorial will guide you step by step in building a simple smart contract and deploying this smart contract to an EOSIO blockchain. 
+Let's start with a simple smart contract producing the traditional "hello world." The [Hello World](../70_smart-contract-getting-started/10_hello-world.md) tutorial will guide you step by step in building a simple smart contract and deploying this smart contract to an EOSIO blockchain. 
 
 # Next Steps
 Want to [get involved in the EOSIO platform?](80_next-steps) 
