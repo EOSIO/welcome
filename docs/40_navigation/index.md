@@ -7,7 +7,7 @@ link_text: Navigation
 
 The pages on the _EOSIO Developers Portal_ are designed to reflect a 3-panel layout design to improve content readability and overall portal usability. An example portal page renders as shown below: 
 
-![Developers Portal Page Layout](portal-page-layout.png "portal page layout")
+![Developers Portal Page Layout](portal-page-layout-1.png "portal page layout")
 *Fig 1. A standard 3-panel layout*
 
 To get familiar with the 3-panel layout of a portal page, see the descriptions below that are mapped to the numbered labels in _Fig 1. A standard 3-panel layout_. 
