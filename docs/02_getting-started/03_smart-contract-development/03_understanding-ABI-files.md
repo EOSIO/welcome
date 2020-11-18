@@ -316,13 +316,13 @@ Here's how the accounts table would be described in the ABI
 }
 ```
 
-The `stat` table is an i64 index, based on the [`currency_stats` struct](https://github.com/EOSIO/eosio.contracts/blob/f6578c45c83ec60826e6a1eeb9ee71de85abe976/contracts/eosio.token/include/eosio.token/eosio.token.hpp#L126-L132), has a [`uint64` as it's primary key](https://github.com/EOSIO/eosio.contracts/blob/f6578c45c83ec60826e6a1eeb9ee71de85abe976/contracts/eosio.token/include/eosio.token/eosio.token.hpp#L131)
+The `stats` table is an i64 index, based on the [`currency_stats` struct](https://github.com/EOSIO/eosio.contracts/blob/f6578c45c83ec60826e6a1eeb9ee71de85abe976/contracts/eosio.token/include/eosio.token/eosio.token.hpp#L126-L132), has a [`uint64` as it's primary key](https://github.com/EOSIO/eosio.contracts/blob/f6578c45c83ec60826e6a1eeb9ee71de85abe976/contracts/eosio.token/include/eosio.token/eosio.token.hpp#L131)
 
-Here's how the stat table would be described in the ABI
+Here's how the stats table would be described in the ABI
 
 ```json
 {
-  "name": "stat",
+  "name": "stats",
   "type": "currency_stats",
   "index_type": "i64",
   "key_names" : ["primary_key"],
@@ -493,7 +493,7 @@ Finally, an ABI file that accurately describes the `eosio.token` contract.
       "key_types" : ["uint64"]
     },
     {
-      "name": "stat",
+      "name": "stats",
       "type": "currency_stats",
       "index_type": "i64",
       "key_names" : ["currency"],
