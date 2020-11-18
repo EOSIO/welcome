@@ -89,6 +89,9 @@ In this contract the permission should be authorized by the `active` authority o
     void send_summary(name user, std::string message){
       action(
         permission_level{get_self(),"active"_n},
+        //code,
+        //action,
+        //data
       );
     }
 ```
