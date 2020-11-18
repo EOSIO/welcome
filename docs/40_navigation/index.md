@@ -36,9 +36,9 @@ The right-side panel occupies the vertical area at the right of a given page tha
 
 * **(11) Edit**: Submit a Pull Request (PR) to the selected Github repository
 * **(12) Request Changes**: File a new issue in the selected Github repository
-* **(12) Copy Permalink**: The permanent URL to the current portal page that will not expire. You can use this link to share with others or bookmark it for later reference.
-* **(13) Github Links**: Links to resources in Github related to the selected repository
-* **(14) On-page navigation**: A secondary navigation panel to navigate through the other sections of the **(4) Current Page**.
+* **(13) Copy Permalink**: The permanent URL to the current portal page that will not expire. You can use this link to share with others or bookmark it for later reference.
+* **(14) Github Links**: Links to resources in Github related to the selected repository
+* **(15) On-page navigation**: A secondary navigation panel to navigate through the other sections of the **(4) Current Page**.
 
 [[info | Note]]
 | For detailed instructions on using the **Edit** button and the **Request Changes** button, the _Get Involved_ section.
