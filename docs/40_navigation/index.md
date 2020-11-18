@@ -60,7 +60,7 @@ The **Home** page of the developers portal is refactored into logical groupings 
 *Fig 3. The Home page of the developers portal*
 
 [[info | Note]]
-| The _EOSIO Developers Portal_ is constantly evolving in terms of UI design and UI content to improve readability and usablity. The screens illustrated here or elsewhere on the developers portal may change over time. We endeavour to keep all the screens duly updated, but if you see any outdated screens, please report it to us by clicking the Edit button at the upper right.
+| The _EOSIO Developers Portal_ is constantly evolving in terms of UI design and UI content to improve readability and usability. The screens illustrated here or elsewhere on the developers portal may change over time. We endeavour to keep all the screens duly updated, but if you see any outdated screens, please report it to us by clicking the **Edit** button at the upper-right of a given page.
 
 ## Repo-based Content Switching 
 The Developers Portal processes multiple source repositories in Github and produces documentation content. The **Repository selector** (See **(2)** in *Screen 1.0: A standard 3-panel layout*) on the left-side panel of a portal page allows convenient access to repo-based documentation.
