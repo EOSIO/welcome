@@ -49,7 +49,7 @@ The **Home** page of the developers portal is refactored into logical groupings 
 
 Below is a screenshot of the Home page:
 
-<pic>
+![Developers Portal Page Layout](dev-portal-home.png "dev portal home")
 
 ## Repository Switching 
 The Developers Portal displays documentation content processed from the source repositories in Github. The Repository selector (See (2) in Figure 1.0) on the left-side panel of a portal page allows convenient access to repo-based documentation. 
