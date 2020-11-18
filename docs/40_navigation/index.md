@@ -41,7 +41,7 @@ The right-side panel occupies the vertical area at the right of a given page tha
 * **(14) On-page navigation**: A secondary navigation panel to navigate through the other sections of the **(4) Current Page**.
 
 [[info | Note]]
-| For detailed instructions on using the Edit button the Request Changes button, the Get Involved section of the EOSIO Developers Portal.
+| For detailed instructions on using the **Edit** button and the **Request Changes** button, the _Get Involved_ section.
 
 ## Responsive Design
 
@@ -52,13 +52,15 @@ To build a great user experience on tablets, mobile devices, and desktops, we ha
 
 # Content and Site Navigation
 
-Home Page
+## Home Page
 
-The **Home** page of the developers portal is refactored into logical groupings around topics such as getting started, learning about the EOSIO stack, API reference, and helpful developer resources. 
-
-Below is a screenshot of the Home page:
+The **Home** page of the developers portal is refactored into logical groupings around topics such as getting started, learning about the EOSIO stack, API reference, and helpful developer resources. Below is a screenshot of the Home page:
 
 ![Developers Portal Page Layout](dev-portal-home.png "dev portal home")
+*Fig 3. The Home page of the developers portal*
+
+[[info | Note]]
+| The _EOSIO Developers Portal_ is constantly evolving in terms of UI design and UI content to improve readability and usablity. The screens illustrated here or elsewhere on the developers portal may change over time. We endeavour to keep all the screens duly updated, but if you see any outdated screens, please report it to us by clicking the Edit button at the upper right.
 
 ## Repo-based Content Switching 
 The Developers Portal processes multiple source repositories in Github and produces documentation content. The **Repository selector** (See **(2)** in *Screen 1.0: A standard 3-panel layout*) on the left-side panel of a portal page allows convenient access to repo-based documentation.
@@ -70,7 +72,7 @@ The Developers Portal processes multiple source repositories in Github and produ
 2. Select a repository from the list. 
 
 ![Developers Portal Repo Switch](repo-switch.gif "repo switch")
-*Fig 3. Switching between content repositories in action*
+*Fig 4. Switching between content repositories in action*
 
 ### Switch Repo-based Content Versions
 **To select a repository version:**
@@ -79,11 +81,11 @@ The Developers Portal processes multiple source repositories in Github and produ
 2. Select an available version of the repository.
 
 ![Developers Portal Version Switch](repo-switch.gif "version switch")
-*Fig 4. Switching repo-based content versionsn in action*
+*Fig 5. Switching repo-based content versionsn in action*
 
 # Portal Search 
 
 The EOSIO Developers Portal integrates the Algolia DocSearch application into the search feature, which provides a professional search experience with highly relevant search results. An example search result from the developers portal is shown in the below screenshot:
 
 ![Developers Portal Search](search-page-result.png "portal search")
-*Fig 5. Sample search result page*
+*Fig 6. Sample search result page*
