@@ -59,7 +59,7 @@ EOSIO Webinar 3: [Build a Full-stack Web Application Using EOSIO](https://eos.io
 Learn how to build a full stack app using EOSIO in a hands-on demo! 
 
 ## Training and Certification
-Take part in the EOSIO training and certification programs
+Take part in the EOSIO [training and certification](https://eos.io/eosio-for-business/training-certification/) programs.
 
 
 ## Community Contributions

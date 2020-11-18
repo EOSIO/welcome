@@ -7,8 +7,7 @@ link_text: Navigation
 
 The pages on the EOSIO Developers Portal are designed to reflect a 3-panel layout design for structured content consumption and usability. An example documentation page renders as shown below: 
 
-<pic>
-
+![Developers Portal Page Layout](portal-page-layout.png "portal page layout")
 
 ## Left-side Panel
 
@@ -40,8 +39,7 @@ The center panel of a given page displays the following UI components:
 
 To build a great user experience on tablets, mobile devices, and desktops, we have implemented a responsive design layout. 
 
-<pic>
-
+![Developers Portal Responsive Design](responsive-design.gif "responsive design")
 
 # Content and Site Navigation
 
@@ -61,17 +59,19 @@ To switch between repositories:
 
 1. On a given page, click the repository selector dropdown. 
 2. Select a repository from the list. 
-<pic>
+
+![Developers Portal Repo Switch](repo-switch.gif "repo switch")
 
 ### To Change Versions
 To select a repository version: 
 
 1. On a given page, click on the repository version selector dropdown. 
 2. Select an available version of the repository.
-<pic>
+
+![Developers Portal Version Switch](repo-switch.gif "version switch")
 
 # Portal Search 
 
 The developers portal provides a robust documentation search feature. The search result is scoped within its version of a repository. To implement it, we have integrated Algolia DocSearch into our project. An example search result from the developers portal is shown in the below screenshot:
 
-<pic>
+![Developers Portal Search](portal-search.png "portal search")
