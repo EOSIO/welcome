@@ -85,5 +85,5 @@ The Developers Portal processes multiple source repositories in Github and produ
 
 The EOSIO Developers Portal integrates the Algolia DocSearch application into the search feature, which provides a professional search experience with highly relevant search results. An example search result from the developers portal is shown in the below screenshot:
 
-![Developers Portal Search](portal-search.png "portal search")
+![Developers Portal Search](search-page-result.png "portal search")
 *Fig 5. Sample search result page*
