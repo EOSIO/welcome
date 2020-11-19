@@ -45,7 +45,9 @@ The right-side panel occupies the vertical area at the right of a given page tha
 
 ## Responsive Design
 
-To build a great user experience on tablets, mobile devices, and desktops, we have implemented a responsive design layout. Clicking the menu button will expand to show the same options on a desktop view. The below screen shows responsive design in action.
+To build a great user experience on tablets, mobile devices, and desktops, we have implemented a responsive design layout. Responsive design optimizes the portal pages to adapt to any screen size irrespective of the device. This modern web design feature does not compromise on readability and provides seamless reading experience on a variety of devices.
+
+For example, in the below screen, you can see responsive design in action on one of the portal pages. In the mobile-view menu, the portal retains all the navigation pane topics including the repository and version selector drop-down boxes. 
 
 ![Developers Portal Responsive Design](responsive-design.gif "responsive design")
 *Fig 2. Responsive design in action*
