@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": ["exclude", "07_tools"]
+        "exclude": ["07_tools", "95_community-developer-tools"]
       }
     },
     {
@@ -31,6 +31,15 @@
         "directory_source": "resource-directory.yaml",
         "directory_markdown_output": "resources",
         "directory_nav_parent": "Resources"
+      }
+    },
+	{
+      "name": "collate_markdown",
+      "options": {
+        "docs_dir": "docs/95_community-developer-tools",
+        "disable_indices": true,
+        "output_dir": "95_community-developer-tools",
+        "disable_readme_import": true
       }
     },
 	{
