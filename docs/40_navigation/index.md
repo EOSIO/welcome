@@ -27,7 +27,7 @@ The center panel occupies the center area of a given page that includes the foll
 
 * **(6) Top-level navigation**: A static navigation bar available on all pages of the portal that contains the core content categories.
 * **(7) Breadcrumb navigation**:  A page trail to indicate the current location and to trace your way back.
-* **(8) Current page subtitle**: The subtitle of the current page displayed
+* **(8) Current page title**: The main title of the current page displayed
 * **(9) Current page subtitle**: The subtitle of the current page displayed
 * **(10) Content display area**:  The consumable documentation content
 
