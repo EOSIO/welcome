@@ -41,7 +41,7 @@ The right-side panel occupies the vertical area at the right of a given page tha
 * **(15) On-page navigation**: A secondary navigation panel to navigate through the other sections of the **(4) Current Page**.
 
 [[info | Note]]
-| For detailed instructions on using the **Edit** button and the **Request Changes** button, the _Get Involved_ section.
+| For detailed instructions on using the **Edit** button and the **Request Changes** button, see the _Get Involved_ section.
 
 ## Responsive Design
 
