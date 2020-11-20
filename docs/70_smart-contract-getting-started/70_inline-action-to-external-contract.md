@@ -460,5 +460,6 @@ private:
 };
 ```
 
-## What's Next?
+## What's Next
+
 - [Linking Custom Permissions](./08_linking-custom-permission.md): Learn how create a custom permission and how to link the permission to an action of a contract.

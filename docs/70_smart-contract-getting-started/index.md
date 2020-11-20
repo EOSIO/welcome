@@ -12,7 +12,7 @@ This section will introduce you to the EOSIO library and show you the concepts y
 * [Adding inline Actions](06_adding-inline-actions.md) - Call actions from your smart contract
 * [Inline Actions to external contracts](07_inline-action-to-external-contract.md) - Call actions in other smart contracts
 * [Linking custom permissions](08_linking-custom-permissions.md) - How to set up permissions on smart contracts
-* [Payable Actions](10_payable-actions.md) - Custom resource managment
+* [Payable Actions](10_payable-actions.md) - Custom resource management
 
 
 
