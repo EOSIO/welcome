@@ -7,7 +7,7 @@ This section demonstrates data persistence and builds a simple addressbook smart
 
 ## Step 1: Create a new directory
 
-In the previous [2.1: Hello World Contract](./01_hello-world.md) section, you created a contract directory, open a command shell and navigate there.
+In the previous [2.1: Hello World Contract](./10_hello-world.md) section, you created a contract directory, open a command shell and navigate there.
 
 ```shell
 cd CONTRACTS_DIR

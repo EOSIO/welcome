@@ -116,7 +116,7 @@ The tictactoe.hpp file (or header file) contains the declarations of the smart c
 
 The tictactoe.cpp file contains implementations of the smart contract actions declared in the tictactoe.hpp header file and uses the data structures declared in the header file.
 
-The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the eosio-cpp tool from the EOSIO.CDT. Click on this link for more information on the [EOSIO.CDT.](https://developers.eos.io/manuals/eosio.cdt/v1.7/index "EOSIO.CDT documentation") The EOSIO.CDT builds the smart contract and creates an `ABI` file. Click on this link for more information about [ABI Files.](../02_getting-started/03_smart-contract-development/03_understanding-ABI-files.md "Understand ABI Files") 
+The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the eosio-cpp tool from the EOSIO.CDT. Click on this link for more information on the [EOSIO.CDT.](https://developers.eos.io/manuals/eosio.cdt/v1.7/index "EOSIO.CDT documentation") The EOSIO.CDT builds the smart contract and creates an `ABI` file. Click on this link for more information about [ABI Files.](../02_getting-started/03_smart-contract-development/30_understanding-ABI-files.md "Understand ABI Files") 
 
 ### Game Board Representation
 A std::vector represents the tic-tac-toe board. The number 0 marks an empty square. The number 1 denotes a movement by the host. The number 2 denotes a movement by the challenger. To make a movement, you push a  transaction to the tic-tac-toe smart contract.
@@ -165,7 +165,7 @@ This section creates the tictactoe.hpp file. This header file contains the decla
 The tic-tac-toe smart contract hpp file defines the following public data structures to store game information.  
 
 * game - The game data structure contains game data. The structure has variables of type `eosio::name`, for challenger, host, turn and winner. Click on this link for a definition of [eosio::name](https://developers.eos.io/manuals/eosio.cdt/v1.7/structeosio_1_1name "eosio.cdt reference - name structure") . The structure has a `std::vector` representing the game board  
-* Games - Games is a type definition that uses a class template. Games uses an `eosio::muti_index` template to define a type which stores a game structure in RAM. Click on this link for more information on [eosio::multi_index](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex "eosio.cdt reference - multi index table") and click on this link for more general information about [multi index tables](../02_getting-started/03_smart-contract-development/04_data-persistence.md) 
+* Games - Games is a type definition that uses a class template. Games uses an `eosio::muti_index` template to define a type which stores a game structure in RAM. Click on this link for more information on [eosio::multi_index](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__multiindex "eosio.cdt reference - multi index table") and click on this link for more general information about [multi index tables](../02_getting-started/03_smart-contract-development/40_data-persistence.md) 
 
 #### Game Actions
 The tic-tac-toe smart contract .hpp file defines the following four public actions to operate the game logic.  
@@ -521,7 +521,7 @@ The complete tictactoe.cpp file can be downloaded from github here: [Tic-tac-toe
 ## Compile and Deploy
 To deploy the smart contract to the blockchain first use the EOSIO.CDT (EOSIO Contract Development Toolkit) `eosio-cpp` tool to build the `.wasm` file and a corresponding `.abi` file. Click on this link for details on [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/v1.7/command-reference/eosio-cpp "eosio-cdt reference eosio-cpp tool") and click on this link for details about the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/v1.7/index "Contract Development Toolkit")
 
-The `.wasm` file (or webassembly) is the binary code that the `wasm engine` in the blockchain executes. The webassembly engine currently used in eosio is [eos-vm](https://github.com/EOSIO/eos-vm "git eos-vm"). The application binary interface or `.abi` file defines how to pack and unpack the data used by a smart contract, see [Understanding ABI Files](../02_getting-started/03_smart-contract-development/03_understanding-ABI-files.md "Getting Started - ABI files") for more information.     
+The `.wasm` file (or webassembly) is the binary code that the `wasm engine` in the blockchain executes. The webassembly engine currently used in eosio is [eos-vm](https://github.com/EOSIO/eos-vm "git eos-vm"). The application binary interface or `.abi` file defines how to pack and unpack the data used by a smart contract, see [Understanding ABI Files](../02_getting-started/03_smart-contract-development/30_understanding-ABI-files.md "Getting Started - ABI files") for more information.     
 
 ### Compilation
 To compile the smart contract change to the tictactoe folder  and run `eosio-cpp`. Click on this link for more information about using the [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/v1.7/command-reference/eosio-cpp "eosio-cpp command reference") .
@@ -541,7 +541,7 @@ Warning, action <close> does not have a ricardian contract
 Warning, action <move> does not have a ricardian contract
 ```
 
-For this tutorial we ignore these warnings. Click on the following link for a tutorial showing how to add the optional ricardian contracts [Prepare the Ricardian Contract](../02_getting-started/03_smart-contract-development/04_data-persistence.md#step-10-prepare-the-ricardian-contract-optional "Getting Started - Data Peristence")
+For this tutorial we ignore these warnings. Click on the following link for a tutorial showing how to add the optional ricardian contracts [Prepare the Ricardian Contract](../02_getting-started/03_smart-contract-development/40_data-persistence.md#step-10-prepare-the-ricardian-contract-optional "Getting Started - Data Peristence")
 
 The tictactoe directory now contains two new files, `tictactoe.wasm` and `tictactoe.abi`.
 

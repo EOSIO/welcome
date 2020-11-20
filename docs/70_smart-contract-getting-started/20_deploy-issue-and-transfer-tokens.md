@@ -147,4 +147,4 @@ Excellent! Everything adds up.
 
 ## What's Next
 
-- [Understanding ABI Files](./03_understanding-ABI-files.md): Introduction to Application Binary Files (ABI) and how the ABI file correlates to the `eosio.token` contract.
+- [Understanding ABI Files](./30_understanding-ABI-files.md): Introduction to Application Binary Files (ABI) and how the ABI file correlates to the `eosio.token` contract.

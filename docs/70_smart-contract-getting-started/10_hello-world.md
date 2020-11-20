@@ -116,7 +116,7 @@ class [[eosio::contract]] hello : public contract {
 ## Compile the Contract
 
 [[info]]
-| The ABI Generator in eosio.cdt supports several different style of attributes, see the ABI usage guide [here](./03_understanding-ABI-files.md).
+| The ABI Generator in eosio.cdt supports several different style of attributes, see the ABI usage guide [here](./30_understanding-ABI-files.md).
 
 Compile your code to web assembly (.wasm) as follows:
 
@@ -230,4 +230,4 @@ executed transaction: 235bd766c2097f4a698cfb948eb2e709532df8d18458b92c9c6aae74ed
 
 ## What's Next
 
-- [Deploy, Issue and Transfer Tokens](./02_deploy-issue-and-transfer-tokens.md): Learn how to deploy, issue and transfer tokens.
+- [Deploy, Issue and Transfer Tokens](./20_deploy-issue-and-transfer-tokens.md): Learn how to deploy, issue and transfer tokens.
