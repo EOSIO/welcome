@@ -2,11 +2,12 @@
 content_title: "Secondary Indices"
 link_text: "Secondary Indices"
 ---
-The following section shows how to add another index to the `addressbook` contract, so you can iterate through the records in a different way besides using the primary index.
+
+EOSIO has the ability to sort tables by up to 16 indices. In the following section, we're going to add another index to the `addressbook` contract, so we can iterate through the records in a different way.
 
 ## Step 1: Remove existing data from table
 
-As mentioned earlier, *a table's structure cannot be modified when it contains data.* This first step allows the removal of the data already added.
+As mentioned earlier, *a table's struct cannot be modified when it contains data.* This first step allows the removal of the data already added.
 
 Remove all records of alice and bob that were added in previous tutorial.
 
@@ -18,57 +19,76 @@ cleos push action addressbook erase '["alice"]' -p alice@active
 cleos push action addressbook erase '["bob"]' -p bob@active
 ```
 
-## Step 2: Add secondary non-unique index to kv_addresses_table configuration
+## Step 2: Add new index member and getter
 
-A non-unique index must be defined for at least two properties of the structure underlying the `kv table` rows. The first one needs to be a property which stores unique values, because under the hood every `kv index` (non-unique or unique) is stored as a unique index. By providing as the first property one that has unique values it ensures the uniqueness of the values combined (including non-unique ones). The rest of the properties defined for the non-unique index, next to the first one, are the ones indexed non-uniquely.
-
-`KV API` provides the `non_unique` template type which allows developers to mark an index as non-unique.
-
-For details about `KV API` indexes consult the `How-To Create KV API Indexes` section which covers this subject.
-
-Add the following `last_name_idx` non-unique index definition next to the `account_name_uidx` which already exists.
+Add a new member variable and its getter to the `addressbook.cpp` contract. Since the secondary index needs to be numeric field, a `uint64_t` age variable is added.
 
 ```cpp
-  index<name> account_name_uidx {
-      name{"accname"_n},
-      &person::account_name };
-  index<non_unique<name, string>> last_name_idx {
-      name{"lastnameidx"_n},
-      &person::last_name };
+uint64_t age;
+uint64_t get_secondary_1() const { return age;}
 ```
 
-## Step 3: Use the new non-unique index
+## Step 3: Add secondary index to `addresses` table configuration
 
-You can now use the newly created index. To accomplish that, create a new action which returns all entries in the addressbook which share the same last name.
-
-In the `addressbook.hpp` add the following:
+A field has been defined as the secondary index, next the  `address_index` table needs to be reconfigured.
 
 ```cpp
-  // retrieves list of persons with the same last name
-  [[eosio::action]]
-  std::vector<person> getbylastname(string last_name);
-
-  using get_by_last_name_action = action_wrapper<"getbylastname"_n, &kv_addr_book::getbylastname>;
+using address_index = eosio::multi_index<"people"_n, person,
+indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>
+>;
 ```
 
-Then define the action in the `addressbook.cpp` as follows:
+In the third parameter, we pass a `indexed_by` struct which is used to instantiate a index.
+
+In that `indexed_by` struct, we specify the name of index as `"byage"` and the second type parameter as a function call operator which extracts a const value as an index key. In this case, we point it to the getter we created earlier so this multiple index table will index records by the `age` variable.
 
 ```cpp
-// retrieves list of persons with the same last name
-[[eosio::action]]
-vector<person> addressbook::getbylastname(string last_name) {
+indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>
 
-   kv_address_table addresses{"kvaddrbook"_n};
+```
 
-   name min_account_name{0};
-   name max_account_name{UINT_MAX};
-   auto list_of_persons = addresses.last_name_idx.range(
-      {min_account_name, last_name},
-      {max_account_name, last_name});
-      
-   // return found list of person from action
-   return list_of_persons;
-}```
+## Step 4: Modify code
+
+With all the changes in previous steps, we can now update the `upsert` function. Change the function parameter list to the following:
+
+```cpp
+void upsert(name user, std::string first_name, std::string last_name, uint64_t age, std::string street, std::string city, std::string state)
+```
+
+Add additional lines to update `age` field in `upsert` function as the following:
+
+```cpp
+void upsert(name user, std::string first_name, std::string last_name, uint64_t age, std::string street, std::string city, std::string state) {
+  require_auth( user );
+  address_index addresses( get_first_receiver(), get_first_receiver().value);
+  auto iterator = addresses.find(user.value);
+  if( iterator == addresses.end() )
+  {
+    addresses.emplace(user, [&]( auto& row ) {
+      row.key = user;
+      row.first_name = first_name;
+      row.last_name = last_name;
+      // -- Add code below --
+      row.age = age;
+      row.street = street;
+      row.city = city;
+      row.state = state;
+    });
+  }
+  else {
+    addresses.modify(iterator, user, [&]( auto& row ) {
+      row.key = user;
+      row.first_name = first_name;
+      row.last_name = last_name;
+      // -- Add code below --
+      row.age = age;
+      row.street = street;
+      row.city = city;
+      row.state = state;
+    });
+  }
+}
+```
 
 ## Step 5: Compile and Deploy
 
@@ -96,17 +116,15 @@ cleos push action addressbook upsert '["alice", "alice", "liddell", 9, "123 drin
 cleos push action addressbook upsert '["bob", "bob", "is a guy", 49, "doesnt exist", "somewhere", "someplace"]' -p bob@active
 ```
 
-```shell
-cleos push action addressbook upsert '["mike", "mike", "liddell", 35, "345 drive", "somewhereelse", "seattle"]' -p bob@active
-```
-
-Retrieve all the persons in the addressbook by last name `liddell`.
+Look up alice's address by the age index. Here the `--index 2` parameter is used to indicate that the query applies to the secondary index
 
 ```shell
-cleos push action addressbook getbylastname '["liddell"]' -p alice@active
+cleos get table addressbook addressbook people --upper 10 \
+--key-type i64 \
+--index 2
 ```
 
-You should see something like the following:
+You should see something like the following
 
 ```json
 {
@@ -118,15 +136,6 @@ You should see something like the following:
       "street": "123 drink me way",
       "city": "wonderland",
       "state": "amsterdam"
-    },
-    {
-      "key": "mike",
-      "first_name": "mike",
-      "last_name": "liddell",
-      "age": 35,
-      "street": "345 drive",
-      "city": "somewhereelse",
-      "state": "seattle"
     }
   ],
   "more": false,
@@ -134,161 +143,115 @@ You should see something like the following:
 }
 ```
 
+Look it up by Bob's age
+
+```shell
+cleos get table addressbook addressbook people --upper 50 --key-type i64 --index 2
+```
+
+It should return
+
+```json
+{
+  "rows": [{
+      "key": "alice",
+      "first_name": "alice",
+      "last_name": "liddell",
+      "age": 9,
+      "street": "123 drink me way",
+      "city": "wonderland",
+      "state": "amsterdam"
+    },{
+      "key": "bob",
+      "first_name": "bob",
+      "last_name": "is a guy",
+      "age": 49,
+      "street": "doesnt exist",
+      "city": "somewhere",
+      "state": "someplace"
+    }
+  ],
+  "more": false
+}
+```
+
 ## Wrapping Up
 
-The complete `addressbook` contract up to this point looks as follows:
-
-The `addressbook.hpp` file:
+The complete `addressbook` contract up to this point:
 
 ```cpp
 #include <eosio/eosio.hpp>
-using namespace std;
+#include <eosio/print.hpp>
+
 using namespace eosio;
 
-struct person {
- name account_name;
- string first_name;
- non_unique<name, string> last_name;
- string street;
- string city;
- string state;
-};
+class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 
-class [[eosio::contract]] addressbook : public contract {
-   public:
-      using contract::contract;
+public:
 
-      addressbook(name receiver, name code, datastream<const char*> ds)
-         : contract(receiver, code, ds) {}
+  addressbook(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}
 
-      struct [[eosio::table]] kv_address_table : eosio::kv::table<person, "kvaddrbook"_n> {
+  [[eosio::action]]
+  void upsert(name user, std::string first_name, std::string last_name, uint64_t age, std::string street, std::string city, std::string state) {
+    require_auth( user );
+    address_index addresses(get_first_receiver(),get_first_receiver().value);
+    auto iterator = addresses.find(user.value);
+    if( iterator == addresses.end() )
+    {
+      addresses.emplace(user, [&]( auto& row ) {
+       row.key = user;
+       row.first_name = first_name;
+       row.last_name = last_name;
+       row.age = age;
+       row.street = street;
+       row.city = city;
+       row.state = state;
+      });
+    }
+    else {
+      addresses.modify(iterator, user, [&]( auto& row ) {
+        row.key = user;
+        row.first_name = first_name;
+        row.last_name = last_name;
+        row.age = age;
+        row.street = street;
+        row.city = city;
+        row.state = state;
+      });
+    }
+  }
 
-      index<name> account_name_uidx {
-         name{"accname"_n},
-         &person::account_name };
-      index<non_unique<name, string>> last_name_idx {
-         name{"lastnameidx"_n},
-         &person::last_name };
+  [[eosio::action]]
+  void erase(name user) {
+    require_auth(user);
 
-         kv_address_table(name contract_name) {
-            init(contract_name,
-               account_name_uidx,
-               last_name_idx);
-         }
-      };
+    address_index addresses(get_self(), get_first_receiver().value);
 
-      // creates if not exists, or updates if already exists, a person
-      [[eosio::action]]
-      pair<int, string> upsert(
-         name account_name,
-         string first_name,
-         string last_name,
-         string street,
-         string city,
-         string state);
+    auto iterator = addresses.find(user.value);
+    check(iterator != addresses.end(), "Record does not exist");
+    addresses.erase(iterator);
+  }
 
-      // deletes a person based on primary key account_name
-      [[eosio::action]]
-      void del(name account_name);
+private:
+  struct [[eosio::table]] person {
+    name key;
+    std::string first_name;
+    std::string last_name;
+    uint64_t age;
+    std::string street;
+    std::string city;
+    std::string state;
 
-      // retrieves list of persons with the same last name
-      [[eosio::action]]
-      vector<person> getbylastname(string last_name);
+    uint64_t primary_key() const { return key.value; }
+    uint64_t get_secondary_1() const { return age; }
 
-      using upsert_action = action_wrapper<"upsert"_n, &addressbook::upsert>;
-      using del_action = action_wrapper<"del"_n, &addressbook::del>;
-      using get_by_last_name_action = action_wrapper<"getbylastname"_n, &addressbook::getbylastname>;
+  };
 
-   private:
-      kv_address_table addresses{"kvaddrbook"_n};
+  using address_index = eosio::multi_index<"people"_n, person, indexed_by<"byage"_n, const_mem_fun<person, uint64_t, &person::get_secondary_1>>>;
+
 };
 ```
 
-The `addressbook.cpp` file:
+## What's Next
 
-```cpp
-#include <addressbook.hpp>
-
-// creates if not exists, or updates if already exists, a person
-[[eosio::action]]
-pair<int, string> addressbook::upsert(
-      name account_name,
-      string first_name,
-      string last_name,
-      string street,
-      string city,
-      string state) {
-
-   require_auth( account_name );
-   kv_address_table addresses{"kvaddrbook"_n};
-
-   pair<int, string> results = {0, "NOP"};
-
-   // retrieve the person by account name
-   auto itr = addresses.account_name_uidx.find(account_name);
-
-   // upsert into kv_table
-   addresses.put({
-         account_name, 
-         first_name, 
-         {account_name, last_name}, 
-         street, 
-         city, 
-         state}, 
-      get_self());
-
-   // print customized message for insert vs update
-   if (itr == addresses.account_name_uidx.end()) {
-      print_f("Person was successfully added to addressbook.");
-      results = {1, "New row created."};
-   }
-   else {
-      print_f("Person was successfully updated in addressbook.");
-      results = {2, "Existing row updated."};
-   }
-   return results;
-}
-
-// deletes a person based on primary key account_name
-[[eosio::action]]
-void addressbook::del(name account_name) {
-
-   require_auth(account_name);
-   kv_address_table addresses{"kvaddrbook"_n};
-
-   // search for person by primary key account_name
-   auto itr = addresses.account_name_uidx.find(account_name);
-
-   // check if person was found
-   if (itr != addresses.account_name_uidx.end()) {
-      // extract person from iterator and delete it
-      const auto& person_found = itr.value();
-
-      // delete it from kv_table
-      addresses.erase(person_found);
-      print_f("Person was successfully deleted from addressbook.");
-   }
-   else {
-      print_f("Person not found in addressbook.");
-   }
-}
-
-// retrieves list of persons with the same last name
-[[eosio::action]]
-vector<person> addressbook::getbylastname(string last_name) {
-
-   kv_address_table addresses{"kvaddrbook"_n};
-
-   name min_account_name{0};
-   name max_account_name{UINT_MAX};
-   auto list_of_persons = addresses.last_name_idx.range(
-      {min_account_name, last_name},
-      {max_account_name, last_name});
-
-   // return found list of person from action
-   return list_of_persons;
-}
-```
-
-## What's Next?
-- [Adding Inline Actions](./06_adding-inline-actions.md): Learn how to construct actions and send those actions from within a contract.
+- [Adding Inline Actions](./60_adding-inline-actions.md): Learn how to construct actions and send those actions from within a contract.

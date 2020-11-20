@@ -5,14 +5,15 @@ link_text: EOSIO Smart Contracts
 
 This section will introduce you to the EOSIO library and show you the concepts you will use to build smart contracts. We have tutorials to show you:
 
-* [Hello World](01_hello-world.md) - A simple smart contract
-* [Deploy, Issue and Transfer Tokens](02_deploy-issue-and-transfer-tokens.md) - How to use the eosio.token smart contract
-* [Understanding ABI Files](03_understanding-ABI-files.md) - The interface between webassembly and the outside world
-* [Data Peristence](04_data-persistence.md) - Store data on the blockchain
-* [Adding inline Actions](06_adding-inline-actions.md) - Call actions from your smart contract
-* [Inline Actions to external contracts](07_inline-action-to-external-contract.md) - Call actions in other smart contracts
-* [Linking custom permissions](08_linking-custom-permissions.md) - How to set up permissions on smart contracts
-* [Payable Actions](10_payable-actions.md) - Custom resource managment
+* [Hello World](10_hello-world.md) - A simple smart contract
+* [Deploy, Issue and Transfer Tokens](20_deploy-issue-and-transfer-tokens.md) - How to use the eosio.token smart contract
+* [Understanding ABI Files](30_understanding-ABI-files.md) - The interface between webassembly and the outside world
+* [Data Peristence](40_data-persistence.md) - Store data on the blockchain
+* [Secondary Indices](50_secondary-indices.md) - Create secondary indices for data stored on the blockchain
+* [Adding inline Actions](60_adding-inline-actions.md) - Call actions from your smart contract
+* [Inline Actions to external contracts](70_inline-action-to-external-contract.md) - Call actions in other smart contracts
+* [Linking custom permissions](80_linking-custom-permissions.md) - How to set up permissions on smart contracts
+* [Payable Actions](90_payable-actions.md) - Custom resource management
 
 
 

@@ -305,5 +305,6 @@ cleos get actions alice
 #   62   2018-09-15T12:57:09.000       addressbook::notify => alice         685ecc09... {"user":"alice","msg":"alice successfully added record to ad...
 ```
 
-## What's Next?
-- [Inline Actions to External Contracts](./07_inline-action-to-external-contract.md): Learn how to construct actions and send those actions to an external contract.
+## What's Next
+
+- [Inline Actions to External Contracts](./70_inline-action-to-external-contract.md): Learn how to construct actions and send those actions to an external contract.

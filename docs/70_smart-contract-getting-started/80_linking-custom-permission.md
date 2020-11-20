@@ -66,5 +66,6 @@ executed transaction:
 #     abcounter <= abcounter::count             {"user":"alice","type":"modify"}
 ```
 
-## What's Next?
+## What's Next
+
 - [Payable Actions](./10_payable_actions.md): Learn how write a smart contract that has payable actions. 

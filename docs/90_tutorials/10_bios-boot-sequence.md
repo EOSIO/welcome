@@ -950,4 +950,4 @@ You can test various commands, create accounts, check balance on accounts, trans
 For commands on creating new accounts, see the [`Create test accounts`](../02_getting-started/02_development-environment/07_create-test-accounts.md) tutorial.
 
 For commands on issuing, allocating and transferring token between accounts, see the
-[`Deploy, Issue and Transfer Tokens`](../02_getting-started/03_smart-contract-development/02_deploy-issue-and-transfer-tokens.md) section.
+[`Deploy, Issue and Transfer Tokens`](../02_getting-started/03_smart-contract-development/20_deploy-issue-and-transfer-tokens.md) section.

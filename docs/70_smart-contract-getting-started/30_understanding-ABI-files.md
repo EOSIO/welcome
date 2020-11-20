@@ -541,4 +541,4 @@ Check that your table is accurately described in the ABI file. For example, If y
 
 ## What's Next
 
-- [Data Persistence](./04_data-persistence.md): Learn how data persistence works on EOSIO by writing a simple smart contract that functions as an address book.
+- [Data Persistence](./40_data-persistence.md): Learn how data persistence works on EOSIO by writing a simple smart contract that functions as an address book.

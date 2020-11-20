@@ -10,8 +10,6 @@ The EOSIO platform provides functionalities such as accounts, authentication, da
 
 `youtube: https://youtu.be/ldoj7XHSP5g`
 
-
-
 ### About Blockchain
 A blockchain is a decentralized infrastructure software without a centralized entity controlling the blockchain. Blockchains are defined in many ways but they all share the common attributes of being decentralized, immutable, traceable, and transparent.
 

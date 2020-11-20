@@ -54,7 +54,7 @@ In this multiple index table declaration, a new type called `asset` is used.  An
 The `symbol` member of an asset instance will be used as the primary key.  By calling the `raw()` function the `symbol` variable will be converted into an unsigned integer so it can be used as a primary key.
 
 ## Constructor
-The constructor initializes the hodl_symbol as “SYS”, which is a token created in the [Deploy, Issue and Transfer Tokens](./02_deploy-issue-and-transfer-tokens.md#step-5-create-the-token) section.
+The constructor initializes the hodl_symbol as “SYS”, which is a token created in the [Deploy, Issue and Transfer Tokens](./20_deploy-issue-and-transfer-tokens.md#step-5-create-the-token) section.
 ```cpp
 public:
   using contract::contract;
@@ -304,10 +304,10 @@ executed transaction: 62b1e6848c8c5e6458b9a0f7600e65574eaf60445be114d224adccc5a9
 #   eosio.token <= eosio.token::transfer        {"from":"hodl","to":"han","quantity":"0.0001 SYS","memo":"Party! Your hodl is free."}
 #          hodl <= eosio.token::transfer        {"from":"hodl","to":"han","quantity":"0.0001 SYS","memo":"Party! Your hodl is free."}
 #           han <= eosio.token::transfer        {"from":"hodl","to":"han","quantity":"0.0001 SYS","memo":"Party! Your hodl is free."}
-
 ```
+
 Party time!
 
+## What's Next
 
-## What's Next?
 - [Elemental Battles](https://battles.eos.io): Build a blockchain game based on EOSIO and continue building your EOSIO knowledge!
