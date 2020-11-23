@@ -91,8 +91,6 @@ sections:
         description: A simple application demonstrating how to integrate an iOS app with EOSIO-based blockchains using EOSIO SDK for Swift
         link: https://github.com/EOSIO/eosio-swift-ios-example-app
 
-
-
   - title: Java SDK
     listings:
       - title: eosio-java
