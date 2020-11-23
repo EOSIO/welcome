@@ -34,7 +34,7 @@ The Developer Relations team (responsible for authoring the EOSIO developer docu
 
 The Developer Relations team further executed a conscientious and concerted effort of designing and deploying the Developer Portal that generates developer documentation by parsing source files in GitHub. The result of this effort was a developer portal that allows internal and external community contributions to the documentation.
 
-## Fun Fact
+### Fun Fact
 
 Heard about the [*Github Archive Program*](https://archiveprogram.github.com/)? The endeavor to preserve open source software for future generations in case of an extinction-level event? 
 
