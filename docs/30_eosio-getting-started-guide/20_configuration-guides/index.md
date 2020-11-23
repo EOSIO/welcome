@@ -24,7 +24,7 @@ This is the go-to option for smart contract developers, aspiring Block Producers
 While this option can technically be used for smart contract development, it may be overkill. This is most beneficial for those who are working on aspects of core development, such as benchmarking, optimization and experimentation. It's also a good option for hands-on learning and concept proofing.
 
 * [Configure Nodeos as a Local Two-Node Testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-multi-node-testnet)
-* [Configure Nodeos as a Local 21-Node Testnet]../../90_tutorials/10_bios-boot-sequence)
+* [Configure Nodeos as a Local 21-Node Testnet]../../80_eosio-tutorials/10_bios-boot-sequence)
 
 # Block Producers
 

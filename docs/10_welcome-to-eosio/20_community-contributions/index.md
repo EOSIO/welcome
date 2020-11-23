@@ -1,6 +1,6 @@
 ---
-content_title: Provide Feedback
-link_text: Provide Feedback
+content_title: Community Contributions
+link_text: Community Contributions
 ---
 
 Your feedback is important to us, help us create better documents that help you build better blockchain applications. Follow the instructions below to find out how to give us feedback or update the documentation in the developers portal.  

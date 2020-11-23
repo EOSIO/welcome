@@ -3,7 +3,7 @@ content_title: "EOSIO Getting Started Guide"
 link_text: "EOSIO Getting Started Guide"
 ---
 
-Welcome to the `EOSIO platform`. This getting started guide will guide you to the information you need to install and use the `EOSIO platform`. The sections below should let you easily find the information you need to understand how the EOSIO platfrom works and how to install the components you need. Once you understand the `EOSIO platform` follow our getting started guides to learn how to build [smart contracts.](../70_smart-contract-getting-started) We are currently creating a guide to becoming a block producer.
+Welcome to the `EOSIO platform`. This getting started guide will guide you to the information you need to install and use the `EOSIO platform`. The sections below should let you easily find the information you need to understand how the EOSIO platfrom works and how to install the components you need. Once you understand the `EOSIO platform` follow our getting started guides to learn how to build [smart contracts.](../40_eosio-smart-contract-guides) We are currently creating a guide to becoming a block producer.
 
 # Installation Guides
 
@@ -28,10 +28,10 @@ For information about configuring your EOSIO components click [here.](20_configu
 Smart contracts are written in C++. Any editor or IDE can be used to create a smart contract. The EOSIO.CDT provides eosio libraries and tools used to compile the smart contract before it can be deployed to the blockchain. Follow this link [Development Environment](25_development-environment) to see how to set up your development environment.  
 
 # Quick Start Guides
-Building distributed applications on EOSIO follows familiar development patterns and programming languages used for developing non-blockchain applications. In the quick start guides we show you the primitives you need to build your own blockchain applications. Follow this link [Quick Start Guides](30_quick-start-guides) to start your journey on the EOSIO platform.
+Building distributed applications on EOSIO follows familiar development patterns and programming languages used for developing non-blockchain applications. In the quick start guides we show you the primitives you need to build your own blockchain applications. Follow this link [Quick Start Guides](../70_eosio-quick-start-guides) to start your journey on the EOSIO platform.
  
 # Protocol Guides
-In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follw this link [Protocol Guides](40_protocol-guides) to read more about `EOSIO Core.`
+In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follw this link [Protocol Guides](../60_eosio-protocol-guides) to read more about `EOSIO Core.`
 
 # Manuals (Component Guides)
 Click on the following links to find detailed documentation for each component.
@@ -59,21 +59,47 @@ Connect to the EOSIO platform in javascript.
 * [eosjs-keygen](https://github.com/EOSIO/eosjs-keygen) : A Javascript library for managing keys in local storage.
         
 ## Swift SDK
-Connect to the EOSIO platform in swift.
-* [eosio-swift](https://github.com/EOSIO/eosio-swift) : An API for integrating with EOSIO-based blockchains using the EOSIO RPC API.
-* [eosio-swift-abieos-serialization-provider](https://github.com/EOSIO/eosio-swift-abieos-serialization-provider) : A pluggable serialization provider for EOSIO SDK for Swift.
-* [eosio-swift-ecc](https://github.com/EOSIO/eosio-swift-ecc) : A library for working with public and private keys, cryptographic signatures, encryption/decryption, etc. as part of the EOSIO SDK for Swift family of libraries.
-* [eosio-swift-reference-ios-authenticator-signature-provider](https://github.com/EOSIO/eosio-swift-reference-ios-authenticator-signature-provider) : A pluggable signature provider for EOSIO SDK for Swift.
-* [eosio-swift-softkey-signature-provider](https://github.com/EOSIO/eosio-swift-softkey-signature-provider) : An example pluggable signature provider for EOSIO SDK for Swift. It allows for signing transactions using in-memory K1 keys.
-* [eosio-swift-vault-signature-provider](https://github.com/EOSIO/eosio-swift-vault-signature-provider) : A pluggable signature provider for EOSIO SDK for Swift.
-* [eosio-swift-vault](https://github.com/EOSIO/eosio-swift-vault) : An utility library for working with public/private keys and signing with Apple's Keychain and Secure Enclave.
+Connect to the EOSIO platform in Swift.
+### eosio-swift
+An API for integrating with EOSIO-based blockchains using the EOSIO RPC API
+* [API documentation](https://eosio.github.io/eosio-swift)
+* [Git](https://github.com/EOSIO/eosio-swift)
+### eosio-swift-vault
+Consists of two main components--Vault and Vault Signature Provider. Vault is a utility library for working with public/private keys and signing with Apple's Keychain and Secure Enclave. Vault Signature Provider is a pluggable signature provider for EOSIO SDK for Swift. It allows for signing transactions using keys stored in Keychain or the device's Secure Enclave.
+* [API documentation](https://eosio.github.io/eosio-swift-vault) 
+* [Git](https://github.com/EOSIO/eosio-swift-vault) 
+### eosio-swift-ios-example-app:
+A simple application demonstrating how to integrate an iOS app with EOSIO-based blockchains using EOSIO SDK for Swift
+* [Git](https://github.com/EOSIO/eosio-swift-ios-example-app)
 
 ## Java SDK
 Connect to the EOSIO platform in java.
-* [eosio-java-android-abieos-serialization-provider](https://github.com/EOSIO/eosio-java-android-abieos-serialization-provider) : A pluggable serialization provider for EOSIO SDK for Java.
-* [eosio-java-android-rpc-provider](https://github.com/EOSIO/eosio-java-android-rpc-provider) : An Android RPC provider implementation for use within EOSIO SDK for Java as a plugin.
-* [eosio-java-softkey-signature-provider](https://github.com/EOSIO/eosio-java-softkey-signature-provider) : An example pluggable signature provider for EOSIO SDK for Java.
-* [eosio-android-keystore-signature-provider](https://github.com/EOSIO/eosio-android-keystore-signature-provider): An example pluggable signature provider for EOSIO SDK for Java written in Kotlin.      
+### eosio-java
+An API for integrating with EOSIO-based blockchains using the EOSIO RPC API
+* [API documentation](https://eosio.github.io/eosio-java) 
+* [Git](https://github.com/EOSIO/eosio-java) 
+### eosio-java-rpc-provider
+An RPC provider implementation for use within EOSIO SDK for Java as a plugin. Supports Android 6+ and server-side Java.
+* [Git](https://github.com/EOSIO/eosio-java-rpc-provider) 
+### eosio-java-abieos-serialization-provider
+A pluggable serialization provider for EOSIO SDK for Java supporting server-side Java
+* [Git](https://github.com/EOSIO/eosio-java-abieos-serialization-provider) 
+### eosio-java-android-abieos-serialization-provider
+A pluggable serialization provider for EOSIO SDK for Java supporting Android
+* [API documentation](https://eosio.github.io/eosio-java-android-abieos-serialization-provider) 
+* [Git](https://github.com/EOSIO/eosio-java-android-abieos-serialization-provider) 
+### eosio-java-softkey-signature-provider
+An example pluggable signature provider for EOSIO SDK for Java
+* [API documentation](https://eosio.github.io/eosio-java-softkey-signature-provider) 
+* [Git](https://github.com/EOSIO/eosio-java-softkey-signature-provider) 
+### eosio-android-keystore-signature-provider
+A pluggable signature provider for EOSIO SDK for Java written in Kotlin supporting Android
+* [API documentation](https://eosio.github.io/eosio-android-keystore-signature-provider) 
+* [Git](https://github.com/EOSIO/eosio-android-keystore-signature-provider) 
+### eosio-java-android-example-app
+A simple application demonstrating how to integrate an Android app with EOSIO-based blockchains using EOSIO SDK for Java
+* [Git](https://github.com/EOSIO/eosio-java-android-example-app) 
+
 
 ## EOSIO Labs
 Libraries to connect and authenticate blockchain transactions.
@@ -96,10 +122,10 @@ The EOSIO Testnet is a web application that you can access using your login cred
 * [EOSIO Testnet](https://testnet.eos.io/) Block.one's official EOSIO Testnet.
 
 # EOSIO Blockchain Networks
-There are many public blockchains using the EOSIO platform, follow this link [EOSIO Blockchains](65_eosio-blockchain-networks) to see a list of blockchains, and click [here](../50_provide-feedback) to let us know about your EOSIO based blockchain.
+There are many public blockchains using the EOSIO platform, follow this link [EOSIO Blockchains](../90_eosio-blockchain-networks) to see a list of blockchains, and click [here](../10_welcome-to-eosio/20_community-contributions) to let us know about your EOSIO based blockchain.
 
 # Hello World
-Let's start with a simple smart contract producing the traditional "hello world." The [Hello World](../70_smart-contract-getting-started/10_hello-world.md) tutorial will guide you step by step in building a simple smart contract and deploying this smart contract to an EOSIO blockchain. 
+Let's start with a simple smart contract producing the traditional "hello world." The [Hello World](../40_eosio-smart-contract-guides/10_hello-world.md) tutorial will guide you step by step in building a simple smart contract and deploying this smart contract to an EOSIO blockchain. 
 
 # Next Steps
 Want to [get involved in the EOSIO platform?](80_next-steps) 

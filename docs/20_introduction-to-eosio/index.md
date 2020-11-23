@@ -26,8 +26,8 @@ Learn about EOSIO's available tools, the core concepts and underlying technical 
 - [Community Developer Tools](40_community-developer-tools.md)
 
 ## What's Next?
-- [Get Started](../60_eosio-getting-started-guide/index.md): Learn how to develop on an EOSIO blockchain
-- [Protocol](../60_eosio-getting-started-guide/40_protocol-guides/index.md): Understand the protocols that makes up an EOSIO blockchain
+- [Get Started](../30_eosio-getting-started-guide/index.md): Learn how to develop on an EOSIO blockchain
+- [Protocol](../60_eosio-protocol-guides/index.md): Understand the protocols that makes up an EOSIO blockchain
 - [Get Involved](../96_get-involved/index.md): Learn how to get involved and contribute to the EOSIO ecosystem.
 
 
