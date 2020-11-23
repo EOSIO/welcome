@@ -64,7 +64,7 @@ like to test rocksdb support or wasm-ql support, stick with Nodeos 1.8 and the A
 
 ### Alpha 0.2.0
 
-* There are now 2 self-contained demonstrations in public Docker images. See [container-demos](doc/container-demos.md) for details.
+* There are now 2 self-contained demonstrations in public Docker images. See [container-demos](container-demos.md) for details.
   * Talk: this demonstrates using wasm-ql to provide messages from on-chain conversations to clients in threaded order.
   * Partial history: this demonstrates some of wasm-ql's chain and token queries on data drawn from one of the public EOSIO networks.
 * Added RocksDB and removed LMDB. This has the following advantages:

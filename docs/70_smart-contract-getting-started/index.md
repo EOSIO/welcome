@@ -12,7 +12,7 @@ This section will introduce you to the EOSIO library and show you the concepts y
 * [Secondary Indices](50_secondary-indices.md) - Create secondary indices for data stored on the blockchain
 * [Adding inline Actions](60_adding-inline-actions.md) - Call actions from your smart contract
 * [Inline Actions to external contracts](70_inline-action-to-external-contract.md) - Call actions in other smart contracts
-* [Linking custom permissions](80_linking-custom-permissions.md) - How to set up permissions on smart contracts
+* [Linking custom permissions](80_linking-custom-permission.md) - How to set up permissions on smart contracts
 * [Payable Actions](90_payable-actions.md) - Custom resource management
 
 

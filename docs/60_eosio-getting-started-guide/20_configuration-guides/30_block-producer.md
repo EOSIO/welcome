@@ -12,4 +12,4 @@ Block producers will generally operate in a distributed and/or decentralised env
 
 `Non-Producing Nodes` connect to the peer-to-peer network but do not actively produce new blocks; they are useful for acting as proxy nodes, relaying API calls, validating transactions, broadcasting information to other nodes, etc. `Non-Producing Nodes` are also useful for monitoring the blockchain state.
 
-For more information about being a block producer see the [Block Producer Getting Started Guide.](../../80_block-producer-getting-started) which is under construction and coming soon.
+For more information about being a block producer we are working on a Block Producer Getting Started Guide.

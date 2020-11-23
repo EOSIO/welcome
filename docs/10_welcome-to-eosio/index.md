@@ -22,7 +22,7 @@ And more!
 
 ## Doc Page Design
 
-To become familiar with the EOSIO Developers Portal design, standard page layout, and navigation, see the [Portal Design](../40_navigation) section.
+To become familiar with the EOSIO Developers Portal design, standard page layout, and navigation, see the [Portal Design](../40_portal-design) section.
 
 ## EOSIO is Open Source
 
@@ -68,7 +68,7 @@ The technical content developers at Developer Relations endeavor to provide trus
 
 As part of our development community, if you detect a typographical error, or any erroneous representation of the EOSIO platform, please submit a [Pull Request (PR)](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) and report the bug to us. 
 
-See the [Get Involved](../96_get_involved) section of this portal for detailed instructions on submitting a PR and also filing a new Github issue in the relevant repository. Be assured, we appropriately deal with incoming PRs for the enhancement of your developer experience! 
+See the [Get Involved](../96_get-involved) section of this portal for detailed instructions on submitting a PR and also filing a new Github issue in the relevant repository. Be assured, we appropriately deal with incoming PRs for the enhancement of your developer experience! 
 
 ## Build Something Profound
 

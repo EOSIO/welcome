@@ -143,7 +143,7 @@ Name | Type | Description
 `block_num` | `uint32_t` | block number (sequential counter value since genesis block 0); can be used to query block for validation/retrieval purposes
 `ref_block_prefix` | `uint32_t` | lower 32 bits of block ID; used to prevent replay attacks
 
-Some of the block fields are known in advance when the block is created, so they are added during block initialization. Others are computed and added during block finalization, such as the merkle root hashes for transactions and actions, the block number and block ID, the signature of the producer that created and signed the block, etc. (see [Network Peer Protocol: 3.1. Block ID](03_network_peer_protocol.md#31-block-id))
+Some of the block fields are known in advance when the block is created, so they are added during block initialization. Others are computed and added during block finalization, such as the merkle root hashes for transactions and actions, the block number and block ID, the signature of the producer that created and signed the block, etc. (see [Network Peer Protocol: 3.1. Block ID](30_network_peer_protocol.md#31-block-id))
 
 ## 5.2. Block Production
 
@@ -170,7 +170,7 @@ After the transactions have been pushed into the block and the block is finalize
 
 ### 5.2.4. Commit Block
 
-After the block is signed, it is committed to the local chain. This pushes the block to the reversible block database (see [Network Peer Protocol: 2.2.3. Fork Database](03_network_peer_protocol.md#223-fork-database)). This makes the block available for syncing with other nodes for validation (see the [Network Peer Protocol](03_network_peer_protocol.md) for more information about block syncing).
+After the block is signed, it is committed to the local chain. This pushes the block to the reversible block database (see [Network Peer Protocol: 2.2.3. Fork Database](30_network_peer_protocol.md#223-fork-database)). This makes the block available for syncing with other nodes for validation (see the [Network Peer Protocol](30_network_peer_protocol.md) for more information about block syncing).
 
 ## 5.3. Block Validation
 

@@ -74,50 +74,66 @@ sections:
   - title: Swift SDK
     listings:
       - title: eosio-swift
-        description: An API for integrating with EOSIO-based blockchains using the EOSIO RPC API
-        link: https://github.com/EOSIO/eosio-swift
-
-      - title: eosio-swift-abieos-serialization-provider
-        description: A pluggable serialization provider for EOSIO SDK for Swift.
-        link: https://github.com/EOSIO/eosio-swift-abieos-serialization-provider
-
-      - title: eosio-swift-ecc
-        description: A library for working with public and private keys, cryptographic signatures, encryption/decryption, etc. as part of the EOSIO SDK for Swift family of libraries
-        link: https://github.com/EOSIO/eosio-swift-ecc
-
-      - title: eosio-swift-reference-ios-authenticator-signature-provider
-        description: A pluggable signature provider for EOSIO SDK for Swift
-        link: https://github.com/EOSIO/eosio-swift-reference-ios-authenticator-signature-provider
-
-      - title: eosio-swift-softkey-signature-provider
-        description: An example pluggable signature provider for EOSIO SDK for Swift. It allows for signing transactions using in-memory K1 keys
-        link: https://github.com/EOSIO/eosio-swift-softkey-signature-provider
-
-      - title: eosio-swift-vault-signature-provider
-        description: A pluggable signature provider for EOSIO SDK for Swift
-        link: https://github.com/EOSIO/eosio-swift-vault-signature-provider
+        description: API documentation for integrating with EOSIO-based blockchains using the EOSIO RPC API
+        link: https://eosio.github.io/eosio-swift
+      - title: Git eosio-swift
+        description: Git repository  
+        link: https://eosio.github.io/eosio-swift
 
       - title: eosio-swift-vault
-        description: An utility library for working with public/private keys and signing with Apple's Keychain and Secure Enclave
-        link: https://github.com/EOSIO/eosio-swift-vault
+        description: Consists of two main components--Vault and Vault Signature Provider. Vault is a utility library for working with public/private keys and signing with Apple's Keychain and Secure Enclave. Vault Signature Provider is a pluggable signature provider for EOSIO SDK for Swift. It allows for signing transactions using keys stored in Keychain or the device's Secure Enclave.
+        link: https://eosio.github.io/eosio-swift-vault 
+      - title: Git eosio-swift-vault
+        description: Git repository
+        link: https://github.com/EOSIO/eosio-swift-vault 
+
+      - title: eosio-swift-ios-example-app
+        description: A simple application demonstrating how to integrate an iOS app with EOSIO-based blockchains using EOSIO SDK for Swift
+        link: https://github.com/EOSIO/eosio-swift-ios-example-app
+
+
 
   - title: Java SDK
     listings:
-      - title: eosio-java-android-abieos-serialization-provider
-        description: A pluggable serialization provider for EOSIO SDK for Java
-        link: https://github.com/EOSIO/eosio-java-android-abieos-serialization-provider
+      - title: eosio-java
+        description: API documentation for integrating with EOSIO-based blockchains using the EOSIO RPC API
+        link: https://eosio.github.io/eosio-java
+      - title: Git eosio-java
+        description : Git repository
+        link: https://github.com/EOSIO/eosio-java
 
-      - title: eosio-java-android-rpc-provider
-        description: An Android RPC provider implementation for use within EOSIO SDK for Java as a plugin.
-        link: https://github.com/EOSIO/eosio-java-android-rpc-provider
+      - title: eosio-java-rpc-provider
+        description: An RPC provider implementation for use within EOSIO SDK for Java as a plugin. Supports Android 6+ and server-side Java.
+        link: https://github.com/EOSIO/eosio-java-rpc-provider 
+
+      - title: eosio-java-abieos-serialization-provider
+        description: A pluggable serialization provider for EOSIO SDK for Java supporting server-side Java
+        link: https://github.com/EOSIO/eosio-java-abieos-serialization-provider 
+
+      - title: eosio-java-android-abieos-serialization-provider
+        description: API documentation for the pluggable serialization provider for EOSIO SDK for Java supporting Android
+        link: https://eosio.github.io/eosio-java-android-abieos-serialization-provider 
+      - title: Git eosio-java-android-abieos-serialization-provider
+        description: Git repository 
+        link: https://github.com/EOSIO/eosio-java-android-abieos-serialization-provider 
 
       - title: eosio-java-softkey-signature-provider
-        description: An example pluggable signature provider for EOSIO SDK for Java
-        link: https://github.com/EOSIO/eosio-java-softkey-signature-provider
+        description: API documentation for an example pluggable signature provider for EOSIO SDK for Java
+        link: https://eosio.github.io/eosio-java-softkey-signature-provider 
+      - title: Git eosio-java-softkey-signature-provider
+        description: Git repository 
+        link: https://github.com/EOSIO/eosio-java-softkey-signature-provider 
 
       - title: eosio-android-keystore-signature-provider
-        description: An example pluggable signature provider for EOSIO SDK for Java written in Kotlin
-        link: https://github.com/EOSIO/eosio-android-keystore-signature-provider
+        description: API documentation for the pluggable signature provider for EOSIO SDK for Java written in Kotlin supporting Android
+        link: https://eosio.github.io/eosio-android-keystore-signature-provider 
+      - title: Git eosio-android-keystore-signature-provider
+        description: Git repository 
+        link: https://github.com/EOSIO/eosio-android-keystore-signature-provider 
+
+      - title: eosio-java-android-example-app
+        description: A simple application demonstrating how to integrate an Android app with EOSIO-based blockchains using EOSIO SDK for Java
+        link: https://github.com/EOSIO/eosio-java-android-example-app 
 
   - title: EOSIO Labs
     listings:

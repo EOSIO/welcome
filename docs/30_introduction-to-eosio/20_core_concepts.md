@@ -13,7 +13,7 @@ Wallets are clients that store keys that may or may not be associated with the p
 
 Permissions are arbitrary names used to define the requirements for a transaction sent on behalf of that permission. Permissions can be assigned for authority over specific contract actions by *linking authorization* or linkauth.
 
-For more information about these concepts, see the [_Accounts and Permissions_](../60_eosio-getting-started-guide/40_protocol-guides/40_accounts_and_permissions) documentation.
+For more information about these concepts, see the [_Accounts and Permissions_](../60_eosio-getting-started-guide/40_protocol-guides/40_accounts_and_permissions.md) documentation.
 
 
 ### Smart Contracts

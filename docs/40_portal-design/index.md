@@ -1,6 +1,6 @@
 ---
-content_title: Navigation
-link_text: Navigation
+content_title: Portal Design 
+link_text: Portal Design
 ---
 
 # Portal Page Layout 

@@ -8,9 +8,9 @@ The `EOSIO platform` can be installed using binary files released by Block.one o
 ## Blockchain
 Follow this link [Nodeos, Cleos and Keosd](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries) for instructions on installing the components required to interact and run a blockchain.
 
-* [Nodeos](/10_installing-nodeos)
-* [Cleos](/10_installing-cleos)
-* [Keosd](/10_installing-keosd)
+* [Nodeos](10_installing-nodeos.md)
+* [Cleos](20_installing-cleos.md)
+* [Keosd](25_installing-keosd.md)
 
 ## Smart Contract Development
 The EOSIO Contract Development Toolkit, CDT for short, is a collection of tools used to build smart contracts. Follow this link [Installation Guide](https://developers.eos.io/manuals/eosio.cdt/latest/installation) for more information.

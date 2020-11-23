@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": ["07_tools", "95_community-developer-tools"]
+        "exclude": ["07_tools", "95_community-developer-tools", "80_block-producer-getting-started"]
       }
     },
     {
