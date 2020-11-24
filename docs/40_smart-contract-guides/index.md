@@ -1,6 +1,6 @@
 ---
-content_title: EOSIO Smart Contract Guides
-link_text: EOSIO Smart Contract Guides
+content_title: EOSIO Smart Contract Guide
+link_text: EOSIO Smart Contracts Guide
 ---
 
 This section will introduce you to the EOSIO library and show you the concepts you will use to build smart contracts. We have tutorials to show you:
