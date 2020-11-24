@@ -3,7 +3,12 @@ content_title: "EOSIO Getting Started Guide"
 link_text: "EOSIO Getting Started Guide"
 ---
 
-Welcome to the `EOSIO platform`. This getting started guide will guide you to the information you need to install and use the `EOSIO platform`. The sections below should let you easily find the information you need to understand how the EOSIO platfrom works and how to install the components you need. Once you understand the `EOSIO platform` follow our getting started guides to learn how to build [smart contracts.](../40_smart-contract-guides) We are currently creating a guide to becoming a block producer.
+Welcome to the EOSIO platform. The EOSIO getting started guide contains guided instructions on how to set up your development environment by installing the EOSIO software components and other related dependencies. This is the fastest way to onboard the EOSIO development ecosystem and get acquainted with the smart contracts development workflow.
+
+As a developer, you have two ways to get started:
+
+1. [Local Development Environment](../25_development-environment): Set up your local development environment and build a smart contract
+2. [Pre-configured Development Environment]: Use the Gitpod pre-configured EOSIO development environment
 
 # Installation Guides
 
