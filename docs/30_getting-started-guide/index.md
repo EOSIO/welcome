@@ -3,7 +3,7 @@ content_title: "EOSIO Getting Started Guide"
 link_text: "EOSIO Getting Started Guide"
 ---
 
-Welcome to the `EOSIO platform`. This getting started guide will guide you to the information you need to install and use the `EOSIO platform`. The sections below should let you easily find the information you need to understand how the EOSIO platfrom works and how to install the components you need. Once you understand the `EOSIO platform` follow our getting started guides to learn how to build [smart contracts.](../40_eosio-smart-contract-guides) We are currently creating a guide to becoming a block producer.
+Welcome to the `EOSIO platform`. This getting started guide will guide you to the information you need to install and use the `EOSIO platform`. The sections below should let you easily find the information you need to understand how the EOSIO platfrom works and how to install the components you need. Once you understand the `EOSIO platform` follow our getting started guides to learn how to build [smart contracts.](../40_smart-contract-guides) We are currently creating a guide to becoming a block producer.
 
 # Installation Guides
 
@@ -28,10 +28,10 @@ For information about configuring your EOSIO components click [here.](20_configu
 Smart contracts are written in C++. Any editor or IDE can be used to create a smart contract. The EOSIO.CDT provides eosio libraries and tools used to compile the smart contract before it can be deployed to the blockchain. Follow this link [Development Environment](25_development-environment) to see how to set up your development environment.  
 
 # Quick Start Guides
-Building distributed applications on EOSIO follows familiar development patterns and programming languages used for developing non-blockchain applications. In the quick start guides we show you the primitives you need to build your own blockchain applications. Follow this link [Quick Start Guides](../70_eosio-quick-start-guides) to start your journey on the EOSIO platform.
+Building distributed applications on EOSIO follows familiar development patterns and programming languages used for developing non-blockchain applications. In the quick start guides we show you the primitives you need to build your own blockchain applications. Follow this link [Quick Start Guides](../70_quick-start-guides) to start your journey on the EOSIO platform.
  
 # Protocol Guides
-In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follw this link [Protocol Guides](../60_eosio-protocol-guides) to read more about `EOSIO Core.`
+In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follw this link [Protocol Guides](../60_protocol-guides) to read more about `EOSIO Core.`
 
 # Manuals (Component Guides)
 Click on the following links to find detailed documentation for each component.
@@ -122,10 +122,10 @@ The EOSIO Testnet is a web application that you can access using your login cred
 * [EOSIO Testnet](https://testnet.eos.io/) Block.one's official EOSIO Testnet.
 
 # EOSIO Blockchain Networks
-There are many public blockchains using the EOSIO platform, follow this link [EOSIO Blockchains](../90_eosio-blockchain-networks) to see a list of blockchains, and click [here](../10_welcome-to-eosio/20_community-contributions) to let us know about your EOSIO based blockchain.
+There are many public blockchains using the EOSIO platform, follow this link [EOSIO Blockchains](https://developers.eos.io/welcome/latest/blockchain-networks) to see a list of blockchains, and click [here](../10_welcome-to-eosio/20_community-contributions) to let us know about your EOSIO based blockchain.
 
 # Hello World
-Let's start with a simple smart contract producing the traditional "hello world." The [Hello World](../40_eosio-smart-contract-guides/10_hello-world.md) tutorial will guide you step by step in building a simple smart contract and deploying this smart contract to an EOSIO blockchain. 
+Let's start with a simple smart contract producing the traditional "hello world." The [Hello World](../40_smart-contract-guides/10_hello-world.md) tutorial will guide you step by step in building a simple smart contract and deploying this smart contract to an EOSIO blockchain. 
 
 # Next Steps
 Want to [get involved in the EOSIO platform?](80_next-steps) 

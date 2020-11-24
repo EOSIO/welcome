@@ -50,7 +50,7 @@ This section provides instructions on creating new blockchain accounts within th
 
 An account is a collection of authorizations, is stored on the blockchain, and is used to identify a sender/recipient. The flexible authorization structure of an account enables it to be owned either by an individual or group of individuals dependant on how permissions are configured. An account sends or receives a valid transaction to the blockchain.
 
-For more information on EOSIO accounts and associated permissions, see the [Accounts and Permissions](../../40_protocol-guides/40_accounts_and_permissions.md) page on the _EOSIO Developers Portal_.
+For more information on EOSIO accounts and associated permissions, see the [Accounts and Permissions](../../../60_protocol-guides/40_accounts_and_permissions.md) page on the _EOSIO Developers Portal_.
 
 ## Create New Account
 The EOSIO Testnet provisions a new EOSIO blockchain account every time you sign up for a new EOSIO Testnet developer account. If you require more EOSIO blockchain accounts, follow the steps below.
@@ -156,7 +156,7 @@ You must have the following prerequisites before uploading and deploying a smart
 1. Testnet blockchain account with sufficient system resources. See the previous section of this guide **Buy and Stake System Resources** for information on staking and unstaking in the Testnet.
 
 [[info | Info]]
-| For more information on how to build and compile smart contract source files, see the [Hello World Contract](../../../70_smart-contract-getting-started/10_hello-world.md) section on the *EOSIO Developers Portal*. 
+| For more information on how to build and compile smart contract source files, see the [Hello World Contract](../../../40_smart-contract-guides/10_hello-world.md) section on the *EOSIO Developers Portal*. 
 
 ## Upload and Deploy
 Upload and deploy your smart contract on the EOSIO blockchain in a 3-step sequential process.
@@ -183,7 +183,7 @@ Upload and deploy your smart contract on the EOSIO blockchain in a 3-step sequen
 # Push Actions
 An action is authorized by one or more actors created on the blockchain. Actions are created explicitly within a smart contract, or generated implicitly by application code.
 
-For more information on Actions in EOSIO, see the [Actions](../../40_protocol-guides/20_transactions_protocol.md#11-Actions) section in Transaction Protocol on the *EOSIO Developers Portal*.
+For more information on Actions in EOSIO, see the [Actions](../../../60_protocol-guides/20_transactions_protocol.md#11-Actions) section in Transaction Protocol on the *EOSIO Developers Portal*.
 
 **Complete the following steps to push actions on the Testnet:**
 
@@ -239,7 +239,7 @@ The type of key in **Key Type**.
 # View Transactions
 A transaction instance contains a transaction header and the list of action instances and transaction extensions that make the actual transaction.
 
-For more information on Transactions in EOSIO, see the [Transactions Protocol](../../40_protocol-guides/20_transactions_protocol.md) section on the *EOSIO Developers Portal*.
+For more information on Transactions in EOSIO, see the [Transactions Protocol](../../../60_protocol-guides/20_transactions_protocol.md) section on the *EOSIO Developers Portal*.
 
 **Complete the following steps to view transactions on the Testnet:**
 

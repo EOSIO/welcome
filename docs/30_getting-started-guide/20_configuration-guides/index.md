@@ -7,7 +7,7 @@ The configuration guides section will show you how to configure [Nodeos.](../../
 
 # Smart Contracts and blockchain configuration
 
-The `EOSIO platform` provides a blockchain platform and a key feature of the `EOSIO platform` is it's flexibility. Smart Contracts are part of this flexibility. Many features are implemented using smart contracts, and as smart contracts can be edited and built so you can customise blockchain behaviour. Some examples are consensus, governance and resource models. For more information see [eosio.contracts](https://developers.eos.io/manuals/eosio.contracts/latest/index) and the [bios boot sequence tutorial.](../../90_tutorials/10_bios-boot-sequence.md)    
+The `EOSIO platform` provides a blockchain platform and a key feature of the `EOSIO platform` is it's flexibility. Smart Contracts are part of this flexibility. Many features are implemented using smart contracts, and as smart contracts can be edited and built so you can customise blockchain behaviour. Some examples are consensus, governance and resource models. For more information see [eosio.contracts](https://developers.eos.io/manuals/eosio.contracts/latest/index) and the [bios boot sequence tutorial.](../../80_tutorials/10_bios-boot-sequence.md)    
 
 # Development and Testing
 
