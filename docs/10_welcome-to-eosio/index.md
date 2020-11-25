@@ -79,6 +79,6 @@ See the [Community Contributions](20_community-contributions) section of this po
 
 We hope you enjoy the *EOSIO Developers Portal* and build great EOSIO applications. You can reach out to us with your comments and thoughts at developers@block.one.
 
-Wishing you all the best!
+May the **Force of EOSIO** be with you!
 
 ***EOSIO Developers Relations*** 
