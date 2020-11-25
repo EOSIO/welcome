@@ -46,12 +46,13 @@ To become familiar with the *EOSIO Developers Portal* design, standard page layo
 
 ## New to Blockchain Development?
 
-The Developers Portal has documentation and onboarding [resources](../30_getting-started-guide) to help you get started with the EOSIO blockchain platform. 
+The Developers Portal has documentation and onboarding resources to help you get started with the EOSIO blockchain platform. Explore the following learning resources to acquire functional knowledge of the EOSIO platform.
 
 ### EOSIO Getting Started Guide 
-Orient yourself with the EOSIO development environment and basic smart contract development.
+Orient yourself with the EOSIO development environment and basic smart contract development. For detailed instructions on setting up your development environment and deploying your first smart contract, see the [_EOSIO Getting Started Guide_](../30_getting-started-guide). 
 
 ### EOSIO Webinars
+We hosted a series of webinars with topics ranging from foundational knowledge of the blockchain technology to advanced demos featuring hands-on exposure to smart contract development and app building on EOSIO.
 
 1. [**Learn about Blockchain & EOSIO**](https://eos.io/webinars/learn-about-blockchain-eosio/):
 Learn the basic concepts of Blockchain technology and get introduced to the EOSIO blockchain platform. 
@@ -63,7 +64,7 @@ Learn important EOSIO protocols such as Accounts and Transactions with a hands-o
 Learn how to build a full stack app using EOSIO in a hands-on demo! 
 
 ### Training and Certification
-Take part in the EOSIO [training and certification](https://eos.io/eosio-for-business/training-certification/) programs.
+From platform fundamentals to application development, we have a hands-on training and practical certification path to fit your training and educational goals. Take part in the EOSIO [training and certification](https://eos.io/eosio-for-business/training-certification/) programs.
 
 
 ## Community Contributions
