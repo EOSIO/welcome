@@ -15,10 +15,10 @@ Are you a new entrant to the blockchain space? If yes, no worries, we have learn
 
 This portal supports your EOSIO learning and development journey through the following curated technical documentation resources:
 
-* **EOSIO Concepts**: Learn the core concepts of the EOSIO platform
-* **EOSIO Protocols**: Gain a deeper understanding of the various protocols such as [Accounts and Permissions](../60_protocol-guides/40_accounts_and_permissions.md) implemented in the EOSIO platform
-* **EOSIO Getting Started**: Orient yourself with the EOSIO development environment and basic smart contract development. Best suited for new developers onboarding the EOSIO blockchain ecosystem
-* **EOSIO Development Guides**: Access EOSIO component guides and learn how to install, configure, and use the individual components in your EOSIO developer environment
+* [**EOSIO Concepts**](../20_introduction-to-eosio): Learn the core concepts of the EOSIO platform
+* [**EOSIO Protocols**](../60_protocol-guides): Gain a deeper understanding of the various protocols such as [Accounts and Permissions](../60_protocol-guides/40_accounts_and_permissions.md) implemented in the EOSIO platform
+* [**EOSIO Getting Started**](../30_getting-started-guide): Orient yourself with the EOSIO development environment and basic smart contract development. Best suited for new developers onboarding the EOSIO blockchain ecosystem
+* [**EOSIO Advanced Setup Guides**](../35_eosio-guides): Access EOSIO component guides and learn how to install, configure, and use the individual components in your EOSIO developer environment
 * **API and SDK Reference**: Browse our API catalogue and discover what kinds of APIs we provide
 Glossary: Browse through a curated list of EOSIO terminologies.
 
