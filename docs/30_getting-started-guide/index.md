@@ -7,15 +7,15 @@ Welcome to the EOSIO platform. The EOSIO getting started guide contains guided i
 
 As a developer, you have the following pathways to getting started with EOSIO:
 
-1. [Local Development Environment](../25_development-environment): Set up your local development environment and deploy your first smart contract
+1. [Local Development Environment](10_local-development-environment): Set up your local development environment and deploy your first smart contract
 2. [Pre-configured Development Environment]: Use the Gitpod pre-configured EOSIO development environment
-3. [The EOSIO Testnet]((../70_quick-start-guides)): Use the EOSIO Testnet as a testing environment to deploy smart contracts and build blockchain applications on EOSIO.
+3. [The EOSIO Testnet](../70_quick-start-guides): Use the EOSIO Testnet as a testing environment to deploy smart contracts and build blockchain applications on EOSIO.
 
 
 In addition to the getting started pathways, we have the following guides to help you understand EOSIO and use the components at an advanced level. 
 
 # Protocol Guides
-In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follw this link [Protocol Guides](../60_protocol-guides) to read more about `EOSIO Core.`
+In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follow this link [Protocol Guides](../60_protocol-guides) to read more about `EOSIO Core.`
 
 # Installation Guides
 
@@ -34,7 +34,7 @@ Use plugins to extend, or specialise, the behaviour of nodeos and kleosd:
 * [Keosd PLugins](https://developers.eos.io/manuals/eos/latest/keosd/plugins/index)
 
 # Configuration Guides
-For information about configuring your EOSIO components click [here.](20_configuration-guides) These configuration guides will show you how to run a local blockchain, become a block producer, and set up an environment to build, test and deply smart contracts. 
+For information about configuring your EOSIO components click [here.](../35_eosio-guides/20_configuration-guides) These configuration guides will show you how to run a local blockchain, become a block producer, and set up an environment to build, test and deply smart contracts. 
 
 
 # Manuals (Component Guides)
@@ -123,7 +123,6 @@ Sample applications.
 # EOSIO Blockchain Networks
 There are many public blockchains using the EOSIO platform, follow this link [EOSIO Blockchains](https://developers.eos.io/welcome/latest/blockchain-networks) to see a list of blockchains, and click [here](../10_welcome-to-eosio/20_community-contributions) to let us know about your EOSIO based blockchain.
 
-# Next Steps
-Want to [get involved in the EOSIO platform?](80_next-steps) 
+
 
 

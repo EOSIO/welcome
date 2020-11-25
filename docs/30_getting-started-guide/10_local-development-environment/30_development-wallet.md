@@ -1,6 +1,6 @@
 ---
-content_title: "Development Wallets"
-link_text: "Development Wallets"
+content_title: "Create Development Wallet"
+link_text: "Create Development Wallet"
 ---
 
 Private keys are stored locally in [Keosd](../../glossary/index#keosd). Private keys are one half of public-private key pairs which are used by asymmetric cryptography. The corresponding public keys is stored on the blockchain and associated with an account. It is these keys that are used to secure accounts and to sign transactions. 

@@ -20,4 +20,4 @@ The transactions recorded on the blockchain form an immutable history of the blo
 ## What's Next?
 - [Get Started](30_getting-started-guide): Learn how to develop on an EOSIO blockchain
 - [Protocol](60_protocol-guides): Understand the protocols that makes up an EOSIO blockchain
-- [Get Involved](96_get-involved): Learn how to get involved and contribute to the EOSIO ecosystem.
+

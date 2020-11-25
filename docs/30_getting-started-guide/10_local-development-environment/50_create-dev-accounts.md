@@ -1,6 +1,6 @@
 ---
-content_title: "Accounts"
-link_text: "Accounts"
+content_title: "Create Development Accounts"
+link_text: "Create Development Accounts"
 ---
 
 An account is a collection of authorizations, stored on the blockchain, accounts identify individual users. Accounts also identify  smart contracts, each smart contract requires an account, and an account can have one smart contract. 

@@ -3,7 +3,7 @@ content_title: Installation Guides
 link_text: Installation Guides
 ---
 
-The `EOSIO platform` can be installed using binary files released by Block.one or you can get the open source code and build the binary files locally. This section provide installation instructions using binary files. To see if your environment is supported see our list of [supported environments.](../02_supported-operating-systems)
+The `EOSIO platform` can be installed using binary files released by Block.one or you can get the open source code and build the binary files locally. This section provides installation instructions using binary files. 
 
 [[info]]
 | If you are new to EOSIO, we recommended you install the [EOSIO Prebuilt Binaries.](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries)

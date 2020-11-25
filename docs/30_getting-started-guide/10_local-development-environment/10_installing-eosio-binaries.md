@@ -1,6 +1,6 @@
 ---
-content_title: Installing Nodeos
-link_text: Installing Nodeos
+content_title: Install EOSIO Binaries
+link_text: Install EOSIO Binaries 
 ---
 
 The installation process will install `nodeos`, `cleos`, and `keosd`, the components required to run and interact with a blockchain. 

@@ -1,6 +1,6 @@
 ---
-content_title: EOSIO Tesnet Quick Start Guide
-link_text: EOSIO Tesnet Quick Start Guide
+content_title: EOSIO Testnet Quick Start Guide
+link_text: EOSIO Testnet Quick Start Guide
 ---
 
 

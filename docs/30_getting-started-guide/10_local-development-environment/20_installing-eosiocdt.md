@@ -1,6 +1,6 @@
 ---
-content_title: Installing the EOSIO.CDT
-link_text: Installing the EOSIO.CDT
+content_title: Install the EOSIO.CDT
+link_text: Install the EOSIO.CDT
 ---
 
 The `EOSIO Contract Development Toolkit`, `CDT` for short, is a collection of tools related to contract compilation. Subsequent tutorials use the CDT primarily for compiling contracts and generating ABIs.
