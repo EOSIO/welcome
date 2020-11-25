@@ -1,6 +1,6 @@
 ---
-content_title: "EOSIO Getting Started Guide"
-link_text: "EOSIO Getting Started Guide"
+content_title: "Getting Started Guide"
+link_text: "Getting Started Guide"
 ---
 
 Welcome to the `EOSIO platform`. This getting started guide will guide you to the information you need to install and use the `EOSIO platform`. The sections below should let you easily find the information you need to understand how the EOSIO platfrom works and how to install the components you need. Once you understand the `EOSIO platform` follow our getting started guides to learn how to build [smart contracts.](../40_smart-contract-guides) We are currently creating a guide to becoming a block producer.

@@ -1,3 +1,7 @@
+---
+content_title: Community Developer Tools
+---
+
 ## Overview
 
 This is a list of developer tools which are built by members of the EOSIO community, curated by the Developer Relations team at Block.one.

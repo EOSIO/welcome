@@ -1,6 +1,6 @@
 ---
-content_title: EOSIO Tutorials
-link_text: EOSIO Tutorials
+content_title: Tutorials
+link_text: Tutorials
 ---
 
 1. [BIOS Boot Sequence](10_bios-boot-sequence.md): Demonstrates how to bootstrap a new EOSIO blockchain.

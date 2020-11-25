@@ -1,6 +1,6 @@
 ---
-content_title: EOSIO Protocol Guides
-link_text: EOSIO Protocol Guides
+content_title: Protocol Guides
+link_text: Protocol Guides
 ---
 
 The EOSIO Protocol section describes how the `EOSIO platform` actually works and can be split into two layers. The core which is open source and implemented in `C++` and system which is implemented in smart contracts running on the core.  

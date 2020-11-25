@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": ["07_tools", "90_blockchain_networks", "95_community-developer-tools", "50_block-producer-guides", "90_blockchain-networks", "96_get-involved"]
+        "exclude": ["07_tools", "90_blockchain_networks", "95_community-developer-tools", "50_block-producer-guides", "90_blockchain-networks", "85_testnet", "96_get-involved"]
       }
     },
     {
@@ -36,6 +36,15 @@
 	{
       "name": "collate_markdown",
       "options": {
+        "docs_dir": "docs/85_testnet",
+        "disable_indices": true,
+        "output_dir": "85_testnet",
+        "disable_readme_import": true
+      }
+    },
+	{
+      "name": "collate_markdown",
+      "options": {
         "docs_dir": "docs/90_blockchain-networks",
         "disable_indices": true,
         "output_dir": "90_blockchain-networks",
@@ -54,7 +63,7 @@
 	{
       "name": "glossary",
       "options": {
-        "glossary_markdown_output": "glossary",
+        "glossary_markdown_output": "EOSIO glossary",
         "glossary_source": "glossary.yaml"
       }
     },

@@ -1,3 +1,9 @@
+---
+content_title: EOSIO Tesnet Quick Start Guide
+link_text: EOSIO Tesnet Quick Start Guide
+---
+
+
 # **Overview**
 
 This guide is for users who intend to use the EOSIO Testnet as a testing environment for deploying smart contracts and building blockchain applications on EOSIO. The EOSIO Testnet allows developers to quickly onboard by creating new blockchain accounts and test smart contracts on the latest builds of the EOSIO software. You can deploy smart contracts, push transactions, and view the multi-index table in a user-friendly GUI.
