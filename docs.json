@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": ["07_tools", "90_blockchain_networks", "95_community-developer-tools", "50_block-producer-guides", "85_testnet", "99_exclude"]
+        "exclude": ["07_tools", "90_blockchain-networks", "95_community-developer-tools", "50_block-producer-guides", "85_testnet", "99_exclude"]
       }
     },
     {
