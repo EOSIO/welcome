@@ -3,7 +3,19 @@ content_title: "Getting Started Guide"
 link_text: "Getting Started Guide"
 ---
 
-Welcome to the `EOSIO platform`. This getting started guide will guide you to the information you need to install and use the `EOSIO platform`. The sections below should let you easily find the information you need to understand how the EOSIO platfrom works and how to install the components you need. Once you understand the `EOSIO platform` follow our getting started guides to learn how to build [smart contracts.](../40_smart-contract-guides) We are currently creating a guide to becoming a block producer.
+Welcome to the EOSIO platform. The EOSIO getting started guide contains guided instructions on how to set up your development environment by installing the EOSIO software components and other related dependencies. This is the fastest way to onboard the EOSIO development ecosystem and get acquainted with the smart contracts development workflow.
+
+As a developer, you have the following pathways to getting started with EOSIO:
+
+1. [Local Development Environment](../25_development-environment): Set up your local development environment and deploy your first smart contract
+2. [Pre-configured Development Environment]: Use the Gitpod pre-configured EOSIO development environment
+3. [The EOSIO Testnet]((../70_quick-start-guides)): Use the EOSIO Testnet as a testing environment to deploy smart contracts and build blockchain applications on EOSIO.
+
+
+In addition to the getting started pathways, we have the following guides to help you understand EOSIO and use the components at an advanced level. 
+
+# Protocol Guides
+In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follw this link [Protocol Guides](../60_protocol-guides) to read more about `EOSIO Core.`
 
 # Installation Guides
 
@@ -24,14 +36,6 @@ Use plugins to extend, or specialise, the behaviour of nodeos and kleosd:
 # Configuration Guides
 For information about configuring your EOSIO components click [here.](20_configuration-guides) These configuration guides will show you how to run a local blockchain, become a block producer, and set up an environment to build, test and deply smart contracts. 
 
-# Development Environment
-Smart contracts are written in C++. Any editor or IDE can be used to create a smart contract. The EOSIO.CDT provides eosio libraries and tools used to compile the smart contract before it can be deployed to the blockchain. Follow this link [Development Environment](25_development-environment) to see how to set up your development environment.  
-
-# Quick Start Guides
-Building distributed applications on EOSIO follows familiar development patterns and programming languages used for developing non-blockchain applications. In the quick start guides we show you the primitives you need to build your own blockchain applications. Follow this link [Quick Start Guides](../70_quick-start-guides) to start your journey on the EOSIO platform.
- 
-# Protocol Guides
-In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follw this link [Protocol Guides](../60_protocol-guides) to read more about `EOSIO Core.`
 
 # Manuals (Component Guides)
 Click on the following links to find detailed documentation for each component.
@@ -116,16 +120,8 @@ Sample applications.
 * [eosio-swift-ios-example-app](https://github.com/EOSIO/eosio-swift-ios-example-app) : Application demonstrating integration with EOSIO-based blockchains using EOSIO SDK for Swift
 * [tropical-example-web-app](https://github.com/EOSIO/tropical-example-web-app) : An example for developers showing an application built on EOSIO combining UAL, Manifest Spec, and Ricardian Contracts
 
-# Testnet
-The EOSIO Testnet is a web application that you can access using your login credentials. You don't have to download binaries to install the system as no external installation or configuration is required. The EOSIO Testnet is Block.one's offical testnet and uses the latest EOSIO software.
-
-* [EOSIO Testnet](https://testnet.eos.io/) Block.one's official EOSIO Testnet.
-
 # EOSIO Blockchain Networks
 There are many public blockchains using the EOSIO platform, follow this link [EOSIO Blockchains](https://developers.eos.io/welcome/latest/blockchain-networks) to see a list of blockchains, and click [here](../10_welcome-to-eosio/20_community-contributions) to let us know about your EOSIO based blockchain.
-
-# Hello World
-Let's start with a simple smart contract producing the traditional "hello world." The [Hello World](../40_smart-contract-guides/10_hello-world.md) tutorial will guide you step by step in building a simple smart contract and deploying this smart contract to an EOSIO blockchain. 
 
 # Next Steps
 Want to [get involved in the EOSIO platform?](80_next-steps) 
