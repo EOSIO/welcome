@@ -81,4 +81,4 @@ We hope you enjoy the *EOSIO Developers Portal* and build great EOSIO applicatio
 
 > May the **Force of EOSIO** be with you!
 
--***EOSIO Developers Relations*** 
+-***The EOSIO Developer Relations Team*** 
