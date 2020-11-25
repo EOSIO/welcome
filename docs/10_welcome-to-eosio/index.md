@@ -77,7 +77,7 @@ See the [Community Contributions](20_community-contributions) section of this po
 
 ## Build Something Profound
 
-We hope that you greatly benefit from the _EOSIO Developers Portal_ and build profound EOSIO applications that will inject trust and integrity around us. For any thoughts or comments regarding EOSIO, you can reach out to us at <_developers@block.one_>.
+We hope that you greatly benefit from the _EOSIO Developers Portal_ and build profound EOSIO applications that will inject trust and integrity around us. For any thoughts or comments regarding EOSIO, you can reach out to us at [_developers@block.one_](developers@block.one).
 
 > May the **Force of EOSIO** be with you!
 
