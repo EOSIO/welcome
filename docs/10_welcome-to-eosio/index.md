@@ -26,7 +26,7 @@ And more!
 
 ## EOSIO Docs is Open Source
 
-The *EOSIO Developers Portal* generates documentation from source files hosted on Github, alongside the EOSIO codebase. All documentation assets on *developers.eos.io* is open sourced and designed to allow community contributions. We leverage the power of open source to deliver trusted content to support your EOSIO onboarding and advanced development journey.
+The *EOSIO Developers Portal* generates documentation from source files hosted on Github, alongside the [EOSIO](https://github.com/EOSIO) codebase. All documentation assets on [*developers.eos.io*](https://developers.eos.io/) is open sourced and designed to allow community contributions. We leverage the power of open source to deliver trusted content to support your EOSIO onboarding and advanced development journey.
 
 ### A Bit of History
 
