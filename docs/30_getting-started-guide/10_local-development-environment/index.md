@@ -3,6 +3,21 @@ content_title: "Local Development Environment"
 link_text: "Local Development Environment"
 ---
 
+# Prerequisites 
+
+Before you begin your development environment setup, get familiar with EOSIO concepts, platform components, protocols, and terminology. To learn more, explore the following topics:
+
+* [EOSIO Core Concepts]()
+* [EOSIO Platform Components]()
+* [EOSIO Accounts and Permissions]()
+* [EOSIO Transactions Protocol]()
+* [EOSIO Glossary]()
+
+Additionally, you can watch the following webinar to learn the basic concepts of blockchain technology and get introduced to the EOSIO blockchain platform:
+
+[**Learn about Blockchain & EOSIO**](https://eos.io/webinars/learn-about-blockchain-eosio/)
+
+
 # Prepare Your Development Environment
 
 A local development environment in the context of EOSIO is an environment (local machine) where you satisfy the system requirements and install the EOSIO software along with the related dependencies. When the the local development environment is prepared, you will be able to run a local blockchain instance (running nodeos) and deploy smart contracts.
