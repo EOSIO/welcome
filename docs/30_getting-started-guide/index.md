@@ -8,7 +8,7 @@ Welcome to the EOSIO platform. The EOSIO getting started guide contains guided i
 As a developer, you have the following pathways to getting started with EOSIO:
 
 1. [Local Development Environment](10_local-development-environment): Set up your local development environment and deploy your first smart contract
-2. [Pre-configured Development Environment]: Use the Gitpod pre-configured EOSIO development environment
+2. [EOSIO Quickstart Web IDE](../../20_pre-configured-development-environment): Use the Gitpod pre-configured EOSIO development environment
 3. [The EOSIO Testnet](../70_quick-start-guides): Use the EOSIO Testnet as a testing environment to deploy smart contracts and build blockchain applications on EOSIO.
 
 

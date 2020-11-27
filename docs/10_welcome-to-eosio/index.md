@@ -15,10 +15,10 @@ Are you a new entrant to the blockchain space? If yes, no worries, we have learn
 
 This portal supports your EOSIO learning and development journey through the following curated technical documentation resources:
 
-* **EOSIO Concepts**: Learn the core concepts of the EOSIO platform
-* **EOSIO Protocols**: Gain a deeper understanding of the various protocols such as [Accounts and Permissions](../60_protocol-guides/40_accounts_and_permissions.md) implemented in the EOSIO platform
-* **EOSIO Getting Started**: Orient yourself with the EOSIO development environment and basic smart contract development. Best suited for new developers onboarding the EOSIO blockchain ecosystem
-* **EOSIO Development Guides**: Access EOSIO component guides and learn how to install, configure, and use the individual components in your EOSIO developer environment
+* [**EOSIO Concepts**](../20_introduction-to-eosio): Learn the core concepts of the EOSIO platform
+* [**EOSIO Protocols**](../60_protocol-guides): Gain a deeper understanding of the various protocols such as [Accounts and Permissions](../60_protocol-guides/40_accounts_and_permissions.md) implemented in the EOSIO platform
+* [**EOSIO Getting Started**](../30_getting-started-guide): Orient yourself with the EOSIO development environment and basic smart contract development. Best suited for new developers onboarding the EOSIO blockchain ecosystem
+* [**EOSIO Advanced Setup Guides**](../35_eosio-guides): Access EOSIO component guides and learn how to install, configure, and use the individual components in your EOSIO developer environment
 * **API and SDK Reference**: Browse our API catalogue and discover what kinds of APIs we provide
 Glossary: Browse through a curated list of EOSIO terminologies.
 
@@ -26,11 +26,11 @@ And more!
 
 ## EOSIO Docs is Open Source
 
-The *EOSIO Developers Portal* generates documentation from source files hosted on Github, alongside the EOSIO codebase. All documentation assets on *developers.eos.io* is open sourced and designed to allow community contributions. We leverage the power of open source to deliver trusted content to support your EOSIO onboarding and advanced development journey.
+The *EOSIO Developers Portal* generates documentation from source files hosted on Github, alongside the [EOSIO](https://github.com/EOSIO) codebase. All documentation assets on [*developers.eos.io*](https://developers.eos.io/) is open sourced and designed to allow community contributions. We leverage the power of open source to deliver trusted content to support your EOSIO onboarding and advanced development journey.
 
 ### A Bit of History
 
-The Developer Relations team (responsible for authoring the EOSIO developer documentation) spearheaded an audacious endeavor on the EOSIO product documentation spectrum. Due to the inherently intricate nature of the EOSIO software platform, the Developer Relations team collaborated closely with the EOSIO engineering division to receive authoritative, firsthand knowledge and inputs from the creators of the platform. The Developer Relations team conducted a sweeping tech reconnaissance of the then docs-engineering collaboration framework and ideated an environment to foster productive collaboration with the internal engineering division and the external EOSIO developer community. We discarded the then-existing, proprietary CMS platform, and implemented a new developer docs toolchain, where you produce documentation in the same ecosystem as code, in close proximity with the developers - [*Docs-as-Code*](https://www.docslikecode.com/).
+The Developer Relations team (responsible for authoring the EOSIO developer documentation) spearheaded an audacious endeavor on the EOSIO product documentation spectrum. Due to the inherently intricate nature of the EOSIO software platform, the Developer Relations team collaborates closely with the EOSIO engineering division to receive authoritative, firsthand knowledge and inputs from the creators of the platform. The Developer Relations team conducted a sweeping tech reconnaissance of the then docs-engineering collaboration framework and ideated an environment to foster productive collaboration with the internal engineering division and the external EOSIO developer community. We discarded the then-existing, proprietary CMS platform, and implemented a new developer docs toolchain, where you produce documentation in the same ecosystem as code, in close proximity with the developers - [*Docs-as-Code*](https://www.docslikecode.com/).
 
 The Developer Relations team further executed a conscientious and concerted effort of designing and deploying the Developer Portal that generates developer documentation by parsing source files in GitHub. The result of this effort was a developer portal that allows internal and external community contributions to the documentation.
 
@@ -46,12 +46,13 @@ To become familiar with the *EOSIO Developers Portal* design, standard page layo
 
 ## New to Blockchain Development?
 
-The Developers Portal has documentation and onboarding [resources](../30_getting-started-guide) to help you get started with the EOSIO blockchain platform. 
+The Developers Portal has documentation and onboarding resources to help you get started with the EOSIO blockchain platform. Explore the following learning resources to acquire functional knowledge of the EOSIO platform.
 
 ### EOSIO Getting Started Guide 
-Orient yourself with the EOSIO development environment and basic smart contract development.
+Orient yourself with the EOSIO development environment and basic smart contract development. For detailed instructions on setting up your development environment and deploying your first smart contract, see the [_EOSIO Getting Started Guide_](../30_getting-started-guide). 
 
 ### EOSIO Webinars
+We hosted a series of webinars with topics ranging from foundational knowledge of the blockchain technology to advanced demos featuring hands-on exposure to smart contract development and app building on EOSIO.
 
 1. [**Learn about Blockchain & EOSIO**](https://eos.io/webinars/learn-about-blockchain-eosio/):
 Learn the basic concepts of Blockchain technology and get introduced to the EOSIO blockchain platform. 
@@ -63,7 +64,7 @@ Learn important EOSIO protocols such as Accounts and Transactions with a hands-o
 Learn how to build a full stack app using EOSIO in a hands-on demo! 
 
 ### Training and Certification
-Take part in the EOSIO [training and certification](https://eos.io/eosio-for-business/training-certification/) programs.
+From platform fundamentals to application development, we have a hands-on training and practical certification path to fit your training and educational goals. Take part in the EOSIO [training and certification](https://eos.io/eosio-for-business/training-certification/) programs.
 
 
 ## Community Contributions
@@ -76,8 +77,8 @@ See the [Community Contributions](20_community-contributions) section of this po
 
 ## Build Something Profound
 
-We hope you enjoy the *EOSIO Developers Portal* and build great EOSIO applications. You can reach out to us with your comments and thoughts at developers@block.one.
+We hope that you greatly benefit from the _EOSIO Developers Portal_ and build profound EOSIO applications that will inject trust and integrity around us. For any thoughts or comments regarding EOSIO, you can reach out to us at [_developers@block.one_](developers@block.one).
 
-Wishing you all the best!
+> May the **Force of EOSIO** be with you!
 
-***EOSIO Developers Relations*** 
+-***The EOSIO Developer Relations Team*** 
