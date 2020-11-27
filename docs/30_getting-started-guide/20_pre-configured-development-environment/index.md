@@ -3,13 +3,10 @@ content_title: "Pre-configured Development Environments"
 link_text: "Pre-configured Development Environments"
 ---
 
-## Gitpod
+## Quickstart Web IDE
 
-If you do not want to install `EOSIO` binaries on your local machine, or if you have other types of restrictions installing `EOSIO` binaries, you can try `EOSIO` in a web browser. This approach is powered by Gitpod.io and Docker, and it provides developers with a personal single-node `EOSIO` blockchain for development and testing purposes running in Gitpod.io's cloud accessible from your web browser.
-
-You can give it a try in a matter of seconds [right now](https://gitpod.io/#https://github.com/EOSIO/eosio-web-ide) and you can read more details about it [on the eosio-web-ide project page](https://github.com/EOSIO/eosio-web-ide).
+The [Quickstart Web IDE](10_gitpod.md) uses Gitpod.io and Docker. This easy to start IDE provides a personal single-node `EOSIO` blockchain running in a docker containerand is accessable from your web browser.
 
 ## EOSIO Testnet
 
-Experiment on the EOSIO Testnet with the latest stable release of the EOSIO software. Deploy your smart contracts, push actions, inspect your transactions and much more from an easy to use web interface. To start testing, [register](https://testnet.eos.io/user?utm_source=devportal#signup) for an EOSIO Developer Account.
-
+Confidently test your EOSIO apps with the [EOSIO Testnet](20_testnet.md), brought to you by Block.one. Experiment in a sandbox running the latest stable release of EOSIO, push actions to live smart contracts, and much more. To start testing follow the [Testnet Quick Start Guide](../70_quick-start-guides/10_testnet-quickstart-guide) and register for a free EOSIO Developer account.
