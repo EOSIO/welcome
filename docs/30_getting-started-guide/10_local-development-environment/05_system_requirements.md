@@ -35,4 +35,4 @@ The EOSIO platform is supported on the following environments:
 | It may be possible to install EOSIO on other Unix-based operating systems. This is not officially supported, though.
 
 ## Next
-[Install EOSIO Binaries](../10_installing-eosio-binaries.md)
+[Install EOSIO Binaries](10_installing-eosio-binaries.md)
