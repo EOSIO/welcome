@@ -21,7 +21,7 @@ Most of the pages on the EOSIO developer portal provide an **Edit** link which r
 
 1. Go to the specific page where you have identified an editorial need and click the **Edit** icon at the upper right of the page.
 
-![Quick Edit Icon](./quick-edits-1.png)
+![Quick Edit Icon](./edit.png)
 
 2. Fork the repository to suggest changes. Click **Fork this repository**.
 
@@ -46,7 +46,7 @@ Filing an issue in a docs repository means reporting a documentation bug in the 
 To file a new issue:
 
 1. Go to the specific page where you have identified an area of improvement and click **Request Changes** at the top right of the page.
-   ![New Issue Icon](./file-issues-1.png)
+   ![New Issue Icon](./request-changes.png)
 2. You will be directed to the Issues tab of the specific repository with an editable Issue form.
 
    ![New Issue Form](./file-issues-2.png)
