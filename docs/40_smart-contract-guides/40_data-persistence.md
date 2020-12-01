@@ -2,7 +2,9 @@
 content_title: "Data Persistence"
 link_text: "Data Persistence"
 ---
+This tutorial shows how to persist data used by smart contracts.
 
+## Introduction
 This section demonstrates data persistence and builds a simple addressbook smart contract. The implementation is not a full production smart contract, however it is a good smart contract to learn how data persistence works on EOSIO without being distracted by business logic not related to eosio's `multi_index API` functionality.
 
 ## Step 1: Create a new directory

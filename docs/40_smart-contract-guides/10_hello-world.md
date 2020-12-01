@@ -2,6 +2,7 @@
 content_title: "Hello World Contract"
 link_text: "Hello World Contract"
 ---
+This tutorial introduces the concept of smart contracts; building smart contracts; deploying smart contracts to a blockchain and then uses `cleos` to call smart contract actions. 
 
 ## Create the Contract
 

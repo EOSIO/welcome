@@ -2,6 +2,8 @@
 content_title: "Deploy, Issue and Transfer Tokens"
 link_text: "Deploy, Issue and Transfer Tokens"
 ---
+This tutorial introduces the concept of tokens, the `eosio.token` smart contract and then uses `cleos` to call `eosio.token` actions. 
+
 ## Step 1: Obtain Contract Source
 
 Navigate to your contracts directory.

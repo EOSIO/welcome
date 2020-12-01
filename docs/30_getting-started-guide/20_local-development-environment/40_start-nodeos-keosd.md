@@ -1,10 +1,10 @@
 ---
-content_title: "Initialise keosd and nodeos"
-link_text: "Initialise keosd and nodeos"
+content_title: "Start keosd and nodeos"
+link_text: "Start keosd and nodeos"
 ---
 
-To develop smart contracts you need to test smart contracts. To do this requires deploying smart contracts to a blockchain. In the [configuration guides](../../35_eosio-guides/20_configuration-guides) we discuss some of the options. In this section we show you some command lines for running [Nodeos](../../glossary/index#nodeos) and [Keosd.](../../glossary/index#keosd)   
-
+Once you have built your smart contract deploy it to a blockchain for testing.  In the [configuration guides](../../30_getting-started-guide/10_system-setup/20_configuration-guides.md) we discuss two local blockchain options. In this section we show you the commands for running [Nodeos](../../glossary/index#nodeos) and [Keosd.](../../glossary/index#keosd)   
+    
 
 ### Starting keosd
 

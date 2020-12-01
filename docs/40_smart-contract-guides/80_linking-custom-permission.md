@@ -2,6 +2,8 @@
 content_title: "Creating and Linking Custom Permissions"
 link_text: "Creating and Linking Custom Permissions"
 ---
+This tutorial shows how to creaet and use custom account permissions.
+
 ## Introduction
 On an EOSIO blockchain, you can create various custom permissions for accounts.  A custom permission can later be linked to an action of a contract.  This permission system enables smart contracts to have a flexible authorization scheme.
 

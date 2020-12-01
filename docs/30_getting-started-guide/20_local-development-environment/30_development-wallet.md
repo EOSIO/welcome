@@ -107,5 +107,5 @@ Enter the public key provided in the last step in the box below. It will persist
 <div class="eosio-helper-box"><form id="YOUR_PUBLIC_KEY"><label>Development Public Key</label><input class="helper-cookie" name="YOUR_PUBLIC_KEY" type="text" /><input type="submit" /><span></span></form></div>
 
 ## What's Next?
-[Initialize Keosd and Nodeos](40_running-nodeos-keosd.md): Steps to start Keosd and Nodeos.
+[Initialize Keosd and Nodeos](40_start-nodeos-keosd.md): Steps to start Keosd and Nodeos.
 

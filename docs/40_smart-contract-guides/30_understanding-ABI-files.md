@@ -2,11 +2,9 @@
 content_title: "Understanding ABI Files"
 link_text: "Understanding ABI Files"
 ---
+This tutorial will explain ABI files and show how the ABI file correlates to the `eosio.token` contract.
 
 ## Introduction
-
-Previously you deployed the `eosio.token` contract using the provided ABI file. This tutorial will overview how the ABI file correlates to the `eosio.token` contract.
-
 ABI files can be generated using the `eosio-cpp` utility provided by `eosio.cdt`. However, there are several situations that may cause ABI's generation to malfunction or fail altogether. Advanced C++ patterns can trip it up and custom types can sometimes cause issues for ABI generation. For this reason, it's **imperative** you understand how ABI files work, so you can debug and fix if and when necessary.
 
 ## What is an ABI

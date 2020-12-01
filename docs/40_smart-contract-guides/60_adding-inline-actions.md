@@ -2,9 +2,9 @@
 content_title: "Adding Inline Actions"
 link_text: "Adding Inline Actions"
 ---
+This tutorial shows how to call inline actions from a smart contract.
 
 ## Introduction
-
 It was previously demonstrated by authoring the `addressbook` contract the basics of multi-index tables. In this part of the series you'll learn how to construct actions, and send those actions from within a contract.
 
 ## Step 1: Adding eosio.code to permissions

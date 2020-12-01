@@ -4,7 +4,7 @@ link_text: "Tic-tac-toe Game Contract Using Single Node"
 ---
 
 # Tic-tac-toe on EOSIO 
-This tic-tac-toe tutorial guides you step by step to build a tic-tac-toe game which runs on an EOSIO blockchain. You will create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use a local [single node testnet](https://developers.eos.io/manuals/eos/v2.0/nodeos/usage/development-environment/local-single-node-testnet "local single node testnet") and show you how to play the game by calling the smart contract. For an example on how to configure the single node testnet see the [Local Single-Node Testnet](../35_eosio-guides/20_configuration-guides/10_local.md) section.
+This tic-tac-toe tutorial guides you step by step to build a tic-tac-toe game which runs on an EOSIO blockchain. You will create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use a local [single node testnet](https://developers.eos.io/manuals/eos/v2.0/nodeos/usage/development-environment/local-single-node-testnet "local single node testnet") and show you how to play the game by calling the smart contract. For an example on how to configure the single node testnet see the [Local Single-Node Testnet](../30_getting-started-guide/10_system-setup/20_configuration-guides.md) section.
 
 
 [[info]]
@@ -21,9 +21,9 @@ This tutorial requires the following:
 
 and
 
-* The EOSIO platform software, Click on this link for instructions on [installing EOSIO binaries.](../30_getting-started-guide/10_local-development-environment/10_installing-eosio-binaries.md "Getting started - install binaries") 
+* The EOSIO platform software, Click on this link for instructions on [installing EOSIO binaries.](../30_getting-started-guide/20_local-development-environment/10_installing-eosio-binaries.md "Getting started - install binaries") 
 * Familiarity with the EOSIO tools `cleos` and `keosd`.
-* The EOSIO Contract Development Toolkit or eosio.cdt. Click on this link to [install the CDT.](../30_getting-started-guide/10_local-development-environment/20_installing-eosiocdt.md "EOSIO.CDT Installation Instructions") 
+* The EOSIO Contract Development Toolkit or eosio.cdt. Click on this link to [install the CDT.](../30_getting-started-guide/20_local-development-environment/20_installing-eosiocdt.md "EOSIO.CDT Installation Instructions") 
 * Familiarity with the `eosio.cdt` which is used to compile smart contracts. 
 
 Click on this link for an [overview of the EOSIO platform.](../20_introduction-to-eosio)

@@ -2,6 +2,9 @@
 content_title: "Inline Actions to External Contracts"
 link_text: "Inline Actions to External Contracts"
 ---
+This tutorial shows how to call inline actions from another smart contract.
+
+## Introduction 
 Previously, we sent an inline action to an action that was defined in the contract. In this part of the tutorial, we'll explore sending actions to an external contract. Since we've already gone over quite a bit of contract authoring, we'll keep this contract extremely simple. We'll author a contract that counts actions written by the contract. This contract has very little real-world use, but will demonstrate inline action calls to an external contract
 
 ## Step 1: The Addressbook Counter Contract

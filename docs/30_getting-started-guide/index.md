@@ -6,13 +6,13 @@ link_text: "Getting Started Guide"
 The EOSIO getting started guide contains guided instructions on how to set up your development environment by installing the EOSIO software components and other related dependencies. This is the fastest way to onboard the EOSIO development ecosystem and get acquainted with the smart contracts development workflow in a local environment.
 
 ## Local Development Environment
-As a developer, begin with setting up your [Local Development Environment](10_local-development-environment) and progress to smart contract development and deployment. This pathway involves satisying system requirements and installing OS-specific EOSIO binaries.
+As a developer, begin with setting up your [Local Development Environment](20_local-development-environment) and progress to smart contract development and deployment. This pathway involves satisying system requirements and installing OS-specific EOSIO binaries.
 
 
 ## Pre-configured Web Environment
 To quickly get familiar with the EOSIO development ecosystem, we recommend you follow the local development environment setup pathway. However, if you have any system constraints and would like to try the EOSIO environment without the need of binary installation, you can try the following pathways:
 
-1. [EOSIO Quickstart Web IDE](../../20_pre-configured-development-environment): Use the Gitpod pre-configured EOSIO development environment
+1. [EOSIO Quickstart Web IDE](30_pre-configured-development-environment): Use the Gitpod pre-configured EOSIO development environment
 2. [The EOSIO Testnet](../70_quick-start-guides): Use the EOSIO Testnet as a testing environment to deploy smart contracts and build blockchain applications on EOSIO.
 
 ## EOSIO Guides
@@ -25,7 +25,7 @@ In this section we describe the base components and protocols used in the EOSIO 
 
 * [Installation Guides]():
 * [Plugin Guides](): Use plugins to extend, or specialise, the behaviour of nodeos and kleosd
-* [Configuration Guides](../35_eosio-guides/20_configuration-guides): Learn how to run a local blockchain, become a block producer, and set up an environment to build, test and deploy smart contracts.
+* [Configuration Guides](10_system-setup/20_configuration-guides.md): Learn how to run a local blockchain, become a block producer, and set up an environment to build, test and deploy smart contracts.
 
 
 

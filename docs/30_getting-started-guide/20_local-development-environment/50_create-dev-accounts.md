@@ -3,9 +3,9 @@ content_title: "Create Development Accounts"
 link_text: "Create Development Accounts"
 ---
 
-An account is a collection of authorizations, stored on the blockchain, accounts identify individual users. Accounts also identify  smart contracts, each smart contract requires an account, and an account can have one smart contract. 
+An account is a collection of authorizations; accounts are stored on the blockchain; accounts identify individual users. Some accounts identify smart contracts; a smart contract is deployed to an account; an account can have only one smart contract. 
 
-EOSIO accounst have a flexible authorization structure which enables it to be controlled by an individual or group of individuals (multisig) depending on **how** permissions have been configured. An account is required to send or receive a valid transaction to the blockchain
+EOSIO accounts have a flexible authorization structure which enables it to be controlled by an individual or group of individuals (multisig) depending on **how** permissions have been configured. An account is required to send or receive a valid transaction to the blockchain
 
 This tutorial series uses two "user" accounts, `bob` and `alice`, as well as the default `eosio` account for configuration. Additionally accounts are made for various contracts throughout this tutorial series.
 

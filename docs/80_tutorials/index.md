@@ -3,6 +3,9 @@ content_title: Tutorials
 link_text: Tutorials
 ---
 
+## Before you begin
+To get started as quickly as possible we recommend using pre-built binaries. Building from source is a more advanced option but will set you back an hour or more and you may encounter build errors. See the [Installation Guides](../30_getting-started-guide/10_system-setup) for details on how to install the required EOSIO components.
+
 1. [BIOS Boot Sequence](10_bios-boot-sequence.md): Demonstrates how to bootstrap a new EOSIO blockchain.
 2. Tic-tac-toe Game Contract: Build a simple tic-tac-toe game on EOSIO to apply the knowledge you acquired earlier. Two versions are available:
    - [Tic-tac-toe using local single node](20_tic-tac-toe-game-smart-contract-single-node.md)
