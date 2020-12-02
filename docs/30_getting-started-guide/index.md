@@ -15,19 +15,16 @@ To quickly get familiar with the EOSIO development ecosystem, we recommend you f
 1. [EOSIO Quickstart Web IDE](30_pre-configured-development-environment): Use the Gitpod pre-configured EOSIO development environment
 2. [The EOSIO Testnet](../70_quick-start-guides): Use the EOSIO Testnet as a testing environment to deploy smart contracts and build blockchain applications on EOSIO.
 
-## EOSIO Guides
-In addition to the getting started pathways, we have the following guides to help you understand EOSIO and use the components at an advanced level. 
+## System Setup
+For detailed instructions on installing EOSIO and its core components, see [System Setup](). 
+
+## Further Reading
 
 ### Protocols
 In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follow this link [Protocol Guides](../60_protocol-guides) to read more about `EOSIO Core.`
 
-### Advanced System Setup 
-
-* [Installation Guides]():
-* [Plugin Guides](): Use plugins to extend, or specialise, the behaviour of nodeos and kleosd
-* [Configuration Guides](10_system-setup/20_configuration-guides.md): Learn how to run a local blockchain, become a block producer, and set up an environment to build, test and deploy smart contracts.
-
-
+### Configuration Guides
+You can configure a local single-node or a local multi-node testnet. For more information, see [Configuration Guides](). 
 
 ### Core Components
 The main components of the EOSIO platform.
