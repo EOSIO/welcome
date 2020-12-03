@@ -24,6 +24,8 @@ For an example on how to configure the single node testnet see the [Local Single
 
 * [**EOSIO Advanced Setup Guides**](../30_getting-started-guide/10_system-setup): Access EOSIO component guides and learn how to install, configure, and use the individual components in your EOSIO developer environment
 
+### Configuration Guides
+You can configure a local single-node or a local multi-node testnet. For more information, see [Configuration Guides](). 
 
 // from start-nodeos-keosd
 In the [configuration guides](../../30_getting-started-guide/10_system-setup/20_configuration-guides.md) we discuss two local blockchain options. 
