@@ -18,9 +18,9 @@ To quickly get familiar with the EOSIO development ecosystem, we recommend you f
 2. [The EOSIO Testnet](../70_quick-start-guides): Use the EOSIO Testnet as a testing environment to deploy smart contracts and build blockchain applications on EOSIO.
 
 
-## Further Reading
+# Further Reading
 
-### Protocols
+## Protocols
 In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follow this link [Protocol Guides](../60_protocol-guides) to read more about `EOSIO Core.`
 
 ## Configuration Guides
@@ -58,7 +58,7 @@ Block producers operate in a distributed and/or decentralised environment. A [bl
 Use plugins to extend, or specialize, the behaviour of nodeos and kleosd. See the [Plugins section]() to learn more.
 
 
-### Core Components
+## Core Components
 The main components of the EOSIO platform.
 * [nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/index) : The core service daemon that runs on every EOSIO node.
 * [cleos](https://developers.eos.io/manuals/eos/latest/cleos/index) : A command line interface to interact with the blockchain and manage wallets.
