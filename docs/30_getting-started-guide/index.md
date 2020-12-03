@@ -25,7 +25,6 @@ In this section we describe the base components and protocols used in the EOSIO 
 
 * [Installation Guides]():
 * [Plugin Guides](): Use plugins to extend, or specialise, the behaviour of nodeos and kleosd
-* [Configuration Guides](10_system-setup/20_configuration-guides.md): Learn how to run a local blockchain, become a block producer, and set up an environment to build, test and deploy smart contracts.
 
 
 

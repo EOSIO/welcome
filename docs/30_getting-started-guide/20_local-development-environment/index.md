@@ -1,6 +1,6 @@
 ---
-content_title: "Local Development Environment"
-link_text: "Local Development Environment"
+content_title: "Set Up Development Environment"
+link_text: "Set Up Development Environment"
 ---
 
 # Prerequisites 

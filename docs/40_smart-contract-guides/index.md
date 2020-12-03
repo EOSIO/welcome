@@ -17,7 +17,7 @@ This section will introduce you to the EOSIO library and show you the concepts y
 
 
 ## Before you begin
-To get started as quickly as possible we recommend using pre-built binaries. Building from source is a more advanced option but will set you back an hour or more and you may encounter build errors. See the [Installation Guides](../30_getting-started-guide/10_system-setup/10_installation-guides.md) for details on how to install the required EOSIO components.
+To get started as quickly as possible we recommend using pre-built binaries. Building from source is a more advanced option but will set you back an hour or more and you may encounter build errors. See the [Getting Started Guide](../30_getting-started-guide) for details on how to install and set up the required EOSIO components.
 
 
 ## Using cookies for the tutorials

@@ -18,7 +18,6 @@ This portal supports your EOSIO learning and development journey through the fol
 * [**EOSIO Concepts**](../20_introduction-to-eosio): Learn the core concepts of the EOSIO platform
 * [**EOSIO Protocols**](../60_protocol-guides): Gain a deeper understanding of the various protocols such as [Accounts and Permissions](../60_protocol-guides/40_accounts_and_permissions.md) implemented in the EOSIO platform
 * [**EOSIO Getting Started**](../30_getting-started-guide): Orient yourself with the EOSIO development environment and basic smart contract development. Best suited for new developers onboarding the EOSIO blockchain ecosystem
-* [**EOSIO Advanced Setup Guides**](../30_getting-started-guide/10_system-setup): Access EOSIO component guides and learn how to install, configure, and use the individual components in your EOSIO developer environment
 * **API and SDK Reference**: Browse our API catalogue and discover what kinds of APIs we provide
 Glossary: Browse through a curated list of EOSIO terminologies.
 
@@ -77,7 +76,7 @@ See the [Community Contributions](20_community-contributions) section of this po
 
 ## Build Something Profound
 
-We hope that you greatly benefit from the _EOSIO Developers Portal_ and build profound EOSIO applications that will inject trust and integrity around us. For any thoughts or comments regarding EOSIO, you can reach out to us at [_developers@block.one_](developers@block.one).
+We hope that you greatly benefit from the _EOSIO Developers Portal_ and build profound EOSIO applications that will inject trust and integrity around us. For any thoughts or comments regarding EOSIO, you can reach out to us at [_developers@block.one_](mailto:developers@block.one).
 
 > May the **Force of EOSIO** be with you!
 

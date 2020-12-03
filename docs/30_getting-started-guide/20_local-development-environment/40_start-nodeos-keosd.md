@@ -3,7 +3,7 @@ content_title: "Start keosd and nodeos"
 link_text: "Start keosd and nodeos"
 ---
 
-Once you have built your smart contract deploy it to a blockchain for testing.  In the [configuration guides](../../30_getting-started-guide/10_system-setup/20_configuration-guides.md) we discuss two local blockchain options. In this section we show you the commands for running [Nodeos](../../glossary/index#nodeos) and [Keosd.](../../glossary/index#keosd)   
+Once you have built your smart contract deploy it to a blockchain for testing. In this section we show you the commands for running [Nodeos](../../glossary/index#nodeos) and [Keosd.](../../glossary/index#keosd)   
     
 
 ### Starting keosd

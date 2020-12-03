@@ -22,7 +22,7 @@ and
 
 * An EOSIO Testnet account, click on the following link for the [EOSIO Testnet quick start guide](../70_quick-start-guides/10_testnet-quick-start-guide) 
 * Familiarity with the EOSIO tools `cleos` and `keosd`.
-* The EOSIO Contract Development Toolkit or eosio.cdt. Click on this link to [install the CDT.](../../30_getting-started-guide/10_system-setup/10_installation-guides.md "EOSIO.CDT Installation Instructions") 
+* The EOSIO Contract Development Toolkit or eosio.cdt. See the [Getting Started Guide](../30_getting-started-guide) for details on how to install and set up the required EOSIO components.
 * Familiarity with the `eosio.cdt` which is used to compile smart contracts. 
 
 Click on this link for an [overview of the EOSIO platform.](../20_introduction-to-eosio)
