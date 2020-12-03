@@ -23,11 +23,6 @@ For detailed instructions on installing EOSIO and its core components, see [Syst
 ### Protocols
 In this section we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follow this link [Protocol Guides](../60_protocol-guides) to read more about `EOSIO Core.`
 
-### Advanced System Setup 
-
-* [Installation Guides]():
-* [Plugin Guides](): Use plugins to extend, or specialise, the behaviour of nodeos and kleosd
-
 ### Core Components
 The main components of the EOSIO platform.
 * [nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/index) : The core service daemon that runs on every EOSIO node.
