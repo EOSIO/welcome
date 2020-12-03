@@ -5,7 +5,7 @@ link_text: "Getting Started Guide"
 
 The EOSIO _Getting Started Guide_ provides guided instructions on how to set up your local development environment. These instructions installs the EOSIO software components and other related dependencies for the EOSIO platform. This setup is an efficient and convinient method to onboard the EOSIO development ecosystem. Subsequently, you become acquainted with the smart contracts development workflow in a local environment.
 
-## Set Up Local Development Environment
+# Set Up Local Development Environment
 As a developer, begin with setting up your [Set Up Local Development Environment](20_local-development-environment) and progress to smart contract development and deployment. This pathway involves satisying system requirements and installing OS-specific EOSIO binaries.
 
 For advanced EOSIO installation instructions, see [Installing from Source]().
