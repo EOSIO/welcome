@@ -6,9 +6,9 @@ link_text: "Getting Started Guide"
 The EOSIO _Getting Started Guide_ provides guided instructions on how to set up your local development environment. These instructions installs the EOSIO software components and other related dependencies for the EOSIO platform. This setup is an efficient and convinient method to onboard the EOSIO development ecosystem. Subsequently, you become acquainted with the smart contracts development workflow in a local environment.
 
 # Set Up Local Development Environment
-As a developer, begin with setting up your [Set Up Local Development Environment](20_local-development-environment) and progress to smart contract development and deployment. This pathway involves satisying system requirements and installing OS-specific EOSIO binaries.
+As a developer, begin with setting up your [local development environment](20_local-development-environment) that involves satisfying system requirements, installing OS-specific EOSIO binaries, and creating test blockchain accounts. Once the local development environment is set up, you can progress to smart contracts development workflow. 
 
-For advanced EOSIO installation instructions, see [Installing from Source]().
+Installing EOSIO prebuilt binaries is a convenient method for beginners. If you want to try advanced build methods, see [Build EOSIO from Source](). 
 
 
 ### Use Pre-configured Web Environment
@@ -19,7 +19,7 @@ Optionally, you can use a pre-configured web environment as your local developme
 
 
 # Further Reading
-
+The following documentation resources will help you gain advanced technical knowledge and functional understanding of the EOSIO platform. Additionally, you can explore advanced configuration options available for development environments.
 
 ## Protocol Guides
 In this section, we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follow this link [Protocol Guides](../60_protocol-guides) to read more about `EOSIO Core.`
