@@ -5,10 +5,10 @@ link_text: Community Contributions
 
 We appreciate your interest in contributing to the EOSIO platform! We always welcome contributions from our community to make our code and docs better. You can contribute to EOSIO in the following ways:
 
-* [Contribute to EOSIO Docs](#get-involved-with-eosio-documentation)
+* [Contribute to EOSIO Developer Portal Docs](#get-involved-with-eosio-documentation)
 * [Contribute to EOSIO Community and Code](#get-involved-with-eosio-code)
 
-## Contribute to Developer Portal Docs
+## Contribute to EOSIO Developer Portal Docs
 
 The EOSIO documentation is written in Markdown. You can either submit a Pull Request for quick edits or file a new docs issue. For Markdown syntax usage, see the [Markdown Syntax Documentation](https://daringfireball.net/projects/markdown/syntax).
 
