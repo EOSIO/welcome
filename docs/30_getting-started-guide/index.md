@@ -8,7 +8,7 @@ The EOSIO _Getting Started Guide_ provides guided instructions on how to set up 
 # Set Up Local Development Environment
 As a developer, begin with setting up your [Set Up Local Development Environment](20_local-development-environment) and progress to smart contract development and deployment. This pathway involves satisying system requirements and installing OS-specific EOSIO binaries.
 
-For advanced EOSIO installation instructions, see [Installing from Source]().
+For advanced EOSIO installation instructions, see [Installing from Source](https://developers.eos.io/manuals/eos/latest/install/build-from-source/index).
 
 
 ### Use Pre-configured Web Environment
@@ -56,7 +56,7 @@ Block producers operate in a distributed and/or decentralised environment. A [bl
 `Non-Producing Nodes` connect to the peer-to-peer network but do not actively produce new blocks; they are useful for acting as proxy nodes, relaying API calls, validating transactions, broadcasting information to other nodes, etc. `Non-Producing Nodes` are also useful for monitoring the blockchain state.
 
 ### Plugin Guides
-Use plugins to extend, or specialize, the behaviour of nodeos and kleosd. See the [Plugins section]() to learn more.
+Use plugins to extend, or specialize, the behaviour of nodeos and kleosd. See the [Plugins section](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/index) to learn more.
 
 
 ## Core Components

@@ -114,7 +114,7 @@ From this point forward, you'll be executing commands from your local system (Li
 
 This will check that the RPC API is working correctly, pick one.
 
-1. Check the `get_info` endpoint provided by the `chain_api_plugin` in your browser: [http://localhost:8888/v1/chain/get_info](http://localhost:8888/v1/chain/get_info)
+1. Check the `get_info` endpoint provided by the `chain_api_plugin` in your browser by copy and pasting `http://localhost:8888/v1/chain/get_info` into your browser address bar.  
 2. Check the same thing, but in the console on your **host machine**
 
 ```shell

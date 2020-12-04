@@ -5,8 +5,8 @@ link_text: Community Contributions
 
 We appreciate your interest in contributing to the EOSIO platform! We always welcome contributions from our community to make our code and docs better. You can contribute to EOSIO in the following ways:
 
-* [Contribute to EOSIO Docs](#get-involved-with-eosio-documentation)
-* [Contribute to EOSIO Community and Code](#get-involved-with-eosio-code)
+* [Contribute to EOSIO Docs](#contribute-to-developer-portal-docs)
+* [Contribute to EOSIO Community and Code](#contribute-to-eosio-community-and-code)
 
 ## Contribute to Developer Portal Docs
 
@@ -139,7 +139,7 @@ Examples of unacceptable behavior include:
 
 ## Contributor License & Acknowledgments
 
-Whenever you make a contribution to this project, you license your contribution under the same terms as set out in [LICENSE](./LICENSE), and you represent and warrant that you have the right to license your contribution under those terms.  Whenever you make a contribution to this project, you also certify in the terms of the Developer’s Certificate of Origin set out below:
+Whenever you make a contribution to this project, you license your contribution under the same terms as set out in [LICENSE](https://github.com/EOSIO/eos/blob/master/LICENSE), and you represent and warrant that you have the right to license your contribution under those terms.  Whenever you make a contribution to this project, you also certify in the terms of the Developer’s Certificate of Origin set out below:
 
 ```
 Developer Certificate of Origin

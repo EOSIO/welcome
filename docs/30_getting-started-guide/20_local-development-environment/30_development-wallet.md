@@ -8,7 +8,7 @@ Private keys are stored locally in [Keosd](../../glossary/index#keosd). Private 
 Use [Cleos](../../glossary/index#cleos) to run commands on the blockchain and to interact with accounts and keys via [wallet](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/index) and other [commands.](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/index)    
 
 ## Create a Wallet
-The first step is to create a wallet. Use [cleos wallet create]() to create a new "default" wallet using the option `--to-console` for simplicity. If using cleos in production, it's wise to instead use `--file` so your wallet password is not in your bash history. For development purposes and because these are **development and not production keys** `--to-console` poses no security threat.
+The first step is to create a wallet. Use [cleos wallet create](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/create) to create a new "default" wallet using the option `--to-console` for simplicity. If using cleos in production, it's wise to instead use `--file` so your wallet password is not in your bash history. For development purposes and because these are **development and not production keys** `--to-console` poses no security threat.
 
 ```shell
 cleos wallet create --to-console
@@ -107,5 +107,5 @@ Enter the public key provided in the last step in the box below. It will persist
 <div class="eosio-helper-box"><form id="YOUR_PUBLIC_KEY"><label>Development Public Key</label><input class="helper-cookie" name="YOUR_PUBLIC_KEY" type="text" /><input type="submit" /><span></span></form></div>
 
 ## What's Next?
-[Initialize Keosd and Nodeos](40_start-nodeos-keosd.md): Steps to start Keosd and Nodeos.
+[Start Keosd and Nodeos](40_start-nodeos-keosd.md): Steps to start Keosd and Nodeos.
 
