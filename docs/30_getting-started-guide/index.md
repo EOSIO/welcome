@@ -8,7 +8,7 @@ The EOSIO _Getting Started Guide_ provides guided instructions on how to set up 
 # Set Up Local Development Environment
 As a developer, begin with setting up your [local development environment](20_local-development-environment) that involves satisfying system requirements, installing OS-specific EOSIO binaries, and creating test blockchain accounts. Once the local development environment is set up, you can progress to smart contracts development workflow. 
 
-For advanced EOSIO installation instructions, see [Installing from Source](https://developers.eos.io/manuals/eos/latest/install/build-from-source/index).
+Installing EOSIO prebuilt binaries is a convenient method for beginners. If you want to try advanced build methods, see [Installing from Source](https://developers.eos.io/manuals/eos/latest/install/build-from-source/index).
 
 ### Use Pre-configured Web Environment
 Optionally, you can use a pre-configured web environment as your local development environment without the need of binary installation. Use a pre-configured web environmennt if you have system constraints. See the following items for more information:
