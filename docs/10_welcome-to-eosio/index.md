@@ -80,4 +80,4 @@ We hope that you greatly benefit from the _EOSIO Developers Portal_ and build pr
 
 > May the **Force of EOSIO** be with you!
 
--***The EOSIO Developer Relations Team*** 
+***The EOSIO Developer Relations Team*** 
