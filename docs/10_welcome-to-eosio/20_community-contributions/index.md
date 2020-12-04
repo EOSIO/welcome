@@ -5,7 +5,7 @@ link_text: Community Contributions
 
 We appreciate your interest in contributing to the EOSIO platform! We always welcome contributions from our community to make our code and docs better. You can contribute to EOSIO in the following ways:
 
-* [Contribute to EOSIO Developer Portal Docs](#get-involved-with-eosio-documentation)
+* [Contribute to EOSIO Developer Portal Docs](#contribute-to-eosio-developer-portal-docs)
 * [Contribute to EOSIO Community and Code](#get-involved-with-eosio-code)
 
 ## Contribute to EOSIO Developer Portal Docs
