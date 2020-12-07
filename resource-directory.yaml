@@ -33,13 +33,13 @@ sections:
   - title: News
     listings:
       - title: EOSIO News
-        description: Latest news about EOSIO platform brought to you by block.one
+        description: Latest news about EOSIO platform brought to you by Block.one
         link: https://eos.io/news/
       - title: EOSIO Twitter
-        description: Latest tweets about EOSIO platform brought to you by block.one
+        description: Latest tweets about EOSIO platform brought to you by Block.one
         link: https://twitter.com/block_one_
       - title: EOSIO Medium
-        description: Latest articles about EOSIO platform brought to you by block.one
+        description: Latest articles about EOSIO platform brought to you by Block.one
         link: https://medium.com/eosio
 
 
