@@ -20,6 +20,9 @@ Optionally, you can use a pre-configured web environment as your local developme
 # Further Reading
 The following documentation resources will help you gain advanced technical knowledge and functional understanding of the EOSIO platform. Additionally, you can explore advanced configuration options available for development environments.
 
+## Training and Certification 
+Developed for [EOSIO for Business,](https://eos.io/eosio-for-business/) these comprehensive courses cover the foundations of EOSIO, smart contract programming, application development and security best practices for integrations. The courses are currently available to all the EOSIO community. [Sign up for free access until January 31, 2021.](https://training.eos.io/)
+
 ## Protocol Guides
 In this section, we describe the base components and protocols used in the EOSIO platform. `EOSIO Core` provides the basic building blocks for the `system` layer and because they are not implemented as smart contracts they do not provide the same level of flexibility. Nevertheless, the `core` implementation is also open source and thus it can be modified as well to suit custom business requirements. Follow this link [Protocol Guides](../60_protocol-guides) to read more about `EOSIO Core.`
 
