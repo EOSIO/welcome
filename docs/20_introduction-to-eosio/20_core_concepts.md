@@ -33,6 +33,9 @@ For more information about DPOS BFT, see [EOSIO Consensus](../60_protocol-guides
 
 ## System Resources
 
+[[info | Note]]
+| This section only applies to DPoS implementation of the EOSIO consensus mechanism. If you choose not to use DPoS, System Resources are not required.
+
 ### RAM
 
 RAM, in a EOSIO-based blockchain, is one of the important system resources consumed by blockchain accounts and smart contracts. RAM acts as a permanent storage and is used to store account names, permissions, token balance and other data for speedy on-chain data access. RAM needs to be purchased and is not based on staking as it is a limited persistent resource.
