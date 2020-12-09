@@ -83,4 +83,4 @@ Wallets:
 
 ## Next Steps
 
-Now that you have set up your local development environment, you can begin with smart contracts development workflow. Go to the [_Smart Contracts Guide_](../40_smart-contract-guides) section and work your way through building your first basic Hello World Smart Contract.
+Now that you have set up your local development environment, you can begin with smart contracts development workflow. Go to the [_Smart Contracts Guide_](../40_smart-contract-guides/index.md) section and work your way through building your first basic Hello World Smart Contract.
