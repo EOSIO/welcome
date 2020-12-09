@@ -13,7 +13,8 @@ Before you begin with the smart contracts development workflow, make sure the fo
 2. Nodeos is running and producing blocks. See the [Start keosd and nodeos]() section of the _Getting Started Guide_ for detailed instructions. 
 
 ### Smart Contracts Development Workflow
-The following list provides topics to get your started with the smart contract development workflow:
+
+Work your way through the following topics to build and deploy smart contracts. Start with Hello World and progressively build the other smart contracts. 
 
 * [Hello World](10_hello-world.md): How to build, deploy and use a simple ["Hello World"](10_hello-world.md) smart contract
 * [Deploy, Issue and Transfer Tokens](20_deploy-issue-and-transfer-tokens.md): How to use the eosio.token smart contract
