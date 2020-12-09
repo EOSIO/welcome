@@ -10,7 +10,7 @@ Before you begin with the smart contracts development workflow, make sure the fo
 
 
 1. You have set up your local development environment according to the instructions given in the [Set Up Development Environment]() section of the _Getting Started Guide_.
-2. Nodeos is running and producing blocks. See the [Start keosd and nodeos]() section of the _Getting Started Guide_ for instructions to start nodeos. 
+2. Nodeos is running and producing blocks. See the [Start keosd and nodeos]() section of the _Getting Started Guide_ for detailed instructions. 
 
 ### Smart Contracts Development Workflow
 The following list provides topics to get your started with the smart contract development workflow:
