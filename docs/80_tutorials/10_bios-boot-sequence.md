@@ -15,37 +15,36 @@ The BIOS Boot sequence undergoes two significant workflows:
 
 The information in this section walk you through the preparatory steps for the following:
 
-* Setting up your `eos` environment
-* Starting your genesis `eos` node
-* Setting up additional, interconnected eos nodes with connectivity to the genesis node
+* Setting up your `EOSIO` environment
+* Starting your genesis `EOSIO` node
+* Setting up additional, interconnected EOSIO nodes with connectivity to the genesis node
 
-After performing these steps, you will have a fully functional **eos blockchain** running locally.
+After performing these steps, you will have a fully functional **EOSIO based blockchain** running locally.
 
-**Python Script**
-
-Alternatively, if you would like to automate these steps, you can use the [bios-boot-tutorial.py](https://github.com/EOSIO/eos/blob/master/tutorials/bios-boot-tutorial/bios-boot-tutorial.py) python script that implements the preparatory steps. However, the script uses different and additional data values. See the file `accounts.json` for the producer names and the user account names that the script uses. If your goal is to build a fully functional EOS blockchain on your local machine by automation, you can run the `bios-boot-tutorial.py` script directly by following the [README.md](https://github.com/EOSIO/eos/blob/master/tutorials/bios-boot-tutorial/README.md) instructions.
+[[info | Python Script]]
+| Alternatively, if you would like to automate these steps, you can use the [bios-boot-tutorial.py](https://github.com/EOSIO/eos/blob/master/tutorials/bios-boot-tutorial/bios-boot-tutorial.py) python script that implements the preparatory steps. However, the script uses different and additional data values. See the file `accounts.json` for the producer names and the user account names that the script uses. If your goal is to build a fully functional EOSIO blockchain on your local machine by automation, you can run the `bios-boot-tutorial.py` script directly by following the [README.md](https://github.com/EOSIO/eos/blob/master/tutorials/bios-boot-tutorial/README.md) instructions.
 
 If your goal is to go beyond and understand what the script is doing, you can follow this tutorial which will get you through the same steps explaining also along the way each step needed to go through.
 
 ### 1.1. Install the binaries
 
-**Pre-compiled EOSIO Binaries**
+#### 1.1.1 Pre-compiled EOSIO Binaries
 
 For instructions to install the `nodeos` binaries, see the [Install EOSIO pre-compiled binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries) tutorial but do not start `nodeos` at this stage.
 
-**EOSIO.CDT Binaries**
+#### 1.1.2 EOSIO.CDT Binaries
 
 For instructions to install the EOSIO.CDT binaries, see the [Install EOSIO.CDT binaries](https://developers.eos.io/manuals/eosio.cdt/latest/installation) tutorial.
 
-### **1.2. Create a development wallet**
+### 1.2. Create a development wallet
 
 Create and configure your default wallet, followed by creating a public and private development keys. After the key-pair is created, import the public and private key in your wallet. For reference purposes, we will refer the public key as `EOS_PUB_DEV_KEY` and the private key as `EOS_PRIV_DEV_KEY`.
 
 For instructions on creating a wallet and importing the keys, see the [Create development wallet](../30_getting-started-guide/20_local-development-environment/30_development-wallet.md) tutorial.
 
-### **1.3. Create ~/biosboot/genesis directory**
+### 1.3. Create ~/biosboot/genesis directory
 
-Create a new directory `~/biosboot/genesis` to start the genesis node by executing `nodeos` with specific parameters that will create the blockchain database, the log file, and the configuration file inside the directory.
+Create a new directory `~/biosboot/genesis`. Later, you will start the genesis node, with specific parameters, which will tell the genesis node to create the blockchain database, the log file, and the configuration file inside this directory.
 
 ```shell
 cd ~
@@ -55,7 +54,7 @@ mkdir genesis
 cd genesis
 ```
 
-### **1.4. Create a JSON file in ~/biosboot/ directory**
+### 1.4. Create a JSON file in ~/biosboot/ directory
 
 1. Create an empty `genesis.json` file in the `~/biosboot/` directory and open it in your preferred text editor (demonstrated with nano editor here):
 
@@ -107,9 +106,9 @@ y
 
 ### 1.5. Start the genesis node
 
-To start the genesis node:
+To start the genesis node follow the below steps.
 
-1. Create a `genesis_start.sh` shell script file in the `~/biosboot/genesis/` directory and open the file with your preferred editor (demonstrated with nano editor here):
+Create a `genesis_start.sh` shell script file in the `~/biosboot/genesis/` directory and open the file with your preferred editor (demonstrated with nano editor here):
 
 ```shell
 cd ~/biosboot/genesis
@@ -117,7 +116,7 @@ touch genesis_start.sh
 nano genesis_start.sh
 ```
 
-2. Copy the following shell script content and paste it to the `genesis_start.sh` shell script file.
+Copy the following shell script content and paste it to the `genesis_start.sh` shell script file.
 
 ```shell
 #!/bin/bash
@@ -155,12 +154,11 @@ nodeos \
 echo $! > $DATADIR"/eosd.pid"
 ```
 
----
-**NOTE**:
-Replace the `EOS_PUB_DEV_KEY` and `EOS_PRIV_DEV_KEY` with the public and private key values you generated in step *1.2 Create a development wallet*.
----
+[[info | Important]]
+| Replace the `EOS_PUB_DEV_KEY` and `EOS_PRIV_DEV_KEY` with the public and private key values you generated in step [1.2 Create a development wallet](#12-create-a-development-wallet).
 
-3. Save and exit the text editor:
+
+Save and exit the text editor:
 
 ```shell
 [CTRL]+X
@@ -168,7 +166,7 @@ y
 [ENTER]
 ```
 
-4. Assign execution privileges to the `genesis_start.sh` shell script file and then  execute the `genesis_start.sh` script to start genesis `nodeos`:
+Assign execution privileges to the `genesis_start.sh` shell script file and then  execute the `genesis_start.sh` script to start genesis `nodeos`:
 
 ```shell
 cd ~/biosboot/genesis/
@@ -176,13 +174,13 @@ chmod 755 genesis_start.sh
 ./genesis_start.sh
 ```
 
->**The Genesis node**:
->- Bears the name **eosio**
->- Produces blocks
->- Listens for HTTP request on 127.0.0.1:8888
->- Listens for peer connections requests on 127.0.0.1:9010
->- Initiates periodic peer connections to localhost:9011, localhost:9012, and localhost:9013; these nodes are not running yet so ignore if you see any failed connection attempts
->- Has the parameter `--contracts-console` which prints contracts output to the console; in our case, this information is good for troubleshooting problems
+[[info | The genesis node is defined by the following:]]
+| - Bears the name `eosio`
+| - Produces blocks
+| - Listens for HTTP request on 127.0.0.1:8888
+| - Listens for peer connections requests on 127.0.0.1:9010
+| - Initiates periodic peer connections to localhost:9011, localhost:9012, and localhost:9013; these nodes are not running yet so ignore if you see any failed connection attempts
+| - Has the parameter `--contracts-console` which prints contracts output to the console; in our case, this information is good for troubleshooting problems
 
 #### 1.5.1 Stopping the Genesis node
 
@@ -245,7 +243,7 @@ nodeos \
 --producer-name eosio \
 --http-server-address 127.0.0.1:8888 \
 --p2p-listen-endpoint 127.0.0.1:9010 \
---access-control-allow-origin=* \
+--access-control-allow-origin='*' \
 --contracts-console \
 --http-validate-host=false \
 --verbose-http-errors \
@@ -261,14 +259,11 @@ echo $! > $DATADIR"/eosd.pid"
 
 1. `"perhaps we need to replay"`: This error can occur when you restart `nodeos` due to a missing `--hard-replay` parameter which replays all the transactions from the genesis node. To overcome this error, add the parameter `--hard-replay` in the `hard_replay.sh` shell script.
 
-
-----
->Some other parameters that you can use to restart `nodeos` are:
->* `--truncate-at-block`
->* `--delete-all-blocks`
->* `--replay-blockchain`
->* `--hard-replay-blockchain`
-----
+[[info | Some other parameters that you can use to restart nodeos are:]]
+| - --truncate-at-block
+| - --delete-all-blocks
+| - --replay-blockchain
+| - --hard-replay-blockchain
 
 The following is the `hard_replay.sh` shell script which is using the `--hard-replay-blockchain` parameter:
 
@@ -355,23 +350,33 @@ There are several system accounts that are needed, namely the following:
 
 Repeat the following steps to create an account for each of the system accounts.  In this tutorial, we will use the same key pair for both the account owner and active keys, so we only need to provide the key value once on the command line. For most general accounts, it is a good practice to use separate keys for owner and active. The script uses the same key for all of the `eosio.*` accounts. You can use different keys for each.
 
+Type the following command at command prompt:
+
 ```shell
 cleos create key --to-console
 ```
+
+You should see something similar to the lines below:
 
 ```shell
 Private key: 5KAVVPzPZnbAx8dHz6UWVPFDVFtU1P5ncUzwHGQFuTxnEbdHJL4
 Public key: EOS84BLRbGbFahNJEpnnJHYCoW9QPbQEk2iHsHGGS6qcVUq9HhutG
 ```
 
+Type the following command at the command prompt:
+
 ```shell
 cleos wallet import --private-key
 ```
 
+And paste the private key generated previously.
+You should see something similar to the message below:
+
 ```shell
-5KAVVPzPZnbAx8dHz6UWVPFDVFtU1P5ncUzwHGQFuTxnEbdHJL4
-imported private key for: EOS84BLRbGbFahNJEpnnJHYCoW9QPbQEk2iHsHGGS6qcVUq9HhutG
+private key: imported private key for: EOS84BLRbGbFahNJEpnnJHYCoW9QPbQEk2iHsHGGS6qcVUq9HhutG
 ```
+
+Now you can create the accounts using the public key generated previously. The following command is creating the account `eosio.bpay`, and you should do it for all the other accounts listed previously.
 
 ```shell
 cleos create account eosio eosio.bpay EOS84BLRbGbFahNJEpnnJHYCoW9QPbQEk2iHsHGGS6qcVUq9HhutG
@@ -395,28 +400,7 @@ cd ./build/contracts/
 pwd
 ```
 
-You will also need an older version of `eosio.contracts`, specifically v1.8.0. Follow the instructions below to build it and remember the path where it is built:
-
-1. To install eosio.cdt version 1.6.3 binaries, see the
-[Install eosio.cdt binaries](https://github.com/EOSIO/eosio.cdt/tree/release/1.6.x#binary-releases) tutorial.
-
-2. After the eosio.cdt 1.6.3 version is installed, you can compile the older version of eosio.contracts:
-
-```shell
-cd ~
-git clone https://github.com/EOSIO/eosio.contracts.git eosio.contracts-1.8.x
-cd ./eosio.contracts-1.8.x/
-git checkout release/1.8.x
-./build.sh
-cd ./build/contracts/
-pwd
-```
-
-Make note of the printed local path, we will reference to this directory as `EOSIO_OLD_CONTRACTS_DIRECTORY` from here onward when needed.
-
-3. Restore the eosio.cdt version installed at the beginning of the tutorial.
-
-### **1.9. Install the eosio.token contract**
+### **1.9. Deploy the eosio.token contract**
 
 Now we have to set the `eosio.token` contract. This contract enables you to create, issue, transfer, and get information about tokens. To set the `eosio.token` contract:
 
@@ -487,13 +471,13 @@ executed transaction: a53961a566c1faa95531efb422cd952611b17d728edac833c9a5558242
 [[note | Note]]
 | _As a point of interest, from an economic point of view, moving token from reserve into circulation, such as by issuing tokens, is an inflationary action. Issuing tokens is just one way that inflation can occur._
 
-### **1.12. Set the eosio.system contract**
+### **1.12. Deploy the eosio.system contract**
 
-**Activate the `PREACTIVATE_FEATURE` protocol**
+All of the protocol upgrade features introduced in v1.8 and on subsequent versions require a special protocol feature (codenamed `PREACTIVATE_FEATURE`) to be activated and for an updated version of the system contract that makes use of the functionality introduced by that feature to be deployed.
 
-All of the protocol upgrade features introduced in v1.8 and v2.0 first require a special protocol feature (codenamed `PREACTIVATE_FEATURE`) to be activated and for an updated version of the system contract that makes use of the functionality introduced by that feature to be deployed.
+#### 1.12.1 **Activate the `PREACTIVATE_FEATURE` protocol**
 
-To activate the special protocol `PREACTIVATE_FEATURE`:
+To activate the special protocol `PREACTIVATE_FEATURE` run the following command:
 
 ```shell
 curl --request POST \
@@ -501,18 +485,18 @@ curl --request POST \
     -d '{"protocol_features_to_activate": ["0ec7e080177b2c02b278d5088611686b49d739925a92d9bfcacd7fc6b74053bd"]}'
 ```
 
-**Set the `eosio.system` contract**
+#### 1.12.2 **Set the `eosio.boot` contract**
 
 A system contract provides the actions for all token-based operational behavior. Prior to installing the system contract, actions are done independently of accounting. Once the system contract is enabled, actions now have an economic element to them. System Resources (CPU, network, memory) must be paid for and likewise, new accounts must be paid for. The system contract enables tokens to be staked and unstaked, resources to be purchased, potential producers to be registered and subsequently voted on, producer rewards to be claimed, privileges and limits to be set, and more.
 
-In the first phase, we will install the older version of the `eosio.system` contract.
+Install the `eosio.boot` contract which will allow you to enable a series of protocol features which are highly recommended for an ESOIO-based blockchain.
 
 ```shell
-cleos set contract eosio EOSIO_OLD_CONTRACTS_DIRECTORY/eosio.system/
+cleos set contract eosio EOSIO_CONTRACTS_DIRECTORY/eosio.boot/
 ```
 
 ```shell
-Reading WAST/WASM from /users/documents/eos/build/contracts/eosio.system/eosio.system.wasm...
+Reading WAST/WASM from /users/documents/eos/build/contracts/eosio.boot/eosio.boot.wasm...
 Using already assembled WASM...
 Publishing contract...
 executed transaction: 2150ed87e4564cd3fe98ccdea841dc9ff67351f9315b6384084e8572a35887cc  39968 bytes  4395 us
@@ -520,16 +504,26 @@ executed transaction: 2150ed87e4564cd3fe98ccdea841dc9ff67351f9315b6384084e8572a3
 #         eosio <= eosio::setabi                {"account":"eosio","abi":{"types":[],"structs":[{"name":"buyrambytes","base":"","fields":[{"name":"p...
 ```
 
-**Enable Features**
+#### 1.12.3 **Enable Protocol Features**
 
-After you set the `eosio.system` contract, run the following commands to enable the rest of the features which are highly recommended to be enabled for an EOSIO-based blockchain.
+After you set the `eosio.boot` contract, run the following commands to enable the rest of the features which are highly recommended to enable an EOSIO-based blockchain.
 
----
-NOTE: Enabling these features are optional. You can choose to enable or continue without these features.
-
----
+[[info | Optional Step]]
+| Enabling these features is optional. You can choose to enable or continue without these features, however they are highly recommended for an EOSIO-based blockchain.
 
 ```shell
+# KV_DATABASE
+cleos push action eosio activate '["825ee6288fb1373eab1b5187ec2f04f6eacb39cb3a97f356a07c91622dd61d16"]' -p eosio
+
+# ACTION_RETURN_VALUE
+cleos push action eosio activate '["c3a6138c5061cf291310887c0b5c71fcaffeab90d5deb50d3b9e687cead45071"]' -p eosio
+
+# CONFIGURABLE_WASM_LIMITS
+cleos push action eosio activate '["bf61537fd21c61a60e542a5d66c3f6a78da0589336868307f94a82bccea84e88"]' -p eosio
+
+# BLOCKCHAIN_PARAMETERS
+cleos push action eosio activate '["5443fcf88330c586bc0e5f3dee10e7f63c76c00249c87fe4fbf7f38c082006b4"]' -p eosio
+
 # GET_SENDER
 cleos push action eosio activate '["f0af56d2c5a48d60a4a5b5c903edfb7db3a736a94ed589d0b797df33ff9d3e1d"]' -p eosio
 
@@ -567,15 +561,16 @@ cleos push action eosio activate '["4fca8bd82bbd181e714e283f83e1b45d95ca5af40fb8
 cleos push action eosio activate '["299dcb6af692324b899b39f16d5a530a33062804e41f09dc97e9f156b4476707"]' -p eosio
 ```
 
-**Deploy**
+#### 1.12.4 **Deploy eosio.system contract**
 
-Now deploy the latest version of the `eosio.system` contract:
+Now deploy the the `eosio.system` contract:
 
 ```shell
 cleos set contract eosio EOSIO_CONTRACTS_DIRECTORY/eosio.system/
 ```
 
 ## 2. Transition from single genesis producer to multiple producers
+
 In the next set of steps, we will transition from a single block producer (the genesis node) to multiple producers. Up to this point, only the built-in `eosio` account is privileged and can sign blocks. The target is to manage the blockchain by a collection of elected producers, operating under a rule of **2/3 + 1** producers agreeing before a block is final.
 
 Producers are chosen by election. The list of producers can change. Rather than giving privileged authority directly to any producer, the governing rules are associated with a special built-in account named `eosio.prods`. This account represents the group of elected producers. The `eosio.prods` account (effectively the producer group) operates using permissions defined by the `eosio.msig` contract.
@@ -900,7 +895,7 @@ cleos push action eosio updateauth '{"account": "eosio", "permission": "owner", 
 cleos push action eosio updateauth '{"account": "eosio", "permission": "active", "parent": "owner", "auth": {"threshold": 1, "keys": [], "waits": [], "accounts": [{"weight": 1, "permission": {"actor": "eosio.prods", "permission": "active"}}]}}' -p eosio@active
 ```
 
-Also, the system accounts created in step `1.7. Create important system accounts` should be resigned as well by running the following commands:
+Also, the system accounts created in step [1.7. Create important system accounts](#17-create-important-system-accounts) should be resigned as well by running the following commands:
 
 ```shell
 cleos push action eosio updateauth '{"account": "eosio.bpay", "permission": "owner", "parent": "", "auth": {"threshold": 1, "keys": [], "waits": [], "accounts": [{"weight": 1, "permission": {"actor": "eosio", "permission": "active"}}]}}' -p eosio.bpay@owner
