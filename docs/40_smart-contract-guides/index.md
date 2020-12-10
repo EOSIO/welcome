@@ -9,8 +9,8 @@ This section introduces you to the EOSIO smart contracts development workflow. Y
 Before you begin with the smart contracts development workflow, make sure the following prerequisites	are met:
 
 
-1. You have set up your local development environment according to the instructions given in the [Set Up Development Environment]() section of the _Getting Started Guide_.
-2. Nodeos is running and producing blocks. See the [Start keosd and nodeos]() section of the _Getting Started Guide_ for detailed instructions. 
+1. You have set up your local development environment according to the instructions given in the [Set Up Development Environment](../30_getting-started-guide/20_local-development-environment) section of the _Getting Started Guide_.
+2. Nodeos is running and producing blocks. See the [Start keosd and nodeos](../30_getting-started-guide/20_local-development-environment/40_start-nodeos-keosd.md) section of the _Getting Started Guide_ for detailed instructions. 
 
 ### Smart Contracts Development Workflow
 
