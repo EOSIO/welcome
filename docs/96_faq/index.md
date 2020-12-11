@@ -15,7 +15,7 @@ When you send a transaction to the blockchain, you can set a transaction timeout
 
 ### Can you wipe/refresh a blockchain environment?
 
-Yes, you can wipe a blockchain by:
+Yes, you can wipe a blockchain by the following actions:
 
 1. Stop the `nodeos` service (ctrl+C)
 2. Remove the content of data folder
@@ -23,7 +23,7 @@ Yes, you can wipe a blockchain by:
 
 See the [nodeos manual](https://developers.eos.io/manuals/eos/latest/nodeos/index) for detailed information on how to use `nodeos`.  
 
-Nodeos stores runtime data (e.g., shared memory and log content) in a data folder. The location of the data folder depends on your system:
+Nodeos stores runtime data (e.g., shared memory and log content) in a data folder which can be optionally specified with the `-d` option when invoking nodeos. The default location of the data folder depends on your operating system.. The location of the data folder depends on your system:
 * Mac OS -  ~/Library/Application\ Support/eosio/nodeos/data
 * Linux  -  ~/.local/share/eosio/nodeos/data
 * Configured - The `nodeos` --data-dir command line argument specifies the data folder location
