@@ -409,7 +409,7 @@ pwd
 
 #### 1.8.2. Build eosio.boot system contract
 
-To build the `eosio.boot` located in the `eos` repository, create a dedicated directory for `eos`, clone the `eos` repository sources and build the `eosio.boot` sources.
+To build the `eosio.boot` located in the `eos` repository, create a dedicated directory for `eos`, clone the `eos` repository sources and build the `eosio.boot` system smart contract sources.
 
 Follow the steps below:
 
