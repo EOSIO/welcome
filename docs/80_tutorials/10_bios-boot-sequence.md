@@ -28,11 +28,11 @@ If your goal is to go beyond and understand what the script is doing, you can fo
 
 ### 1.1. Install the binaries
 
-#### 1.1.1 Pre-compiled EOSIO Binaries
+#### 1.1.1. Pre-compiled EOSIO Binaries
 
 For instructions to install the `nodeos` binaries, see the [Install EOSIO pre-compiled binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries) tutorial but do not start `nodeos` at this stage.
 
-#### 1.1.2 EOSIO.CDT Binaries
+#### 1.1.2. EOSIO.CDT Binaries
 
 For instructions to install the EOSIO.CDT binaries, see the [Install EOSIO.CDT binaries](https://developers.eos.io/manuals/eosio.cdt/latest/installation) tutorial.
 
@@ -96,7 +96,7 @@ nano genesis.json
 3. Paste the JSON content into the `genesis.json` file.
 Replace the `EOS_PUB_DEV_KEY` with the public key you created in  *1.2 Create Development Wallet*.
 
-1. Save and exit the text editor:
+4. Save and exit the text editor:
 
 ```shell
 [CTRL]+X
@@ -182,7 +182,7 @@ chmod 755 genesis_start.sh
 | - Initiates periodic peer connections to localhost:9011, localhost:9012, and localhost:9013; these nodes are not running yet so ignore if you see any failed connection attempts
 | - Has the parameter `--contracts-console` which prints contracts output to the console; in our case, this information is good for troubleshooting problems
 
-#### 1.5.1 Stopping the Genesis node
+#### 1.5.1. Stopping the Genesis node
 
 To stop `nodeos`:
 
@@ -216,7 +216,7 @@ chmod 755 stop.sh
 ./stop.sh
 ```
 
-#### 1.5.2 Restarting nodeos
+#### 1.5.2. Restarting nodeos
 
 After stopping the `nodeos` process, you will not be able to restart it using the  `.genesis_start.sh` script created in *1.5 Start the genesis node* as once a node runs and produces blocks, the blockchain database initializes and gets populated. Thus, `nodeos` is not able to start with the `--genesis-json` parameter. Therefore, it is recommended to create a new script, `start.sh` by following the same steps outlined in *1.5 Start a genesis node* and copy the below content to the script. Also, assign execution privileges to the script and use this file for any future nodeos restarts after you stopped the process.
 
@@ -387,14 +387,14 @@ executed transaction: ca68bb3e931898cdd3c72d6efe373ce26e6845fc486b42bc5d185643ea
 #         eosio <= eosio::newaccount            {"creator":"eosio","name":"eosio.bpay","owner":{"threshold":1,"keys":[{"key":"EOS84BLRbGbFahNJEpnnJH...
 ```
 
-### **1.8 Build the system contracts**
+### **1.8. Build the system contracts**
 
 To have a functional EOSIO-based blockchain you have to install a few system smart contracts:
 
 * the `eosio.system`, `eosio.msig`and `eosio.token` located in `eosio.contracts`repository, and
 * the `eosio.bios` located in `eos` repository.
 
-#### **1.8.1 Build eosio.contracts**
+#### **1.8.1. Build eosio.contracts**
 
 To build `eosio.contracts`, create a dedicated directory for `eosio.contracts`, clone the `eosio.contracts` sources and build them. Print the current directory in the terminal and make a note of it. The current directory will be referred to as `EOSIO_CONTRACTS_DIRECTORY`.
 
@@ -407,7 +407,7 @@ cd ./build/contracts/
 pwd
 ```
 
-#### **1.8.2 Build eos contracts**
+#### **1.8.2. Build eos contracts**
 
 To build the contracts in the `eos` repository, create a dedicated directory for `eos`, clone the `eos` repository sources and build the contracts sources following the steps below.
 
@@ -499,7 +499,7 @@ executed transaction: a53961a566c1faa95531efb422cd952611b17d728edac833c9a5558242
 
 All of the protocol upgrade features introduced in v1.8 and on subsequent versions require a special protocol feature (codenamed `PREACTIVATE_FEATURE`) to be activated and for an updated version of the system contract that makes use of the functionality introduced by that feature to be deployed.
 
-#### 1.12.1 **Activate the `PREACTIVATE_FEATURE` protocol**
+#### 1.12.1. **Activate the `PREACTIVATE_FEATURE` protocol**
 
 To activate the special protocol `PREACTIVATE_FEATURE` run the following command:
 
@@ -509,7 +509,7 @@ curl --request POST \
     -d '{"protocol_features_to_activate": ["0ec7e080177b2c02b278d5088611686b49d739925a92d9bfcacd7fc6b74053bd"]}'
 ```
 
-#### 1.12.2 **Set the `eosio.boot` contract**
+#### 1.12.2. **Set the `eosio.boot` contract**
 
 A system contract provides the actions for all token-based operational behavior. Prior to installing the system contract, actions are done independently of accounting. Once the system contract is enabled, actions now have an economic element to them. System Resources (CPU, network, memory) must be paid for and likewise, new accounts must be paid for. The system contract enables tokens to be staked and unstaked, resources to be purchased, potential producers to be registered and subsequently voted on, producer rewards to be claimed, privileges and limits to be set, and more.
 
@@ -528,7 +528,7 @@ executed transaction: 2150ed87e4564cd3fe98ccdea841dc9ff67351f9315b6384084e8572a3
 #         eosio <= eosio::setabi                {"account":"eosio","abi":{"types":[],"structs":[{"name":"buyrambytes","base":"","fields":[{"name":"p...
 ```
 
-#### 1.12.3 **Enable Protocol Features**
+#### 1.12.3. **Enable Protocol Features**
 
 After you set the `eosio.boot` contract, run the following commands to enable the rest of the features which are highly recommended to enable an EOSIO-based blockchain.
 
@@ -585,7 +585,7 @@ cleos push action eosio activate '["4fca8bd82bbd181e714e283f83e1b45d95ca5af40fb8
 cleos push action eosio activate '["299dcb6af692324b899b39f16d5a530a33062804e41f09dc97e9f156b4476707"]' -p eosio
 ```
 
-#### 1.12.4 **Deploy eosio.system contract**
+#### 1.12.4. **Deploy eosio.system contract**
 
 Now deploy the the `eosio.system` contract:
 
