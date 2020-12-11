@@ -323,7 +323,7 @@ cd ~/biosboot/genesis/
 ./genesis_start.sh
 ```
 
-### **1.6. Inspect the nodeos.log file**
+### 1.6. Inspect the nodeos.log file
 
 Inspect the `nodeos.log` file with the following command, and use `CTRL+C to` exit the listing mode.
 
@@ -332,7 +332,7 @@ cd ~/biosboot/genesis/
 tail -f ./blockchain/nodeos.log
 ```
 
-### **1.7. Create important system accounts**
+### 1.7. Create important system accounts
 There are several system accounts that are needed, namely the following:
 
 ```text
@@ -387,14 +387,14 @@ executed transaction: ca68bb3e931898cdd3c72d6efe373ce26e6845fc486b42bc5d185643ea
 #         eosio <= eosio::newaccount            {"creator":"eosio","name":"eosio.bpay","owner":{"threshold":1,"keys":[{"key":"EOS84BLRbGbFahNJEpnnJH...
 ```
 
-### **1.8. Build the system contracts**
+### 1.8. Build the system contracts
 
 To have a functional EOSIO-based blockchain you have to install a few system smart contracts:
 
 * the `eosio.system`, `eosio.msig`and `eosio.token` located in `eosio.contracts`repository, and
 * the `eosio.bios` located in `eos` repository.
 
-#### **1.8.1. Build eosio.contracts**
+#### 1.8.1. Build eosio.contracts
 
 To build `eosio.contracts`, create a dedicated directory for `eosio.contracts`, clone the `eosio.contracts` sources and build them. Print the current directory in the terminal and make a note of it. The current directory will be referred to as `EOSIO_CONTRACTS_DIRECTORY`.
 
@@ -407,7 +407,7 @@ cd ./build/contracts/
 pwd
 ```
 
-#### **1.8.2. Build eos contracts**
+#### 1.8.2. Build eos contracts
 
 To build the contracts in the `eos` repository, create a dedicated directory for `eos`, clone the `eos` repository sources and build the contracts sources following the steps below.
 
@@ -424,7 +424,7 @@ pwd
 
 Make note of the current full directory path printed in the terminal at the end of the script output. The current directory will be referred to as `EOSIO_BOOT_DIRECTORY`.
 
-### **1.9. Deploy the eosio.token contract**
+### 1.9. Deploy the eosio.token contract
 
 Now we have to set the `eosio.token` contract. This contract enables you to create, issue, transfer, and get information about tokens. To set the `eosio.token` contract:
 
@@ -443,7 +443,7 @@ executed transaction: 17fa4e06ed0b2f52cadae2cd61dee8fb3d89d3e46d5b133333816a04d2
 #         eosio <= eosio::setabi                {"account":"eosio.token","abi":{"types":[],"structs":[{"name":"transfer","base":"","fields":[{"name"...
 ```
 
-### **1.10. Set the eosio.msig contract**
+### 1.10. Set the eosio.msig contract
 
 The `eosio.msig` contract enables and simplifies defining and managing permission levels and performing multi-signature actions. To set the `eosio.msig` contract:
 
@@ -462,7 +462,7 @@ executed transaction: 007507ad01de884377009d7dcf409bc41634e38da2feb6a117ceced855
 #         eosio <= eosio::setabi                {"account":"eosio.msig","abi":{"types":[{"new_type_name":"account_name","type":"name"}],"structs":[{...
 ```
 
-### **1.11. Create and allocate the SYS currency**
+### 1.11. Create and allocate the SYS currency
 
 Create the `SYS` currency with a maximum value of 10 billion tokens. Then, issue one billion tokens. Replace `SYS` with your specific currency designation.
 
@@ -495,11 +495,11 @@ executed transaction: a53961a566c1faa95531efb422cd952611b17d728edac833c9a5558242
 [[note | Note]]
 | _As a point of interest, from an economic point of view, moving token from reserve into circulation, such as by issuing tokens, is an inflationary action. Issuing tokens is just one way that inflation can occur._
 
-### **1.12. Deploy the system contracts**
+### 1.12. Deploy the system contracts
 
 All of the protocol upgrade features introduced in v1.8 and on subsequent versions require a special protocol feature (codenamed `PREACTIVATE_FEATURE`) to be activated and for an updated version of the system contract that makes use of the functionality introduced by that feature to be deployed.
 
-#### 1.12.1. **Activate the `PREACTIVATE_FEATURE` protocol**
+#### 1.12.1. Activate the `PREACTIVATE_FEATURE` protocol
 
 To activate the special protocol `PREACTIVATE_FEATURE` run the following command:
 
@@ -509,7 +509,7 @@ curl --request POST \
     -d '{"protocol_features_to_activate": ["0ec7e080177b2c02b278d5088611686b49d739925a92d9bfcacd7fc6b74053bd"]}'
 ```
 
-#### 1.12.2. **Set the `eosio.boot` contract**
+#### 1.12.2. Set the `eosio.boot` contract
 
 A system contract provides the actions for all token-based operational behavior. Prior to installing the system contract, actions are done independently of accounting. Once the system contract is enabled, actions now have an economic element to them. System Resources (CPU, network, memory) must be paid for and likewise, new accounts must be paid for. The system contract enables tokens to be staked and unstaked, resources to be purchased, potential producers to be registered and subsequently voted on, producer rewards to be claimed, privileges and limits to be set, and more.
 
@@ -528,7 +528,7 @@ executed transaction: 2150ed87e4564cd3fe98ccdea841dc9ff67351f9315b6384084e8572a3
 #         eosio <= eosio::setabi                {"account":"eosio","abi":{"types":[],"structs":[{"name":"buyrambytes","base":"","fields":[{"name":"p...
 ```
 
-#### 1.12.3. **Enable Protocol Features**
+#### 1.12.3. Enable Protocol Features
 
 After you set the `eosio.boot` contract, run the following commands to enable the rest of the features which are highly recommended to enable an EOSIO-based blockchain.
 
@@ -585,7 +585,7 @@ cleos push action eosio activate '["4fca8bd82bbd181e714e283f83e1b45d95ca5af40fb8
 cleos push action eosio activate '["299dcb6af692324b899b39f16d5a530a33062804e41f09dc97e9f156b4476707"]' -p eosio
 ```
 
-#### 1.12.4. **Deploy eosio.system contract**
+#### 1.12.4. Deploy eosio.system contract
 
 Now deploy the the `eosio.system` contract:
 
@@ -601,7 +601,7 @@ Producers are chosen by election. The list of producers can change. Rather than 
 
 As soon as possible after installing the `eosio.system` contract, we want to designate `eosio.msig` as a privileged account so that it can authorize on behalf of the `eosio` account. As soon as possible, `eosio` will resign its authority and `eosio.prods` will take over.
 
-### **2.1. Designate eosio.msig as privileged account**
+### 2.1. Designate eosio.msig as privileged account
 
 To designate `eosio.msig` as a privileged account:
 
@@ -609,7 +609,7 @@ To designate `eosio.msig` as a privileged account:
 cleos push action eosio setpriv '["eosio.msig", 1]' -p eosio@active
 ```
 
-### **2.2. Initialize system account**
+### 2.2. Initialize system account
 
 To initialize the `system` account with code zero (needed at initialization time) and `SYS` token with precision 4; precision can range from [0 .. 18]:
 
@@ -617,7 +617,7 @@ To initialize the `system` account with code zero (needed at initialization time
 cleos push action eosio init '["0", "4,SYS"]' -p eosio@active
 ```
 
-### **2.3. Stake tokens and expand the network**
+### 2.3. Stake tokens and expand the network
 
 If you've followed the tutorial steps above to this point, you now have a single host, single-node configuration with the following contracts installed:
 
@@ -629,7 +629,7 @@ The accounts `eosio` and `eosio.msig` are privileged accounts.  The other `eosio
 
 We are now ready to begin staking accounts and expanding the network of producers.
 
-### **2.4. Create staked accounts**
+### 2.4. Create staked accounts
 
 Staking is the process of allocating tokens acquired by an entity in the "real world" (e.g., an individual purchasing something at a Crowdsale or some other means) to an account within the EOSIO system.  Staking and unstaking are an on-going process throughout the life of a blockchain. The initial staking done during the bios boot process is special. During the bios boot sequence, accounts are staked with their tokens. However, until producers are elected, tokens are effectively in a frozen state. Thus, the goal of the initial staking done during the bios boot sequence is to get tokens allocated to their accounts and ready for use, and get the voting process going so that producers can get elected and the blockchain is running "live".
 
@@ -685,7 +685,7 @@ executed transaction: fb47254c316e736a26873cce1290cdafff07718f04335ea4faa4cb2e58
 #         eosio <= eosio::delegatebw            {"from":"eosio","receiver":"accountnum11","stake_net_quantity":"100000.0000 SYS","stake_cpu_quantity...
 ```
 
-### **2.5. Register the new account as a producer**
+### 2.5. Register the new account as a producer
 
 To register the new account as a producer:
 
@@ -700,7 +700,7 @@ executed transaction: 4ebe9258bdf1d9ac8ad3821f6fcdc730823810a345c18509ac41f7ef9b
 
 This makes the node a candidate to be a producer, but the node will not actually be a producer unless it is elected, that is, voted for.
 
-### **2.6. List the producers**
+### 2.6. List the producers
 
 To facilitate the voting process, list the available producers. At this point, you will see only one account registered as a producer.
 
@@ -715,7 +715,7 @@ Producer      Producer key                                           Url        
 accountnum11  EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt  https://accountnum11.com/EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22 0.0000
 ```
 
-### **2.7. Set up and start a new producer**
+### 2.7. Set up and start a new producer
 
 We will set up now a new producer using the previously created `accountnum11` account. To set up the new producer, execute these steps to create a dedicated folder for it:
 
@@ -878,7 +878,7 @@ cd ~/biosboot/accountnum11/
 tail -f blockchain/nodeos.log
 ```
 
-### **2.8. Repeat the process for creating multiple producers**
+### 2.8. Repeat the process for creating multiple producers
 
 You can now repeat the process (starting from 2.4. till 2.7) for creating as many producers as you want each with its own staked account, own dedicated directory, named accountnumXY (with X and Y int values in interval [1..5]), and their own dedicated script files: `genesis_start.sh`, `start.sh`, `stop.sh`, `clean.sh` located in their corresponding folder.
 
@@ -896,7 +896,7 @@ Also, be aware of how you mesh these nodes between each other, so pay particular
 --p2p-peer-address localhost:9013 \.  # Meshing with peer `accountnum13` node
 ```
 
-### **2.9. Vote for each of the block producers started**
+### 2.9. Vote for each of the block producers started
 
 At this point the nodes are started, meshed together in a network, and they receive blocks from genesis node but they do not produce.
 
