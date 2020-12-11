@@ -8,23 +8,23 @@ link_text: BIOS Boot Sequence
 
 The BIOS Boot sequence undergoes two significant workflows:
 
-1. Creating, configuring, and starting the genesis node
-2. Transitioning from single genesis producer to multiple producers
+1. Creates, configures, and starts the genesis node
+2. Transitions from single genesis producer to multiple producers
 
 ## 1. Create, Configure and Start the Genesis Node
 
 The information in this section walk you through the preparatory steps for the following:
 
-* Setting up your `EOSIO` environment
-* Starting your genesis `EOSIO` node
-* Setting up additional, interconnected EOSIO nodes with connectivity to the genesis node
+* Set up your `EOSIO` environment
+* Start your genesis `EOSIO` node
+* Set up additional, interconnected EOSIO nodes with connectivity to the genesis node
 
-After performing these steps, you will have a fully functional **EOSIO based blockchain** running locally.
+At the end of this tutorial, you will have a fully functional **EOSIO based blockchain** which runs locally.
 
 [[info | Python Script]]
 | Alternatively, if you would like to automate these steps, you can use the [bios-boot-tutorial.py](https://github.com/EOSIO/eos/blob/master/tutorials/bios-boot-tutorial/bios-boot-tutorial.py) python script that implements the preparatory steps. However, the script uses different and additional data values. See the file `accounts.json` for the producer names and the user account names that the script uses. If your goal is to build a fully functional EOSIO blockchain on your local machine by automation, you can run the `bios-boot-tutorial.py` script directly by following the [README.md](https://github.com/EOSIO/eos/blob/master/tutorials/bios-boot-tutorial/README.md) instructions.
 
-If your goal is to go beyond and understand what the script is doing, you can follow this tutorial which will get you through the same steps explaining also along the way each step needed to go through.
+If your goal is to go beyond and understand what the script does in depth, you can follow this tutorial which will get you through the outcome and also explains along the way each step.
 
 ### 1.1. Install the binaries
 
@@ -38,9 +38,9 @@ For instructions to install the EOSIO.CDT binaries, see the [Install EOSIO.CDT b
 
 ### 1.2. Create a development wallet
 
-Create and configure your default wallet, followed by creating a public and private development keys. After the key-pair is created, import the public and private key in your wallet. For reference purposes, we will refer the public key as `EOS_PUB_DEV_KEY` and the private key as `EOS_PRIV_DEV_KEY`.
+Create and configure your default wallet, and then create a public and private development keys. After the key-pair is created, import the public and private key in your wallet. For reference purposes, the rest of the tutorial will refer to the public key as `EOS_PUB_DEV_KEY` and the private key as `EOS_PRIV_DEV_KEY`.
 
-For instructions on creating a wallet and importing the keys, see the [Create development wallet](../30_getting-started-guide/20_local-development-environment/30_development-wallet.md) tutorial.
+For instructions on how to create a wallet and how to securely save the keys into the wallet, see the [Create development wallet](../30_getting-started-guide/20_local-development-environment/30_development-wallet.md) tutorial.
 
 ### 1.3. Create ~/biosboot/genesis directory
 
@@ -179,10 +179,10 @@ chmod 755 genesis_start.sh
 | - Produces blocks
 | - Listens for HTTP request on 127.0.0.1:8888
 | - Listens for peer connections requests on 127.0.0.1:9010
-| - Initiates periodic peer connections to localhost:9011, localhost:9012, and localhost:9013; these nodes are not running yet so ignore if you see any failed connection attempts
+| - Initiates periodic peer connections to localhost:9011, localhost:9012, and localhost:9013; these nodes do not run yet so ignore if you see any failed connection attempts
 | - Has the parameter `--contracts-console` which prints contracts output to the console; in our case, this information is good for troubleshooting problems
 
-#### 1.5.1. Stopping the Genesis node
+#### 1.5.1. How to stop the Genesis node
 
 To stop `nodeos`:
 
@@ -216,9 +216,9 @@ chmod 755 stop.sh
 ./stop.sh
 ```
 
-#### 1.5.2. Restarting nodeos
+#### 1.5.2. How to restart nodeos
 
-After stopping the `nodeos` process, you will not be able to restart it using the  `.genesis_start.sh` script created in *1.5 Start the genesis node* as once a node runs and produces blocks, the blockchain database initializes and gets populated. Thus, `nodeos` is not able to start with the `--genesis-json` parameter. Therefore, it is recommended to create a new script, `start.sh` by following the same steps outlined in *1.5 Start a genesis node* and copy the below content to the script. Also, assign execution privileges to the script and use this file for any future nodeos restarts after you stopped the process.
+After you stop the `nodeos` process, you will not be able to restart it with the  `.genesis_start.sh` script created in *1.5 Start the genesis node* as once a node runs and produces blocks, the blockchain database initializes and gets populated. Thus, `nodeos` is not able to start with the `--genesis-json` parameter. Therefore, it is recommended to create a new script, `start.sh` by following the same steps outlined in *1.5 Start a genesis node* and copy the below content to the script. Also, assign execution privileges to the script and use this file for any future nodeos restarts after you stopped the process.
 
 ```shell
 #!/bin/bash
@@ -255,9 +255,9 @@ nodeos \
 echo $! > $DATADIR"/eosd.pid"
 ```
 
-**Troubleshooting `nodeos` Restart Errors**
+**How to troubleshoot `nodeos` Restart Errors**
 
-1. `"perhaps we need to replay"`: This error can occur when you restart `nodeos` due to a missing `--hard-replay` parameter which replays all the transactions from the genesis node. To overcome this error, add the parameter `--hard-replay` in the `hard_replay.sh` shell script.
+1. `"perhaps we need to replay"`: This error can occur when you restart `nodeos` without the `--hard-replay` parameter which replays all the transactions from the genesis node. To overcome this error, add the parameter `--hard-replay` in the `hard_replay.sh` shell script.
 
 [[info | Some other parameters that you can use to restart nodeos are:]]
 | - --truncate-at-block
@@ -265,7 +265,7 @@ echo $! > $DATADIR"/eosd.pid"
 | - --replay-blockchain
 | - --hard-replay-blockchain
 
-The following is the `hard_replay.sh` shell script which is using the `--hard-replay-blockchain` parameter:
+The following is the `hard_replay.sh` shell script which uses the `--hard-replay-blockchain` parameter:
 
 ```shell
 #!/bin/bash
@@ -304,7 +304,7 @@ echo $! > $DATADIR"/eosd.pid"
 
 ```
 
-**Restarting `nodeos` from scratch**
+**How to restart `nodeos` from scratch**
 
 Copy the below content and create a shell script `clean.sh` and give execution permission to it:
 
@@ -325,7 +325,7 @@ cd ~/biosboot/genesis/
 
 ### 1.6. Inspect the nodeos.log file
 
-Inspect the `nodeos.log` file with the following command, and use `CTRL+C to` exit the listing mode.
+Inspect the `nodeos.log` file with the following command, and use `CTRL+C` to exit the listing mode.
 
 ```shell
 cd ~/biosboot/genesis/
@@ -348,7 +348,7 @@ There are several system accounts that are needed, namely the following:
   eosio.rex
 ```
 
-Repeat the following steps to create an account for each of the system accounts.  In this tutorial, we will use the same key pair for both the account owner and active keys, so we only need to provide the key value once on the command line. For most general accounts, it is a good practice to use separate keys for owner and active. The script uses the same key for all of the `eosio.*` accounts. You can use different keys for each.
+Repeat the following steps to create an account for each of the system accounts.  In this tutorial, you will use the same key pair for both the account owner and active keys, so you only need to provide the key value once on the command line. For most general accounts, it is a good practice to use separate keys for owner and active. The script uses the same key for all of the `eosio.*` accounts. You can use different keys for each.
 
 Type the following command at command prompt:
 
@@ -376,7 +376,7 @@ You should see something similar to the message below:
 private key: imported private key for: EOS84BLRbGbFahNJEpnnJHYCoW9QPbQEk2iHsHGGS6qcVUq9HhutG
 ```
 
-Now you can create the accounts using the public key generated previously. The following command is creating the account `eosio.bpay`, and you should do it for all the other accounts listed previously.
+Now you can create the accounts and use the public key generated previously. The following command creates the account `eosio.bpay`, and you should do it for all the other accounts listed previously.
 
 ```shell
 cleos create account eosio eosio.bpay EOS84BLRbGbFahNJEpnnJHYCoW9QPbQEk2iHsHGGS6qcVUq9HhutG
@@ -428,7 +428,7 @@ Make note of the current full directory path printed in the terminal at the end 
 
 ### 1.9. Deploy the eosio.token contract
 
-Now we have to set the `eosio.token` contract. This contract enables you to create, issue, transfer, and get information about tokens. To set the `eosio.token` contract:
+Now you have to deploy the `eosio.token` contract. This contract enables you to create, issue, transfer, and get information about tokens. To deploy the `eosio.token` contract:
 
 ```shell
 cleos set contract eosio.token EOSIO_CONTRACTS_DIRECTORY/eosio.token/
@@ -447,7 +447,7 @@ executed transaction: 17fa4e06ed0b2f52cadae2cd61dee8fb3d89d3e46d5b133333816a04d2
 
 ### 1.10. Set the eosio.msig contract
 
-The `eosio.msig` contract enables and simplifies defining and managing permission levels and performing multi-signature actions. To set the `eosio.msig` contract:
+The `eosio.msig` contract enables and simplifies the definition and management of permission levels and the multi-signature process. To deploy the `eosio.msig` contract run the folloing command:
 
 ```shell
 cleos set contract eosio.msig EOSIO_CONTRACTS_DIRECTORY/eosio.msig/
@@ -495,7 +495,7 @@ executed transaction: a53961a566c1faa95531efb422cd952611b17d728edac833c9a5558242
 ```
 
 [[note | Note]]
-| _As a point of interest, from an economic point of view, moving token from reserve into circulation, such as by issuing tokens, is an inflationary action. Issuing tokens is just one way that inflation can occur._
+| _As a point of interest, from an economic point of view, token movement from reserve into circulation, by issuing tokens, is an inflationary action. The tokens issuance is just one way for inflation to occur._
 
 ### 1.12. Deploy the system contracts
 
@@ -513,7 +513,7 @@ curl --request POST \
 
 #### 1.12.2. Set the `eosio.boot` contract
 
-A system contract provides the actions for all token-based operational behavior. Prior to installing the system contract, actions are done independently of accounting. Once the system contract is enabled, actions now have an economic element to them. System Resources (CPU, network, memory) must be paid for and likewise, new accounts must be paid for. The system contract enables tokens to be staked and unstaked, resources to be purchased, potential producers to be registered and subsequently voted on, producer rewards to be claimed, privileges and limits to be set, and more.
+A system contract provides the actions for all token-based operational behavior. Before the system contract is deployed, actions are done independent of accounting operations. Once the system contract is enabled, actions now have an economic element to them. System Resources (CPU, network, memory) must be paid for and likewise, new accounts must be paid for. The system contract enables tokens to be staked and unstaked, resources to be purchased, potential producers to be registered and subsequently voted on, producer rewards to be claimed, privileges and limits to be set, and more.
 
 Install the `eosio.boot` contract which will allow you to enable a series of protocol features which are highly recommended for an ESOIO-based blockchain.
 
@@ -532,10 +532,10 @@ executed transaction: 2150ed87e4564cd3fe98ccdea841dc9ff67351f9315b6384084e8572a3
 
 #### 1.12.3. Enable Protocol Features
 
-After you set the `eosio.boot` contract, run the following commands to enable the rest of the features which are highly recommended to enable an EOSIO-based blockchain.
+After you deploy the `eosio.boot` contract, run the following commands to enable the rest of the features which are highly recommended to enable an EOSIO-based blockchain.
 
 [[info | Optional Step]]
-| Enabling these features is optional. You can choose to enable or continue without these features, however they are highly recommended for an EOSIO-based blockchain.
+| These features are optional. You can choose to enable or continue without these features, however they are highly recommended for an EOSIO-based blockchain.
 
 ```shell
 # KV_DATABASE
@@ -597,11 +597,11 @@ cleos set contract eosio EOSIO_CONTRACTS_DIRECTORY/eosio.system/
 
 ## 2. Transition from single genesis producer to multiple producers
 
-In the next set of steps, we will transition from a single block producer (the genesis node) to multiple producers. Up to this point, only the built-in `eosio` account is privileged and can sign blocks. The target is to manage the blockchain by a collection of elected producers, operating under a rule of **2/3 + 1** producers agreeing before a block is final.
+In the next set of steps, you will transition from a single block producer (the genesis node) to multiple producers. Up to this point, only the built-in `eosio` account is privileged and can sign blocks. The target is to manage the blockchain by a collection of elected producers, which operate under a rule of **2/3 + 1** producers that agree on which block is final.
 
-Producers are chosen by election. The list of producers can change. Rather than giving privileged authority directly to any producer, the governing rules are associated with a special built-in account named `eosio.prods`. This account represents the group of elected producers. The `eosio.prods` account (effectively the producer group) operates using permissions defined by the `eosio.msig` contract.
+Producers are chosen by election. The list of producers can change. Rather than giving privileged authority directly to any producer, the governance rules are associated with a special built-in account named `eosio.prods`. This account represents the group of elected producers. The `eosio.prods` account (effectively the producer group) operates and makes use of the permissions defined by the `eosio.msig` contract.
 
-As soon as possible after installing the `eosio.system` contract, we want to designate `eosio.msig` as a privileged account so that it can authorize on behalf of the `eosio` account. As soon as possible, `eosio` will resign its authority and `eosio.prods` will take over.
+After the `eosio.system` contract is deployed, designate `eosio.msig` as a privileged account so that it can authorize on behalf of the `eosio` account. This way the `eosio` account will resign its authority and `eosio.prods` account will take over.
 
 ### 2.1. Designate eosio.msig as privileged account
 
@@ -621,19 +621,19 @@ cleos push action eosio init '["0", "4,SYS"]' -p eosio@active
 
 ### 2.3. Stake tokens and expand the network
 
-If you've followed the tutorial steps above to this point, you now have a single host, single-node configuration with the following contracts installed:
+If you have followed the tutorial steps above to this point, you now have a single host, single-node configuration with the following contracts installed:
 
-- eosio.token
-- eosio.msig
-- eosio.system
+* eosio.token
+* eosio.msig
+* eosio.system
 
 The accounts `eosio` and `eosio.msig` are privileged accounts.  The other `eosio.*` accounts are created but are not privileged.
 
-We are now ready to begin staking accounts and expanding the network of producers.
+You are now ready to stake and expand the network of producers.
 
 ### 2.4. Create staked accounts
 
-Staking is the process of allocating tokens acquired by an entity in the "real world" (e.g., an individual purchasing something at a Crowdsale or some other means) to an account within the EOSIO system.  Staking and unstaking are an on-going process throughout the life of a blockchain. The initial staking done during the bios boot process is special. During the bios boot sequence, accounts are staked with their tokens. However, until producers are elected, tokens are effectively in a frozen state. Thus, the goal of the initial staking done during the bios boot sequence is to get tokens allocated to their accounts and ready for use, and get the voting process going so that producers can get elected and the blockchain is running "live".
+To stake is the process through which you allocate tokens to an account within the EOSIO system.  Staking and unstaking are an on-going process throughout the life of a blockchain. The initial staking done during the bios boot process is special. During the bios boot sequence, accounts are staked with their tokens. However, until producers are elected, tokens are effectively in a frozen state. Thus, the goal of the initial staking done during the bios boot sequence is to get tokens allocated to their accounts and ready for use, and get the vote process started so that producers can get elected and the blockchain in running "live" state.
 
 The following recommendation is given for the initial staking process:
 
@@ -648,7 +648,7 @@ Example 1.  accountnum11 has 100 SYS. It will be staked as 0.1000 SYS on RAM; 45
 Example 2.  accountnum33 has 5 SYS. It will be staked as 0.1000 SYS on RAM; 0.4500 SYS on CPU; 0.4500 SYS on network; and 4.0000 SYS held for liquid use.
 ```
 
-To make the tutorial more realistic, we distribute the 1B tokens to accounts using a Pareto distribution. The Pareto distribution models an 80-20 rule, e.g., in this case, 80% of the tokens are held by 20% of the population. The examples here do not show how to generate the distribution, focusing instead on the commands to do the staking. The script `bios-boot-tutorial.py` that accompanies this tutorial uses the Python NumPy (numpy) library to generate a Pareto distribution.
+To make the tutorial more realistic, distribute the 1B tokens to accounts and use a Pareto distribution. The Pareto distribution models an 80-20 rule, e.g., in this case, 80% of the tokens are held by 20% of the population. The example here does not show how to generate the distribution, instead it is focused on the commands to do the staking. The script `bios-boot-tutorial.py` that accompanies this tutorial uses the Python NumPy (numpy) library to generate a Pareto distribution.
 
 Use the following steps to stake tokens for each account. These steps must be done individually for each account.
 
@@ -719,7 +719,7 @@ accountnum11  EOS8mUftJXepGzdQ2TaCduNuSPAfXJHf22uex4u41ab1EVv9EAhWt  https://acc
 
 ### 2.7. Set up and start a new producer
 
-We will set up now a new producer using the previously created `accountnum11` account. To set up the new producer, execute these steps to create a dedicated folder for it:
+Set up a new producer and make use of the previously created `accountnum11` account. To set up the new producer, execute these steps to create a dedicated folder for it:
 
 ```shell
 cd ~/biosboot/
@@ -858,7 +858,7 @@ drwxr-xr-x   3 owner  group   960 Dec  5 10:00 ..
 -rwxr-xr-x   1 owner  group   281 Dec  5 13:08 stop.sh
 ```
 
-You are now ready to start the second producer node by executing the following commands:
+Execute the following commands to start the second producer node:
 
 ```shell
 cd ~/biosboot/accountnum11/
@@ -866,7 +866,7 @@ cd ~/biosboot/accountnum11/
 tail -f blockchain/nodeos.log
 ```
 
-After executing the above commands, you should see in the command shell a live stream of `nodeos.log` file which is getting written to by the `nodeos` continuously. You can stop the live stream monitor by pressing CTRL+C keys.
+After the exeuction of the above commands, you should see in the command shell a live stream of `nodeos.log` file printed by the `nodeos` continuously. Press CTRL+C keys to stop the live stream monitor.
 
 To stop the new node, you have to execute the `stop.sh` script and to restart the node, execute the `start.sh` script and not the `genesis_start.sh` (this one is used only once in *1.5 Start the genesis node*).
 
@@ -880,9 +880,9 @@ cd ~/biosboot/accountnum11/
 tail -f blockchain/nodeos.log
 ```
 
-### 2.8. Repeat the process for creating multiple producers
+### 2.8. Create multiple producers
 
-You can now repeat the process (starting from 2.4. till 2.7) for creating as many producers as you want each with its own staked account, own dedicated directory, named accountnumXY (with X and Y int values in interval [1..5]), and their own dedicated script files: `genesis_start.sh`, `start.sh`, `stop.sh`, `clean.sh` located in their corresponding folder.
+You can now repeat the process, from 2.4. till 2.7, to create as many producers as you want each with its own staked account, own dedicated directory, named accountnumXY (with X and Y int values in interval [1..5]), and their own dedicated script files: `genesis_start.sh`, `start.sh`, `stop.sh`, `clean.sh` located in their corresponding folder.
 
 Also, be aware of how you mesh these nodes between each other, so pay particular attention to the following parameters in the `genesis_start.sh`, `start.sh` and `hard_start.sh` scripts:
 
@@ -904,7 +904,7 @@ At this point the nodes are started, meshed together in a network, and they rece
 
 **15% Requirement**
 
-For the nodes to produce blocks, a total of 15% of the token supply must be staked and then voted for all available producers. We gave `accountnum11` enough tokens earlier.
+For the nodes to produce blocks, a total of 15% of the token supply must be staked and then voted for all available producers. Note that `accountnum11` account has already enough tokens allocated earlier.
 To elect block producers, execute the following command which allows one account to vote for as up to 30 block producers identified by their account name:
 
 ```shell
@@ -912,9 +912,10 @@ cleos system voteproducer prods accountnum11 accountnum11 accountnum12 accountnu
 ```
 
 ## 3. Resign eosio account and system accounts
-Once producers have been elected and the minimum number requirements have been met, that is, a minimum 15% of tokens have been staked to produce votes, the `eosio` account can resign, leaving the `eosio.msig` account as the only privileged account.
 
-Resigning involves setting the keys of the `eosio.*` accounts to null. Use the following command to clear the `eosio.*` accounts' owner and active keys:
+After producers are elected and the minimum number of requirements have been met, that is, a minimum 15% of tokens have been staked for votes, the `eosio` account can resign, and leave the `eosio.msig` account as the only privileged account.
+
+To resign set the keys of the `eosio.*` accounts to null. Use the following command to clear the `eosio.*` accounts' owner and active keys:
 
 ```shell
 cleos push action eosio updateauth '{"account": "eosio", "permission": "owner", "parent": "", "auth": {"threshold": 1, "keys": [], "waits": [], "accounts": [{"weight": 1, "permission": {"actor": "eosio.prods", "permission": "active"}}]}}' -p eosio@owner
@@ -968,7 +969,7 @@ tail -f ./blockchain/nodeos.log
 
 You can test various commands, create accounts, check balance on accounts, transfer tokens between accounts, etc.
 
-For commands on creating new accounts, see the [`Create test accounts`](../30_getting-started-guide/20_local-development-environment/50_create-dev-accounts.md) tutorial.
+To create new accounts see the [`Create test accounts`](../30_getting-started-guide/20_local-development-environment/50_create-dev-accounts.md) tutorial.
 
-For commands on issuing, allocating and transferring token between accounts, see the
+To issue, allocate and transfer tokens between accounts, see the
 [`Deploy, Issue and Transfer Tokens`](../40_smart-contract-guides/20_deploy-issue-and-transfer-tokens.md) section.
