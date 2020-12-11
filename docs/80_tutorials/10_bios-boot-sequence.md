@@ -387,9 +387,16 @@ executed transaction: ca68bb3e931898cdd3c72d6efe373ce26e6845fc486b42bc5d185643ea
 #         eosio <= eosio::newaccount            {"creator":"eosio","name":"eosio.bpay","owner":{"threshold":1,"keys":[{"key":"EOS84BLRbGbFahNJEpnnJH...
 ```
 
-### **1.8. Build eosio.contracts**
+### **1.8 Build the system contracts**
 
-In order to build `eosio.contracts`, create a dedicated directory for `eosio.contracts`, clone the `eosio.contracts` sources and build them. Print the current directory in the terminal and make a note of it. The current directory will be referred to as `EOSIO_CONTRACTS_DIRECTORY`.
+To have a functional EOSIO-based blockchain you have to install a few system smart contracts:
+
+* the `eosio.system`, `eosio.msig`and `eosio.token` located in `eosio.contracts`repository, and
+* the `eosio.bios` located in `eos` repository.
+
+#### **1.8.1 Build eosio.contracts**
+
+To build `eosio.contracts`, create a dedicated directory for `eosio.contracts`, clone the `eosio.contracts` sources and build them. Print the current directory in the terminal and make a note of it. The current directory will be referred to as `EOSIO_CONTRACTS_DIRECTORY`.
 
 ```shell
 cd ~
@@ -399,6 +406,23 @@ cd ./eosio.contracts/
 cd ./build/contracts/
 pwd
 ```
+
+#### **1.8.2 Build eos contracts**
+
+To build the contracts in the `eos` repository, create a dedicated directory for `eos`, clone the `eos` repository sources and build the contracts sources following the steps below.
+
+```shell
+cd ~
+git clone https://github.com/EOSIO/eos.git
+cd ./eos/contracts/contracts/eosio.boot/
+mkdir build
+cd build
+cmake ..
+make
+pwd
+```
+
+Make note of the current full directory path printed in the terminal at the end of the script output. The current directory will be referred to as `EOSIO_BOOT_DIRECTORY`.
 
 ### **1.9. Deploy the eosio.token contract**
 
@@ -471,7 +495,7 @@ executed transaction: a53961a566c1faa95531efb422cd952611b17d728edac833c9a5558242
 [[note | Note]]
 | _As a point of interest, from an economic point of view, moving token from reserve into circulation, such as by issuing tokens, is an inflationary action. Issuing tokens is just one way that inflation can occur._
 
-### **1.12. Deploy the eosio.system contract**
+### **1.12. Deploy the system contracts**
 
 All of the protocol upgrade features introduced in v1.8 and on subsequent versions require a special protocol feature (codenamed `PREACTIVATE_FEATURE`) to be activated and for an updated version of the system contract that makes use of the functionality introduced by that feature to be deployed.
 
@@ -492,11 +516,11 @@ A system contract provides the actions for all token-based operational behavior.
 Install the `eosio.boot` contract which will allow you to enable a series of protocol features which are highly recommended for an ESOIO-based blockchain.
 
 ```shell
-cleos set contract eosio EOSIO_CONTRACTS_DIRECTORY/eosio.boot/
+cleos set contract eosio EOSIO_BOOT_DIRECTORY/eosio.boot/
 ```
 
 ```shell
-Reading WAST/WASM from /users/documents/eos/build/contracts/eosio.boot/eosio.boot.wasm...
+Reading WAST/WASM from /users/documents/eos/contracts/contracts/eosio.boot/build/eosio.boot.wasm...
 Using already assembled WASM...
 Publishing contract...
 executed transaction: 2150ed87e4564cd3fe98ccdea841dc9ff67351f9315b6384084e8572a35887cc  39968 bytes  4395 us
