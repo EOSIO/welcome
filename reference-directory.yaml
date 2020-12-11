@@ -13,9 +13,6 @@ sections:
       - title: Nodeos DB Size API
         description: Provides access to the blockchain's database
         link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/db_size_api_plugin/api-reference
-      - title: Nodeos Test Control API
-        description: Provides control of nodeos shutdown if some test conditions are met, for testing purposes
-        link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/test_control_api_plugin/api-reference
       - title: Nodeos Trace API
         description: Provides access to retired actions and related metadata from a specified block
         link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/trace_api_plugin/api-reference/index
