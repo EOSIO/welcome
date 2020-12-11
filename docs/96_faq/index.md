@@ -132,7 +132,9 @@ _*Important*_: If you resubmit the same transaction while the first one you sent
 
 ### Why is the onblock header callable on certain EOSIO system contracts?
 
-You shouldn't call the `onblock()` yourself, but you can define what the semantics of that action are as a blockchain developer by changing its implementation. It is called by the system on every block. This way it acts as a heart beat for the system contract, and allows for things like producer pay to always execute and every block will do what the system contract needs it to do to ensure a healthy system behaviour. See [onblock](https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.system/index/?query=onblock&page=1#onblock)
+You shouldn't call the `onblock()` header  yourself, but as a blockchain developer you can define the semantics of that action by changing its implementation. The `onblock()` header is called by the system on every block. In this way, the `onblock()` header acts as a heart beat for the system contract and allows producer pay to always execute. Every block will do what the system contract needs it to do to ensure a healthy system behaviour.
+
+See [onblock](https://developers.eos.io/manuals/eosio.contracts/latest/action-reference/eosio.system/index/?query=onblock&page=1#onblock)
 
 ### How to ensure transactions entering into the blockchain are being confirmed? How to determine if a transaction needs to be requeued?
 
