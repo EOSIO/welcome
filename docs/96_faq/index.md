@@ -112,7 +112,7 @@ See [onblock](https://developers.eos.io/manuals/eosio.contracts/latest/action-re
 
 ### What happens when we send too many transactions to the blockchain and overwhelm it?
 
-During congestion, transactions sent to the blockchain will likely be placed in the unapplied transactions queue (also known as incoming transactions queue) from which they will be speculatively processed and if they are valid they will make it to the next produced block. However, if there are too many transactions in the queue there is a chance that they will expire before they will be processed by the blockchain and thus they will be dropped, in which case you will have to resubmit them.
+During congestion mode, transactions sent to the blockchain will likely be placed in the unapplied transactions queue (also known as incoming transactions queue) from which they will be speculatively processed and if they are valid they will make it to the next produced block. However, if there are too many transactions in the queue there is a chance that they will expire before they will be processed by the blockchain and thus they will be dropped, in which case you will have to resubmit them.
 
 ### Are there any plans to include transaction failure tracing in state history (github feature request)?
 
