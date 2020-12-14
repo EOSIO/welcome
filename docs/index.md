@@ -10,8 +10,6 @@ The EOSIO platform provides functionalities such as accounts, authentication, da
 
 `youtube: https://youtu.be/ldoj7XHSP5g`
 
-
-
 ### About Blockchain
 A blockchain is a decentralized infrastructure software without a centralized entity controlling the blockchain. Blockchains are defined in many ways but they all share the common attributes of being decentralized, immutable, traceable, and transparent.
 
@@ -20,6 +18,6 @@ The transactions recorded on the blockchain form an immutable history of the blo
 `youtube: https://www.youtube.com/watch?v=MqSE5WLusko`
 
 ## What's Next?
-- [Get Started](./02_getting-started/index.md): Learn how to develop on an EOSIO blockchain
-- [Protocol](./04_protocol/index.md): Understand the protocols that makes up an EOSIO blockchain
-- [Get Involved](./get-involved/index.md): Learn how to get involved and contribute to the EOSIO ecosystem.
+- [Get Started](30_getting-started-guide): Learn how to develop on an EOSIO blockchain
+- [Protocol](60_protocol-guides): Understand the protocols that makes up an EOSIO blockchain
+
