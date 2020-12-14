@@ -6,7 +6,7 @@
       "options": {
         "docs_dir": "docs",
         "disable_indices": true,
-        "exclude": ["get-involved", "05_community-developer-tools", "06_eosio-blockchain-networks", "07_tools"]
+        "exclude": ["07_tools", "90_blockchain-networks", "95_community-developer-tools", "50_block-producer-guides", "85_testnet", "96_faq", "99_exclude"]
       }
     },
     {
@@ -22,7 +22,7 @@
       "options": {
         "directory_source": "reference-directory.yaml",
         "directory_markdown_output": "reference",
-        "directory_nav_parent": "Reference"
+        "directory_nav_parent": "API Reference"
       }
     },
     {
@@ -33,40 +33,56 @@
         "directory_nav_parent": "Resources"
       }
     },
-    {
+	{
       "name": "collate_markdown",
       "options": {
-        "docs_dir": "docs/05_community-developer-tools",
-        "output_dir": "05_community-developer-tools"
+        "docs_dir": "docs/85_testnet",
+        "disable_indices": true,
+        "output_dir": "85_testnet",
+        "disable_readme_import": true
       }
     },
-    {
+	{
       "name": "collate_markdown",
       "options": {
-        "docs_dir": "docs/07_tools",
-        "output_dir": "07_tools",
-        "disable_summary_gen": true
+        "docs_dir": "docs/90_blockchain-networks",
+        "disable_indices": true,
+        "output_dir": "90_blockchain-networks",
+        "disable_readme_import": true
       }
     },
-    {
+	{
       "name": "collate_markdown",
       "options": {
-        "docs_dir": "docs/06_eosio-blockchain-networks",
-        "output_dir": "06_eosio-blockchain-networks"
+        "docs_dir": "docs/95_community-developer-tools",
+        "disable_indices": true,
+        "output_dir": "95_community-developer-tools",
+        "disable_readme_import": true
       }
     },
-    {
+	{
       "name": "collate_markdown",
       "options": {
-        "docs_dir": "docs/get-involved",
-        "output_dir": "get-involved"
+        "docs_dir": "docs/96_faq",
+        "disable_indices": true,
+        "output_dir": "96_faq",
+        "disable_readme_import": true
       }
     },
-    {
+	{
       "name": "glossary",
       "options": {
         "glossary_markdown_output": "glossary",
         "glossary_source": "glossary.yaml"
+      }
+    },
+	{
+      "name": "collate_markdown",
+      "options": {
+        "docs_dir": "docs/07_tools",
+        "output_dir": "07_tools",
+        "disable_summary_gen": true,
+        "disable_readme_import": true
       }
     }
   ]
