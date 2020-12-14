@@ -47,14 +47,9 @@ class [[eosio::contract("addressbook")]] addressbook : public eosio::contract {
 };
 ```
 
-<<<<<<< HEAD:docs/02_getting-started/03_smart-contract-development/04_data-persistence.md
-## Step 4: Create The Data Structure for the Table
-Before a table can be configured and instantiated, we need to define a struct that represents the data structure of the address book. The address book will contain people, therefore for this exercise, create the `struct` called "person" in the private section of the "addressbook" class.
-=======
 ## Step 4: Create The Data Structure For The Address Book
 
 Before a table can be configured and instantiated, we need to define a struct that represents the data structure of the address book. Since it is an address book, the table will contain people, so create a `struct` called "person"
->>>>>>> develop:docs/40_smart-contract-guides/40_data-persistence.md
 
 ```cpp
 struct person {};

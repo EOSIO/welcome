@@ -327,11 +327,7 @@ To execute the transaction, a chain database session is started and a snapshot i
 
 ### 3.5.1. Apply Context
 
-<<<<<<< HEAD:docs/04_protocol/02_transactions_protocol.md
-To prepare for action execution, an apply context instance is created locally for each action. The apply context, as its name implies, contains references to the necessary resources to apply the action, such as an instance to the chain controller (see [Network Peer Protocol: 2.2. Chain Controller](03_network_peer_protocol.md#22-chain-controller)), the chain database where state is kept, the transaction context where the transaction is running, the actual action instance, and the receiver account to whom the action is intended.
-=======
 To prepare for action execution, an apply context instance is created locally for each action. The apply context, as its name implies, contains references to the necessary resources to apply the action, such as an instance to the chain controller (see [Network Peer Protocol: 2.2. Chain Controller](30_network_peer_protocol.md#22-chain-controller)), the chain database where state is kept, the transaction context where the transaction is running, the actual action instance, and the receiver account to whom the action is intended.
->>>>>>> develop:docs/60_protocol-guides/20_transactions_protocol.md
 
 
 ### 3.5.2. Action Trace
