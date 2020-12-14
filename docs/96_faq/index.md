@@ -11,7 +11,7 @@ This FAQ contains frequent questions and requests from the EOSIO community. If y
 
 EOSIO-based blockchains are resilient to all types of situations created by real world scenarios. In case a blockchain is fully utilized, the only backpressure signal is that the transactions start to drop.
 
-When you send a transaction to the blockchain, you can set a transaction timeout value of a maximum of 60 minutes. As soon as the blockchain receives the transaction, it is placed in the unapplied transactions queue (also known as incoming transactions queue). If the expiration period for a queued transaction is met, the transaction is dropped from the queue, with no chance to be applied again. In this case, you need to resubmit the transaction to the blockchain. The maximum size of the incoming transaction queue is 1020 MiB. Exceeding this value subjectively drops the transaction with system resources exhaustion.
+When you send a transaction to the blockchain, you can set a maximum transaction timeout value of 60 minutes. As soon as the blockchain receives the transaction, under normal uncongested operation, the transaction is processed right away. However, if the transaction is not processed right away, most likely because of congested operation, it is placed in the unapplied transactions queue (also known as incoming transactions queue). If the expiration period for a queued transaction waiting is met, the transaction is dropped from the queue, with no chance to be applied again. In this case, you need to resubmit the transaction to the blockchain. The default maximum size of the incoming transaction queue is 1020 MiB and it can be configured with the `incoming-transaction-queue-size-mb` parameter of the producer plugin. Exceeding this value subjectively drops the transaction with system resources exhaustion.
 
 ### Can you wipe/refresh a blockchain environment?
 
@@ -112,7 +112,7 @@ See [onblock](https://developers.eos.io/manuals/eosio.contracts/latest/action-re
 
 ### What happens when we send too many transactions to the blockchain and overwhelm it?
 
-Transactions sent to the blockchain are placed in the unapplied transactions queue (also known as incoming transactions queue) from which they will be processed in the order of the arrival. If there are too many there is a chance that they will expire before they will be applied by the blockchain and thus they will be dropped, in which case you will have to resubmit them.
+During congestion mode, transactions sent to the blockchain will likely be placed in the unapplied transactions queue (also known as incoming transactions queue) from which they will be speculatively processed and if they are valid they will make it to the next produced block. However, if there are too many transactions in the queue there is a chance that they will expire before they will be processed by the blockchain and thus they will be dropped, in which case you will have to resubmit them.
 
 ### Are there any plans to include transaction failure tracing in state history (github feature request)?
 
