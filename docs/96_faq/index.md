@@ -36,7 +36,7 @@ To set up a local single-node blockchain configuration, follow the instructions 
 
 [Local Single-node Testnet](https://developers.eos.io/manuals/eos/v2.0/nodeos/usage/development-environment/local-single-node-testnet)
 
-You can also use the [Block.one's official EOSIO Testnet.](https://testnet.eos.io/) To learn how to set up an account and use the EOSIO Testnet click here [EOSIO Testnet Quick Start Guide.](https://developers.eos.io/welcome/v3.0/quick-start-guides/testnet-quick-start-guide/index)
+You can also use the [Block.one's official EOSIO Testnet.](https://testnet.eos.io/) To learn how to set up an account and use the EOSIO Testnet click here [EOSIO Testnet Quick Start Guide.](https://developers.eos.io/welcome/latest/quick-start-guides/testnet-quick-start-guide/index)
 
 ### What happens when there is a fork and how does this manifest itself in State History Plugin (SHiP)?
 
