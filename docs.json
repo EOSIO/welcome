@@ -13,7 +13,7 @@
       "name": "directory",
       "options": {
         "directory_source": "manuals-directory.yaml",
-        "directory_markdown_output": "Manuals",
+        "directory_markdown_output": "manuals",
         "directory_nav_parent": "Manuals"
       }
     },
@@ -21,7 +21,7 @@
       "name": "directory",
       "options": {
         "directory_source": "reference-directory.yaml",
-        "directory_markdown_output": "Reference",
+        "directory_markdown_output": "reference",
         "directory_nav_parent": "API Reference"
       }
     },
