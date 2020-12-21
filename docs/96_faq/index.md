@@ -118,9 +118,9 @@ During congestion mode, transactions sent to the blockchain will likely be place
 
 Yes, this is already supported in the upcoming EOSIO release. The original `transaction_tracing` logger has been replaced with two new loggers: 1. `transaction_success_tracing` and 2. `transaction_failure_tracing` logger, which provides detailed logs for successful or failed transaction confirmations from relay nodes on the P2P network, respectively. The node operator can selectively choose which logger to enable based on whether successful or failed transaction logs are desired.
 
-### Are there any metrics for dropped transactions?
+### How can I monitor dropped transactions?
 
-No, there are no metrics currently on blockchain for dropped transactions. However, it can be done by enabling the logging level, which logs dropped transactions, and then monitor the dropped transactions log entries.
+This can be done by enabling the logging level, which logs dropped transactions, and then monitor the dropped transactions log entries.
 
 ### Should we use the block number returned by RPC to confirm if a transaction is added to a block?
 
