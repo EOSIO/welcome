@@ -120,7 +120,7 @@ Yes, this is already supported in the upcoming EOSIO release. The original `tran
 
 ### How can I monitor dropped transactions?
 
-To achive this enable the logging level, which logs dropped transactions, and then monitor the dropped transactions log entries.
+To achive this enable the [logging level debug](https://developers.eos.io/manuals/eos/v2.1/nodeos/logging/native_logging), which logs dropped transactions, and then monitor the dropped transactions log entries.
 
 ### Should we use the block number returned by RPC to confirm if a transaction is added to a block?
 
