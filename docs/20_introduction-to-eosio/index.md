@@ -23,7 +23,7 @@ Learn about EOSIO's available tools, the core concepts and underlying technical 
 - [Platform and Toolchain](10_platform_and_toolchain.md)
 - [Core Concepts](20_core_concepts.md)
 - [Technical Features](30_technical_features.md)
-- [Community Developer Tools](https://developers.eos.io/welcome/latest/community-developer-tools)
+- [Community Developer Tools](https://developers.eos.io/welcome/v2.1/community-developer-tools)
 
 ## What's Next?
 - [Get Started](../30_getting-started-guide/index.md): Learn how to develop on an EOSIO blockchain
