@@ -102,7 +102,7 @@ struct person {
 
 ## Step 5: Configure the Multi-Index Table
 
-Now that the data structure of the table has been defined with a `struct` we need to configure the table. The [eosio::multi_index](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index) constructor needs to be named and configured to use the struct we previously defined.
+Now that the data structure of the table has been defined with a `struct` we need to configure the table. The [eosio::multi_index](https://developers.eos.io/manuals/eosio.cdt/v1.8/classeosio_1_1multi__index) constructor needs to be named and configured to use the struct we previously defined.
 
 ```cpp
 using address_index = eosio::multi_index<"people"_n, person>;
@@ -161,7 +161,7 @@ Previously, the primary key of the multi-index table was defined to enforce that
 2. The **primary_key** of our table is unique, based on username
 3. For usability, the contract should have the ability to both create and modify a table row with a single action.
 
-On a EOSIO blockchain an account name is unique, therefore the `name` type is an ideal candidate as a **primary_key**. Behind the scenes, the [name](https://developers.eos.io/manuals/eosio.cdt/latest/structeosio_1_1name) type is an `uint64_t` integer.
+On a EOSIO blockchain an account name is unique, therefore the `name` type is an ideal candidate as a **primary_key**. Behind the scenes, the [name](https://developers.eos.io/manuals/eosio.cdt/v1.8/structeosio_1_1name) type is an `uint64_t` integer.
 
 Next, define an action for the user to add or update a record. This action will need to accept any values that this action needs to be able to emplace (create) or modify.
 
@@ -178,7 +178,7 @@ void upsert(
 ) {}
 ```
 
-Earlier, it was mentioned that only the user has control over their own record, as this contract is opt-in. To do this, utilize the [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action/#function-require_auth) method provided by the `eosio.cdt`. This method accepts an `name` type argument and asserts that the account executing the transaction equals the provided value and has the proper permissions to do so.
+Earlier, it was mentioned that only the user has control over their own record, as this contract is opt-in. To do this, utilize the [require_auth](https://developers.eos.io/manuals/eosio.cdt/v1.8/group__action/#function-require_auth) method provided by the `eosio.cdt`. This method accepts an `name` type argument and asserts that the account executing the transaction equals the provided value and has the proper permissions to do so.
 
 ```cpp
 void upsert(name user, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
@@ -213,7 +213,7 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
 
 Security has been established and the table instantiated, great!  Next up, write the code for creating or modifying the table.  
 
-First, detect whether a particular user already exists in the table. To do this, use table's [find](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index#function-find) method by passing the `user` parameter. The find method will return an iterator. Use that iterator to test it against the [end](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index#function-end) method. The "end" method is an alias for "null".
+First, detect whether a particular user already exists in the table. To do this, use table's [find](https://developers.eos.io/manuals/eosio.cdt/v1.8/classeosio_1_1multi__index#function-find) method by passing the `user` parameter. The find method will return an iterator. Use that iterator to test it against the [end](https://developers.eos.io/manuals/eosio.cdt/v1.8/classeosio_1_1multi__index#function-end) method. The "end" method is an alias for "null".
 
 ```cpp
 void upsert(name user, std::string first_name, std::string last_name, std::string street, std::string city, std::string state) {
@@ -230,7 +230,7 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
 }
 ```
 
-Create a record in the table using the multi_index method [emplace](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-emplace). This method accepts two arguments, the "payer" of this record who pays the storage usage and a callback function.
+Create a record in the table using the multi_index method [emplace](https://developers.eos.io/manuals/eosio.cdt/v1.8/classeosio_1_1multi__index/#function-emplace). This method accepts two arguments, the "payer" of this record who pays the storage usage and a callback function.
 
 The callback function for the emplace method must use a lamba function to create a reference. Inside the body assign the row's values with the ones provided to `upsert`.
 
@@ -256,7 +256,7 @@ void upsert(name user, std::string first_name, std::string last_name, std::strin
 }
 ```
 
-Next, handle the modification, or update, case of the "upsert" function. Use the [modify](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-modify-12) method, passing a few arguments:
+Next, handle the modification, or update, case of the "upsert" function. Use the [modify](https://developers.eos.io/manuals/eosio.cdt/v1.8/classeosio_1_1multi__index/#function-modify-12) method, passing a few arguments:
 
 - The iterator defined earlier, presently set to the user as declared when calling this action.
 - The "payer", who will pay for the storage cost of this row, in this case, the user.
@@ -297,7 +297,7 @@ But what if the user wants to remove the record entirely?
 
 ## Step 8: Remove record from the table
 
-Similar to the previous steps, create a public method in the `addressbook`, making sure to include the ABI declarations and a [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action/#function-require_auth) that tests against the action's argument `user` to verify only the owner of a record can modify their account.
+Similar to the previous steps, create a public method in the `addressbook`, making sure to include the ABI declarations and a [require_auth](https://developers.eos.io/manuals/eosio.cdt/v1.8/group__action/#function-require_auth) that tests against the action's argument `user` to verify only the owner of a record can modify their account.
 
 ```cpp
     void erase(name user){
@@ -306,7 +306,7 @@ Similar to the previous steps, create a public method in the `addressbook`, maki
 
 ```
 
-Instantiate the table. In `addressbook` each account has only one record. Set `iterator` with [find](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-find)
+Instantiate the table. In `addressbook` each account has only one record. Set `iterator` with [find](https://developers.eos.io/manuals/eosio.cdt/v1.8/classeosio_1_1multi__index/#function-find)
 
 ```cpp
 ...
@@ -331,7 +331,7 @@ A contract *cannot* erase a record that doesn't exist, so check that the record 
 ...
 ```
 
-Finally, call the [erase](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1multi__index/#function-erase-12) method, to erase the iterator. Once the row is erased, the storage space will be free up for the original payer.
+Finally, call the [erase](https://developers.eos.io/manuals/eosio.cdt/v1.8/classeosio_1_1multi__index/#function-erase-12) method, to erase the iterator. Once the row is erased, the storage space will be free up for the original payer.
 
 ```cpp
 ...
@@ -351,7 +351,7 @@ The contract is now mostly complete. Users can create, modify and erase records.
 
 ### 9.1 ABI Action Declarations
 
-[eosio.cdt](https://developers.eos.io/manuals/eosio.cdt/latest) includes an ABI Generator, but for it to work will require some declarations.
+[eosio.cdt](https://developers.eos.io/manuals/eosio.cdt/v1.8) includes an ABI Generator, but for it to work will require some declarations.
 
 Above both the `upsert` and `erase` functions add the following C++11 declaration:
 
