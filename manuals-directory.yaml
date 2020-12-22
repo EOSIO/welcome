@@ -65,7 +65,7 @@ sections:
     listings:
       - title: eosjs
         description: A Javascript library which provides an API for integrating with EOSIO-based blockchains using the EOSIO Nodeos RPC API
-        link: https://developers.eos.io/manuals/eosjs/latest/index
+        link: https://developers.eos.io/manuals/eosjs/v22.0/index
 
       - title: eosjs-keygen
         description: A Javascript library for managing keys in local storage

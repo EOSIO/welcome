@@ -20,7 +20,7 @@ sections:
     listings:
       - title: eosjs Javascript API
         description: Provides integration with EOSIO-based blockchains using the EOSIO Nodeos RPC API
-        link: https://developers.eos.io/manuals/eosjs/latest/API-Reference/index
+        link: https://developers.eos.io/manuals/eosjs/v22.0/API-Reference/index
       - title: eosio-swift Swift API
         description: Provides integration with EOSIO-based blockchains using the EOSIO Nodeos RPC API
         link: http://eosio.github.io/eosio-swift
