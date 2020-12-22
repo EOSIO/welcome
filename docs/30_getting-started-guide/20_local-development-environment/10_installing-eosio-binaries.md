@@ -6,7 +6,7 @@ link_text: Install EOSIO Binaries
 To get started as quickly as possible, we recommend using EOSIO pre-built binaries. You also have an advanced option to build from source but that would consume an hour or more. 
 
 [[info]]
-| You can find how to build EOSIO from source [here](https://developers.eos.io/manuals/eos/latest/install/build-from-source/).
+| You can find how to build EOSIO from source [here](https://developers.eos.io/manuals/eos/v2.1/install/build-from-source/).
 
 
 

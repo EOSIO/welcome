@@ -65,7 +65,7 @@ These settings accomplish the following:
 
 **Troubleshooting**
 
-After starting `nodeos`, if you see an error message similar to "Database dirty flag set (likely due to unclean shutdown): replay required", try to start `nodeos` with  `--replay-blockchain`. More details on troubleshooting `nodeos` can be found [here](https://developers.eos.io/manuals/eos/latest/nodeos/troubleshooting/index).
+After starting `nodeos`, if you see an error message similar to "Database dirty flag set (likely due to unclean shutdown): replay required", try to start `nodeos` with  `--replay-blockchain`. More details on troubleshooting `nodeos` can be found [here](https://developers.eos.io/manuals/eos/v2.1/nodeos/troubleshooting/index).
 
 ## Validating Nodeos
 
@@ -95,7 +95,7 @@ Press `ctrl + c` to close the log
 ### Check the Wallet
 
 Open the shell and run the cleos command to list available wallets. We will talk more about wallets in the future. For now, we need to validate the installation and see that the command line client
-[cleos](https://developers.eos.io/manuals/eos/latest/cleos) is working as intended.
+[cleos](https://developers.eos.io/manuals/eos/v2.1/cleos) is working as intended.
 
 
 ```shell
