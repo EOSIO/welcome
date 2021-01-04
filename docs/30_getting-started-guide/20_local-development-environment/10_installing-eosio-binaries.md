@@ -21,20 +21,30 @@ brew install eosio
 [[info]]
 | If you don't have Brew installed, follow the installation instructions on the <a href="https://brew.sh/" target="_blank">official Brew website</a>.
 
-### Ubuntu 18.04 Debian Package Install:
-```shell
-wget https://github.com/EOSIO/eos/releases/download/v2.0.0/eosio_2.0.0-1-ubuntu-18.04_amd64.deb
-sudo apt install ./eosio_2.0.0-1-ubuntu-18.04_amd64.deb
+### Ubuntu 20.04 Package Install
+```sh
+wget https://github.com/eosio/eos/releases/download/v2.1.0-rc2/eosio_2.1.0-rc2-ubuntu-20.04_amd64.deb
+sudo apt install ./eosio_2.1.0-rc2-ubuntu-20.04_amd64.deb
 ```
-### Ubuntu 16.04 Debian Package Install:
-```shell
-wget https://github.com/EOSIO/eos/releases/download/v2.0.0/eosio_2.0.0-1-ubuntu-16.04_amd64.deb
-sudo apt install ./eosio_2.0.0-1-ubuntu-16.04_amd64.deb
+### Ubuntu 18.04 Package Install
+```sh
+wget https://github.com/eosio/eos/releases/download/v2.1.0-rc2/eosio_2.1.0-rc2-ubuntu-18.04_amd64.deb
+sudo apt install ./eosio_2.1.0-rc2-ubuntu-18.04_amd64.deb
 ```
-### CentOS RPM Package Install:
-```shell
-wget https://github.com/EOSIO/eos/releases/download/v2.0.0/eosio-2.0.0-1.el7.x86_64.rpm
-sudo yum install ./eosio-2.0.0-1.el7.x86_64.rpm
+### Ubuntu 16.04 Package Install
+```sh
+wget https://github.com/eosio/eos/releases/download/v2.1.0-rc2/eosio_2.1.0-rc2-ubuntu-16.04_amd64.deb
+sudo apt install ./eosio_2.1.0-rc2-ubuntu-16.04_amd64.deb
+```
+### CentOS 7 RPM Package Install
+```sh
+wget https://github.com/eosio/eos/releases/download/v2.1.0-rc2/eosio-2.1.0-rc2.el7.x86_64.rpm
+sudo yum install ./eosio-2.1.0-rc2.el7.x86_64.rpm
+```
+### CentOS 8 RPM Package Install
+```sh
+wget https://github.com/eosio/eos/releases/download/v2.1.0-rc2/eosio-2.1.0-rc2.el8.x86_64.rpm
+sudo yum install ./eosio-2.1.0-rc2.el8.x86_64.rpm
 ```
 
 [[warning]]
