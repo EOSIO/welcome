@@ -11,7 +11,7 @@ This FAQ contains frequent questions and requests from the EOSIO community. If y
 
 EOSIO-based blockchains are resilient to all types of situations created by real world scenarios. In case a blockchain is fully utilized, the only backpressure signal is that the transactions start to drop.
 
-When you send a transaction to the blockchain, you can set a maximum transaction timeout value of 60 minutes. As soon as the blockchain receives the transaction, under normal uncongested operation, the transaction is processed right away. However, if the transaction is not processed right away, most likely because of congested operation, it is placed in the unapplied transactions queue (also known as incoming transactions queue). If the expiration period for a queued transaction waiting is met, the transaction is dropped from the queue, with no chance to be applied again. In this case, you need to resubmit the transaction to the blockchain. The default maximum size of the incoming transaction queue is 1020 MiB and it can be configured with the `incoming-transaction-queue-size-mb` parameter of the producer plugin. Exceeding this value subjectively drops the transaction with system resources exhaustion.
+When you send a transaction to the blockchain, you can set a maximum transaction timeout value of 60 minutes. As soon as the blockchain receives the transaction, under normal uncongested operation, the transaction is processed right away. However, if the transaction is not processed right away, most likely because of congested operation, it is placed in the unapplied transactions queue (also known as incoming transactions queue). If the expiration period for a queued transaction waiting is met, the transaction is dropped from the queue, with no chance to be applied again. In this case, you need to [resubmit the transaction](https://developers.eos.io/manuals/eos/v2.1/cleos/how-to-guides/how-to-submit-a-transaction/) to the blockchain. The default maximum size of the incoming transaction queue is 1020 MiB and it can be configured with the `incoming-transaction-queue-size-mb` parameter of the producer plugin. Exceeding this value subjectively drops the transaction with system resources exhaustion.
 
 ### Can you wipe/refresh a blockchain environment?
 
@@ -118,9 +118,9 @@ During congestion mode, transactions sent to the blockchain will likely be place
 
 Yes, this is already supported in the upcoming EOSIO release. The original `transaction_tracing` logger has been replaced with two new loggers: 1. `transaction_success_tracing` and 2. `transaction_failure_tracing` logger, which provides detailed logs for successful or failed transaction confirmations from relay nodes on the P2P network, respectively. The node operator can selectively choose which logger to enable based on whether successful or failed transaction logs are desired.
 
-### Are there any metrics for dropped transactions?
+### How can I monitor dropped transactions?
 
-No, there are no metrics currently on blockchain for dropped transactions. However, it can be done by enabling the logging level, which logs dropped transactions, and then monitor the dropped transactions log entries.
+To achive this enable the [logging level debug](https://developers.eos.io/manuals/eos/v2.1/nodeos/logging/native_logging), which logs dropped transactions, and then monitor the dropped transactions log entries.
 
 ### Should we use the block number returned by RPC to confirm if a transaction is added to a block?
 
