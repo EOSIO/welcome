@@ -1,11 +1,11 @@
 ---
 content_title: Hello EOSIO World!
-link_text: Welcome to the Developers Portal
+link_text: Welcome to the Developer Portal
 ---
 
-## Welcome to the EOSIO Developers Portal!
+## Welcome to the EOSIO Developer Portal!
 
-The *EOSIO Developers Portal* is an EOSIO documentation platform that hosts a rich array of technical product documentation resources created and curated for the EOSIO blockchain developers community. These resources empower developers from all technology backgrounds to build enterprise-grade, secure, and scalable blockchain applications using the open-source EOSIO software.
+The *EOSIO Developer Portal* is an EOSIO documentation platform that hosts a rich array of technical product documentation resources created and curated for the EOSIO blockchain developers community. These resources empower developers from all technology backgrounds to build enterprise-grade, secure, and scalable blockchain applications using the open-source EOSIO software.
 
 We recognize our community developers to be an important part of the EOSIO blockchain ecosystem. Using the open source development model, we have a shared mission of leveraging the power of open source technologies to further mature the EOSIO platform.
 
@@ -25,7 +25,7 @@ And more!
 
 ## EOSIO Docs is Open Source
 
-The *EOSIO Developers Portal* generates documentation from source files hosted on Github, alongside the [EOSIO](https://github.com/EOSIO) codebase. All documentation assets on [*developers.eos.io*](https://developers.eos.io/) is open sourced and designed to allow community contributions. We leverage the power of open source to deliver trusted content to support your EOSIO onboarding and advanced development journey.
+The *EOSIO Developer Portal* generates documentation from source files hosted on Github, alongside the [EOSIO](https://github.com/EOSIO) codebase. All documentation assets on [*developers.eos.io*](https://developers.eos.io/) is open sourced and designed to allow community contributions. We leverage the power of open source to deliver trusted content to support your EOSIO onboarding and advanced development journey.
 
 ### A Bit of History
 
@@ -41,11 +41,11 @@ The *Github Archive Program* includes the [EOSIO Project](https://github.com/EOS
 
 ## Portal Page Design
 
-To become familiar with the *EOSIO Developers Portal* design, standard page layout, and navigation, see the [Portal Design](10_portal-design) section.
+To become familiar with the *EOSIO Developer Portal* design, standard page layout, and navigation, see the [Portal Design](10_portal-design) section.
 
 ## New to Blockchain Development?
 
-The Developers Portal has documentation and onboarding resources to help you get started with the EOSIO blockchain platform. Explore the following learning resources to acquire functional knowledge of the EOSIO platform.
+The EOSIO Developer Portal has documentation and onboarding resources to help you get started with the EOSIO blockchain platform. Explore the following learning resources to acquire functional knowledge of the EOSIO platform.
 
 ### EOSIO Getting Started Guide 
 Orient yourself with the EOSIO development environment and basic smart contract development. For detailed instructions on setting up your development environment and deploying your first smart contract, see the [_EOSIO Getting Started Guide_](../30_getting-started-guide). 
@@ -68,7 +68,7 @@ From platform fundamentals to application development, we have a hands-on traini
 
 ## Community Contributions
 
-The technical content developers at Developer Relations endeavor to provide trusted, authoritative, and bug-free documentation on the developers portal. However, we may inadvertently miss detecting documentation bugs making their way to production.  
+The technical content developers at Developer Relations endeavor to provide trusted, authoritative, and bug-free documentation on the EOSIO Developer Portal. However, we may inadvertently miss detecting documentation bugs making their way to production.  
 
 As part of our development community, if you detect a typographical error, or any erroneous representation of the EOSIO platform, please submit a [Pull Request (PR)](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) and report the bug to us. 
 
@@ -76,7 +76,7 @@ See the [Community Contributions](20_community-contributions) section of this po
 
 ## Build Something Profound
 
-We hope that you greatly benefit from the _EOSIO Developers Portal_ and build profound EOSIO applications that will inject trust and integrity around us. For any thoughts or comments regarding EOSIO, you can reach out to us at [_developers@block.one_](mailto:developers@block.one).
+We hope that you greatly benefit from the _EOSIO Developer Portal_ and build profound EOSIO applications that will inject trust and integrity around us. For any thoughts or comments regarding EOSIO, you can reach out to us at [_developers@block.one_](mailto:developers@block.one).
 
 > May the **Force of EOSIO** be with you!
 
