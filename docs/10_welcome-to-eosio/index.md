@@ -68,7 +68,7 @@ From platform fundamentals to application development, we have a hands-on traini
 
 ## Community Contributions
 
-The technical content developers at Developer Relations endeavor to provide trusted, authoritative, and bug-free documentation on the developer portal. However, we may inadvertently miss detecting documentation bugs making their way to production.  
+The technical content developers at Developer Relations endeavor to provide trusted, authoritative, and bug-free documentation on the EOSIO Developer Portal. However, we may inadvertently miss detecting documentation bugs making their way to production.  
 
 As part of our development community, if you detect a typographical error, or any erroneous representation of the EOSIO platform, please submit a [Pull Request (PR)](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) and report the bug to us. 
 
