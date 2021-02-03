@@ -80,9 +80,10 @@ The action constructor requires a number of parameters.
 - The action (initialised using `eosio::name` type)
 - The data to pass to the action, a tuple of positionals that correlate to the actions being called.
 
-## The Permission struct
+## The Permission Struct
 
-In this contract the permission should be authorized by the `active` authority of the contract using `get_self()`. As a reminder, to use the 'active` authority inline you will need your contract's to give active authority to `eosio.code` pseudo-authority (instructions above)
+In this contract the permission should be authorized by the `active` authority of the contract using `get_self()`. As a reminder, to use the `active` authority inline you need for your contract to give active authority to `eosio.code` pseudo-authority (instructions above)
+
 ```cpp
 ...
   private:
