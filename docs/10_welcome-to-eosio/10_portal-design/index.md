@@ -5,7 +5,7 @@ link_text: Portal Design
 
 # Portal Page Layout 
 
-The pages on the _EOSIO Developers Portal_ are designed to reflect a 3-panel layout design to improve content readability and overall portal usability. An example portal page renders as shown below: 
+The pages on the _EOSIO Developer Portal_ are designed to reflect a 3-panel layout design to improve content readability and overall portal usability. An example portal page renders as shown below: 
 
 ![Developers Portal Page Layout](portal-page-layout-1.png "portal page layout")
 *Fig 1. A standard 3-panel layout*
@@ -19,7 +19,7 @@ The left-side panel occupies the vertical area at the left of a given page that 
 * **(1) Search Field**: A global search field with typo-tolerance support. See Portal Search for more details. 
 * **(2) Repository Selector**: A dropdown to select repo-based documentation.
 * **(3) Repository Version Selector**: A drop-down to select version-specific documentation. 
-* **(4) Current Page**: The current page displayed in the center panel. 
+* **(4) Current Page**: The current page displayed in the center panel.
 * **(5) Content Navigation Pane**: A navigation pane to access all the documentation topics in the selected repository. 
 
 ## Center Panel
@@ -56,16 +56,16 @@ For example, in the below screen, you can see responsive design in action on one
 
 ## Home Page
 
-The **Home** page of the developers portal is refactored into logical groupings around topics such as getting started, learning about the EOSIO stack, API reference, and helpful developer resources. Below is a screenshot of the Home page:
+The **Home** page of the EOSIO Developer Portal is refactored into logical groupings around topics such as getting started, learning about the EOSIO stack, API reference, and helpful developer resources. Below is a screenshot of the Home page:
 
 ![Developers Portal Page Layout](dev-portal-home.png "dev portal home")
-*Fig 3. The Home page of the developers portal*
+*Fig 3. The Home page of the EOSIO Developer Portal*
 
 [[info | Note]]
-| The _EOSIO Developers Portal_ is constantly evolving in terms of UI design and UI content to improve readability and usability. The screens illustrated here or elsewhere on the developers portal may change over time. We endeavour to keep all the screens duly updated, but if you see any outdated screens, please report it to us by clicking the **Edit** button at the upper-right of a given page.
+| The _EOSIO Developer Portal_ is constantly evolving in terms of UI design and UI content to improve readability and usability. The screens illustrated here or elsewhere on the Developer Portal may change over time. We endeavour to keep all the screens duly updated, but if you see any outdated screens, please report it to us by clicking the **Edit** button at the upper-right of a given page.
 
 ## Repo-based Content Switching 
-The Developers Portal processes multiple source repositories in Github and produces documentation content. The **Repository selector** (See **(2)** in *Fig 1. A standard 3-panel layout*) on the left-side panel of a portal page allows convenient access to repo-based documentation.
+The Developer Portal processes multiple source repositories in Github and produces documentation content. The **Repository selector** (See **(2)** in *Fig 1. A standard 3-panel layout*) on the left-side panel of a portal page allows convenient access to repo-based documentation.
 
 ### Switch Repo-based Content Repositories
 **To switch between content repositories:**
@@ -87,7 +87,7 @@ The Developers Portal processes multiple source repositories in Github and produ
 
 # Portal Search 
 
-The EOSIO Developers Portal integrates the Algolia DocSearch application into the search feature, which provides a professional search experience with highly relevant search results. An example search result from the developers portal is shown in the below screenshot:
+The EOSIO Developer Portal integrates the Algolia DocSearch application into the search feature, which provides a professional search experience with highly relevant search results. An example search result from the Developer Portal is shown in the below screenshot:
 
 ![Developers Portal Search](search-page-result.png "portal search")
 *Fig 6. Sample search result page*
