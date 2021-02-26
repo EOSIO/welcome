@@ -5,14 +5,14 @@ link_text: Smart Contract Guides
 
 This section introduces you to the EOSIO smart contracts development workflow. You build your first basic Hello World smart contract to lay the groundwork to implement additional smart contracts such as token contracts, address book, payable actions, and more. You will gain advanced understanding on how data persistence works in the context of a smart contract and also how inline actions are implemented in a smart contract. 
 
-### Before you Begin
+## Before you Begin
 Before you begin with the smart contracts development workflow, make sure the following prerequisites	are met:
 
 
 1. You have set up your local development environment according to the instructions given in the [Set Up Development Environment](../30_getting-started-guide/20_local-development-environment) section of the _Getting Started Guide_.
 2. Nodeos is running and producing blocks. See the [Start keosd and nodeos](../30_getting-started-guide/20_local-development-environment/40_start-nodeos-keosd.md) section of the _Getting Started Guide_ for detailed instructions. 
 
-### Smart Contracts Development Workflow
+## Smart Contracts Development Workflow
 
 Work your way through the following topics to build and deploy smart contracts. Start with Hello World and progressively build the other smart contracts. 
 
@@ -25,3 +25,8 @@ Work your way through the following topics to build and deploy smart contracts. 
 * [Inline Actions to external contracts](70_inline-action-to-external-contract.md): How to call actions in other smart contracts
 * [Linking custom permissions](80_linking-custom-permission.md): How to set up custom permissions on a smart contract
 * [Payable Actions](90_payable-actions.md): How to be paid for calling smart contract actions
+
+### EOSIO Training and Certification Center
+In addition to following the instructions given in the above sections to build and deploy smart contracts, you can also enroll in EOSIO's online learning courses. The following online course provides instructions in a blended format ( textual and videos) to help you get started with smart contracts development:
+
+* **[Smart Contracts 101](https://training.eos.io/courses/smart-contracts-101)**
