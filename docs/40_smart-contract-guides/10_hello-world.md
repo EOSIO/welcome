@@ -2,162 +2,159 @@
 content_title: "Hello World Contract"
 link_text: "Hello World Contract"
 ---
-This tutorial introduces the concept of smart contracts; building smart contracts; deploying smart contracts to a blockchain and then uses `cleos` to call smart contract actions. 
+
+Smart contracts are the code that makes the blockchain go round. Smart contracts are deployed and executed on the blockchain. A record of each transaction is immutably stored on the blockchain and smart contracts store and update state on the blockchain. A blockchain application is composed of clients, which utilize EOSIO client libraries to call operations in a smart contract(s).    
+
+Let's start with a simple smart contract producing the traditional "hello world." 
+
+This tutorial Introduces the following key concepts:
+* [EOSIO Contract Development Toolkit](https://developers.eos.io/manuals/eosio.cdt/latest/index) - Toolchain and libraries used to build smart contracts.
+* [Webassembly](../../../glossary/index#webassembly) (WASM) - The virtual machine used to execute a portable binary-code format. Hosted in [nodeos.](../../../glossary/index#nodeos)
+* [Application Binary Interfaces](https://developers.eos.io/manuals/eosio.cdt/latest/best-practices/abi/understanding-abi-files) (ABI) - Defines how data is marshalled to and from the webassembly virtual machine.
+* [Smart Contracts](../../../glossary/index/#smart-contract) - Code that defines actions and transactions which may be executed on a blockchain.
+
+This tutorial shows how to:
+* Create a simple smart contract with a simple "hi" [action](../../../glossary/index/#action) to the smart contract.
+* Compile and deploy the smart contract to an EOSIO blockchain.
+* Use the command line to call the "hi" action of the smart contract.
+
+## Prerequisites
+This tutorial requires the following:
+* Knowledge of the C++ programming language.
+* A code editor or an IDE.
+* The EOSIO Contract Development Toolkit or eosio.cdt. Click on this link for instructions to [install the eosio.cdt.](https://developers.eos.io/manuals/eosio.cdt/latest/installation)
+* Know how to use the [cleos command line interface](https://developers.eos.io/manuals/eos/latest/cleos/index) (CLI).  
+* Access to a blockchain. See [running a blockchain.](01_prerequisites/10_running-a-blockchain.md)
+* A blockchain account to deploy the smart contract and blockchain accounts to execute actions. See [accounts and permissions.](01_prerequisites/20_accounts-and-permissions.md)
+
+Once the tutorial is completed you should be able to create and deploy a smart contract.
+
+## EOSIO Contract Development Toolkit
+
+Create Smart contracts using the C++ programming language. The EOSIO Contract Development Toolkit or [EOSIO.CDT](../../../glossary/index/#eosio.cdt) provides the libraries and tools you can use to build a smart contract, click on this link for the [EOSIO.CDT manual](https://developers.eos.io/manuals/eosio.cdt/latest/index).
+
+To deploy the smart contract to the blockchain use the EOSIO.CDT [eosio-cpp](https://developers.eos.io/manuals/eosio.cdt/v1.7/command-reference/eosio-cpp) tool to compile the smart contract, build the webassembly file,  and create a corresponding application binary interface (ABI) file.
+
+The `webassembly` or `.wasm` file is the binary code that the `webassembly engine` in the blockchain executes. The `webassembly engine` or `wasm engine` is the engine in the blockchain which executes smart contracts. The application binary interface or `.abi` file defines how data is marshalled to and from the wasm engine.
 
 ## Create the Contract
 
-Create a new directory called **hello** in the **contracts** directory you previously created and enter the newly created directory.:
+This section creates the hello world smart contract. Normally you create two files, the header  or `.hpp` file which contains the declarations for the smart contract class and the `.cpp` file which contains the implementation of the smart contract actions. In this simple example you only create a `.cpp` file.
+
+
+### Procedure to create hello.cpp 
+
+1. Create a new directory called “hello” to store your smart contract code.
 
 ```shell
-cd CONTRACTS_DIR
 mkdir hello
+```
+Go to the new  directory
+
+```shell
 cd hello
 ```
 
-Create a new file, **hello.cpp**, and open it in your preferred text editor:
+2. Create a new file, `hello.cpp`, and open it in your preferred text editor.
 
 ```shell
 touch hello.cpp
 ```
 
-Below the `eosio.hpp` header file is included. The `eosio.hpp` file includes a few classes required to write a smart contract.
+3. Write the smart contract code.
+
+Follow these four steps and add this code to the `hello.cpp` file.
+
+a. Import the eosio base library with the include directive.
+Add the line
 
 ```cpp
 #include <eosio/eosio.hpp>
 ```
 
-Using the `eosio` namespace will reduce clutter in your code. For example, by setting `using namespace eosio;`, `eosio::print("foo")` can be written `print("foo")`
+b. The `eosio.hpp` contains classes required to write a smart contract, including `eosio::contract`. Create a standard C++11 class and inherit from the `eosio::contract` class. Use the `[[eosio::contract]]` attribute to inform the EOSIO.CDT compiler this is a smart contract. 
+Add the line
 
 ```cpp
-using namespace eosio;
+class [[eosio::contract]] hello : public eosio::contract {};
 ```
 
-Create a standard C++11 class. The contract class needs to extend `eosio::contract` class which is included earlier from the eosio.hpp header:
+The `EOSIO.CDT` compiler automatically generates the main dispatcher and the `ABI file`.
+The [dispatcher](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__dispatcher/?query=dispatcher&page=1#dispatcher) routes action calls to the correct smart contract action. The compiler will create one when using the `eosio::contract` attribute. Advanced programmers can customize this behaviour by defining their own dispatcher.
+
+c. Add a public access specifier and a using-declaration to introduce base class members from `eosio::contract`. You can now use the default base class constructor.
+Add these lines
+
+```cpp
+public:
+	using eosio::contract::contract;
+```
+
+d. Add a "hi" public action. This action accepts an `eosio::name` parameter, and prints "Hello" concatenated with the `eosio::name` parameter. 
+Add these lines
+
+```cpp
+	[[eosio::action]] void hi( eosio::name user ) {
+		print( "Hello, ", user);
+	}
+```
+
+The `[[eosio::action]]` attribute lets the compiler know this is an action.
+
+The `hello.cpp` file should now look like this:
 
 ```cpp
 #include <eosio/eosio.hpp>
-
-using namespace eosio;
-
-class [[eosio::contract]] hello : public contract {};
-```
-
-An empty contract is not enough. Add a public access specifier and a using-declaration. The `using` declaration will allow us to write more concise code:
-
-```cpp
-#include <eosio/eosio.hpp>
-
-using namespace eosio;
-
-class [[eosio::contract]] hello : public contract {
+class [[eosio::contract]] hello : public eosio::contract {
   public:
-    using contract::contract;
-};
-```
-
-This contract needs to do something. In the spirit of **hello world** write an action that accepts a "name" parameter, and then prints that parameter out:
-
-<!--Links to virtual directory created by glossary generator-->
-[Actions](../../glossary/index/#action) implement the behavior of a contract
-
-```cpp
-#include <eosio/eosio.hpp>
-
-using namespace eosio;
-
-class [[eosio::contract]] hello : public contract {
-  public:
-      using contract::contract;
-
-      void hi( name user ) {
+      using eosio::contract::contract;
+      [[eosio::action]] void hi( eosio::name user ) {
          print( "Hello, ", user);
       }
 };
 ```
 
-The above action accepts a parameter called `user`, that's a [`name`](https://developers.eos.io/manuals/eosio.cdt/latest/structeosio_1_1name) type. EOSIO comes with a number of typedefs, one of the most common typedefs you'll encounter is `name`. Using the `eosio::print` library previously included, concatenate a string and print the `user` parameter. Use the braced initialization of `name{user}` to make the `user` parameter printable.
+`eosio::print` is included by eosio/eosio.hpp. The smart contract uses this function to print “Hello” and concatenate the `string` "Hello" with the passed in user.
 
-As is, the [ABI](../../glossary/index/#application-binary-interface) <!-- (hiding for now) <<glossary:ABI>> (unhide after tooltip feature implemented) --> generator in `eosio.cdt` won't know about the `hi()` action without an attribute. Add a C++11 style attribute above the action, this way the abi generator can produce more reliable output:
+4. Save the file.
 
-```cpp
-#include <eosio/eosio.hpp>
+## Compile and Deploy
 
-using namespace eosio;
+Now that the smart contract has been successfully created, follow this section to
+compile and deploy the smart contract to the blockchain. Use the EOSIO.CDT [eosio-cpp](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp) command to build the `.wasm` file and a corresponding `.abi` file. 
 
-class [[eosio::contract]] hello : public contract {
-  public:
-      using contract::contract;
+### Procedure to Compile and Deploy
 
-      [[eosio::action]]
-      void hi( name user ) {
-         print( "Hello, ", user);
-      }
-};
+1. Use the `eosio-cpp` command to compile the hello.cpp file.  Run the `eosio-cpp` command in the same folder as the hello.cpp file (or refer to the file with an absolute or relative path).
+
+```shell
+eosio-cpp -abigen -o hello.wasm hello.cpp
 ```
 
-Everything together, here's the completed hello world contract:
+The eosio-cpp command creates two new files, hello.wasm and hello.abi.
 
-```cpp
-#include <eosio/eosio.hpp>
+2. Deploy the compiled `hello.wasm` and `hello.abi` to the blockchain. Deploy to an account called "hello" and use the `cleos` `set contract` command. **If you do not have a "hello" account** see [accounts and permissions.](01_prerequisites/20_accounts-and-permissions.md) Run the command outside the folder containing the `hello.wasm` and `hello.abi` and use the `contract-dir` positional to specify the path to the directory containing the `.wasm` and the `.abi`. 
 
-using namespace eosio;
-
-class [[eosio::contract]] hello : public contract {
-  public:
-      using contract::contract;
-
-      [[eosio::action]]
-      void hi( name user ) {
-         print( "Hello, ", user);
-      }
-};
+```shell
+cleos set contract hello ./hello -p hello@active
 ```
-
-## Compile the Contract
 
 [[info]]
-| The ABI Generator in eosio.cdt supports several different style of attributes, see the ABI usage guide [here](./30_understanding-ABI-files.md).
+| Check that your wallet is unlocked. The cleos command needs to be authorised by signing the transaction with the private key stored in the wallet. Cleos will look for an open and unlocked wallet containing the private key for the permission you used, in this case -p hello@active. Use `cleos set contract --help` to get commmand line help.  
 
-Compile your code to web assembly (.wasm) as follows:
+## Calling a Smart Contract Action
 
-```shell
-eosio-cpp hello.cpp -o hello.wasm
-```
+Now that the smart contract has been successfully deployed follow this section to [push smart contract actions](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/push/push-action) to the blockchain and test the `hi` action.
 
-## Deploy the Contract
+### Procedure to Call the Hi Action
 
-When you deploy a contract, it is deployed to an account, and the account becomes the interface for the contract. As mentioned earlier these tutorials use the same public key for all of the accounts to keep things simple.
-
-View the wallet keys by:
-
-```shell
-cleos wallet keys
-```
-
-Create an account for the contract using [cleos create account](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/create/account):
-
-```shell
-cleos create account eosio hello YOUR_PUBLIC_KEY -p eosio@active
-```
-
-Deploy the compiled `wasm` to the blockchain with [cleos set contract](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/set/set-contract).
-
-<div class="no-contracts-helper">In previous steps you should have created a `contracts` directory and obtained the absolute path and then saved it into a cookie. Replace "CONTRACTS_DIR" in the command below with the absolute path to your `contracts` directory.</div>
-
-```shell
-cleos set contract hello CONTRACTS_DIR/hello -p hello@active
-```
-
-[[info | Get an error?]]
-| Check if your wallet needs to be unlocked.
-
-## Execute the Contract
-
-Great! Now the contract is set. Push an action to it.
+1. Cleos push action
 
 ```shell
 cleos push action hello hi '["bob"]' -p bob@active
 ```
+
+This should produce
 
 ```shell
 executed transaction: 4c10c1426c16b1656e802f3302677594731b380b18a44851d38e8b5275072857  244 bytes  1000 cycles
@@ -165,23 +162,31 @@ executed transaction: 4c10c1426c16b1656e802f3302677594731b380b18a44851d38e8b5275
 >> Hello, bob
 ```
 
-As written, the contract will allow any account to say **hi** to any user:
+2. The contract allows any account to say hi to any user, push the action using a different account.
 
 ```shell
-cleos push action hello hi '["bob"]' -p alice@active
-
+cleos push action hello hi '["alice"]' -p alice@active
 ```
+
+This should produce
 
 ```shell
 executed transaction: 28d92256c8ffd8b0255be324e4596b7c745f50f85722d0c4400471bc184b9a16  244 bytes  1000 cycles
-#    hello.code <= hello.code::hi               {"user":"bob"}
->> Hello, bob
+#    hello.code <= hello.code::hi               {"user":"alice"}
+>> Hello, alice
 ```
 
-As expected, the console output is **Hello, bob**
+This version of the hello world smart contract is a simple example. The "hi" action may be called by any user. Smart contracts should be secure so extend the code to add authorization. This forces the smart contract to check which account is used to call the action.
 
-In this case "alice" is the one who authorized it and `user` is just an argument. Modify the contract so that the authorizing user, "alice" in this case, must be the same as the user the contract is responding "hi" to. Use the `require_auth` method. This method takes a `name` as a parameter, and will check if the user executing the action matches the provided parameter.
+## Authorization
 
+The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check the account has the required authority to perform an action. Using authorization is the first step towards [securing your smart contract.](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/securing_your_contract) Follow this link [for more information about authorization checks.](https://developers.eos.io/manuals/eosio.cdt/v1.8/how-to-guides/authorization/how_to_restrict_access_to_an_action_by_user)
+
+Add [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action#function-require_auth) to the smart contract, the `require_auth` function checks authorization and ensures the name parameter matches the user executing and authorizing the action. 
+
+### Procedure to add authorization
+
+1. Update the "hi" action in the `hello.cpp` to use `require_auth`
 ```cpp
 void hi( name user ) {
    require_auth( user );
@@ -189,45 +194,46 @@ void hi( name user ) {
 }
 ```
 
-Recompile the contract
-
+2. Recompile the contract (remember to run the `eosio-cpp` command in the same folder as the hello.cpp file, or refer to the file with an absolute or relative path).
 ```shell
 eosio-cpp -abigen -o hello.wasm hello.cpp
-
 ```
 
-And then update it
-
+3. Redeploy the updated smart contract to the blockchain (remember to run this command outside the folder containing the `hello.wasm` and `hello.abi`).
 ```shell
-cleos set contract hello CONTRACTS_DIR/hello -p hello@active
+cleos set contract hello ./hello -p hello@active
 ```
 
-Try to execute the action again, but this time with mismatched authorization.
-
+4. Call the action again, but this time with mismatched authorization. This command tells the action that bob is saying hi, whilst alice is signing the transaction.
 ```shell
 cleos push action hello hi '["bob"]' -p alice@active
 ```
-
-As expected, `require_auth` halted the transaction and threw an error.
+`require_auth` should halt the transaction and the output should be
 
 ```shell
 Error 3090004: Missing required authority
 Ensure that you have the related authority inside your transaction!;
-If you are currently using 'cleos push action' command, try to add the relevant authority using -p option.
 ```
 
-Now, with our change, the contract verifies the provided `name user` is the same as the authorising user. Try it again, but this time, with the authority of the "alice" account.
+The contract now verifies the provided name user is the same as the authorising user.
 
+5. Try it again, but this time, but make alice say hi, with the authority of the "alice" account.
 ```shell
 cleos push action hello hi '["alice"]' -p alice@active
 ```
 
+This should now produce
 ```shell
-executed transaction: 235bd766c2097f4a698cfb948eb2e709532df8d18458b92c9c6aae74ed8e4518  244 bytes  1000 cycles
+235bd766c2097f4a698cfb948eb2e709532df8d18458b92c9c6aae74ed8e4518  244 bytes  1000 cycles
 #    hello <= hello::hi               {"user":"alice"}
 >> Hello, alice
 ```
 
-## What's Next
+The action should execute successfully, after checking that the account calling the action has the same authorizing account as the user name passed to the action. 
 
-- [Deploy, Issue and Transfer Tokens](./20_deploy-issue-and-transfer-tokens.md): Learn how to deploy, issue and transfer tokens.
+## What's Next?
+
+You have looked at how to write and deploy smart contracts,  in the next tutorials we will look at writing and using more complex smart contracts.
+
+* [Deploy, Issue and Transfer Tokens](20_deploy-issue-and-transfer-tokens.md): Learn how to deploy, issue and transfer tokens.
+* [Data Peristence](40_data-persistence.md): Learn how to store data on the blockchain.

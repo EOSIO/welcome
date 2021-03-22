@@ -1,5 +1,5 @@
 terms:
-  - definition: "An account is a unique identifier and a requirement to interact with an EOSIO blockchain. Unlike most other cryptocurrencies, transfers are sent to a human readable account name instead of a public key, while keys attributed to the account are used to sign transactions."
+  - definition: "An account is a unique identifier and a requirement to interact with an EOSIO blockchain. Unlike most other cryptocurrencies, transfers are sent to a human readable account name rather than a public key, while keys attributed to the account are used to sign transactions."
     name: Account
   - definition: "A JSON-based description on how to convert user actions between their JSON and binary representations. The ABI may also describe how to convert the database state to/from JSON. Once you have described your contract via an ABI this allows developers and users to interact with your contract seamlessly via JSON."
     name: Application Binary Interface
@@ -227,6 +227,16 @@ terms:
     related:
       - name: "Permission"
       - name: "Account"
+  - definition: "On the EOSIO platform the authority relates a public key and authorization factors with an account and a permission. The authority is a data structure linking account permissions to keys, thresholds, weights, delegated account permissions and time waits."
+    name: "Authority"
+    synonyms:
+      - "Permission Weight"
+    related:
+      - name: "Permission"
+      - name: "Account"
+      - name: "Permission Level"
+      - name: "Permission Weight"
+      - name: "Permission Threshold"
   - definition: "In the context of a multiple index table, an index is a particular ordering of the elements in the table. Multiple index indices allow the same data in one table to be viewed as different data structures by specifying the specific index on the table. EOSIO multiple index tables allow for up to 16 unique indices."
     name: Indices
   - definition: "Wait is measured in seconds and it is the time to wait until a delayed transaction is executed. Its value can not be higher than the max_transaction_delay which is set in the global configuration file."
@@ -241,3 +251,6 @@ terms:
     name: "Privileged Account"
     related:
       - name: "Account"
+  - definition: "The toolchain for WebAssembly (WASM) and set of tools to facilitate smart contract development for the EOSIO platform."
+    name: "EOSIO.CDT"
+
