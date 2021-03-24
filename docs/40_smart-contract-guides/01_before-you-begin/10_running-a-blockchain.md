@@ -18,7 +18,7 @@ This tutorial shows how to:
 
 Once the tutorial is completed you should be able to run a local single node testnet.
 
-## Prerequisites
+## Before you begin
 This tutorial requires the following:
 
 * The EOSIO platform software, Click on this link for instructions on [installing EOSIO binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries)

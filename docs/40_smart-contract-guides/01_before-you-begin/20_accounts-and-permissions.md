@@ -20,7 +20,7 @@ This tutorial introduces the following key concepts:
 
 Once the tutorial is completed you should be able to create and use accounts, permissions and keys.
 
-## Prerequisites
+## Before you begin
 
 This tutorial requires the following:
 * Access to a running blockchain. Click on this link for instructions on [running a blockchain](10_running-a-blockchain.md)
@@ -37,7 +37,7 @@ The account and permission is written as:
 
 Loading a smart contract requires an account; an account can own one smart contract instance and a smart contract instance must be loaded by an account.
 
-## Key Pairs
+## About Key Pairs
 
 Accounts are stored on the blockchain with their public keys. Each account requires at least one key pair public key and private key. The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key stored in a local wallet.
  
@@ -45,7 +45,7 @@ Account authorization is controlled by the public-private key pairs. The public 
 
 Signing a transaction with a private key authorizes the blockchain to execute a transaction for the specified account. [Cleos](../../../glossary/index#cleos) commands will automatically look for the required private key in the `keosd` wallet. 
 
-## Permissions and Authorities
+## About Permissions and Authorities
 
 Account authorization is controlled by public-private key pairs. Signing a transaction with a [private key] provides the blockchain with the data used to validate the transaction. If an account permission has the authority and is signed correctly then a smart contract action can be executed. 
 
@@ -83,4 +83,5 @@ You can now check the account on the blockchain - [How to get account informatio
 | You can update account permissions and keys with the [cleos set account](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/set/set-account) command
 
 ## What's Next?
-* Hello World: [Learn how to create and deploy a simple smart contract](../10_hello-world.md)
+
+Looked at how to write smart contracts in the [Smart Contract Guides.](../40_smart-contract-guides)

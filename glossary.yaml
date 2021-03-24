@@ -227,10 +227,8 @@ terms:
     related:
       - name: "Permission"
       - name: "Account"
-  - definition: "On the EOSIO platform the authority relates a public key and authorization factors with an account and a permission. The authority is a data structure linking account permissions to keys, thresholds, weights, delegated account permissions and time waits."
+  - definition: "On the EOSIO platform the authority relates a public key and the authorization factors for an account and an acount permission. The authority is a data structure linking account permissions to keys, thresholds, weights, delegated account permissions and time waits."
     name: "Authority"
-    synonyms:
-      - "Permission Weight"
     related:
       - name: "Permission"
       - name: "Account"

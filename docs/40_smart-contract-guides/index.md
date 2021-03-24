@@ -6,16 +6,10 @@ link_text: Smart Contract Guides
 This section introduces you to the EOSIO smart contracts development workflow. You build your first basic Hello World smart contract to lay the groundwork to implement additional smart contracts such as token contracts, address book, payable actions, and more. You will gain advanced understanding on how data persistence works in the context of a smart contract and also how inline actions are implemented in a smart contract. 
 
 ### Before you Begin
-Before you begin with the smart contracts development workflow, make sure the following prerequisites are met:
-
-
-1. You have set up your local development environment according to the instructions given in the [Set Up Development Environment](../30_getting-started-guide/20_local-development-environment) section of the _Getting Started Guide_.
-2. Nodeos is running and producing blocks. See the [Start keosd and nodeos](../30_getting-started-guide/20_local-development-environment/40_start-nodeos-keosd.md) section of the _Getting Started Guide_ for detailed instructions. 
 
 Before you begin the smart contracts development workflow, make sure the following prerequisites are met:
 1. You have a running blockchain which you can use to deploy and test your smart contracts. See the [Running a Blockchain tutorial.](01_prerequisites/10_running-a-blockchain.md) 
 2. You understand how to use and set up accounts. See the [Accounst and Permissions tutorial.](01_prerequisites/20_accounts-and-permissions.md)  
-
 
 ### Smart Contracts Development Workflow
 
