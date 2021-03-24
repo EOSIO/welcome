@@ -84,4 +84,4 @@ You can now check the account on the blockchain - [How to get account informatio
 
 ## What's Next?
 
-Looked at how to write smart contracts in the [Smart Contract Guides.](../40_smart-contract-guides/index.md)
+Looked at how to write smart contracts in the [Smart Contract Guides.](../index.md)
