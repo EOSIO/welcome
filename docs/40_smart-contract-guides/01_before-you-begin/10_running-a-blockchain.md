@@ -36,7 +36,7 @@ You can use this local single-node testnet to follow the smart contract guides a
 To use a blockchain requires blockchain accounts, when you launch a new EOSIO blockchain it creates a default system account called *eosio*. The *eosio* account is a special account that is used to bootstrap a blockchain.  To use the *eosio* account on a local single node blockchain you must add the private key of the *eosio* account to a [wallet.](../../../glossary/index/#wallet) You can then authorize transactions for the *eosio* account. Here we use [keosd](../../../glossary/index#keosd). If you have not already created a wallet then follow this guide to [create a development wallet](../../30_getting-started-guide/20_local-development-environment/30_development-wallet.md). 
 
 [[warning]]
-| The private key is widely known and so any blockchain where the *eosio* account has not been [resigned](../../80_tutorials/10_bios-boot-sequence#3-resign-eosio-account-and-system-accounts) is not secure.
+| The private key is widely known and so any blockchain where the *eosio* account has not been [resigned](../../80_tutorials/10_bios-boot-sequence.md#3-resign-eosio-account-and-system-accounts) is not secure.
 
 [[info]]
 | The *eosio* private key is **5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3**

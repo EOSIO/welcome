@@ -6,12 +6,12 @@ link_text: "Accounts and Permissions"
 To use an EOSIO blockchain you need an account. This tutorial introduces accounts, permissions and authorities. Accounts identify participants in the blockchain. You deploy a smart contract to an account and use account permissions to authorize smart contract transactions.
 
 This tutorial introduces the following key concepts:
-* [Accounts](../../../glossary/index#account) - Accounts control authentication on the blockchain. See the protocol guide on [accounts and permissions ](../../60_protocol-guides/40_accounts_and_permissions/#2-accounts) for details about how accounts work. Accounts contain permissions, and permissions have authority.  
-* [Permission](../../../glossary/index/#permission) and [Authority](../../../glossary/index/#authority) - Permissions control authorization on the blockchain. See the protocol guide on [permissions](../../60_protocol-guides/60_protocol-guides/40_accounts_and_permissions/#3-permissions) for details on how permissions use authority to authorize transactions. 
+* [Accounts](../../../glossary/index#account) - Accounts control authentication on the blockchain. See the protocol guide on [accounts and permissions ](../../60_protocol-guides/40_accounts_and_permissions.md/#2-accounts) for details about how accounts work. Accounts contain permissions, and permissions have authority.  
+* [Permission](../../../glossary/index/#permission) and [Authority](../../../glossary/index/#authority) - Permissions control authorization on the blockchain. See the protocol guide on [permissions](../../60_protocol-guides/40_accounts_and_permissions.md/#3-permissions) for details on how permissions use authority to authorize transactions. 
 * Key Pairs  - Paired [public key](../../../glossary/index/#public-key) and [private key](../../../glossary/index/#private-key) cryptographic keys.
 * [Cleos](../../../glossary/index#cleos) - The command line tool to send commands and requests to nodeos.
 * [Keosd](../../../glossary/index#keosd) - A local secure store for private keys.
-* [Signing Transactions](../../60_protocol-guides/20_transactions_protocol/#22-signed-transaction-instance) - Authorizing smart contract action calls.
+* [Signing Transactions](../../60_protocol-guides/20_transactions_protocol.md/#22-signed-transaction-instance) - Authorizing smart contract action calls.
 
  This tutorial shows how to:
 * Create accounts and key pairs. These accounts may be used in the smart contract guides.
@@ -25,12 +25,12 @@ Once the tutorial is completed you should be able to create and use accounts, pe
 This tutorial requires the following:
 * Access to a running blockchain. Click on this link for instructions on [running a blockchain](10_running-a-blockchain.md)
 
-## Accounts and Permissions
+## About Accounts and Permissions
 
 A blockchain account has a human readable name which is between 1 and 12 characters in length. Each account identifies a blockchain participant and the permissions of that participant. Permissions control what EOSIO accounts can do and how actions are authorized.
 
 [[info]]
-| Alice has an account called Alice. The Alice account by default has two permissions `owner` and `active`. Alice can also add and [customize permissions](../../60_protocol-guides/40_accounts_and_permissions/#341-custom-permissions). 
+| Alice has an account called Alice. The Alice account by default has two permissions `owner` and `active`. Alice can also add and [customize permissions](../../60_protocol-guides/40_accounts_and_permissions.md/#341-custom-permissions). 
 The account and permission is written as:
 * Alice@owner
 * Alice@active
@@ -46,8 +46,8 @@ Account authorization is controlled by the public-private key pairs. The public 
 Signing a transaction with a private key authorizes the blockchain to execute a transaction for the specified account. [Cleos](../../../glossary/index#cleos) commands will automatically look for the required private key in the `keosd` wallet. 
 
 ## About Permissions and Authorities
-
-Account authorization is controlled by public-private key pairs. Signing a transaction with a [private key] provides the blockchain with the data used to validate the transaction. If an account permission has the authority and is signed correctly then a smart contract action can be executed. 
+b
+Account authorization is controlled by public-private key pairs. Signing a transaction with a private key provides the blockchain with the data used to validate the transaction. If an account permission has the authority and is signed correctly then a smart contract action can be executed. 
 
 `Cleos` commands use the `-p` command switch to specify the account and permission to use for signing a transaction. `Cleos` will look in `keosd` for the private key which corresponds to the specified account and permission.
 

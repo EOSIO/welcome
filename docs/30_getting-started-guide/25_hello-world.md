@@ -133,7 +133,7 @@ eosio-cpp -abigen -o hello.wasm hello.cpp
 
 The eosio-cpp command creates two new files, hello.wasm and hello.abi.
 
-2. Deploy the compiled `hello.wasm` and `hello.abi` to the blockchain. Deploy to an account called "hello" and use the `cleos` `set contract` command. **If you do not have a "hello" account** see [accounts and permissions.](01_prerequisites/20_accounts-and-permissions.md) Run the command outside the folder containing the `hello.wasm` and `hello.abi` and use the `contract-dir` positional to specify the path to the directory containing the `.wasm` and the `.abi`:
+2. Deploy the compiled `hello.wasm` and `hello.abi` to the blockchain. Deploy to an account called "hello" and use the `cleos` `set contract` command. **If you do not have a "hello" account** see [accounts and permissions.](../40_smart-contract-guides/01_before-you-begin/20_accounts-and-permissions.md) Run the command outside the folder containing the `hello.wasm` and `hello.abi` and use the `contract-dir` positional to specify the path to the directory containing the `.wasm` and the `.abi`:
 
 ```shell
 cleos set contract hello ./hello -p hello@active
