@@ -46,7 +46,7 @@ Account authorization is controlled by the public-private key pairs. The public 
 Signing a transaction with a private key authorizes the blockchain to execute a transaction for the specified account. [Cleos](../../../glossary/index#cleos) commands will automatically look for the required private key in the `keosd` wallet. 
 
 ## About Permissions and Authorities
-b
+
 Account authorization is controlled by public-private key pairs. Signing a transaction with a private key provides the blockchain with the data used to validate the transaction. If an account permission has the authority and is signed correctly then a smart contract action can be executed. 
 
 `Cleos` commands use the `-p` command switch to specify the account and permission to use for signing a transaction. `Cleos` will look in `keosd` for the private key which corresponds to the specified account and permission.
@@ -84,4 +84,4 @@ You can now check the account on the blockchain - [How to get account informatio
 
 ## What's Next?
 
-Looked at how to write smart contracts in the [Smart Contract Guides.](../index.md)
+Look at how to write smart contracts in the [Smart Contract Guides.](../index.md)
