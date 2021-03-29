@@ -249,6 +249,6 @@ terms:
     name: "Privileged Account"
     related:
       - name: "Account"
-  - definition: "The toolchain for WebAssembly (WASM) and set of tools to facilitate smart contract development for the EOSIO platform."
+  - definition: "The toolchain to build WebAssembly (WASM) and set of tools to facilitate smart contract development for the EOSIO platform."
     name: "EOSIO.CDT"
 
