@@ -156,7 +156,7 @@ cleos push action hello hi '["bob"]' -p bob@active
 
 This should produce:
 
-```shell
+```console
 executed transaction: 4c10c1426c16b1656e802f3302677594731b380b18a44851d38e8b5275072857  244 bytes  1000 cycles
 #    hello.code <= hello.code::hi               {"user":"bob"}
 >> Hello, bob
@@ -170,7 +170,7 @@ cleos push action hello hi '["alice"]' -p alice@active
 
 This should produce:
 
-```shell
+```console
 executed transaction: 28d92256c8ffd8b0255be324e4596b7c745f50f85722d0c4400471bc184b9a16  244 bytes  1000 cycles
 #    hello.code <= hello.code::hi               {"user":"alice"}
 >> Hello, alice
@@ -214,7 +214,7 @@ cleos push action hello hi '["bob"]' -p alice@active
 ```
 `require_auth` should halt the transaction and the output should be:
 
-```shell
+```console
 Error 3090004: Missing required authority
 Ensure that you have the related authority inside your transaction!;
 ```
@@ -229,7 +229,7 @@ cleos push action hello hi '["alice"]' -p alice@active
 
 This should now produce:
 
-```shell
+```console
 235bd766c2097f4a698cfb948eb2e709532df8d18458b92c9c6aae74ed8e4518  244 bytes  1000 cycles
 #    hello <= hello::hi               {"user":"alice"}
 >> Hello, alice
@@ -239,5 +239,5 @@ The action should execute successfully, after checking that the account calling 
 
 ## What's Next?
 
-You have looked at how to write and deploy smart contracts, in the [Smart Contract Guides](../40_smart-contract-guides) we will look at writing and using more complex smart contracts.
+You have looked at how to write and deploy smart contracts. In the [Smart Contract Guides](../40_smart-contract-guides) we will look at writing and using more complex smart contracts.
 

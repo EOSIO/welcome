@@ -49,7 +49,7 @@ Signing a transaction with a private key authorizes the blockchain to execute a 
 
 Account authorization is controlled by public-private key pairs. Signing a transaction with a private key provides the blockchain with the data used to validate the transaction. If an account permission has the authority and is signed correctly then a smart contract action can be executed. 
 
-`Cleos` commands use the `-p` command switch to specify the account and permission to use for signing a transaction. `Cleos` will look in `keosd` for the private key which corresponds to the specified account and permission.
+`cleos` commands use the `-p` command switch to specify the account and permission to use for signing a transaction. `Cleos` will look in `keosd` for the private key which corresponds to the specified account and permission.
 
 [[info]]
 | Alice wants to use the account called Alice and the `active` permission to sign a `cleos` command. To use this permission add:
@@ -67,7 +67,7 @@ The following procedure shows you how to create a wallet.
 
 1. Create a wallet - [How To Create A Wallet](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-a-wallet)
 
-To use a wallet and the keys contained in a wallet, the wallet must be **open** and **unlocked**.
+To use a wallet and the keys contained in a wallet, the wallet must be **open** and **unlocked**. You can change the timeout period used to lock a wallet with the `unlock-timeout` configuration option. See [Auto-locking](https://developers.eos.io/manuals/eos/latest/keosd/usage#auto-locking) for details. 
 
 ## Create Accounts
 

@@ -7,7 +7,7 @@ The Smart Contract Guides section introduces many EOSIO concepts used in smart c
 
 Topics include how create your own token; how to store and update smart contract state and how to call actions from within a smart contract. 
 
-The reference guide, best practises and many how to guides are availble in the [eosio.cdt manual.](https://developers.eos.io/manuals/eosio.cdt/latest/index)
+The reference guide, best practices and many how to guides are available in the [eosio.cdt manual.](https://developers.eos.io/manuals/eosio.cdt/latest/index)
 
 ### Before you Begin
 
@@ -17,7 +17,7 @@ Before you begin the smart contracts development workflow, make sure the followi
 
 ### Smart Contracts Development Workflow
 
-Work your way through the following topics to build and deploy smart contracts. 
+Work your way through the following topics to build and deploy smart contracts: 
 
 * [Deploy, Issue and Transfer Tokens](20_deploy-issue-and-transfer-tokens.md): How to use the eosio.token smart contract.
 * [Understanding ABI Files](30_understanding-ABI-files.md): How ABI files work and what they are. 
