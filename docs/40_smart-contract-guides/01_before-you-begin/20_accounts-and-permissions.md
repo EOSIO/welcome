@@ -29,25 +29,26 @@ This tutorial requires the following:
 
 A blockchain account has a human readable name which is between 1 and 12 characters in length. Each account identifies a blockchain participant and the permissions of that participant. Permissions control what EOSIO accounts can do and how actions are authorized.
 
+
 [[info]]
 | Alice has an account called Alice. The Alice account by default has two permissions `owner` and `active`. Alice can also add and [customize permissions](../../60_protocol-guides/40_accounts_and_permissions.md/#341-custom-permissions). 
 The account and permission is written as:
 * Alice@owner
 * Alice@active
 
-Loading a smart contract requires an account; an account can own one smart contract instance and a smart contract instance must be loaded by an account.
+Deploying a smart contract requires an account; an account can own one smart contract instance and a smart contract instance must be deployed to an account.
 
 ## About Key Pairs
 
-Accounts are stored on the blockchain with their public keys. Each account requires at least one key pair public key and private key. The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key stored in a local wallet.
- 
-Account authorization is controlled by the public-private key pairs. The public key is stored on the blockchain and the private key is stored locally in a secure [wallet](../../../glossary/index/#wallet), for example [keosd](../../../glossary/index#keosd). 
+Accounts are stored on the blockchain with their public keys. The public key is stored on the blockchain and the private key is stored locally in a secure [wallet](../../../glossary/index/#wallet), for example [keosd](../../../glossary/index#keosd). Each account requires at *least* one key pair. The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the private key which matches the pubic key stored on the blockchain. This authenticates the pushed transaction.
+[Cleos](../../../glossary/index#cleos) commands will automatically look for the private key in the `open` `keosd` wallet.  
 
-Signing a transaction with a private key authorizes the blockchain to execute a transaction for the specified account. [Cleos](../../../glossary/index#cleos) commands will automatically look for the required private key in the `keosd` wallet. 
+Transactions are authorized by the account permission authority.   
 
 ## About Permissions and Authorities
 
-Account authorization is controlled by public-private key pairs. Signing a transaction with a private key provides the blockchain with the data used to validate the transaction. If an account permission has the authority and is signed correctly then a smart contract action can be executed. 
+Accounts have permissions and permissions have authority. The authority is defined in the authority table associated with the permission. If an account permission has the authority and is signed correctly then a smart contract action can be executed.
+Permisssions are also hierarchical, so a permission can have a parent, and anything that a permission can do, it's parent can do too. 
 
 `cleos` commands use the `-p` command switch to specify the account and permission to use for signing a transaction. `Cleos` will look in `keosd` for the private key which corresponds to the specified account and permission.
 
@@ -56,8 +57,8 @@ Account authorization is controlled by public-private key pairs. Signing a trans
 -p Alice@active
 
 * If the local `keosd` contains a private key for the active permission of the account then the transaction will be successfully signed and submitted to the blockchain.
-* If the private key matches the public key stored on the blockchain the blockchain will try to execute the transaction.
-* If the account and permission has the authority to execute the transaction then the transaction should be executed. A record of this transaction and who authorised the transaction is permanently stored on blockchain.
+* If the private key matches the public key stored on the blockchain the blockchain has authencitaed the transaction and will then try to execute the transaction.
+* If the account and permission has the authority to execute the transaction then the transaction should be executed. A record of this transaction and who signed the transaction is permanently stored on blockchain.
 
 [[warning]]
 | Keep your keys safe! Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account.
@@ -67,7 +68,7 @@ The following procedure shows you how to create a wallet.
 
 1. Create a wallet - [How To Create A Wallet](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-a-wallet)
 
-To use a wallet and the keys contained in a wallet, the wallet must be **open** and **unlocked**. You can change the timeout period used to lock a wallet with the `unlock-timeout` configuration option. See [Auto-locking](https://developers.eos.io/manuals/eos/latest/keosd/usage#auto-locking) for details. 
+To use a wallet and the keys contained in a wallet, the wallet must be **open** and **unlocked**. You can change the timeout period used to lock a wallet with the `unlock-timeout` configuration option. See [Auto-locking](https://developers.eos.io/manuals/eos/latest/keosd/usage#auto-locking)for details. 
 
 ## Create Accounts
 
