@@ -58,7 +58,7 @@ class [[eosio::contract]] hello : public contract {
 This contract needs to do something. In the spirit of **hello world** write an action that accepts a "name" parameter, and then prints that parameter out:
 
 <!--Links to virtual directory created by glossary generator-->
-[Actions](../../glossary/index/#action) implement the behavior of a contract
+[Actions](../glossary/index/#action) implement the behavior of a contract
 
 ```cpp
 #include <eosio/eosio.hpp>
@@ -77,7 +77,7 @@ class [[eosio::contract]] hello : public contract {
 
 The above action accepts a parameter called `user`, that's a [`name`](https://developers.eos.io/manuals/eosio.cdt/v1.8/structeosio_1_1name) type. EOSIO comes with a number of typedefs, one of the most common typedefs you'll encounter is `name`. Using the `eosio::print` library previously included, concatenate a string and print the `user` parameter. Use the braced initialization of `name{user}` to make the `user` parameter printable.
 
-As is, the [ABI](../../glossary/index/#application-binary-interface) <!-- (hiding for now) <<glossary:ABI>> (unhide after tooltip feature implemented) --> generator in `eosio.cdt` won't know about the `hi()` action without an attribute. Add a C++11 style attribute above the action, this way the abi generator can produce more reliable output:
+As is, the [ABI](../glossary/index/#application-binary-interface) <!-- (hiding for now) <<glossary:ABI>> (unhide after tooltip feature implemented) --> generator in `eosio.cdt` won't know about the `hi()` action without an attribute. Add a C++11 style attribute above the action, this way the abi generator can produce more reliable output:
 
 ```cpp
 #include <eosio/eosio.hpp>
