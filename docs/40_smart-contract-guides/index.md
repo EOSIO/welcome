@@ -5,9 +5,10 @@ link_text: Smart Contract Guides
 
 The Smart Contract Guides section introduces many EOSIO concepts used in smart contract development. Follow these tutorials and learn the core features of smart contract development. The tutorials take you step by step through each topic and at the end of each tutorial you will have the knowledge to apply these to your own smart contract. 
 
-Topics include how create your own token; how to store and update smart contract state and how to call actions from within a smart contract. 
+You will learn how to implement smart contracts with different functionalities such as token contracts, address book, payable actions, and more. You will gain advanced understanding on how data persistence works in the context of a smart contract and also how inline actions are implemented in a smart contract.
 
-The reference guide, best practices and many how to guides are available in the [eosio.cdt manual.](https://developers.eos.io/manuals/eosio.cdt/latest/index)
+
+The reference guide, best practices and many how-to guides are available in the [eosio.cdt manual.](https://developers.eos.io/manuals/eosio.cdt/latest/index)
 
 ### Before you Begin
 
