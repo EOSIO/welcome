@@ -55,7 +55,7 @@ nodeos -e -p eosio \
 ```
 These settings accomplish the following:
 
-1. Run **Nodeos. This** command loads all the basic plugins, set the server address, enable CORS and add some contract debugging and logging.
+1. Run **Nodeos.** This command loads all the basic plugins, set the server address, enable CORS and add some contract debugging and logging.
 
 2. Enable CORS with no restrictions (*) and development logging
 

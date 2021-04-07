@@ -45,7 +45,7 @@ To become familiar with the *EOSIO Developer Portal* design, standard page layou
 
 ## New to Blockchain Development?
 
-The Developer Portal has documentation and onboarding resources to help you get started with the EOSIO blockchain platform. Explore the following learning resources to acquire functional knowledge of the EOSIO platform.
+The EOSIO Developer Portal has documentation and onboarding resources to help you get started with the EOSIO blockchain platform. Explore the following learning resources to acquire functional knowledge of the EOSIO platform.
 
 ### EOSIO Getting Started Guide 
 Orient yourself with the EOSIO development environment and basic smart contract development. For detailed instructions on setting up your development environment and deploying your first smart contract, see the [_EOSIO Getting Started Guide_](../30_getting-started-guide). 
@@ -68,7 +68,7 @@ From platform fundamentals to application development, we have a hands-on traini
 
 ## Community Contributions
 
-The technical content developers at Developer Relations endeavor to provide trusted, authoritative, and bug-free documentation on the developers portal. However, we may inadvertently miss detecting documentation bugs making their way to production.  
+The technical content developers at Developer Relations endeavor to provide trusted, authoritative, and bug-free documentation on the EOSIO Developer Portal. However, we may inadvertently miss detecting documentation bugs making their way to production.  
 
 As part of our development community, if you detect a typographical error, or any erroneous representation of the EOSIO platform, please submit a [Pull Request (PR)](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) and report the bug to us. 
 

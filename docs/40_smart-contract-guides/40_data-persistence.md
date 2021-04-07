@@ -9,9 +9,10 @@ This section demonstrates data persistence and builds a simple addressbook smart
 
 ## Step 1: Create a new directory
 
-In the previous [2.1: Hello World Contract](./10_hello-world.md) section, you created a contract directory, open a command shell and navigate there.
+Open a command shell, create a contract directoryand navigate there:
 
 ```shell
+mkdir CONTRACTS_DIR 
 cd CONTRACTS_DIR
 ```
 
@@ -32,7 +33,7 @@ Open the file in your favorite editor.
 
 ## Step 3: Write an Extended Standard Class and Include EOSIO
 
-In the previous [2.1: Hello World Contract](./10_hello-world.md) section, you created a hello world contract and learned the basics. The code snippet below uses a similar pattern and creates a class named `addressbook`:
+Create a class named `addressbook`:
 
 ```cpp
 #include <eosio/eosio.hpp>
