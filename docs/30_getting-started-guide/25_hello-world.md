@@ -30,18 +30,18 @@ Once you complete the tutorial, you should have a basic **_Hello World_** smart 
 
 Create EOSIO smart contracts using the C++ programming language. The EOSIO Contract Development Toolkit or [EOSIO.CDT](../../../glossary/index/#eosio.cdt) provides the libraries and tools you can use to build a smart contract. See the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index) manual for instructions on how to get started.
 
-To deploy the smart contract to the blockchain use the EOSIO.CDT [eosio-cpp](https://developers.eos.io/manuals/eosio.cdt/v1.7/command-reference/eosio-cpp) tool to compile the smart contract, build the webassembly file,  and create a corresponding application binary interface (ABI) file.
+To deploy the smart contract to the blockchain, use the [eosio-cpp](https://developers.eos.io/manuals/eosio.cdt/v1.7/command-reference/eosio-cpp) tool to compile the smart contract. The compilation using the `eosio-cpp` tool builds the webassembly file and creates a corresponding application binary interface (ABI) file.
 
-The `webassembly` or `.wasm` file is the binary code that the `webassembly engine` in the blockchain executes. The `webassembly engine` or `wasm engine` is the engine in the blockchain which executes smart contracts. The application binary interface or `.abi` file defines how data is marshalled to and from the wasm engine.
+The webassembly or `.wasm` file is the binary code that the webassembly engine in the blockchain executes. The webassembly engine or wasm engine is the engine in the blockchain which executes smart contracts. The application binary interface or `.abi` file defines how data is marshalled to and from the wasm engine.
 
 ## Create the Contract
 
-This section creates the hello world smart contract. Normally you create two files, the header  or `.hpp` file which contains the declarations for the smart contract class and the `.cpp` file which contains the implementation of the smart contract actions. In this simple example you only create a `.cpp` file.
+This section creates the Hello World smart contract. Normally, you create two files - the header  or `.hpp` file which contains the declarations for the smart contract class and the `.cpp` file, which contains the implementation of the smart contract actions. In this simple example, you only create a `.cpp` file.
 
 
 ### Procedure to create hello.cpp 
 
-1. Create a new directory called “hello” to store your smart contract code:
+1. Create a new directory called **hello** to store your smart contract file:
 
 ```shell
 mkdir hello
@@ -63,7 +63,7 @@ touch hello.cpp
 Follow these four steps and add this code to the `hello.cpp` file.
 
 a. Import the eosio base library with the include directive.
-Add the line
+Add the line:
 
 ```cpp
 #include <eosio/eosio.hpp>
@@ -89,7 +89,7 @@ public:
 	using eosio::contract::contract;
 ```
 
-d. Add a "hi" public action. This action accepts an `eosio::name` parameter, and prints "Hello" concatenated with the `eosio::name` parameter. 
+d. Add a `hi` public action. This action accepts an `eosio::name` parameter, and prints **Hello** concatenated with the `eosio::name` parameter. 
 
 Add these lines:
 
@@ -114,7 +114,7 @@ class [[eosio::contract]] hello : public eosio::contract {
 };
 ```
 
-`eosio::print` is included by eosio/eosio.hpp. The smart contract uses this function to print “Hello” and concatenate the `string` "Hello" with the passed in user.
+`eosio::print` is included by eosio/eosio.hpp. The smart contract uses this function to print **Hello** and concatenate the `string` **Hello** with the passed in user.
 
 4. Save the file.
 
@@ -131,22 +131,22 @@ compile and deploy the smart contract to the blockchain. Use the EOSIO.CDT [eosi
 eosio-cpp -abigen -o hello.wasm hello.cpp
 ```
 
-The eosio-cpp command creates two new files, hello.wasm and hello.abi.
+The eosio-cpp command creates two new files - `hello.wasm` and `hello.abi`.
 
-2. Deploy the compiled `hello.wasm` and `hello.abi` to the blockchain. Deploy to an account called "hello" and use the `cleos` `set contract` command. **If you do not have a "hello" account** see [accounts and permissions.](../40_smart-contract-guides/01_before-you-begin/20_accounts-and-permissions.md) Run the command outside the folder containing the `hello.wasm` and `hello.abi` and use the `contract-dir` positional to specify the path to the directory containing the `.wasm` and the `.abi`:
+2. Deploy the compiled `hello.wasm` and `hello.abi` files to a **hello** account on the blockchain. **If you do not have a "hello" account** see [accounts and permissions.](../40_smart-contract-guides/01_before-you-begin/20_accounts-and-permissions.md) Run the command outside the folder containing the `hello.wasm` and `hello.abi` and use the `contract-dir` positional to specify the path to the directory containing the `.wasm` and the `.abi`:
 
 ```shell
 cleos set contract hello ./hello -p hello@active
 ```
 
 [[info]]
-| Check that your wallet is unlocked. The cleos command needs to be authorised by signing the transaction with the private key stored in the wallet. Cleos will look for an open and unlocked wallet containing the private key for the permission you used, in this case -p hello@active. Use `cleos set contract --help` to get commmand line help.  
+| Check that your wallet is unlocked. The cleos command needs to be authorized by signing the transaction with the private key stored in the wallet. Cleos will look for an open and unlocked wallet containing the private key for the permission you used, in this case -p hello@active. Use `cleos set contract --help` to get commmand line help.  
 
 ## Calling a Smart Contract Action
 
-Now that the smart contract has been successfully deployed follow this section to [push smart contract actions](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/push/push-action) to the blockchain and test the `hi` action.
+Now that the smart contract is successfully deployed, follow this section to [push smart contract actions](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/push/push-action) to the blockchain and test the `hi` action.
 
-### Procedure to Call the Hi Action
+### Procedure to call the Hi Action
 
 1. Use `cleos push action`:
 
@@ -176,11 +176,11 @@ executed transaction: 28d92256c8ffd8b0255be324e4596b7c745f50f85722d0c4400471bc18
 >> Hello, alice
 ```
 
-This version of the hello world smart contract is a simple example. The "hi" action may be called by any user. Smart contracts should be secure so extend the code to add authorization. This forces the smart contract to check which account is used to call the action.
+This version of the Hello World smart contract is a simple example. The `hi` action may be called by any user. Smart contracts should be secure so extend the code to add authorization. This forces the smart contract to check which account is used to call the action.
 
 ## Authorization
 
-The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check the account has the required authority to perform an action. Using authorization is the first step towards [securing your smart contract.](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/securing_your_contract) Follow this link [for more information about authorization checks.](https://developers.eos.io/manuals/eosio.cdt/v1.8/how-to-guides/authorization/how_to_restrict_access_to_an_action_by_user)
+The EOSIO blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check the account has the required authority to perform an action. Using authorization is the first step towards [securing your smart contract.](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/securing_your_contract) Follow this link [for more information about authorization checks.](https://developers.eos.io/manuals/eosio.cdt/v1.8/how-to-guides/authorization/how_to_restrict_access_to_an_action_by_user)
 
 Add [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action#function-require_auth) to the smart contract, the `require_auth` function checks authorization and ensures the name parameter matches the user executing and authorizing the action. 
 
@@ -195,19 +195,19 @@ void hi( name user ) {
 }
 ```
 
-2. Recompile the contract (remember to run the `eosio-cpp` command in the same folder as the hello.cpp file, or refer to the file with an absolute or relative path):
+2. Recompile the contract (remember to run the `eosio-cpp` command in the same folder as the `hello.cpp` file, or refer to the file with an absolute or relative path):
 
 ```shell
 eosio-cpp -abigen -o hello.wasm hello.cpp
 ```
 
-3. Redeploy the updated smart contract to the blockchain (remember to run this command outside the folder containing the `hello.wasm` and `hello.abi`):
+3. Redeploy the updated smart contract to the blockchain (run this command outside the folder containing the `hello.wasm` and `hello.abi`):
 
 ```shell
 cleos set contract hello ./hello -p hello@active
 ```
 
-4. Call the action again, but this time with mismatched authorization. This command tells the action that bob is saying hi, whilst alice is signing the transaction:
+4. Call the action again, but this time with mismatched authorization. This command tells the action that **bob** is saying hi, whilst **alice** is signing the transaction:
 
 ```shell
 cleos push action hello hi '["bob"]' -p alice@active
@@ -219,9 +219,9 @@ Error 3090004: Missing required authority
 Ensure that you have the related authority inside your transaction!;
 ```
 
-The contract now verifies the provided name user is the same as the authorising user.
+The contract now verifies the provided name user is the same as the authorizing user.
 
-5. Try it again, but this time, but make alice say hi, with the authority of the "alice" account:
+5. Try it again, but this time, make **alice** say hi, with the authority of the **alice** account:
 
 ```shell
 cleos push action hello hi '["alice"]' -p alice@active
