@@ -8,9 +8,9 @@ Smart contracts are [deployed](https://developers.eos.io/manuals/eos/latest/cleo
 
 
 This tutorial introduces the [EOSIO Blockchain.](../../20_introduction-to-eosio/index.md), the core components used in this tutorial are:
-* [Nodeos](../../../glossary/index#nodeos) - The core daemon which runs in a network of daemons to create a blockchain. 
-* [Cleos](../../../glossary/index#cleos) - The command line tool to send commands and requests to nodeos.
-* [Keosd](../../../glossary/index#keosd) - A local secure store for private keys.
+* [Nodeos](../../../glossary/index#nodeos): The core daemon which runs in a network of daemons to create a blockchain. 
+* [Cleos](../../../glossary/index#cleos): The command line tool to send commands and requests to nodeos.
+* [Keosd](../../../glossary/index#keosd): A local secure store for private keys.
 
 This tutorial shows how to:
 * Create a single node blockchain running on your local machine.
