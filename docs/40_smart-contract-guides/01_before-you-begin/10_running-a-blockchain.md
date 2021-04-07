@@ -18,11 +18,6 @@ This tutorial shows how to:
 
 Once the tutorial is completed you should be able to run a local single node testnet.
 
-## Before you begin
-This tutorial requires the following:
-
-* The EOSIO platform software, Click on this link for instructions on [installing EOSIO binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries)
-
 ## Run a Local Single-Node Blockchain
 
 Run a local nodeos instance which produces blocks using these [instructions](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet).
