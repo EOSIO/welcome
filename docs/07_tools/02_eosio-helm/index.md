@@ -7,11 +7,11 @@ link_text: EOSIO Nodeos Helm Charts
 
 * [Overview](#overview)
 * [Installation](#installation)
-    * [For Local Deployment](#for-local-deployment)
-    * [For Cloud Deployment](#for-cloud-deployment)
+    * [Local Deployment](#local-deployment)
+    * [Cloud Deployment](#cloud-deployment)
 * [Configuration](#configuration)
-    * [Customizing Values](#customization)
-	* [Cloud Provider](#cloud-provider)
+    * [Customize Values](#customize-values)
+	* [Configure Cloud Provider](#configure-cloud-provider)
 * [Tutorial](tutorial.md)
 
 ## Overview
@@ -29,7 +29,7 @@ EOSIO Helm Charts provide direct access to infrastructure-as-code (IaC) for rapi
 
 EOSIO Helm Charts can be installed and run locally via Docker Desktop or run via a cloud deployment. For quick prototyping and rapid testing you may want to select a local deployment. For production environments or distributed testing, a cloud deployment is recommended.
 
-### For Local Deployment
+### Local Deployment
 
 To install EOSIO Helm Charts for local deployment via Docker Desktop, follow these instructions:
 
@@ -54,7 +54,7 @@ To install EOSIO Helm Charts for local deployment via Docker Desktop, follow the
         * File: [eosio/local.yaml](https://github.com/EOSIO/eosio.helm/blob/master/eosio/local.yaml)
         * File: [eosio/nodeos_config.yaml](https://github.com/EOSIO/eosio.helm/blob/master/eosio/nodeos_config.yaml)
 
-### For Cloud Deployment
+### Cloud Deployment
 
 To install EOSIO Helm Charts for cloud deployment using a cloud provider like AWS or GCP, follow these instructions:
 
@@ -70,7 +70,7 @@ To install EOSIO Helm Charts for cloud deployment using a cloud provider like AW
 
 You can customize specific values to be passed to the Helm charts. You can also configure specific artefacts within the cloud provider.
 
-### Customizing Values
+### Customize Values
 
 1. Specify additional value files as desired using additional `-f` options. Remember that order matters and values are overridden from left-to-right in specification.
     * [Helm Official: Value Files](https://helm.sh/docs/chart_template_guide/values_files)
