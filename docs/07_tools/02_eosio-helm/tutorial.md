@@ -225,7 +225,7 @@ helm repo add eosio [URL]
 We can check that the `eosio` repository was indeed added to the list:
 
 ```sh
-help repo list
+helm repo list
 ```
 ```console
 NAME    URL
