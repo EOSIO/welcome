@@ -11,23 +11,23 @@ link_text: EOSIO Nodeos Helm Charts
     * [Cloud Deployment](#cloud-deployment)
 * [Configuration](#configuration)
     * [Customize Values](#customize-values)
-	* [Configure Cloud Provider](#configure-cloud-provider)
+    * [Configure Cloud Provider](#configure-cloud-provider)
 * [Tutorial](tutorial.md)
 
 ## Overview
 
-EOSIO Helm Charts provide direct access to infrastructure-as-code (IaC) for rapid deployment of EOSIO nodes via Kubernetes. This includes support for common cloud providers such as Amazon Web Services (AWS) and Google Cloud Platform (GCP). EOSIO Helm currently available artefacts include three Helm charts:
+EOSIO Helm Charts provide direct access to infrastructure-as-code (IaC) for rapid deployment of EOSIO nodes via Kubernetes. It includes support for common cloud providers such as Amazon Web Services (AWS) and Google Cloud Platform (GCP). EOSIO Helm Charts currently includes three charts:
 
   * `eosio`: provides the configuration umbrella for the EOSIO ecosystem.
-  * `common`: provides scaffolding for infrastructure extensions support.
-  * `nodeos`: provides the configuration options for the EOSIO node(s).
+  * `eosio-common`: provides scaffolding for infrastructure extensions support.
+  * `eosio-nodeos`: provides the configuration options for the EOSIO node(s).
 
 [[info | Note]]
 | The [EOSIO Web IDE](https://github.com/EOSIO/eosio-web-ide) is another tool that allows developers to get an EOSIO network up and running quickly. It also allows developers to build and deploy EOSIO applications quickly from within a Docker-enabled web-based IDE.
 
 ## Installation
 
-EOSIO Helm Charts can be installed and run locally via Docker Desktop or run via a cloud deployment. For quick prototyping and rapid testing you may want to select a local deployment. For production environments or distributed testing, a cloud deployment is recommended.
+EOSIO Helm Charts can be installed and run locally with Docker Desktop support, or run remotely via a cloud deployment. For quick prototyping and rapid testing you may want a local deployment. For production environments or distributed testing, a cloud deployment is recommended.
 
 ### Local Deployment
 
@@ -68,7 +68,7 @@ To install EOSIO Helm Charts for cloud deployment using a cloud provider like AW
 
 ## Configuration
 
-You can customize specific values to be passed to the Helm charts. You can also configure specific artefacts within the cloud provider.
+You can customize specific values to be passed to the EOSIO Helm charts. You can also configure specific artefacts within the cloud provider.
 
 ### Customize Values
 
