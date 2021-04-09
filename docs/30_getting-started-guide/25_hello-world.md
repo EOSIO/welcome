@@ -9,12 +9,12 @@ Let's start with a simple smart contract that produces the traditional **_Hello 
 
 This tutorial introduces the following key concepts:
 * [EOSIO Contract Development Toolkit](https://developers.eos.io/manuals/eosio.cdt/latest/index): The toolchain and libraries used to build smart contracts
-* [Webassembly](../../../glossary/index#webassembly) (WASM): The virtual machine used to execute a portable binary-code format, hosted in [nodeos](../../../glossary/index#nodeos)
+* [Webassembly](../glossary/index#webassembly) (WASM): The virtual machine used to execute a portable binary-code format, hosted in [nodeos](../glossary/index#nodeos)
 * [Application Binary Interfaces](https://developers.eos.io/manuals/eosio.cdt/latest/best-practices/abi/understanding-abi-files) (ABI): The interface that defines how data is marshalled to and from the webassembly virtual machine
-* [Smart Contracts](../../../glossary/index/#smart-contract): The code that defines actions and transactions which may be executed on a blockchain
+* [Smart Contracts](../glossary/index/#smart-contract): The code that defines actions and transactions which may be executed on a blockchain
 
 **This tutorial shows how to**:
-* Create a simple smart contract with a `hi` [action](../../../glossary/index/#action) to the smart contract
+* Create a simple smart contract with a `hi` [action](../glossary/index/#action) to the smart contract
 * Compile and deploy the smart contract to an EOSIO blockchain
 * Use the command line to call the `hi` action of the smart contract
 
@@ -28,7 +28,7 @@ Once you complete the tutorial, you should have a basic **_Hello World_** smart 
 
 ## EOSIO Contract Development Toolkit
 
-Create EOSIO smart contracts using the C++ programming language. The EOSIO Contract Development Toolkit or [EOSIO.CDT](../../../glossary/index/#eosio.cdt) provides the libraries and tools you can use to build a smart contract. See the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index) manual for instructions on how to get started.
+Create EOSIO smart contracts using the C++ programming language. The EOSIO Contract Development Toolkit or [EOSIO.CDT](../glossary/index/#eosio.cdt) provides the libraries and tools you can use to build a smart contract. See the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index) manual for instructions on how to get started.
 
 To deploy the smart contract to the blockchain, use the [eosio-cpp](https://developers.eos.io/manuals/eosio.cdt/v1.7/command-reference/eosio-cpp) tool to compile the smart contract. The compilation using the `eosio-cpp` tool builds the webassembly file and creates a corresponding application binary interface (ABI) file.
 
