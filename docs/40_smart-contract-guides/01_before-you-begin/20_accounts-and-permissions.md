@@ -68,7 +68,7 @@ The following procedure shows you how to create a wallet:
 
 1. Create a wallet: [How To Create A Wallet](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-a-wallet)
 
-To use a wallet and the keys contained in a wallet, the wallet must be **open** and **unlocked**. You can change the timeout period used to lock a wallet with the `unlock-timeout` configuration option. See [Auto-locking](https://developers.eos.io/manuals/eos/latest/keosd/usage#auto-locking)for details. 
+To use a wallet and the keys contained in a wallet, the wallet must be **open** and **unlocked**. You can change the timeout period used to lock a wallet with the `unlock-timeout` configuration option. See [Auto-locking](https://developers.eos.io/manuals/eos/latest/keosd/usage#auto-locking) for details. 
 
 ## Create Accounts
 
