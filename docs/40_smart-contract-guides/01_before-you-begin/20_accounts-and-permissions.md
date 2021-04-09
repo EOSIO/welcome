@@ -53,8 +53,7 @@ Permisssions are also hierarchical, so a permission can have a parent, and anyth
 `cleos` commands use the `-p` command switch to specify the account and permission to use for signing a transaction. `Cleos` will look in `keosd` for the private key which corresponds to the specified account and permission.
 
 [[info]]
-| Alice wants to use the account called Alice and the `active` permission to sign a `cleos` command. To use this permission add:
--p Alice@active
+| Alice wants to use the account called Alice and the `active` permission to sign a `cleos` command. To use this permission add: `-p Alice@active`
 
 * If the local `keosd` contains a private key for the active permission of the account then the transaction will be successfully signed and submitted to the blockchain.
 * If the private key matches the public key stored on the blockchain, the blockchain has authenticated the transaction and will then try to execute the transaction.
