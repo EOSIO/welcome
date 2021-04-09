@@ -6,11 +6,11 @@ link_text: "Accounts and Permissions"
 To use an EOSIO blockchain, you need an account. This tutorial introduces accounts, permissions, and authorities. Accounts identify participants in the blockchain. You deploy a smart contract to an account and use account permissions to authorize smart contract transactions.
 
 This tutorial introduces the following key concepts:
-* [Accounts](../../../glossary/index#account): Accounts control authentication on the blockchain. See the protocol guide on [accounts and permissions ](../../60_protocol-guides/40_accounts_and_permissions.md/#2-accounts) for details about how accounts work. Accounts contain permissions, and permissions have authority.  
-* [Permission](../../../glossary/index/#permission) and [Authority](../../../glossary/index/#authority): Permissions control authorization on the blockchain. See the protocol guide on [permissions](../../60_protocol-guides/40_accounts_and_permissions.md/#3-permissions) for details on how permissions use authority to authorize transactions. 
-* Key Pairs: Paired [public key](../../../glossary/index/#public-key) and [private key](../../../glossary/index/#private-key) cryptographic keys.
-* [Cleos](../../../glossary/index#cleos): The command line tool to send commands and requests to nodeos
-* [Keosd](../../../glossary/index#keosd): A local secure store for private keys
+* [Accounts](../../glossary/index#account): Accounts control authentication on the blockchain. See the protocol guide on [accounts and permissions ](../../60_protocol-guides/40_accounts_and_permissions.md/#2-accounts) for details about how accounts work. Accounts contain permissions, and permissions have authority.  
+* [Permission](../../glossary/index/#permission) and [Authority](../../glossary/index/#authority): Permissions control authorization on the blockchain. See the protocol guide on [permissions](../../60_protocol-guides/40_accounts_and_permissions.md/#3-permissions) for details on how permissions use authority to authorize transactions. 
+* Key Pairs: Paired [public key](../../glossary/index/#public-key) and [private key](../../glossary/index/#private-key) cryptographic keys.
+* [Cleos](../../glossary/index#cleos): The command line tool to send commands and requests to nodeos
+* [Keosd](../../glossary/index#keosd): A local secure store for private keys
 * [Signing Transactions](../../60_protocol-guides/20_transactions_protocol.md/#22-signed-transaction-instance): Authorizing smart contract action calls
 
  This tutorial shows how to:
@@ -40,8 +40,8 @@ Deploying a smart contract requires an account; an account can own one smart con
 
 ## About Key Pairs
 
-Accounts are stored on the blockchain with their public keys. The public key is stored on the blockchain and the private key is stored locally in a secure [wallet](../../../glossary/index/#wallet), for example [keosd](../../../glossary/index#keosd). Each account requires at *least* one key pair. The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the private key which matches the pubic key stored on the blockchain. This authenticates the pushed transaction.
-[Cleos](../../../glossary/index#cleos) commands will automatically look for the private key in the `open` `keosd` wallet.  
+Accounts are stored on the blockchain with their public keys. The public key is stored on the blockchain and the private key is stored locally in a secure [wallet](../../glossary/index/#wallet), for example [keosd](../../glossary/index#keosd). Each account requires at *least* one key pair. The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the private key which matches the pubic key stored on the blockchain. This authenticates the pushed transaction.
+[Cleos](../../glossary/index#cleos) commands will automatically look for the private key in the `open` `keosd` wallet.  
 
 Transactions are authorized by the account permission authority.   
 
