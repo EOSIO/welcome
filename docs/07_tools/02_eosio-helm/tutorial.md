@@ -5,7 +5,7 @@ link_text: EOSIO Helm Tutorial
 
 ## Overview
 
-This tutorial showcases how to install and use Helm Charts for local EOSIO deployment using Kubernetes and Docker Desktop. The tutorial is divided into three parts: [Installation](#part-1-installation), [Basic Usage](#part-2-basic-usage), and [EOSIO Helm Repositories](#part-3-eosio-helm-repos). The concepts will be illustrated within the context of a single EOSIO node being deployed via Kubernetes and hosted in an EOSIO docker image.
+This tutorial demonstrates how to install and use Helm charts for local EOSIO deployment using Kubernetes and Docker Desktop. The tutorial is divided into three parts: [Installation](#part-1-installation), [Basic Usage](#part-2-basic-usage), and [EOSIO Helm Repositories](#part-3-eosio-helm-repos). The concepts will be illustrated within the context of a single EOSIO node being deployed via Kubernetes and hosted within an EOSIO docker image.
 
 ## Before You Begin
 
@@ -96,7 +96,7 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-Note that two [values files](https://helm.sh/docs/chart_template_guide/values_files/) are specified in the `helm upgrade` command. The first one, [eosio/local.yaml](https://github.com/EOSIO/eosio.helm/blob/master/eosio/local.yaml), is the Docker Desktop configuration. The second one, [eosio/nodeos_config.yaml](https://github.com/EOSIO/eosio.helm/blob/master/eosio/nodeos_config.yaml), contains the default `nodeos` configuration options (note that the EOSIO node is launched as a single block producer).
+Note that two [values files](https://helm.sh/docs/chart_template_guide/values_files/) are specified in the `helm upgrade` command. The first one, [eosio/local.yaml](https://github.com/EOSIO/eosio.helm/blob/master/eosio/local.yaml), is the Docker Desktop configuration. The second one, [eosio/nodeos_config.yaml](https://github.com/EOSIO/eosio.helm/blob/master/eosio/nodeos_config.yaml), contains the default `nodeos` configuration options (note that the EOSIO node is set up as a single producing node).
 
 ## Part 2: Basic Usage
 
@@ -127,7 +127,7 @@ eosio-local-nodeos-0   1/1      Running   0          17s
 ```sh
 kubectl logs eosio-local-nodeos-0
 ```
-```
+```console
 ...
 info  2021-04-07T15:24:01.391 nodeos    http_plugin.cpp:983        add_handler      ] add api url: /v1/chain/get_table_by_scope
 info  2021-04-07T15:24:01.391 nodeos    http_plugin.cpp:983        add_handler      ] add api url: /v1/chain/get_table_rows
@@ -149,7 +149,7 @@ info  2021-04-07T15:24:01.392 nodeos    producer_plugin.cpp:968    plugin_startu
 helm list
 ```
 ```console
-NAME    NAMESPACE        REVISION        UPDATED                                 STATYS      CHART         APP VERSION
+NAME    NAMESPACE        REVISION        UPDATED                                 STATUS      CHART         APP VERSION
 eosio   local            1               2021-04-07 15:24:01.58271 -0500 EST     deployed    eosio-0.1.0   0.1.0
 ```
 
