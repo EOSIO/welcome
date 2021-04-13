@@ -3,40 +3,40 @@ content_title: "Hello World Contract"
 link_text: "Build and Deploy Hello World Smart Contract"
 ---
 
-You deploy and execute smart contracts on the blockchain. A record of each transaction is immutably stored on the blockchain and smart contracts store and update state on the blockchain. A blockchain application is composed of clients, which utilize EOSIO client libraries, and call smart contract actions, which execute on the blockchain.    
+You deploy and execute smart contracts on the blockchain. A record of each transaction is immutably stored on the blockchain and smart contracts store and update state on the blockchain. A blockchain application is composed of clients who call smart contract actions, which execute on the blockchain.    
 
 Let's start with a simple smart contract that produces the traditional **_Hello World_**. 
 
 This tutorial introduces the following key concepts:
 * [EOSIO Contract Development Toolkit](https://developers.eos.io/manuals/eosio.cdt/latest/index): The toolchain and libraries used to build smart contracts
-* [Webassembly](../glossary/index#webassembly) (WASM): The virtual machine used to execute a portable binary-code format, hosted in [nodeos](../glossary/index#nodeos)
+* [Webassembly](../glossary/index#webassembly) (WASM): The virtual machine used to execute a portable binary-code format, hosted in [nodeos](../glossary/index/#nodeos)
 * [Application Binary Interfaces](https://developers.eos.io/manuals/eosio.cdt/latest/best-practices/abi/understanding-abi-files) (ABI): The interface that defines how data is marshalled to and from the webassembly virtual machine
 * [Smart Contracts](../glossary/index/#smart-contract): The code that defines actions and transactions which may be executed on a blockchain
 
 **This tutorial shows how to**:
-* Create a simple smart contract with a `hi` [action](../glossary/index/#action) to the smart contract
+* Create a simple smart contract with a `hi` [action](../glossary/index/#action)
 * Compile and deploy the smart contract to an EOSIO blockchain
 * Use the command line to call the `hi` action of the smart contract
 
 ## Before you Begin
 This tutorial requires the following:
 * Knowledge of the C++ programming language
-* A preferred code editor or an IDE
+* A code editor or IDE
 * A fully configured [local development environment](20_local-development-environment) 
 
-Once you complete the tutorial, you should have a basic **_Hello World_** smart contract created and deployed.
+Once you complete the tutorial, you should have created a **_Hello World_** smart contract and deployed the smart contract on a blockchain.
 
 ## EOSIO Contract Development Toolkit
 
-Create EOSIO smart contracts using the C++ programming language. The EOSIO Contract Development Toolkit or [EOSIO.CDT](../glossary/index/#eosio.cdt) provides the libraries and tools you can use to build a smart contract. See the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index) manual for instructions on how to get started.
+Create EOSIO smart contracts using the C++ programming language. The EOSIO Contract Development Toolkit or [EOSIO.CDT](../glossary/index/#eosio.cdt) provides the libraries and tools required to build a smart contract. See the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index) manual for more details on how to get started with the `EOSIO.CDT`.
 
-To deploy the smart contract to the blockchain, use the [eosio-cpp](https://developers.eos.io/manuals/eosio.cdt/v1.7/command-reference/eosio-cpp) tool to compile the smart contract. The compilation using the `eosio-cpp` tool builds the webassembly file and creates a corresponding application binary interface (ABI) file.
+To deploy the smart contract to the blockchain, first use the [eosio-cpp](https://developers.eos.io/manuals/eosio.cdt/v1.7/command-reference/eosio-cpp) tool to compile the smart contract. The compilation builds a webassembly file and a corresponding application binary interface (ABI) file.
 
-The webassembly or `.wasm` file is the binary code that the webassembly engine in the blockchain executes. The webassembly engine or wasm engine is the engine in the blockchain which executes smart contracts. The application binary interface or `.abi` file defines how data is marshalled to and from the wasm engine.
+The webassembly or `.wasm` file is the binary code that the webassembly engine in the blockchain executes. The webassembly engine or wasm engine is hosted in the noeos and executes the smart contract code. The application binary interface or `.abi` file defines how data is marshalled to and from the wasm engine.
 
 ## Create the Contract
 
-This section creates the Hello World smart contract. Normally, you create two files - the header  or `.hpp` file which contains the declarations for the smart contract class and the `.cpp` file, which contains the implementation of the smart contract actions. In this simple example, you only create a `.cpp` file.
+Follow this procedure to create the Hello World smart contract. Normally you create two files - the header  or `.hpp` file which contains the declarations for the smart contract class and the `.cpp` file, which contains the implementation of the smart contract actions. In this simple example, you only use a `.cpp` file.
 
 
 ### Procedure to create hello.cpp 
