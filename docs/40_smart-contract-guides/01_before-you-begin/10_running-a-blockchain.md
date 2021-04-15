@@ -7,24 +7,22 @@ link_text: "Running a blockchain"
 Smart contracts are [deployed](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-deploy-a-smart-contract) to a blockchain and smart contract transactions are executed on a blockchain. Testing a smart contract requires a blockchain. You can run a local blockchain for testing smart contracts or use the [official Block.one testnet](https://testnet.eos.io/). See the [testnet quick start guide](../../70_quick-start-guides/testnet-quick-start-guide/index.md) for more information on how to use the official Block.one testnet. This tutorial shows how to run a blockchain on your local machine. This is commonly known as a `local single node testnet`.
 
 
-This tutorial introduces the [EOSIO Blockchain.](../../20_introduction-to-eosio/index.md), the core components used in this tutorial are:
-* [Nodeos](../../glossary/index#nodeos): The core daemon which runs in a network of daemons to create a blockchain. 
-* [Cleos](../../glossary/index#cleos): The command line tool to send commands and requests to nodeos.
-* [Keosd](../../glossary/index#keosd): A local secure store for private keys.
+This tutorial introduces the [EOSIO Blockchain](../../20_introduction-to-eosio/index.md), the core components used in this tutorial are:
+* [Nodeos](../../glossary/index#nodeos): The core daemon which runs in a network of daemons to create a blockchain 
+* [Cleos](../../glossary/index#cleos): The command line tool to send commands and requests to nodeos
+* [Keosd](../../glossary/index#keosd): A local secure store for private keys
 
 This tutorial shows how to:
-* Create a single node blockchain running on your local machine.
-* Import the private key to the default *eosio* system account.
+* Create a single node blockchain running on your local machine
+* Import the private key to the default *eosio* system account
 
 Once the tutorial is completed you should be able to run a local single node testnet.
 
 ## Run a Local Single-Node Blockchain
 
-Run a local nodeos instance which produces blocks using these [instructions](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet).
+Run a local nodeos instance which produces blocks, creating a local single-node testnet, using these [instructions](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet).
 
-Once you complete the instructions you will have a local single-node testnet running on your machine. 
-
-You can use this local single-node testnet to follow the smart contract guides and for testing your own smart contracts. You can also look at more advanced local single node testnet with consensus protocols and multi node blockchain configurations [here](https://developers.eos.io/manuals/eos/v2.1/nodeos/usage/development-environment/index) and then look at the [Bios Boot Sequence Tutorial](../../80_tutorials/10_bios-boot-sequence.md) to see how real blockchains are bootstrapped.
+You can use this local single-node testnet to follow the smart contract guides and for testing your own smart contracts. You can create more advanced local single node testnet with consensus protocols and multi node blockchain configurations [here](https://developers.eos.io/manuals/eos/v2.1/nodeos/usage/development-environment/index) and then look at the [Bios Boot Sequence Tutorial](../../80_tutorials/10_bios-boot-sequence.md) to see how real blockchains are bootstrapped.
 
 ### The *eosio* default system account
 

@@ -6,8 +6,8 @@ link_text: "Accounts and Permissions"
 To use an EOSIO blockchain, you need an account. This tutorial introduces accounts, permissions, and authorities. Accounts identify participants in the blockchain. You deploy a smart contract to an account and use account permissions to authorize smart contract transactions.
 
 This tutorial introduces the following key concepts:
-* [Accounts](../../glossary/index#account): Accounts control authentication on the blockchain. See the protocol guide on [accounts and permissions ](../../60_protocol-guides/40_accounts_and_permissions.md/#2-accounts) for details about how accounts work. Accounts contain permissions, and permissions have authority.  
-* [Permission](../../glossary/index/#permission) and [Authority](../../glossary/index/#authority): Permissions control authorization on the blockchain. See the protocol guide on [permissions](../../60_protocol-guides/40_accounts_and_permissions.md/#3-permissions) for details on how permissions use authority to authorize transactions. 
+* [Accounts](../../glossary/index#account): Accounts control authentication on the blockchain. See the protocol guide on [accounts and permissions ](../../60_protocol-guides/40_accounts_and_permissions.md/#2-accounts) for details about how accounts work. Accounts contain permissions, and permissions have authority  
+* [Permission](../../glossary/index/#permission) and [Authority](../../glossary/index/#authority): Permissions control authorization on the blockchain. See the protocol guide on [permissions](../../60_protocol-guides/40_accounts_and_permissions.md/#3-permissions) for details on how permissions use authority to authorize transactions 
 * Key Pairs: Paired [public key](../../glossary/index/#public-key) and [private key](../../glossary/index/#private-key) cryptographic keys.
 * [Cleos](../../glossary/index#cleos): The command line tool to send commands and requests to nodeos
 * [Keosd](../../glossary/index#keosd): A local secure store for private keys
@@ -55,9 +55,9 @@ Permisssions are also hierarchical, so a permission can have a parent, and anyth
 [[info]]
 | Alice wants to use the account called Alice and the `active` permission to sign a `cleos` command. To use this permission add: `-p Alice@active`
 
-* If the local `keosd` contains a private key for the active permission of the account then the transaction will be successfully signed and submitted to the blockchain.
-* If the private key matches the public key stored on the blockchain, the blockchain has authenticated the transaction and will then try to execute the transaction.
-* If the account and permission has the authority to execute the transaction then the transaction should be executed. A record of this transaction and who signed the transaction is permanently stored on blockchain.
+* If the local `keosd` contains a private key for the active permission of the account then the transaction will be successfully signed and submitted to the blockchain
+* If the private key matches the public key stored on the blockchain, the blockchain has authenticated the transaction and will then try to execute the transaction
+* If the account and permission has the authority to execute the transaction then the transaction should be executed. A record of this transaction and who signed the transaction is permanently stored on blockchain
 
 [[warning]]
 | Keep your keys safe! Use a wallet to securely store private keys. Keep your private keys private and do not share your private keys with anyone. A private key provides full access to a blockchain account.
