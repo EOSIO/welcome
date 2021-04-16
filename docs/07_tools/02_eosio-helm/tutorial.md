@@ -199,7 +199,7 @@ persistentvolumeclaim "pvc-eosio-local-nodeos-0" deleted
 
 You can create, add, and remove chart repositories locally or to a remote endpoint. A helm repository is where you can collect and share charts remotely, similar to the Linux DPKG, APT, or RPM package managers, but for Kubernetes packages.
 
-Perform any of the following steps to manage our EOSIO Helm repository:
+Perform any of the following steps to manage EOSIO Helm repositories:
 
 * To list all Helm repositories (local or remote):
 
@@ -210,7 +210,7 @@ helm repo list
 Error: no repositories to show
 ```
 
-* To add our `eosio` repository to the list:
+* To add the `eosio` repository to the list:
 
 ```sh
 helm repo add eosio [URL]
