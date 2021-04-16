@@ -55,7 +55,7 @@ sections:
         
       - title: eosio-helm
         description: Allows rapid deployment of EOSIO nodes via Kubernetes through either Docker Desktop for local deployments or via AWS, GCP, etc. for cloud deployments.
-        link: https://developers.eos.io/welcome/latest/tools/eosio-helm/index
+        link: https://developers.eos.io/welcome/v2.1/tools/eosio-helm/index
         
       - title: demux-js
         description: Demux is a backend infrastructure pattern for sourcing blockchain events to deterministically update queryable datastores and trigger side effects.
