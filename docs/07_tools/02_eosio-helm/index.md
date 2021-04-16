@@ -16,7 +16,7 @@ link_text: EOSIO Nodeos Helm Charts
 
 ## Overview
 
-EOSIO Helm Charts provide direct access to infrastructure-as-code (IaC) for rapid deployment of EOSIO nodes via Kubernetes. It includes support for common cloud providers such as Amazon Web Services (AWS) and Google Cloud Platform (GCP). EOSIO Helm Charts currently includes three charts:
+EOSIO Helm Charts provides direct access to infrastructure-as-code (IaC) for rapid deployment of EOSIO nodes via Kubernetes. It includes support for common cloud providers such as Amazon Web Services (AWS) and Google Cloud Platform (GCP). EOSIO Helm Charts currently includes three charts:
 
   * `eosio`: provides the configuration umbrella for the EOSIO ecosystem.
   * `eosio-common`: provides scaffolding for infrastructure extensions support.
@@ -27,11 +27,11 @@ EOSIO Helm Charts provide direct access to infrastructure-as-code (IaC) for rapi
 
 ## Installation
 
-EOSIO Helm Charts can be installed and run locally with a Docker Desktop backend, or run remotely with a cloud deployment. For quick prototyping and rapid testing you may want a local deployment. For production environments or distributed testing, a cloud deployment is recommended.
+EOSIO Helm Charts can be installed and run locally with a Docker Desktop backend, or run remotely with a cloud deployment. For quick prototyping and rapid testing choose a local deployment. For production environments or distributed testing select a cloud deployment.
 
 ### Local Deployment
 
-To install EOSIO Helm Charts for local deployment via Docker Desktop, follow the instructions below. You may also follow the [Tutorial](#tutorial) for step-by-step instructions.
+To install EOSIO Helm Charts for local deployment via Docker Desktop, follow the instructions below. You may also follow the [Tutorial](https://developers.eos.io/welcome/latest/tools/eosio-helm/tutorial) for step-by-step instructions.
 
 1. Install Docker Desktop:
     * [Docker Official: Desktop](https://docs.docker.com/desktop)
