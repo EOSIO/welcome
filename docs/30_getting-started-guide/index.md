@@ -5,7 +5,7 @@ link_text: "Getting Started Guide"
 
 The purpose of the _EOSIO Getting Started Guide_ is to provide guided instructions to set up your local EOSIO development environment and use the environment to build and deploy a basic Hello World Smart Contract. The Getting Started Guide high-level workflow is illustrated in the following diagram: 
 
-![EOSIO Getting Started Workflow](./images/eosio-gsg-workflow.png)
+![EOSIO Getting Started Workflow](../eosio-gsg-workflow.png)
 
 The diagram identifies the following two workflows: 
 
