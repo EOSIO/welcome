@@ -3,7 +3,7 @@ content_title: "Getting Started Guide"
 link_text: "Getting Started Guide"
 ---
 
-The purpose of the _EOSIO Getting Started Guide_ is to provide guided instructions to set up your local EOSIO development environment and use the environment to build and deploy a basic Hello World Smart Contract. The Getting Started Guide high-level workflow is illustrated in the following diagram: 
+The purpose of the _EOSIO Getting Started Guide_ is to provide guided instructions to set up your local EOSIO development environment and use the environment to build and deploy a basic **_Hello World_** Smart Contract. The _Getting Started Guide_ high-level workflow is illustrated in the following diagram: 
 
 ![EOSIO Getting Started Workflow](../eosio-gsg-workflow.png)
 
@@ -12,12 +12,14 @@ The diagram identifies the following two workflows:
 1. **Set up local development environment**
 2. **Build and deploy a basic Hello World smart contract**
 
-Before you begin with the getting started workflow, make sure you familiarize yourself with EOSIO Platform and Toolchain, Core Concepts, and some of the Technical Features.
+[[info | Note]]
+| Before you begin with the getting started workflow, make sure you familiarize yourself with [EOSIO Platform and Toolchain](../20_introduction-to-eosio/10_platform_and_toolchain.md), [Core Concepts](../20_introduction-to-eosio/20_core_concepts.md), and some of the [Technical Features](20_introduction-to-eosio/30_technical_features.md).
 
 # Set Up Local Development Environment
-As a developer, begin with setting up your [local development environment](20_local-development-environment) that involves satisfying system requirements, installing OS-specific EOSIO binaries, and creating test blockchain accounts. Once the local development environment is set up, you can progress to smart contracts development workflow and build your first basic **Hello World** smart contract.
+As a developer, begin with setting up your [local development environment](../30_getting-started-guide/20_local-development-environment/index.md) that involves satisfying system requirements, installing OS-specific EOSIO binaries, and creating test blockchain accounts. Once the local development environment is set up, you can progress to smart contracts development workflow and build your first basic **Hello World** smart contract.
 
-Installing EOSIO prebuilt binaries is a convenient method for beginners. If you want to try advanced build methods, see [Installing from Source](https://developers.eos.io/manuals/eos/v2.1/install/build-from-source/index).
+[[info | Note]]
+| Installing EOSIO prebuilt binaries is a convenient method for beginners. If you want to try advanced build methods, see [Installing from Source](https://developers.eos.io/manuals/eos/v2.1/install/build-from-source/index).
 
 # Build and Deploy Hello World Smart Contract
 After your local development environment is fully configured, you are ready to build and deploy your first Hello World Smart Contract on the EOSIO blockchain platform.
