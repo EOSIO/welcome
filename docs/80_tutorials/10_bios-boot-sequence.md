@@ -416,6 +416,7 @@ Follow the steps below:
 ```shell
 cd ~
 git clone https://github.com/EOSIO/eos.git
+git checkout release/2.1.x
 cd ./eos/contracts/contracts/eosio.boot/
 mkdir build
 cd build
