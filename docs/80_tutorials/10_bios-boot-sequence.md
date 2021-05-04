@@ -396,12 +396,12 @@ To have a functional EOSIO-based blockchain you have to install a few system sma
 
 #### 1.8.1. Build eosio.contracts
 
-To build `eosio.contracts`, create a dedicated directory for `eosio.contracts`, clone the `eosio.contracts` sources and build them. Print the current directory in the terminal and make a note of it. The current directory will be referred to as `EOSIO_CONTRACTS_DIRECTORY`.
+To build `eosio.contracts`, create a dedicated directory for `eosio.contracts`, clone the `eosio.contracts` repository and build the sources. Print the current directory in the terminal and make a note of it. The current directory will be referred to as `EOSIO_CONTRACTS_DIRECTORY`.
 
 ```shell
 cd ~
 git clone https://github.com/EOSIO/eosio.contracts.git
-git checkout release/2.1.x
+git checkout release/1.9.x
 cd ./eosio.contracts/
 ./build.sh
 cd ./build/contracts/
@@ -410,7 +410,7 @@ pwd
 
 #### 1.8.2. Build eosio.boot system contract
 
-To build the `eosio.boot` located in the `eos` repository, create a dedicated directory for `eos`, clone the `eos` repository sources and build the `eosio.boot` system smart contract sources.
+To build the `eosio.boot` located in the `eos` repository, create a dedicated directory for `eos`, clone the `eos` repository and build the `eosio.boot` system smart contract sources.
 
 Follow the steps below:
 
