@@ -401,6 +401,7 @@ To build `eosio.contracts`, create a dedicated directory for `eosio.contracts`, 
 ```shell
 cd ~
 git clone https://github.com/EOSIO/eosio.contracts.git
+git checkout release/2.1.x
 cd ./eosio.contracts/
 ./build.sh
 cd ./build/contracts/
