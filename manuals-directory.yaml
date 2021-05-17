@@ -53,6 +53,10 @@ sections:
         description: EOSIO Quickstart Web IDE lets developers start experiment building applications on EOSIO platform in a matter of minutes
         link: https://github.com/EOSIO/eosio-web-ide
         
+      - title: eosio-helm
+        description: Allows rapid deployment of EOSIO nodes via Kubernetes through either Docker Desktop for local deployments or via AWS, GCP, etc. for cloud deployments.
+        link: https://developers.eos.io/welcome/latest/tools/eosio-helm/index
+        
       - title: demux-js
         description: Demux is a backend infrastructure pattern for sourcing blockchain events to deterministically update queryable datastores and trigger side effects.
         link: https://github.com/EOSIO/demux-js
