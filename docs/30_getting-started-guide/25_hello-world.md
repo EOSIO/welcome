@@ -144,7 +144,7 @@ cleos set contract hello ./hello -p hello@active
 
 ## Calling a Smart Contract Action
 
-Now that the smart contract is successfully deployed, follow this section to [push smart contract actions](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/push/push-action) to the blockchain and test the `hi` action.
+Once the smart contract is successfully deployed, follow this section to [push smart contract actions](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/push/push-action) to the blockchain and test the `hi` action.
 
 ### Procedure to call the Hi Action
 
@@ -219,7 +219,7 @@ Error 3090004: Missing required authority
 Ensure that you have the related authority inside your transaction!;
 ```
 
-The contract now verifies the provided name user is the same as the authorizing user.
+The contract now verifies the provided user name is the same as the authorizing user.
 
 5. Try it again, but this time, make **alice** say hi, with the authority of the **alice** account:
 

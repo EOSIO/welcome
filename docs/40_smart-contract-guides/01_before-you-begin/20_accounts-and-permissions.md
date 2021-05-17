@@ -40,8 +40,7 @@ Deploying a smart contract requires an account; an account can own one smart con
 
 ## About Key Pairs
 
-Accounts are stored on the blockchain with their public keys. The public key is stored on the blockchain and the private key is stored locally in a secure [wallet](../../glossary/index/#wallet), for example [keosd](../../glossary/index#keosd). Each account requires at *least* one key pair. The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the private key which matches the pubic key stored on the blockchain. This authenticates the pushed transaction.
-[Cleos](../../glossary/index#cleos) commands will automatically look for the private key in the `open` `keosd` wallet.  
+Accounts are stored on the blockchain with their public keys. The public key is stored on the blockchain and the private key is stored locally in a secure [wallet](../../glossary/index/#wallet), for example [keosd](../../glossary/index#keosd). Each account requires at *least* one key pair. The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the private key which matches the pubic key stored on the blockchain. This authenticates the pushed transaction. [Cleos](../../glossary/index#cleos) commands will automatically look for the private key in the `open` `keosd` wallet.  
 
 Transactions are authorized by the account permission authority.   
 
