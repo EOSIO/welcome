@@ -16,14 +16,14 @@ This tutorial requires the following:
 
 When an account is created two permissions are created by default; `owner` and `active`. You can create a new permission, a custom permission, as a child permission of `owner`, `active` or another custom permission. Custom permissions require a public and private key pair. These custom permissions may be linked to an action of a smart contract and specify the permission required to execute that action. This permission system enables accounts to have flexible and highly granular control over accounts and smart contract actions.
 
-[[Info]]
+[[info]]
 | The permission `eosio.code` is a special permission which allows smart contracts to call inline actions. Smart contracts do not have access to account keys and the EOSIO blockchain performs an authorization check when an inline action is called. Adding `eosio.code` to an account permission gives explicit permission to execute code. For information on how to add the `eosio.code` see [cleos set account permission](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/set/set-account-permission.md)
 
 ## Why use a Custom Permission
 
 Use custom permssions to improve the security on your account by setting a custom permission for calling specific transactions. This will limit the need to use the `owner` and `active` keys and limit the risk of these permissions being compromised.
 
-[[Info]]
+[[info]]
 | Custom permissions always have a parent permission. The parent permission has the authority to execute the same transactions as the custom permission, and to recover the custom permission keys if that custom permission is compromised.
 
 ## Using Custom Permissions
@@ -83,7 +83,7 @@ class [[eosio::contract]] hello : public eosio::contract {
 
 Deploy this smart contract to your running blockchain.
 
-[[Note]]
+[[info]]
 | This simple sample  smart contract does not do any authorization checking, i.e. does not use  `require_auth`. This tutorial demonstrates **native authorization checking**.
 
 ## Create Custom Permissions
@@ -235,7 +235,7 @@ The output will be similar to:
 }
 ```
 
-[[Note]]
+[[info]]
 | For simplicity we are using the same public private key pair for each permission, for production systems we recommend that you create and use new key pairs for each permission.
 
 ## Link the Custom Permissions
