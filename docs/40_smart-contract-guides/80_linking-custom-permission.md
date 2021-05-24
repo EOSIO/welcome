@@ -30,10 +30,10 @@ Use custom permssions to improve the security on your account by setting a custo
 
 The following examples show you how to:
 
-* Create a Custom Permission
-* Link a Custom Permission
-* Unlink a Custom Permission
-* Delete a Custom Permission
+* [Create a Custom Permission](#create-custom-permissions)
+* [Link a Custom Permission](#link-the-custom-permissions)
+* [Unlink a Custom Permission](#unlink-the-permission)
+* [Delete a Custom Permission](#delete-custom-permissions)
 
 In this example you will use:
 
@@ -84,7 +84,7 @@ class [[eosio::contract]] hello : public eosio::contract {
 Deploy this smart contract to your running blockchain.
 
 [[info]]
-| This simple sample  smart contract does not do any authorization checking, i.e. does not use  `require_auth`. This tutorial demonstrates **native authorization checking**.
+| This simple sample  smart contract does not do any authorization checking, i.e. does not use  `require_auth`. This tutorial demonstrates **native authorization checking**. Click on this link for more information on [securing your contract.](https://developers.eos.io/manuals/eosio.cdt/latest/best-practices/securing_your_contract/#1-authorization-checks)
 
 ## Create Custom Permissions
 To use a custom permission you need to create a custom permission. 
@@ -267,7 +267,7 @@ executed transaction: 64198d1cc5f7dedf8809b86f22801eb004d50365ba72f8e2833ed191c6
 #         eosio <= eosio::linkauth              {"account":"bob","code":"scholder","type":"how","requirement":"customp2"}
 ```
 
-## Test It
+### Test It
 We now have linked two custom permissions, _customp1_ and _customp2_, to two actions, _what_ and _how_.
 
 * `active` is able to call _why_, _what_ and _how_. The permission `active` is the parent of _customp1_ so is able to call anything that _customp1_ can call.
@@ -414,7 +414,7 @@ executed transaction: 50fe754760a1b8bd0e56f57570290a3f5daa509c090deb54c81a721ee7
 
 ```
 
-## Test It Again
+### Test It Again
 We have unlinked the _customp2_ permission.
 
 We now have one linked custom permission, _customp1_  which can call _what_. The _customp2_ permission is now unlinked so should not be able to call anything.
@@ -463,8 +463,114 @@ Error Details:
 action declares irrelevant authority '{"actor":"bob","permission":"customp2"}'; minimum authority is {"actor":"bob","permission":"active"}
 ```
 
+## Delete Custom Permissions
+Now you have unlinked the _customp2_ permission you can delete this permission.
 
-This tutorial demonstrates how to create and link custom permissions, and shows how permissions can be used to control the actions an account permissions can perform. 
+```shell
+cleos set account permission bob customp2 NULL active -p bob@active
+```
+
+The output should be similar to:
+
+```console
+executed transaction: 97e2af6966b40ea0b523402110c6a5592862c5ad2abbaad20c9bbf2f68017c98  160 bytes  145 us
+#         eosio <= eosio::deleteauth            {"account":"bob","permission":"customp2","parent":"active","auth":{"threshold":1,"keys":[{"key":"EOS...
+```
+Let’s check the account:
+
+```shell
+cleos get account bob --json
+```
+
+The output will be similar to:
+
+```json
+{
+  "account_name": "bob",
+  "head_block_num": 23485,
+  "head_block_time": "2021-05-06T07:46:19.000",
+  "privileged": false,
+  "last_code_update": "1970-01-01T00:00:00.000",
+  "created": "2021-05-06T05:07:27.500",
+  "ram_quota": -1,
+  "net_weight": -1,
+  "cpu_weight": -1,
+  "net_limit": {
+    "used": -1,
+    "available": -1,
+    "max": -1
+  },
+  "cpu_limit": {
+    "used": -1,
+    "available": -1,
+    "max": -1
+  },
+  "ram_usage": 4414,
+  "permissions": [{
+      "perm_name": "active",
+      "parent": "owner",
+      "required_auth": {
+        "threshold": 1,
+        "keys": [{
+            "key": "EOS58wmANoBtT7RdPgMRCGDb37tcCQswfwVpj6NzC55D247tTMU9D",
+            "weight": 1
+          }
+        ],
+        "accounts": [],
+        "waits": []
+      }
+    },{
+      "perm_name": "customp1",
+      "parent": "active",
+      "required_auth": {
+        "threshold": 1,
+        "keys": [{
+            "key": "EOS58wmANoBtT7RdPgMRCGDb37tcCQswfwVpj6NzC55D247tTMU9D",
+            "weight": 1
+          }
+        ],
+        "accounts": [],
+        "waits": []
+      }
+    },{
+      "perm_name": "customp3",
+      "parent": "active",
+      "required_auth": {
+        "threshold": 1,
+        "keys": [{
+            "key": "EOS58wmANoBtT7RdPgMRCGDb37tcCQswfwVpj6NzC55D247tTMU9D",
+            "weight": 1
+          }
+        ],
+        "accounts": [],
+        "waits": []
+      }
+    },{
+      "perm_name": "owner",
+      "parent": "",
+      "required_auth": {
+        "threshold": 1,
+        "keys": [{
+            "key": "EOS58wmANoBtT7RdPgMRCGDb37tcCQswfwVpj6NzC55D247tTMU9D",
+            "weight": 1
+          }
+        ],
+        "accounts": [],
+        "waits": []
+      }
+    }
+  ],
+  "total_resources": null,
+  "self_delegated_bandwidth": null,
+  "refund_request": null,
+  "voter_info": null,
+  "rex_info": null
+}
+```
+
+## Conclusion
+
+This tutorial demonstrates how to create, link, and delete custom permissions. The tutorial shows you how to use these permissions to control which actions an account permission can perform.  
 
 ## Further Examples
 
