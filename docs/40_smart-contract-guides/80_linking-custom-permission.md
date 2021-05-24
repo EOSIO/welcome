@@ -473,8 +473,8 @@ cleos set account permission bob customp2 NULL active -p bob@active
 The output should be similar to:
 
 ```console
-executed transaction: 97e2af6966b40ea0b523402110c6a5592862c5ad2abbaad20c9bbf2f68017c98  160 bytes  145 us
-#         eosio <= eosio::deleteauth            {"account":"bob","permission":"customp2","parent":"active","auth":{"threshold":1,"keys":[{"key":"EOS...
+executed transaction: 3f3e58707e5548ec34f5655327b1110c18d455c9ee0a6cffc102d7bc4e0a6cdb  112 bytes  472 us
+#         eosio <= eosio::deleteauth            {"account":"bob","permission":"customp2"}
 ```
 Let’s check the account:
 
