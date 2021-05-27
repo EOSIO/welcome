@@ -11,7 +11,7 @@ This FAQ contains frequent questions and requests from the EOSIO community. If y
 
 EOSIO-based blockchains are resilient to all types of situations created by real world scenarios. In case a blockchain is fully utilized, the only backpressure signal is that the transactions start to drop.
 
-When you send a transaction to the blockchain, you can set a maximum transaction timeout value of 60 minutes. As soon as the blockchain receives the transaction, under normal uncongested operation, the transaction is processed right away. However, if the transaction is not processed right away, most likely because of congested operation, it is placed in the unapplied transactions queue (also known as incoming transactions queue). If the expiration period for a queued transaction waiting is met, the transaction is dropped from the queue, with no chance to be applied again. In this case, you need to [resubmit the transaction](https://developers.eos.io/manuals/eos/v2.1/cleos/how-to-guides/how-to-submit-a-transaction/) to the blockchain. The default maximum size of the incoming transaction queue is 1020 MiB and it can be configured with the `incoming-transaction-queue-size-mb` parameter of the producer plugin. Exceeding this value subjectively drops the transaction with system resources exhaustion.
+When you send a transaction to the blockchain, you can set a maximum transaction timeout value of 60 minutes. As soon as the blockchain receives the transaction, under normal uncongested operation, the transaction is processed right away. However, if the transaction is not processed right away, most likely because of congested operation, it is placed in the unapplied transactions queue (also known as incoming transactions queue). If the expiration period for a queued transaction waiting is met, the transaction is dropped from the queue, with no chance to be applied again. In this case, you need to [resubmit the transaction](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-submit-a-transaction/) to the blockchain. The default maximum size of the incoming transaction queue is 1020 MiB and it can be configured with the `incoming-transaction-queue-size-mb` parameter of the producer plugin. Exceeding this value subjectively drops the transaction with system resources exhaustion.
 
 ### Can you wipe/refresh a blockchain environment?
 
@@ -21,7 +21,7 @@ Yes, you can wipe a blockchain by the following actions:
 2. Remove the content of data folder
 3. Restart the `nodeos` service 
 
-See the [nodeos manual](https://developers.eos.io/manuals/eos/v2.1/nodeos/index) for detailed information on how to use `nodeos`.  
+See the [nodeos manual](https://developers.eos.io/manuals/eos/latest/nodeos/index) for detailed information on how to use `nodeos`.  
 
 Nodeos stores runtime data (e.g., shared memory and log content) in a data folder which can be optionally specified with the `-d` option when invoking nodeos. The default location of the data folder depends on your operating system.. The location of the data folder depends on your system:
 * Mac OS -  ~/Library/Application\ Support/eosio/nodeos/data
@@ -55,7 +55,7 @@ For more information on this topic, see the [Accounts and Permissions](https://d
 
 ### How can I change private keys for accounts?
 
-Use the [cleos set account](https://developers.eos.io/manuals/eos/v2.1/cleos/command-reference/set/set-account) command.
+Use the [cleos set account](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/set/set-account) command.
 
 `cleos set account permission <accountname - account name> <permission - permission name> <authority - json structure> <parent - owner?> -p authorizing permission`
 
@@ -126,7 +126,7 @@ Yes, this is already supported in the upcoming EOSIO release. The original `tran
 
 ### How can I monitor dropped transactions?
 
-To achive this enable the [logging level debug](https://developers.eos.io/manuals/eos/v2.1/nodeos/logging/native_logging), which logs dropped transactions, and then monitor the dropped transactions log entries.
+To achive this enable the [logging level debug](https://developers.eos.io/manuals/eos/latest/nodeos/logging/native_logging), which logs dropped transactions, and then monitor the dropped transactions log entries.
 
 ### Should we use the block number returned by RPC to confirm if a transaction is added to a block?
 
@@ -146,8 +146,8 @@ There are a few ways to confirm if a transaction made to a block; you can find t
 
 Here are a few ways to check if a transaction made it to a block:
 
-* Poll [get_block](https://developers.eos.io/manuals/eos/v2.1/nodeos/plugins/chain_api_plugin/api-reference/index#operation/get_block) of the Chain API and search for the transaction ID in the list of transactions included in the block. If the transaction expiration time is reached and your transaction ID was not found in any block, then you have to resend the transaction. Otherwise, if you find the transaction ID in a block then you can wait for the block to become irreversible. Only then you are 100% sure the transaction will make it in the blockchain.
-* Poll [get_block](https://developers.eos.io/manuals/eos/v2.1/nodeos/plugins/trace_api_plugin/api-reference/index) of the Trace API and search for the transaction ID in the list of transactions included in the block. If the transaction expiration time is reached and your transaction ID was not found in any block then you have to resend the transaction. Otherwise, if you find the transaction ID in a block then you can wait for the block to become irreversible. Only then you are 100% sure the transaction will make it in the blockchain.
+* Poll [get_block](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index#operation/get_block) of the Chain API and search for the transaction ID in the list of transactions included in the block. If the transaction expiration time is reached and your transaction ID was not found in any block, then you have to resend the transaction. Otherwise, if you find the transaction ID in a block then you can wait for the block to become irreversible. Only then you are 100% sure the transaction will make it in the blockchain.
+* Poll [get_block](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/trace_api_plugin/api-reference/index) of the Trace API and search for the transaction ID in the list of transactions included in the block. If the transaction expiration time is reached and your transaction ID was not found in any block then you have to resend the transaction. Otherwise, if you find the transaction ID in a block then you can wait for the block to become irreversible. Only then you are 100% sure the transaction will make it in the blockchain.
 * Use third party tools which allow you to do that. One example is dfuse which provides an [end-point](https://docs.dfuse.io/eosio/public-apis/reference/rest/post-chain-push_transaction/) allowing you to probe the transactions. 
 
 ### How to reliably determine finality of transaction?

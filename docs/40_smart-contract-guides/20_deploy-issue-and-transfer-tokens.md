@@ -125,7 +125,7 @@ executed transaction: 800835f28659d405748f4ac0ec9e327335eae579a0d8e8ef6330e78c9e
 warning: transaction executed locally, but may not be confirmed by the network yet         ]
 ```
 
-Now check if `bob` received the tokens using [cleos get currency balance](https://developers.eos.io/manuals/eos/v2.1/cleos/command-reference/get/currency-balance)
+Now check if `bob` received the tokens using [cleos get currency balance](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/get/currency-balance)
 
 ```shell
 cleos get currency balance eosio.token bob SYS
