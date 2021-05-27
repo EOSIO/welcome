@@ -31,7 +31,7 @@ EOSIO Helm Charts can be installed and run locally with a Docker Desktop backend
 
 ### Local Deployment
 
-To install EOSIO Helm Charts for local deployment via Docker Desktop, follow the instructions below. You may also follow the [Tutorial](https://developers.eos.io/welcome/v2.1/tools/eosio-helm/tutorial) for step-by-step instructions.
+To install EOSIO Helm Charts for local deployment via Docker Desktop, follow the instructions below. You may also follow the [Tutorial](https://developers.eos.io/welcome/latest/tools/eosio-helm/tutorial) for step-by-step instructions.
 
 1. Install Docker Desktop:
     * [Docker Official: Desktop](https://docs.docker.com/desktop)
@@ -84,4 +84,4 @@ You can customize specific values to be passed to the EOSIO Helm charts. You can
 
 ## Tutorial
 
-Check the [EOSIO Helm Tutorial](https://developers.eos.io/welcome/v2.1/tools/eosio-helm/tutorial), which demonstrates how to install EOSIO Helm Charts for local deployment, how to use them to launch an EOSIO node, and how to use EOSIO Helm repositories.
+Check the [EOSIO Helm Tutorial](https://developers.eos.io/welcome/latest/tools/eosio-helm/tutorial), which demonstrates how to install EOSIO Helm Charts for local deployment, how to use them to launch an EOSIO node, and how to use EOSIO Helm repositories.

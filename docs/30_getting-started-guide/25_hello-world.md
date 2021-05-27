@@ -180,7 +180,7 @@ This version of the Hello World smart contract is a simple example. The `hi` act
 
 ## Authorization
 
-The EOSIO blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check the account has the required authority to perform an action. Using authorization is the first step towards [securing your smart contract.](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/securing_your_contract) Follow this link [for more information about authorization checks.](https://developers.eos.io/manuals/eosio.cdt/v1.8/how-to-guides/authorization/how_to_restrict_access_to_an_action_by_user)
+The EOSIO blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check the account has the required authority to perform an action. Using authorization is the first step towards [securing your smart contract.](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/securing_your_contract) Follow this link [for more information about authorization checks.](https://developers.eos.io/manuals/eosio.cdt/latest/how-to-guides/authorization/how_to_restrict_access_to_an_action_by_user)
 
 Add [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action#function-require_auth) to the smart contract, the `require_auth` function checks authorization and ensures the name parameter matches the user executing and authorizing the action. 
 
