@@ -35,7 +35,7 @@ For instructions to install the `nodeos` binaries, see the [Install EOSIO pre-co
 
 **EOSIO.CDT Binaries**
 
-For instructions to install the EOSIO.CDT binaries, see the [Install EOSIO.CDT binaries](https://developers.eos.io/manuals/eosio.cdt/latest/installation) tutorial.
+For instructions to install the EOSIO.CDT binaries, see the [Install EOSIO.CDT binaries](https://developers.eos.io/manuals/eosio.cdt/v1.7/installation) tutorial.
 
 ### **1.2. Create a development wallet**
 

@@ -79,9 +79,9 @@ If you are using a third party wallet with a UI, they may provide the ability to
 
 For guidelines on how to build a performant smart contract, see the following resources:
 
-* [For resource planning](https://developers.eos.io/manuals/eosio.cdt/latest/best-practices/resource-planning)
-* [For data design and migration](https://developers.eos.io/manuals/eosio.cdt/latest/best-practices/data-design-and-migration)
-* [For securing your smart contract](https://developers.eos.io/manuals/eosio.cdt/latest/best-practices/securing_your_contract)
+* [For resource planning](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/resource-planning)
+* [For data design and migration](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/data-design-and-migration)
+* [For securing your smart contract](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/securing_your_contract)
 
 ### What are the onboarded system smart contracts and their versions? What other smart contracts are included with the deployment?
 
