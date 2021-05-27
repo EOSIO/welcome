@@ -31,7 +31,7 @@ If your goal is to go beyond and understand what the script is doing, you can fo
 
 **Pre-compiled EOSIO Binaries**
 
-For instructions to install the `nodeos` binaries, see the [Install EOSIO pre-compiled binaries](https://developers.eos.io/manuals/eos/latest/install/install-prebuilt-binaries) tutorial but do not start `nodeos` at this stage.
+For instructions to install the `nodeos` binaries, see the [Install EOSIO pre-compiled binaries](https://developers.eos.io/manuals/eos/v2.0/install/install-prebuilt-binaries) tutorial but do not start `nodeos` at this stage.
 
 **EOSIO.CDT Binaries**
 

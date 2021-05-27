@@ -298,7 +298,7 @@ executed transaction: e9e30524186bb6501cf490ceb744fe50654eb393ce0dd733f3bb6c68ff
 #   addressbook <= addressbook::notify          {"user":"alice","msg":"alicesuccessfully emplaced record to addressbook"}
 #         alice <= addressbook::notify          {"user":"alice","msg":"alicesuccessfully emplaced record to addressbook"}
 ```
-The last entry in the previous log is an `addressbook::notify` action sent to `alice`. Use [cleos get actions](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/get/actions) to display actions executed and relevant to alice.
+The last entry in the previous log is an `addressbook::notify` action sent to `alice`. Use [cleos get actions](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/get/actions) to display actions executed and relevant to alice.
 ```shell
 cleos get actions alice
 ```

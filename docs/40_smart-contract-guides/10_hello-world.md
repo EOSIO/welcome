@@ -134,13 +134,13 @@ View the wallet keys by:
 cleos wallet keys
 ```
 
-Create an account for the contract using [cleos create account](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/create/account):
+Create an account for the contract using [cleos create account](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/create/account):
 
 ```shell
 cleos create account eosio hello YOUR_PUBLIC_KEY -p eosio@active
 ```
 
-Deploy the compiled `wasm` to the blockchain with [cleos set contract](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/set/set-contract).
+Deploy the compiled `wasm` to the blockchain with [cleos set contract](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/set/set-contract).
 
 <div class="no-contracts-helper">In previous steps you should have created a `contracts` directory and obtained the absolute path and then saved it into a cookie. Replace "CONTRACTS_DIR" in the command below with the absolute path to your `contracts` directory.</div>
 
