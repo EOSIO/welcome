@@ -36,7 +36,7 @@ To set up a local single-node blockchain configuration, follow the instructions 
 
 [Local Single-node Testnet](https://developers.eos.io/manuals/eos/v2.0/nodeos/usage/development-environment/local-single-node-testnet)
 
-You can also use the [Block.one's official EOSIO Testnet.](https://testnet.eos.io/) To learn how to set up an account and use the EOSIO Testnet click here [EOSIO Testnet Quick Start Guide.](https://developers.eos.io/welcome/v2.1/quick-start-guides/testnet-quick-start-guide/index)
+You can also use the [Block.one's official EOSIO Testnet.](https://testnet.eos.io/) To learn how to set up an account and use the EOSIO Testnet click here [EOSIO Testnet Quick Start Guide.](https://developers.eos.io/welcome/latest/quick-start-guides/testnet-quick-start-guide/index)
 
 ### What happens when there is a fork and how does this manifest itself in State History Plugin (SHiP)?
 
@@ -51,7 +51,7 @@ EOSIO accounts identify unique individuals or entities within an EOSIO blockchai
 A smart contract is a low-level software library that contains the implementation of the actions that make a transaction. It also defines how the data that is accessed and processed by the actions are stored. A smart contract is implemented in a high-level language such as C++ and compiled into a WebAssembly (WASM) binary. Thereafter, smart contracts can be deployed and run within an account’s sandbox on the blockchain.
 
 Further Reading
-For more information on this topic, see the [Accounts and Permissions](https://developers.eos.io/welcome/v2.1/protocol/accounts_and_permissions) section.
+For more information on this topic, see the [Accounts and Permissions](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions) section.
 
 ### How can I change private keys for accounts?
 
@@ -69,7 +69,7 @@ which can be simplified to
 cleos set account permission <accountname> <permission> NEW_ACTIVE_PUBLIC_KEY owner -p accountname@owner
 ```
 
-to update the key pairs associated with an account permission. This command replaces the existing authority structure associated with the permission. Keys are stored in the authority, which is referenced by the permission, which is referenced by the account. See [Account and Permissions](https://developers.eos.io/welcome/v2.1/protocol/accounts_and_permissions) for details.
+to update the key pairs associated with an account permission. This command replaces the existing authority structure associated with the permission. Keys are stored in the authority, which is referenced by the permission, which is referenced by the account. See [Account and Permissions](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions) for details.
 
 If you are using a third party wallet with a UI, they may provide the ability to update your account public and private key pairs.
 
@@ -154,7 +154,7 @@ Here are a few ways to check if a transaction made it to a block:
 
 Finality of a transaction can be determined when the transaction ID is part of an irreversible block.
 
-For more information on the EOSIO consensus model, see [Consensus Protocol.](https://developers.eos.io/welcome/v2.1/protocol/consensus_protocol/)
+For more information on the EOSIO consensus model, see [Consensus Protocol.](https://developers.eos.io/welcome/latest/protocol/consensus_protocol/)
 
 ### How to reliably determine when to do a transaction retry?
 
