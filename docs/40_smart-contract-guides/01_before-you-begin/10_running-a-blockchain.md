@@ -22,7 +22,7 @@ Once the tutorial is completed you should be able to run a local single node tes
 
 Run a local nodeos instance which produces blocks, creating a local single-node testnet, using these [instructions](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet).
 
-You can use this local single-node testnet to follow the smart contract guides and for testing your own smart contracts. You can create more advanced local single node testnet with consensus protocols and multi node blockchain configurations [here](https://developers.eos.io/manuals/eos/v2.1/nodeos/usage/development-environment/index) and then look at the [Bios Boot Sequence Tutorial](../../80_tutorials/10_bios-boot-sequence.md) to see how real blockchains are bootstrapped.
+You can use this local single-node testnet to follow the smart contract guides and for testing your own smart contracts. You can create more advanced local single node testnet with consensus protocols and multi node blockchain configurations [here](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/index) and then look at the [Bios Boot Sequence Tutorial](../../80_tutorials/10_bios-boot-sequence.md) to see how real blockchains are bootstrapped.
 
 ### The *eosio* default system account
 

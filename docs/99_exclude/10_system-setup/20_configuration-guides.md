@@ -14,25 +14,25 @@ There are several ways to configure a [Nodeos](../../glossary/index#nodeos) envi
 ### Local Single-Node Testnet
 This runs a blockchain, with a single node, locally. The local single-node testnet is the simplest blockchain configuration. A local single-node testnet is generally used as a test envronment to get started developing smart contracts.    
 
-* [Configure Nodeos as a Local Single-node Testnet](https://developers.eos.io/manuals/eos/v2.1/nodeos/usage/development-environment/local-single-node-testnet) 
+* [Configure Nodeos as a Local Single-node Testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet) 
 
 ### Local Multi-Node Testnet
 A local single node testnet is a great place to start, but a blockchain running on a single node is not much of a blockchain. To run many nodes locally see the guides listed below. Often multi node testnets will be used for advanced development and testing giving a more realistic blockchain environment. Other uses for a a multi node testnet are benchmarking, optimization and experimentation, or to increase your knowledge. 
 
-* [Configure Nodeos as a Local Two-Node Testnet](https://developers.eos.io/manuals/eos/v2.1/nodeos/usage/development-environment/local-multi-node-testnet)
+* [Configure Nodeos as a Local Two-Node Testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-multi-node-testnet)
 * [Configure Nodeos as a Local 21-Node Testnet](https://github.com/EOSIO/eos/blob/master/tutorials/bios-boot-tutorial/README.md)
 
 ### EOSIO Testnet
 The EOSIO Testnet is Block.one's offical testnet and uses the latest EOSIO software. 
 
 * [EOSIO Testnet](https://testnet.eos.io/) Block.one's official EOSIO Testnet.
-* [EOSIO Testnet Quick Start Guide.](https://developers.eos.io/welcome/v2.1/quick-start-guides/testnet-quick-start-guide/index) 
+* [EOSIO Testnet Quick Start Guide.](https://developers.eos.io/welcome/latest/quick-start-guides/testnet-quick-start-guide/index) 
 
 ## Block Producers
 Block producers operate in a distributed and/or decentralised environment. A [block producer](../../glossary/index#block-producer) may run many instances of [Nodeos](../../glossary/index#nodeos) and these may be in one of two modes:
 
- * [Producing Node](https://developers.eos.io/manuals/eos/v2.1/nodeos/usage/node-setups/producing-node)
- * [Non-Producing Node](https://developers.eos.io/manuals/eos/v2.1/nodeos/usage/node-setups/non-producing-node)
+ * [Producing Node](https://developers.eos.io/manuals/eos/latest/nodeos/usage/node-setups/producing-node)
+ * [Non-Producing Node](https://developers.eos.io/manuals/eos/latest/nodeos/usage/node-setups/non-producing-node)
 
 `Producing Nodes` are configured for block production. They connect to the peer-to-peer network and actively produce new blocks. Loose transactions are also validated and relayed. On mainnet, `Producing Nodes` only produce blocks if their assigned block producer is part of an active schedule.
 
