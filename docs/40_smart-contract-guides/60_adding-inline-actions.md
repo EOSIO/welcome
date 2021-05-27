@@ -26,14 +26,14 @@ This function is very simple, it just accepts a user account as a `name` type an
 
 ## Step 3: Copy action to sender using require_recipient
 
-This transaction needs to be copied to the user so it can be considered as a receipt. To do this, use the [require_recipient](https://developers.eos.io/manuals/eosio.cdt/v1.8/group__action/#function-require_recipient) method.  Calling `require_recipient` adds an account to the require_recipient set and ensures that these accounts receive a notification of the action being executed. The notification is like sending a "carbon copy" of the action to the accounts in the require_recipient set.
+This transaction needs to be copied to the user so it can be considered as a receipt. To do this, use the [require_recipient](https://developers.eos.io/manuals/eosio.cdt/latest/group__action/#function-require_recipient) method.  Calling `require_recipient` adds an account to the require_recipient set and ensures that these accounts receive a notification of the action being executed. The notification is like sending a "carbon copy" of the action to the accounts in the require_recipient set.
 ```cpp
   [[eosio::action]]
   void notify(name user, std::string msg) {
    require_recipient(user);
   }
 ```
-This action is very simple, however, as written, any user could call this function, and "fake" a receipt from this contract. This could be used in malicious ways, and should be seen as a vulnerability. To correct this, require that the authorization provided in the call to this action is from the contract itself, for this, use [get_self](https://developers.eos.io/manuals/eosio.cdt/v1.8/classeosio_1_1contract#function-get_self)
+This action is very simple, however, as written, any user could call this function, and "fake" a receipt from this contract. This could be used in malicious ways, and should be seen as a vulnerability. To correct this, require that the authorization provided in the call to this action is from the contract itself, for this, use [get_self](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1contract#function-get_self)
 ```cpp
   [[eosio::action]]
   void notify(name user, std::string msg) {
@@ -75,7 +75,7 @@ Save this object to an `action` variable called `notification`
 
 ```
 The action constructor requires a number of parameters.
-- A [permission_level](https://developers.eos.io/manuals/eosio.cdt/v1.8/structeosio_1_1permission__level) struct
+- A [permission_level](https://developers.eos.io/manuals/eosio.cdt/latest/structeosio_1_1permission__level) struct
 - The contract to call (initialised using `eosio::name` type)
 - The action (initialised using `eosio::name` type)
 - The data to pass to the action, a tuple of positionals that correlate to the actions being called.
@@ -99,7 +99,7 @@ In this contract the permission should be authorized by the `active` authority o
 
 ## The "code" AKA "account where contract is deployed"
 
-Since the action called is in this contract, use  [get_self](https://developers.eos.io/manuals/eosio.cdt/v1.8/classeosio_1_1contract/#function-get_self). `"addressbook"_n` would also work here, but if this contract were deployed under a different account name, it wouldn't work. Because of this, `get_self()` is the superior option.
+Since the action called is in this contract, use  [get_self](https://developers.eos.io/manuals/eosio.cdt/latest/classeosio_1_1contract/#function-get_self). `"addressbook"_n` would also work here, but if this contract were deployed under a different account name, it wouldn't work. Because of this, `get_self()` is the superior option.
 ```cpp
 ...
   private:
