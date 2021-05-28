@@ -279,7 +279,7 @@ We now have linked two custom permissions, _customp1_, and _customp2_, to two ac
 
 We can test this by using the permissions to call the smart contract actions.
 
-#### Call the actions using the `active` permission:
+#### Call the actions using the `active` permission
 
 Call _why_ with bob@active:
 
@@ -325,7 +325,7 @@ executed transaction: 43b6ad4ce7a52d7281ccd2800caa02d5278ee714de36fefe9624bff621
 
 We see that the `active` permission can sucessfully call all the actions.
 
-#### Call the actions using the _customp1_ permission:
+#### Call the actions using the _customp1_ permission
 
 Call _why_ with bob@customp1:
 
@@ -371,7 +371,7 @@ executed transaction: 43b6ad4ce7a52d7281ccd2800caa02d5278ee714de36fefe9624bff621
 
 We see that the _customp1_ permission can sucessfully call the _what_ and _how_ actions, but fails to call the _why_ action.
 
-#### Call the actions using the _customp2_ permission:
+#### Call the actions using the _customp2_ permission
 
 Call _why_ with bob@customp2:
 
@@ -445,7 +445,7 @@ We now have one linked custom permission, _customp1_  which can call _what_. The
 * _customp1_ is able to call _what_.
 * _customp2_ is not linked to any action so should be unable to call an action.
 
-#### Call the _how_ action using the all the permissions to show what permission has the authority to call the action:
+#### Call the _how_ action using the all the permissions to show what permission has the authority to call the action
 
 Call _how_ with bob@active:
 
