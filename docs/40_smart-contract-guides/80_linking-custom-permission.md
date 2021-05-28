@@ -279,7 +279,9 @@ We now have linked two custom permissions, _customp1_, and _customp2_, to two ac
 
 We can test this by using the permissions to call the smart contract actions.
 
-Call the actions using the `active` permission:
+#### Call the actions using the `active` permission:
+
+Call _why_ with bob@active:
 
 ```shell
 cleos push action scholder why '["name"]' -p bob@active
@@ -293,6 +295,8 @@ executed transaction: 43b6ad4ce7a52d7281ccd2800caa02d5278ee714de36fefe9624bff621
 >> why not name
 ```
 
+Call _what_ with bob@active:
+
 ```shell
 cleos push action scholder what '["name"]' -p bob@active
 ```
@@ -303,6 +307,9 @@ executed transaction: 43b6ad4ce7a52d7281ccd2800caa02d5278ee714de36fefe9624bff621
 #      scholder <= scholder::what               {"user":"name"}
 >> hi, what do you want name
 ```
+
+Call _how_ with bob@active:
+
 
 ```shell
 cleos push action scholder how '["name"]' -p bob@active
@@ -318,7 +325,9 @@ executed transaction: 43b6ad4ce7a52d7281ccd2800caa02d5278ee714de36fefe9624bff621
 
 We see that the `active` permission can sucessfully call all the actions.
 
-Call the actions using the _customp1_ permission:
+#### Call the actions using the _customp1_ permission:
+
+Call _why_ with bob@customp1:
 
 ```shell
 cleos push action scholder why '["name"]' -p bob@customp1
@@ -333,6 +342,8 @@ Error Details:
 action declares irrelevant authority '{"actor":"bob","permission":"customp1"}'; minimum authority is {"actor":"bob","permission":"active"}
 ```
 
+Call _what_ with bob@customp1:
+
 ```shell
 cleos push action scholder what '["name"]' -p bob@customp1
 ```
@@ -344,6 +355,8 @@ executed transaction: 43b6ad4ce7a52d7281ccd2800caa02d5278ee714de36fefe9624bff621
 #      scholder <= scholder::what               {"user":"name"}
 >> why not name
 ```
+
+Call _how_ with bob@customp1:
 
 ```shell
 cleos push action scholder how '["name"]' -p bob@customp1
@@ -358,7 +371,9 @@ executed transaction: 43b6ad4ce7a52d7281ccd2800caa02d5278ee714de36fefe9624bff621
 
 We see that the _customp1_ permission can sucessfully call the _what_ and _how_ actions, but fails to call the _why_ action.
 
-Call the actions using the _customp2_ permission:
+#### Call the actions using the _customp2_ permission:
+
+Call _why_ with bob@customp2:
 
 ```shell
 cleos push action scholder why '["name"]' -p bob@customp2
@@ -373,6 +388,8 @@ Error Details:
 action declares irrelevant authority '{"actor":"bob","permission":"customp2"}'; minimum authority is {"actor":"bob","permission":"active"}
 ```
 
+Call _what_ with bob@customp2:
+
 ```shell
 cleos push action scholder what '["name"]' -p bob@customp2
 ```
@@ -385,6 +402,8 @@ Please remove the unnecessary authority from your action!
 Error Details:
 action declares irrelevant authority '{"actor":"bob","permission":"customp2"}'; minimum authority is {"actor":"bob","permission":"customp1"}
 ```
+
+Call _how_ with bob@customp2:
 
 ```shell
 cleos push action scholder how '["name"]' -p bob@customp2
@@ -403,7 +422,7 @@ We see that the _customp2_ permission can sucessfully call the _how_ action, but
 ## Unlink The Permission
 You can unlink permissions to a smart contract action.
 
-Now we will unlink the _customp2_ permission from the _how_ action using the command `cleos set action permission`:
+Now we will unlink the _customp2_ permission from the _how_ action using the command [cleos set action permission](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/set/set-action-permission.md):
 
 ```shell
 cleos set action permission bob scholder how NULL -p bob@active
@@ -426,7 +445,9 @@ We now have one linked custom permission, _customp1_  which can call _what_. The
 * _customp1_ is able to call _what_.
 * _customp2_ is not linked to any action so should be unable to call an action.
 
-Call the _how_ action using the all the permissions to show what permission has the authority to call the action:
+#### Call the _how_ action using the all the permissions to show what permission has the authority to call the action:
+
+Call _how_ with bob@active:
 
 ```shell
 cleos push action scholder how '["name"]' -p bob@active
@@ -440,6 +461,8 @@ executed transaction: 43b6ad4ce7a52d7281ccd2800caa02d5278ee714de36fefe9624bff621
 >> how are you name
 ```
 
+Call _how_ with bob@customp1:
+
 ```shell
 cleos push action scholder how '["name"]' -p bob@customp1
 ```
@@ -452,6 +475,8 @@ Please remove the unnecessary authority from your action!
 Error Details:
 action declares irrelevant authority '{"actor":"bob","permission":"customp1"}'; minimum authority is {"actor":"bob","permission":"active"}
 ```
+
+Call _how_ with bob@customp2:
 
 ```shell
 cleos push action scholder how '["name"]' -p bob@customp2
@@ -467,7 +492,7 @@ action declares irrelevant authority '{"actor":"bob","permission":"customp2"}'; 
 ```
 
 ## Delete Custom Permissions
-Now you have unlinked the _customp2_ permission you can delete this permission.
+Now you have unlinked the _customp2_ permission you can delete this permission using the command [cleos set account permission](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/set/set-account-permission.md):
 
 ```shell
 cleos set account permission bob customp2 NULL active -p bob@active
