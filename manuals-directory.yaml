@@ -3,15 +3,15 @@ sections:
     listings:
       - title: nodeos
         description: The core service daemon that runs on every EOSIO node
-        link: https://developers.eos.io/manuals/eos/v2.1/nodeos/index
+        link: https://developers.eos.io/manuals/eos/latest/nodeos/index
 
       - title: cleos
         description: A command line interface to interact with the blockchain and manage wallets
-        link: https://developers.eos.io/manuals/eos/v2.1/cleos/index
+        link: https://developers.eos.io/manuals/eos/latest/cleos/index
 
       - title: keosd
         description: A key manager service daemon for storing private keys and signing digital messages
-        link: https://developers.eos.io/manuals/eos/v2.1/keosd/index
+        link: https://developers.eos.io/manuals/eos/latest/keosd/index
 
       - title: eosio.cdt
         description: Contract Development Toolkit is a suite of tools used to build EOSIO contracts

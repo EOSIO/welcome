@@ -3,19 +3,19 @@ sections:
     listings:
       - title: Nodeos Chain API
         description: Provides access to the blockchain information and interaction with the blockchain
-        link: https://developers.eos.io/manuals/eos/v2.1/nodeos/plugins/chain_api_plugin/api-reference/index
+        link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index
       - title: Nodeos Producer API
         description: Provides access to a producer node
-        link: https://developers.eos.io/manuals/eos/v2.1/nodeos/plugins/producer_api_plugin/api-reference/index
+        link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/producer_api_plugin/api-reference/index
       - title: Nodeos Net API
         description: Provides access to the blockchain's network
-        link: https://developers.eos.io/manuals/eos/v2.1/nodeos/plugins/net_api_plugin/api-reference
+        link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/net_api_plugin/api-reference
       - title: Nodeos DB Size API
         description: Provides access to the blockchain's database
-        link: https://developers.eos.io/manuals/eos/v2.1/nodeos/plugins/db_size_api_plugin/api-reference
+        link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/db_size_api_plugin/api-reference
       - title: Nodeos Trace API
         description: Provides access to retired actions and related metadata from a specified block
-        link: https://developers.eos.io/manuals/eos/v2.1/nodeos/plugins/trace_api_plugin/api-reference/index
+        link: https://developers.eos.io/manuals/eos/latest/nodeos/plugins/trace_api_plugin/api-reference/index
   - title: SDK API References
     listings:
       - title: eosjs Javascript API
