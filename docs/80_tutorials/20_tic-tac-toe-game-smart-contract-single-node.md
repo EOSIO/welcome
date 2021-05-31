@@ -4,7 +4,7 @@ link_text: "Tic-tac-toe Game Contract Using Single Node"
 ---
 
 # Tic-tac-toe on EOSIO 
-This tic-tac-toe tutorial guides you step by step to build a tic-tac-toe game which runs on an EOSIO blockchain. You will create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use a local [single node testnet](https://developers.eos.io/manuals/eos/v2.0/nodeos/usage/development-environment/local-single-node-testnet "local single node testnet") and show you how to play the game by calling the smart contract. 
+This tic-tac-toe tutorial guides you step by step to build a tic-tac-toe game which runs on an EOSIO blockchain. You will create a smart contract containing the game logic, then compile and deploy this smart contract to an EOSIO blockchain. In this tutorial we use a local [single node testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet "local single node testnet") and show you how to play the game by calling the smart contract. 
 
 
 [[info]]
@@ -90,7 +90,7 @@ For more information click on this link [Core Concepts](../20_introduction-to-eo
 The game requires at least two blockchain accounts, one for each player. The tutorial also creates a blockchain account to load the smart contract. 
 
 ### Run a local single node testnet
-Run [nodeos](https://developers.eos.io/manuals/eos/v2.0/nodeos/index) locally to start a blockchain running on a single node. [Configure nodeos](https://developers.eos.io/manuals/eos/v2.0/nodeos/usage/nodeos-configuration) with [plugins](https://developers.eos.io/manuals/eos/v2.0/nodeos/plugins/index) to produce blocks, store a history of the blockchain in memory, provide HTTP RPC access to these plugins and to output running information to a file.
+Run [nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/index) locally to start a blockchain running on a single node. [Configure nodeos](https://developers.eos.io/manuals/eos/latest/nodeos/usage/nodeos-configuration) with [plugins](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/index) to produce blocks, store a history of the blockchain in memory, provide HTTP RPC access to these plugins and to output running information to a file.
 
 ```shell
 nodeos -e -p eosio --plugin eosio::producer_plugin --plugin eosio::producer_api_plugin --plugin eosio::chain_api_plugin --plugin eosio::http_plugin --plugin eosio::history_plugin --plugin eosio::history_api_plugin --filter-on="*" --access-control-allow-origin='*' --contracts-console --http-validate-host=false --verbose-http-errors >> nodeos.log 2>&1 &
@@ -112,10 +112,10 @@ info
 ```
 
 ### Procedure for Accounts
-1. Create a wallet - [How To Create A Wallet](https://developers.eos.io/manuals/eos/v2.0/cleos/how-to-guides/how-to-create-a-wallet)
-2. Create key pair - [How To Create Key Pairs](https://developers.eos.io/manuals/eos/v2.0/cleos/how-to-guides/how-to-create-key-pairs)
-3. Create the account - [How To Create An Account](https://developers.eos.io/manuals/eos/v2.0/cleos/how-to-guides/how-to-create-an-account#gatsby-focus-wrapper)
-4. Import the account private key to the wallet - [How To Import A Key](https://developers.eos.io/manuals/eos/v2.0/cleos/how-to-guides/how-to-import-a-key)
+1. Create a wallet - [How To Create A Wallet](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-a-wallet)
+2. Create key pair - [How To Create Key Pairs](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-key-pairs)
+3. Create the account - [How To Create An Account](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-an-account#gatsby-focus-wrapper)
+4. Import the account private key to the wallet - [How To Import A Key](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-import-a-key)
 
 For this tutorial we need to create two player accounts and an account for the smart contract
 1. The host - the host will load the smart contract.
@@ -123,7 +123,7 @@ For this tutorial we need to create two player accounts and an account for the s
 3. The tictactoe account - the smart contract is loaded to this account.
 
 #### Cleos Commands
-To use the command line to create the accounts run the following commands. Make sure that the local wallet is [open](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/wallet/open) and [unlocked](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/wallet/unlock) and run these commands to create the accounts with the private keys stored in the local wallet.
+To use the command line to create the accounts run the following commands. Make sure that the local wallet is [open](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/open) and [unlocked](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/unlock) and run these commands to create the accounts with the private keys stored in the local wallet.
 
 Create a wallet called 'local'.
 
@@ -663,7 +663,7 @@ For this tutorial we ignore these warnings. Click on the following link for a tu
 The tictactoe directory now contains two new files, `tictactoe.wasm` and `tictactoe.abi`.
 
 ### Deploy the Single Node Testnet
-[Deploy the smart contract](https://developers.eos.io/manuals/eos/v2.0/cleos/how-to-guides/how-to-deploy-a-smart-contract) on the single node testnet tictactoe account with the following command.
+[Deploy the smart contract](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-deploy-a-smart-contract) on the single node testnet tictactoe account with the following command.
 
 In the same directory as the generated `wasm` and `ABI` files run
 ```shell
@@ -671,7 +671,7 @@ cleos set contract tictactoe ./ tictactoe.wasm tictactoe.abi -p tictactoe@active
 ```
 
 ## Play The Game
-Now that the smart contract has been successfully deployed [push smart contract actions](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/push/push-action) to the blockchain to play the game.  
+Now that the smart contract has been successfully deployed [push smart contract actions](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/push/push-action) to the blockchain to play the game.  
 
 
 ### Create a Game

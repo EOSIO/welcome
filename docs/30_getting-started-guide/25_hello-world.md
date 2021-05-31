@@ -144,7 +144,7 @@ cleos set contract hello ./hello -p hello@active
 
 ## Calling a Smart Contract Action
 
-Once the smart contract is successfully deployed, follow this section to [push smart contract actions](https://developers.eos.io/manuals/eos/v2.0/cleos/command-reference/push/push-action) to the blockchain and test the `hi` action.
+Once the smart contract is successfully deployed, follow this section to [push smart contract actions](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/push/push-action) to the blockchain and test the `hi` action.
 
 ### Procedure to call the Hi Action
 
