@@ -30,7 +30,7 @@ Once you complete the tutorial, you should have created a **_Hello World_** smar
 
 Create EOSIO smart contracts using the C++ programming language. The EOSIO Contract Development Toolkit or [EOSIO.CDT](../glossary/index/#eosio.cdt) provides the libraries and tools required to build a smart contract. See the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index) manual for more details on how to get started with the `EOSIO.CDT`.
 
-To deploy the smart contract to the blockchain, first use the [eosio-cpp](https://developers.eos.io/manuals/eosio.cdt/v1.7/command-reference/eosio-cpp) tool to compile the smart contract. The compilation builds a webassembly file and a corresponding application binary interface (ABI) file.
+To deploy the smart contract to the blockchain, first use the [eosio-cpp](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp) tool to compile the smart contract. The compilation builds a webassembly file and a corresponding application binary interface (ABI) file.
 
 The webassembly or `.wasm` file is the binary code that the webassembly engine in the blockchain executes. The webassembly engine or wasm engine is hosted in the nodeos daemon and executes the smart contract code. The application binary interface or `.abi` file defines how data is marshalled to and from the wasm engine.
 
@@ -78,7 +78,7 @@ class [[eosio::contract]] hello : public eosio::contract {};
 ```
 
 The `EOSIO.CDT` compiler automatically generates the main dispatcher and the `ABI file`.
-The [dispatcher](https://developers.eos.io/manuals/eosio.cdt/v1.7/group__dispatcher/?query=dispatcher&page=1#dispatcher) routes action calls to the correct smart contract action. The compiler will create one when using the `eosio::contract` attribute. Advanced programmers can customize this behaviour by defining their own dispatcher.
+The [dispatcher](https://developers.eos.io/manuals/eosio.cdt/latest/group__dispatcher/?query=dispatcher&page=1#dispatcher) routes action calls to the correct smart contract action. The compiler will create one when using the `eosio::contract` attribute. Advanced programmers can customize this behaviour by defining their own dispatcher.
 
 c. Add a public access specifier and a using-declaration to introduce base class members from `eosio::contract`. You can now use the default base class constructor.
 
@@ -180,7 +180,7 @@ This version of the Hello World smart contract is a simple example. The `hi` act
 
 ## Authorization
 
-The EOSIO blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check the account has the required authority to perform an action. Using authorization is the first step towards [securing your smart contract.](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/securing_your_contract) Follow this link [for more information about authorization checks.](https://developers.eos.io/manuals/eosio.cdt/latest/how-to-guides/authorization/how_to_restrict_access_to_an_action_by_user)
+The EOSIO blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check the account has the required authority to perform an action. Using authorization is the first step towards [securing your smart contract.](https://developers.eos.io/manuals/eosio.cdt/latest/best-practices/securing_your_contract) Follow this link [for more information about authorization checks.](https://developers.eos.io/manuals/eosio.cdt/latest/how-to-guides/authorization/how_to_restrict_access_to_an_action_by_user)
 
 Add [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action#function-require_auth) to the smart contract, the `require_auth` function checks authorization and ensures the name parameter matches the user executing and authorizing the action. 
 
