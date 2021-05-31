@@ -15,7 +15,7 @@ sections:
 
       - title: eosio.cdt
         description: Contract Development Toolkit is a suite of tools used to build EOSIO contracts
-        link: https://developers.eos.io/manuals/eosio.cdt/v1.8/index
+        link: https://developers.eos.io/manuals/eosio.cdt/latest/index
 
       - title: eosio.contracts
         description: Smart contracts that provide some of the basic functions of the EOSIO blockchain
