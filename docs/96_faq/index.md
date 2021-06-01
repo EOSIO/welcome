@@ -111,7 +111,7 @@ See [onblock](https://developers.eos.io/manuals/eosio.contracts/latest/action-re
 ### What are the supported data types that can be used for actions parameters?
 
 An action parameter type can be a built-in type or it can be a user-defined type.
-More details can be found on [Understanding ABI Files](https://developers.eos.io/manuals/eosio.cdt/v1.8/best-practices/abi/understanding-abi-files) documentation chapter and pay special attention to the [Types](https://developers.eos.io/manuals/eosio.cdt/v1.8/best-practices/abi/understanding-abi-files#types) section. The list of supported built-in types can be found [here](https://github.com/EOSIO/eos/blob/release/2.0.x/libraries/chain/abi_serializer.cpp#L90).
+More details can be found on [Understanding ABI Files](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/abi/understanding-abi-files) documentation chapter and pay special attention to the [Types](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/abi/understanding-abi-files#types) section. The list of supported built-in types can be found [here](https://github.com/EOSIO/eos/blob/release/2.0.x/libraries/chain/abi_serializer.cpp#L90).
 Be aware that EOSIO, although is doing the best it can to support user-defined types, if they are too complex it might not be possible to be supported and you will see errors generated; if that is the case you have to simplify the definition of the user-defined type.
 
 ## Transactions
