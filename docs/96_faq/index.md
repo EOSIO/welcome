@@ -34,7 +34,7 @@ The way to set up a local development environment that replicates a production e
 
 To set up a local single-node blockchain configuration, follow the instructions in the below topic:
 
-[Local Single-node Testnet](https://developers.eos.io/manuals/eos/v2.0/nodeos/usage/development-environment/local-single-node-testnet)
+[Local Single-node Testnet](https://developers.eos.io/manuals/eos/latest/nodeos/usage/development-environment/local-single-node-testnet)
 
 You can also use the [Block.one's official EOSIO Testnet.](https://testnet.eos.io/) To learn how to set up an account and use the EOSIO Testnet click here [EOSIO Testnet Quick Start Guide.](https://developers.eos.io/welcome/latest/quick-start-guides/testnet-quick-start-guide/index)
 
