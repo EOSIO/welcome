@@ -114,6 +114,10 @@ An action parameter type can be a built-in type or it can be a user-defined type
 More details can be found on [Understanding ABI Files](https://developers.eos.io/manuals/eosio.cdt/v1.8/best-practices/abi/understanding-abi-files) documentation chapter and pay special attention to the [Types](https://developers.eos.io/manuals/eosio.cdt/v1.8/best-practices/abi/understanding-abi-files#types) section. The list of supported built-in types can be found [here](https://github.com/EOSIO/eos/blob/release/2.1.x/libraries/chain/abi_serializer.cpp#L85).
 Be aware that EOSIO, although is doing the best it can to support user-defined types, if they are too complex it might not be possible to be supported and you will see errors generated; if that is the case you have to simplify the definition of the user-defined type.
 
+### How to turn off the empty ricardian clause file warnings
+
+To accomplish this pass the `-no-missing-ricardian-clause` as a compile option to the `eosio-cpp` tool. For details see the [`eosio-cpp`](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp) reference documentation page.
+
 ## Transactions
 
 ### What happens when we send too many transactions to the blockchain and overwhelm it?
