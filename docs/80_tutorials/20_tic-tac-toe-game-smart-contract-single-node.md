@@ -656,7 +656,7 @@ Warning, action <close> does not have a ricardian contract
 Warning, action <move> does not have a ricardian contract
 ```
 
-For this tutorial we ignore these warnings. Click on the following link for a tutorial showing how to add the optional ricardian contracts [Prepare the Ricardian Contract](../02_getting-started/03_smart-contract-development/04_data-persistence.md#step-10-prepare-the-ricardian-contract-optional "Getting Started - Data Peristence")
+For this tutorial we ignore these warnings. Click on the following link for a tutorial showing how to add the optional ricardian contracts [Prepare the Ricardian Contract](../smart-contract-guides/data-persistence/#step-10-prepare-the-ricardian-contract-optional)
 
 The tictactoe directory now contains two new files, `tictactoe.wasm` and `tictactoe.abi`.
 
