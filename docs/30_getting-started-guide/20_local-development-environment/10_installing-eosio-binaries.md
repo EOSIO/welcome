@@ -14,7 +14,7 @@ To get started as quickly as possible, we recommend using EOSIO pre-built binari
 The below commands will download binaries for respective operating systems.
 ### Mac OS X Brew Install:
 ```shell
-brew tap eosio/eosio/eosio
+brew tap eosio/eosio
 brew install eosio/eosio/eosio
 ```
 
