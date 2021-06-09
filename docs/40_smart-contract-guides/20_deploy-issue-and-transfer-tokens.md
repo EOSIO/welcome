@@ -58,7 +58,7 @@ warning: transaction executed locally, but may not be confirmed by the network y
 
 ## Step 5: Create the Token
 
-To create a new token, call `create` action with the correct parameters specified as a json array:
+To create a new token, call the `create` action with the following parameters specified as a JSON array:
 
 * An `issuer` that is an eosio account. In this case, it's `alice`. This issuer will be the one with the authority to call `issue` and/or perform other actions such as closing accounts or retiring tokens.
 
