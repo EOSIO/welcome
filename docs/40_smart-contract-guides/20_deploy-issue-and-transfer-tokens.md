@@ -58,9 +58,9 @@ warning: transaction executed locally, but may not be confirmed by the network y
 
 ## Step 5: Create the Token
 
-To create a new token, call `create` action with the correct parameters. This action accepts 1 argument, it consists of:
+To create a new token, call `create` action with the correct parameters specified as a json array:
 
-* An issuer that is an eosio account. In this case, it's `alice`. This issuer will be the one with the authority to call `issue` and/or perform other actions such as closing accounts or retiring tokens.
+* An `issuer` that is an eosio account. In this case, it's `alice`. This issuer will be the one with the authority to call `issue` and/or perform other actions such as closing accounts or retiring tokens.
 
 * An `asset` type composed of two pieces of data, a floating-point number sets the maximum supply and a `symbol` in capitalized alpha characters which represents the asset. For example, "1.0000 SYS".
 
