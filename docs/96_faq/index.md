@@ -85,11 +85,11 @@ A digital wallet can be either cold or hot.
 
 ### What is a cold wallet
 
-Also called a "hardware wallet", "offline wallet" or "cold storage", is a cryptocurrency wallet stored offline. The cold wallet is stored on a platform that is offline, that is not connected to the internet. This way the wallet is protected from cyber hacks and other vulnerabilities to which a online system is exposed to. It is the most secure way to store cryptocurrencies.
+A cold wallet, also called a "hardware wallet", "offline wallet" or "cold storage", is a cryptocurrency wallet stored offline. The cold wallet is stored on a platform that is offline, that is not connected to the internet. This way the wallet is protected from cyber hacks and other vulnerabilities to which an online system is exposed to. It is the most secure way to store cryptocurrencies.
 
 ### What is a hot wallet
 
-A hot wallet is a cryptocurrency wallet stored on a platform that is online, connected to the internet, e.g. web hosted, mobile hosted, exchange hosted. Because of this aspect they are considered less secured than the cold wallets albeit they provide more flexibility and availability.
+A hot wallet is a cryptocurrency wallet stored on a platform that is online, connected to the internet, e.g. web hosted, mobile hosted, or hosted by an exchange. Because of this aspect the hot wallets are considered less secured than the cold wallets albeit they provide more flexibility and availability to the users.
 
 ## Smart Contracts
 
