@@ -39,6 +39,14 @@ sections:
         description: An example for developers showing an application built on EOSIO combining UAL, Manifest Spec, and Ricardian Contracts
         link: https://github.com/EOSIO/tropical-example-web-app
 
+      - title: return-values-example-app
+        description: An example application for developers to use the EOSIO action return values feature with eosjs. Powered by Gitpod.io and Docker.
+        link: https://github.com/EOSIO/return-values-example-app
+
+      - title: key-value-example-app
+        description: An example application for developers to use the EOSIO key value database feature with eosjs. Powered by Gitpod.io and Docker.
+        link: https://github.com/EOSIO/key-value-example-app
+
   - title: Tools
     listings:
       - title: eosio-explorer
