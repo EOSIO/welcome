@@ -73,6 +73,24 @@ to update the key pairs associated with an account permission. This command repl
 
 If you are using a third party wallet with a UI, they may provide the ability to update your account public and private key pairs.
 
+### What is a digital wallet
+
+A digital wallet, also called simply "wallet", is where the keys are stored. A wallet can also allow you to:
+
+* generate new keys,
+* delete keys from wallet,
+* send, receive, and spend cryptocurrencies,
+
+A digital wallet can be either cold or hot.
+
+### What is a cold wallet
+
+Also called a "hardware wallet", "offline wallet" or "cold storage", is a cryptocurrency wallet stored offline. The cold wallet is stored on a platform that is offline, that is not connected to the internet. This way the wallet is protected from cyber hacks and other vulnerabilities to which a online system is exposed to. It is the most secure way to store cryptocurrencies.
+
+### What is a hot wallet
+
+A hot wallet is a cryptocurrency wallet stored on a platform that is online, connected to the internet, e.g. web hosted, mobile hosted, exchange hosted. Because of this aspect they are considered less secured than the cold wallets albeit they provide more flexibility and availability.
+
 ## Smart Contracts
 
 ### How to optimize smart contracts built to maximise throughput/performance?
