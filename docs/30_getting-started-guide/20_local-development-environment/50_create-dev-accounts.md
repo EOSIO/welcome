@@ -59,9 +59,10 @@ cpu bandwidth:
      available:          unlimited
      limit:              unlimited
 ```
-Notice that actually `alice` has both `owner` and `active` public keys. EOSIO has a unique authorization structure that has added security for your account. You can minimize the exposure of your account by keeping the owner key cold, while using the key associated with your `active` permission. This way, if your `active` key were ever compromised, you could regain control over your account with your `owner` key.
+Notice that actually `alice` has both `owner` and `active` public keys. EOSIO has a unique authorization structure that has added security for your account. You can minimize the exposure of your account by keeping the owner key stored in a [cold wallet](https://developers.eos.io/welcome/latest/faq/index/#what-is-a-cold-wallet), while using the key associated with your `active` permission. This way, if your `active` key were ever compromised, you could regain control over your account with your `owner` key.
 
-In term of authorization, if you have a `owner` permission you can change the private key of `active` permission. But you cannot do so other way around.
+In terms of authorization, if you have a `owner` permission you can change the private key of `active` permission. But you cannot do so the other way around.
+
 [[info | Using Different Keys for Active/Owner on a PRODUCTION Network ]]
 | In this tutorial we are using the same public key for both `owner` and `active` for simplicity. In production network, two different keys are strongly recommended
 

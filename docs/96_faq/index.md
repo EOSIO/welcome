@@ -71,7 +71,25 @@ cleos set account permission <accountname> <permission> NEW_ACTIVE_PUBLIC_KEY ow
 
 to update the key pairs associated with an account permission. This command replaces the existing authority structure associated with the permission. Keys are stored in the authority, which is referenced by the permission, which is referenced by the account. See [Account and Permissions](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions) for details.
 
-If you are using a third party wallet with a UI, they may provide the ability to update your account public and private key pairs.
+If you are using a third party wallet with a UI, it may provide the ability to update your account's public and private key pairs.
+
+### What is a digital wallet
+
+A digital wallet, also called simply "wallet", is where the cryptographic keys are stored. A wallet can also allow you to:
+
+* Generate new cryptographic keys
+* Delete cryptographic keys from wallet
+* Send, receive, and spend cryptocurrencies
+
+A digital wallet can be either cold or hot.
+
+### What is a cold wallet
+
+A cold wallet, also called a "hardware wallet", "offline wallet" or "cold storage", is a type of digital cryptocurrency wallet stored offline. The cold wallet is stored on a platform that is offline, that is not connected to the internet. This way the wallet is protected from cyber hacks and other vulnerabilities to which an online system is exposed to. It is the most secure way to store cryptocurrencies.
+
+### What is a hot wallet
+
+A hot wallet is a type of digital cryptocurrency wallet stored on a platform that is online, connected to the internet, e.g. web hosted, mobile hosted, or hosted by an exchange. Because of this aspect the hot wallets are considered less secured than the cold wallets albeit they provide more flexibility and availability to the users.
 
 ## Smart Contracts
 
