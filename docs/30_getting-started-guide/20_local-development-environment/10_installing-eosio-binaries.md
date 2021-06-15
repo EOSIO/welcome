@@ -15,7 +15,7 @@ The below commands will download binaries for respective operating systems.
 ### Mac OS X Brew Install:
 ```shell
 brew tap eosio/eosio
-brew install eosio
+brew install eosio/eosio/eosio
 ```
 
 [[info]]
