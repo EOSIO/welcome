@@ -5,7 +5,7 @@ link_text: "Build and Deploy Hello World Smart Contract"
 
 You deploy and execute smart contracts on the blockchain. A record of each transaction is immutably stored on the blockchain and smart contracts store and update state on the blockchain. A blockchain application consists of client code which calls smart contract actions. The smart contract actions execute on the blockchain.
 
-Let's start with a simple smart contract that produces the traditional **_Hello World_**. 
+Let's start with a simple smart contract that produces the traditional **_Hello World_**.
 
 This tutorial introduces the following key concepts:
 * [EOSIO Contract Development Toolkit](https://developers.eos.io/manuals/eosio.cdt/latest/index) - Toolchain and libraries used to build smart contracts
@@ -22,7 +22,7 @@ This tutorial shows how to:
 This tutorial requires the following:
 * Knowledge of the C++ programming language
 * A code editor or an IDE
-* A fully configured [local development environment](20_local-development-environment) 
+* A fully configured [local development environment](20_local-development-environment)
 
 Once you complete the tutorial, you should have created a **_Hello World_** smart contract and deployed the smart contract on a blockchain.
 
@@ -39,7 +39,7 @@ The webassembly or `.wasm` file is the binary code that the webassembly engine i
 Follow this procedure to create the **_Hello World_** smart contract. Normally you create two files - the header  or `.hpp` file which contains the declarations for the smart contract class and the `.cpp` file, which contains the implementation of the smart contract actions. In this simple example, you only use a `.cpp` file.
 
 
-### Procedure to create hello.cpp 
+### Procedure to create hello.cpp
 
 1. Create a new directory called **hello** to store your smart contract file:
 
@@ -69,7 +69,7 @@ Add the line:
 #include <eosio/eosio.hpp>
 ```
 
-b. The `eosio.hpp` contains classes required to write a smart contract, including `eosio::contract`. Create a standard C++11 class and inherit from the `eosio::contract` class. Use the `[[eosio::contract]]` attribute to inform the EOSIO.CDT compiler this is a smart contract. 
+b. The `eosio.hpp` contains classes required to write a smart contract, including `eosio::contract`. Create a standard C++11 class and inherit from the `eosio::contract` class. Use the `[[eosio::contract]]` attribute to inform the EOSIO.CDT compiler this is a smart contract.
 
 Add the line:
 
@@ -89,7 +89,7 @@ public:
 	using eosio::contract::contract;
 ```
 
-d. Add a `hi` public action. This action accepts an `eosio::name` parameter, and prints **Hello** concatenated with the `eosio::name` parameter. 
+d. Add a `hi` public action. This action accepts an `eosio::name` parameter, and prints **Hello** concatenated with the `eosio::name` parameter.
 Add these lines:
 
 ```cpp
@@ -120,7 +120,7 @@ class [[eosio::contract]] hello : public eosio::contract {
 ## Compile and Deploy
 
 Now that the smart contract is successfully created, follow this section to
-compile and deploy the smart contract to the blockchain. Use the EOSIO.CDT [eosio-cpp](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp) command to build the `.wasm` file and a corresponding `.abi` file. 
+compile and deploy the smart contract to the blockchain. Use the EOSIO.CDT [eosio-cpp](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp) command to build the `.wasm` file and a corresponding `.abi` file.
 
 ### Procedure to Compile and Deploy
 
@@ -181,17 +181,17 @@ This version of the **_Hello World_** smart contract is a simple example. The `h
 ## Authorization
 The EOSIO blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check the account has the required authority to perform an action. Using authorization is the first step towards [securing your smart contract.](https://developers.eos.io/manuals/eosio.cdt/v1.7/best-practices/securing_your_contract) Follow this link [for more information about authorization checks.](https://developers.eos.io/manuals/eosio.cdt/v1.8/how-to-guides/authorization/how_to_restrict_access_to_an_action_by_user)
 
-Add [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action#function-require_auth) to the smart contract, the `require_auth` function checks authorization and ensures the name parameter matches the user executing and authorizing the action. 
+Add [require_auth](https://developers.eos.io/manuals/eosio.cdt/latest/group__action#function-require_auth) to the smart contract, the `require_auth` function checks authorization and ensures the name parameter matches the user executing and authorizing the action.
 
 ### Procedure to add authorization
 
 1. Update the "hi" action in the `hello.cpp` to use `require_auth`:
 
 ```cpp
-void hi( name user ) {
-   require_auth( user );
-   print( "Hello, ", name{user} );
-}
+	[[eosio::action]] void hi( eosio::name user ) {
+		require_auth( user );
+		print( "Hello, ", user);
+	}
 ```
 
 2. Recompile the contract (remember to run the `eosio-cpp` command in the same folder as the `hello.cpp` file, or refer to the file with an absolute or relative path):
@@ -234,9 +234,8 @@ This should now produce:
 >> Hello, alice
 ```
 
-The action should execute successfully, after checking that the account calling the action has the same authorizing account as the user name passed to the action. 
+The action should execute successfully, after checking that the account calling the action has the same authorizing account as the user name passed to the action.
 
 ## What's Next?
 
 You have looked at how to write and deploy smart contracts. In the [Smart Contract Guides](../40_smart-contract-guides) we will look at writing and using more complex smart contracts.
-
