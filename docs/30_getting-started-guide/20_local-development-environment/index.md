@@ -16,3 +16,8 @@ The following list provides instructions to prepare your local development envir
 3. [Create Development Wallet](30_development-wallet.md): Steps to create development wallet to store key pairs 
 4. [Start Keosd and Nodeos](40_start-nodeos-keosd.md): Steps to start `Keosd` and `Nodeos` 
 5. [Create Development Accounts](50_create-dev-accounts.md): Steps to create you first EOSIO blockchain accounts for smart contracts
+
+## EOSIO Training and Certification Center
+In addition to following the instructions given in the above sections to set up your local development environment, you can also enroll in EOSIO's online learning courses. The following online course provides instructions in a blended format ( textual and videos) to help you set up your local development environment:
+
+* **[EOSIO Development Environment Setup](https://training.eos.io/courses/developer-environment-setup)**
