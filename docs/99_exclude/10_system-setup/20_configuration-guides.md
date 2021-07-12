@@ -26,7 +26,7 @@ A local single node testnet is a great place to start, but a blockchain running 
 The EOSIO Testnet is Block.one's offical testnet and uses the latest EOSIO software. 
 
 * [EOSIO Testnet](https://testnet.eos.io/) Block.one's official EOSIO Testnet.
-* [EOSIO Testnet Quick Start Guide.](https://developers.eos.io/welcome/latest/quick-start-guides/testnet-quick-start-guide/index) 
+* [EOSIO Testnet Quick Start Guide.](https://developers.eos.io/welcome/v2.2/quick-start-guides/testnet-quick-start-guide/index) 
 
 ## Block Producers
 Block producers operate in a distributed and/or decentralised environment. A [block producer](../../glossary/index#block-producer) may run many instances of [Nodeos](../../glossary/index#nodeos) and these may be in one of two modes:
