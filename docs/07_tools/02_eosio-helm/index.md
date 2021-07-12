@@ -16,7 +16,7 @@ link_text: EOSIO Nodeos Helm Charts
 
 ## Overview
 
-EOSIO Helm Charts provides direct access to infrastructure-as-code (IaC) for rapid deployment of EOSIO nodes via Kubernetes. It includes support for common cloud providers such as Amazon Web Services (AWS) and Google Cloud Platform (GCP). EOSIO Helm Charts currently includes three charts:
+EOSIO Helm Charts provides direct access to infrastructure-as-code (IaC) for rapid deployment of EOSIO nodes via Kubernetes. It includes support for common cloud providers such as Amazon Web Services (AWS) and Google Cloud Platform (GCP). EOSIO Helm Charts currently includes three (3) charts:
 
   * `eosio`: provides the configuration umbrella for the EOSIO ecosystem.
   * `eosio-common`: provides scaffolding for infrastructure extensions support.
