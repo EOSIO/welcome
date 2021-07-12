@@ -21,7 +21,7 @@ Yes, you can wipe a blockchain by the following actions:
 2. Remove the content of data folder
 3. Restart the `nodeos` service 
 
-See the [nodeos manual](https://developers.eos.io/manuals/eos/latest/nodeos/index) for detailed information on how to use `nodeos`.  
+See the [nodeos manual](https://developers.eos.io/manuals/eos/v2.2/nodeos/index) for detailed information on how to use `nodeos`.  
 
 Nodeos stores runtime data (e.g., shared memory and log content) in a data folder which can be optionally specified with the `-d` option when invoking nodeos. The default location of the data folder depends on your operating system.. The location of the data folder depends on your system:
 * Mac OS -  ~/Library/Application\ Support/eosio/nodeos/data
@@ -55,7 +55,7 @@ For more information on this topic, see the [Accounts and Permissions](https://d
 
 ### How can I change private keys for accounts?
 
-Use the [cleos set account](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/set/set-account) command.
+Use the [cleos set account](https://developers.eos.io/manuals/eos/v2.2/cleos/command-reference/set/set-account) command.
 
 `cleos set account permission <accountname - account name> <permission - permission name> <authority - json structure> <parent - owner?> -p authorizing permission`
 
@@ -168,8 +168,8 @@ There are a few ways to confirm if a transaction made to a block; you can find t
 
 Here are a few ways to check if a transaction made it to a block:
 
-* Poll [get_block](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index#operation/get_block) of the Chain API and search for the transaction ID in the list of transactions included in the block. If the transaction expiration time is reached and your transaction ID was not found in any block, then you have to resend the transaction. Otherwise, if you find the transaction ID in a block then you can wait for the block to become irreversible. Only then you are 100% sure the transaction will make it in the blockchain.
-* Poll [get_block](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/trace_api_plugin/api-reference/index) of the Trace API and search for the transaction ID in the list of transactions included in the block. If the transaction expiration time is reached and your transaction ID was not found in any block then you have to resend the transaction. Otherwise, if you find the transaction ID in a block then you can wait for the block to become irreversible. Only then you are 100% sure the transaction will make it in the blockchain.
+* Poll [get_block](https://developers.eos.io/manuals/eos/v2.2/nodeos/plugins/chain_api_plugin/api-reference/index#operation/get_block) of the Chain API and search for the transaction ID in the list of transactions included in the block. If the transaction expiration time is reached and your transaction ID was not found in any block, then you have to resend the transaction. Otherwise, if you find the transaction ID in a block then you can wait for the block to become irreversible. Only then you are 100% sure the transaction will make it in the blockchain.
+* Poll [get_block](https://developers.eos.io/manuals/eos/v2.2/nodeos/plugins/trace_api_plugin/api-reference/index) of the Trace API and search for the transaction ID in the list of transactions included in the block. If the transaction expiration time is reached and your transaction ID was not found in any block then you have to resend the transaction. Otherwise, if you find the transaction ID in a block then you can wait for the block to become irreversible. Only then you are 100% sure the transaction will make it in the blockchain.
 * Use third party tools which allow you to do that. One example is dfuse which provides an [end-point](https://docs.dfuse.io/eosio/public-apis/reference/rest/post-chain-push_transaction/) allowing you to probe the transactions. 
 
 ### How to reliably determine finality of transaction?

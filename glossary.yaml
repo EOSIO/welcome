@@ -55,7 +55,7 @@ terms:
     related:
       - name: "Block-Producing Node"
       - name: "Guide: Configuring a block-producing node"
-        link: "http://developers.eos.io/manuals/eos/latest/nodeos/usage/node-setups/producing-node"
+        link: "http://developers.eos.io/manuals/eos/v2.2/nodeos/usage/node-setups/producing-node"
   - definition: "A complete all-or-nothing change to the Blockchain. A combination of one or more actions. Usually the execution result of a Smart Contract."
     name: Transaction
   - definition: "An oracle, in the context of blockchains and smart contracts, is an agent that finds and verifies real-world occurrences and submits this information to a blockchain to be used by smart contracts."

@@ -65,22 +65,22 @@ Permisssions are also hierarchical, so a permission can have a parent, and anyth
 ## Create a wallet
 The following procedure shows you how to create a wallet: 
 
-1. Create a wallet: [How To Create A Wallet](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-a-wallet)
+1. Create a wallet: [How To Create A Wallet](https://developers.eos.io/manuals/eos/v2.2/cleos/how-to-guides/how-to-create-a-wallet)
 
-To use a wallet and the keys contained in a wallet, the wallet must be **open** and **unlocked**. You can change the timeout period used to lock a wallet with the `unlock-timeout` configuration option. See [Auto-locking](https://developers.eos.io/manuals/eos/latest/keosd/usage#auto-locking)for details. 
+To use a wallet and the keys contained in a wallet, the wallet must be **open** and **unlocked**. You can change the timeout period used to lock a wallet with the `unlock-timeout` configuration option. See [Auto-locking](https://developers.eos.io/manuals/eos/v2.2/keosd/usage#auto-locking)for details. 
 
 ## Create Accounts
 
 The following procedure shows you how to create an account after you have a local wallet. Ensure that the local wallet is open and unlocked.
 
-1. Create key pair: [How To Create Key Pairs](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-key-pairs)
-2. Create the account: [How To Create An Account](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-create-an-account)
-3. Import the account private key to the wallet: [How To Import A Key](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-import-a-key)
+1. Create key pair: [How To Create Key Pairs](https://developers.eos.io/manuals/eos/v2.2/cleos/how-to-guides/how-to-create-key-pairs)
+2. Create the account: [How To Create An Account](https://developers.eos.io/manuals/eos/v2.2/cleos/how-to-guides/how-to-create-an-account)
+3. Import the account private key to the wallet: [How To Import A Key](https://developers.eos.io/manuals/eos/v2.2/cleos/how-to-guides/how-to-import-a-key)
  
-You can now check the account on the blockchain: [How to get account information.](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-get-account-information) 
+You can now check the account on the blockchain: [How to get account information.](https://developers.eos.io/manuals/eos/v2.2/cleos/how-to-guides/how-to-get-account-information) 
 
 [[info]]
-| You can update account permissions and keys with the [cleos set account](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/set/set-account) command
+| You can update account permissions and keys with the [cleos set account](https://developers.eos.io/manuals/eos/v2.2/cleos/command-reference/set/set-account) command
 
 ## What's Next?
 

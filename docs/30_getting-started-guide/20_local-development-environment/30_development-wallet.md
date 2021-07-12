@@ -5,10 +5,10 @@ link_text: "Create Development Wallet"
 
 Private keys are stored locally in [Keosd](../../glossary/index#keosd). Private keys are one half of public-private key pairs which are used by asymmetric cryptography. The corresponding public keys is stored on the blockchain and associated with an account. It is these keys that are used to secure accounts and to sign transactions. 
 
-Use [Cleos](../../glossary/index#cleos) to run commands on the blockchain and to interact with accounts and keys via [wallet](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/index) and other [commands.](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/index)    
+Use [Cleos](../../glossary/index#cleos) to run commands on the blockchain and to interact with accounts and keys via [wallet](https://developers.eos.io/manuals/eos/v2.2/cleos/command-reference/wallet/index) and other [commands.](https://developers.eos.io/manuals/eos/v2.2/cleos/command-reference/index)    
 
 ## Create a Wallet
-The first step is to create a wallet. Use [cleos wallet create](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/create) to create a new "default" wallet using the option `--to-console` for simplicity. If using cleos in production, it's wise to instead use `--file` so your wallet password is not in your bash history. For development purposes and because these are **development and not production keys** `--to-console` poses no security threat.
+The first step is to create a wallet. Use [cleos wallet create](https://developers.eos.io/manuals/eos/v2.2/cleos/command-reference/wallet/create) to create a new "default" wallet using the option `--to-console` for simplicity. If using cleos in production, it's wise to instead use `--file` so your wallet password is not in your bash history. For development purposes and because these are **development and not production keys** `--to-console` poses no security threat.
 
 ```shell
 cleos wallet create --to-console

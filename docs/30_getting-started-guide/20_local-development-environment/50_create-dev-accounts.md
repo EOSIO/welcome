@@ -16,7 +16,7 @@ This tutorial series uses two "user" accounts, `bob` and `alice`, as well as the
 
 In the following steps, if you see `YOUR_PUBLIC_KEY` instead of the public key value, you can either go back to section **1.4 Create Development Wallet** and persist the value or replace `YOUR_PUBLIC_KEY` with the public key value manually.
 
-Throughout these tutorials the accounts `bob` and `alice` are used. Create two accounts using [cleos create account](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/create/account)
+Throughout these tutorials the accounts `bob` and `alice` are used. Create two accounts using [cleos create account](https://developers.eos.io/manuals/eos/v2.2/cleos/command-reference/create/account)
 
 ```shell
 cleos create account eosio bob YOUR_PUBLIC_KEY
@@ -35,7 +35,7 @@ Note in `cleos` command a public key is associated with account `alice`. Each EO
 
 Be aware that the account name is the only identifier for ownership. You can change the public key but it would not change the ownership of your EOSIO account.
 
-Check which public key is associated with `alice` using [cleos get account](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/get/account)
+Check which public key is associated with `alice` using [cleos get account](https://developers.eos.io/manuals/eos/v2.2/cleos/command-reference/get/account)
 
 ```shell
 cleos get account alice

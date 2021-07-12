@@ -7,8 +7,8 @@ Plugins extend the core functionality implemented in each tool. Plugins publishe
 
 There are currently two EOSIO components which use plugins:
 
-* [Nodeos Plugins.](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/index) - Plugins extend the core functionality implemented in [Nodeos](../../glossary/index#nodeos). Some plugins are mandatory, such as chain_plugin, net_plugin, and producer_plugin, which reflect the modular design of nodeos. The other plugins are optional as they provide nice to have features, but non-essential for the nodes operation. Follow this link [Nodeos Plugins](https://developers.eos.io/manuals/eos/latest/nodeos/plugins/index) for more information.
-* [Keosd Plugins.](https://developers.eos.io/manuals/eos/latest/keosd/plugins/index) Plugins extend the core functionality implemented in [Keosd](../../glossary/index#keosd). Follow this link [Keosd Plugins](https://developers.eos.io/manuals/eos/latest/keosd/plugins/index) for more information. 
+* [Nodeos Plugins.](https://developers.eos.io/manuals/eos/v2.2/nodeos/plugins/index) - Plugins extend the core functionality implemented in [Nodeos](../../glossary/index#nodeos). Some plugins are mandatory, such as chain_plugin, net_plugin, and producer_plugin, which reflect the modular design of nodeos. The other plugins are optional as they provide nice to have features, but non-essential for the nodes operation. Follow this link [Nodeos Plugins](https://developers.eos.io/manuals/eos/v2.2/nodeos/plugins/index) for more information.
+* [Keosd Plugins.](https://developers.eos.io/manuals/eos/v2.2/keosd/plugins/index) Plugins extend the core functionality implemented in [Keosd](../../glossary/index#keosd). Follow this link [Keosd Plugins](https://developers.eos.io/manuals/eos/v2.2/keosd/plugins/index) for more information. 
 
 ## Community plugins
 

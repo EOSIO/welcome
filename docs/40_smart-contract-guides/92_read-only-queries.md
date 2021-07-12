@@ -11,8 +11,8 @@ Once the tutorial is completed you should be able to create and call a read-only
 ## Before you begin
 This tutorial requires the following:
 
-* The EOSIO platform software, version 2.2. or greater, click on this link for instructions on [installing EOSIO](https://developers.eos.io/manuals/eos/latest/install/index)
-* The EOSIO.CDT (Contract Development Toolkit), version 1.9. or greater, click on this link for instructions on [installing the EOSIO.CDT](https://developers.eos.io/manuals/eos/latest/install/index)
+* The EOSIO platform software, version 2.2. or greater, click on this link for instructions on [installing EOSIO](https://developers.eos.io/manuals/eos/v2.2/install/index)
+* The EOSIO.CDT (Contract Development Toolkit), version 1.9. or greater, click on this link for instructions on [installing the EOSIO.CDT](https://developers.eos.io/manuals/eos/v2.2/install/index)
 * Access to a running blockchain. Click on this link for instructions on [running a blockchain](01_before-you-begin/10_running-a-blockchain.md)
 * An EOSIO account and access to the account keys. Click on this link for information on [Accounts and Permissions](01_before-you-begin/20_accounts-and-permissions.md)
 * You understand how to build and deploy smart contracts. Follow this link for more information [hello world tutorial.](../30_getting-started-guide/25_hello-world.md)
@@ -82,7 +82,7 @@ class [[eosio::contract]] hello : public eosio::contract {
 };
 ```
 
-Build the smart contract and deploy the smart contract to the local single-node testnet using [how to compile a smart contract via the CLI](https://developers.eos.io/manuals/eosio.cdt/latest/how-to-guides/compile/compile-a-contract-via-cli) and [how to deploy a smart contract.](https://developers.eos.io/manuals/eos/latest/cleos/how-to-guides/how-to-deploy-a-smart-contract) 
+Build the smart contract and deploy the smart contract to the local single-node testnet using [how to compile a smart contract via the CLI](https://developers.eos.io/manuals/eosio.cdt/latest/how-to-guides/compile/compile-a-contract-via-cli) and [how to deploy a smart contract.](https://developers.eos.io/manuals/eos/v2.2/cleos/how-to-guides/how-to-deploy-a-smart-contract) 
 
 ## Call the Read-Only Query 
 Once you have deployed the smart contract you can test it by calling the actions and seeing the data returned. Assuming the smart contract is deployed to an account called _scholder_ and that you have an account named _bob_ to authorise calling the actions. 
