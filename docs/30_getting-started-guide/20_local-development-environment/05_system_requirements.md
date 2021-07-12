@@ -6,14 +6,14 @@ link_text: "System Requirements"
 
 ## EOSIO versions
 
-The component versions of the `EOSIO platform` used in the latest developers portal are:
+The component versions of the `EOSIO platform` used in this version are:
 
 | Component | Version |
 | ------ | ------ |
-| eosio | 2.0.0 |
-| eosio.cdt | 1.7.0 |
-| eosio.contracts | 1.9.0 |
-| eosjs | 21.0 |
+| eosio | 2.2-rc |
+| eosio.cdt | 1.8 |
+| eosio.contracts | 1.9 |
+| eosjs | 22.2 |
 
 
 ## Supported Operating Systems
