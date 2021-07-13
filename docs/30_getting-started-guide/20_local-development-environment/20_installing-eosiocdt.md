@@ -24,9 +24,9 @@ brew remove eosio.cdt
 
 ## Install
 ```shell
-wget https://github.com/EOSIO/eosio.cdt/releases/download/v1.6.3/eosio.cdt_1.6.3-1-ubuntu-18.04_amd64.deb
+wget https://github.com/eosio/eosio.cdt/releases/download/v1.8.1/eosio.cdt_1.8.1-1-ubuntu-18.04_amd64.deb
 
-sudo apt install ./eosio.cdt_1.6.3-1-ubuntu-18.04_amd64.deb
+sudo apt install ./eosio.cdt_1.8.1-1-ubuntu-18.04_amd64.deb
 ```
 ## Uninstall
 ```shell
@@ -35,9 +35,9 @@ sudo apt remove eosio.cdt
 # CentOS/Redhat (RPM)
 ## Install
 ```shell
-wget https://github.com/EOSIO/eosio.cdt/releases/download/v1.6.3/eosio.cdt-1.6.3-1.el7.x86_64.rpm
+wget https://github.com/eosio/eosio.cdt/releases/download/v1.8.1/eosio.cdt-1.8.1-1.el7.x86_64.rpm
 
-sudo yum install ./eosio.cdt-1.6.3-1.el7.x86_64.rpm
+sudo yum install ./eosio.cdt-1.8.1-1.el7.x86_64.rpm
 ```
 ## Uninstall
 ```shell
@@ -50,9 +50,9 @@ The location where `eosio.cdt` is cloned is not that important because you will 
 cd CONTRACTS_DIR
 ```
 ## Download
-Clone version 1.6.3 of the `eosio.cdt` repository.
-```text
-git clone --recursive https://github.com/eosio/eosio.cdt --branch v1.6.3 --single-branch
+Clone the `eosio.cdt` repository.
+```shell
+git clone --recursive https://github.com/eosio/eosio.cdt
 cd eosio.cdt
 ```
 It may take up to 30 minutes to clone the repository
@@ -62,11 +62,14 @@ It may take up to 30 minutes to clone the repository
 
 ## Build
 ```shell
-./build.sh
+mkdir build
+cd build
+cmake ..
+make -j8
 ```
 ### Install
 ```shell
-sudo ./install.sh
+sudo make install
 ```
 The above command needs to be ran with `sudo` because `eosio.cdt`'s various binaries will be installed locally. You will be asked for your computer's account password.
 
