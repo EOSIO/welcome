@@ -22,13 +22,13 @@ The EOSIO platform is supported on the following environments:
 
 **Linux Distributions**
 * Amazon Linux 2
-* CentOS Linux 8.x
 * CentOS Linux 7.x
-* Ubuntu 20.04
 * Ubuntu 18.04
+* Ubuntu 20.04
 
 **macOS**
-* macOS 10.14 (Mojave)
+* MacOS 10.14 (Mojave)
+* MacOS 10.15 (Catalina)
 
 [[info | Note]]
 | It may be possible to install EOSIO on other Unix-based operating systems. This is not officially supported, though.
