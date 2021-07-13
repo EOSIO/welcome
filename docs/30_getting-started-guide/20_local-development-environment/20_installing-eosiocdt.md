@@ -75,6 +75,13 @@ The above command needs to be ran with `sudo` because `eosio.cdt`'s various bina
 
 Installing `eosio.cdt` will make the compiled binary global so it can be accessable anywhere. For this tutorial, **it is strongly suggested that you do not skip the install step for eosio.cdt**, failing to install will make it more difficult to follow this and other tutorials, and make usage in general more difficult.
 
+### Uninstall after manual installation
+```shell
+sudo rm -fr /usr/local/eosio.cdt
+sudo rm -fr /usr/local/lib/cmake/eosio.cdt
+sudo rm /usr/local/bin/eosio-*
+```
+
 # Troubleshooting
 ## Getting Errors during build
 - Search your errors for the string "/usr/local/include/eosiolib/"
