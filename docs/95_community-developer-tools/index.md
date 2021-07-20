@@ -66,6 +66,8 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 * [EOSIO Dashboard](https://github.com/eoscostarica/eosio-dashboard): EOSIO Dashboard is an open-source tool that helps you visualize relevant data about Block Producer nodes and rewards distribution in the EOS network.
 
+* [eosq](https://eos.eosq.eosnation.io/): High-precision block explorer that provides access to accurate, detailed, and actionable data related to accounts, actions, and Block Producers.
+
 ### EOSIO Plugins
 
 * [EOSIO Kafka Plugin](https://github.com/TP-Lab/kafka_plugin): This plugin allows you to utilize all of Kafka's rich real-time features for building date pipelines and streaming apps.
