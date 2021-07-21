@@ -250,6 +250,8 @@ If there is at least one actor whose set of named permissions fail to meet the m
 
 The diagram below depicts an action instance. It consists of the receiver account, the action name, the list of actors and their permissions, and the action data containing the message to be sent, if any, to the receiver account.
 
+![](images/xact-act-instance.png "Action Instance")
+<!--
 ```dot-svg
 
 #action instance - xacts_act_instance.dot
@@ -319,6 +321,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 
 ### 3.4.4. Authority Check
