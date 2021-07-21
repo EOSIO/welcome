@@ -44,6 +44,8 @@ An EOSIO smart contract is implemented as a C++ class that derives from `eosio::
 
 A transaction instance consists of a transaction header and the list of action instances and transaction extensions that make the actual transaction. The transaction header includes information necessary to assess the inclusion of the transaction in a block based on its expiration time, which is computed when the transaction is pushed for execution. Other fields include the block number that includes the transaction, a block ID prefix used to prevent "cross chain" or "cross fork" attacks, upper limits for CPU and network usage, and the number of seconds to delay the transaction, if applicable. The diagram below depicts a transaction instance.
 
+![](images/xact-instance.png "Transaction Instance")
+<!--
 ```dot-svg
 
 #transaction instance - xacts_instance.dot
@@ -87,6 +89,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 The action instances may consist of regular actions or context free actions. Signatures are created and validated at the transaction level. Accounts and permissions are handled on a per action basis. Each action instance contains information to validate whether it is authorized to be executed based on the permission levels of the actors specified in the action and the actual authorizations defined in the smart contract for that action (see [3.4.2. Permission Check](#342-permission-check)).
 
