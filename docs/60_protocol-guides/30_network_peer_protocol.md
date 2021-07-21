@@ -340,6 +340,8 @@ The Fork Database (Fork DB) provides an internal interface for the Chain Control
 
 In essence, the Fork DB contains all the candidate block branches within a node that may become the actual branch that continues to grow the blockchain. The root block always marks the beginning of the reversible block tree, and will match the LIB block, except when the LIB advances, in which case the root block must catch up. The calculation of the LIB block as it advances through the new blocks within the Fork DB will ultimately decide which branch gets selected. As the LIB block advances, the root block catches up with the new LIB, and any candidate branch whose ancestor node is behind the LIB gets pruned. This is depicted below.
 
+![](images/p2p-local-chain-pruning.png "Local Chain Pruning")
+<!--
 ```dot-svg
 
 #p2p_local_chain_prunning.dot - local chain prunning
@@ -390,6 +392,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 In the diagram above, the branch starting at block 52b gets pruned (blocks 52b, 53a, 53b are invalid) after the LIB advances from node 51 to block 52c then 53c. As the LIB moves through the reversible blocks, they are moved from the Fork DB to the local chain as they now become part of the immutable blockchain. Finally, block 54d is kept in the Fork DB since new blocks might still be built off from it.
 
