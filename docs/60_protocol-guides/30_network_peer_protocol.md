@@ -542,6 +542,8 @@ Therefore, the node’s LIB block is updated first, followed by the node’s hea
 
 Case 1 above, where the node’s LIB block needs to catch up with the peer’s LIB block, is depicted in the below diagram, before and after the sync (Note: inapplicable branches have been removed for clarity):
 
+![](images/p2p-lib-catchup.png "LIB Catchup Mode")
+<!--
 ```dot-svg
 
 #p2p_lib_catchup.dot - LIB catchup mode
@@ -600,6 +602,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 In the above diagram, the node’s local chain syncs up with the peer’s local chain by appending finalized blocks 91 and 92 (the peer’s LIB) to the node’s LIB (block 90). Note that this discards the temporary fork consisting of blocks 91n, 92n, 93n. Also note that these nodes have an “n” suffix (short for node) to indicate that they are not finalized, and therefore, might be different from the peer’s. The same applies to unfinalized blocks on the peer; they end in “p” (short for peer). After syncing, note that both the LIB (lib) and the head block (hb) have the same block number on the node.
 
