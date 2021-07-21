@@ -31,6 +31,8 @@ The main goal of the p2p protocol is to synchronize nodes securely and efficient
 
 The interaction between the above components is depicted in the diagram below:
 
+![](images/p2p-system-arch.png "Peer-to-peer System Architecture")
+<!--
 ```dot-svg
 
 #nodeos components - p2p_system_arch.dot
@@ -99,6 +101,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 At the highest level sits the Net Plugin, which exchanges messages between the node and its peers to sync blocks and transactions. A typical message flow goes as follows:
 
