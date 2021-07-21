@@ -116,6 +116,8 @@ At the highest level sits the Net Plugin, which exchanges messages between the n
 
 The local chain is the node’s local copy of the blockchain. It consists of both irreversible and reversible blocks received by the node, each block being cryptographically linked to the previous one. The list of irreversible blocks contains the actual copy of the immutable blockchain. The list of reversible blocks is typically shorter in length and it is managed by the Fork Database as the Chain Controller pushes blocks to it. The local chain is depicted below.
 
+![](images/p2p-local-chain.png "Local Chain")
+<!--
 ```dot-svg
 
 #p2p_local_chain.dot - local chain
@@ -159,6 +161,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 Each node constructs its own local copy of the blockchain as it receives blocks and transactions and syncs their state with other peers. The reversible blocks are those new blocks received that have not yet reached finality. As such, they are likely to form branches that stem from a main common ancestor, which is the LIB (last irreversible block). Other common ancestors different from the LIB are also possible for reversible blocks. In fact, any two sibling branches always have a nearest common ancestor. For instance, in the diagram above, block 52b is the nearest common ancestor for the branches starting at block 53a and 53b that is different from the LIB. Every active branch in the local chain has the potential to become part of the blockchain.
 
