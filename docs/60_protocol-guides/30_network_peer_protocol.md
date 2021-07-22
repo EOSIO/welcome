@@ -31,6 +31,8 @@ The main goal of the p2p protocol is to synchronize nodes securely and efficient
 
 The interaction between the above components is depicted in the diagram below:
 
+![](images/p2p-system-arch.png "Peer-to-peer System Architecture")
+<!--
 ```dot-svg
 
 #nodeos components - p2p_system_arch.dot
@@ -99,6 +101,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 At the highest level sits the Net Plugin, which exchanges messages between the node and its peers to sync blocks and transactions. A typical message flow goes as follows:
 
@@ -113,6 +116,8 @@ At the highest level sits the Net Plugin, which exchanges messages between the n
 
 The local chain is the node’s local copy of the blockchain. It consists of both irreversible and reversible blocks received by the node, each block being cryptographically linked to the previous one. The list of irreversible blocks contains the actual copy of the immutable blockchain. The list of reversible blocks is typically shorter in length and it is managed by the Fork Database as the Chain Controller pushes blocks to it. The local chain is depicted below.
 
+![](images/p2p-local-chain.png "Local Chain")
+<!--
 ```dot-svg
 
 #p2p_local_chain.dot - local chain
@@ -156,6 +161,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 Each node constructs its own local copy of the blockchain as it receives blocks and transactions and syncs their state with other peers. The reversible blocks are those new blocks received that have not yet reached finality. As such, they are likely to form branches that stem from a main common ancestor, which is the LIB (last irreversible block). Other common ancestors different from the LIB are also possible for reversible blocks. In fact, any two sibling branches always have a nearest common ancestor. For instance, in the diagram above, block 52b is the nearest common ancestor for the branches starting at block 53a and 53b that is different from the LIB. Every active branch in the local chain has the potential to become part of the blockchain.
 
@@ -334,6 +340,8 @@ The Fork Database (Fork DB) provides an internal interface for the Chain Control
 
 In essence, the Fork DB contains all the candidate block branches within a node that may become the actual branch that continues to grow the blockchain. The root block always marks the beginning of the reversible block tree, and will match the LIB block, except when the LIB advances, in which case the root block must catch up. The calculation of the LIB block as it advances through the new blocks within the Fork DB will ultimately decide which branch gets selected. As the LIB block advances, the root block catches up with the new LIB, and any candidate branch whose ancestor node is behind the LIB gets pruned. This is depicted below.
 
+![](images/p2p-local-chain-pruning.png "Local Chain Pruning")
+<!--
 ```dot-svg
 
 #p2p_local_chain_prunning.dot - local chain prunning
@@ -384,6 +392,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 In the diagram above, the branch starting at block 52b gets pruned (blocks 52b, 53a, 53b are invalid) after the LIB advances from node 51 to block 52c then 53c. As the LIB moves through the reversible blocks, they are moved from the Fork DB to the local chain as they now become part of the immutable blockchain. Finally, block 54d is kept in the Fork DB since new blocks might still be built off from it.
 
@@ -531,8 +540,10 @@ Therefore, the node’s LIB block is updated first, followed by the node’s hea
 
 ### 3.3.1. LIB Catch-Up Mode
 
-Case 1 above, where the node’s LIB block needs to catch up with the peer’s LIB block, is depicted in the below diagram, before and after the sync (Note: inapplicable branches have been removed for clarity):
+Step 1 above, where the node’s LIB block needs to catch up with the peer’s LIB block, is depicted in the below diagram, before and after the sync (Note: inapplicable branches have been removed for clarity):
 
+![](images/p2p-lib-catchup.png "LIB Catchup Mode")
+<!--
 ```dot-svg
 
 #p2p_lib_catchup.dot - LIB catchup mode
@@ -591,14 +602,17 @@ digraph {
 } //digraph
 
 ```
+-->
 
 In the above diagram, the node’s local chain syncs up with the peer’s local chain by appending finalized blocks 91 and 92 (the peer’s LIB) to the node’s LIB (block 90). Note that this discards the temporary fork consisting of blocks 91n, 92n, 93n. Also note that these nodes have an “n” suffix (short for node) to indicate that they are not finalized, and therefore, might be different from the peer’s. The same applies to unfinalized blocks on the peer; they end in “p” (short for peer). After syncing, note that both the LIB (lib) and the head block (hb) have the same block number on the node.
 
 
 ### 3.3.2. Head Catch-Up Mode
 
-After the node’s LIB block is synced with the peer’s, there will be new blocks pushed to either chain. Case 2 above covers the case where the peer’s chain is longer than the node’s chain. This is depicted in the following diagram, which shows the node and the peer’s local chains before and after the sync:
+After the node’s LIB block is synced with the peer’s, there will be new blocks pushed to either chain. Step 2 above covers the case where the peer’s chain is longer than the node’s chain. This is depicted in the following diagram, which shows the node and the peer’s local chains before and after the sync:
 
+![](images/p2p-head-catchup.png "Head Catchup Mode")
+<!--
 ```dot-svg
 
 #p2p_head_catchup.dot - HEAD catch up
@@ -654,8 +668,9 @@ digraph {
 } //digraph
 
 ```
+-->
 
-In either case 1 or 2 above, the syncing process in the node involves locating the first common ancestor block starting from the node’s head block, traversing the chains back, and ending in the LIB blocks, which are now in sync (see [3.3.1. LIB Catch-Up Mode](#331-lib-catch-up-mode)). In the worst case scenario, the synced LIBs are the nearest common ancestor. In the above diagram, the node’s chain is traversed from head block 94n, 93n, etc. trying to match blocks 94p, 93p, etc. in the peer’s chain. The first block that matches is the nearest common ancestor (block 93n and 93p in the diagram). Therefore, the following blocks 94p and 95p are retrieved and appended to the node’s chain right after the nearest common ancestor, now re-labeled 93n,p (see [3.3.3. Block Retrieval](#333-block-retrieval) process). Finally, block 95p becomes the node’s head block and, since the node is fully synced with the peer, the node switches to in-sync mode.
+In either step 1 or 2 above, the syncing process in the node involves locating the first common ancestor block starting from the node’s head block, traversing the chains back, and ending in the LIB blocks, which are now in sync (see [3.3.1. LIB Catch-Up Mode](#331-lib-catch-up-mode)). In the worst case scenario, the synced LIBs are the nearest common ancestor. In the above diagram, the node’s chain is traversed from head block 94n, 93n, etc. trying to match blocks 94p, 93p, etc. in the peer’s chain. The first block that matches is the nearest common ancestor (block 93n and 93p in the diagram). Therefore, the following blocks 94p and 95p are retrieved and appended to the node’s chain right after the nearest common ancestor, now re-labeled 93n,p (see [3.3.3. Block Retrieval](#333-block-retrieval) process). Finally, block 95p becomes the node’s head block and, since the node is fully synced with the peer, the node switches to in-sync mode.
 
 
 ### 3.3.3. Block Retrieval

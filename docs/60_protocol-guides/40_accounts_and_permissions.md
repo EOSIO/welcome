@@ -9,6 +9,8 @@ An account identifies a participant in an EOSIO blockchain. A participant can be
 
 Permissions associated with an account are used to authorize actions and transactions to other accounts. Each permission is linked to an authority table which contains a threshold that must be reached in order to allow the action associated with the given permission to be authorized for execution. The following diagram illustrates the relationship between accounts, permissions, and authorities.
 
+![](images/accts-perms-auths.png "Accounts, permissions, authorities")
+<!--
 ```dot-svg
 
 #accounts, permissions, authorities - accts_perms_auths.dot
@@ -73,6 +75,7 @@ digraph {
 }
 
 ```
+-->
 
 The example above depicts `alice`'s account, her named permissions along with their hierarchical dependencies, and her linked `active` authority table. It also shows that a weight threshold of two must be reached in `alice`'s `active` authority in order to allow an action associated with the active permission to be executed by or on behalf of `alice`.
 

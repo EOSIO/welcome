@@ -44,6 +44,8 @@ An EOSIO smart contract is implemented as a C++ class that derives from `eosio::
 
 A transaction instance consists of a transaction header and the list of action instances and transaction extensions that make the actual transaction. The transaction header includes information necessary to assess the inclusion of the transaction in a block based on its expiration time, which is computed when the transaction is pushed for execution. Other fields include the block number that includes the transaction, a block ID prefix used to prevent "cross chain" or "cross fork" attacks, upper limits for CPU and network usage, and the number of seconds to delay the transaction, if applicable. The diagram below depicts a transaction instance.
 
+![](images/xact-instance.png "Transaction Instance")
+<!--
 ```dot-svg
 
 #transaction instance - xacts_instance.dot
@@ -87,6 +89,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 The action instances may consist of regular actions or context free actions. Signatures are created and validated at the transaction level. Accounts and permissions are handled on a per action basis. Each action instance contains information to validate whether it is authorized to be executed based on the permission levels of the actors specified in the action and the actual authorizations defined in the smart contract for that action (see [3.4.2. Permission Check](#342-permission-check)).
 
@@ -162,6 +165,8 @@ The transaction must be signed by a set of keys sufficient to satisfy the accumu
 
 The transaction signing process takes three parameters: the transaction instance to sign, the set of public keys from which the associated private keys within the application wallet are retrieved, and the chain ID. The chain ID identifies the actual EOSIO blockchain and consists of a hash of its genesis state, which depends on the blockchain’s initial configuration parameters. Before signing the transaction, the EOSIO software first computes a digest of the transaction. The digest value is a SHA-256 hash of the chain ID, the transaction instance, and the context free data if the transaction has any context free actions. Any instance fields get serialized before computing any cryptographic hashes to avoid including reference fields (memory addresses) in the hash computation. The transaction digest computation and the signing process are depicted below.
 
+![](images/xact-sign.png "Transaction Signing")
+<!--
 ```dot-svg
 
 #transaction signing - xact_sign.dot
@@ -211,6 +216,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 After the transaction digest is computed, the digest is finally signed with the private key associated with the signing account’s public key. The public-private key pair is usually stored within the local machine that connects to the local node. The signing process is performed within the wallet manager associated with the signing account, which is typically the same user that deploys the application. The wallet manager provides a virtual secure enclave to perform the digital signing, so a message signature is generated without the private key ever leaving the wallet. After the signature is generated, it is finally added to the signed transaction instance.
 
@@ -244,6 +250,8 @@ If there is at least one actor whose set of named permissions fail to meet the m
 
 The diagram below depicts an action instance. It consists of the receiver account, the action name, the list of actors and their permissions, and the action data containing the message to be sent, if any, to the receiver account.
 
+![](images/xact-act-instance.png "Action Instance")
+<!--
 ```dot-svg
 
 #action instance - xacts_act_instance.dot
@@ -313,6 +321,7 @@ digraph {
 } //digraph
 
 ```
+-->
 
 
 ### 3.4.4. Authority Check
