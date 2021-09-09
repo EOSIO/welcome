@@ -23,12 +23,12 @@ and
 
 * The EOSIO platform software, click on this link for instructions on [installing EOSIO binaries.](../30_getting-started-guide/20_local-development-environment/10_installing-eosio-binaries.md) 
 * Familiarity with the EOSIO tools `cleos` and `keosd`.
-* The EOSIO Contract Development Toolkit or eosio.cdt. Click on this link to [install the CDT.](../../30_getting-started-guide/20_local-development-environment/20_installing-eosiocdt.md) 
+* The EOSIO Contract Development Toolkit or eosio.cdt. Click on this link to [install the CDT.](../30_getting-started-guide/20_local-development-environment/20_installing-eosiocdt.md) 
 * Familiarity with the `eosio.cdt` which is used to compile smart contracts. 
 
 Click on this link for an [overview of the EOSIO platform.](../20_introduction-to-eosio)
 
-Click on this link to [get started with EOSIO.](../30_getting-started-guide "Getting Started with EOSIO")
+Click on this link to [get started with EOSIO.](../30_getting-started-guide)
 
 ### Tutorial Workflow
 
