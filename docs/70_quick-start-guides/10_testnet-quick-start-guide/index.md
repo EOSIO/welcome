@@ -162,7 +162,7 @@ You must have the following prerequisites before uploading and deploying a smart
 1. Testnet blockchain account with sufficient system resources. See the previous section of this guide **Buy and Stake System Resources** for information on staking and unstaking in the Testnet.
 
 [[info | Info]]
-| For more information on how to build and compile smart contract source files, see the [Hello World Contract](../30_getting-started-guide/25_hello-world.md) section on the *EOSIO Developer Portal*. 
+| For more information on how to build and compile smart contract source files, see the [Hello World Contract](../../30_getting-started-guide/25_hello-world.md) section on the *EOSIO Developer Portal*. 
 
 ## Upload and Deploy
 Upload and deploy your smart contract on the EOSIO blockchain in a 3-step sequential process.
@@ -189,7 +189,7 @@ Upload and deploy your smart contract on the EOSIO blockchain in a 3-step sequen
 # Push Actions
 An action is authorized by one or more actors created on the blockchain. Actions are created explicitly within a smart contract, or generated implicitly by application code.
 
-For more information on Actions in EOSIO, see the [Actions](../60_protocol-guides/20_transactions_protocol.md#11-Actions) section in Transaction Protocol on the *EOSIO Developers Portal*.
+For more information on Actions in EOSIO, see the [Actions](../../60_protocol-guides/20_transactions_protocol.md#11-Actions) section in Transaction Protocol on the *EOSIO Developers Portal*.
 
 **Complete the following steps to push actions on the Testnet:**
 
@@ -245,7 +245,7 @@ The type of key in **Key Type**.
 # View Transactions
 A transaction instance contains a transaction header and the list of action instances and transaction extensions that make the actual transaction.
 
-For more information on Transactions in EOSIO, see the [Transactions Protocol](../60_protocol-guides/20_transactions_protocol.md) section on the *EOSIO Developers Portal*.
+For more information on Transactions in EOSIO, see the [Transactions Protocol](../../60_protocol-guides/20_transactions_protocol.md) section on the *EOSIO Developers Portal*.
 
 **Complete the following steps to view transactions on the Testnet:**
 
