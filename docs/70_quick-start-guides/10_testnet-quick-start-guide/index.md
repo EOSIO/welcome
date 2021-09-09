@@ -56,7 +56,7 @@ This section provides instructions on creating new blockchain accounts within th
 
 An account is a collection of authorizations, is stored on the blockchain, and is used to identify a sender/recipient. The flexible authorization structure of an account enables it to be owned either by an individual or group of individuals dependant on how permissions are configured. An account sends or receives a valid transaction to the blockchain.
 
-For more information on EOSIO accounts and associated permissions, see the [Accounts and Permissions](../60_protocol-guides/40_accounts_and_permissions.md) page on the _EOSIO Developers Portal_.
+For more information on EOSIO accounts and associated permissions, see the [Accounts and Permissions](/60_protocol-guides/40_accounts_and_permissions.md) page on the _EOSIO Developers Portal_.
 
 ## Create New Account
 The EOSIO Testnet provisions a new EOSIO blockchain account every time you sign up for a new EOSIO Testnet developer account. If you require more EOSIO blockchain accounts, follow the steps below.
