@@ -174,7 +174,7 @@ The `eosio.token` smart contract contains the following actions and private meth
    </td>
   </tr>
   <tr>
-   <td><em><a href="#close-action">transfer</a></em></td>
+   <td><em><a href="#transfer-action">transfer</a></em></td>
    <td><em>This action closes the account owner (opposite action of open)</em>
    </td>
   </tr>
