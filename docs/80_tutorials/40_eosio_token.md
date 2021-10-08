@@ -63,8 +63,6 @@ An EOSIO-based blockchain can be configured to have no system token, or one syst
   </tr>
 </table>
 
-
-
 ### Airdrop and Airgrab
 
 Many times a token issuer needs to distribute their tokens to a discrete number of users. These users can vary from being a very restricted group based on certain criteria, or they can be a very wide group, such as all users of a blockchain. 
@@ -144,82 +142,39 @@ The `eosio.token` smart contract contains the following actions and private meth
    </td>
   </tr>
   <tr>
-   <td><strong><em>
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "create"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-<a href="#heading=h.4b8ujw9dhwd9">create</a></em></strong>
-   </td>
-   <td><em>This action creates a new token with a specified symbol and maximum supply</em>
-   </td>
+   <td><em><a href="#create-action">create</a></em></td>
+   <td><em>This action creates a new token with a specified symbol and maximum supply</em></td>
   </tr>
   <tr>
-   <td><strong><em>
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "issue"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-<a href="#heading=h.sveb91tt7jle">issue</a></em></strong>
-   </td>
-   <td><em>This action issues N amount of tokens to the issuer</em>
-   </td>
+   <td><em><a href="#issue-action">issue</a></em></td>
+   <td><em>This action issues N amount of tokens to the issuer</em></td>
   </tr>
   <tr>
-   <td><strong><em>
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "retire"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-<a href="#heading=h.nn9jkvvzpbkm">retire</a></em></strong>
-   </td>
-   <td><em>This action retires the token (opposite action of create)</em>
-   </td>
+   <td><em><a href="#retire-action">retire</a></em></td>
+   <td><em>This action retires the token (opposite action of create)</em></td>
   </tr>
   <tr>
-   <td><strong><em>
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "transfer"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-<a href="#heading=h.ardlzcwr99m1">transfer</a></em></strong>
-   </td>
+   <td><em><a href="#transfer-action">transfer</a></em></td>
    <td><em>This action transfers tokens from account A to account B</em>
    </td>
   </tr>
   <tr>
-   <td><strong><em>
-
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "sub_balance"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-<a href="#heading=h.lotiwhixpiau">sub_balance</a></em></strong>
-   </td>
+   <td><em><a href="#subtract-balance-method">sub_balance</a></em></td>
    <td><em>This private method subtracts the balance of the account sending the tokens</em>
    </td>
   </tr>
   <tr>
-   <td><strong><em>
-
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "add_balance"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-<a href="#heading=h.b0wsbj4121bv">add_balance</a></em></strong>
-   </td>
+   <td><em><a href="#add-balance-method">add_balance</a></em></td>
    <td><em>This private method adds to the balance of the account receiving the tokens</em>
    </td>
   </tr>
   <tr>
-   <td><strong><em>
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "open"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-<a href="#heading=h.cqktejzgcbv">open</a></em></strong>
-   </td>
+   <td><em><a href="#open-action">open</a></em></td>
    <td><em>This action allows the <strong>ram_payer</strong> account to create an account <strong>owner</strong> with zero balance at the expense of <strong>ram_payer</strong> for specified token symbol</em>
    </td>
   </tr>
   <tr>
-   <td><strong><em>
-
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "close"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-<a href="#heading=h.q8qs718h8obx">close</a></em></strong>
-   </td>
+   <td><em><a href="#close-action">transfer</a></em></td>
    <td><em>This action closes the account owner (opposite action of open)</em>
    </td>
   </tr>
