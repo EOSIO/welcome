@@ -35,11 +35,11 @@ This tutorial demonstrates the steps to customize, build and deploy a new token 
 
 This procedure shows you how to implement the following five steps to extend or change the ‘eosio.token’ smart contract:
 
-1. [Duplicate the original `eosio.token` smart contract ](#heading=h.b5pz5h26u3ml)
-2. [Specialize the new token according to its requirements](#heading=h.ob8kzwczyr3o)
-3. [Extend the new token functionality with an `airgrab` action](#heading=h.aqds4muocqer)
-4. [Compile and deploy the new token](#heading=h.7w0jck31nn01)
-5. [Thoroughly test your token to behave correctly in all cases](#heading=h.rhygxz6brge)
+1. [Duplicate the original `eosio.token` smart contract ](#step-1-duplicate-the-eosiotoken-sources)
+2. [Specialize the new token according to its requirements](#step-2-specialize-the-newt-smart-contract)
+3. [Extend the new token functionality with an `airgrab` action](#step-3-extend-the-newt-smart-contract)
+4. [Compile and deploy the new token](#step-4-compile-and-deploy-newt-token-to-the-blockchain)
+5. [Thoroughly test your token to behave correctly in all cases](#step-5-test-newt-token)
 
 #### Prerequisites
 
@@ -385,7 +385,7 @@ Finally, if the account airgrabs the tokens for the first time, the code updates
  add_balance(owner, airgrabbed_asset, owner);
 ```
 
-#### Steps 4: Compile And Deploy NEWT Token To The Blockchain
+#### Step 4: Compile And Deploy NEWT Token To The Blockchain
 
 Compile and deploy your newly created token smart contract to the blockchain.
 
@@ -405,7 +405,7 @@ Deploy the smart contract with the *newt* account:
 cleos set contract newt . --abi newt.abi newt.wasm -p newt@active
 ```
 
-#### Steps 5: Test NEWT Token
+#### Step 5: Test NEWT Token
 
 To test the NEWT token execute the following actions using the `cleos` command line tool.
 
