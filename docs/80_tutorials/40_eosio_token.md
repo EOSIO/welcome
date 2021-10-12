@@ -571,4 +571,4 @@ _Thank you Dimo (**@ddzhurenov**) for your assistance with this tutorial._
 
 ## Next Steps
 
-If you want to learn more, check the [tic-tac-toe game](https://developers.eos.io/welcome/latest/tutorials/tic-tac-toe-game-smart-contract-single-node) smart contract tutorial.
+If you want to learn more, check the [tic-tac-toe game](./tic-tac-toe-game-smart-contract-single-node) smart contract tutorial.

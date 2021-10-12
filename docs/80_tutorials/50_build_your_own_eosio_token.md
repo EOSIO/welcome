@@ -13,12 +13,11 @@ An EOSIO-based blockchain allows you to create tokens. There are many ways in wh
 
 The learning objectives for this tutorial are:
 
-* Application
-    * Create a new token starting with the `eosio.token` sample smart contract
-    * Customize the `eosio.token` sample smart contract
-    * Build and deploy a smart contract to a blockchain that uses EOSIO tokens
-    * Create, issue, and transfer EOSIO tokens
-    * Create and use the airgrab action
+  * Create a new token starting with the `eosio.token` sample smart contract
+  * Customize the `eosio.token` sample smart contract
+  * Build and deploy a smart contract to a blockchain that uses EOSIO tokens
+  * Create, issue, and transfer EOSIO tokens
+  * Create and use the airgrab action
 
 ## Create A New Token
 
@@ -620,4 +619,4 @@ _Thank you Dimo (**@ddzhurenov**) for your assistance with this tutorial._
 
 ## Next Steps
 
-If you want to learn more, check the [tic-tac-toe game](20_tic-tac-toe-game-smart-contract-single-node.md) smart contract tutorial.
+If you want to learn more, check the [tic-tac-toe game](./tic-tac-toe-game-smart-contract-single-node) smart contract tutorial.
