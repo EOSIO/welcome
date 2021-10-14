@@ -3,7 +3,7 @@ content_title: EOSIO Token Tutorial
 link_text: EOSIO Token Tutorial
 ---
 
-This tutorial explores the *sample* EOSIO token smart contract and it helps you acquire the basic knowledge needed to build your own EOSIO token. To learn how to create and manage your own token please read the “Build Your Own EOSIO Token Tutorial” after you have completed the current tutorial.
+This tutorial explores the *sample* EOSIO token smart contract and it helps you acquire the basic knowledge needed to build your own EOSIO token. To learn how to create and manage your own token please read the [Build Your Own EOSIO Token Tutorial](50_build_your_own_eosio_token.md) after you have completed the current tutorial.
 
 ## Introduction
 
