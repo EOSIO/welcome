@@ -3,7 +3,7 @@ content_title: Build Your Own EOSIO Token Tutorial
 link_text: Build Your Own EOSIO Token Tutorial
 ---
 
-This tutorial provides explanations and a step-by-step procedure to create and deploy an EOSIO blockchain token starting with the *sample* EOSIO token smart contract. It is recommended, for understanding the *sample* EOSIO token smart contract,  to read the “EOSIO Token Tutorial”.
+This tutorial provides explanations and a step-by-step procedure to create and deploy an EOSIO blockchain token starting with the *sample* EOSIO token smart contract. It is recommended, for understanding the *sample* EOSIO token smart contract,  to read the [EOSIO Token Tutorial](40_eosio_token.md).
 
 ## Introduction
 
