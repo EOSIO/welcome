@@ -788,4 +788,5 @@ cleos get table tictactoe host games
 ```
 
 ## Next Steps
-Visit the [EOSIO Developer Portal](https://developers.eos.io/ "eosio developers portal") to learn more about EOSIO and try building a more advanced web based game with [Elemental Battles.](https://battles.eos.io/) 
+
+- Visit the [EOSIO Developer Portal](https://developers.eos.io/ "eosio developers portal") to learn more about EOSIO

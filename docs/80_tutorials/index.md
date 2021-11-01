@@ -23,10 +23,6 @@ The [EOSIO Token Tutorial](40_eosio_token.md) tutorial explores the *sample* EOS
 
 The [Build Your Own EOSIO Token Tutorial](50_build_your_own_eosio_token.md) tutorial provides explanations and a step-by-step procedure to create and deploy an EOSIO blockchain token starting with the *sample* EOSIO token smart contract.
 
-## Elemental Battles
-
-Created for developers new to blockchain, [Elemental Battles](https://battles.eos.io?utm_source=devportal) is part-tutorial, part-game development. You’ll play in a fantasy world and harness the powers of wood, water, and fire to learn blockchain basics and build your first full stack application on an EOSIO blockchain.
-
 ## Before you begin
 
 To get started as quickly as possible we recommend using pre-built binaries. Building from source is a more advanced option but will set you back an hour or more and you may encounter build errors. See the [Getting Started Guide](../30_getting-started-guide) for details on how to install and set up the required EOSIO components.
