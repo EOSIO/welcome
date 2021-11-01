@@ -310,6 +310,3 @@ executed transaction: 62b1e6848c8c5e6458b9a0f7600e65574eaf60445be114d224adccc5a9
 
 Party time!
 
-## What's Next
-
-- [Elemental Battles](https://battles.eos.io): Build a blockchain game based on EOSIO and continue building your EOSIO knowledge!
