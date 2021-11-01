@@ -20,9 +20,6 @@ sections:
       - title: EOSIO White Paper
         description: The EOSIO software introduces a new blockchain architecture designed to enable vertical and horizontal scaling of decentralized applications
         link: https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md
-      - title: Elemental Battles
-        description: Learn how to build your first blockchain based game on EOSIO software
-        link: https://battles.eos.io/
 
   - title: EOSIO Testnet
     listings:
