@@ -661,5 +661,3 @@ Sign the push action with `mcazyfujecke@active` - the host of the game.
 
 Check the game status to see that game data has been removed.  
 
-## Next Steps
-Visit the [EOSIO Developer Portal](https://developers.eos.io/ "eosio developers portal") to learn more about EOSIO and try building a more advanced web based game with [Elemental Battles.](https://battles.eos.io/) 
