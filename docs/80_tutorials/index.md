@@ -13,8 +13,5 @@ In the tic-tac-toe tutorial you will build a smart contract that runs a tic tac 
 * [Tic-tac-toe using a local single node blockchain](20_tic-tac-toe-game-smart-contract-single-node.md)
 * [Tic-tac-toe using the remote EOSIO Testnet.](21_tic-tac-toe-game-smart-contract-Testnet.md)  
 
-## Elemental Battles
-Created for developers new to blockchain, [Elemental Battles](https://battles.eos.io?utm_source=devportal) is part-tutorial, part-game development. You’ll play in a fantasy world and harness the powers of wood, water, and fire to learn blockchain basics and build your first full stack application on an EOSIO blockchain.
-
 ## Before you begin
 To get started as quickly as possible we recommend using pre-built binaries. Building from source is a more advanced option but will set you back an hour or more and you may encounter build errors. See the [Getting Started Guide](../30_getting-started-guide) for details on how to install and set up the required EOSIO components.
