@@ -312,4 +312,4 @@ Party time!
 
 ## What's Next
 
-- If you want to learn more, check the [tic-tac-toe game](./tic-tac-toe-game-smart-contract-single-node) smart contract tutorial.
+- If you want to learn more, check the [tic-tac-toe game](../80_tutorials/20_tic-tac-toe-game-smart-contract-single-node.md) smart contract tutorial.
