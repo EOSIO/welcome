@@ -312,4 +312,4 @@ Party time!
 
 ## What's Next
 
-- [Elemental Battles](https://battles.eos.io): Build a blockchain game based on EOSIO and continue building your EOSIO knowledge!
+- If you want to learn more, check the [tic-tac-toe game](./tic-tac-toe-game-smart-contract-single-node) smart contract tutorial.
