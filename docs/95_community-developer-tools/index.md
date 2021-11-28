@@ -89,5 +89,9 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 * [Wombat](https://github.com/wombat-tech): A user-friendly, secure wallet for EOS and Telos blockchains available on iOS, Android, and Desktop. It allows users to send, receive, and earn various tokens without any technical knowledge.
 
+## Resources
+
+* [Awesome EOSIO](https://github.com/DanailMinchev/awesome-eosio): A curated list of awesome EOSIO resources for users and developers.
+
 [[info | Disclaimer]]
 | The information, links and other material on the website relating to third-party software, hardware, services, networks, blockchains (whether public or private), websites or other resources are provided on an “as-is” basis for your convenience only.  Such resources may be updated, changed or terminated at any time so the information included may be out of date or inaccurate.  The inclusion of any third-party resources does not constitute approval, endorsement or recommendation by us and we disclaim all responsibility and liability for your use of any such third-party resources.
