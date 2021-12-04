@@ -3,7 +3,7 @@ content_title: "Create Development Wallet"
 link_text: "Create Development Wallet"
 ---
 
-Private keys are stored locally in [Keosd](../../glossary/index#keosd). Private keys are one half of public-private key pairs which are used by asymmetric cryptography. The corresponding public keys is stored on the blockchain and associated with an account. It is these keys that are used to secure accounts and to sign transactions. 
+Private keys are stored locally in [Keosd](../../glossary/index#keosd). Private keys are one half of public-private key pairs which are used by asymmetric cryptography. The corresponding public keys is stored on the blockchain and associated with an account. It is these keys that are used to secure accounts and to sign transactions.
 
 Use [Cleos](../../glossary/index#cleos) to run commands on the blockchain and to interact with accounts and keys via [wallet](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/wallet/index) and other [commands.](https://developers.eos.io/manuals/eos/latest/cleos/command-reference/index)    
 
@@ -106,6 +106,27 @@ Enter the public key provided in the last step in the box below. It will persist
 
 <div class="eosio-helper-box"><form id="YOUR_PUBLIC_KEY"><label>Development Public Key</label><input class="helper-cookie" name="YOUR_PUBLIC_KEY" type="text" /><input type="submit" /><span></span></form></div>
 
+## Troubleshooting
+If you are using macOS and getting an error while creating the wallet
+
+```shell
+cleos wallet create --to-console
+```
+
+```text
+dyld: Library not loaded: /usr/local/opt/postgresql/lib/libpq.5.dylib
+  Referenced from: /usr/local/bin/cleos
+  Reason: image not found
+[1]    10680 abort      cleos wallet create --to-console
+```
+
+try to re-install EOSIO with updated PostgreSQL:
+```shell
+brew update
+brew remove eosio
+brew install postgresql
+brew install eosio
+```
+
 ## What's Next?
 [Start Keosd and Nodeos](40_start-nodeos-keosd.md): Steps to start Keosd and Nodeos.
-
