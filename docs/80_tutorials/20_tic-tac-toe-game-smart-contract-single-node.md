@@ -21,14 +21,14 @@ This tutorial requires the following:
 
 and
 
-* The EOSIO platform software, Click on this link for instructions on [installing EOSIO binaries.](../30_getting-started-guide/20_local-development-environment/10_installing-eosio-binaries.md "Getting started - install binaries") 
+* The EOSIO platform software, click on this link for instructions on [installing EOSIO binaries.](../30_getting-started-guide/20_local-development-environment/10_installing-eosio-binaries.md) 
 * Familiarity with the EOSIO tools `cleos` and `keosd`.
-* The EOSIO Contract Development Toolkit or eosio.cdt. Click on this link to [install the CDT.](../30_getting-started-guide/20_local-development-environment/20_installing-eosiocdt.md "EOSIO.CDT Installation Instructions") 
+* The EOSIO Contract Development Toolkit or eosio.cdt. Click on this link to [install the CDT.](../30_getting-started-guide/20_local-development-environment/20_installing-eosiocdt.md) 
 * Familiarity with the `eosio.cdt` which is used to compile smart contracts. 
 
 Click on this link for an [overview of the EOSIO platform.](../20_introduction-to-eosio)
 
-Click on this link to [get started with EOSIO.](../30_getting-started-guide "Getting Started with EOSIO")
+Click on this link to [get started with EOSIO.](../30_getting-started-guide)
 
 ### Tutorial Workflow
 
@@ -70,10 +70,10 @@ In the example below the player who placed x has won.
 When all the squares contain a marker and no player has three markers in a row, then the game is a draw.
 
 ### Accounts and Key Pairs
-A blockchain account has a human readable name which is between 1 and 12 characters in length. Each account identifies a blockchain participant and the authority of that participant. Loading a smart contracts requires an account; an account can own one smart contract instance and a smart contract instance must be loaded by an account. Accounts are stored on the blockchain with their public keys. Each account requires at least one key pair (public and private keys.) The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check that the account has the required authority to perform an action. For more information about accounts and permissions click on this link [Accounts and Permissions.](../60_protocol-guides/40_accounts_and_permissions.md "Accounts and Permissions Overview")
+A blockchain account has a human readable name which is between 1 and 12 characters in length. Each account identifies a blockchain participant and the authority of that participant. Loading a smart contracts requires an account; an account can own one smart contract instance and a smart contract instance must be loaded by an account. Accounts are stored on the blockchain with their public keys. Each account requires at least one key pair (public and private keys.) The blockchain uses asymmetric cryptography to verify that the account pushing a transaction has signed the transaction with the matching private key. EOSIO blockchains use account authority tables to check that the account has the required authority to perform an action. For more information about accounts and permissions click on this link [Accounts and Permissions.](../60_protocol-guides/40_accounts_and_permissions.md)
 
 ### Smart Contract Actions
-A smart contract exposes methods or ‘actions’ that transactions use to operate the game logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction fails and the blockchain state is restored to the original state. For more details about transactions and actions click on this link [Transactions Protocol.](../60_protocol-guides/20_transactions_protocol.md "Tranasctions Protocol") You can use `cleos` to create transactions and push transactions to the blockchain. Transactions contain one or more actions. You can also use `cleos` to call actions directly. Actions can call other actions and can also call actions from other smart contracts.
+A smart contract exposes methods or ‘actions’ that transactions use to operate the game logic. Transactions may contain one or more ‘actions’. Transactions are generated dynamically outside the smart contract, within an application, or from the command line to call smart contract actions and execute business logic within a smart contract. Transactions are atomic. For example, if one action of a transaction fails the entire transaction fails and the blockchain state is restored to the original state. For more details about transactions and actions click on this link [Transactions Protocol.](../60_protocol-guides/20_transactions_protocol.md) You can use `cleos` to create transactions and push transactions to the blockchain. Transactions contain one or more actions. You can also use `cleos` to call actions directly. Actions can call other actions and can also call actions from other smart contracts.
 
 ![Transactions and Actions](images/tictactoe/transactions-and-actions-temp.png "Transactions and Actions")
 
@@ -232,7 +232,7 @@ The tictactoe.hpp file (or header file) contains the declarations of the smart c
 
 The tictactoe.cpp file contains implementations of the smart contract actions declared in the tictactoe.hpp header file and uses the data structures declared in the header file.
 
-The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the `eosio-cpp` tool from the EOSIO.CDT. Click on this link for more information on the [EOSIO.CDT.](https://developers.eos.io/manuals/eosio.cdt/latest/index "EOSIO.CDT documentation") The EOSIO.CDT builds the smart contract and creates an `ABI` file. Click on this link for more information about [ABI Files.](../40_smart-contract-guides/30_understanding-ABI-files.md "Understand ABI Files") 
+The “Compile and deploy the smart contract to the blockchain” section details compilation of the files. The compiler is the `eosio-cpp` tool from the EOSIO.CDT. Click on this link for more information on the [EOSIO.CDT.](https://developers.eos.io/manuals/eosio.cdt/latest/index "EOSIO.CDT documentation") The EOSIO.CDT builds the smart contract and creates an `ABI` file. Click on this link for more information about [ABI Files.](../40_smart-contract-guides/30_understanding-ABI-files.md)
 
 ### Game Board Representation
 A `std::vector` represents the tic-tac-toe board. The number 0 marks an empty square. The number 1 denotes a movement by the host. The number 2 denotes a movement by the challenger. To make a movement, you push a transaction to the tic-tac-toe smart contract.
@@ -637,7 +637,7 @@ The complete tictactoe.cpp file can be downloaded from github here: [Tic-tac-toe
 ## Compile and Deploy
 To deploy the smart contract to the blockchain first use the EOSIO.CDT (EOSIO Contract Development Toolkit) `eosio-cpp` tool to build the `.wasm` file and a corresponding `.abi` file. Click on this link for details on [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cdt reference eosio-cpp tool") and click on this link for details about the [EOSIO.CDT](https://developers.eos.io/manuals/eosio.cdt/latest/index "Contract Development Toolkit")
 
-The `.wasm` file (or webassembly) is the binary code that the `wasm engine` in the blockchain executes. The webassembly engine currently used in eosio is [eos-vm](https://github.com/EOSIO/eos-vm "git eos-vm"). The application binary interface or `.abi` file defines how to pack and unpack the data used by a smart contract, see [Understanding ABI Files.](../40_smart-contract-guides/30_understanding-ABI-files.md "Understand ABI Files") for more information.     
+The `.wasm` file (or webassembly) is the binary code that the `wasm engine` in the blockchain executes. The webassembly engine currently used in eosio is [eos-vm](https://github.com/EOSIO/eos-vm "git eos-vm"). The application binary interface or `.abi` file defines how to pack and unpack the data used by a smart contract, see [Understanding ABI Files.](../40_smart-contract-guides/30_understanding-ABI-files.md) for more information.     
 
 ### Compilation
 To compile the smart contract change to the tictactoe folder  and run `eosio-cpp`. Click on this link for more information about using the [eosio-cpp tool](https://developers.eos.io/manuals/eosio.cdt/latest/command-reference/eosio-cpp "eosio-cpp command reference") .
