@@ -50,15 +50,15 @@ happen if you don't have enough RAM for the number of cores you use:
 
 ```
 cd ~
-wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz
+wget https://boostorg.jfrog.io/artifactory/main/release/1.70.0/source/boost_1_70_0.tar.gz
 tar xf boost_1_70_0.tar.gz
 cd boost_1_70_0
 ./bootstrap.sh
 ./b2 toolset=clang -j10 install
 ```
 
-Build and install CMake 3.14.5. Adjust `--parallel=` and `-j` to match your machine.
-Bad things will happen if you don't have enough RAM for the number of cores you use:
+Build and install CMake 3.14.5. Adjust `--parallel=` and `-j` to match your machine cores.
+Bad things will happen if you don't have enough RAM for the number of cores you use (see https://www.boost.org/doc/libs/1_70_0/tools/build/doc/html/index.html ):
 
 ```
 cd ~
