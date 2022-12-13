@@ -46,6 +46,8 @@ If you would like to submit a tool to be added to the list, please fill in [this
 
 * [Bitquery GraphQL API](https://bitquery.io/labs/graphql ): Single endpoint for 20+ blockchain datasets, including EOS.
 
+* [NOWNodes API](http://bit.do/nownodes-eos): Get FREE API key for 60 most popular blockchain nodes, including EOS.
+
 ### History Solutions
 
 * [Hyperion History API](https://github.com/eosrio/Hyperion-History-API): A scalable, Full History API Solution for EOSIO based-blockchains.
